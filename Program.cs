@@ -14,9 +14,12 @@ namespace Enchante
         [STAThread]
         static void Main()
         {
+            // Syncfusion Licensing
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NAaF1cXmhLYVRpR2Nbe05xdV9FZFZQRWYuP1ZhSXxXdkRgWH5fc3BUR2ZaUEM=");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Enchante());
         }
     }
 }
