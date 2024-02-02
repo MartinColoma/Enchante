@@ -15,7 +15,7 @@ namespace Enchante
         static void Main()
         {
             // Syncfusion Licensing
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NAaF1cXmhLYVRpR2Nbe05xdV9FZFZQRWYuP1ZhSXxXdkRgWH5fc3BUR2ZaUEM=");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzA4MDI5NEAzMjM0MmUzMDJlMzBXSzN0UXY0aU1nMDJxTWQzdzR5UmIxa09HYWZNdHArTHkwVktvUkhLNHRrPQ==");
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
