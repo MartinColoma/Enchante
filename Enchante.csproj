@@ -140,6 +140,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -154,6 +155,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Enchante Logo 275x100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Das Dark Naturalist Salon Design von Comfortel Check more at https___mac.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lobby.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\30 People Are Sharing Seemingly Innocent Questions That Broke Their Heart A .jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Young man having facial mask in beauty parlour.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nail Tech Career.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guia-para-personalizar-tu-masaje.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cabernetqween.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %281%29.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
