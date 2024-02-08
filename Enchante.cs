@@ -19,6 +19,7 @@ namespace Enchante
 
         //cardlayout panel classes
         private ParentCard ParentPanelShow; //Parent Card
+        private Registration Registration; //Registration Card
         
         //tool tip
         private System.Windows.Forms.ToolTip iconToolTip;
@@ -30,12 +31,12 @@ namespace Enchante
             // Exit MessageBox 
             this.FormClosing += new FormClosingEventHandler(MainForm_FormClosing);
 
-            //Main Form Panel Manager
+            //Landing Pages Cardlayout Panel Manager
             ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteMngrPage, EnchanteMemberPage,EnchanteAdminPage);
+            Registration = new Registration(RegularPanel, PremiumPanel, SuperVIPPanel);
 
             //icon tool tip
             iconToolTip = new System.Windows.Forms.ToolTip();
-
 
 
         }
@@ -146,6 +147,9 @@ namespace Enchante
             //location scroll
             int serviceSectionY = 1600;
             ScrollToCoordinates(0, serviceSectionY);
+            
+            //Regisration Panel Reset
+            RegistrationPanel.Visible = false;
 
             //Change color once clicked
             EnchanteMemberBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
@@ -250,6 +254,7 @@ namespace Enchante
                 //Test Admin
                 LoginEmailAddErrorLbl.Visible = true;
                 LoginPassErrorLbl.Visible = false;
+                LoginEmailAddErrorLbl.Text = "EMAIL ADDRESS DOES NOT EXIST";
                 return;
             }
             else if (LoginEmailAddText.Text == "Admin" && LoginPassText.Text != "Admin123")
@@ -257,6 +262,7 @@ namespace Enchante
                 //Test Admin
                 LoginEmailAddErrorLbl.Visible = false;
                 LoginPassErrorLbl.Visible = true;
+                LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
                 return;
             }
             else if (LoginEmailAddText.Text == "Manager" && LoginPassText.Text == "Manager123")
@@ -276,6 +282,7 @@ namespace Enchante
                 //Test Mngr
                 LoginEmailAddErrorLbl.Visible = true;
                 LoginPassErrorLbl.Visible = false;
+                LoginEmailAddErrorLbl.Text = "EMAIL ADDRESS DOES NOT EXIST";
                 return;
             }
             else if (LoginEmailAddText.Text == "Manager" && LoginPassText.Text != "Manager123")
@@ -283,6 +290,7 @@ namespace Enchante
                 //Test Mngr
                 LoginEmailAddErrorLbl.Visible = false;
                 LoginPassErrorLbl.Visible = true;
+                LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
                 return;
             }
             else if (LoginEmailAddText.Text == "Staff" && LoginPassText.Text == "Staff123")
@@ -298,9 +306,10 @@ namespace Enchante
             }
             else if (LoginEmailAddText.Text != "Staff" && LoginPassText.Text == "Staff123")
             {
-                //Test Mngr
+                //Test Staff
                 LoginEmailAddErrorLbl.Visible = true;
                 LoginPassErrorLbl.Visible = false;
+                LoginEmailAddErrorLbl.Text = "EMAIL ADDRESS DOES NOT EXIST";
                 return;
             }
             else if (LoginEmailAddText.Text == "Staff" && LoginPassText.Text != "Staff123")
@@ -308,6 +317,7 @@ namespace Enchante
                 //Test Mngr
                 LoginEmailAddErrorLbl.Visible = false;
                 LoginPassErrorLbl.Visible = true;
+                LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
                 return;
             }
             else if (LoginEmailAddText.Text == "Member" && LoginPassText.Text == "Member123")
@@ -327,6 +337,8 @@ namespace Enchante
                 //Test Member
                 LoginEmailAddErrorLbl.Visible = true;
                 LoginPassErrorLbl.Visible = false;
+                LoginEmailAddErrorLbl.Text = "EMAIL ADDRESS DOES NOT EXIST";
+
                 return;
             }
             else if (LoginEmailAddText.Text == "Member" && LoginPassText.Text != "Member123")
@@ -334,11 +346,16 @@ namespace Enchante
                 //Test Member
                 LoginEmailAddErrorLbl.Visible = false;
                 LoginPassErrorLbl.Visible = true;
+                LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
                 return;
             }
             else if (string.IsNullOrEmpty(LoginEmailAddText.Text) || string.IsNullOrEmpty(LoginPassText.Text))
             {
-                MessageBox.Show("Missing text on required fields.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Missing text on required fields.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LoginEmailAddErrorLbl.Visible = true;
+                LoginPassErrorLbl.Visible = true;
+                LoginEmailAddErrorLbl.Text = "Required Field";
+                LoginPassErrorLbl.Text = "Required Field";
             }
             else
             {
@@ -435,5 +452,64 @@ namespace Enchante
 
             System.Diagnostics.Process.Start(mailtoLink);
         }
+
+        private void SM_FBBtn_MouseHover(object sender, EventArgs e)
+        {
+            iconToolTip.SetToolTip(SM_FBBtn, "Facebook");
+
+        }
+
+        private void SM_TwitterBtn_MouseHover(object sender, EventArgs e)
+        {
+            iconToolTip.SetToolTip(SM_TwitterBtn, "Twitter");
+        }
+
+        private void SM_IGBtn_MouseHover(object sender, EventArgs e)
+        {
+            iconToolTip.SetToolTip(SM_IGBtn, "Instagram");
+
+        }
+
+        private void SM_GmailBtn_MouseHover(object sender, EventArgs e)
+        {
+            iconToolTip.SetToolTip(SM_GmailBtn, "Email Us Here");
+        }
+
+        private void RMemberCreateAccBtn_Click(object sender, EventArgs e)
+        {
+            RegistrationPanel.Visible = true;
+            //RegularPanel.Visible = true;
+            Registration.PanelShow(RegularPanel);
+
+        }
+
+        private void PMemberCreateAccBtn_Click(object sender, EventArgs e)
+        {
+            RegistrationPanel.Visible = true;
+            //PremiumPanel.Visible = true;
+            Registration.PanelShow(PremiumPanel);
+        }
+
+        private void SVIPMemberCreateAccBtn_Click(object sender, EventArgs e)
+        {
+            RegistrationPanel.Visible = true;
+            //SuperVIPPanel.Visible = true;
+            Registration.PanelShow(SuperVIPPanel);
+
+        }
+
+        private void RegularExitBtn_Click(object sender, EventArgs e)
+        {
+            if(RegistrationPanel.Visible == true)
+            {
+                RegistrationPanel.Visible = false;
+            }
+            else
+            {
+                RegistrationPanel.Visible = true;
+            }
+        }
+
+
     }
 }
