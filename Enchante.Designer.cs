@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Enchante));
             this.EnchanteParentContainer = new System.Windows.Forms.Panel();
             this.EnchanteAdminPage = new System.Windows.Forms.Panel();
+            this.AdminSignOutBtn = new FontAwesome.Sharp.IconButton();
             this.EnchanteHomePage = new System.Windows.Forms.Panel();
             this.EnchanteHomeNavBar = new System.Windows.Forms.Panel();
             this.EnchanteHLoginBtn = new FontAwesome.Sharp.IconButton();
@@ -43,18 +44,37 @@
             this.EnchanteHomeBtn = new FontAwesome.Sharp.IconButton();
             this.EnchanteHeaderLogo = new System.Windows.Forms.PictureBox();
             this.EnchanteHomeScrollPanel = new System.Windows.Forms.Panel();
+            this.EnchanteLoginForm = new System.Windows.Forms.Panel();
+            this.LoginRegisterHereLbl = new System.Windows.Forms.Label();
+            this.LoginPassPanel = new System.Windows.Forms.Panel();
+            this.ShowHidePassBtn = new FontAwesome.Sharp.IconButton();
+            this.LoginPassText = new System.Windows.Forms.TextBox();
+            this.LoginBtn = new FontAwesome.Sharp.IconButton();
+            this.LoginPassErrorLbl = new System.Windows.Forms.Label();
+            this.LoginEmailAddErrorLbl = new System.Windows.Forms.Label();
+            this.LoginPassLbl = new System.Windows.Forms.Label();
+            this.LoginEmailAddText = new System.Windows.Forms.ComboBox();
+            this.LoginEmailAddLbl = new System.Windows.Forms.Label();
+            this.LoginWCLbl = new System.Windows.Forms.Label();
+            this.HomeFooterStopper = new System.Windows.Forms.Panel();
+            this.EnchanteFooterBar = new System.Windows.Forms.Panel();
+            this.SM_GmailBtn = new FontAwesome.Sharp.IconButton();
+            this.SM_IGBtn = new FontAwesome.Sharp.IconButton();
+            this.SM_TwitterBtn = new FontAwesome.Sharp.IconButton();
+            this.EnchanteFooterLogo = new System.Windows.Forms.PictureBox();
+            this.SM_FBBtn = new FontAwesome.Sharp.IconButton();
             this.SVIPPanel = new System.Windows.Forms.Panel();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.SVIPMemberCreateAccBtn = new FontAwesome.Sharp.IconButton();
+            this.SVIPMemberAccLbl = new System.Windows.Forms.Label();
+            this.SVIPPriceText = new System.Windows.Forms.TextBox();
+            this.SVIPMemberText = new System.Windows.Forms.TextBox();
             this.PMemberPanel = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.PMemberCreateAccBtn = new FontAwesome.Sharp.IconButton();
+            this.PMemberAccLbl = new System.Windows.Forms.Label();
+            this.PMemberPriceText = new System.Windows.Forms.TextBox();
+            this.PMemberText = new System.Windows.Forms.TextBox();
             this.RMemberPanel = new System.Windows.Forms.Panel();
-            this.RMemberCreateBtn = new FontAwesome.Sharp.IconButton();
+            this.RMemberCreateAccBtn = new FontAwesome.Sharp.IconButton();
             this.RMemberAccLbl = new System.Windows.Forms.Label();
             this.RMemberPriceText = new System.Windows.Forms.TextBox();
             this.RMemberText = new System.Windows.Forms.TextBox();
@@ -69,25 +89,30 @@
             this.ServiceNCBtn = new FontAwesome.Sharp.IconButton();
             this.ServiceSpaBtn = new FontAwesome.Sharp.IconButton();
             this.EnchanteMemberPage = new System.Windows.Forms.Panel();
+            this.MemberSignOut = new FontAwesome.Sharp.IconButton();
             this.EnchanteMngrPage = new System.Windows.Forms.Panel();
+            this.MngrSignOutBtn = new FontAwesome.Sharp.IconButton();
             this.EnchanteStaffPage = new System.Windows.Forms.Panel();
+            this.StaffSignOutBtn = new FontAwesome.Sharp.IconButton();
             this.EnchanteParentCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
-            this.EnchanteFooterBar = new System.Windows.Forms.Panel();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.HomeFooterStopper = new System.Windows.Forms.Panel();
-            this.EnchanteFooterLogo = new System.Windows.Forms.PictureBox();
             this.EnchanteParentContainer.SuspendLayout();
+            this.EnchanteAdminPage.SuspendLayout();
             this.EnchanteHomePage.SuspendLayout();
             this.EnchanteHomeNavBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EnchanteHeaderLogo)).BeginInit();
             this.EnchanteHomeScrollPanel.SuspendLayout();
+            this.EnchanteLoginForm.SuspendLayout();
+            this.LoginPassPanel.SuspendLayout();
+            this.EnchanteFooterBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EnchanteFooterLogo)).BeginInit();
             this.SVIPPanel.SuspendLayout();
             this.PMemberPanel.SuspendLayout();
             this.RMemberPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EDP1)).BeginInit();
+            this.EnchanteMemberPage.SuspendLayout();
+            this.EnchanteMngrPage.SuspendLayout();
+            this.EnchanteStaffPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EnchanteParentCard)).BeginInit();
-            this.EnchanteFooterBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.EnchanteFooterLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // EnchanteParentContainer
@@ -106,13 +131,27 @@
             // 
             // EnchanteAdminPage
             // 
-            this.EnchanteParentCard.SetCardName(this.EnchanteAdminPage, "Card1");
+            this.EnchanteParentCard.SetCardName(this.EnchanteAdminPage, "AdminPage");
+            this.EnchanteAdminPage.Controls.Add(this.AdminSignOutBtn);
             this.EnchanteAdminPage.Location = new System.Drawing.Point(0, 0);
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteAdminPage, new System.Drawing.Size(200, 100));
             this.EnchanteAdminPage.Name = "EnchanteAdminPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteAdminPage, new System.Drawing.Size(200, 100));
             this.EnchanteAdminPage.Size = new System.Drawing.Size(1904, 1041);
             this.EnchanteAdminPage.TabIndex = 5;
+            // 
+            // AdminSignOutBtn
+            // 
+            this.AdminSignOutBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.AdminSignOutBtn.IconColor = System.Drawing.Color.Black;
+            this.AdminSignOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.AdminSignOutBtn.Location = new System.Drawing.Point(915, 509);
+            this.AdminSignOutBtn.Name = "AdminSignOutBtn";
+            this.AdminSignOutBtn.Size = new System.Drawing.Size(75, 23);
+            this.AdminSignOutBtn.TabIndex = 3;
+            this.AdminSignOutBtn.Text = "Sign Out";
+            this.AdminSignOutBtn.UseVisualStyleBackColor = true;
+            this.AdminSignOutBtn.Click += new System.EventHandler(this.AdminSignOutBtn_Click);
             // 
             // EnchanteHomePage
             // 
@@ -121,7 +160,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EnchanteHomePage.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.EnchanteHomePage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.EnchanteParentCard.SetCardName(this.EnchanteHomePage, "Card2");
+            this.EnchanteParentCard.SetCardName(this.EnchanteHomePage, "HomePage");
             this.EnchanteHomePage.Controls.Add(this.EnchanteHomeNavBar);
             this.EnchanteHomePage.Controls.Add(this.EnchanteHomeScrollPanel);
             this.EnchanteHomePage.Location = new System.Drawing.Point(0, 0);
@@ -133,6 +172,7 @@
             // 
             // EnchanteHomeNavBar
             // 
+            this.EnchanteHomeNavBar.AutoScroll = true;
             this.EnchanteHomeNavBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.EnchanteHomeNavBar.Controls.Add(this.EnchanteHLoginBtn);
             this.EnchanteHomeNavBar.Controls.Add(this.EnchanteAbtUsBtn);
@@ -142,20 +182,20 @@
             this.EnchanteHomeNavBar.Controls.Add(this.EnchanteServiceBtn);
             this.EnchanteHomeNavBar.Controls.Add(this.EnchanteHomeBtn);
             this.EnchanteHomeNavBar.Controls.Add(this.EnchanteHeaderLogo);
-            this.EnchanteHomeNavBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.EnchanteHomeNavBar.Location = new System.Drawing.Point(0, 0);
             this.EnchanteHomeNavBar.Name = "EnchanteHomeNavBar";
-            this.EnchanteHomeNavBar.Size = new System.Drawing.Size(1904, 200);
+            this.EnchanteHomeNavBar.Size = new System.Drawing.Size(1904, 170);
             this.EnchanteHomeNavBar.TabIndex = 0;
             // 
             // EnchanteHLoginBtn
             // 
             this.EnchanteHLoginBtn.AutoSize = true;
+            this.EnchanteHLoginBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EnchanteHLoginBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.EnchanteHLoginBtn.FlatAppearance.BorderSize = 3;
             this.EnchanteHLoginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EnchanteHLoginBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.EnchanteHLoginBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.EnchanteHLoginBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.EnchanteHLoginBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.EnchanteHLoginBtn.IconColor = System.Drawing.Color.Black;
             this.EnchanteHLoginBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -171,6 +211,7 @@
             // 
             this.EnchanteAbtUsBtn.AutoSize = true;
             this.EnchanteAbtUsBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EnchanteAbtUsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EnchanteAbtUsBtn.FlatAppearance.BorderSize = 0;
             this.EnchanteAbtUsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EnchanteAbtUsBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
@@ -190,6 +231,7 @@
             // 
             this.EnchanteTeamBtn.AutoSize = true;
             this.EnchanteTeamBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EnchanteTeamBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EnchanteTeamBtn.FlatAppearance.BorderSize = 0;
             this.EnchanteTeamBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EnchanteTeamBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
@@ -209,6 +251,7 @@
             // 
             this.EnchanteReviewBtn.AutoSize = true;
             this.EnchanteReviewBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EnchanteReviewBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EnchanteReviewBtn.FlatAppearance.BorderSize = 0;
             this.EnchanteReviewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EnchanteReviewBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
@@ -228,6 +271,7 @@
             // 
             this.EnchanteMemberBtn.AutoSize = true;
             this.EnchanteMemberBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EnchanteMemberBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EnchanteMemberBtn.FlatAppearance.BorderSize = 0;
             this.EnchanteMemberBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EnchanteMemberBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
@@ -247,6 +291,7 @@
             // 
             this.EnchanteServiceBtn.AutoSize = true;
             this.EnchanteServiceBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EnchanteServiceBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EnchanteServiceBtn.FlatAppearance.BorderSize = 0;
             this.EnchanteServiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EnchanteServiceBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
@@ -266,6 +311,7 @@
             // 
             this.EnchanteHomeBtn.AutoSize = true;
             this.EnchanteHomeBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EnchanteHomeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EnchanteHomeBtn.FlatAppearance.BorderSize = 0;
             this.EnchanteHomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EnchanteHomeBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
@@ -298,6 +344,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EnchanteHomeScrollPanel.AutoScroll = true;
             this.EnchanteHomeScrollPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.EnchanteHomeScrollPanel.Controls.Add(this.EnchanteLoginForm);
             this.EnchanteHomeScrollPanel.Controls.Add(this.HomeFooterStopper);
             this.EnchanteHomeScrollPanel.Controls.Add(this.EnchanteFooterBar);
             this.EnchanteHomeScrollPanel.Controls.Add(this.SVIPPanel);
@@ -318,177 +365,472 @@
             this.EnchanteHomeScrollPanel.Size = new System.Drawing.Size(1904, 1041);
             this.EnchanteHomeScrollPanel.TabIndex = 18;
             // 
+            // EnchanteLoginForm
+            // 
+            this.EnchanteLoginForm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EnchanteLoginForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.EnchanteLoginForm.Controls.Add(this.LoginRegisterHereLbl);
+            this.EnchanteLoginForm.Controls.Add(this.LoginPassPanel);
+            this.EnchanteLoginForm.Controls.Add(this.LoginBtn);
+            this.EnchanteLoginForm.Controls.Add(this.LoginPassErrorLbl);
+            this.EnchanteLoginForm.Controls.Add(this.LoginEmailAddErrorLbl);
+            this.EnchanteLoginForm.Controls.Add(this.LoginPassLbl);
+            this.EnchanteLoginForm.Controls.Add(this.LoginEmailAddText);
+            this.EnchanteLoginForm.Controls.Add(this.LoginEmailAddLbl);
+            this.EnchanteLoginForm.Controls.Add(this.LoginWCLbl);
+            this.EnchanteLoginForm.Location = new System.Drawing.Point(1154, 325);
+            this.EnchanteLoginForm.Name = "EnchanteLoginForm";
+            this.EnchanteLoginForm.Size = new System.Drawing.Size(641, 622);
+            this.EnchanteLoginForm.TabIndex = 21;
+            this.EnchanteLoginForm.Visible = false;
+            // 
+            // LoginRegisterHereLbl
+            // 
+            this.LoginRegisterHereLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoginRegisterHereLbl.AutoSize = true;
+            this.LoginRegisterHereLbl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LoginRegisterHereLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.LoginRegisterHereLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.LoginRegisterHereLbl.Location = new System.Drawing.Point(164, 528);
+            this.LoginRegisterHereLbl.Name = "LoginRegisterHereLbl";
+            this.LoginRegisterHereLbl.Size = new System.Drawing.Size(312, 14);
+            this.LoginRegisterHereLbl.TabIndex = 33;
+            this.LoginRegisterHereLbl.Text = "BE AN ENCHANTÉ MEMBER NOW. REGISTER HERE.";
+            this.LoginRegisterHereLbl.Click += new System.EventHandler(this.LoginRegisterHereLbl_Click);
+            // 
+            // LoginPassPanel
+            // 
+            this.LoginPassPanel.Controls.Add(this.ShowHidePassBtn);
+            this.LoginPassPanel.Controls.Add(this.LoginPassText);
+            this.LoginPassPanel.Location = new System.Drawing.Point(70, 351);
+            this.LoginPassPanel.Name = "LoginPassPanel";
+            this.LoginPassPanel.Size = new System.Drawing.Size(500, 37);
+            this.LoginPassPanel.TabIndex = 32;
+            // 
+            // ShowHidePassBtn
+            // 
+            this.ShowHidePassBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ShowHidePassBtn.AutoSize = true;
+            this.ShowHidePassBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ShowHidePassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.ShowHidePassBtn.FlatAppearance.BorderSize = 0;
+            this.ShowHidePassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ShowHidePassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.ShowHidePassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.ShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.ShowHidePassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.ShowHidePassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ShowHidePassBtn.IconSize = 30;
+            this.ShowHidePassBtn.Location = new System.Drawing.Point(464, 0);
+            this.ShowHidePassBtn.Name = "ShowHidePassBtn";
+            this.ShowHidePassBtn.Size = new System.Drawing.Size(36, 37);
+            this.ShowHidePassBtn.TabIndex = 31;
+            this.ShowHidePassBtn.UseVisualStyleBackColor = false;
+            this.ShowHidePassBtn.Click += new System.EventHandler(this.ShowHidePassBtn_Click);
+            this.ShowHidePassBtn.MouseHover += new System.EventHandler(this.ShowHidePassBtn_MouseHover);
+            // 
+            // LoginPassText
+            // 
+            this.LoginPassText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoginPassText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.LoginPassText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.LoginPassText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.LoginPassText.Location = new System.Drawing.Point(0, 0);
+            this.LoginPassText.Margin = new System.Windows.Forms.Padding(50, 10, 10, 10);
+            this.LoginPassText.Name = "LoginPassText";
+            this.LoginPassText.Size = new System.Drawing.Size(458, 37);
+            this.LoginPassText.TabIndex = 25;
+            this.LoginPassText.UseSystemPasswordChar = true;
+            this.LoginPassText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginPassText_KeyDown);
+            // 
+            // LoginBtn
+            // 
+            this.LoginBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoginBtn.AutoSize = true;
+            this.LoginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(98)))), ((int)(((byte)(60)))));
+            this.LoginBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LoginBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.LoginBtn.FlatAppearance.BorderSize = 3;
+            this.LoginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoginBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.LoginBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.LoginBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.LoginBtn.IconColor = System.Drawing.Color.Black;
+            this.LoginBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.LoginBtn.Location = new System.Drawing.Point(226, 424);
+            this.LoginBtn.Name = "LoginBtn";
+            this.LoginBtn.Size = new System.Drawing.Size(189, 60);
+            this.LoginBtn.TabIndex = 30;
+            this.LoginBtn.Text = "LOGIN";
+            this.LoginBtn.UseVisualStyleBackColor = false;
+            this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
+            // 
+            // LoginPassErrorLbl
+            // 
+            this.LoginPassErrorLbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoginPassErrorLbl.AutoSize = true;
+            this.LoginPassErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.LoginPassErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.LoginPassErrorLbl.Location = new System.Drawing.Point(425, 323);
+            this.LoginPassErrorLbl.Name = "LoginPassErrorLbl";
+            this.LoginPassErrorLbl.Size = new System.Drawing.Size(145, 14);
+            this.LoginPassErrorLbl.TabIndex = 29;
+            this.LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
+            this.LoginPassErrorLbl.Visible = false;
+            // 
+            // LoginEmailAddErrorLbl
+            // 
+            this.LoginEmailAddErrorLbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoginEmailAddErrorLbl.AutoSize = true;
+            this.LoginEmailAddErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.LoginEmailAddErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.LoginEmailAddErrorLbl.Location = new System.Drawing.Point(359, 222);
+            this.LoginEmailAddErrorLbl.Name = "LoginEmailAddErrorLbl";
+            this.LoginEmailAddErrorLbl.Size = new System.Drawing.Size(211, 14);
+            this.LoginEmailAddErrorLbl.TabIndex = 28;
+            this.LoginEmailAddErrorLbl.Text = "EMAIL ADDRESS DOES NOT EXIST";
+            this.LoginEmailAddErrorLbl.Visible = false;
+            // 
+            // LoginPassLbl
+            // 
+            this.LoginPassLbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoginPassLbl.AutoSize = true;
+            this.LoginPassLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.LoginPassLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.LoginPassLbl.Location = new System.Drawing.Point(64, 313);
+            this.LoginPassLbl.Name = "LoginPassLbl";
+            this.LoginPassLbl.Size = new System.Drawing.Size(183, 35);
+            this.LoginPassLbl.TabIndex = 27;
+            this.LoginPassLbl.Text = "PASSWORD:";
+            // 
+            // LoginEmailAddText
+            // 
+            this.LoginEmailAddText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoginEmailAddText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.LoginEmailAddText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.LoginEmailAddText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.LoginEmailAddText.FormattingEnabled = true;
+            this.LoginEmailAddText.Location = new System.Drawing.Point(70, 250);
+            this.LoginEmailAddText.Name = "LoginEmailAddText";
+            this.LoginEmailAddText.Size = new System.Drawing.Size(500, 37);
+            this.LoginEmailAddText.TabIndex = 26;
+            // 
+            // LoginEmailAddLbl
+            // 
+            this.LoginEmailAddLbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoginEmailAddLbl.AutoSize = true;
+            this.LoginEmailAddLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.LoginEmailAddLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.LoginEmailAddLbl.Location = new System.Drawing.Point(64, 212);
+            this.LoginEmailAddLbl.Name = "LoginEmailAddLbl";
+            this.LoginEmailAddLbl.Size = new System.Drawing.Size(261, 35);
+            this.LoginEmailAddLbl.TabIndex = 23;
+            this.LoginEmailAddLbl.Text = "EMAIL ADDRESS:";
+            // 
+            // LoginWCLbl
+            // 
+            this.LoginWCLbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoginWCLbl.AutoSize = true;
+            this.LoginWCLbl.Font = new System.Drawing.Font("TechnicBold", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.LoginWCLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.LoginWCLbl.Location = new System.Drawing.Point(71, 94);
+            this.LoginWCLbl.Name = "LoginWCLbl";
+            this.LoginWCLbl.Size = new System.Drawing.Size(499, 69);
+            this.LoginWCLbl.TabIndex = 22;
+            this.LoginWCLbl.Text = "WELCOME BACK";
+            // 
+            // HomeFooterStopper
+            // 
+            this.HomeFooterStopper.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.HomeFooterStopper.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.HomeFooterStopper.Location = new System.Drawing.Point(560, 2715);
+            this.HomeFooterStopper.Name = "HomeFooterStopper";
+            this.HomeFooterStopper.Size = new System.Drawing.Size(804, 68);
+            this.HomeFooterStopper.TabIndex = 20;
+            // 
+            // EnchanteFooterBar
+            // 
+            this.EnchanteFooterBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.EnchanteFooterBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EnchanteFooterBar.Controls.Add(this.SM_GmailBtn);
+            this.EnchanteFooterBar.Controls.Add(this.SM_IGBtn);
+            this.EnchanteFooterBar.Controls.Add(this.SM_TwitterBtn);
+            this.EnchanteFooterBar.Controls.Add(this.EnchanteFooterLogo);
+            this.EnchanteFooterBar.Controls.Add(this.SM_FBBtn);
+            this.EnchanteFooterBar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.EnchanteFooterBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.EnchanteFooterBar.Location = new System.Drawing.Point(0, 2783);
+            this.EnchanteFooterBar.Name = "EnchanteFooterBar";
+            this.EnchanteFooterBar.Size = new System.Drawing.Size(1887, 166);
+            this.EnchanteFooterBar.TabIndex = 20;
+            // 
+            // SM_GmailBtn
+            // 
+            this.SM_GmailBtn.AutoSize = true;
+            this.SM_GmailBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_GmailBtn.FlatAppearance.BorderSize = 3;
+            this.SM_GmailBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SM_GmailBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SM_GmailBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SM_GmailBtn.IconChar = FontAwesome.Sharp.IconChar.Envelope;
+            this.SM_GmailBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_GmailBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SM_GmailBtn.Location = new System.Drawing.Point(548, 51);
+            this.SM_GmailBtn.Name = "SM_GmailBtn";
+            this.SM_GmailBtn.Size = new System.Drawing.Size(60, 60);
+            this.SM_GmailBtn.TabIndex = 12;
+            this.SM_GmailBtn.UseVisualStyleBackColor = true;
+            this.SM_GmailBtn.Click += new System.EventHandler(this.SM_GmailBtn_Click);
+            // 
+            // SM_IGBtn
+            // 
+            this.SM_IGBtn.AutoSize = true;
+            this.SM_IGBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_IGBtn.FlatAppearance.BorderSize = 3;
+            this.SM_IGBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SM_IGBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SM_IGBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SM_IGBtn.IconChar = FontAwesome.Sharp.IconChar.Instagram;
+            this.SM_IGBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_IGBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SM_IGBtn.Location = new System.Drawing.Point(482, 51);
+            this.SM_IGBtn.Name = "SM_IGBtn";
+            this.SM_IGBtn.Size = new System.Drawing.Size(60, 60);
+            this.SM_IGBtn.TabIndex = 11;
+            this.SM_IGBtn.UseVisualStyleBackColor = true;
+            this.SM_IGBtn.Click += new System.EventHandler(this.SM_IGBtn_Click);
+            // 
+            // SM_TwitterBtn
+            // 
+            this.SM_TwitterBtn.AutoSize = true;
+            this.SM_TwitterBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_TwitterBtn.FlatAppearance.BorderSize = 3;
+            this.SM_TwitterBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SM_TwitterBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SM_TwitterBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SM_TwitterBtn.IconChar = FontAwesome.Sharp.IconChar.Twitter;
+            this.SM_TwitterBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_TwitterBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SM_TwitterBtn.Location = new System.Drawing.Point(416, 51);
+            this.SM_TwitterBtn.Name = "SM_TwitterBtn";
+            this.SM_TwitterBtn.Size = new System.Drawing.Size(60, 60);
+            this.SM_TwitterBtn.TabIndex = 10;
+            this.SM_TwitterBtn.UseVisualStyleBackColor = true;
+            this.SM_TwitterBtn.Click += new System.EventHandler(this.SM_TwitterBtn_Click);
+            // 
+            // EnchanteFooterLogo
+            // 
+            this.EnchanteFooterLogo.Image = global::Enchante.Properties.Resources.Enchante_Logo_275x100;
+            this.EnchanteFooterLogo.Location = new System.Drawing.Point(58, 29);
+            this.EnchanteFooterLogo.Name = "EnchanteFooterLogo";
+            this.EnchanteFooterLogo.Size = new System.Drawing.Size(275, 100);
+            this.EnchanteFooterLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.EnchanteFooterLogo.TabIndex = 9;
+            this.EnchanteFooterLogo.TabStop = false;
+            // 
+            // SM_FBBtn
+            // 
+            this.SM_FBBtn.AutoSize = true;
+            this.SM_FBBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_FBBtn.FlatAppearance.BorderSize = 3;
+            this.SM_FBBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SM_FBBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SM_FBBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SM_FBBtn.IconChar = FontAwesome.Sharp.IconChar.Facebook;
+            this.SM_FBBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_FBBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SM_FBBtn.Location = new System.Drawing.Point(350, 51);
+            this.SM_FBBtn.Name = "SM_FBBtn";
+            this.SM_FBBtn.Size = new System.Drawing.Size(60, 60);
+            this.SM_FBBtn.TabIndex = 8;
+            this.SM_FBBtn.UseVisualStyleBackColor = true;
+            this.SM_FBBtn.Click += new System.EventHandler(this.SM_FBBtn_Click);
+            // 
             // SVIPPanel
             // 
             this.SVIPPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.SVIPPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SVIPPanel.Controls.Add(this.iconButton2);
-            this.SVIPPanel.Controls.Add(this.label2);
-            this.SVIPPanel.Controls.Add(this.textBox3);
-            this.SVIPPanel.Controls.Add(this.textBox4);
+            this.SVIPPanel.Controls.Add(this.SVIPMemberCreateAccBtn);
+            this.SVIPPanel.Controls.Add(this.SVIPMemberAccLbl);
+            this.SVIPPanel.Controls.Add(this.SVIPPriceText);
+            this.SVIPPanel.Controls.Add(this.SVIPMemberText);
             this.SVIPPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.SVIPPanel.Location = new System.Drawing.Point(1149, 2012);
             this.SVIPPanel.Name = "SVIPPanel";
-            this.SVIPPanel.Size = new System.Drawing.Size(400, 500);
+            this.SVIPPanel.Size = new System.Drawing.Size(400, 559);
             this.SVIPPanel.TabIndex = 19;
             // 
-            // iconButton2
+            // SVIPMemberCreateAccBtn
             // 
-            this.iconButton2.AutoSize = true;
-            this.iconButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton2.FlatAppearance.BorderSize = 3;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.Location = new System.Drawing.Point(43, 395);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(312, 60);
-            this.iconButton2.TabIndex = 8;
-            this.iconButton2.Text = "CREATE FREE ACCOUNT NOW";
-            this.iconButton2.UseVisualStyleBackColor = true;
+            this.SVIPMemberCreateAccBtn.AutoSize = true;
+            this.SVIPMemberCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SVIPMemberCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SVIPMemberCreateAccBtn.FlatAppearance.BorderSize = 3;
+            this.SVIPMemberCreateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SVIPMemberCreateAccBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SVIPMemberCreateAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SVIPMemberCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.SVIPMemberCreateAccBtn.IconColor = System.Drawing.Color.Black;
+            this.SVIPMemberCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SVIPMemberCreateAccBtn.Location = new System.Drawing.Point(43, 441);
+            this.SVIPMemberCreateAccBtn.Name = "SVIPMemberCreateAccBtn";
+            this.SVIPMemberCreateAccBtn.Size = new System.Drawing.Size(312, 60);
+            this.SVIPMemberCreateAccBtn.TabIndex = 8;
+            this.SVIPMemberCreateAccBtn.Text = "GET SUPER VIP PLAN NOW";
+            this.SVIPMemberCreateAccBtn.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // SVIPMemberAccLbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("TechnicBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label2.Location = new System.Drawing.Point(39, 147);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(311, 140);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "* FREE ACCOUNT CREATION\r\n* BOOK YOUR SALON APPOINMENT\r\nCONVENIENTLY\r\n* APPOINTMEN" +
-    "T CANCELLATION\r\nMAY OCCUR\r\n* MAX OF THREE (3) GUEST PER \r\nAPPOINTMENT\r\n";
+            this.SVIPMemberAccLbl.AutoSize = true;
+            this.SVIPMemberAccLbl.Font = new System.Drawing.Font("TechnicBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SVIPMemberAccLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SVIPMemberAccLbl.Location = new System.Drawing.Point(39, 147);
+            this.SVIPMemberAccLbl.Name = "SVIPMemberAccLbl";
+            this.SVIPMemberAccLbl.Size = new System.Drawing.Size(333, 300);
+            this.SVIPMemberAccLbl.TabIndex = 2;
+            this.SVIPMemberAccLbl.Text = resources.GetString("SVIPMemberAccLbl.Text");
             // 
-            // textBox3
+            // SVIPPriceText
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("TechnicBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox3.Location = new System.Drawing.Point(42, 104);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(312, 22);
-            this.textBox3.TabIndex = 1;
-            this.textBox3.Text = "FREE ACCOUNT";
+            this.SVIPPriceText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.SVIPPriceText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SVIPPriceText.Font = new System.Drawing.Font("TechnicBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SVIPPriceText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SVIPPriceText.Location = new System.Drawing.Point(42, 104);
+            this.SVIPPriceText.Name = "SVIPPriceText";
+            this.SVIPPriceText.ReadOnly = true;
+            this.SVIPPriceText.Size = new System.Drawing.Size(312, 22);
+            this.SVIPPriceText.TabIndex = 1;
+            this.SVIPPriceText.Text = "FREE ACCOUNT";
             // 
-            // textBox4
+            // SVIPMemberText
             // 
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("TechnicBold", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox4.Location = new System.Drawing.Point(42, 50);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(312, 48);
-            this.textBox4.TabIndex = 0;
-            this.textBox4.Text = "SUPER VIP";
+            this.SVIPMemberText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.SVIPMemberText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SVIPMemberText.Font = new System.Drawing.Font("TechnicBold", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SVIPMemberText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SVIPMemberText.Location = new System.Drawing.Point(42, 50);
+            this.SVIPMemberText.Name = "SVIPMemberText";
+            this.SVIPMemberText.ReadOnly = true;
+            this.SVIPMemberText.Size = new System.Drawing.Size(312, 48);
+            this.SVIPMemberText.TabIndex = 0;
+            this.SVIPMemberText.Text = "SUPER VIP";
             // 
             // PMemberPanel
             // 
             this.PMemberPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.PMemberPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PMemberPanel.Controls.Add(this.iconButton1);
-            this.PMemberPanel.Controls.Add(this.label1);
-            this.PMemberPanel.Controls.Add(this.textBox1);
-            this.PMemberPanel.Controls.Add(this.textBox2);
+            this.PMemberPanel.Controls.Add(this.PMemberCreateAccBtn);
+            this.PMemberPanel.Controls.Add(this.PMemberAccLbl);
+            this.PMemberPanel.Controls.Add(this.PMemberPriceText);
+            this.PMemberPanel.Controls.Add(this.PMemberText);
             this.PMemberPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.PMemberPanel.Location = new System.Drawing.Point(743, 2012);
             this.PMemberPanel.Name = "PMemberPanel";
-            this.PMemberPanel.Size = new System.Drawing.Size(400, 500);
+            this.PMemberPanel.Size = new System.Drawing.Size(400, 559);
             this.PMemberPanel.TabIndex = 18;
             // 
-            // iconButton1
+            // PMemberCreateAccBtn
             // 
-            this.iconButton1.AutoSize = true;
-            this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton1.FlatAppearance.BorderSize = 3;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.Location = new System.Drawing.Point(43, 395);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(312, 60);
-            this.iconButton1.TabIndex = 8;
-            this.iconButton1.Text = "CREATE FREE ACCOUNT NOW";
-            this.iconButton1.UseVisualStyleBackColor = true;
+            this.PMemberCreateAccBtn.AutoSize = true;
+            this.PMemberCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PMemberCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PMemberCreateAccBtn.FlatAppearance.BorderSize = 3;
+            this.PMemberCreateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PMemberCreateAccBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PMemberCreateAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PMemberCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PMemberCreateAccBtn.IconColor = System.Drawing.Color.Black;
+            this.PMemberCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PMemberCreateAccBtn.Location = new System.Drawing.Point(43, 441);
+            this.PMemberCreateAccBtn.Name = "PMemberCreateAccBtn";
+            this.PMemberCreateAccBtn.Size = new System.Drawing.Size(312, 60);
+            this.PMemberCreateAccBtn.TabIndex = 8;
+            this.PMemberCreateAccBtn.Text = "GET PREMIUM PLAN NOW";
+            this.PMemberCreateAccBtn.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // PMemberAccLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("TechnicBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label1.Location = new System.Drawing.Point(39, 147);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(311, 140);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "* FREE ACCOUNT CREATION\r\n* BOOK YOUR SALON APPOINMENT\r\nCONVENIENTLY\r\n* APPOINTMEN" +
-    "T CANCELLATION\r\nMAY OCCUR\r\n* MAX OF THREE (3) GUEST PER \r\nAPPOINTMENT\r\n";
+            this.PMemberAccLbl.AutoSize = true;
+            this.PMemberAccLbl.Font = new System.Drawing.Font("TechnicBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PMemberAccLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PMemberAccLbl.Location = new System.Drawing.Point(39, 147);
+            this.PMemberAccLbl.Name = "PMemberAccLbl";
+            this.PMemberAccLbl.Size = new System.Drawing.Size(333, 200);
+            this.PMemberAccLbl.TabIndex = 2;
+            this.PMemberAccLbl.Text = resources.GetString("PMemberAccLbl.Text");
             // 
-            // textBox1
+            // PMemberPriceText
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("TechnicBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox1.Location = new System.Drawing.Point(42, 104);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(312, 22);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "FREE ACCOUNT";
+            this.PMemberPriceText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PMemberPriceText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PMemberPriceText.Font = new System.Drawing.Font("TechnicBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PMemberPriceText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PMemberPriceText.Location = new System.Drawing.Point(42, 104);
+            this.PMemberPriceText.Name = "PMemberPriceText";
+            this.PMemberPriceText.ReadOnly = true;
+            this.PMemberPriceText.Size = new System.Drawing.Size(312, 22);
+            this.PMemberPriceText.TabIndex = 1;
+            this.PMemberPriceText.Text = "FREE ACCOUNT";
             // 
-            // textBox2
+            // PMemberText
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("TechnicBold", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox2.Location = new System.Drawing.Point(42, 50);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(312, 48);
-            this.textBox2.TabIndex = 0;
-            this.textBox2.Text = "PREMIUM";
+            this.PMemberText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PMemberText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PMemberText.Font = new System.Drawing.Font("TechnicBold", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PMemberText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PMemberText.Location = new System.Drawing.Point(42, 50);
+            this.PMemberText.Name = "PMemberText";
+            this.PMemberText.ReadOnly = true;
+            this.PMemberText.Size = new System.Drawing.Size(312, 48);
+            this.PMemberText.TabIndex = 0;
+            this.PMemberText.Text = "PREMIUM";
             // 
             // RMemberPanel
             // 
             this.RMemberPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RMemberPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RMemberPanel.Controls.Add(this.RMemberCreateBtn);
+            this.RMemberPanel.Controls.Add(this.RMemberCreateAccBtn);
             this.RMemberPanel.Controls.Add(this.RMemberAccLbl);
             this.RMemberPanel.Controls.Add(this.RMemberPriceText);
             this.RMemberPanel.Controls.Add(this.RMemberText);
             this.RMemberPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.RMemberPanel.Location = new System.Drawing.Point(337, 2012);
             this.RMemberPanel.Name = "RMemberPanel";
-            this.RMemberPanel.Size = new System.Drawing.Size(400, 500);
+            this.RMemberPanel.Size = new System.Drawing.Size(400, 559);
             this.RMemberPanel.TabIndex = 17;
             // 
-            // RMemberCreateBtn
+            // RMemberCreateAccBtn
             // 
-            this.RMemberCreateBtn.AutoSize = true;
-            this.RMemberCreateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RMemberCreateBtn.FlatAppearance.BorderSize = 3;
-            this.RMemberCreateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RMemberCreateBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RMemberCreateBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RMemberCreateBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.RMemberCreateBtn.IconColor = System.Drawing.Color.Black;
-            this.RMemberCreateBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RMemberCreateBtn.Location = new System.Drawing.Point(43, 395);
-            this.RMemberCreateBtn.Name = "RMemberCreateBtn";
-            this.RMemberCreateBtn.Size = new System.Drawing.Size(312, 60);
-            this.RMemberCreateBtn.TabIndex = 8;
-            this.RMemberCreateBtn.Text = "CREATE FREE ACCOUNT NOW";
-            this.RMemberCreateBtn.UseVisualStyleBackColor = true;
+            this.RMemberCreateAccBtn.AutoSize = true;
+            this.RMemberCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RMemberCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RMemberCreateAccBtn.FlatAppearance.BorderSize = 3;
+            this.RMemberCreateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RMemberCreateAccBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RMemberCreateAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RMemberCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.RMemberCreateAccBtn.IconColor = System.Drawing.Color.Black;
+            this.RMemberCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RMemberCreateAccBtn.Location = new System.Drawing.Point(43, 441);
+            this.RMemberCreateAccBtn.Name = "RMemberCreateAccBtn";
+            this.RMemberCreateAccBtn.Size = new System.Drawing.Size(312, 60);
+            this.RMemberCreateAccBtn.TabIndex = 8;
+            this.RMemberCreateAccBtn.Text = "CREATE FREE ACCOUNT NOW";
+            this.RMemberCreateAccBtn.UseVisualStyleBackColor = true;
             // 
             // RMemberAccLbl
             // 
@@ -497,10 +839,11 @@
             this.RMemberAccLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.RMemberAccLbl.Location = new System.Drawing.Point(39, 147);
             this.RMemberAccLbl.Name = "RMemberAccLbl";
-            this.RMemberAccLbl.Size = new System.Drawing.Size(311, 140);
+            this.RMemberAccLbl.Size = new System.Drawing.Size(313, 140);
             this.RMemberAccLbl.TabIndex = 2;
-            this.RMemberAccLbl.Text = "* FREE ACCOUNT CREATION\r\n* BOOK YOUR SALON APPOINMENT\r\nCONVENIENTLY\r\n* APPOINTMEN" +
-    "T CANCELLATION\r\nMAY OCCUR\r\n* MAX OF THREE (3) GUEST PER \r\nAPPOINTMENT\r\n";
+            this.RMemberAccLbl.Text = "* FREE ACCOUNT CREATION\r\n* BOOK YOUR SALON APPOINMENT\r\nCONVENIENTLY\r\n* MAX OF THR" +
+    "EE (3) GUESTS PER \r\nAPPOINTMENT\r\n* APPOINTMENT CANCELLATION\r\nCHARGES MAY OCCUR\r\n" +
+    "";
             // 
             // RMemberPriceText
             // 
@@ -530,6 +873,9 @@
             // 
             // EnchanteTagline
             // 
+            this.EnchanteTagline.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.EnchanteTagline.AutoSize = true;
             this.EnchanteTagline.Font = new System.Drawing.Font("TechnicBold", 80.24999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.EnchanteTagline.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
@@ -542,9 +888,9 @@
             // EDP1
             // 
             this.EDP1.Image = global::Enchante.Properties.Resources.Lobby;
-            this.EDP1.Location = new System.Drawing.Point(1154, 346);
+            this.EDP1.Location = new System.Drawing.Point(1154, 325);
             this.EDP1.Name = "EDP1";
-            this.EDP1.Size = new System.Drawing.Size(641, 608);
+            this.EDP1.Size = new System.Drawing.Size(641, 622);
             this.EDP1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.EDP1.TabIndex = 2;
             this.EDP1.TabStop = false;
@@ -564,6 +910,7 @@
             // 
             this.ServiceHSBtn.BackgroundImage = global::Enchante.Properties.Resources._30_People_Are_Sharing_Seemingly_Innocent_Questions_That_Broke_Their_Heart_A_;
             this.ServiceHSBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ServiceHSBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ServiceHSBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(101)))), ((int)(((byte)(42)))));
             this.ServiceHSBtn.FlatAppearance.BorderSize = 2;
             this.ServiceHSBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -581,8 +928,11 @@
             // 
             // EnchanteAppointBtn
             // 
+            this.EnchanteAppointBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.EnchanteAppointBtn.AutoSize = true;
             this.EnchanteAppointBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(98)))), ((int)(((byte)(60)))));
+            this.EnchanteAppointBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EnchanteAppointBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.EnchanteAppointBtn.FlatAppearance.BorderSize = 3;
             this.EnchanteAppointBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -614,6 +964,7 @@
             // 
             this.ServiceFSBtn.BackgroundImage = global::Enchante.Properties.Resources.cabernetqween;
             this.ServiceFSBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ServiceFSBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ServiceFSBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(101)))), ((int)(((byte)(42)))));
             this.ServiceFSBtn.FlatAppearance.BorderSize = 2;
             this.ServiceFSBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -633,6 +984,7 @@
             // 
             this.ServiceMBtn.BackgroundImage = global::Enchante.Properties.Resources.guia_para_personalizar_tu_masaje;
             this.ServiceMBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ServiceMBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ServiceMBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(101)))), ((int)(((byte)(42)))));
             this.ServiceMBtn.FlatAppearance.BorderSize = 2;
             this.ServiceMBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -652,6 +1004,7 @@
             // 
             this.ServiceNCBtn.BackgroundImage = global::Enchante.Properties.Resources.Nail_Tech_Career;
             this.ServiceNCBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ServiceNCBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ServiceNCBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(101)))), ((int)(((byte)(42)))));
             this.ServiceNCBtn.FlatAppearance.BorderSize = 2;
             this.ServiceNCBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -671,6 +1024,7 @@
             // 
             this.ServiceSpaBtn.BackgroundImage = global::Enchante.Properties.Resources.download__1_;
             this.ServiceSpaBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ServiceSpaBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ServiceSpaBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(101)))), ((int)(((byte)(42)))));
             this.ServiceSpaBtn.FlatAppearance.BorderSize = 2;
             this.ServiceSpaBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -689,7 +1043,8 @@
             // EnchanteMemberPage
             // 
             this.EnchanteMemberPage.BackColor = System.Drawing.Color.Coral;
-            this.EnchanteParentCard.SetCardName(this.EnchanteMemberPage, "Card3");
+            this.EnchanteParentCard.SetCardName(this.EnchanteMemberPage, "MemberPage");
+            this.EnchanteMemberPage.Controls.Add(this.MemberSignOut);
             this.EnchanteMemberPage.Location = new System.Drawing.Point(0, 0);
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteMemberPage, new System.Drawing.Size(200, 100));
             this.EnchanteMemberPage.Name = "EnchanteMemberPage";
@@ -697,10 +1052,24 @@
             this.EnchanteMemberPage.Size = new System.Drawing.Size(1904, 1041);
             this.EnchanteMemberPage.TabIndex = 3;
             // 
+            // MemberSignOut
+            // 
+            this.MemberSignOut.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.MemberSignOut.IconColor = System.Drawing.Color.Black;
+            this.MemberSignOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MemberSignOut.Location = new System.Drawing.Point(1623, 349);
+            this.MemberSignOut.Name = "MemberSignOut";
+            this.MemberSignOut.Size = new System.Drawing.Size(75, 23);
+            this.MemberSignOut.TabIndex = 0;
+            this.MemberSignOut.Text = "Sign Out";
+            this.MemberSignOut.UseVisualStyleBackColor = true;
+            this.MemberSignOut.Click += new System.EventHandler(this.MemberSignOut_Click);
+            // 
             // EnchanteMngrPage
             // 
             this.EnchanteMngrPage.BackColor = System.Drawing.SystemColors.HotTrack;
             this.EnchanteParentCard.SetCardName(this.EnchanteMngrPage, "Card4");
+            this.EnchanteMngrPage.Controls.Add(this.MngrSignOutBtn);
             this.EnchanteMngrPage.Location = new System.Drawing.Point(0, 0);
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteMngrPage, new System.Drawing.Size(200, 100));
             this.EnchanteMngrPage.Name = "EnchanteMngrPage";
@@ -708,10 +1077,24 @@
             this.EnchanteMngrPage.Size = new System.Drawing.Size(1904, 1041);
             this.EnchanteMngrPage.TabIndex = 2;
             // 
+            // MngrSignOutBtn
+            // 
+            this.MngrSignOutBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.MngrSignOutBtn.IconColor = System.Drawing.Color.Black;
+            this.MngrSignOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrSignOutBtn.Location = new System.Drawing.Point(915, 509);
+            this.MngrSignOutBtn.Name = "MngrSignOutBtn";
+            this.MngrSignOutBtn.Size = new System.Drawing.Size(75, 23);
+            this.MngrSignOutBtn.TabIndex = 1;
+            this.MngrSignOutBtn.Text = "Sign Out";
+            this.MngrSignOutBtn.UseVisualStyleBackColor = true;
+            this.MngrSignOutBtn.Click += new System.EventHandler(this.MngrSignOutBtn_Click);
+            // 
             // EnchanteStaffPage
             // 
             this.EnchanteStaffPage.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.EnchanteParentCard.SetCardName(this.EnchanteStaffPage, "Card5");
+            this.EnchanteStaffPage.Controls.Add(this.StaffSignOutBtn);
             this.EnchanteStaffPage.Location = new System.Drawing.Point(0, 0);
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteStaffPage, new System.Drawing.Size(200, 100));
             this.EnchanteStaffPage.Name = "EnchanteStaffPage";
@@ -719,61 +1102,24 @@
             this.EnchanteStaffPage.Size = new System.Drawing.Size(1904, 1041);
             this.EnchanteStaffPage.TabIndex = 1;
             // 
+            // StaffSignOutBtn
+            // 
+            this.StaffSignOutBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.StaffSignOutBtn.IconColor = System.Drawing.Color.Black;
+            this.StaffSignOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.StaffSignOutBtn.Location = new System.Drawing.Point(915, 509);
+            this.StaffSignOutBtn.Name = "StaffSignOutBtn";
+            this.StaffSignOutBtn.Size = new System.Drawing.Size(75, 23);
+            this.StaffSignOutBtn.TabIndex = 2;
+            this.StaffSignOutBtn.Text = "Sign Out";
+            this.StaffSignOutBtn.UseVisualStyleBackColor = true;
+            this.StaffSignOutBtn.Click += new System.EventHandler(this.StaffSignOutBtn_Click);
+            // 
             // EnchanteParentCard
             // 
             this.EnchanteParentCard.ContainerControl = this.EnchanteParentContainer;
             this.EnchanteParentCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.EnchanteParentCard.SelectedCard = "Card2";
-            // 
-            // EnchanteFooterBar
-            // 
-            this.EnchanteFooterBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.EnchanteFooterBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EnchanteFooterBar.Controls.Add(this.EnchanteFooterLogo);
-            this.EnchanteFooterBar.Controls.Add(this.iconButton3);
-            this.EnchanteFooterBar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.EnchanteFooterBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.EnchanteFooterBar.Location = new System.Drawing.Point(0, 2677);
-            this.EnchanteFooterBar.Name = "EnchanteFooterBar";
-            this.EnchanteFooterBar.Size = new System.Drawing.Size(1887, 166);
-            this.EnchanteFooterBar.TabIndex = 20;
-            // 
-            // iconButton3
-            // 
-            this.iconButton3.AutoSize = true;
-            this.iconButton3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton3.FlatAppearance.BorderSize = 3;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton3.IconColor = System.Drawing.Color.Black;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.Location = new System.Drawing.Point(1496, 69);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(312, 60);
-            this.iconButton3.TabIndex = 8;
-            this.iconButton3.Text = "CREATE FREE ACCOUNT NOW";
-            this.iconButton3.UseVisualStyleBackColor = true;
-            // 
-            // HomeFooterStopper
-            // 
-            this.HomeFooterStopper.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.HomeFooterStopper.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.HomeFooterStopper.Location = new System.Drawing.Point(541, 2609);
-            this.HomeFooterStopper.Name = "HomeFooterStopper";
-            this.HomeFooterStopper.Size = new System.Drawing.Size(804, 68);
-            this.HomeFooterStopper.TabIndex = 20;
-            // 
-            // EnchanteFooterLogo
-            // 
-            this.EnchanteFooterLogo.Image = global::Enchante.Properties.Resources.Enchante_Logo_275x100;
-            this.EnchanteFooterLogo.Location = new System.Drawing.Point(58, 29);
-            this.EnchanteFooterLogo.Name = "EnchanteFooterLogo";
-            this.EnchanteFooterLogo.Size = new System.Drawing.Size(275, 100);
-            this.EnchanteFooterLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.EnchanteFooterLogo.TabIndex = 9;
-            this.EnchanteFooterLogo.TabStop = false;
+            this.EnchanteParentCard.SelectedCard = "HomePage";
             // 
             // Enchante
             // 
@@ -788,12 +1134,20 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Enchante_Load);
             this.EnchanteParentContainer.ResumeLayout(false);
+            this.EnchanteAdminPage.ResumeLayout(false);
             this.EnchanteHomePage.ResumeLayout(false);
             this.EnchanteHomeNavBar.ResumeLayout(false);
             this.EnchanteHomeNavBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EnchanteHeaderLogo)).EndInit();
             this.EnchanteHomeScrollPanel.ResumeLayout(false);
             this.EnchanteHomeScrollPanel.PerformLayout();
+            this.EnchanteLoginForm.ResumeLayout(false);
+            this.EnchanteLoginForm.PerformLayout();
+            this.LoginPassPanel.ResumeLayout(false);
+            this.LoginPassPanel.PerformLayout();
+            this.EnchanteFooterBar.ResumeLayout(false);
+            this.EnchanteFooterBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EnchanteFooterLogo)).EndInit();
             this.SVIPPanel.ResumeLayout(false);
             this.SVIPPanel.PerformLayout();
             this.PMemberPanel.ResumeLayout(false);
@@ -801,10 +1155,10 @@
             this.RMemberPanel.ResumeLayout(false);
             this.RMemberPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EDP1)).EndInit();
+            this.EnchanteMemberPage.ResumeLayout(false);
+            this.EnchanteMngrPage.ResumeLayout(false);
+            this.EnchanteStaffPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.EnchanteParentCard)).EndInit();
-            this.EnchanteFooterBar.ResumeLayout(false);
-            this.EnchanteFooterBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.EnchanteFooterLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -833,7 +1187,7 @@
         private FontAwesome.Sharp.IconButton EnchanteAppointBtn;
         private System.Windows.Forms.PictureBox EDP1;
         private System.Windows.Forms.Panel RMemberPanel;
-        private FontAwesome.Sharp.IconButton RMemberCreateBtn;
+        private FontAwesome.Sharp.IconButton RMemberCreateAccBtn;
         private System.Windows.Forms.Label RMemberAccLbl;
         private System.Windows.Forms.TextBox RMemberPriceText;
         private System.Windows.Forms.TextBox RMemberText;
@@ -844,19 +1198,38 @@
         private FontAwesome.Sharp.IconButton ServiceNCBtn;
         private FontAwesome.Sharp.IconButton ServiceSpaBtn;
         private System.Windows.Forms.Panel SVIPPanel;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private FontAwesome.Sharp.IconButton SVIPMemberCreateAccBtn;
+        private System.Windows.Forms.Label SVIPMemberAccLbl;
+        private System.Windows.Forms.TextBox SVIPPriceText;
+        private System.Windows.Forms.TextBox SVIPMemberText;
         private System.Windows.Forms.Panel PMemberPanel;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private FontAwesome.Sharp.IconButton PMemberCreateAccBtn;
+        private System.Windows.Forms.Label PMemberAccLbl;
+        private System.Windows.Forms.TextBox PMemberPriceText;
+        private System.Windows.Forms.TextBox PMemberText;
         private System.Windows.Forms.Panel EnchanteFooterBar;
-        private FontAwesome.Sharp.IconButton iconButton3;
+        private FontAwesome.Sharp.IconButton SM_FBBtn;
         private System.Windows.Forms.Panel HomeFooterStopper;
         private System.Windows.Forms.PictureBox EnchanteFooterLogo;
+        private System.Windows.Forms.Panel EnchanteLoginForm;
+        private System.Windows.Forms.Label LoginWCLbl;
+        private System.Windows.Forms.Label LoginEmailAddLbl;
+        private System.Windows.Forms.Label LoginPassLbl;
+        private System.Windows.Forms.ComboBox LoginEmailAddText;
+        private System.Windows.Forms.TextBox LoginPassText;
+        private System.Windows.Forms.Label LoginEmailAddErrorLbl;
+        private System.Windows.Forms.Label LoginPassErrorLbl;
+        private FontAwesome.Sharp.IconButton ShowHidePassBtn;
+        private FontAwesome.Sharp.IconButton LoginBtn;
+        private System.Windows.Forms.Panel LoginPassPanel;
+        private FontAwesome.Sharp.IconButton MemberSignOut;
+        private FontAwesome.Sharp.IconButton MngrSignOutBtn;
+        private FontAwesome.Sharp.IconButton StaffSignOutBtn;
+        private FontAwesome.Sharp.IconButton AdminSignOutBtn;
+        private System.Windows.Forms.Label LoginRegisterHereLbl;
+        private FontAwesome.Sharp.IconButton SM_TwitterBtn;
+        private FontAwesome.Sharp.IconButton SM_IGBtn;
+        private FontAwesome.Sharp.IconButton SM_GmailBtn;
     }
 }
 
