@@ -1161,7 +1161,7 @@
             this.RegistrationPanel.Controls.Add(this.PremiumPanel);
             this.RegistrationPanel.Location = new System.Drawing.Point(337, 1985);
             this.RegistrationPanel.Name = "RegistrationPanel";
-            this.RegistrationPanel.Size = new System.Drawing.Size(1217, 544);
+            this.RegistrationPanel.Size = new System.Drawing.Size(1217, 440);
             this.RegistrationPanel.TabIndex = 22;
             this.RegistrationPanel.Visible = false;
             // 
@@ -1185,7 +1185,7 @@
             this.RegistrationCard.SetMinimumSize(this.RegularPanel, new System.Drawing.Size(200, 100));
             this.RegularPanel.Name = "RegularPanel";
             this.RegistrationCard.SetPreferredSize(this.RegularPanel, new System.Drawing.Size(200, 100));
-            this.RegularPanel.Size = new System.Drawing.Size(1215, 542);
+            this.RegularPanel.Size = new System.Drawing.Size(1215, 438);
             this.RegularPanel.TabIndex = 0;
             // 
             // PremiumPanel
@@ -1195,7 +1195,7 @@
             this.RegistrationCard.SetMinimumSize(this.PremiumPanel, new System.Drawing.Size(200, 100));
             this.PremiumPanel.Name = "PremiumPanel";
             this.RegistrationCard.SetPreferredSize(this.PremiumPanel, new System.Drawing.Size(200, 100));
-            this.PremiumPanel.Size = new System.Drawing.Size(1215, 542);
+            this.PremiumPanel.Size = new System.Drawing.Size(1215, 438);
             this.PremiumPanel.TabIndex = 1;
             // 
             // SuperVIPPanel
@@ -1205,7 +1205,7 @@
             this.RegistrationCard.SetMinimumSize(this.SuperVIPPanel, new System.Drawing.Size(200, 100));
             this.SuperVIPPanel.Name = "SuperVIPPanel";
             this.RegistrationCard.SetPreferredSize(this.SuperVIPPanel, new System.Drawing.Size(200, 100));
-            this.SuperVIPPanel.Size = new System.Drawing.Size(1215, 542);
+            this.SuperVIPPanel.Size = new System.Drawing.Size(1215, 438);
             this.SuperVIPPanel.TabIndex = 2;
             // 
             // RegHeaderLbl
