@@ -409,5 +409,31 @@ namespace Enchante
             EnchanteAbtUsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
 
         }
+
+        private void SM_FBBtn_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.facebook.com/enchantesalon2024");
+        }
+
+        private void SM_TwitterBtn_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://twitter.com/Enchante2024");
+        }
+
+        private void SM_IGBtn_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.instagram.com/enchantesalon2024/");
+        }
+
+        private void SM_GmailBtn_Click(object sender, EventArgs e)
+        {
+            string emailAddress = "enchantesalon2024@gmail.com";
+            string subject = "Subject of your email";
+            string body = "Body of your email";
+
+            string mailtoLink = $"mailto:{emailAddress}?subject={Uri.EscapeDataString(subject)}&body={Uri.EscapeDataString(body)}";
+
+            System.Diagnostics.Process.Start(mailtoLink);
+        }
     }
 }
