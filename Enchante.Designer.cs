@@ -45,6 +45,7 @@
             this.EnchanteHeaderLogo = new System.Windows.Forms.PictureBox();
             this.EnchanteHomeScrollPanel = new System.Windows.Forms.Panel();
 
+
             this.ServicePanel = new System.Windows.Forms.Panel();
             this.ServiceMassage = new System.Windows.Forms.Panel();
             this.ServiceMassageLbl = new System.Windows.Forms.Label();
@@ -106,6 +107,7 @@
             this.SVIPMemberCreateAccBtn = new FontAwesome.Sharp.IconButton();
             this.SVIPMemberAccLbl = new System.Windows.Forms.Label();
             this.SVIPPMemberPriceText = new System.Windows.Forms.TextBox();
+
             this.SVIPMemberText = new System.Windows.Forms.TextBox();
             this.PMemberPanel = new System.Windows.Forms.Panel();
             this.PMemberCreateAccBtn = new FontAwesome.Sharp.IconButton();
@@ -148,6 +150,7 @@
             this.EnchanteStaffPage = new System.Windows.Forms.Panel();
             this.StaffSignOutBtn = new FontAwesome.Sharp.IconButton();
             this.EnchanteParentCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
+
             this.MembershipCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.ServiceCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.RegularAccIDNumberText = new System.Windows.Forms.TextBox();
@@ -158,12 +161,14 @@
             this.RegularConfirmPassLbl = new System.Windows.Forms.Label();
             this.RegularAccIDNumberLbl = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
+
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteAdminPage.SuspendLayout();
             this.EnchanteHomePage.SuspendLayout();
             this.EnchanteHomeNavBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EnchanteHeaderLogo)).BeginInit();
             this.EnchanteHomeScrollPanel.SuspendLayout();
+
             this.ServicePanel.SuspendLayout();
             this.ServiceMassage.SuspendLayout();
             this.ServiceSpa.SuspendLayout();
@@ -184,14 +189,17 @@
             this.HomeFooterStopper.SuspendLayout();
             this.EnchanteFooterBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EnchanteFooterLogo)).BeginInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.EDP1)).BeginInit();
             this.EnchanteMemberPage.SuspendLayout();
             this.EnchanteMngrPage.SuspendLayout();
             this.EnchanteStaffPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EnchanteParentCard)).BeginInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.MembershipCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ServiceCard)).BeginInit();
             this.RegularConfirmPassPanel.SuspendLayout();
+
             this.SuspendLayout();
             // 
             // EnchanteParentContainer
@@ -423,8 +431,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EnchanteHomeScrollPanel.AutoScroll = true;
             this.EnchanteHomeScrollPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+
             this.EnchanteHomeScrollPanel.Controls.Add(this.ServicePanel);
             this.EnchanteHomeScrollPanel.Controls.Add(this.MembershipPanel);
+
             this.EnchanteHomeScrollPanel.Controls.Add(this.EnchanteLoginForm);
             this.EnchanteHomeScrollPanel.Controls.Add(this.HomeFooterStopper);
             this.EnchanteHomeScrollPanel.Controls.Add(this.EnchanteFooterBar);
@@ -596,6 +606,7 @@
             this.ServiceType.Size = new System.Drawing.Size(1444, 751);
             this.ServiceType.TabIndex = 0;
             // 
+
             // ServiceHSBtn
             // 
             this.ServiceHSBtn.BackgroundImage = global::Enchante.Properties.Resources._30_People_Are_Sharing_Seemingly_Innocent_Questions_That_Broke_Their_Heart_A_;
@@ -1336,6 +1347,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 
+
             this.SVIPMemberCreateAccBtn.AutoSize = true;
             this.SVIPMemberCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SVIPMemberCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
@@ -1346,6 +1358,7 @@
             this.SVIPMemberCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.SVIPMemberCreateAccBtn.IconColor = System.Drawing.Color.Black;
             this.SVIPMemberCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+
             this.SVIPMemberCreateAccBtn.Location = new System.Drawing.Point(54, 471);
             this.SVIPMemberCreateAccBtn.Name = "SVIPMemberCreateAccBtn";
             this.SVIPMemberCreateAccBtn.Size = new System.Drawing.Size(285, 60);
@@ -1391,14 +1404,17 @@
             this.SVIPMemberText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+
             this.SVIPMemberText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.SVIPMemberText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SVIPMemberText.Font = new System.Drawing.Font("TechnicBold", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.SVIPMemberText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
             this.SVIPMemberText.Location = new System.Drawing.Point(54, 53);
             this.SVIPMemberText.Name = "SVIPMemberText";
             this.SVIPMemberText.ReadOnly = true;
             this.SVIPMemberText.Size = new System.Drawing.Size(287, 48);
+
             this.SVIPMemberText.TabIndex = 0;
             this.SVIPMemberText.Text = "SUPER VIP";
             // 
@@ -1415,15 +1431,19 @@
             this.PMemberPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.PMemberPanel.Location = new System.Drawing.Point(486, 163);
             this.PMemberPanel.Name = "PMemberPanel";
+
             this.PMemberPanel.Size = new System.Drawing.Size(397, 594);
+
 
             this.PMemberPanel.TabIndex = 18;
             // 
             // PMemberCreateAccBtn
             // 
+
             this.PMemberCreateAccBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+
             this.PMemberCreateAccBtn.AutoSize = true;
             this.PMemberCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PMemberCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
@@ -1434,6 +1454,7 @@
             this.PMemberCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.PMemberCreateAccBtn.IconColor = System.Drawing.Color.Black;
             this.PMemberCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+
             this.PMemberCreateAccBtn.Location = new System.Drawing.Point(55, 471);
             this.PMemberCreateAccBtn.Name = "PMemberCreateAccBtn";
             this.PMemberCreateAccBtn.Size = new System.Drawing.Size(285, 60);
@@ -1463,10 +1484,12 @@
             this.PMemberPriceText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+
             this.PMemberPriceText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.PMemberPriceText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PMemberPriceText.Font = new System.Drawing.Font("TechnicBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.PMemberPriceText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
             this.PMemberPriceText.Location = new System.Drawing.Point(54, 107);
             this.PMemberPriceText.Name = "PMemberPriceText";
             this.PMemberPriceText.ReadOnly = true;
@@ -1479,14 +1502,17 @@
             this.PMemberText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+
             this.PMemberText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.PMemberText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PMemberText.Font = new System.Drawing.Font("TechnicBold", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.PMemberText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
             this.PMemberText.Location = new System.Drawing.Point(54, 53);
             this.PMemberText.Name = "PMemberText";
             this.PMemberText.ReadOnly = true;
             this.PMemberText.Size = new System.Drawing.Size(287, 48);
+
             this.PMemberText.TabIndex = 0;
             this.PMemberText.Text = "PREMIUM";
             // 
@@ -1503,14 +1529,18 @@
             this.RMemberPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.RMemberPanel.Location = new System.Drawing.Point(74, 163);
             this.RMemberPanel.Name = "RMemberPanel";
+
             this.RMemberPanel.Size = new System.Drawing.Size(397, 594);
+
             this.RMemberPanel.TabIndex = 17;
             // 
             // RMemberCreateAccBtn
             // 
+
             this.RMemberCreateAccBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+
             this.RMemberCreateAccBtn.AutoSize = true;
             this.RMemberCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RMemberCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
@@ -1521,13 +1551,17 @@
             this.RMemberCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.RMemberCreateAccBtn.IconColor = System.Drawing.Color.Black;
             this.RMemberCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+
             this.RMemberCreateAccBtn.Location = new System.Drawing.Point(41, 471);
+
             this.RMemberCreateAccBtn.Name = "RMemberCreateAccBtn";
             this.RMemberCreateAccBtn.Size = new System.Drawing.Size(312, 60);
             this.RMemberCreateAccBtn.TabIndex = 8;
             this.RMemberCreateAccBtn.Text = "CREATE FREE ACCOUNT NOW";
             this.RMemberCreateAccBtn.UseVisualStyleBackColor = true;
+
             this.RMemberCreateAccBtn.Click += new System.EventHandler(this.RMemberCreateAccBtn_Click);
+
             // 
             // RMemberAccLbl
             // 
@@ -1544,6 +1578,8 @@
             this.RMemberAccLbl.Text = "* FREE ACCOUNT CREATION\r\n* BOOK YOUR SALON APPOINMENT\r\nCONVENIENTLY\r\n* MAX OF THR" +
     "EE (3) GUESTS PER \r\nAPPOINTMENT\r\n* APPOINTMENT CANCELLATION\r\nCHARGES MAY OCCUR\r\n" +
     "";
+
+
 
 
             // 
@@ -1932,12 +1968,16 @@
             this.EDP1.Image = global::Enchante.Properties.Resources.Lobby;
             this.EDP1.Location = new System.Drawing.Point(1154, 325);
             this.EDP1.Name = "EDP1";
+
             this.EDP1.Size = new System.Drawing.Size(591, 622);
+
 
             this.EDP1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.EDP1.TabIndex = 2;
             this.EDP1.TabStop = false;
             // 
+
+
 
             // EnchanteAppointBtn
             // 
@@ -1962,6 +2002,8 @@
             this.EnchanteAppointBtn.UseVisualStyleBackColor = false;
             this.EnchanteAppointBtn.Click += new System.EventHandler(this.EnchanteAppointBtn_Click);
             // 
+
+
             // EnchanteMemberPage
             // 
             this.EnchanteMemberPage.BackColor = System.Drawing.Color.Coral;
@@ -2042,6 +2084,7 @@
             this.EnchanteParentCard.ContainerControl = this.EnchanteParentContainer;
             this.EnchanteParentCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
             this.EnchanteParentCard.SelectedCard = "HomePage";
+
             // 
             // MembershipCard
             // 
@@ -2175,6 +2218,7 @@
             this.iconButton1.Size = new System.Drawing.Size(36, 36);
             this.iconButton1.TabIndex = 76;
             this.iconButton1.UseVisualStyleBackColor = false;
+
             // 
             // Enchante
             // 
@@ -2196,6 +2240,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.EnchanteHeaderLogo)).EndInit();
             this.EnchanteHomeScrollPanel.ResumeLayout(false);
             this.EnchanteHomeScrollPanel.PerformLayout();
+
             this.ServicePanel.ResumeLayout(false);
             this.ServiceMassage.ResumeLayout(false);
             this.ServiceMassage.PerformLayout();
@@ -2221,10 +2266,12 @@
             this.MembershipPlanPanel.PerformLayout();
             this.SVIPMemberPanel.ResumeLayout(false);
             this.SVIPMemberPanel.PerformLayout();
+
             this.PMemberPanel.ResumeLayout(false);
             this.PMemberPanel.PerformLayout();
             this.RMemberPanel.ResumeLayout(false);
             this.RMemberPanel.PerformLayout();
+
             this.EnchanteLoginForm.ResumeLayout(false);
             this.EnchanteLoginForm.PerformLayout();
             this.LoginPassPanel.ResumeLayout(false);
@@ -2234,15 +2281,18 @@
             this.EnchanteFooterBar.ResumeLayout(false);
             this.EnchanteFooterBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EnchanteFooterLogo)).EndInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.EDP1)).EndInit();
             this.EnchanteMemberPage.ResumeLayout(false);
             this.EnchanteMngrPage.ResumeLayout(false);
             this.EnchanteStaffPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.EnchanteParentCard)).EndInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.MembershipCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ServiceCard)).EndInit();
             this.RegularConfirmPassPanel.ResumeLayout(false);
             this.RegularConfirmPassPanel.PerformLayout();
+
             this.ResumeLayout(false);
 
         }
@@ -2271,6 +2321,8 @@
         private FontAwesome.Sharp.IconButton EnchanteAppointBtn;
         private System.Windows.Forms.PictureBox EDP1;
         private System.Windows.Forms.Panel RMemberPanel;
+
+
         private System.Windows.Forms.Label RMemberAccLbl;
         private System.Windows.Forms.TextBox RMemberPriceText;
         private System.Windows.Forms.TextBox RMemberText;
@@ -2280,6 +2332,8 @@
         private FontAwesome.Sharp.IconButton ServiceMBtn;
         private FontAwesome.Sharp.IconButton ServiceNCBtn;
         private FontAwesome.Sharp.IconButton ServiceSpaBtn;
+
+
         private System.Windows.Forms.Panel EnchanteFooterBar;
         private FontAwesome.Sharp.IconButton SM_FBBtn;
         private System.Windows.Forms.Panel HomeFooterStopper;
@@ -2303,6 +2357,7 @@
         private FontAwesome.Sharp.IconButton SM_TwitterBtn;
         private FontAwesome.Sharp.IconButton SM_IGBtn;
         private FontAwesome.Sharp.IconButton SM_GmailBtn;
+
         private System.Windows.Forms.Label HomeFooterStopperLbl;
         private FontAwesome.Sharp.IconButton RMemberCreateAccBtn;
         private System.Windows.Forms.Panel MembershipPanel;
@@ -2376,6 +2431,7 @@
         private System.Windows.Forms.Label RegularConfirmPassLbl;
         private System.Windows.Forms.Label RegularAccIDNumberLbl;
         private FontAwesome.Sharp.IconButton iconButton1;
+
     }
 }
 

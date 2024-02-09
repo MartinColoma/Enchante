@@ -23,6 +23,7 @@ namespace Enchante
 
         //cardlayout panel classes
         private ParentCard ParentPanelShow; //Parent Card
+
         private Registration Registration; //Membership Type Card
         private ServiceCard Service; //Service Card
 
@@ -35,6 +36,7 @@ namespace Enchante
         private string[] genders = { "Male", "Female", "Prefer Not to Say" };
 
 
+
         public Enchante()
         {
             InitializeComponent();
@@ -43,10 +45,12 @@ namespace Enchante
             this.FormClosing += new FormClosingEventHandler(MainForm_FormClosing);
 
 
+
             //Landing Pages Cardlayout Panel Manager
             ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteMngrPage, EnchanteMemberPage,EnchanteAdminPage);
             Registration = new Registration(MembershipPlanPanel, RegularPlanPanel, PremiumPlanPanel, SVIPPlanPanel);
             Service = new ServiceCard(ServiceType, ServiceHairStyling, ServiceFaceSkin, ServiceNailCare, ServiceSpa, ServiceMassage);
+
 
             //icon tool tip
             iconToolTip = new System.Windows.Forms.ToolTip();
@@ -155,7 +159,9 @@ namespace Enchante
             if (EnchanteLoginForm.Visible == false)
             {
 
+
                 HomeLocationAndColor();
+
 
                 EnchanteLoginForm.Visible = true;
                 return;
@@ -164,7 +170,9 @@ namespace Enchante
             {
 
 
+
                 HomeLocationAndColor();
+
 
 
                 EnchanteLoginForm.Visible = false;
@@ -309,6 +317,7 @@ namespace Enchante
             EnchanteTeamBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
         }
 
+
         private void ServiceHSBtn_Click(object sender, EventArgs e)
         {
             Service.PanelShow(ServiceHairStyling);
@@ -352,6 +361,7 @@ namespace Enchante
             {
                 LoginPassText.UseSystemPasswordChar = true;
                 ShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+
 
 
 
@@ -401,7 +411,9 @@ namespace Enchante
                 //Test Admin
                 LoginEmailAddErrorLbl.Visible = true;
                 LoginPassErrorLbl.Visible = false;
+
                 LoginEmailAddErrorLbl.Text = "EMAIL ADDRESS DOES NOT EXIST";
+
                 return;
             }
             else if (LoginEmailAddText.Text == "Admin" && LoginPassText.Text != "Admin123")
@@ -409,7 +421,9 @@ namespace Enchante
                 //Test Admin
                 LoginEmailAddErrorLbl.Visible = false;
                 LoginPassErrorLbl.Visible = true;
+
                 LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
+
                 return;
             }
             else if (LoginEmailAddText.Text == "Manager" && LoginPassText.Text == "Manager123")
@@ -420,6 +434,7 @@ namespace Enchante
                 LoginEmailAddErrorLbl.Visible = false;
                 LoginPassErrorLbl.Visible = false;
                 logincredclear();
+
 
 
                 return;
@@ -902,120 +917,6 @@ namespace Enchante
         }
 
 
-                return;
-            }
-            else if (LoginEmailAddText.Text != "Member" && LoginPassText.Text == "Member123")
-            {
-                //Test Member
-                LoginEmailAddErrorLbl.Visible = true;
-                LoginPassErrorLbl.Visible = false;
-                return;
-            }
-            else if (LoginEmailAddText.Text == "Member" && LoginPassText.Text != "Member123")
-            {
-                //Test Member
-                LoginEmailAddErrorLbl.Visible = false;
-                LoginPassErrorLbl.Visible = true;
-                return;
-            }
-            else if (string.IsNullOrEmpty(LoginEmailAddText.Text) || string.IsNullOrEmpty(LoginPassText.Text))
-            {
-                MessageBox.Show("Missing text on required fields.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                //db connection query
-            }
-        }
-
-        private void logincredclear()
-        {
-            LoginEmailAddText.Text = "";
-            LoginPassText.Text = "";
-
-        }
-
-        private void MemberSignOut_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Do you want to sign out user?", "Sign Out Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                EnchanteLoginForm.Visible = false;
-                ParentPanelShow.PanelShow(EnchanteHomePage);
-            }
-        }
-
-        private void MngrSignOutBtn_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Do you want to sign out user?", "Sign Out Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                EnchanteLoginForm.Visible = false;
-                ParentPanelShow.PanelShow(EnchanteHomePage);
-            }
-        }
-
-        private void StaffSignOutBtn_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Do you want to sign out user?", "Sign Out Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                EnchanteLoginForm.Visible = false;
-                ParentPanelShow.PanelShow(EnchanteHomePage);
-            }
-        }
-
-        private void AdminSignOutBtn_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Do you want to sign out user?", "Sign Out Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                EnchanteLoginForm.Visible = false;
-                ParentPanelShow.PanelShow(EnchanteHomePage);
-            }
-        }
-
-        private void LoginRegisterHereLbl_Click(object sender, EventArgs e)
-        {
-            //location scroll
-            int serviceSectionY = 1600;
-            ScrollToCoordinates(0, serviceSectionY);
-
-            //Change color once clicked
-            EnchanteMemberBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            //Change back to original
-            EnchanteHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteReviewBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteTeamBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteAbtUsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-
-        }
-
-        private void SM_FBBtn_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://www.facebook.com/enchantesalon2024");
-        }
-
-        private void SM_TwitterBtn_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://twitter.com/Enchante2024");
-        }
-
-        private void SM_IGBtn_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://www.instagram.com/enchantesalon2024/");
-        }
-
-        private void SM_GmailBtn_Click(object sender, EventArgs e)
-        {
-            string emailAddress = "enchantesalon2024@gmail.com";
-            string subject = "Subject of your email";
-            string body = "Body of your email";
-
-            string mailtoLink = $"mailto:{emailAddress}?subject={Uri.EscapeDataString(subject)}&body={Uri.EscapeDataString(body)}";
-
-            System.Diagnostics.Process.Start(mailtoLink);
-        }
+              
     }
 }
