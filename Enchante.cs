@@ -5,7 +5,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -26,6 +28,11 @@ namespace Enchante
         //tool tip
         private System.Windows.Forms.ToolTip iconToolTip;
 
+
+        //gender combo box
+        private string[] genders = { "Male", "Female", "Prefer Not to Say" };
+
+
         public Enchante()
         {
             InitializeComponent();
@@ -42,7 +49,9 @@ namespace Enchante
             //icon tool tip
             iconToolTip = new System.Windows.Forms.ToolTip();
 
-
+            //gender combobox
+            RegularGenderComboText.Items.AddRange(genders);
+            RegularGenderComboText.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void Enchante_Load(object sender, EventArgs e)
@@ -81,7 +90,45 @@ namespace Enchante
 
             }
         }
-
+        public class HashHelper
+        {
+            public static string HashString(string input)
+            {
+                using (SHA256 sha256 = SHA256.Create())
+                {
+                    byte[] inputBytes = Encoding.UTF8.GetBytes(input);
+                    byte[] hashBytes = sha256.ComputeHash(inputBytes);
+                    string hashedString = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+                    return hashedString;
+                }
+            }
+        }
+        public class HashHelper_Salt
+        {
+            public static string HashString_Salt(string input_Salt)
+            {
+                using (SHA256 sha256 = SHA256.Create())
+                {
+                    byte[] inputBytes_Salt = Encoding.UTF8.GetBytes(input_Salt);
+                    byte[] hashBytes_Salt = sha256.ComputeHash(inputBytes_Salt);
+                    string hashedString_Salt = BitConverter.ToString(hashBytes_Salt).Replace("-", "").ToLower();
+                    return hashedString_Salt;
+                }
+            }
+        }
+        public class HashHelper_SaltperUser
+        {
+            public static string HashString_SaltperUser(string input_SaltperUser)
+            {
+                using (SHA256 sha256 = SHA256.Create())
+                {
+                    byte[] inputBytes_SaltperUser = Encoding.UTF8.GetBytes(input_SaltperUser);
+                    byte[] hashBytes_SaltperUser = sha256.ComputeHash(inputBytes_SaltperUser);
+                    string hashedString_SaltperUser = BitConverter.ToString(hashBytes_SaltperUser).Replace("-", "").ToLower();
+                    return hashedString_SaltperUser;
+                }
+            }
+        }
 
         private void ScrollToCoordinates(int x, int y)
         {
@@ -115,13 +162,12 @@ namespace Enchante
 
         private void EnchanteHomeBtn_Click(object sender, EventArgs e)
         {
+            //Reset Panel to Show Default
+            HomePanelReset();
             HomeLocationAndColor();
         }
         private void HomeLocationAndColor()
         {
-            //Reset Panel to Show Default
-            HomePanelReset();
-
             // Scroll to the Home position (0, 0)
             ScrollToCoordinates(0, 0);
             //Change color once clicked
@@ -433,13 +479,30 @@ namespace Enchante
                 LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
                 return;
             }
-            else if (string.IsNullOrEmpty(LoginEmailAddText.Text) || string.IsNullOrEmpty(LoginPassText.Text))
+
+            else if (string.IsNullOrEmpty(LoginEmailAddText.Text) && string.IsNullOrEmpty(LoginPassText.Text))
             {
                 //MessageBox.Show("Missing text on required fields.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 LoginEmailAddErrorLbl.Visible = true;
                 LoginPassErrorLbl.Visible = true;
-                LoginEmailAddErrorLbl.Text = "Required Field";
-                LoginPassErrorLbl.Text = "Required Field";
+                LoginEmailAddErrorLbl.Text = "Missing Field";
+                LoginPassErrorLbl.Text = "Missing Field";
+                return;
+            }
+            else if (string.IsNullOrEmpty(LoginEmailAddText.Text))
+            {
+                LoginEmailAddErrorLbl.Visible = true;
+                LoginPassErrorLbl.Visible = false;
+
+                LoginEmailAddErrorLbl.Text = "Missing Field";
+                return;
+            }
+            else if (string.IsNullOrEmpty(LoginPassText.Text))
+            {
+                LoginEmailAddErrorLbl.Visible = false;
+                LoginPassErrorLbl.Visible = true;
+                LoginPassErrorLbl.Text = "Missing Field";
+                return;
             }
             else
             {
@@ -563,9 +626,129 @@ namespace Enchante
             Registration.PanelShow(SVIPPlanPanel);
         }
 
+
+        //Regular Member Registration
         private void RegularExitBtn_Click(object sender, EventArgs e)
         {
             Registration.PanelShow(MembershipPlanPanel);
+
+        }
+
+        private void RegularBdayPicker_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime selectedDate = RegularBdayPicker.Value;
+            int age = DateTime.Now.Year - selectedDate.Year;
+
+            if (DateTime.Now < selectedDate.AddYears(age))
+            {
+                age--; // Subtract 1 if the birthday hasn't occurred yet this year
+            }
+
+            RegularAgeText.Text = age.ToString();
+        }
+
+        private void RegularGenderComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (RegularGenderComboText.SelectedItem != null)
+            {
+                RegularGenderComboText.Text = RegularGenderComboText.SelectedItem.ToString();
+            }
+        }
+        private void RegularShowHidePassBtn_Click(object sender, EventArgs e)
+        {
+            if (RegularPassText.UseSystemPasswordChar == true)
+            {
+                RegularPassText.UseSystemPasswordChar = false;
+                RegularShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            }
+            else if (RegularPassText.UseSystemPasswordChar == false)
+            {
+                RegularPassText.UseSystemPasswordChar = true;
+                RegularShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+
+            }
+        }
+        private void RegularConfirmShowHidePassBtn_Click(object sender, EventArgs e)
+        {
+            if (RegularConfirmPassText.UseSystemPasswordChar == true)
+            {
+                RegularConfirmPassText.UseSystemPasswordChar = false;
+                RegularConfirmShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            }
+            else if (RegularPassText.UseSystemPasswordChar == false)
+            {
+                RegularConfirmPassText.UseSystemPasswordChar = true;
+                RegularConfirmShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+
+            }
+        }
+
+        private void RegularCreateAccBtn_Click(object sender, EventArgs e)
+        {
+            DateTime selectedDate = RegularBdayPicker.Value;
+
+            string rFirstname = RegularFirstNameText.Text;
+            string rLastname = RegularLastNameText.Text;
+            string rAge = RegularAgeText.Text;
+            string rGender = RegularGenderComboText.Text;
+            string rNumber = RegularMobileNumText.Text;
+            string rEmailAdd = RegularEmailText.Text;
+            string rMemberID = RegularAccIDNumberText.Text;
+            string rPass = RegularPassText.Text;
+            string rConfirmPass = RegularConfirmPassText.Text;
+
+            Regex nameRegex = new Regex("^[A-Z][a-zA-Z]+(?: [a-zA-Z]+)*$");
+            Regex gmailRegex = new Regex(@"^[A-Za-z0-9._%+-]*\d*@gmail\.com$");
+
+            string hashedPassword = HashHelper.HashString(rPass);    // Password hashed
+            string fixedSalt = HashHelper_Salt.HashString_Salt("EatNRun" + rPass + "2023");    //Fixed Salt
+            string perUserSalt = HashHelper_SaltperUser.HashString_SaltperUser(rPass + rMemberID);    //Per User salt
+
+            int age = DateTime.Now.Year - selectedDate.Year;
+            if (DateTime.Now < selectedDate.AddYears(age))
+            {
+                age--; // Subtract 1 if the birthday hasn't occurred yet this year
+            }
+
+            if (string.IsNullOrEmpty(rFirstname) || string.IsNullOrEmpty(rLastname) || string.IsNullOrEmpty(rAge) || 
+                string.IsNullOrEmpty(rGender) || string.IsNullOrEmpty(rNumber) || string.IsNullOrEmpty(rEmailAdd) || 
+                string.IsNullOrEmpty(rNumber) || string.IsNullOrEmpty(rPass) || string.IsNullOrEmpty(rConfirmPass))
+            {
+                RegularFirstNameErrorLbl.Visible = true; 
+                RegularGenderErrorLbl.Visible = true; 
+                RegularMobileNumErrorLbl.Visible = true;
+                RegularEmailErrorLbl.Visible = true; 
+                RegularPassErrorLbl.Visible = true; 
+                RegularConfirmPassErrorLbl.Visible = true;
+                RegularLastNameErrorLbl.Visible = true; 
+                RegularAgeErrorLbl.Visible = true;
+
+                RegularFirstNameErrorLbl.Text = "Missing Field"; 
+                RegularGenderErrorLbl.Text = "Missing Field"; 
+                RegularMobileNumErrorLbl.Text = "Missing Field";
+                RegularEmailErrorLbl.Text = "Missing Field"; 
+                RegularPassErrorLbl.Text = "Missing Field"; 
+                RegularConfirmPassErrorLbl.Text = "Missing Field";
+                RegularLastNameErrorLbl.Text = "Missing Field"; 
+                RegularAgeErrorLbl.Text = "Missing Field";
+
+            }
+            else if (age < 18)
+            {
+                RegularAgeErrorLbl.Visible = true;
+                RegularAgeErrorLbl.Text = "Must be 18 years old and above";
+                return;
+            }
+            else if (!nameRegex.IsMatch(rFirstname) && !nameRegex.IsMatch(rLastname))
+            {
+                RegularFirstNameErrorLbl.Visible = true;
+                RegularLastNameErrorLbl.Visible = true;
+
+                RegularFirstNameErrorLbl.Text = "First Letter Must Be Capital";
+                RegularLastNameErrorLbl.Text = "First Letter Must Be Capital";
+
+                return;
+            }
 
         }
 
