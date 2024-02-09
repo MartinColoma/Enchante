@@ -19,8 +19,10 @@ namespace Enchante
 
         //cardlayout panel classes
         private ParentCard ParentPanelShow; //Parent Card
-        private Registration Registration; //Registration Card
-        
+        private Registration Registration; //Membership Type Card
+        private ServiceCard Service; //Service Card
+
+
         //tool tip
         private System.Windows.Forms.ToolTip iconToolTip;
 
@@ -34,6 +36,8 @@ namespace Enchante
             //Landing Pages Cardlayout Panel Manager
             ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteMngrPage, EnchanteMemberPage,EnchanteAdminPage);
             Registration = new Registration(MembershipPlanPanel, RegularPlanPanel, PremiumPlanPanel, SVIPPlanPanel);
+            Service = new ServiceCard(ServiceType, ServiceHairStyling, ServiceFaceSkin, ServiceNailCare, ServiceSpa, ServiceMassage);
+
 
             //icon tool tip
             iconToolTip = new System.Windows.Forms.ToolTip();
@@ -43,8 +47,21 @@ namespace Enchante
 
         private void Enchante_Load(object sender, EventArgs e)
         {
+            //Reset Panel to Show Default
+            HomePanelReset();
+        }
+        private void EnchanteHomeScrollPanel_Click(object sender, EventArgs e)
+        {
+            //Reset Panel to Show Default
+            HomePanelReset();
+        }
+
+        private void HomePanelReset()
+        {
             ParentPanelShow.PanelShow(EnchanteHomePage);
+            Service.PanelShow(ServiceType);
             Registration.PanelShow(MembershipPlanPanel);
+
         }
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -102,6 +119,9 @@ namespace Enchante
         }
         private void HomeLocationAndColor()
         {
+            //Reset Panel to Show Default
+            HomePanelReset();
+
             // Scroll to the Home position (0, 0)
             ScrollToCoordinates(0, 0);
             //Change color once clicked
@@ -122,6 +142,9 @@ namespace Enchante
 
         private void ServiceLocationAndColor()
         {
+            //Reset Panel to Show Default
+            Service.PanelShow(ServiceType);
+
             int serviceSectionY = 1000;
             ScrollToCoordinates(0, serviceSectionY);
             //Change color once clicked
@@ -141,10 +164,11 @@ namespace Enchante
 
         private void MemberLocationAndColor()
         {
+            //Reset Panel to Show Default
             Registration.PanelShow(MembershipPlanPanel);
 
             //location scroll
-            int serviceSectionY = 1700;
+            int serviceSectionY = 1800;
             ScrollToCoordinates(0, serviceSectionY);
 
             //Change color once clicked
@@ -163,10 +187,13 @@ namespace Enchante
 
         private void ReviewLocationAndColor()
         {
+            //Reset Panel to Show Default
+            HomePanelReset();
+
             ////location scroll
             //int serviceSectionY = 1800;
             //ScrollToCoordinates(0, serviceSectionY);
-            
+
             //Change color once clicked
             EnchanteReviewBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             //Change back to original
@@ -183,6 +210,9 @@ namespace Enchante
 
         private void TeamLocationAndColor()
         {
+            //Reset Panel to Show Default
+            HomePanelReset();
+
             ////location scroll
             //int serviceSectionY = 1800;
             //ScrollToCoordinates(0, serviceSectionY);
@@ -203,6 +233,9 @@ namespace Enchante
 
         private void AboutUsLocatonAndColor()
         {
+            //Reset Panel to Show Default
+            HomePanelReset();
+
             ////location scroll
             //int serviceSectionY = 1800;
             //ScrollToCoordinates(0, serviceSectionY);
@@ -216,6 +249,37 @@ namespace Enchante
             EnchanteReviewBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             EnchanteTeamBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
         }
+
+        private void ServiceHSBtn_Click(object sender, EventArgs e)
+        {
+            Service.PanelShow(ServiceHairStyling);
+
+        }
+
+        private void ServiceFSBtn_Click(object sender, EventArgs e)
+        {
+            Service.PanelShow(ServiceFaceSkin);
+
+        }
+
+        private void ServiceNCBtn_Click(object sender, EventArgs e)
+        {
+            Service.PanelShow(ServiceNailCare);
+
+        }
+
+        private void ServiceSpaBtn_Click(object sender, EventArgs e)
+        {
+            Service.PanelShow(ServiceSpa);
+
+        }
+
+        private void ServiceMBtn_Click(object sender, EventArgs e)
+        {
+            Service.PanelShow(ServiceMassage);
+
+        }
+
 
         private void ShowHidePassBtn_Click(object sender, EventArgs e)
         {

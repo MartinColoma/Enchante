@@ -102,6 +102,19 @@
             this.StaffSignOutBtn = new FontAwesome.Sharp.IconButton();
             this.EnchanteParentCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.MembershipCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
+            this.ServicePanel = new System.Windows.Forms.Panel();
+            this.ServiceCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
+            this.ServiceType = new System.Windows.Forms.Panel();
+            this.ServiceHairStyling = new System.Windows.Forms.Panel();
+            this.ServiceFaceSkin = new System.Windows.Forms.Panel();
+            this.ServiceNailCare = new System.Windows.Forms.Panel();
+            this.ServiceSpa = new System.Windows.Forms.Panel();
+            this.ServiceMassage = new System.Windows.Forms.Panel();
+            this.ServiceHairLbl = new System.Windows.Forms.Label();
+            this.ServiceFaceSkinLbl = new System.Windows.Forms.Label();
+            this.ServiceNailLbl = new System.Windows.Forms.Label();
+            this.ServiceSpaLbl = new System.Windows.Forms.Label();
+            this.ServiceMassageLbl = new System.Windows.Forms.Label();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteAdminPage.SuspendLayout();
             this.EnchanteHomePage.SuspendLayout();
@@ -124,6 +137,14 @@
             this.EnchanteStaffPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EnchanteParentCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MembershipCard)).BeginInit();
+            this.ServicePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ServiceCard)).BeginInit();
+            this.ServiceType.SuspendLayout();
+            this.ServiceHairStyling.SuspendLayout();
+            this.ServiceFaceSkin.SuspendLayout();
+            this.ServiceNailCare.SuspendLayout();
+            this.ServiceSpa.SuspendLayout();
+            this.ServiceMassage.SuspendLayout();
             this.SuspendLayout();
             // 
             // EnchanteParentContainer
@@ -355,23 +376,19 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EnchanteHomeScrollPanel.AutoScroll = true;
             this.EnchanteHomeScrollPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.EnchanteHomeScrollPanel.Controls.Add(this.ServicePanel);
             this.EnchanteHomeScrollPanel.Controls.Add(this.MembershipPanel);
             this.EnchanteHomeScrollPanel.Controls.Add(this.EnchanteLoginForm);
             this.EnchanteHomeScrollPanel.Controls.Add(this.HomeFooterStopper);
             this.EnchanteHomeScrollPanel.Controls.Add(this.EnchanteFooterBar);
             this.EnchanteHomeScrollPanel.Controls.Add(this.EnchanteTagline);
             this.EnchanteHomeScrollPanel.Controls.Add(this.EDP1);
-            this.EnchanteHomeScrollPanel.Controls.Add(this.ServiceTagline);
-            this.EnchanteHomeScrollPanel.Controls.Add(this.ServiceHSBtn);
             this.EnchanteHomeScrollPanel.Controls.Add(this.EnchanteAppointBtn);
-            this.EnchanteHomeScrollPanel.Controls.Add(this.ServiceFSBtn);
-            this.EnchanteHomeScrollPanel.Controls.Add(this.ServiceMBtn);
-            this.EnchanteHomeScrollPanel.Controls.Add(this.ServiceNCBtn);
-            this.EnchanteHomeScrollPanel.Controls.Add(this.ServiceSpaBtn);
             this.EnchanteHomeScrollPanel.Location = new System.Drawing.Point(0, 0);
             this.EnchanteHomeScrollPanel.Name = "EnchanteHomeScrollPanel";
             this.EnchanteHomeScrollPanel.Size = new System.Drawing.Size(1904, 1041);
             this.EnchanteHomeScrollPanel.TabIndex = 18;
+            this.EnchanteHomeScrollPanel.Click += new System.EventHandler(this.EnchanteHomeScrollPanel_Click);
             // 
             // MembershipPanel
             // 
@@ -380,9 +397,9 @@
             this.MembershipPanel.Controls.Add(this.PremiumPlanPanel);
             this.MembershipPanel.Controls.Add(this.RegularPlanPanel);
             this.MembershipPanel.Controls.Add(this.MembershipPlanPanel);
-            this.MembershipPanel.Location = new System.Drawing.Point(258, 2098);
+            this.MembershipPanel.Location = new System.Drawing.Point(258, 2059);
             this.MembershipPanel.Name = "MembershipPanel";
-            this.MembershipPanel.Size = new System.Drawing.Size(1371, 884);
+            this.MembershipPanel.Size = new System.Drawing.Size(1371, 807);
             this.MembershipPanel.TabIndex = 22;
             // 
             // SVIPPlanPanel
@@ -394,7 +411,7 @@
             this.MembershipCard.SetMinimumSize(this.SVIPPlanPanel, new System.Drawing.Size(200, 100));
             this.SVIPPlanPanel.Name = "SVIPPlanPanel";
             this.MembershipCard.SetPreferredSize(this.SVIPPlanPanel, new System.Drawing.Size(200, 100));
-            this.SVIPPlanPanel.Size = new System.Drawing.Size(1371, 884);
+            this.SVIPPlanPanel.Size = new System.Drawing.Size(1371, 807);
             this.SVIPPlanPanel.TabIndex = 4;
             // 
             // PremiumPlanPanel
@@ -406,7 +423,7 @@
             this.MembershipCard.SetMinimumSize(this.PremiumPlanPanel, new System.Drawing.Size(200, 100));
             this.PremiumPlanPanel.Name = "PremiumPlanPanel";
             this.MembershipCard.SetPreferredSize(this.PremiumPlanPanel, new System.Drawing.Size(200, 100));
-            this.PremiumPlanPanel.Size = new System.Drawing.Size(1371, 884);
+            this.PremiumPlanPanel.Size = new System.Drawing.Size(1371, 807);
             this.PremiumPlanPanel.TabIndex = 3;
             // 
             // RegularPlanPanel
@@ -418,7 +435,7 @@
             this.MembershipCard.SetMinimumSize(this.RegularPlanPanel, new System.Drawing.Size(200, 100));
             this.RegularPlanPanel.Name = "RegularPlanPanel";
             this.MembershipCard.SetPreferredSize(this.RegularPlanPanel, new System.Drawing.Size(200, 100));
-            this.RegularPlanPanel.Size = new System.Drawing.Size(1371, 884);
+            this.RegularPlanPanel.Size = new System.Drawing.Size(1371, 807);
             this.RegularPlanPanel.TabIndex = 1;
             // 
             // MembershipPlanPanel
@@ -433,7 +450,7 @@
             this.MembershipCard.SetMinimumSize(this.MembershipPlanPanel, new System.Drawing.Size(200, 100));
             this.MembershipPlanPanel.Name = "MembershipPlanPanel";
             this.MembershipCard.SetPreferredSize(this.MembershipPlanPanel, new System.Drawing.Size(200, 100));
-            this.MembershipPlanPanel.Size = new System.Drawing.Size(1371, 884);
+            this.MembershipPlanPanel.Size = new System.Drawing.Size(1371, 807);
             this.MembershipPlanPanel.TabIndex = 0;
             // 
             // SVIPMemberPanel
@@ -447,9 +464,9 @@
             this.SVIPMemberPanel.Controls.Add(this.SVIPPMemberPriceText);
             this.SVIPMemberPanel.Controls.Add(this.SVIPMemberText);
             this.SVIPMemberPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.SVIPMemberPanel.Location = new System.Drawing.Point(917, 199);
+            this.SVIPMemberPanel.Location = new System.Drawing.Point(901, 163);
             this.SVIPMemberPanel.Name = "SVIPMemberPanel";
-            this.SVIPMemberPanel.Size = new System.Drawing.Size(422, 559);
+            this.SVIPMemberPanel.Size = new System.Drawing.Size(397, 594);
             this.SVIPMemberPanel.TabIndex = 18;
             // 
             // SVIPMemberCreateAccBtn
@@ -467,9 +484,9 @@
             this.SVIPMemberCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.SVIPMemberCreateAccBtn.IconColor = System.Drawing.Color.Black;
             this.SVIPMemberCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SVIPMemberCreateAccBtn.Location = new System.Drawing.Point(54, 444);
+            this.SVIPMemberCreateAccBtn.Location = new System.Drawing.Point(54, 471);
             this.SVIPMemberCreateAccBtn.Name = "SVIPMemberCreateAccBtn";
-            this.SVIPMemberCreateAccBtn.Size = new System.Drawing.Size(312, 60);
+            this.SVIPMemberCreateAccBtn.Size = new System.Drawing.Size(285, 60);
             this.SVIPMemberCreateAccBtn.TabIndex = 8;
             this.SVIPMemberCreateAccBtn.Text = "GET SUPER VIP PLAN NOW";
             this.SVIPMemberCreateAccBtn.UseVisualStyleBackColor = true;
@@ -503,7 +520,7 @@
             this.SVIPPMemberPriceText.Location = new System.Drawing.Point(54, 107);
             this.SVIPPMemberPriceText.Name = "SVIPPMemberPriceText";
             this.SVIPPMemberPriceText.ReadOnly = true;
-            this.SVIPPMemberPriceText.Size = new System.Drawing.Size(312, 22);
+            this.SVIPPMemberPriceText.Size = new System.Drawing.Size(287, 22);
             this.SVIPPMemberPriceText.TabIndex = 1;
             this.SVIPPMemberPriceText.Text = "FREE ACCOUNT";
             // 
@@ -519,7 +536,7 @@
             this.SVIPMemberText.Location = new System.Drawing.Point(54, 53);
             this.SVIPMemberText.Name = "SVIPMemberText";
             this.SVIPMemberText.ReadOnly = true;
-            this.SVIPMemberText.Size = new System.Drawing.Size(312, 48);
+            this.SVIPMemberText.Size = new System.Drawing.Size(287, 48);
             this.SVIPMemberText.TabIndex = 0;
             this.SVIPMemberText.Text = "REGULAR";
             // 
@@ -534,9 +551,9 @@
             this.PMemberPanel.Controls.Add(this.PMemberPriceText);
             this.PMemberPanel.Controls.Add(this.PMemberText);
             this.PMemberPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.PMemberPanel.Location = new System.Drawing.Point(474, 199);
+            this.PMemberPanel.Location = new System.Drawing.Point(486, 163);
             this.PMemberPanel.Name = "PMemberPanel";
-            this.PMemberPanel.Size = new System.Drawing.Size(422, 559);
+            this.PMemberPanel.Size = new System.Drawing.Size(397, 594);
             this.PMemberPanel.TabIndex = 18;
             // 
             // PMemberCreateAccBtn
@@ -554,9 +571,9 @@
             this.PMemberCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.PMemberCreateAccBtn.IconColor = System.Drawing.Color.Black;
             this.PMemberCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PMemberCreateAccBtn.Location = new System.Drawing.Point(54, 444);
+            this.PMemberCreateAccBtn.Location = new System.Drawing.Point(55, 471);
             this.PMemberCreateAccBtn.Name = "PMemberCreateAccBtn";
-            this.PMemberCreateAccBtn.Size = new System.Drawing.Size(312, 60);
+            this.PMemberCreateAccBtn.Size = new System.Drawing.Size(285, 60);
             this.PMemberCreateAccBtn.TabIndex = 8;
             this.PMemberCreateAccBtn.Text = "GET PREMIUM PLAN NOW";
             this.PMemberCreateAccBtn.UseVisualStyleBackColor = true;
@@ -590,7 +607,7 @@
             this.PMemberPriceText.Location = new System.Drawing.Point(54, 107);
             this.PMemberPriceText.Name = "PMemberPriceText";
             this.PMemberPriceText.ReadOnly = true;
-            this.PMemberPriceText.Size = new System.Drawing.Size(312, 22);
+            this.PMemberPriceText.Size = new System.Drawing.Size(287, 22);
             this.PMemberPriceText.TabIndex = 1;
             this.PMemberPriceText.Text = "PHP. 1499.00 / MONTH";
             // 
@@ -606,7 +623,7 @@
             this.PMemberText.Location = new System.Drawing.Point(54, 53);
             this.PMemberText.Name = "PMemberText";
             this.PMemberText.ReadOnly = true;
-            this.PMemberText.Size = new System.Drawing.Size(312, 48);
+            this.PMemberText.Size = new System.Drawing.Size(287, 48);
             this.PMemberText.TabIndex = 0;
             this.PMemberText.Text = "PREMIUM";
             // 
@@ -621,9 +638,9 @@
             this.RMemberPanel.Controls.Add(this.RMemberPriceText);
             this.RMemberPanel.Controls.Add(this.RMemberText);
             this.RMemberPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.RMemberPanel.Location = new System.Drawing.Point(31, 199);
+            this.RMemberPanel.Location = new System.Drawing.Point(74, 163);
             this.RMemberPanel.Name = "RMemberPanel";
-            this.RMemberPanel.Size = new System.Drawing.Size(422, 559);
+            this.RMemberPanel.Size = new System.Drawing.Size(397, 594);
             this.RMemberPanel.TabIndex = 17;
             // 
             // RMemberCreateAccBtn
@@ -641,7 +658,7 @@
             this.RMemberCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.RMemberCreateAccBtn.IconColor = System.Drawing.Color.Black;
             this.RMemberCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RMemberCreateAccBtn.Location = new System.Drawing.Point(54, 444);
+            this.RMemberCreateAccBtn.Location = new System.Drawing.Point(41, 471);
             this.RMemberCreateAccBtn.Name = "RMemberCreateAccBtn";
             this.RMemberCreateAccBtn.Size = new System.Drawing.Size(312, 60);
             this.RMemberCreateAccBtn.TabIndex = 8;
@@ -677,7 +694,7 @@
             this.RMemberPriceText.Location = new System.Drawing.Point(54, 107);
             this.RMemberPriceText.Name = "RMemberPriceText";
             this.RMemberPriceText.ReadOnly = true;
-            this.RMemberPriceText.Size = new System.Drawing.Size(312, 22);
+            this.RMemberPriceText.Size = new System.Drawing.Size(287, 22);
             this.RMemberPriceText.TabIndex = 1;
             this.RMemberPriceText.Text = "FREE ACCOUNT";
             // 
@@ -693,7 +710,7 @@
             this.RMemberText.Location = new System.Drawing.Point(54, 53);
             this.RMemberText.Name = "RMemberText";
             this.RMemberText.ReadOnly = true;
-            this.RMemberText.Size = new System.Drawing.Size(312, 48);
+            this.RMemberText.Size = new System.Drawing.Size(287, 48);
             this.RMemberText.TabIndex = 0;
             this.RMemberText.Text = "REGULAR";
             // 
@@ -704,7 +721,7 @@
             this.MemberTagline.AutoSize = true;
             this.MemberTagline.Font = new System.Drawing.Font("TechnicBold", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MemberTagline.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.MemberTagline.Location = new System.Drawing.Point(54, 79);
+            this.MemberTagline.Location = new System.Drawing.Point(62, 23);
             this.MemberTagline.Name = "MemberTagline";
             this.MemberTagline.Size = new System.Drawing.Size(1247, 69);
             this.MemberTagline.TabIndex = 16;
@@ -1058,7 +1075,7 @@
             this.ServiceTagline.AutoSize = true;
             this.ServiceTagline.Font = new System.Drawing.Font("TechnicBold", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.ServiceTagline.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.ServiceTagline.Location = new System.Drawing.Point(358, 1157);
+            this.ServiceTagline.Location = new System.Drawing.Point(137, 10);
             this.ServiceTagline.Name = "ServiceTagline";
             this.ServiceTagline.Size = new System.Drawing.Size(1170, 69);
             this.ServiceTagline.TabIndex = 9;
@@ -1077,12 +1094,13 @@
             this.ServiceHSBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.ServiceHSBtn.IconColor = System.Drawing.Color.Black;
             this.ServiceHSBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ServiceHSBtn.Location = new System.Drawing.Point(251, 1389);
+            this.ServiceHSBtn.Location = new System.Drawing.Point(51, 250);
             this.ServiceHSBtn.Name = "ServiceHSBtn";
             this.ServiceHSBtn.Size = new System.Drawing.Size(250, 250);
             this.ServiceHSBtn.TabIndex = 10;
             this.ServiceHSBtn.Text = "Hair Styling";
             this.ServiceHSBtn.UseVisualStyleBackColor = true;
+            this.ServiceHSBtn.Click += new System.EventHandler(this.ServiceHSBtn_Click);
             // 
             // EnchanteAppointBtn
             // 
@@ -1120,12 +1138,13 @@
             this.ServiceFSBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.ServiceFSBtn.IconColor = System.Drawing.Color.Black;
             this.ServiceFSBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ServiceFSBtn.Location = new System.Drawing.Point(542, 1389);
+            this.ServiceFSBtn.Location = new System.Drawing.Point(328, 250);
             this.ServiceFSBtn.Name = "ServiceFSBtn";
             this.ServiceFSBtn.Size = new System.Drawing.Size(250, 250);
             this.ServiceFSBtn.TabIndex = 12;
             this.ServiceFSBtn.Text = "FACE && SKIN";
             this.ServiceFSBtn.UseVisualStyleBackColor = true;
+            this.ServiceFSBtn.Click += new System.EventHandler(this.ServiceFSBtn_Click);
             // 
             // ServiceMBtn
             // 
@@ -1140,12 +1159,13 @@
             this.ServiceMBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.ServiceMBtn.IconColor = System.Drawing.Color.Black;
             this.ServiceMBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ServiceMBtn.Location = new System.Drawing.Point(1385, 1389);
+            this.ServiceMBtn.Location = new System.Drawing.Point(1151, 250);
             this.ServiceMBtn.Name = "ServiceMBtn";
             this.ServiceMBtn.Size = new System.Drawing.Size(250, 250);
             this.ServiceMBtn.TabIndex = 15;
             this.ServiceMBtn.Text = "MASSAGE";
             this.ServiceMBtn.UseVisualStyleBackColor = true;
+            this.ServiceMBtn.Click += new System.EventHandler(this.ServiceMBtn_Click);
             // 
             // ServiceNCBtn
             // 
@@ -1160,12 +1180,13 @@
             this.ServiceNCBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.ServiceNCBtn.IconColor = System.Drawing.Color.Black;
             this.ServiceNCBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ServiceNCBtn.Location = new System.Drawing.Point(824, 1389);
+            this.ServiceNCBtn.Location = new System.Drawing.Point(603, 250);
             this.ServiceNCBtn.Name = "ServiceNCBtn";
             this.ServiceNCBtn.Size = new System.Drawing.Size(250, 250);
             this.ServiceNCBtn.TabIndex = 13;
             this.ServiceNCBtn.Text = "NAIL CARE";
             this.ServiceNCBtn.UseVisualStyleBackColor = true;
+            this.ServiceNCBtn.Click += new System.EventHandler(this.ServiceNCBtn_Click);
             // 
             // ServiceSpaBtn
             // 
@@ -1180,12 +1201,13 @@
             this.ServiceSpaBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.ServiceSpaBtn.IconColor = System.Drawing.Color.Black;
             this.ServiceSpaBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ServiceSpaBtn.Location = new System.Drawing.Point(1096, 1389);
+            this.ServiceSpaBtn.Location = new System.Drawing.Point(875, 250);
             this.ServiceSpaBtn.Name = "ServiceSpaBtn";
             this.ServiceSpaBtn.Size = new System.Drawing.Size(250, 250);
             this.ServiceSpaBtn.TabIndex = 14;
             this.ServiceSpaBtn.Text = "SPA";
             this.ServiceSpaBtn.UseVisualStyleBackColor = true;
+            this.ServiceSpaBtn.Click += new System.EventHandler(this.ServiceSpaBtn_Click);
             // 
             // EnchanteMemberPage
             // 
@@ -1274,6 +1296,171 @@
             this.MembershipCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
             this.MembershipCard.SelectedCard = "Card4";
             // 
+            // ServicePanel
+            // 
+            this.ServicePanel.Controls.Add(this.ServiceMassage);
+            this.ServicePanel.Controls.Add(this.ServiceSpa);
+            this.ServicePanel.Controls.Add(this.ServiceNailCare);
+            this.ServicePanel.Controls.Add(this.ServiceFaceSkin);
+            this.ServicePanel.Controls.Add(this.ServiceHairStyling);
+            this.ServicePanel.Controls.Add(this.ServiceType);
+            this.ServicePanel.Location = new System.Drawing.Point(221, 1226);
+            this.ServicePanel.Name = "ServicePanel";
+            this.ServicePanel.Size = new System.Drawing.Size(1444, 751);
+            this.ServicePanel.TabIndex = 23;
+            // 
+            // ServiceCard
+            // 
+            this.ServiceCard.ContainerControl = this.ServicePanel;
+            this.ServiceCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
+            this.ServiceCard.SelectedCard = "Spa";
+            // 
+            // ServiceType
+            // 
+            this.ServiceCard.SetCardName(this.ServiceType, "Type");
+            this.ServiceType.Controls.Add(this.ServiceHSBtn);
+            this.ServiceType.Controls.Add(this.ServiceTagline);
+            this.ServiceType.Controls.Add(this.ServiceFSBtn);
+            this.ServiceType.Controls.Add(this.ServiceNCBtn);
+            this.ServiceType.Controls.Add(this.ServiceSpaBtn);
+            this.ServiceType.Controls.Add(this.ServiceMBtn);
+            this.ServiceType.Location = new System.Drawing.Point(0, 0);
+            this.ServiceCard.SetMinimumSize(this.ServiceType, new System.Drawing.Size(200, 100));
+            this.ServiceType.Name = "ServiceType";
+            this.ServiceCard.SetPreferredSize(this.ServiceType, new System.Drawing.Size(200, 100));
+            this.ServiceType.Size = new System.Drawing.Size(1444, 751);
+            this.ServiceType.TabIndex = 0;
+            // 
+            // ServiceHairStyling
+            // 
+            this.ServiceHairStyling.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ServiceCard.SetCardName(this.ServiceHairStyling, "Hair");
+            this.ServiceHairStyling.Controls.Add(this.ServiceHairLbl);
+            this.ServiceHairStyling.Location = new System.Drawing.Point(0, 0);
+            this.ServiceCard.SetMinimumSize(this.ServiceHairStyling, new System.Drawing.Size(200, 100));
+            this.ServiceHairStyling.Name = "ServiceHairStyling";
+            this.ServiceCard.SetPreferredSize(this.ServiceHairStyling, new System.Drawing.Size(200, 100));
+            this.ServiceHairStyling.Size = new System.Drawing.Size(1444, 751);
+            this.ServiceHairStyling.TabIndex = 1;
+            // 
+            // ServiceFaceSkin
+            // 
+            this.ServiceFaceSkin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ServiceCard.SetCardName(this.ServiceFaceSkin, "Face");
+            this.ServiceFaceSkin.Controls.Add(this.ServiceFaceSkinLbl);
+            this.ServiceFaceSkin.Location = new System.Drawing.Point(0, 0);
+            this.ServiceCard.SetMinimumSize(this.ServiceFaceSkin, new System.Drawing.Size(200, 100));
+            this.ServiceFaceSkin.Name = "ServiceFaceSkin";
+            this.ServiceCard.SetPreferredSize(this.ServiceFaceSkin, new System.Drawing.Size(200, 100));
+            this.ServiceFaceSkin.Size = new System.Drawing.Size(1444, 751);
+            this.ServiceFaceSkin.TabIndex = 2;
+            // 
+            // ServiceNailCare
+            // 
+            this.ServiceNailCare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ServiceCard.SetCardName(this.ServiceNailCare, "Nails");
+            this.ServiceNailCare.Controls.Add(this.ServiceNailLbl);
+            this.ServiceNailCare.Location = new System.Drawing.Point(0, 0);
+            this.ServiceCard.SetMinimumSize(this.ServiceNailCare, new System.Drawing.Size(200, 100));
+            this.ServiceNailCare.Name = "ServiceNailCare";
+            this.ServiceCard.SetPreferredSize(this.ServiceNailCare, new System.Drawing.Size(200, 100));
+            this.ServiceNailCare.Size = new System.Drawing.Size(1444, 751);
+            this.ServiceNailCare.TabIndex = 3;
+            // 
+            // ServiceSpa
+            // 
+            this.ServiceSpa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ServiceCard.SetCardName(this.ServiceSpa, "Spa");
+            this.ServiceSpa.Controls.Add(this.ServiceSpaLbl);
+            this.ServiceSpa.Location = new System.Drawing.Point(0, 0);
+            this.ServiceCard.SetMinimumSize(this.ServiceSpa, new System.Drawing.Size(200, 100));
+            this.ServiceSpa.Name = "ServiceSpa";
+            this.ServiceCard.SetPreferredSize(this.ServiceSpa, new System.Drawing.Size(200, 100));
+            this.ServiceSpa.Size = new System.Drawing.Size(1444, 751);
+            this.ServiceSpa.TabIndex = 4;
+            // 
+            // ServiceMassage
+            // 
+            this.ServiceMassage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ServiceCard.SetCardName(this.ServiceMassage, "Massage");
+            this.ServiceMassage.Controls.Add(this.ServiceMassageLbl);
+            this.ServiceMassage.Location = new System.Drawing.Point(0, 0);
+            this.ServiceCard.SetMinimumSize(this.ServiceMassage, new System.Drawing.Size(200, 100));
+            this.ServiceMassage.Name = "ServiceMassage";
+            this.ServiceCard.SetPreferredSize(this.ServiceMassage, new System.Drawing.Size(200, 100));
+            this.ServiceMassage.Size = new System.Drawing.Size(1444, 751);
+            this.ServiceMassage.TabIndex = 5;
+            // 
+            // ServiceHairLbl
+            // 
+            this.ServiceHairLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ServiceHairLbl.AutoSize = true;
+            this.ServiceHairLbl.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.ServiceHairLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ServiceHairLbl.Location = new System.Drawing.Point(107, 118);
+            this.ServiceHairLbl.Name = "ServiceHairLbl";
+            this.ServiceHairLbl.Size = new System.Drawing.Size(689, 51);
+            this.ServiceHairLbl.TabIndex = 3;
+            this.ServiceHairLbl.Text = "Discover Your Own Hair Style\r\n";
+            // 
+            // ServiceFaceSkinLbl
+            // 
+            this.ServiceFaceSkinLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ServiceFaceSkinLbl.AutoSize = true;
+            this.ServiceFaceSkinLbl.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.ServiceFaceSkinLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ServiceFaceSkinLbl.Location = new System.Drawing.Point(107, 118);
+            this.ServiceFaceSkinLbl.Name = "ServiceFaceSkinLbl";
+            this.ServiceFaceSkinLbl.Size = new System.Drawing.Size(972, 51);
+            this.ServiceFaceSkinLbl.TabIndex = 4;
+            this.ServiceFaceSkinLbl.Text = "Rejuvenate Your Skin and Make it Younger";
+            // 
+            // ServiceNailLbl
+            // 
+            this.ServiceNailLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ServiceNailLbl.AutoSize = true;
+            this.ServiceNailLbl.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.ServiceNailLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ServiceNailLbl.Location = new System.Drawing.Point(107, 118);
+            this.ServiceNailLbl.Name = "ServiceNailLbl";
+            this.ServiceNailLbl.Size = new System.Drawing.Size(673, 51);
+            this.ServiceNailLbl.TabIndex = 5;
+            this.ServiceNailLbl.Text = "Make art through your Nails";
+            // 
+            // ServiceSpaLbl
+            // 
+            this.ServiceSpaLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ServiceSpaLbl.AutoSize = true;
+            this.ServiceSpaLbl.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.ServiceSpaLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ServiceSpaLbl.Location = new System.Drawing.Point(107, 118);
+            this.ServiceSpaLbl.Name = "ServiceSpaLbl";
+            this.ServiceSpaLbl.Size = new System.Drawing.Size(558, 51);
+            this.ServiceSpaLbl.TabIndex = 6;
+            this.ServiceSpaLbl.Text = "Rest. Refresh. Restore.";
+            // 
+            // ServiceMassageLbl
+            // 
+            this.ServiceMassageLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ServiceMassageLbl.AutoSize = true;
+            this.ServiceMassageLbl.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.ServiceMassageLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ServiceMassageLbl.Location = new System.Drawing.Point(107, 118);
+            this.ServiceMassageLbl.Name = "ServiceMassageLbl";
+            this.ServiceMassageLbl.Size = new System.Drawing.Size(655, 51);
+            this.ServiceMassageLbl.TabIndex = 7;
+            this.ServiceMassageLbl.Text = "We\'re hands above the rest!";
+            // 
             // Enchante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1318,6 +1505,20 @@
             this.EnchanteStaffPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.EnchanteParentCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MembershipCard)).EndInit();
+            this.ServicePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ServiceCard)).EndInit();
+            this.ServiceType.ResumeLayout(false);
+            this.ServiceType.PerformLayout();
+            this.ServiceHairStyling.ResumeLayout(false);
+            this.ServiceHairStyling.PerformLayout();
+            this.ServiceFaceSkin.ResumeLayout(false);
+            this.ServiceFaceSkin.PerformLayout();
+            this.ServiceNailCare.ResumeLayout(false);
+            this.ServiceNailCare.PerformLayout();
+            this.ServiceSpa.ResumeLayout(false);
+            this.ServiceSpa.PerformLayout();
+            this.ServiceMassage.ResumeLayout(false);
+            this.ServiceMassage.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1396,6 +1597,19 @@
         private System.Windows.Forms.Label PMemberAccLbl;
         private System.Windows.Forms.TextBox PMemberPriceText;
         private System.Windows.Forms.TextBox PMemberText;
+        private System.Windows.Forms.Panel ServicePanel;
+        private Syncfusion.Windows.Forms.Tools.CardLayout ServiceCard;
+        private System.Windows.Forms.Panel ServiceMassage;
+        private System.Windows.Forms.Panel ServiceSpa;
+        private System.Windows.Forms.Panel ServiceNailCare;
+        private System.Windows.Forms.Panel ServiceFaceSkin;
+        private System.Windows.Forms.Panel ServiceHairStyling;
+        private System.Windows.Forms.Panel ServiceType;
+        private System.Windows.Forms.Label ServiceHairLbl;
+        private System.Windows.Forms.Label ServiceFaceSkinLbl;
+        private System.Windows.Forms.Label ServiceNailLbl;
+        private System.Windows.Forms.Label ServiceSpaLbl;
+        private System.Windows.Forms.Label ServiceMassageLbl;
     }
 }
 
