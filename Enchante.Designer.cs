@@ -2058,9 +2058,9 @@
             this.RegularAccIDNumberText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.RegularAccIDNumberText.Location = new System.Drawing.Point(119, 647);
             this.RegularAccIDNumberText.Name = "RegularAccIDNumberText";
+            this.RegularAccIDNumberText.ReadOnly = true;
             this.RegularAccIDNumberText.Size = new System.Drawing.Size(550, 37);
             this.RegularAccIDNumberText.TabIndex = 74;
-            this.RegularAccIDNumberText.Visible = false;
             // 
             // RegularConfirmPassPanel
             // 
@@ -2149,7 +2149,6 @@
             this.RegularAccIDNumberLbl.Size = new System.Drawing.Size(240, 29);
             this.RegularAccIDNumberLbl.TabIndex = 75;
             this.RegularAccIDNumberLbl.Text = "Member ID Number:";
-            this.RegularAccIDNumberLbl.Visible = false;
             // 
             // iconButton1
             // 

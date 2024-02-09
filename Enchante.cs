@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -129,6 +131,7 @@ namespace Enchante
                 }
             }
         }
+
 
         private void ScrollToCoordinates(int x, int y)
         {
@@ -614,6 +617,7 @@ namespace Enchante
         private void RMemberCreateAccBtn_Click(object sender, EventArgs e)
         {
             Registration.PanelShow(RegularPlanPanel);
+            RegularAccIDGenerator();
         }
 
         private void PMemberCreateAccBtn_Click(object sender, EventArgs e)
@@ -682,13 +686,54 @@ namespace Enchante
 
             }
         }
+        public class RegularClientIDGenerator
+        {
+            private static Random random = new Random();
+
+            public static string GenerateClientID()
+            {
+                // Get the current year and extract the last digit
+                int currentYear = DateTime.Now.Year;
+                int lastDigitOfYear = currentYear % 100;
+
+                // Generate a random 6-digit number
+                string randomPart = GenerateRandomNumber();
+
+                // Format the ClientID
+                string clientID = $"R-{lastDigitOfYear:D2}-{randomPart:D6}";
+
+                return clientID;
+            }
+
+            private static string GenerateRandomNumber()
+            {
+                // Generate a random 6-digit number
+                int randomNumber = random.Next(100000, 999999);
+
+                return randomNumber.ToString();
+            }
+        }
+        private void RegularAccIDGenerator()
+        {
+            RegularAccIDNumberText.Text = "";
+
+            // Call the GenerateClientID method using the type name
+            string generatedClientID = RegularClientIDGenerator.GenerateClientID();
+
+            RegularAccIDNumberText.Text = generatedClientID;
+        }
 
         private void RegularCreateAccBtn_Click(object sender, EventArgs e)
         {
             DateTime selectedDate = RegularBdayPicker.Value;
+            DateTime currentDate = DateTime.Now;
 
+            string rCreated = currentDate.ToString("MM-dd-yyyy");
+            string rStatus = "Active";
+            string rType = "Regular";
             string rFirstname = RegularFirstNameText.Text;
             string rLastname = RegularLastNameText.Text;
+            string rBday = selectedDate.ToString("MM-dd-yyyy");
             string rAge = RegularAgeText.Text;
             string rGender = RegularGenderComboText.Text;
             string rNumber = RegularMobileNumText.Text;
@@ -699,9 +744,10 @@ namespace Enchante
 
             Regex nameRegex = new Regex("^[A-Z][a-zA-Z]+(?: [a-zA-Z]+)*$");
             Regex gmailRegex = new Regex(@"^[A-Za-z0-9._%+-]*\d*@gmail\.com$");
+            Regex passwordRegex = new Regex("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?])[A-Za-z\\d!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]{8,}$");
 
             string hashedPassword = HashHelper.HashString(rPass);    // Password hashed
-            string fixedSalt = HashHelper_Salt.HashString_Salt("EatNRun" + rPass + "2023");    //Fixed Salt
+            string fixedSalt = HashHelper_Salt.HashString_Salt("Enchante" + rPass + "2024");    //Fixed Salt
             string perUserSalt = HashHelper_SaltperUser.HashString_SaltperUser(rPass + rMemberID);    //Per User salt
 
             int age = DateTime.Now.Year - selectedDate.Year;
@@ -749,6 +795,95 @@ namespace Enchante
 
                 return;
             }
+            else if (!gmailRegex.IsMatch(rEmailAdd))
+            {
+                RegularEmailErrorLbl.Visible = true;
+                RegularEmailErrorLbl.Text = "Invalid Email Format";
+                return;
+            }
+            else if (!passwordRegex.IsMatch(rPass))
+            {
+                RegularPassErrorLbl.Visible = true;
+                RegularPassErrorLbl.Text = "Invalid Password Format";
+                return;
+            }
+            else if (rPass!=rConfirmPass)
+            {
+                RegularConfirmPassErrorLbl.Visible = true;
+                RegularPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
+                return;
+            }
+            else
+            {
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    {
+                        connection.Open();
+
+                        string insertQuery = "INSERT INTO membershipaccount (MembershipType, MemberIDNumber, AccountStatus, FirstName, " +
+                            "LastName, Birthday, Age, CPNumber, EmailAdd, HashedPass, SaltedPass, UserSaltedPass, AccountCreated) " +
+                            "VALUES (@type, @ID, @status, @firstName, @lastName, @bday, @age, @cpnum, @email, @hashedpass, @saltedpass, @usersaltedpass, @created)"; 
+
+
+
+                        //string insertQuery = "INSERT INTO membershipaccount (MembershipType, MemberIDNumber, AccountStatus, FirstName, " +
+                        //    "LastName, Birthday, Age, CPNumber, EmailAdd, HashedPass, SaltedPass, UserSaltedPass, PlanPeriod, " +
+                        //    "PaymentType, Cardholder Name, CardNumber, CardExpiration, CVCCode, AccountCreated, PlanExpiration, PlanRenewal) " +
+                        //    "VALUES (@type, @ID, @status, @firstName, @lastName, @bday, @age, @cpnum, @email, @hashedpass, @saltedpass, @usersaltedpass, " +
+                        //    "@period, @payment, @cardname, @cardnumber, @cardexpiration, @cvc, @created, @planExpiration, @planRenew)";
+
+                        MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
+                        cmd.Parameters.AddWithValue("@type", rType);
+                        cmd.Parameters.AddWithValue("@ID", rMemberID);
+                        cmd.Parameters.AddWithValue("@status", rStatus);
+                        cmd.Parameters.AddWithValue("@firstName", rFirstname);
+                        cmd.Parameters.AddWithValue("@lastName", rLastname);
+                        cmd.Parameters.AddWithValue("@bday", rBday);
+                        cmd.Parameters.AddWithValue("@age", rAge);
+                        cmd.Parameters.AddWithValue("@cpnum", rNumber);
+                        cmd.Parameters.AddWithValue("@email", rEmailAdd);
+                        cmd.Parameters.AddWithValue("@hashedpass", hashedPassword);
+                        cmd.Parameters.AddWithValue("@saltedpass", fixedSalt);
+                        cmd.Parameters.AddWithValue("@usersaltedpass", perUserSalt);
+                        cmd.Parameters.AddWithValue("@created", rCreated);
+
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // Successful insertion
+                    MessageBox.Show("Regular Account is successfully created.", "Welcome to Enchanté", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RegularAccIDGenerator();
+                    RegularMembershipBoxClear();
+                    MemberLocationAndColor();
+
+                }
+                catch (MySqlException ex)
+                {
+                    // Handle MySQL database exception
+                    MessageBox.Show("MySQL Error: " + ex.Message, "Creating Regular Account Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    // Make sure to close the connection
+                    connection.Close();
+                }
+            }
+
+
+        }
+        private void RegularMembershipBoxClear()
+        {
+            RegularFirstNameText.Text = "";
+            RegularLastNameText.Text = "";
+            RegularAgeText.Text = "";
+            RegularGenderComboText.SelectedIndex = -1;
+            RegularMobileNumText.Text = "";
+            RegularEmailText.Text = "";
+            RegularAccIDNumberText.Text = "";
+            RegularPassText.Text = "";
+            RegularConfirmPassText.Text = "";
+
 
         }
 
