@@ -33,7 +33,7 @@ namespace Enchante
 
             //Landing Pages Cardlayout Panel Manager
             ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteMngrPage, EnchanteMemberPage,EnchanteAdminPage);
-            Registration = new Registration(RegularPanel, PremiumPanel, SuperVIPPanel);
+            Registration = new Registration(MembershipPlanPanel, RegularPlanPanel, PremiumPlanPanel, SVIPPlanPanel);
 
             //icon tool tip
             iconToolTip = new System.Windows.Forms.ToolTip();
@@ -44,6 +44,7 @@ namespace Enchante
         private void Enchante_Load(object sender, EventArgs e)
         {
             ParentPanelShow.PanelShow(EnchanteHomePage);
+            Registration.PanelShow(MembershipPlanPanel);
         }
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -73,18 +74,7 @@ namespace Enchante
 
         private void EnchanteAppointBtn_Click(object sender, EventArgs e)
         {
-            //location scroll
-            int serviceSectionY = 1800;
-            ScrollToCoordinates(0, serviceSectionY);
-
-            //Change color once clicked
-            EnchanteMemberBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            //Change back to original
-            EnchanteHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteReviewBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteTeamBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteAbtUsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            MemberLocationAndColor();
         }
 
         private void EnchanteHLoginBtn_Click(object sender, EventArgs e)
@@ -93,16 +83,13 @@ namespace Enchante
 
             if (EnchanteLoginForm.Visible == false)
             {
-                // Scroll to the Home position (0, 0)
-                ScrollToCoordinates(0, 0);
-
+                HomeLocationAndColor();
                 EnchanteLoginForm.Visible = true;
                 return;
             }
             else
             {
-                // Scroll to the Home position (0, 0)
-                ScrollToCoordinates(0, 0);
+                HomeLocationAndColor();
                 EnchanteLoginForm.Visible = false;
                     
             }
@@ -110,6 +97,10 @@ namespace Enchante
         }
 
         private void EnchanteHomeBtn_Click(object sender, EventArgs e)
+        {
+            HomeLocationAndColor();
+        }
+        private void HomeLocationAndColor()
         {
             // Scroll to the Home position (0, 0)
             ScrollToCoordinates(0, 0);
@@ -124,12 +115,14 @@ namespace Enchante
             EnchanteAbtUsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
         }
 
-
         private void EnchanteServiceBtn_Click(object sender, EventArgs e)
         {
+            ServiceLocationAndColor();
+        }
 
-
-            int serviceSectionY = 900;
+        private void ServiceLocationAndColor()
+        {
+            int serviceSectionY = 1000;
             ScrollToCoordinates(0, serviceSectionY);
             //Change color once clicked
             EnchanteServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
@@ -139,17 +132,20 @@ namespace Enchante
             EnchanteReviewBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             EnchanteTeamBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             EnchanteAbtUsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-
         }
 
         private void EnchanteMemberBtn_Click(object sender, EventArgs e)
         {
+            MemberLocationAndColor();
+        }
+
+        private void MemberLocationAndColor()
+        {
+            Registration.PanelShow(MembershipPlanPanel);
+
             //location scroll
-            int serviceSectionY = 1600;
+            int serviceSectionY = 1700;
             ScrollToCoordinates(0, serviceSectionY);
-            
-            //Regisration Panel Reset
-            RegistrationPanel.Visible = false;
 
             //Change color once clicked
             EnchanteMemberBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
@@ -160,9 +156,17 @@ namespace Enchante
             EnchanteTeamBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             EnchanteAbtUsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
         }
-
         private void EnchanteReviewBtn_Click(object sender, EventArgs e)
         {
+            ReviewLocationAndColor();
+        }
+
+        private void ReviewLocationAndColor()
+        {
+            ////location scroll
+            //int serviceSectionY = 1800;
+            //ScrollToCoordinates(0, serviceSectionY);
+            
             //Change color once clicked
             EnchanteReviewBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             //Change back to original
@@ -172,9 +176,17 @@ namespace Enchante
             EnchanteTeamBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             EnchanteAbtUsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
         }
-
         private void EnchanteTeamBtn_Click(object sender, EventArgs e)
         {
+            TeamLocationAndColor();
+        }
+
+        private void TeamLocationAndColor()
+        {
+            ////location scroll
+            //int serviceSectionY = 1800;
+            //ScrollToCoordinates(0, serviceSectionY);
+
             //Change color once clicked
             EnchanteTeamBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             //Change back to original
@@ -184,9 +196,17 @@ namespace Enchante
             EnchanteReviewBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             EnchanteAbtUsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
         }
-
         private void EnchanteAbtUsBtn_Click(object sender, EventArgs e)
         {
+            AboutUsLocatonAndColor();
+        }
+
+        private void AboutUsLocatonAndColor()
+        {
+            ////location scroll
+            //int serviceSectionY = 1800;
+            //ScrollToCoordinates(0, serviceSectionY);
+
             //Change color once clicked
             EnchanteAbtUsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             //Change back to original
@@ -412,18 +432,7 @@ namespace Enchante
 
         private void LoginRegisterHereLbl_Click(object sender, EventArgs e)
         {
-            //location scroll
-            int serviceSectionY = 1600;
-            ScrollToCoordinates(0, serviceSectionY);
-
-            //Change color once clicked
-            EnchanteMemberBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            //Change back to original
-            EnchanteHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteReviewBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteTeamBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteAbtUsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            MemberLocationAndColor();
 
         }
 
@@ -477,37 +486,23 @@ namespace Enchante
 
         private void RMemberCreateAccBtn_Click(object sender, EventArgs e)
         {
-            RegistrationPanel.Visible = true;
-            //RegularPanel.Visible = true;
-            Registration.PanelShow(RegularPanel);
-
+            Registration.PanelShow(RegularPlanPanel);
         }
 
         private void PMemberCreateAccBtn_Click(object sender, EventArgs e)
         {
-            RegistrationPanel.Visible = true;
-            //PremiumPanel.Visible = true;
-            Registration.PanelShow(PremiumPanel);
+            Registration.PanelShow(PremiumPlanPanel);
         }
 
         private void SVIPMemberCreateAccBtn_Click(object sender, EventArgs e)
         {
-            RegistrationPanel.Visible = true;
-            //SuperVIPPanel.Visible = true;
-            Registration.PanelShow(SuperVIPPanel);
-
+            Registration.PanelShow(SVIPPlanPanel);
         }
 
         private void RegularExitBtn_Click(object sender, EventArgs e)
         {
-            if(RegistrationPanel.Visible == true)
-            {
-                RegistrationPanel.Visible = false;
-            }
-            else
-            {
-                RegistrationPanel.Visible = true;
-            }
+            Registration.PanelShow(MembershipPlanPanel);
+
         }
 
 

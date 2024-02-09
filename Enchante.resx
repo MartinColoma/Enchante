@@ -120,43 +120,9 @@
   <metadata name="EnchanteParentCard.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="EnchanteParentCard.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="RegistrationCard.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="MembershipCard.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>179, 17</value>
   </metadata>
-  <data name="SVIPMemberAccLbl.Text" xml:space="preserve">
-    <value>* FREE ACCOUNT CREATION
-* BOOK YOUR SALON APPOINMENT
-CONVENIENTLY
-* SELECTED HOT DISCOUNTS
-* BIRTHDAY TREATMENT DISCOUNTS
-* SELECT YOUR OWN STYLISTS
-* NO WAITING TIME
-* ENJOY A PRIVATE ROOM ALL FOR 
-YOURSELF (WITH COMPLIMENTARY 
-FOODS AND DRINKS)
-* NO LIMIT OF GUESTS PER 
-APPOINTMENT
-* CANCEL ANYTIME
-
-
-</value>
-  </data>
-  <data name="PMemberAccLbl.Text" xml:space="preserve">
-    <value>* FREE ACCOUNT CREATION
-* BOOK YOUR SALON APPOINMENT
-CONVENIENTLY
-* SELECTED HOT DISCOUNTS
-* BIRTHDAY TREATMENT DISCOUNTS
-* SELECT YOUR OWN STYLISTS
-* MAX OF TEN (10) GUESTS PER 
-APPOINTMENT
-* CANCEL ANYTIME
-
-</value>
-  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>48</value>
   </metadata>
