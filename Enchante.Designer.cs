@@ -44,6 +44,7 @@
             this.EnchanteHomeBtn = new FontAwesome.Sharp.IconButton();
             this.EnchanteHeaderLogo = new System.Windows.Forms.PictureBox();
             this.EnchanteHomeScrollPanel = new System.Windows.Forms.Panel();
+
             this.ServicePanel = new System.Windows.Forms.Panel();
             this.ServiceMassage = new System.Windows.Forms.Panel();
             this.ServiceMassageLbl = new System.Windows.Forms.Label();
@@ -191,7 +192,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.MembershipCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ServiceCard)).BeginInit();
             this.RegularConfirmPassPanel.SuspendLayout();
-
             this.SuspendLayout();
             // 
             // EnchanteParentContainer
@@ -1335,6 +1335,7 @@
             this.SVIPMemberCreateAccBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+
             this.SVIPMemberCreateAccBtn.AutoSize = true;
             this.SVIPMemberCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SVIPMemberCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
@@ -1415,6 +1416,7 @@
             this.PMemberPanel.Location = new System.Drawing.Point(486, 163);
             this.PMemberPanel.Name = "PMemberPanel";
             this.PMemberPanel.Size = new System.Drawing.Size(397, 594);
+
             this.PMemberPanel.TabIndex = 18;
             // 
             // PMemberCreateAccBtn
@@ -1542,6 +1544,7 @@
             this.RMemberAccLbl.Text = "* FREE ACCOUNT CREATION\r\n* BOOK YOUR SALON APPOINMENT\r\nCONVENIENTLY\r\n* MAX OF THR" +
     "EE (3) GUESTS PER \r\nAPPOINTMENT\r\n* APPOINTMENT CANCELLATION\r\nCHARGES MAY OCCUR\r\n" +
     "";
+
 
             // 
             // RMemberPriceText
@@ -1930,10 +1933,12 @@
             this.EDP1.Location = new System.Drawing.Point(1154, 325);
             this.EDP1.Name = "EDP1";
             this.EDP1.Size = new System.Drawing.Size(591, 622);
+
             this.EDP1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.EDP1.TabIndex = 2;
             this.EDP1.TabStop = false;
             // 
+
             // EnchanteAppointBtn
             // 
             this.EnchanteAppointBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
