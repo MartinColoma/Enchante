@@ -34,7 +34,6 @@ namespace Enchante
         //gender combo box
         private string[] genders = { "Male", "Female", "Prefer Not to Say" };
 
-
         public Enchante()
         {
             InitializeComponent();
@@ -42,10 +41,12 @@ namespace Enchante
             // Exit MessageBox 
             this.FormClosing += new FormClosingEventHandler(MainForm_FormClosing);
 
+
             //Landing Pages Cardlayout Panel Manager
             ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteMngrPage, EnchanteMemberPage,EnchanteAdminPage);
             Registration = new Registration(MembershipPlanPanel, RegularPlanPanel, PremiumPlanPanel, SVIPPlanPanel);
             Service = new ServiceCard(ServiceType, ServiceHairStyling, ServiceFaceSkin, ServiceNailCare, ServiceSpa, ServiceMassage);
+
 
 
             //icon tool tip
@@ -150,13 +151,17 @@ namespace Enchante
 
             if (EnchanteLoginForm.Visible == false)
             {
+
                 HomeLocationAndColor();
+
                 EnchanteLoginForm.Visible = true;
                 return;
             }
             else
             {
+
                 HomeLocationAndColor();
+
                 EnchanteLoginForm.Visible = false;
                     
             }
@@ -341,6 +346,7 @@ namespace Enchante
             {
                 LoginPassText.UseSystemPasswordChar = true;
                 ShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+
 
             }
         }
@@ -886,7 +892,6 @@ namespace Enchante
 
 
         }
-
 
     }
 }

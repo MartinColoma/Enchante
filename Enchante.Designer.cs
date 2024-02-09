@@ -191,6 +191,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.MembershipCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ServiceCard)).BeginInit();
             this.RegularConfirmPassPanel.SuspendLayout();
+
             this.SuspendLayout();
             // 
             // EnchanteParentContainer
@@ -1541,6 +1542,7 @@
             this.RMemberAccLbl.Text = "* FREE ACCOUNT CREATION\r\n* BOOK YOUR SALON APPOINMENT\r\nCONVENIENTLY\r\n* MAX OF THR" +
     "EE (3) GUESTS PER \r\nAPPOINTMENT\r\n* APPOINTMENT CANCELLATION\r\nCHARGES MAY OCCUR\r\n" +
     "";
+
             // 
             // RMemberPriceText
             // 
