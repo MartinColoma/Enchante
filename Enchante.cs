@@ -554,6 +554,112 @@ namespace Enchante
             else
             {
                 //db connection query
+                string email = LoginEmailAddText.Text;
+                string password = LoginPassText.Text;
+                string passchecker = HashHelper.HashString(password); // Assuming "enteredPassword" is supposed to be "LoginPassText"
+
+                try
+                {
+                    connection.Open();
+
+                    string queryApproved = "SELECT FirstName, MemberIDNumber, MembershipType, HashedPass FROM membershipaccount WHERE EmailAdd = @email";
+
+                    using (MySqlCommand cmdApproved = new MySqlCommand(queryApproved, connection))
+                    {
+                        cmdApproved.Parameters.AddWithValue("@email", email);
+
+                        using (MySqlDataReader readerApproved = cmdApproved.ExecuteReader())
+                        {
+                            if (readerApproved.Read())
+                            {
+                                string name = readerApproved["FirstName"].ToString();
+                                string membertype = readerApproved["MembershipType"].ToString();
+
+                                if (membertype == "Regular")
+                                {
+                                    // Retrieve the HashedPass column
+                                    string hashedPasswordFromDB = readerApproved["HashedPass"].ToString();
+
+                                    // Check if the entered password matches
+                                    bool passwordMatches = hashedPasswordFromDB.Equals(passchecker);
+
+                                    if (passwordMatches)
+                                    {
+                                        MessageBox.Show($"Welcome back, Regular Client {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        ParentPanelShow.PanelShow(EnchanteMemberPage);
+                                        logincredclear();
+
+                                    }
+                                    else
+                                    {
+                                        LoginEmailAddErrorLbl.Visible = false;
+                                        LoginPassErrorLbl.Visible = true;
+                                        LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
+                                    }
+                                    return;
+                                }
+                                else if (membertype == "Premium")
+                                {
+                                    // Retrieve the HashedPass column
+                                    string hashedPasswordFromDB = readerApproved["HashedPass"].ToString();
+
+                                    // Check if the entered password matches
+                                    bool passwordMatches = hashedPasswordFromDB.Equals(passchecker);
+
+                                    if (passwordMatches)
+                                    {
+                                        MessageBox.Show($"Welcome back, Premium Client {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        ParentPanelShow.PanelShow(EnchanteMemberPage);
+                                        logincredclear();
+
+                                    }
+                                    else
+                                    {
+                                        LoginEmailAddErrorLbl.Visible = false;
+                                        LoginPassErrorLbl.Visible = true;
+                                        LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
+                                    }
+                                    return;
+                                }
+                                else  if (membertype == "SVIP")
+                                {
+                                    // Retrieve the HashedPass column
+                                    string hashedPasswordFromDB = readerApproved["HashedPass"].ToString();
+
+                                    // Check if the entered password matches
+                                    bool passwordMatches = hashedPasswordFromDB.Equals(passchecker);
+
+                                    if (passwordMatches)
+                                    {
+                                        MessageBox.Show($"Welcome back, SVIP Client {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        ParentPanelShow.PanelShow(EnchanteMemberPage);
+                                        logincredclear();
+
+                                    }
+                                    else
+                                    {
+                                        LoginEmailAddErrorLbl.Visible = false;
+                                        LoginPassErrorLbl.Visible = true;
+                                        LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
+                                    }
+                                    return;
+                                }
+                            }
+
+                        }
+
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message, "Login Verifier", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    connection?.Close();
+                }
             }
         }
 
@@ -819,6 +925,7 @@ namespace Enchante
             string rCreated = currentDate.ToString("MM-dd-yyyy");
             string rStatus = "Active";
             string rType = "Regular";
+            string rPlanPeriod = "None";
             string rFirstname = RegularFirstNameText.Text;
             string rLastname = RegularLastNameText.Text;
             string rBday = selectedDate.ToString("MM-dd-yyyy");
@@ -910,8 +1017,8 @@ namespace Enchante
                         connection.Open();
 
                         string insertQuery = "INSERT INTO membershipaccount (MembershipType, MemberIDNumber, AccountStatus, FirstName, " +
-                            "LastName, Birthday, Age, CPNumber, EmailAdd, HashedPass, SaltedPass, UserSaltedPass, AccountCreated) " +
-                            "VALUES (@type, @ID, @status, @firstName, @lastName, @bday, @age, @cpnum, @email, @hashedpass, @saltedpass, @usersaltedpass, @created)"; 
+                            "LastName, Birthday, Age, CPNumber, EmailAdd, HashedPass, SaltedPass, UserSaltedPass, PlanPeriod, AccountCreated) " +
+                            "VALUES (@type, @ID, @status, @firstName, @lastName, @bday, @age, @cpnum, @email, @hashedpass, @saltedpass, @usersaltedpass, @period, @created)"; 
 
 
 
@@ -934,6 +1041,7 @@ namespace Enchante
                         cmd.Parameters.AddWithValue("@hashedpass", hashedPassword);
                         cmd.Parameters.AddWithValue("@saltedpass", fixedSalt);
                         cmd.Parameters.AddWithValue("@usersaltedpass", perUserSalt);
+                        cmd.Parameters.AddWithValue("@period", rPlanPeriod);
                         cmd.Parameters.AddWithValue("@created", rCreated);
 
                         cmd.ExecuteNonQuery();
