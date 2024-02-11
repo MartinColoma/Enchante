@@ -3545,7 +3545,7 @@
             // 
             this.MembershipCard.ContainerControl = this.MembershipPanel;
             this.MembershipCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.MembershipCard.SelectedCard = "Card3";
+            this.MembershipCard.SelectedCard = "Card5";
             // 
             // ServiceCard
             // 
@@ -3645,6 +3645,7 @@
             this.SVIPPlanExpirationText.Name = "SVIPPlanExpirationText";
             this.SVIPPlanExpirationText.Size = new System.Drawing.Size(270, 37);
             this.SVIPPlanExpirationText.TabIndex = 116;
+            this.SVIPPlanExpirationText.Visible = false;
             // 
             // Enchante
             // 
