@@ -65,7 +65,7 @@
             this.MembershipPanel = new System.Windows.Forms.Panel();
             this.SVIPPlanPanel = new System.Windows.Forms.Panel();
             this.SVIPPlanExpirationText = new System.Windows.Forms.TextBox();
-            this.SVIPMemberCopyLbl = new System.Windows.Forms.Label();
+            this.SVIPMemberIDCopyLbl = new System.Windows.Forms.Label();
             this.SVIPNewPriceText = new System.Windows.Forms.TextBox();
             this.SVIPOrigPriceText = new System.Windows.Forms.TextBox();
             this.SVIPCardInfoPanel = new System.Windows.Forms.Panel();
@@ -247,14 +247,14 @@
             this.MemberScrollPanel = new System.Windows.Forms.Panel();
             this.MemberAccountPanel = new System.Windows.Forms.Panel();
             this.MemberSignOut = new FontAwesome.Sharp.IconButton();
-            this.panel34 = new System.Windows.Forms.Panel();
-            this.label80 = new System.Windows.Forms.Label();
-            this.panel35 = new System.Windows.Forms.Panel();
-            this.iconButton33 = new FontAwesome.Sharp.IconButton();
-            this.iconButton34 = new FontAwesome.Sharp.IconButton();
-            this.iconButton35 = new FontAwesome.Sharp.IconButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.iconButton36 = new FontAwesome.Sharp.IconButton();
+            this.MemberScrollFooterStopperPanel = new System.Windows.Forms.Panel();
+            this.MemberScrollFooterStopperLbl = new System.Windows.Forms.Label();
+            this.MemberFooter = new System.Windows.Forms.Panel();
+            this.SM_EmailBtn1 = new FontAwesome.Sharp.IconButton();
+            this.SM_IGBtn1 = new FontAwesome.Sharp.IconButton();
+            this.SM_TwitterBtn1 = new FontAwesome.Sharp.IconButton();
+            this.MemberFooterLogo = new System.Windows.Forms.PictureBox();
+            this.SM_FBBtn1 = new FontAwesome.Sharp.IconButton();
             this.MemberNavBarPanel = new System.Windows.Forms.Panel();
             this.MemberAccUserBtn = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
@@ -271,98 +271,98 @@
             this.MembershipCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.ServiceCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.PremiumPlanPanel = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.iconButton5 = new FontAwesome.Sharp.IconButton();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.PremPlanExpirationText = new System.Windows.Forms.TextBox();
+            this.PremMemberIDCopyLbl = new System.Windows.Forms.Label();
+            this.PremNewPriceText = new System.Windows.Forms.TextBox();
+            this.PremOrigPriceText = new System.Windows.Forms.TextBox();
+            this.PremCardInfoPanel = new System.Windows.Forms.Panel();
+            this.PremPaymentTypeText = new System.Windows.Forms.TextBox();
+            this.PremCardNameLbl = new System.Windows.Forms.Label();
+            this.PremCardNameText = new System.Windows.Forms.TextBox();
+            this.PremCardNumLbl = new System.Windows.Forms.Label();
+            this.PremCardNumText = new System.Windows.Forms.TextBox();
+            this.PremCardNameErrorLbl = new System.Windows.Forms.Label();
+            this.PremCardNumErrorLbl = new System.Windows.Forms.Label();
+            this.PremPayPPaymentPanel = new System.Windows.Forms.Panel();
+            this.PremPayPPaymentRB = new System.Windows.Forms.RadioButton();
+            this.PremPayPPaymentBtn = new FontAwesome.Sharp.IconButton();
+            this.PremCardCVCLbl = new System.Windows.Forms.Label();
+            this.PremPayMPaymentPanel = new System.Windows.Forms.Panel();
+            this.PremPayMPaymentRB = new System.Windows.Forms.RadioButton();
+            this.PremPayMPaymentBtn = new FontAwesome.Sharp.IconButton();
+            this.PremCardCVCText = new System.Windows.Forms.TextBox();
+            this.PremGCPaymentPanel = new System.Windows.Forms.Panel();
+            this.PremGCPaymentRB = new System.Windows.Forms.RadioButton();
+            this.PremGCPaymentBtn = new FontAwesome.Sharp.IconButton();
+            this.PremCardCVCErrorLbl = new System.Windows.Forms.Label();
+            this.PremCCPaymentPanel = new System.Windows.Forms.Panel();
+            this.PremCCPaymentRB = new System.Windows.Forms.RadioButton();
+            this.PremCCPaymentBtn = new FontAwesome.Sharp.IconButton();
+            this.PremCardExpireLbl = new System.Windows.Forms.Label();
+            this.PremCardExpireErrorLbl = new System.Windows.Forms.Label();
+            this.PremCardExpireText = new System.Windows.Forms.TextBox();
+            this.PremPlanPeriodText = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.iconButton6 = new FontAwesome.Sharp.IconButton();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.iconButton7 = new FontAwesome.Sharp.IconButton();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.iconButton8 = new FontAwesome.Sharp.IconButton();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.iconButton9 = new FontAwesome.Sharp.IconButton();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.iconButton10 = new FontAwesome.Sharp.IconButton();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.label32 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.label35 = new System.Windows.Forms.Label();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.iconButton11 = new FontAwesome.Sharp.IconButton();
-            this.iconButton12 = new FontAwesome.Sharp.IconButton();
-            this.iconButton13 = new FontAwesome.Sharp.IconButton();
+            this.PremBiyearlyPlanRB = new System.Windows.Forms.RadioButton();
+            this.PremBiyearlyPlanLbl = new System.Windows.Forms.Label();
+            this.PremBiyearlyPlanRenewText = new System.Windows.Forms.TextBox();
+            this.PremBiyearlyPlanDiscLbl = new System.Windows.Forms.Label();
+            this.PremBiyearlyPlanBtn = new FontAwesome.Sharp.IconButton();
+            this.PremYearlyPlanPanel = new System.Windows.Forms.Panel();
+            this.PremYearlyPlanRB = new System.Windows.Forms.RadioButton();
+            this.PremYearlyPlanLbl = new System.Windows.Forms.Label();
+            this.PremYearlyPlanRenewText = new System.Windows.Forms.TextBox();
+            this.PremYearlyPlanDiscLbl = new System.Windows.Forms.Label();
+            this.PremYearlyPlanBtn = new FontAwesome.Sharp.IconButton();
+            this.PremMonthlyPlanPanel = new System.Windows.Forms.Panel();
+            this.PremMonthlyPlanRB = new System.Windows.Forms.RadioButton();
+            this.PremMonthlyPlanLbl = new System.Windows.Forms.Label();
+            this.PremMonthlyPlanRenewText = new System.Windows.Forms.TextBox();
+            this.PremMonthlyPlanBtn = new FontAwesome.Sharp.IconButton();
+            this.PremSelectPaymentLbl = new System.Windows.Forms.Label();
+            this.PremBasicInfoLbl = new System.Windows.Forms.Label();
+            this.PremMemberIDLbl = new System.Windows.Forms.Label();
+            this.PremConfirmPassPanel = new System.Windows.Forms.Panel();
+            this.PremShowHideConfirmPassBtn = new FontAwesome.Sharp.IconButton();
+            this.PremConfirmPassText = new System.Windows.Forms.TextBox();
+            this.PremConfirmPassErrorLbl = new System.Windows.Forms.Label();
+            this.PremMemberIDText = new System.Windows.Forms.TextBox();
+            this.PremConfirmPassLbl = new System.Windows.Forms.Label();
+            this.PremLastNameErrorLbl = new System.Windows.Forms.Label();
+            this.PremFirstNameErrorLbl = new System.Windows.Forms.Label();
+            this.PremCPNumErrorLbl = new System.Windows.Forms.Label();
+            this.PremGenderErrorLbl = new System.Windows.Forms.Label();
+            this.PremAgeErrorLbl = new System.Windows.Forms.Label();
+            this.PremEmailErrorLbl = new System.Windows.Forms.Label();
+            this.PremPassPanel = new System.Windows.Forms.Panel();
+            this.PremShowHidePassBtn = new FontAwesome.Sharp.IconButton();
+            this.PremPassText = new System.Windows.Forms.TextBox();
+            this.PremPassErrorLbl = new System.Windows.Forms.Label();
+            this.PremPassLbl = new System.Windows.Forms.Label();
+            this.PremEmailText = new System.Windows.Forms.TextBox();
+            this.PremEmailLbl = new System.Windows.Forms.Label();
+            this.PremCreateAccLbl = new System.Windows.Forms.Label();
+            this.PremCPNumText = new System.Windows.Forms.TextBox();
+            this.PremCPNumLbl = new System.Windows.Forms.Label();
+            this.PremGenderComboText = new System.Windows.Forms.ComboBox();
+            this.PremGenderLbl = new System.Windows.Forms.Label();
+            this.PremBdayPicker = new System.Windows.Forms.DateTimePicker();
+            this.PremFooterStopperPanel = new System.Windows.Forms.Panel();
+            this.PremFooterStopperLbl = new System.Windows.Forms.Label();
+            this.PremAgeText = new System.Windows.Forms.TextBox();
+            this.PremAgeLbl = new System.Windows.Forms.Label();
+            this.PremBdayLbl = new System.Windows.Forms.Label();
+            this.PremLastNameText = new System.Windows.Forms.TextBox();
+            this.PremLastNameLbl = new System.Windows.Forms.Label();
+            this.PremFirstNameText = new System.Windows.Forms.TextBox();
+            this.PremFirstNameLbl = new System.Windows.Forms.Label();
+            this.PremPlanPeriodLbl = new System.Windows.Forms.Label();
+            this.PremSelectedPlanText = new System.Windows.Forms.TextBox();
+            this.PremSelectedLbl = new System.Windows.Forms.Label();
+            this.PremAccLbl = new System.Windows.Forms.Label();
+            this.PremMemberIDCopyBtn = new FontAwesome.Sharp.IconButton();
+            this.PremPassReqBtn = new FontAwesome.Sharp.IconButton();
+            this.PremCreateAccBtn = new FontAwesome.Sharp.IconButton();
             this.PremiumExitBtn = new FontAwesome.Sharp.IconButton();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteAdminPage.SuspendLayout();
@@ -407,9 +407,9 @@
             this.EnchanteMemberPage.SuspendLayout();
             this.MemberScrollPanel.SuspendLayout();
             this.MemberAccountPanel.SuspendLayout();
-            this.panel34.SuspendLayout();
-            this.panel35.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.MemberScrollFooterStopperPanel.SuspendLayout();
+            this.MemberFooter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MemberFooterLogo)).BeginInit();
             this.MemberNavBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EnchanteMemberHeaderLogo)).BeginInit();
             this.EnchanteMngrPage.SuspendLayout();
@@ -418,17 +418,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.MembershipCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ServiceCard)).BeginInit();
             this.PremiumPlanPanel.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
+            this.PremCardInfoPanel.SuspendLayout();
+            this.PremPayPPaymentPanel.SuspendLayout();
+            this.PremPayMPaymentPanel.SuspendLayout();
+            this.PremGCPaymentPanel.SuspendLayout();
+            this.PremCCPaymentPanel.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel12.SuspendLayout();
+            this.PremYearlyPlanPanel.SuspendLayout();
+            this.PremMonthlyPlanPanel.SuspendLayout();
+            this.PremConfirmPassPanel.SuspendLayout();
+            this.PremPassPanel.SuspendLayout();
+            this.PremFooterStopperPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // EnchanteParentContainer
@@ -975,7 +975,7 @@
             this.SVIPPlanPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.MembershipCard.SetCardName(this.SVIPPlanPanel, "SVIP");
             this.SVIPPlanPanel.Controls.Add(this.SVIPPlanExpirationText);
-            this.SVIPPlanPanel.Controls.Add(this.SVIPMemberCopyLbl);
+            this.SVIPPlanPanel.Controls.Add(this.SVIPMemberIDCopyLbl);
             this.SVIPPlanPanel.Controls.Add(this.SVIPNewPriceText);
             this.SVIPPlanPanel.Controls.Add(this.SVIPOrigPriceText);
             this.SVIPPlanPanel.Controls.Add(this.SVIPCardInfoPanel);
@@ -1041,19 +1041,19 @@
             this.SVIPPlanExpirationText.TabIndex = 116;
             this.SVIPPlanExpirationText.Visible = false;
             // 
-            // SVIPMemberCopyLbl
+            // SVIPMemberIDCopyLbl
             // 
-            this.SVIPMemberCopyLbl.AutoSize = true;
-            this.SVIPMemberCopyLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SVIPMemberCopyLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.SVIPMemberCopyLbl.Location = new System.Drawing.Point(354, 772);
-            this.SVIPMemberCopyLbl.Name = "SVIPMemberCopyLbl";
-            this.SVIPMemberCopyLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SVIPMemberCopyLbl.Size = new System.Drawing.Size(188, 14);
-            this.SVIPMemberCopyLbl.TabIndex = 123;
-            this.SVIPMemberCopyLbl.Text = "ID Number Copied Successfully";
-            this.SVIPMemberCopyLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.SVIPMemberCopyLbl.Visible = false;
+            this.SVIPMemberIDCopyLbl.AutoSize = true;
+            this.SVIPMemberIDCopyLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SVIPMemberIDCopyLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SVIPMemberIDCopyLbl.Location = new System.Drawing.Point(354, 772);
+            this.SVIPMemberIDCopyLbl.Name = "SVIPMemberIDCopyLbl";
+            this.SVIPMemberIDCopyLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SVIPMemberIDCopyLbl.Size = new System.Drawing.Size(188, 14);
+            this.SVIPMemberIDCopyLbl.TabIndex = 123;
+            this.SVIPMemberIDCopyLbl.Text = "ID Number Copied Successfully";
+            this.SVIPMemberIDCopyLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.SVIPMemberIDCopyLbl.Visible = false;
             // 
             // SVIPNewPriceText
             // 
@@ -3550,8 +3550,8 @@
             this.MemberScrollPanel.AutoScroll = true;
             this.MemberScrollPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.MemberScrollPanel.Controls.Add(this.MemberAccountPanel);
-            this.MemberScrollPanel.Controls.Add(this.panel34);
-            this.MemberScrollPanel.Controls.Add(this.panel35);
+            this.MemberScrollPanel.Controls.Add(this.MemberScrollFooterStopperPanel);
+            this.MemberScrollPanel.Controls.Add(this.MemberFooter);
             this.MemberScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MemberScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.MemberScrollPanel.Name = "MemberScrollPanel";
@@ -3567,6 +3567,7 @@
             this.MemberAccountPanel.Name = "MemberAccountPanel";
             this.MemberAccountPanel.Size = new System.Drawing.Size(306, 374);
             this.MemberAccountPanel.TabIndex = 2;
+            this.MemberAccountPanel.Visible = false;
             // 
             // MemberSignOut
             // 
@@ -3592,125 +3593,125 @@
             this.MemberSignOut.UseVisualStyleBackColor = true;
             this.MemberSignOut.Click += new System.EventHandler(this.MemberSignOut_Click);
             // 
-            // panel34
+            // MemberScrollFooterStopperPanel
             // 
-            this.panel34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.panel34.Controls.Add(this.label80);
-            this.panel34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.panel34.Location = new System.Drawing.Point(541, 999);
-            this.panel34.Name = "panel34";
-            this.panel34.Size = new System.Drawing.Size(804, 133);
-            this.panel34.TabIndex = 20;
+            this.MemberScrollFooterStopperPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MemberScrollFooterStopperPanel.Controls.Add(this.MemberScrollFooterStopperLbl);
+            this.MemberScrollFooterStopperPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.MemberScrollFooterStopperPanel.Location = new System.Drawing.Point(541, 999);
+            this.MemberScrollFooterStopperPanel.Name = "MemberScrollFooterStopperPanel";
+            this.MemberScrollFooterStopperPanel.Size = new System.Drawing.Size(804, 133);
+            this.MemberScrollFooterStopperPanel.TabIndex = 20;
             // 
-            // label80
+            // MemberScrollFooterStopperLbl
             // 
-            this.label80.AutoSize = true;
-            this.label80.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label80.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.label80.Location = new System.Drawing.Point(206, 29);
-            this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(362, 51);
-            this.label80.TabIndex = 20;
-            this.label80.Text = "Footer Stopper";
-            this.label80.Visible = false;
+            this.MemberScrollFooterStopperLbl.AutoSize = true;
+            this.MemberScrollFooterStopperLbl.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MemberScrollFooterStopperLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.MemberScrollFooterStopperLbl.Location = new System.Drawing.Point(206, 29);
+            this.MemberScrollFooterStopperLbl.Name = "MemberScrollFooterStopperLbl";
+            this.MemberScrollFooterStopperLbl.Size = new System.Drawing.Size(362, 51);
+            this.MemberScrollFooterStopperLbl.TabIndex = 20;
+            this.MemberScrollFooterStopperLbl.Text = "Footer Stopper";
+            this.MemberScrollFooterStopperLbl.Visible = false;
             // 
-            // panel35
+            // MemberFooter
             // 
-            this.panel35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.panel35.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel35.Controls.Add(this.iconButton33);
-            this.panel35.Controls.Add(this.iconButton34);
-            this.panel35.Controls.Add(this.iconButton35);
-            this.panel35.Controls.Add(this.pictureBox1);
-            this.panel35.Controls.Add(this.iconButton36);
-            this.panel35.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.panel35.Location = new System.Drawing.Point(0, 1132);
-            this.panel35.Name = "panel35";
-            this.panel35.Size = new System.Drawing.Size(1887, 166);
-            this.panel35.TabIndex = 20;
+            this.MemberFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MemberFooter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MemberFooter.Controls.Add(this.SM_EmailBtn1);
+            this.MemberFooter.Controls.Add(this.SM_IGBtn1);
+            this.MemberFooter.Controls.Add(this.SM_TwitterBtn1);
+            this.MemberFooter.Controls.Add(this.MemberFooterLogo);
+            this.MemberFooter.Controls.Add(this.SM_FBBtn1);
+            this.MemberFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.MemberFooter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.MemberFooter.Location = new System.Drawing.Point(0, 1132);
+            this.MemberFooter.Name = "MemberFooter";
+            this.MemberFooter.Size = new System.Drawing.Size(1887, 166);
+            this.MemberFooter.TabIndex = 20;
             // 
-            // iconButton33
+            // SM_EmailBtn1
             // 
-            this.iconButton33.AutoSize = true;
-            this.iconButton33.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton33.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton33.FlatAppearance.BorderSize = 3;
-            this.iconButton33.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton33.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.iconButton33.IconChar = FontAwesome.Sharp.IconChar.Envelope;
-            this.iconButton33.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton33.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton33.Location = new System.Drawing.Point(548, 51);
-            this.iconButton33.Name = "iconButton33";
-            this.iconButton33.Size = new System.Drawing.Size(60, 60);
-            this.iconButton33.TabIndex = 12;
-            this.iconButton33.UseVisualStyleBackColor = true;
+            this.SM_EmailBtn1.AutoSize = true;
+            this.SM_EmailBtn1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SM_EmailBtn1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_EmailBtn1.FlatAppearance.BorderSize = 3;
+            this.SM_EmailBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SM_EmailBtn1.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SM_EmailBtn1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SM_EmailBtn1.IconChar = FontAwesome.Sharp.IconChar.Envelope;
+            this.SM_EmailBtn1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_EmailBtn1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SM_EmailBtn1.Location = new System.Drawing.Point(548, 51);
+            this.SM_EmailBtn1.Name = "SM_EmailBtn1";
+            this.SM_EmailBtn1.Size = new System.Drawing.Size(60, 60);
+            this.SM_EmailBtn1.TabIndex = 12;
+            this.SM_EmailBtn1.UseVisualStyleBackColor = true;
             // 
-            // iconButton34
+            // SM_IGBtn1
             // 
-            this.iconButton34.AutoSize = true;
-            this.iconButton34.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton34.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton34.FlatAppearance.BorderSize = 3;
-            this.iconButton34.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton34.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.iconButton34.IconChar = FontAwesome.Sharp.IconChar.Instagram;
-            this.iconButton34.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton34.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton34.Location = new System.Drawing.Point(482, 51);
-            this.iconButton34.Name = "iconButton34";
-            this.iconButton34.Size = new System.Drawing.Size(60, 60);
-            this.iconButton34.TabIndex = 11;
-            this.iconButton34.UseVisualStyleBackColor = true;
+            this.SM_IGBtn1.AutoSize = true;
+            this.SM_IGBtn1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SM_IGBtn1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_IGBtn1.FlatAppearance.BorderSize = 3;
+            this.SM_IGBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SM_IGBtn1.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SM_IGBtn1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SM_IGBtn1.IconChar = FontAwesome.Sharp.IconChar.Instagram;
+            this.SM_IGBtn1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_IGBtn1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SM_IGBtn1.Location = new System.Drawing.Point(482, 51);
+            this.SM_IGBtn1.Name = "SM_IGBtn1";
+            this.SM_IGBtn1.Size = new System.Drawing.Size(60, 60);
+            this.SM_IGBtn1.TabIndex = 11;
+            this.SM_IGBtn1.UseVisualStyleBackColor = true;
             // 
-            // iconButton35
+            // SM_TwitterBtn1
             // 
-            this.iconButton35.AutoSize = true;
-            this.iconButton35.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton35.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton35.FlatAppearance.BorderSize = 3;
-            this.iconButton35.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton35.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.iconButton35.IconChar = FontAwesome.Sharp.IconChar.Twitter;
-            this.iconButton35.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton35.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton35.Location = new System.Drawing.Point(416, 51);
-            this.iconButton35.Name = "iconButton35";
-            this.iconButton35.Size = new System.Drawing.Size(60, 60);
-            this.iconButton35.TabIndex = 10;
-            this.iconButton35.UseVisualStyleBackColor = true;
+            this.SM_TwitterBtn1.AutoSize = true;
+            this.SM_TwitterBtn1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SM_TwitterBtn1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_TwitterBtn1.FlatAppearance.BorderSize = 3;
+            this.SM_TwitterBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SM_TwitterBtn1.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SM_TwitterBtn1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SM_TwitterBtn1.IconChar = FontAwesome.Sharp.IconChar.Twitter;
+            this.SM_TwitterBtn1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_TwitterBtn1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SM_TwitterBtn1.Location = new System.Drawing.Point(416, 51);
+            this.SM_TwitterBtn1.Name = "SM_TwitterBtn1";
+            this.SM_TwitterBtn1.Size = new System.Drawing.Size(60, 60);
+            this.SM_TwitterBtn1.TabIndex = 10;
+            this.SM_TwitterBtn1.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // MemberFooterLogo
             // 
-            this.pictureBox1.Image = global::Enchante.Properties.Resources.Enchante_Logo_275x100;
-            this.pictureBox1.Location = new System.Drawing.Point(58, 29);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(275, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
+            this.MemberFooterLogo.Image = global::Enchante.Properties.Resources.Enchante_Logo_275x100;
+            this.MemberFooterLogo.Location = new System.Drawing.Point(58, 29);
+            this.MemberFooterLogo.Name = "MemberFooterLogo";
+            this.MemberFooterLogo.Size = new System.Drawing.Size(275, 100);
+            this.MemberFooterLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.MemberFooterLogo.TabIndex = 9;
+            this.MemberFooterLogo.TabStop = false;
             // 
-            // iconButton36
+            // SM_FBBtn1
             // 
-            this.iconButton36.AutoSize = true;
-            this.iconButton36.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton36.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton36.FlatAppearance.BorderSize = 3;
-            this.iconButton36.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton36.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.iconButton36.IconChar = FontAwesome.Sharp.IconChar.Facebook;
-            this.iconButton36.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton36.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton36.Location = new System.Drawing.Point(350, 51);
-            this.iconButton36.Name = "iconButton36";
-            this.iconButton36.Size = new System.Drawing.Size(60, 60);
-            this.iconButton36.TabIndex = 8;
-            this.iconButton36.UseVisualStyleBackColor = true;
+            this.SM_FBBtn1.AutoSize = true;
+            this.SM_FBBtn1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SM_FBBtn1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_FBBtn1.FlatAppearance.BorderSize = 3;
+            this.SM_FBBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SM_FBBtn1.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SM_FBBtn1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SM_FBBtn1.IconChar = FontAwesome.Sharp.IconChar.Facebook;
+            this.SM_FBBtn1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_FBBtn1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SM_FBBtn1.Location = new System.Drawing.Point(350, 51);
+            this.SM_FBBtn1.Name = "SM_FBBtn1";
+            this.SM_FBBtn1.Size = new System.Drawing.Size(60, 60);
+            this.SM_FBBtn1.TabIndex = 8;
+            this.SM_FBBtn1.UseVisualStyleBackColor = true;
             // 
             // MemberNavBarPanel
             // 
@@ -3749,6 +3750,7 @@
             this.MemberAccUserBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.MemberAccUserBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.MemberAccUserBtn.UseVisualStyleBackColor = false;
+            this.MemberAccUserBtn.Click += new System.EventHandler(this.MemberAccUserBtn_Click);
             // 
             // iconButton2
             // 
@@ -3917,7 +3919,7 @@
             // 
             this.MembershipCard.ContainerControl = this.MembershipPanel;
             this.MembershipCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.MembershipCard.SelectedCard = "TYPES";
+            this.MembershipCard.SelectedCard = "PREM";
             // 
             // ServiceCard
             // 
@@ -3931,54 +3933,54 @@
             this.PremiumPlanPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.PremiumPlanPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.MembershipCard.SetCardName(this.PremiumPlanPanel, "PREM");
-            this.PremiumPlanPanel.Controls.Add(this.textBox1);
-            this.PremiumPlanPanel.Controls.Add(this.label1);
-            this.PremiumPlanPanel.Controls.Add(this.textBox2);
-            this.PremiumPlanPanel.Controls.Add(this.textBox3);
-            this.PremiumPlanPanel.Controls.Add(this.panel2);
-            this.PremiumPlanPanel.Controls.Add(this.textBox9);
+            this.PremiumPlanPanel.Controls.Add(this.PremPlanExpirationText);
+            this.PremiumPlanPanel.Controls.Add(this.PremMemberIDCopyLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremNewPriceText);
+            this.PremiumPlanPanel.Controls.Add(this.PremOrigPriceText);
+            this.PremiumPlanPanel.Controls.Add(this.PremCardInfoPanel);
+            this.PremiumPlanPanel.Controls.Add(this.PremPlanPeriodText);
             this.PremiumPlanPanel.Controls.Add(this.panel7);
-            this.PremiumPlanPanel.Controls.Add(this.panel8);
-            this.PremiumPlanPanel.Controls.Add(this.panel9);
-            this.PremiumPlanPanel.Controls.Add(this.label15);
-            this.PremiumPlanPanel.Controls.Add(this.label16);
-            this.PremiumPlanPanel.Controls.Add(this.label17);
-            this.PremiumPlanPanel.Controls.Add(this.panel10);
-            this.PremiumPlanPanel.Controls.Add(this.label18);
-            this.PremiumPlanPanel.Controls.Add(this.textBox14);
-            this.PremiumPlanPanel.Controls.Add(this.label19);
-            this.PremiumPlanPanel.Controls.Add(this.label20);
-            this.PremiumPlanPanel.Controls.Add(this.label21);
-            this.PremiumPlanPanel.Controls.Add(this.label22);
-            this.PremiumPlanPanel.Controls.Add(this.label23);
-            this.PremiumPlanPanel.Controls.Add(this.label24);
-            this.PremiumPlanPanel.Controls.Add(this.label25);
-            this.PremiumPlanPanel.Controls.Add(this.panel11);
-            this.PremiumPlanPanel.Controls.Add(this.label26);
-            this.PremiumPlanPanel.Controls.Add(this.label27);
-            this.PremiumPlanPanel.Controls.Add(this.textBox16);
-            this.PremiumPlanPanel.Controls.Add(this.label28);
-            this.PremiumPlanPanel.Controls.Add(this.label29);
-            this.PremiumPlanPanel.Controls.Add(this.textBox17);
-            this.PremiumPlanPanel.Controls.Add(this.label30);
-            this.PremiumPlanPanel.Controls.Add(this.comboBox1);
-            this.PremiumPlanPanel.Controls.Add(this.label31);
-            this.PremiumPlanPanel.Controls.Add(this.dateTimePicker1);
-            this.PremiumPlanPanel.Controls.Add(this.panel12);
-            this.PremiumPlanPanel.Controls.Add(this.textBox18);
-            this.PremiumPlanPanel.Controls.Add(this.label33);
-            this.PremiumPlanPanel.Controls.Add(this.label34);
-            this.PremiumPlanPanel.Controls.Add(this.textBox19);
-            this.PremiumPlanPanel.Controls.Add(this.label35);
-            this.PremiumPlanPanel.Controls.Add(this.textBox20);
-            this.PremiumPlanPanel.Controls.Add(this.label36);
-            this.PremiumPlanPanel.Controls.Add(this.label37);
-            this.PremiumPlanPanel.Controls.Add(this.textBox21);
-            this.PremiumPlanPanel.Controls.Add(this.label38);
-            this.PremiumPlanPanel.Controls.Add(this.label39);
-            this.PremiumPlanPanel.Controls.Add(this.iconButton11);
-            this.PremiumPlanPanel.Controls.Add(this.iconButton12);
-            this.PremiumPlanPanel.Controls.Add(this.iconButton13);
+            this.PremiumPlanPanel.Controls.Add(this.PremYearlyPlanPanel);
+            this.PremiumPlanPanel.Controls.Add(this.PremMonthlyPlanPanel);
+            this.PremiumPlanPanel.Controls.Add(this.PremSelectPaymentLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremBasicInfoLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremMemberIDLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremConfirmPassPanel);
+            this.PremiumPlanPanel.Controls.Add(this.PremConfirmPassErrorLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremMemberIDText);
+            this.PremiumPlanPanel.Controls.Add(this.PremConfirmPassLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremLastNameErrorLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremFirstNameErrorLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremCPNumErrorLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremGenderErrorLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremAgeErrorLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremEmailErrorLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremPassPanel);
+            this.PremiumPlanPanel.Controls.Add(this.PremPassErrorLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremPassLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremEmailText);
+            this.PremiumPlanPanel.Controls.Add(this.PremEmailLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremCreateAccLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremCPNumText);
+            this.PremiumPlanPanel.Controls.Add(this.PremCPNumLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremGenderComboText);
+            this.PremiumPlanPanel.Controls.Add(this.PremGenderLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremBdayPicker);
+            this.PremiumPlanPanel.Controls.Add(this.PremFooterStopperPanel);
+            this.PremiumPlanPanel.Controls.Add(this.PremAgeText);
+            this.PremiumPlanPanel.Controls.Add(this.PremAgeLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremBdayLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremLastNameText);
+            this.PremiumPlanPanel.Controls.Add(this.PremLastNameLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremFirstNameText);
+            this.PremiumPlanPanel.Controls.Add(this.PremFirstNameLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremPlanPeriodLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremSelectedPlanText);
+            this.PremiumPlanPanel.Controls.Add(this.PremSelectedLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremAccLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremMemberIDCopyBtn);
+            this.PremiumPlanPanel.Controls.Add(this.PremPassReqBtn);
+            this.PremiumPlanPanel.Controls.Add(this.PremCreateAccBtn);
             this.PremiumPlanPanel.Controls.Add(this.PremiumExitBtn);
             this.PremiumPlanPanel.Location = new System.Drawing.Point(0, 0);
             this.MembershipCard.SetMinimumSize(this.PremiumPlanPanel, new System.Drawing.Size(200, 100));
@@ -3987,1211 +3989,1235 @@
             this.PremiumPlanPanel.Size = new System.Drawing.Size(1371, 807);
             this.PremiumPlanPanel.TabIndex = 6;
             // 
-            // textBox1
+            // PremPlanExpirationText
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox1.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox1.Location = new System.Drawing.Point(521, 1284);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(270, 37);
-            this.textBox1.TabIndex = 116;
-            this.textBox1.Visible = false;
+            this.PremPlanExpirationText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremPlanExpirationText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremPlanExpirationText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremPlanExpirationText.Location = new System.Drawing.Point(521, 1284);
+            this.PremPlanExpirationText.Name = "PremPlanExpirationText";
+            this.PremPlanExpirationText.Size = new System.Drawing.Size(270, 37);
+            this.PremPlanExpirationText.TabIndex = 116;
+            this.PremPlanExpirationText.Visible = false;
             // 
-            // label1
+            // PremMemberIDCopyLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label1.Location = new System.Drawing.Point(354, 772);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(188, 14);
-            this.label1.TabIndex = 123;
-            this.label1.Text = "ID Number Copied Successfully";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label1.Visible = false;
+            this.PremMemberIDCopyLbl.AutoSize = true;
+            this.PremMemberIDCopyLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremMemberIDCopyLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremMemberIDCopyLbl.Location = new System.Drawing.Point(354, 772);
+            this.PremMemberIDCopyLbl.Name = "PremMemberIDCopyLbl";
+            this.PremMemberIDCopyLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremMemberIDCopyLbl.Size = new System.Drawing.Size(188, 14);
+            this.PremMemberIDCopyLbl.TabIndex = 123;
+            this.PremMemberIDCopyLbl.Text = "ID Number Copied Successfully";
+            this.PremMemberIDCopyLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremMemberIDCopyLbl.Visible = false;
             // 
-            // textBox2
+            // PremNewPriceText
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox2.Location = new System.Drawing.Point(1078, 1289);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(147, 27);
-            this.textBox2.TabIndex = 119;
-            this.textBox2.Text = "Php. 4999.00";
+            this.PremNewPriceText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremNewPriceText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PremNewPriceText.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremNewPriceText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremNewPriceText.Location = new System.Drawing.Point(1078, 1289);
+            this.PremNewPriceText.Name = "PremNewPriceText";
+            this.PremNewPriceText.ReadOnly = true;
+            this.PremNewPriceText.Size = new System.Drawing.Size(147, 27);
+            this.PremNewPriceText.TabIndex = 119;
+            this.PremNewPriceText.Text = "Php. 1499.00";
             // 
-            // textBox3
+            // PremOrigPriceText
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox3.Location = new System.Drawing.Point(899, 1289);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(148, 27);
-            this.textBox3.TabIndex = 118;
-            this.textBox3.Text = "Php. 4999.00";
-            this.textBox3.Visible = false;
+            this.PremOrigPriceText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremOrigPriceText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PremOrigPriceText.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremOrigPriceText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremOrigPriceText.Location = new System.Drawing.Point(899, 1289);
+            this.PremOrigPriceText.Name = "PremOrigPriceText";
+            this.PremOrigPriceText.ReadOnly = true;
+            this.PremOrigPriceText.Size = new System.Drawing.Size(148, 27);
+            this.PremOrigPriceText.TabIndex = 118;
+            this.PremOrigPriceText.Text = "Php. 1499.00";
+            this.PremOrigPriceText.Visible = false;
             // 
-            // panel2
+            // PremCardInfoPanel
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.textBox4);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.textBox5);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.textBox6);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.textBox7);
-            this.panel2.Controls.Add(this.panel5);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.textBox8);
-            this.panel2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.Location = new System.Drawing.Point(122, 1355);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1116, 299);
-            this.panel2.TabIndex = 117;
+            this.PremCardInfoPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PremCardInfoPanel.Controls.Add(this.PremPaymentTypeText);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardNameLbl);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardNameText);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardNumLbl);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardNumText);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardNameErrorLbl);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardNumErrorLbl);
+            this.PremCardInfoPanel.Controls.Add(this.PremPayPPaymentPanel);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardCVCLbl);
+            this.PremCardInfoPanel.Controls.Add(this.PremPayMPaymentPanel);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardCVCText);
+            this.PremCardInfoPanel.Controls.Add(this.PremGCPaymentPanel);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardCVCErrorLbl);
+            this.PremCardInfoPanel.Controls.Add(this.PremCCPaymentPanel);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardExpireLbl);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardExpireErrorLbl);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardExpireText);
+            this.PremCardInfoPanel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.PremCardInfoPanel.Location = new System.Drawing.Point(122, 1355);
+            this.PremCardInfoPanel.Name = "PremCardInfoPanel";
+            this.PremCardInfoPanel.Size = new System.Drawing.Size(1116, 299);
+            this.PremCardInfoPanel.TabIndex = 117;
             // 
-            // textBox4
+            // PremPaymentTypeText
             // 
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox4.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox4.Location = new System.Drawing.Point(725, 228);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(270, 37);
-            this.textBox4.TabIndex = 115;
-            this.textBox4.Visible = false;
+            this.PremPaymentTypeText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremPaymentTypeText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremPaymentTypeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremPaymentTypeText.Location = new System.Drawing.Point(725, 228);
+            this.PremPaymentTypeText.Name = "PremPaymentTypeText";
+            this.PremPaymentTypeText.Size = new System.Drawing.Size(270, 37);
+            this.PremPaymentTypeText.TabIndex = 115;
+            this.PremPaymentTypeText.Visible = false;
             // 
-            // label2
+            // PremCardNameLbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label2.Location = new System.Drawing.Point(27, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(232, 29);
-            this.label2.TabIndex = 92;
-            this.label2.Text = "Cardholder Name:";
+            this.PremCardNameLbl.AutoSize = true;
+            this.PremCardNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardNameLbl.Location = new System.Drawing.Point(27, 17);
+            this.PremCardNameLbl.Name = "PremCardNameLbl";
+            this.PremCardNameLbl.Size = new System.Drawing.Size(232, 29);
+            this.PremCardNameLbl.TabIndex = 92;
+            this.PremCardNameLbl.Text = "Cardholder Name:";
             // 
-            // textBox5
+            // PremCardNameText
             // 
-            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox5.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox5.Location = new System.Drawing.Point(32, 49);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(553, 37);
-            this.textBox5.TabIndex = 93;
+            this.PremCardNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremCardNameText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardNameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardNameText.Location = new System.Drawing.Point(32, 49);
+            this.PremCardNameText.Name = "PremCardNameText";
+            this.PremCardNameText.Size = new System.Drawing.Size(553, 37);
+            this.PremCardNameText.TabIndex = 93;
             // 
-            // label3
+            // PremCardNumLbl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label3.Location = new System.Drawing.Point(27, 107);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(256, 29);
-            this.label3.TabIndex = 94;
-            this.label3.Text = "Cardholder Number:";
+            this.PremCardNumLbl.AutoSize = true;
+            this.PremCardNumLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardNumLbl.Location = new System.Drawing.Point(27, 107);
+            this.PremCardNumLbl.Name = "PremCardNumLbl";
+            this.PremCardNumLbl.Size = new System.Drawing.Size(256, 29);
+            this.PremCardNumLbl.TabIndex = 94;
+            this.PremCardNumLbl.Text = "Cardholder Number:";
             // 
-            // textBox6
+            // PremCardNumText
             // 
-            this.textBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox6.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox6.Location = new System.Drawing.Point(32, 139);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(550, 37);
-            this.textBox6.TabIndex = 95;
+            this.PremCardNumText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremCardNumText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardNumText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardNumText.Location = new System.Drawing.Point(32, 139);
+            this.PremCardNumText.Name = "PremCardNumText";
+            this.PremCardNumText.Size = new System.Drawing.Size(550, 37);
+            this.PremCardNumText.TabIndex = 95;
             // 
-            // label4
+            // PremCardNameErrorLbl
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label4.Location = new System.Drawing.Point(503, 24);
-            this.label4.Name = "label4";
-            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(82, 14);
-            this.label4.TabIndex = 96;
-            this.label4.Text = "Missing Field";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label4.Visible = false;
+            this.PremCardNameErrorLbl.AutoSize = true;
+            this.PremCardNameErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardNameErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardNameErrorLbl.Location = new System.Drawing.Point(503, 24);
+            this.PremCardNameErrorLbl.Name = "PremCardNameErrorLbl";
+            this.PremCardNameErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremCardNameErrorLbl.Size = new System.Drawing.Size(82, 14);
+            this.PremCardNameErrorLbl.TabIndex = 96;
+            this.PremCardNameErrorLbl.Text = "Missing Field";
+            this.PremCardNameErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremCardNameErrorLbl.Visible = false;
             // 
-            // label5
+            // PremCardNumErrorLbl
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label5.Location = new System.Drawing.Point(501, 114);
-            this.label5.Name = "label5";
-            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label5.Size = new System.Drawing.Size(82, 14);
-            this.label5.TabIndex = 97;
-            this.label5.Text = "Missing Field";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label5.Visible = false;
+            this.PremCardNumErrorLbl.AutoSize = true;
+            this.PremCardNumErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardNumErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardNumErrorLbl.Location = new System.Drawing.Point(501, 114);
+            this.PremCardNumErrorLbl.Name = "PremCardNumErrorLbl";
+            this.PremCardNumErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremCardNumErrorLbl.Size = new System.Drawing.Size(82, 14);
+            this.PremCardNumErrorLbl.TabIndex = 97;
+            this.PremCardNumErrorLbl.Text = "Missing Field";
+            this.PremCardNumErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremCardNumErrorLbl.Visible = false;
             // 
-            // panel3
+            // PremPayPPaymentPanel
             // 
-            this.panel3.Controls.Add(this.radioButton1);
-            this.panel3.Controls.Add(this.iconButton1);
-            this.panel3.Location = new System.Drawing.Point(877, 81);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(223, 50);
-            this.panel3.TabIndex = 114;
+            this.PremPayPPaymentPanel.Controls.Add(this.PremPayPPaymentRB);
+            this.PremPayPPaymentPanel.Controls.Add(this.PremPayPPaymentBtn);
+            this.PremPayPPaymentPanel.Location = new System.Drawing.Point(877, 81);
+            this.PremPayPPaymentPanel.Name = "PremPayPPaymentPanel";
+            this.PremPayPPaymentPanel.Size = new System.Drawing.Size(223, 50);
+            this.PremPayPPaymentPanel.TabIndex = 114;
             // 
-            // radioButton1
+            // PremPayPPaymentRB
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.radioButton1.FlatAppearance.BorderSize = 5;
-            this.radioButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.radioButton1.Location = new System.Drawing.Point(196, 16);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(13, 12);
-            this.radioButton1.TabIndex = 119;
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.PremPayPPaymentRB.AutoSize = true;
+            this.PremPayPPaymentRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremPayPPaymentRB.FlatAppearance.BorderSize = 5;
+            this.PremPayPPaymentRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremPayPPaymentRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PremPayPPaymentRB.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.PremPayPPaymentRB.Location = new System.Drawing.Point(196, 16);
+            this.PremPayPPaymentRB.Name = "PremPayPPaymentRB";
+            this.PremPayPPaymentRB.Size = new System.Drawing.Size(13, 12);
+            this.PremPayPPaymentRB.TabIndex = 119;
+            this.PremPayPPaymentRB.UseVisualStyleBackColor = true;
+            this.PremPayPPaymentRB.Visible = false;
             // 
-            // iconButton1
+            // PremPayPPaymentBtn
             // 
-            this.iconButton1.AutoSize = true;
-            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.iconButton1.FlatAppearance.BorderSize = 3;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.Location = new System.Drawing.Point(0, 0);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(223, 50);
-            this.iconButton1.TabIndex = 106;
-            this.iconButton1.Text = "Paypal";
-            this.iconButton1.UseVisualStyleBackColor = true;
+            this.PremPayPPaymentBtn.AutoSize = true;
+            this.PremPayPPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremPayPPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PremPayPPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
+            this.PremPayPPaymentBtn.FlatAppearance.BorderSize = 3;
+            this.PremPayPPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremPayPPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremPayPPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.PremPayPPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremPayPPaymentBtn.IconColor = System.Drawing.Color.Black;
+            this.PremPayPPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremPayPPaymentBtn.Location = new System.Drawing.Point(0, 0);
+            this.PremPayPPaymentBtn.Name = "PremPayPPaymentBtn";
+            this.PremPayPPaymentBtn.Size = new System.Drawing.Size(223, 50);
+            this.PremPayPPaymentBtn.TabIndex = 106;
+            this.PremPayPPaymentBtn.Text = "Paypal";
+            this.PremPayPPaymentBtn.UseVisualStyleBackColor = true;
+            this.PremPayPPaymentBtn.Click += new System.EventHandler(this.PremPayPPaymentBtn_Click);
             // 
-            // label6
+            // PremCardCVCLbl
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label6.Location = new System.Drawing.Point(27, 196);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 29);
-            this.label6.TabIndex = 99;
-            this.label6.Text = "CVC:";
+            this.PremCardCVCLbl.AutoSize = true;
+            this.PremCardCVCLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardCVCLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardCVCLbl.Location = new System.Drawing.Point(27, 196);
+            this.PremCardCVCLbl.Name = "PremCardCVCLbl";
+            this.PremCardCVCLbl.Size = new System.Drawing.Size(71, 29);
+            this.PremCardCVCLbl.TabIndex = 99;
+            this.PremCardCVCLbl.Text = "CVC:";
             // 
-            // panel4
+            // PremPayMPaymentPanel
             // 
-            this.panel4.Controls.Add(this.radioButton2);
-            this.panel4.Controls.Add(this.iconButton3);
-            this.panel4.Location = new System.Drawing.Point(877, 164);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(223, 50);
-            this.panel4.TabIndex = 113;
+            this.PremPayMPaymentPanel.Controls.Add(this.PremPayMPaymentRB);
+            this.PremPayMPaymentPanel.Controls.Add(this.PremPayMPaymentBtn);
+            this.PremPayMPaymentPanel.Location = new System.Drawing.Point(877, 164);
+            this.PremPayMPaymentPanel.Name = "PremPayMPaymentPanel";
+            this.PremPayMPaymentPanel.Size = new System.Drawing.Size(223, 50);
+            this.PremPayMPaymentPanel.TabIndex = 113;
             // 
-            // radioButton2
+            // PremPayMPaymentRB
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.radioButton2.FlatAppearance.BorderSize = 5;
-            this.radioButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.radioButton2.Location = new System.Drawing.Point(196, 19);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(13, 12);
-            this.radioButton2.TabIndex = 118;
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.PremPayMPaymentRB.AutoSize = true;
+            this.PremPayMPaymentRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremPayMPaymentRB.FlatAppearance.BorderSize = 5;
+            this.PremPayMPaymentRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremPayMPaymentRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PremPayMPaymentRB.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.PremPayMPaymentRB.Location = new System.Drawing.Point(196, 19);
+            this.PremPayMPaymentRB.Name = "PremPayMPaymentRB";
+            this.PremPayMPaymentRB.Size = new System.Drawing.Size(13, 12);
+            this.PremPayMPaymentRB.TabIndex = 118;
+            this.PremPayMPaymentRB.UseVisualStyleBackColor = true;
+            this.PremPayMPaymentRB.Visible = false;
             // 
-            // iconButton3
+            // PremPayMPaymentBtn
             // 
-            this.iconButton3.AutoSize = true;
-            this.iconButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButton3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.iconButton3.FlatAppearance.BorderSize = 3;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton3.IconColor = System.Drawing.Color.Black;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.Location = new System.Drawing.Point(0, 0);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(223, 50);
-            this.iconButton3.TabIndex = 106;
-            this.iconButton3.Text = "Paymaya";
-            this.iconButton3.UseVisualStyleBackColor = true;
+            this.PremPayMPaymentBtn.AutoSize = true;
+            this.PremPayMPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremPayMPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PremPayMPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
+            this.PremPayMPaymentBtn.FlatAppearance.BorderSize = 3;
+            this.PremPayMPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremPayMPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremPayMPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.PremPayMPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremPayMPaymentBtn.IconColor = System.Drawing.Color.Black;
+            this.PremPayMPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremPayMPaymentBtn.Location = new System.Drawing.Point(0, 0);
+            this.PremPayMPaymentBtn.Name = "PremPayMPaymentBtn";
+            this.PremPayMPaymentBtn.Size = new System.Drawing.Size(223, 50);
+            this.PremPayMPaymentBtn.TabIndex = 106;
+            this.PremPayMPaymentBtn.Text = "Paymaya";
+            this.PremPayMPaymentBtn.UseVisualStyleBackColor = true;
+            this.PremPayMPaymentBtn.Click += new System.EventHandler(this.PremPayMPaymentBtn_Click);
             // 
-            // textBox7
+            // PremCardCVCText
             // 
-            this.textBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox7.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox7.Location = new System.Drawing.Point(32, 228);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(270, 37);
-            this.textBox7.TabIndex = 100;
+            this.PremCardCVCText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremCardCVCText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardCVCText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardCVCText.Location = new System.Drawing.Point(32, 228);
+            this.PremCardCVCText.Name = "PremCardCVCText";
+            this.PremCardCVCText.Size = new System.Drawing.Size(270, 37);
+            this.PremCardCVCText.TabIndex = 100;
             // 
-            // panel5
+            // PremGCPaymentPanel
             // 
-            this.panel5.Controls.Add(this.radioButton3);
-            this.panel5.Controls.Add(this.iconButton4);
-            this.panel5.Location = new System.Drawing.Point(633, 164);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(223, 50);
-            this.panel5.TabIndex = 112;
+            this.PremGCPaymentPanel.Controls.Add(this.PremGCPaymentRB);
+            this.PremGCPaymentPanel.Controls.Add(this.PremGCPaymentBtn);
+            this.PremGCPaymentPanel.Location = new System.Drawing.Point(633, 164);
+            this.PremGCPaymentPanel.Name = "PremGCPaymentPanel";
+            this.PremGCPaymentPanel.Size = new System.Drawing.Size(223, 50);
+            this.PremGCPaymentPanel.TabIndex = 112;
             // 
-            // radioButton3
+            // PremGCPaymentRB
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.radioButton3.FlatAppearance.BorderSize = 5;
-            this.radioButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.radioButton3.Location = new System.Drawing.Point(193, 19);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(13, 12);
-            this.radioButton3.TabIndex = 117;
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.PremGCPaymentRB.AutoSize = true;
+            this.PremGCPaymentRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremGCPaymentRB.FlatAppearance.BorderSize = 5;
+            this.PremGCPaymentRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremGCPaymentRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PremGCPaymentRB.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.PremGCPaymentRB.Location = new System.Drawing.Point(193, 19);
+            this.PremGCPaymentRB.Name = "PremGCPaymentRB";
+            this.PremGCPaymentRB.Size = new System.Drawing.Size(13, 12);
+            this.PremGCPaymentRB.TabIndex = 117;
+            this.PremGCPaymentRB.UseVisualStyleBackColor = true;
+            this.PremGCPaymentRB.Visible = false;
             // 
-            // iconButton4
+            // PremGCPaymentBtn
             // 
-            this.iconButton4.AutoSize = true;
-            this.iconButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButton4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.iconButton4.FlatAppearance.BorderSize = 3;
-            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton4.IconColor = System.Drawing.Color.Black;
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.Location = new System.Drawing.Point(0, 0);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(223, 50);
-            this.iconButton4.TabIndex = 106;
-            this.iconButton4.Text = "Gcash";
-            this.iconButton4.UseVisualStyleBackColor = true;
+            this.PremGCPaymentBtn.AutoSize = true;
+            this.PremGCPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremGCPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PremGCPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
+            this.PremGCPaymentBtn.FlatAppearance.BorderSize = 3;
+            this.PremGCPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremGCPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremGCPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.PremGCPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremGCPaymentBtn.IconColor = System.Drawing.Color.Black;
+            this.PremGCPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremGCPaymentBtn.Location = new System.Drawing.Point(0, 0);
+            this.PremGCPaymentBtn.Name = "PremGCPaymentBtn";
+            this.PremGCPaymentBtn.Size = new System.Drawing.Size(223, 50);
+            this.PremGCPaymentBtn.TabIndex = 106;
+            this.PremGCPaymentBtn.Text = "Gcash";
+            this.PremGCPaymentBtn.UseVisualStyleBackColor = true;
+            this.PremGCPaymentBtn.Click += new System.EventHandler(this.PremGCPaymentBtn_Click);
             // 
-            // label7
+            // PremCardCVCErrorLbl
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label7.Location = new System.Drawing.Point(223, 202);
-            this.label7.Name = "label7";
-            this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label7.Size = new System.Drawing.Size(82, 14);
-            this.label7.TabIndex = 101;
-            this.label7.Text = "Missing Field";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label7.Visible = false;
+            this.PremCardCVCErrorLbl.AutoSize = true;
+            this.PremCardCVCErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardCVCErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardCVCErrorLbl.Location = new System.Drawing.Point(223, 202);
+            this.PremCardCVCErrorLbl.Name = "PremCardCVCErrorLbl";
+            this.PremCardCVCErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremCardCVCErrorLbl.Size = new System.Drawing.Size(82, 14);
+            this.PremCardCVCErrorLbl.TabIndex = 101;
+            this.PremCardCVCErrorLbl.Text = "Missing Field";
+            this.PremCardCVCErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremCardCVCErrorLbl.Visible = false;
             // 
-            // panel6
+            // PremCCPaymentPanel
             // 
-            this.panel6.Controls.Add(this.radioButton4);
-            this.panel6.Controls.Add(this.iconButton5);
-            this.panel6.Location = new System.Drawing.Point(633, 81);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(223, 50);
-            this.panel6.TabIndex = 111;
+            this.PremCCPaymentPanel.Controls.Add(this.PremCCPaymentRB);
+            this.PremCCPaymentPanel.Controls.Add(this.PremCCPaymentBtn);
+            this.PremCCPaymentPanel.Location = new System.Drawing.Point(633, 81);
+            this.PremCCPaymentPanel.Name = "PremCCPaymentPanel";
+            this.PremCCPaymentPanel.Size = new System.Drawing.Size(223, 50);
+            this.PremCCPaymentPanel.TabIndex = 111;
             // 
-            // radioButton4
+            // PremCCPaymentRB
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.radioButton4.FlatAppearance.BorderSize = 5;
-            this.radioButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.radioButton4.Location = new System.Drawing.Point(193, 19);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(13, 12);
-            this.radioButton4.TabIndex = 116;
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.PremCCPaymentRB.AutoSize = true;
+            this.PremCCPaymentRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremCCPaymentRB.FlatAppearance.BorderSize = 5;
+            this.PremCCPaymentRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremCCPaymentRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PremCCPaymentRB.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.PremCCPaymentRB.Location = new System.Drawing.Point(193, 19);
+            this.PremCCPaymentRB.Name = "PremCCPaymentRB";
+            this.PremCCPaymentRB.Size = new System.Drawing.Size(13, 12);
+            this.PremCCPaymentRB.TabIndex = 116;
+            this.PremCCPaymentRB.UseVisualStyleBackColor = true;
+            this.PremCCPaymentRB.Visible = false;
             // 
-            // iconButton5
+            // PremCCPaymentBtn
             // 
-            this.iconButton5.AutoSize = true;
-            this.iconButton5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButton5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.iconButton5.FlatAppearance.BorderSize = 3;
-            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton5.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton5.IconColor = System.Drawing.Color.Black;
-            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.Location = new System.Drawing.Point(0, 0);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Size = new System.Drawing.Size(223, 50);
-            this.iconButton5.TabIndex = 106;
-            this.iconButton5.Text = "Credit Card";
-            this.iconButton5.UseVisualStyleBackColor = true;
+            this.PremCCPaymentBtn.AutoSize = true;
+            this.PremCCPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremCCPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PremCCPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
+            this.PremCCPaymentBtn.FlatAppearance.BorderSize = 3;
+            this.PremCCPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremCCPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCCPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.PremCCPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremCCPaymentBtn.IconColor = System.Drawing.Color.Black;
+            this.PremCCPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremCCPaymentBtn.Location = new System.Drawing.Point(0, 0);
+            this.PremCCPaymentBtn.Name = "PremCCPaymentBtn";
+            this.PremCCPaymentBtn.Size = new System.Drawing.Size(223, 50);
+            this.PremCCPaymentBtn.TabIndex = 106;
+            this.PremCCPaymentBtn.Text = "Credit Card";
+            this.PremCCPaymentBtn.UseVisualStyleBackColor = true;
+            this.PremCCPaymentBtn.Click += new System.EventHandler(this.PremCCPaymentBtn_Click);
             // 
-            // label8
+            // PremCardExpireLbl
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label8.Location = new System.Drawing.Point(308, 196);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(148, 29);
-            this.label8.TabIndex = 102;
-            this.label8.Text = "Expiration:";
+            this.PremCardExpireLbl.AutoSize = true;
+            this.PremCardExpireLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardExpireLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardExpireLbl.Location = new System.Drawing.Point(308, 196);
+            this.PremCardExpireLbl.Name = "PremCardExpireLbl";
+            this.PremCardExpireLbl.Size = new System.Drawing.Size(148, 29);
+            this.PremCardExpireLbl.TabIndex = 102;
+            this.PremCardExpireLbl.Text = "Expiration:";
             // 
-            // label9
+            // PremCardExpireErrorLbl
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label9.Location = new System.Drawing.Point(503, 202);
-            this.label9.Name = "label9";
-            this.label9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label9.Size = new System.Drawing.Size(82, 14);
-            this.label9.TabIndex = 104;
-            this.label9.Text = "Missing Field";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label9.Visible = false;
+            this.PremCardExpireErrorLbl.AutoSize = true;
+            this.PremCardExpireErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardExpireErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardExpireErrorLbl.Location = new System.Drawing.Point(503, 202);
+            this.PremCardExpireErrorLbl.Name = "PremCardExpireErrorLbl";
+            this.PremCardExpireErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremCardExpireErrorLbl.Size = new System.Drawing.Size(82, 14);
+            this.PremCardExpireErrorLbl.TabIndex = 104;
+            this.PremCardExpireErrorLbl.Text = "Missing Field";
+            this.PremCardExpireErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremCardExpireErrorLbl.Visible = false;
             // 
-            // textBox8
+            // PremCardExpireText
             // 
-            this.textBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox8.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox8.Location = new System.Drawing.Point(313, 228);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(270, 37);
-            this.textBox8.TabIndex = 103;
+            this.PremCardExpireText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremCardExpireText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardExpireText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardExpireText.Location = new System.Drawing.Point(313, 228);
+            this.PremCardExpireText.Name = "PremCardExpireText";
+            this.PremCardExpireText.Size = new System.Drawing.Size(270, 37);
+            this.PremCardExpireText.TabIndex = 103;
             // 
-            // textBox9
+            // PremPlanPeriodText
             // 
-            this.textBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox9.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox9.Location = new System.Drawing.Point(122, 1289);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(391, 27);
-            this.textBox9.TabIndex = 116;
-            this.textBox9.Text = "Super VIP Plan - [Period]";
+            this.PremPlanPeriodText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremPlanPeriodText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PremPlanPeriodText.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremPlanPeriodText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremPlanPeriodText.Location = new System.Drawing.Point(122, 1289);
+            this.PremPlanPeriodText.Name = "PremPlanPeriodText";
+            this.PremPlanPeriodText.ReadOnly = true;
+            this.PremPlanPeriodText.Size = new System.Drawing.Size(391, 27);
+            this.PremPlanPeriodText.TabIndex = 116;
+            this.PremPlanPeriodText.Text = "Premium Plan - [Period]";
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.radioButton5);
-            this.panel7.Controls.Add(this.label10);
-            this.panel7.Controls.Add(this.textBox10);
-            this.panel7.Controls.Add(this.label11);
-            this.panel7.Controls.Add(this.iconButton6);
+            this.panel7.Controls.Add(this.PremBiyearlyPlanRB);
+            this.panel7.Controls.Add(this.PremBiyearlyPlanLbl);
+            this.panel7.Controls.Add(this.PremBiyearlyPlanRenewText);
+            this.panel7.Controls.Add(this.PremBiyearlyPlanDiscLbl);
+            this.panel7.Controls.Add(this.PremBiyearlyPlanBtn);
             this.panel7.Location = new System.Drawing.Point(854, 291);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(250, 250);
             this.panel7.TabIndex = 110;
             // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.radioButton5.FlatAppearance.BorderSize = 5;
-            this.radioButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton5.Location = new System.Drawing.Point(211, 42);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(13, 12);
-            this.radioButton5.TabIndex = 115;
-            this.radioButton5.UseVisualStyleBackColor = true;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label10.Location = new System.Drawing.Point(63, 35);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(125, 26);
-            this.label10.TabIndex = 87;
-            this.label10.Text = "24 Months";
-            // 
-            // textBox10
-            // 
-            this.textBox10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox10.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox10.Location = new System.Drawing.Point(68, 182);
-            this.textBox10.Multiline = true;
-            this.textBox10.Name = "textBox10";
-            this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(121, 56);
-            this.textBox10.TabIndex = 89;
-            this.textBox10.Text = "Plan Renews at\r\nPhp. 3499.00 on \r\n[After 2 Years]\r\n";
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label11.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label11.Location = new System.Drawing.Point(26, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(198, 31);
-            this.label11.TabIndex = 90;
-            this.label11.Text = "Save. Php. 24k\r\n";
-            // 
-            // iconButton6
-            // 
-            this.iconButton6.AutoSize = true;
-            this.iconButton6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButton6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton6.FlatAppearance.BorderSize = 3;
-            this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton6.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton6.IconColor = System.Drawing.Color.Black;
-            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton6.Location = new System.Drawing.Point(0, 0);
-            this.iconButton6.Name = "iconButton6";
-            this.iconButton6.Size = new System.Drawing.Size(250, 250);
-            this.iconButton6.TabIndex = 86;
-            this.iconButton6.Text = "Php.\r\n2999.00";
-            this.iconButton6.UseVisualStyleBackColor = true;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.radioButton6);
-            this.panel8.Controls.Add(this.label12);
-            this.panel8.Controls.Add(this.textBox11);
-            this.panel8.Controls.Add(this.label13);
-            this.panel8.Controls.Add(this.iconButton7);
-            this.panel8.Location = new System.Drawing.Point(560, 291);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(250, 250);
-            this.panel8.TabIndex = 109;
-            // 
-            // radioButton6
-            // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.radioButton6.FlatAppearance.BorderSize = 5;
-            this.radioButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton6.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton6.Location = new System.Drawing.Point(207, 42);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(13, 12);
-            this.radioButton6.TabIndex = 114;
-            this.radioButton6.UseVisualStyleBackColor = true;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label12.Location = new System.Drawing.Point(66, 35);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(118, 26);
-            this.label12.TabIndex = 82;
-            this.label12.Text = "12 Months";
-            // 
-            // textBox11
-            // 
-            this.textBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox11.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox11.Location = new System.Drawing.Point(68, 182);
-            this.textBox11.Multiline = true;
-            this.textBox11.Name = "textBox11";
-            this.textBox11.ReadOnly = true;
-            this.textBox11.Size = new System.Drawing.Size(121, 56);
-            this.textBox11.TabIndex = 84;
-            this.textBox11.Text = "Plan Renews at\r\nPhp. 3999.00 on \r\n[After 1 Year]\r\n";
-            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label13.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label13.Location = new System.Drawing.Point(31, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(189, 31);
-            this.label13.TabIndex = 85;
-            this.label13.Text = "Save. Php. 18k\r\n";
-            // 
-            // iconButton7
-            // 
-            this.iconButton7.AutoSize = true;
-            this.iconButton7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButton7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton7.FlatAppearance.BorderSize = 3;
-            this.iconButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton7.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton7.IconColor = System.Drawing.Color.Black;
-            this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton7.Location = new System.Drawing.Point(0, 0);
-            this.iconButton7.Name = "iconButton7";
-            this.iconButton7.Size = new System.Drawing.Size(250, 250);
-            this.iconButton7.TabIndex = 81;
-            this.iconButton7.Text = "Php.\r\n3499.00";
-            this.iconButton7.UseVisualStyleBackColor = true;
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.radioButton7);
-            this.panel9.Controls.Add(this.label14);
-            this.panel9.Controls.Add(this.textBox12);
-            this.panel9.Controls.Add(this.iconButton8);
-            this.panel9.Location = new System.Drawing.Point(249, 291);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(250, 250);
-            this.panel9.TabIndex = 108;
-            // 
-            // radioButton7
-            // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.radioButton7.FlatAppearance.BorderSize = 5;
-            this.radioButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton7.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton7.Location = new System.Drawing.Point(202, 46);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(13, 12);
-            this.radioButton7.TabIndex = 113;
-            this.radioButton7.UseVisualStyleBackColor = true;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label14.Location = new System.Drawing.Point(78, 38);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(94, 26);
-            this.label14.TabIndex = 78;
-            this.label14.Text = "1 Month";
-            // 
-            // textBox12
-            // 
-            this.textBox12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox12.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox12.Location = new System.Drawing.Point(65, 179);
-            this.textBox12.Multiline = true;
-            this.textBox12.Name = "textBox12";
-            this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(121, 56);
-            this.textBox12.TabIndex = 80;
-            this.textBox12.Text = "Plan Renews at\r\nPhp. 4999.00 on \r\n[After 1 month]\r\n";
-            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // iconButton8
-            // 
-            this.iconButton8.AutoSize = true;
-            this.iconButton8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButton8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton8.FlatAppearance.BorderSize = 3;
-            this.iconButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton8.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.iconButton8.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton8.IconColor = System.Drawing.Color.Black;
-            this.iconButton8.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton8.Location = new System.Drawing.Point(0, 0);
-            this.iconButton8.Name = "iconButton8";
-            this.iconButton8.Size = new System.Drawing.Size(250, 250);
-            this.iconButton8.TabIndex = 77;
-            this.iconButton8.Text = "Php.\r\n4999.00";
-            this.iconButton8.UseVisualStyleBackColor = true;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label15.Location = new System.Drawing.Point(116, 1227);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(406, 35);
-            this.label15.TabIndex = 98;
-            this.label15.Text = "4. Select Payment Method";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label16.Location = new System.Drawing.Point(114, 889);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(314, 35);
-            this.label16.TabIndex = 91;
-            this.label16.Text = "3. Basic Information";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label17.Location = new System.Drawing.Point(116, 760);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(240, 29);
-            this.label17.TabIndex = 75;
-            this.label17.Text = "Member ID Number:";
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.iconButton9);
-            this.panel10.Controls.Add(this.textBox13);
-            this.panel10.Location = new System.Drawing.Point(686, 796);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(548, 37);
-            this.panel10.TabIndex = 69;
-            // 
-            // iconButton9
-            // 
-            this.iconButton9.AutoSize = true;
-            this.iconButton9.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton9.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton9.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton9.FlatAppearance.BorderSize = 0;
-            this.iconButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton9.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton9.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.iconButton9.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.iconButton9.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton9.IconSize = 30;
-            this.iconButton9.Location = new System.Drawing.Point(512, 0);
-            this.iconButton9.Name = "iconButton9";
-            this.iconButton9.Size = new System.Drawing.Size(36, 37);
-            this.iconButton9.TabIndex = 31;
-            this.iconButton9.UseVisualStyleBackColor = false;
-            // 
-            // textBox13
-            // 
-            this.textBox13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox13.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox13.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox13.Location = new System.Drawing.Point(0, 0);
-            this.textBox13.Margin = new System.Windows.Forms.Padding(50, 10, 10, 10);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(499, 37);
-            this.textBox13.TabIndex = 25;
-            this.textBox13.UseSystemPasswordChar = true;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label18.Location = new System.Drawing.Point(1053, 772);
-            this.label18.Name = "label18";
-            this.label18.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label18.Size = new System.Drawing.Size(184, 14);
-            this.label18.TabIndex = 68;
-            this.label18.Text = "PASSWORD DOES NOT MATCH";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label18.Visible = false;
-            // 
-            // textBox14
-            // 
-            this.textBox14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox14.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox14.Location = new System.Drawing.Point(119, 796);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.ReadOnly = true;
-            this.textBox14.Size = new System.Drawing.Size(553, 37);
-            this.textBox14.TabIndex = 74;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label19.Location = new System.Drawing.Point(683, 764);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(276, 29);
-            this.label19.TabIndex = 67;
-            this.label19.Text = "CONFIRM PASSWORD:";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label20.Location = new System.Drawing.Point(1158, 958);
-            this.label20.Name = "label20";
-            this.label20.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label20.Size = new System.Drawing.Size(82, 14);
-            this.label20.TabIndex = 72;
-            this.label20.Text = "Missing Field";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label20.Visible = false;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label21.Location = new System.Drawing.Point(591, 958);
-            this.label21.Name = "label21";
-            this.label21.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label21.Size = new System.Drawing.Size(82, 14);
-            this.label21.TabIndex = 71;
-            this.label21.Text = "Missing Field";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label21.Visible = false;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label22.Location = new System.Drawing.Point(1158, 1048);
-            this.label22.Name = "label22";
-            this.label22.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label22.Size = new System.Drawing.Size(82, 14);
-            this.label22.TabIndex = 70;
-            this.label22.Text = "Missing Field";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label22.Visible = false;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label23.Location = new System.Drawing.Point(861, 1048);
-            this.label23.Name = "label23";
-            this.label23.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label23.Size = new System.Drawing.Size(82, 14);
-            this.label23.TabIndex = 69;
-            this.label23.Text = "Missing Field";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label23.Visible = false;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label24.Location = new System.Drawing.Point(482, 1048);
-            this.label24.Name = "label24";
-            this.label24.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label24.Size = new System.Drawing.Size(195, 14);
-            this.label24.TabIndex = 68;
-            this.label24.Text = "Must be 18 years old and above";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label24.Visible = false;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label25.Location = new System.Drawing.Point(491, 685);
-            this.label25.Name = "label25";
-            this.label25.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label25.Size = new System.Drawing.Size(184, 14);
-            this.label25.TabIndex = 67;
-            this.label25.Text = "Email Address Does Not Exist";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label25.Visible = false;
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.iconButton10);
-            this.panel11.Controls.Add(this.textBox15);
-            this.panel11.Location = new System.Drawing.Point(686, 710);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(548, 37);
-            this.panel11.TabIndex = 66;
-            // 
-            // iconButton10
-            // 
-            this.iconButton10.AutoSize = true;
-            this.iconButton10.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton10.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton10.FlatAppearance.BorderSize = 0;
-            this.iconButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton10.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton10.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.iconButton10.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.iconButton10.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton10.IconSize = 30;
-            this.iconButton10.Location = new System.Drawing.Point(512, 0);
-            this.iconButton10.Name = "iconButton10";
-            this.iconButton10.Size = new System.Drawing.Size(36, 37);
-            this.iconButton10.TabIndex = 31;
-            this.iconButton10.UseVisualStyleBackColor = false;
-            // 
-            // textBox15
-            // 
-            this.textBox15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox15.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox15.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox15.Location = new System.Drawing.Point(0, 0);
-            this.textBox15.Margin = new System.Windows.Forms.Padding(50, 10, 10, 10);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(499, 37);
-            this.textBox15.TabIndex = 25;
-            this.textBox15.UseSystemPasswordChar = true;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label26.Location = new System.Drawing.Point(1092, 685);
-            this.label26.Name = "label26";
-            this.label26.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label26.Size = new System.Drawing.Size(145, 14);
-            this.label26.TabIndex = 65;
-            this.label26.Text = "INCORRECT PASSWORD";
-            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label26.Visible = false;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label27.Location = new System.Drawing.Point(683, 678);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(155, 29);
-            this.label27.TabIndex = 64;
-            this.label27.Text = "PASSWORD:";
-            // 
-            // textBox16
-            // 
-            this.textBox16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox16.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox16.Location = new System.Drawing.Point(121, 710);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(553, 37);
-            this.textBox16.TabIndex = 61;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label28.Location = new System.Drawing.Point(116, 678);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(194, 29);
-            this.label28.TabIndex = 60;
-            this.label28.Text = "Email Address:";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label29.Location = new System.Drawing.Point(114, 617);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(368, 35);
-            this.label29.TabIndex = 59;
-            this.label29.Text = "2. Create Your Account";
-            // 
-            // textBox17
-            // 
-            this.textBox17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox17.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox17.Location = new System.Drawing.Point(954, 1074);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(283, 37);
-            this.textBox17.TabIndex = 58;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label30.Location = new System.Drawing.Point(949, 1042);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(196, 29);
-            this.label30.TabIndex = 57;
-            this.label30.Text = "Mobile Number:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.comboBox1.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.comboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(687, 1074);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(261, 37);
-            this.comboBox1.TabIndex = 56;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label31.Location = new System.Drawing.Point(684, 1041);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(105, 29);
-            this.label31.TabIndex = 54;
-            this.label31.Text = "Gender:";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(222)))), ((int)(((byte)(141)))));
-            this.dateTimePicker1.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(222)))), ((int)(((byte)(141)))));
-            this.dateTimePicker1.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.dateTimePicker1.CalendarTrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
-            this.dateTimePicker1.CustomFormat = "MM-dd-yyyy";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(120, 1073);
-            this.dateTimePicker1.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
-            this.dateTimePicker1.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(301, 37);
-            this.dateTimePicker1.TabIndex = 53;
-            // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.panel12.Controls.Add(this.label32);
-            this.panel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.panel12.Location = new System.Drawing.Point(274, 1813);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(804, 88);
-            this.panel12.TabIndex = 52;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.label32.Location = new System.Drawing.Point(206, 29);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(362, 51);
-            this.label32.TabIndex = 20;
-            this.label32.Text = "Footer Stopper";
-            this.label32.Visible = false;
-            // 
-            // textBox18
-            // 
-            this.textBox18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox18.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox18.Location = new System.Drawing.Point(427, 1074);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.ReadOnly = true;
-            this.textBox18.Size = new System.Drawing.Size(246, 37);
-            this.textBox18.TabIndex = 51;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label33.Location = new System.Drawing.Point(422, 1041);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(65, 29);
-            this.label33.TabIndex = 50;
-            this.label33.Text = "Age:";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label34.Location = new System.Drawing.Point(117, 1041);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(128, 29);
-            this.label34.TabIndex = 48;
-            this.label34.Text = "Birthday:";
-            // 
-            // textBox19
-            // 
-            this.textBox19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox19.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox19.Location = new System.Drawing.Point(687, 983);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(550, 37);
-            this.textBox19.TabIndex = 47;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label35.Location = new System.Drawing.Point(682, 951);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(152, 29);
-            this.label35.TabIndex = 46;
-            this.label35.Text = "Last Name:";
-            // 
-            // textBox20
-            // 
-            this.textBox20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox20.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox20.Location = new System.Drawing.Point(120, 983);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(553, 37);
-            this.textBox20.TabIndex = 45;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label36.Location = new System.Drawing.Point(115, 951);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(157, 29);
-            this.label36.TabIndex = 44;
-            this.label36.Text = "First Name:";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label37.Location = new System.Drawing.Point(113, 201);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(362, 35);
-            this.label37.TabIndex = 10;
-            this.label37.Text = "1. Choose a Plan Period";
-            // 
-            // textBox21
-            // 
-            this.textBox21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox21.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox21.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox21.Location = new System.Drawing.Point(306, 133);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.ReadOnly = true;
-            this.textBox21.Size = new System.Drawing.Size(281, 27);
-            this.textBox21.TabIndex = 9;
-            this.textBox21.Text = "Premium Plan";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label38.Location = new System.Drawing.Point(124, 133);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(176, 26);
-            this.label38.TabIndex = 8;
-            this.label38.Text = "Selected Plan:";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label39.Location = new System.Drawing.Point(112, 61);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(1035, 51);
-            this.label39.TabIndex = 7;
-            this.label39.Text = "You\'re almost there! Complete your account.";
-            // 
-            // iconButton11
-            // 
-            this.iconButton11.AutoSize = true;
-            this.iconButton11.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton11.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton11.FlatAppearance.BorderSize = 0;
-            this.iconButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton11.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton11.IconChar = FontAwesome.Sharp.IconChar.Copy;
-            this.iconButton11.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.iconButton11.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton11.IconSize = 30;
-            this.iconButton11.Location = new System.Drawing.Point(633, 758);
-            this.iconButton11.Name = "iconButton11";
-            this.iconButton11.Size = new System.Drawing.Size(36, 36);
-            this.iconButton11.TabIndex = 120;
-            this.iconButton11.UseVisualStyleBackColor = false;
-            // 
-            // iconButton12
-            // 
-            this.iconButton12.AutoSize = true;
-            this.iconButton12.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton12.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton12.FlatAppearance.BorderSize = 0;
-            this.iconButton12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton12.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton12.IconChar = FontAwesome.Sharp.IconChar.Question;
-            this.iconButton12.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.iconButton12.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton12.IconSize = 20;
-            this.iconButton12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton12.Location = new System.Drawing.Point(836, 679);
-            this.iconButton12.Name = "iconButton12";
-            this.iconButton12.Size = new System.Drawing.Size(26, 26);
-            this.iconButton12.TabIndex = 76;
-            this.iconButton12.UseVisualStyleBackColor = false;
-            // 
-            // iconButton13
-            // 
-            this.iconButton13.AutoSize = true;
-            this.iconButton13.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton13.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton13.FlatAppearance.BorderSize = 3;
-            this.iconButton13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton13.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.iconButton13.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton13.IconColor = System.Drawing.Color.Black;
-            this.iconButton13.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton13.Location = new System.Drawing.Point(542, 1693);
-            this.iconButton13.Name = "iconButton13";
-            this.iconButton13.Size = new System.Drawing.Size(268, 60);
-            this.iconButton13.TabIndex = 73;
-            this.iconButton13.Text = "CREATE ACCOUNT NOW";
-            this.iconButton13.UseVisualStyleBackColor = true;
+            // PremBiyearlyPlanRB
+            // 
+            this.PremBiyearlyPlanRB.AutoSize = true;
+            this.PremBiyearlyPlanRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremBiyearlyPlanRB.FlatAppearance.BorderSize = 5;
+            this.PremBiyearlyPlanRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremBiyearlyPlanRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PremBiyearlyPlanRB.Location = new System.Drawing.Point(211, 42);
+            this.PremBiyearlyPlanRB.Name = "PremBiyearlyPlanRB";
+            this.PremBiyearlyPlanRB.Size = new System.Drawing.Size(13, 12);
+            this.PremBiyearlyPlanRB.TabIndex = 115;
+            this.PremBiyearlyPlanRB.UseVisualStyleBackColor = true;
+            this.PremBiyearlyPlanRB.Visible = false;
+            // 
+            // PremBiyearlyPlanLbl
+            // 
+            this.PremBiyearlyPlanLbl.AutoSize = true;
+            this.PremBiyearlyPlanLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremBiyearlyPlanLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremBiyearlyPlanLbl.Location = new System.Drawing.Point(63, 35);
+            this.PremBiyearlyPlanLbl.Name = "PremBiyearlyPlanLbl";
+            this.PremBiyearlyPlanLbl.Size = new System.Drawing.Size(125, 26);
+            this.PremBiyearlyPlanLbl.TabIndex = 87;
+            this.PremBiyearlyPlanLbl.Text = "24 Months";
+            // 
+            // PremBiyearlyPlanRenewText
+            // 
+            this.PremBiyearlyPlanRenewText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremBiyearlyPlanRenewText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PremBiyearlyPlanRenewText.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremBiyearlyPlanRenewText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremBiyearlyPlanRenewText.Location = new System.Drawing.Point(68, 182);
+            this.PremBiyearlyPlanRenewText.Multiline = true;
+            this.PremBiyearlyPlanRenewText.Name = "PremBiyearlyPlanRenewText";
+            this.PremBiyearlyPlanRenewText.ReadOnly = true;
+            this.PremBiyearlyPlanRenewText.Size = new System.Drawing.Size(121, 56);
+            this.PremBiyearlyPlanRenewText.TabIndex = 89;
+            this.PremBiyearlyPlanRenewText.Text = "Plan Renews at\r\nPhp. 3499.00 on \r\n[After 2 Years]\r\n";
+            this.PremBiyearlyPlanRenewText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // PremBiyearlyPlanDiscLbl
+            // 
+            this.PremBiyearlyPlanDiscLbl.AutoSize = true;
+            this.PremBiyearlyPlanDiscLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PremBiyearlyPlanDiscLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremBiyearlyPlanDiscLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremBiyearlyPlanDiscLbl.Location = new System.Drawing.Point(34, 0);
+            this.PremBiyearlyPlanDiscLbl.Name = "PremBiyearlyPlanDiscLbl";
+            this.PremBiyearlyPlanDiscLbl.Size = new System.Drawing.Size(183, 31);
+            this.PremBiyearlyPlanDiscLbl.TabIndex = 90;
+            this.PremBiyearlyPlanDiscLbl.Text = "Save. Php. 4k\r\n";
+            // 
+            // PremBiyearlyPlanBtn
+            // 
+            this.PremBiyearlyPlanBtn.AutoSize = true;
+            this.PremBiyearlyPlanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremBiyearlyPlanBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PremBiyearlyPlanBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremBiyearlyPlanBtn.FlatAppearance.BorderSize = 3;
+            this.PremBiyearlyPlanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremBiyearlyPlanBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremBiyearlyPlanBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.PremBiyearlyPlanBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremBiyearlyPlanBtn.IconColor = System.Drawing.Color.Black;
+            this.PremBiyearlyPlanBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremBiyearlyPlanBtn.Location = new System.Drawing.Point(0, 0);
+            this.PremBiyearlyPlanBtn.Name = "PremBiyearlyPlanBtn";
+            this.PremBiyearlyPlanBtn.Size = new System.Drawing.Size(250, 250);
+            this.PremBiyearlyPlanBtn.TabIndex = 86;
+            this.PremBiyearlyPlanBtn.Text = "Php.\r\n999.00";
+            this.PremBiyearlyPlanBtn.UseVisualStyleBackColor = true;
+            this.PremBiyearlyPlanBtn.Click += new System.EventHandler(this.PremBiyearlyPlanBtn_Click);
+            // 
+            // PremYearlyPlanPanel
+            // 
+            this.PremYearlyPlanPanel.Controls.Add(this.PremYearlyPlanRB);
+            this.PremYearlyPlanPanel.Controls.Add(this.PremYearlyPlanLbl);
+            this.PremYearlyPlanPanel.Controls.Add(this.PremYearlyPlanRenewText);
+            this.PremYearlyPlanPanel.Controls.Add(this.PremYearlyPlanDiscLbl);
+            this.PremYearlyPlanPanel.Controls.Add(this.PremYearlyPlanBtn);
+            this.PremYearlyPlanPanel.Location = new System.Drawing.Point(560, 291);
+            this.PremYearlyPlanPanel.Name = "PremYearlyPlanPanel";
+            this.PremYearlyPlanPanel.Size = new System.Drawing.Size(250, 250);
+            this.PremYearlyPlanPanel.TabIndex = 109;
+            // 
+            // PremYearlyPlanRB
+            // 
+            this.PremYearlyPlanRB.AutoSize = true;
+            this.PremYearlyPlanRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremYearlyPlanRB.FlatAppearance.BorderSize = 5;
+            this.PremYearlyPlanRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremYearlyPlanRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PremYearlyPlanRB.Location = new System.Drawing.Point(207, 42);
+            this.PremYearlyPlanRB.Name = "PremYearlyPlanRB";
+            this.PremYearlyPlanRB.Size = new System.Drawing.Size(13, 12);
+            this.PremYearlyPlanRB.TabIndex = 114;
+            this.PremYearlyPlanRB.UseVisualStyleBackColor = true;
+            this.PremYearlyPlanRB.Visible = false;
+            // 
+            // PremYearlyPlanLbl
+            // 
+            this.PremYearlyPlanLbl.AutoSize = true;
+            this.PremYearlyPlanLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremYearlyPlanLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremYearlyPlanLbl.Location = new System.Drawing.Point(66, 35);
+            this.PremYearlyPlanLbl.Name = "PremYearlyPlanLbl";
+            this.PremYearlyPlanLbl.Size = new System.Drawing.Size(118, 26);
+            this.PremYearlyPlanLbl.TabIndex = 82;
+            this.PremYearlyPlanLbl.Text = "12 Months";
+            // 
+            // PremYearlyPlanRenewText
+            // 
+            this.PremYearlyPlanRenewText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremYearlyPlanRenewText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PremYearlyPlanRenewText.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremYearlyPlanRenewText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremYearlyPlanRenewText.Location = new System.Drawing.Point(68, 182);
+            this.PremYearlyPlanRenewText.Multiline = true;
+            this.PremYearlyPlanRenewText.Name = "PremYearlyPlanRenewText";
+            this.PremYearlyPlanRenewText.ReadOnly = true;
+            this.PremYearlyPlanRenewText.Size = new System.Drawing.Size(121, 56);
+            this.PremYearlyPlanRenewText.TabIndex = 84;
+            this.PremYearlyPlanRenewText.Text = "Plan Renews at\r\nPhp. 3999.00 on \r\n[After 1 Year]\r\n";
+            this.PremYearlyPlanRenewText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // PremYearlyPlanDiscLbl
+            // 
+            this.PremYearlyPlanDiscLbl.AutoSize = true;
+            this.PremYearlyPlanDiscLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PremYearlyPlanDiscLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremYearlyPlanDiscLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremYearlyPlanDiscLbl.Location = new System.Drawing.Point(22, 0);
+            this.PremYearlyPlanDiscLbl.Name = "PremYearlyPlanDiscLbl";
+            this.PremYearlyPlanDiscLbl.Size = new System.Drawing.Size(207, 31);
+            this.PremYearlyPlanDiscLbl.TabIndex = 85;
+            this.PremYearlyPlanDiscLbl.Text = "Save. Php. 2.4k\r\n";
+            // 
+            // PremYearlyPlanBtn
+            // 
+            this.PremYearlyPlanBtn.AutoSize = true;
+            this.PremYearlyPlanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremYearlyPlanBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PremYearlyPlanBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremYearlyPlanBtn.FlatAppearance.BorderSize = 3;
+            this.PremYearlyPlanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremYearlyPlanBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremYearlyPlanBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.PremYearlyPlanBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremYearlyPlanBtn.IconColor = System.Drawing.Color.Black;
+            this.PremYearlyPlanBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremYearlyPlanBtn.Location = new System.Drawing.Point(0, 0);
+            this.PremYearlyPlanBtn.Name = "PremYearlyPlanBtn";
+            this.PremYearlyPlanBtn.Size = new System.Drawing.Size(250, 250);
+            this.PremYearlyPlanBtn.TabIndex = 81;
+            this.PremYearlyPlanBtn.Text = "Php.\r\n1299.00";
+            this.PremYearlyPlanBtn.UseVisualStyleBackColor = true;
+            this.PremYearlyPlanBtn.Click += new System.EventHandler(this.PremYearlyPlanBtn_Click);
+            // 
+            // PremMonthlyPlanPanel
+            // 
+            this.PremMonthlyPlanPanel.Controls.Add(this.PremMonthlyPlanRB);
+            this.PremMonthlyPlanPanel.Controls.Add(this.PremMonthlyPlanLbl);
+            this.PremMonthlyPlanPanel.Controls.Add(this.PremMonthlyPlanRenewText);
+            this.PremMonthlyPlanPanel.Controls.Add(this.PremMonthlyPlanBtn);
+            this.PremMonthlyPlanPanel.Location = new System.Drawing.Point(249, 291);
+            this.PremMonthlyPlanPanel.Name = "PremMonthlyPlanPanel";
+            this.PremMonthlyPlanPanel.Size = new System.Drawing.Size(250, 250);
+            this.PremMonthlyPlanPanel.TabIndex = 108;
+            // 
+            // PremMonthlyPlanRB
+            // 
+            this.PremMonthlyPlanRB.AutoSize = true;
+            this.PremMonthlyPlanRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremMonthlyPlanRB.FlatAppearance.BorderSize = 5;
+            this.PremMonthlyPlanRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremMonthlyPlanRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PremMonthlyPlanRB.Location = new System.Drawing.Point(202, 46);
+            this.PremMonthlyPlanRB.Name = "PremMonthlyPlanRB";
+            this.PremMonthlyPlanRB.Size = new System.Drawing.Size(13, 12);
+            this.PremMonthlyPlanRB.TabIndex = 113;
+            this.PremMonthlyPlanRB.UseVisualStyleBackColor = true;
+            this.PremMonthlyPlanRB.Visible = false;
+            // 
+            // PremMonthlyPlanLbl
+            // 
+            this.PremMonthlyPlanLbl.AutoSize = true;
+            this.PremMonthlyPlanLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremMonthlyPlanLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremMonthlyPlanLbl.Location = new System.Drawing.Point(78, 38);
+            this.PremMonthlyPlanLbl.Name = "PremMonthlyPlanLbl";
+            this.PremMonthlyPlanLbl.Size = new System.Drawing.Size(94, 26);
+            this.PremMonthlyPlanLbl.TabIndex = 78;
+            this.PremMonthlyPlanLbl.Text = "1 Month";
+            // 
+            // PremMonthlyPlanRenewText
+            // 
+            this.PremMonthlyPlanRenewText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremMonthlyPlanRenewText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PremMonthlyPlanRenewText.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremMonthlyPlanRenewText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremMonthlyPlanRenewText.Location = new System.Drawing.Point(65, 179);
+            this.PremMonthlyPlanRenewText.Multiline = true;
+            this.PremMonthlyPlanRenewText.Name = "PremMonthlyPlanRenewText";
+            this.PremMonthlyPlanRenewText.ReadOnly = true;
+            this.PremMonthlyPlanRenewText.Size = new System.Drawing.Size(121, 56);
+            this.PremMonthlyPlanRenewText.TabIndex = 80;
+            this.PremMonthlyPlanRenewText.Text = "Plan Renews at\r\nPhp. 4999.00 on \r\n[After 1 month]\r\n";
+            this.PremMonthlyPlanRenewText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // PremMonthlyPlanBtn
+            // 
+            this.PremMonthlyPlanBtn.AutoSize = true;
+            this.PremMonthlyPlanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremMonthlyPlanBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PremMonthlyPlanBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremMonthlyPlanBtn.FlatAppearance.BorderSize = 3;
+            this.PremMonthlyPlanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremMonthlyPlanBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremMonthlyPlanBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.PremMonthlyPlanBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremMonthlyPlanBtn.IconColor = System.Drawing.Color.Black;
+            this.PremMonthlyPlanBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremMonthlyPlanBtn.Location = new System.Drawing.Point(0, 0);
+            this.PremMonthlyPlanBtn.Name = "PremMonthlyPlanBtn";
+            this.PremMonthlyPlanBtn.Size = new System.Drawing.Size(250, 250);
+            this.PremMonthlyPlanBtn.TabIndex = 77;
+            this.PremMonthlyPlanBtn.Text = "Php.\r\n1499.00";
+            this.PremMonthlyPlanBtn.UseVisualStyleBackColor = true;
+            this.PremMonthlyPlanBtn.Click += new System.EventHandler(this.PremMonthlyPlanBtn_Click);
+            // 
+            // PremSelectPaymentLbl
+            // 
+            this.PremSelectPaymentLbl.AutoSize = true;
+            this.PremSelectPaymentLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremSelectPaymentLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremSelectPaymentLbl.Location = new System.Drawing.Point(116, 1227);
+            this.PremSelectPaymentLbl.Name = "PremSelectPaymentLbl";
+            this.PremSelectPaymentLbl.Size = new System.Drawing.Size(406, 35);
+            this.PremSelectPaymentLbl.TabIndex = 98;
+            this.PremSelectPaymentLbl.Text = "4. Select Payment Method";
+            // 
+            // PremBasicInfoLbl
+            // 
+            this.PremBasicInfoLbl.AutoSize = true;
+            this.PremBasicInfoLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremBasicInfoLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremBasicInfoLbl.Location = new System.Drawing.Point(114, 889);
+            this.PremBasicInfoLbl.Name = "PremBasicInfoLbl";
+            this.PremBasicInfoLbl.Size = new System.Drawing.Size(314, 35);
+            this.PremBasicInfoLbl.TabIndex = 91;
+            this.PremBasicInfoLbl.Text = "3. Basic Information";
+            // 
+            // PremMemberIDLbl
+            // 
+            this.PremMemberIDLbl.AutoSize = true;
+            this.PremMemberIDLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremMemberIDLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremMemberIDLbl.Location = new System.Drawing.Point(116, 760);
+            this.PremMemberIDLbl.Name = "PremMemberIDLbl";
+            this.PremMemberIDLbl.Size = new System.Drawing.Size(240, 29);
+            this.PremMemberIDLbl.TabIndex = 75;
+            this.PremMemberIDLbl.Text = "Member ID Number:";
+            // 
+            // PremConfirmPassPanel
+            // 
+            this.PremConfirmPassPanel.Controls.Add(this.PremShowHideConfirmPassBtn);
+            this.PremConfirmPassPanel.Controls.Add(this.PremConfirmPassText);
+            this.PremConfirmPassPanel.Location = new System.Drawing.Point(686, 796);
+            this.PremConfirmPassPanel.Name = "PremConfirmPassPanel";
+            this.PremConfirmPassPanel.Size = new System.Drawing.Size(548, 37);
+            this.PremConfirmPassPanel.TabIndex = 69;
+            // 
+            // PremShowHideConfirmPassBtn
+            // 
+            this.PremShowHideConfirmPassBtn.AutoSize = true;
+            this.PremShowHideConfirmPassBtn.BackColor = System.Drawing.Color.Transparent;
+            this.PremShowHideConfirmPassBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PremShowHideConfirmPassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremShowHideConfirmPassBtn.FlatAppearance.BorderSize = 0;
+            this.PremShowHideConfirmPassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremShowHideConfirmPassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremShowHideConfirmPassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremShowHideConfirmPassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.PremShowHideConfirmPassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremShowHideConfirmPassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremShowHideConfirmPassBtn.IconSize = 30;
+            this.PremShowHideConfirmPassBtn.Location = new System.Drawing.Point(512, 0);
+            this.PremShowHideConfirmPassBtn.Name = "PremShowHideConfirmPassBtn";
+            this.PremShowHideConfirmPassBtn.Size = new System.Drawing.Size(36, 37);
+            this.PremShowHideConfirmPassBtn.TabIndex = 31;
+            this.PremShowHideConfirmPassBtn.UseVisualStyleBackColor = false;
+            this.PremShowHideConfirmPassBtn.Click += new System.EventHandler(this.PremShowHideConfirmPassBtn_Click);
+            this.PremShowHideConfirmPassBtn.MouseHover += new System.EventHandler(this.PremShowHideConfirmPassBtn_MouseHover);
+            // 
+            // PremConfirmPassText
+            // 
+            this.PremConfirmPassText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremConfirmPassText.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PremConfirmPassText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremConfirmPassText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremConfirmPassText.Location = new System.Drawing.Point(0, 0);
+            this.PremConfirmPassText.Margin = new System.Windows.Forms.Padding(50, 10, 10, 10);
+            this.PremConfirmPassText.Name = "PremConfirmPassText";
+            this.PremConfirmPassText.Size = new System.Drawing.Size(499, 37);
+            this.PremConfirmPassText.TabIndex = 25;
+            this.PremConfirmPassText.UseSystemPasswordChar = true;
+            this.PremConfirmPassText.TextChanged += new System.EventHandler(this.PremConfirmPassText_TextChanged);
+            // 
+            // PremConfirmPassErrorLbl
+            // 
+            this.PremConfirmPassErrorLbl.AutoSize = true;
+            this.PremConfirmPassErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremConfirmPassErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremConfirmPassErrorLbl.Location = new System.Drawing.Point(1053, 772);
+            this.PremConfirmPassErrorLbl.Name = "PremConfirmPassErrorLbl";
+            this.PremConfirmPassErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremConfirmPassErrorLbl.Size = new System.Drawing.Size(184, 14);
+            this.PremConfirmPassErrorLbl.TabIndex = 68;
+            this.PremConfirmPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
+            this.PremConfirmPassErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremConfirmPassErrorLbl.Visible = false;
+            // 
+            // PremMemberIDText
+            // 
+            this.PremMemberIDText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremMemberIDText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremMemberIDText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremMemberIDText.Location = new System.Drawing.Point(119, 796);
+            this.PremMemberIDText.Name = "PremMemberIDText";
+            this.PremMemberIDText.ReadOnly = true;
+            this.PremMemberIDText.Size = new System.Drawing.Size(553, 37);
+            this.PremMemberIDText.TabIndex = 74;
+            // 
+            // PremConfirmPassLbl
+            // 
+            this.PremConfirmPassLbl.AutoSize = true;
+            this.PremConfirmPassLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremConfirmPassLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremConfirmPassLbl.Location = new System.Drawing.Point(683, 764);
+            this.PremConfirmPassLbl.Name = "PremConfirmPassLbl";
+            this.PremConfirmPassLbl.Size = new System.Drawing.Size(276, 29);
+            this.PremConfirmPassLbl.TabIndex = 67;
+            this.PremConfirmPassLbl.Text = "CONFIRM PASSWORD:";
+            // 
+            // PremLastNameErrorLbl
+            // 
+            this.PremLastNameErrorLbl.AutoSize = true;
+            this.PremLastNameErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremLastNameErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremLastNameErrorLbl.Location = new System.Drawing.Point(1158, 958);
+            this.PremLastNameErrorLbl.Name = "PremLastNameErrorLbl";
+            this.PremLastNameErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremLastNameErrorLbl.Size = new System.Drawing.Size(82, 14);
+            this.PremLastNameErrorLbl.TabIndex = 72;
+            this.PremLastNameErrorLbl.Text = "Missing Field";
+            this.PremLastNameErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremLastNameErrorLbl.Visible = false;
+            // 
+            // PremFirstNameErrorLbl
+            // 
+            this.PremFirstNameErrorLbl.AutoSize = true;
+            this.PremFirstNameErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremFirstNameErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremFirstNameErrorLbl.Location = new System.Drawing.Point(591, 958);
+            this.PremFirstNameErrorLbl.Name = "PremFirstNameErrorLbl";
+            this.PremFirstNameErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremFirstNameErrorLbl.Size = new System.Drawing.Size(82, 14);
+            this.PremFirstNameErrorLbl.TabIndex = 71;
+            this.PremFirstNameErrorLbl.Text = "Missing Field";
+            this.PremFirstNameErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremFirstNameErrorLbl.Visible = false;
+            // 
+            // PremCPNumErrorLbl
+            // 
+            this.PremCPNumErrorLbl.AutoSize = true;
+            this.PremCPNumErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCPNumErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCPNumErrorLbl.Location = new System.Drawing.Point(1158, 1048);
+            this.PremCPNumErrorLbl.Name = "PremCPNumErrorLbl";
+            this.PremCPNumErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremCPNumErrorLbl.Size = new System.Drawing.Size(82, 14);
+            this.PremCPNumErrorLbl.TabIndex = 70;
+            this.PremCPNumErrorLbl.Text = "Missing Field";
+            this.PremCPNumErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremCPNumErrorLbl.Visible = false;
+            // 
+            // PremGenderErrorLbl
+            // 
+            this.PremGenderErrorLbl.AutoSize = true;
+            this.PremGenderErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremGenderErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremGenderErrorLbl.Location = new System.Drawing.Point(861, 1048);
+            this.PremGenderErrorLbl.Name = "PremGenderErrorLbl";
+            this.PremGenderErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremGenderErrorLbl.Size = new System.Drawing.Size(82, 14);
+            this.PremGenderErrorLbl.TabIndex = 69;
+            this.PremGenderErrorLbl.Text = "Missing Field";
+            this.PremGenderErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremGenderErrorLbl.Visible = false;
+            // 
+            // PremAgeErrorLbl
+            // 
+            this.PremAgeErrorLbl.AutoSize = true;
+            this.PremAgeErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremAgeErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremAgeErrorLbl.Location = new System.Drawing.Point(482, 1048);
+            this.PremAgeErrorLbl.Name = "PremAgeErrorLbl";
+            this.PremAgeErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremAgeErrorLbl.Size = new System.Drawing.Size(195, 14);
+            this.PremAgeErrorLbl.TabIndex = 68;
+            this.PremAgeErrorLbl.Text = "Must be 18 years old and above";
+            this.PremAgeErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremAgeErrorLbl.Visible = false;
+            // 
+            // PremEmailErrorLbl
+            // 
+            this.PremEmailErrorLbl.AutoSize = true;
+            this.PremEmailErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremEmailErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremEmailErrorLbl.Location = new System.Drawing.Point(491, 685);
+            this.PremEmailErrorLbl.Name = "PremEmailErrorLbl";
+            this.PremEmailErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremEmailErrorLbl.Size = new System.Drawing.Size(184, 14);
+            this.PremEmailErrorLbl.TabIndex = 67;
+            this.PremEmailErrorLbl.Text = "Email Address Does Not Exist";
+            this.PremEmailErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremEmailErrorLbl.Visible = false;
+            // 
+            // PremPassPanel
+            // 
+            this.PremPassPanel.Controls.Add(this.PremShowHidePassBtn);
+            this.PremPassPanel.Controls.Add(this.PremPassText);
+            this.PremPassPanel.Location = new System.Drawing.Point(686, 710);
+            this.PremPassPanel.Name = "PremPassPanel";
+            this.PremPassPanel.Size = new System.Drawing.Size(548, 37);
+            this.PremPassPanel.TabIndex = 66;
+            // 
+            // PremShowHidePassBtn
+            // 
+            this.PremShowHidePassBtn.AutoSize = true;
+            this.PremShowHidePassBtn.BackColor = System.Drawing.Color.Transparent;
+            this.PremShowHidePassBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PremShowHidePassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremShowHidePassBtn.FlatAppearance.BorderSize = 0;
+            this.PremShowHidePassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremShowHidePassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremShowHidePassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.PremShowHidePassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremShowHidePassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremShowHidePassBtn.IconSize = 30;
+            this.PremShowHidePassBtn.Location = new System.Drawing.Point(512, 0);
+            this.PremShowHidePassBtn.Name = "PremShowHidePassBtn";
+            this.PremShowHidePassBtn.Size = new System.Drawing.Size(36, 37);
+            this.PremShowHidePassBtn.TabIndex = 31;
+            this.PremShowHidePassBtn.UseVisualStyleBackColor = false;
+            this.PremShowHidePassBtn.Click += new System.EventHandler(this.PremShowHidePassBtn_Click);
+            this.PremShowHidePassBtn.MouseHover += new System.EventHandler(this.PremShowHidePassBtn_MouseHover);
+            // 
+            // PremPassText
+            // 
+            this.PremPassText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremPassText.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PremPassText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremPassText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremPassText.Location = new System.Drawing.Point(0, 0);
+            this.PremPassText.Margin = new System.Windows.Forms.Padding(50, 10, 10, 10);
+            this.PremPassText.Name = "PremPassText";
+            this.PremPassText.Size = new System.Drawing.Size(499, 37);
+            this.PremPassText.TabIndex = 25;
+            this.PremPassText.UseSystemPasswordChar = true;
+            // 
+            // PremPassErrorLbl
+            // 
+            this.PremPassErrorLbl.AutoSize = true;
+            this.PremPassErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremPassErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremPassErrorLbl.Location = new System.Drawing.Point(1092, 685);
+            this.PremPassErrorLbl.Name = "PremPassErrorLbl";
+            this.PremPassErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremPassErrorLbl.Size = new System.Drawing.Size(145, 14);
+            this.PremPassErrorLbl.TabIndex = 65;
+            this.PremPassErrorLbl.Text = "INCORRECT PASSWORD";
+            this.PremPassErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremPassErrorLbl.Visible = false;
+            // 
+            // PremPassLbl
+            // 
+            this.PremPassLbl.AutoSize = true;
+            this.PremPassLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremPassLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremPassLbl.Location = new System.Drawing.Point(683, 678);
+            this.PremPassLbl.Name = "PremPassLbl";
+            this.PremPassLbl.Size = new System.Drawing.Size(155, 29);
+            this.PremPassLbl.TabIndex = 64;
+            this.PremPassLbl.Text = "PASSWORD:";
+            // 
+            // PremEmailText
+            // 
+            this.PremEmailText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremEmailText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremEmailText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremEmailText.Location = new System.Drawing.Point(121, 710);
+            this.PremEmailText.Name = "PremEmailText";
+            this.PremEmailText.Size = new System.Drawing.Size(553, 37);
+            this.PremEmailText.TabIndex = 61;
+            // 
+            // PremEmailLbl
+            // 
+            this.PremEmailLbl.AutoSize = true;
+            this.PremEmailLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremEmailLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremEmailLbl.Location = new System.Drawing.Point(116, 678);
+            this.PremEmailLbl.Name = "PremEmailLbl";
+            this.PremEmailLbl.Size = new System.Drawing.Size(194, 29);
+            this.PremEmailLbl.TabIndex = 60;
+            this.PremEmailLbl.Text = "Email Address:";
+            // 
+            // PremCreateAccLbl
+            // 
+            this.PremCreateAccLbl.AutoSize = true;
+            this.PremCreateAccLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCreateAccLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCreateAccLbl.Location = new System.Drawing.Point(114, 617);
+            this.PremCreateAccLbl.Name = "PremCreateAccLbl";
+            this.PremCreateAccLbl.Size = new System.Drawing.Size(368, 35);
+            this.PremCreateAccLbl.TabIndex = 59;
+            this.PremCreateAccLbl.Text = "2. Create Your Account";
+            // 
+            // PremCPNumText
+            // 
+            this.PremCPNumText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremCPNumText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCPNumText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCPNumText.Location = new System.Drawing.Point(954, 1074);
+            this.PremCPNumText.Name = "PremCPNumText";
+            this.PremCPNumText.Size = new System.Drawing.Size(283, 37);
+            this.PremCPNumText.TabIndex = 58;
+            // 
+            // PremCPNumLbl
+            // 
+            this.PremCPNumLbl.AutoSize = true;
+            this.PremCPNumLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCPNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCPNumLbl.Location = new System.Drawing.Point(949, 1042);
+            this.PremCPNumLbl.Name = "PremCPNumLbl";
+            this.PremCPNumLbl.Size = new System.Drawing.Size(196, 29);
+            this.PremCPNumLbl.TabIndex = 57;
+            this.PremCPNumLbl.Text = "Mobile Number:";
+            // 
+            // PremGenderComboText
+            // 
+            this.PremGenderComboText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremGenderComboText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremGenderComboText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremGenderComboText.FormattingEnabled = true;
+            this.PremGenderComboText.Location = new System.Drawing.Point(687, 1074);
+            this.PremGenderComboText.Name = "PremGenderComboText";
+            this.PremGenderComboText.Size = new System.Drawing.Size(261, 37);
+            this.PremGenderComboText.TabIndex = 56;
+            this.PremGenderComboText.SelectedIndexChanged += new System.EventHandler(this.PremGenderComboText_SelectedIndexChanged);
+            // 
+            // PremGenderLbl
+            // 
+            this.PremGenderLbl.AutoSize = true;
+            this.PremGenderLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremGenderLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremGenderLbl.Location = new System.Drawing.Point(684, 1041);
+            this.PremGenderLbl.Name = "PremGenderLbl";
+            this.PremGenderLbl.Size = new System.Drawing.Size(105, 29);
+            this.PremGenderLbl.TabIndex = 54;
+            this.PremGenderLbl.Text = "Gender:";
+            // 
+            // PremBdayPicker
+            // 
+            this.PremBdayPicker.CalendarFont = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PremBdayPicker.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremBdayPicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(222)))), ((int)(((byte)(141)))));
+            this.PremBdayPicker.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(222)))), ((int)(((byte)(141)))));
+            this.PremBdayPicker.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.PremBdayPicker.CalendarTrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
+            this.PremBdayPicker.CustomFormat = "MM-dd-yyyy";
+            this.PremBdayPicker.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PremBdayPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.PremBdayPicker.Location = new System.Drawing.Point(120, 1073);
+            this.PremBdayPicker.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
+            this.PremBdayPicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.PremBdayPicker.Name = "PremBdayPicker";
+            this.PremBdayPicker.Size = new System.Drawing.Size(301, 37);
+            this.PremBdayPicker.TabIndex = 53;
+            this.PremBdayPicker.ValueChanged += new System.EventHandler(this.PremBdayPicker_ValueChanged);
+            // 
+            // PremFooterStopperPanel
+            // 
+            this.PremFooterStopperPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremFooterStopperPanel.Controls.Add(this.PremFooterStopperLbl);
+            this.PremFooterStopperPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.PremFooterStopperPanel.Location = new System.Drawing.Point(274, 1813);
+            this.PremFooterStopperPanel.Name = "PremFooterStopperPanel";
+            this.PremFooterStopperPanel.Size = new System.Drawing.Size(804, 88);
+            this.PremFooterStopperPanel.TabIndex = 52;
+            // 
+            // PremFooterStopperLbl
+            // 
+            this.PremFooterStopperLbl.AutoSize = true;
+            this.PremFooterStopperLbl.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremFooterStopperLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.PremFooterStopperLbl.Location = new System.Drawing.Point(206, 29);
+            this.PremFooterStopperLbl.Name = "PremFooterStopperLbl";
+            this.PremFooterStopperLbl.Size = new System.Drawing.Size(362, 51);
+            this.PremFooterStopperLbl.TabIndex = 20;
+            this.PremFooterStopperLbl.Text = "Footer Stopper";
+            this.PremFooterStopperLbl.Visible = false;
+            // 
+            // PremAgeText
+            // 
+            this.PremAgeText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremAgeText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremAgeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremAgeText.Location = new System.Drawing.Point(427, 1074);
+            this.PremAgeText.Name = "PremAgeText";
+            this.PremAgeText.ReadOnly = true;
+            this.PremAgeText.Size = new System.Drawing.Size(246, 37);
+            this.PremAgeText.TabIndex = 51;
+            // 
+            // PremAgeLbl
+            // 
+            this.PremAgeLbl.AutoSize = true;
+            this.PremAgeLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremAgeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremAgeLbl.Location = new System.Drawing.Point(422, 1041);
+            this.PremAgeLbl.Name = "PremAgeLbl";
+            this.PremAgeLbl.Size = new System.Drawing.Size(65, 29);
+            this.PremAgeLbl.TabIndex = 50;
+            this.PremAgeLbl.Text = "Age:";
+            // 
+            // PremBdayLbl
+            // 
+            this.PremBdayLbl.AutoSize = true;
+            this.PremBdayLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremBdayLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremBdayLbl.Location = new System.Drawing.Point(117, 1041);
+            this.PremBdayLbl.Name = "PremBdayLbl";
+            this.PremBdayLbl.Size = new System.Drawing.Size(128, 29);
+            this.PremBdayLbl.TabIndex = 48;
+            this.PremBdayLbl.Text = "Birthday:";
+            // 
+            // PremLastNameText
+            // 
+            this.PremLastNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremLastNameText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremLastNameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremLastNameText.Location = new System.Drawing.Point(687, 983);
+            this.PremLastNameText.Name = "PremLastNameText";
+            this.PremLastNameText.Size = new System.Drawing.Size(550, 37);
+            this.PremLastNameText.TabIndex = 47;
+            // 
+            // PremLastNameLbl
+            // 
+            this.PremLastNameLbl.AutoSize = true;
+            this.PremLastNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremLastNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremLastNameLbl.Location = new System.Drawing.Point(682, 951);
+            this.PremLastNameLbl.Name = "PremLastNameLbl";
+            this.PremLastNameLbl.Size = new System.Drawing.Size(152, 29);
+            this.PremLastNameLbl.TabIndex = 46;
+            this.PremLastNameLbl.Text = "Last Name:";
+            // 
+            // PremFirstNameText
+            // 
+            this.PremFirstNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremFirstNameText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremFirstNameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremFirstNameText.Location = new System.Drawing.Point(120, 983);
+            this.PremFirstNameText.Name = "PremFirstNameText";
+            this.PremFirstNameText.Size = new System.Drawing.Size(553, 37);
+            this.PremFirstNameText.TabIndex = 45;
+            // 
+            // PremFirstNameLbl
+            // 
+            this.PremFirstNameLbl.AutoSize = true;
+            this.PremFirstNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremFirstNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremFirstNameLbl.Location = new System.Drawing.Point(115, 951);
+            this.PremFirstNameLbl.Name = "PremFirstNameLbl";
+            this.PremFirstNameLbl.Size = new System.Drawing.Size(157, 29);
+            this.PremFirstNameLbl.TabIndex = 44;
+            this.PremFirstNameLbl.Text = "First Name:";
+            // 
+            // PremPlanPeriodLbl
+            // 
+            this.PremPlanPeriodLbl.AutoSize = true;
+            this.PremPlanPeriodLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremPlanPeriodLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremPlanPeriodLbl.Location = new System.Drawing.Point(113, 201);
+            this.PremPlanPeriodLbl.Name = "PremPlanPeriodLbl";
+            this.PremPlanPeriodLbl.Size = new System.Drawing.Size(362, 35);
+            this.PremPlanPeriodLbl.TabIndex = 10;
+            this.PremPlanPeriodLbl.Text = "1. Choose a Plan Period";
+            // 
+            // PremSelectedPlanText
+            // 
+            this.PremSelectedPlanText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremSelectedPlanText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PremSelectedPlanText.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremSelectedPlanText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremSelectedPlanText.Location = new System.Drawing.Point(306, 133);
+            this.PremSelectedPlanText.Name = "PremSelectedPlanText";
+            this.PremSelectedPlanText.ReadOnly = true;
+            this.PremSelectedPlanText.Size = new System.Drawing.Size(281, 27);
+            this.PremSelectedPlanText.TabIndex = 9;
+            this.PremSelectedPlanText.Text = "Premium Plan";
+            // 
+            // PremSelectedLbl
+            // 
+            this.PremSelectedLbl.AutoSize = true;
+            this.PremSelectedLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremSelectedLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremSelectedLbl.Location = new System.Drawing.Point(124, 133);
+            this.PremSelectedLbl.Name = "PremSelectedLbl";
+            this.PremSelectedLbl.Size = new System.Drawing.Size(176, 26);
+            this.PremSelectedLbl.TabIndex = 8;
+            this.PremSelectedLbl.Text = "Selected Plan:";
+            // 
+            // PremAccLbl
+            // 
+            this.PremAccLbl.AutoSize = true;
+            this.PremAccLbl.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremAccLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremAccLbl.Location = new System.Drawing.Point(112, 61);
+            this.PremAccLbl.Name = "PremAccLbl";
+            this.PremAccLbl.Size = new System.Drawing.Size(1035, 51);
+            this.PremAccLbl.TabIndex = 7;
+            this.PremAccLbl.Text = "You\'re almost there! Complete your account.";
+            // 
+            // PremMemberIDCopyBtn
+            // 
+            this.PremMemberIDCopyBtn.AutoSize = true;
+            this.PremMemberIDCopyBtn.BackColor = System.Drawing.Color.Transparent;
+            this.PremMemberIDCopyBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremMemberIDCopyBtn.FlatAppearance.BorderSize = 0;
+            this.PremMemberIDCopyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremMemberIDCopyBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremMemberIDCopyBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremMemberIDCopyBtn.IconChar = FontAwesome.Sharp.IconChar.Copy;
+            this.PremMemberIDCopyBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremMemberIDCopyBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremMemberIDCopyBtn.IconSize = 30;
+            this.PremMemberIDCopyBtn.Location = new System.Drawing.Point(633, 758);
+            this.PremMemberIDCopyBtn.Name = "PremMemberIDCopyBtn";
+            this.PremMemberIDCopyBtn.Size = new System.Drawing.Size(36, 36);
+            this.PremMemberIDCopyBtn.TabIndex = 120;
+            this.PremMemberIDCopyBtn.UseVisualStyleBackColor = false;
+            this.PremMemberIDCopyBtn.Click += new System.EventHandler(this.PremMemberIDCopyBtn_Click);
+            // 
+            // PremPassReqBtn
+            // 
+            this.PremPassReqBtn.AutoSize = true;
+            this.PremPassReqBtn.BackColor = System.Drawing.Color.Transparent;
+            this.PremPassReqBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremPassReqBtn.FlatAppearance.BorderSize = 0;
+            this.PremPassReqBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremPassReqBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremPassReqBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremPassReqBtn.IconChar = FontAwesome.Sharp.IconChar.Question;
+            this.PremPassReqBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremPassReqBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremPassReqBtn.IconSize = 20;
+            this.PremPassReqBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PremPassReqBtn.Location = new System.Drawing.Point(836, 679);
+            this.PremPassReqBtn.Name = "PremPassReqBtn";
+            this.PremPassReqBtn.Size = new System.Drawing.Size(26, 26);
+            this.PremPassReqBtn.TabIndex = 76;
+            this.PremPassReqBtn.UseVisualStyleBackColor = false;
+            this.PremPassReqBtn.MouseHover += new System.EventHandler(this.PremPassReqBtn_MouseHover);
+            // 
+            // PremCreateAccBtn
+            // 
+            this.PremCreateAccBtn.AutoSize = true;
+            this.PremCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremCreateAccBtn.FlatAppearance.BorderSize = 3;
+            this.PremCreateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremCreateAccBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCreateAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremCreateAccBtn.IconColor = System.Drawing.Color.Black;
+            this.PremCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremCreateAccBtn.Location = new System.Drawing.Point(542, 1693);
+            this.PremCreateAccBtn.Name = "PremCreateAccBtn";
+            this.PremCreateAccBtn.Size = new System.Drawing.Size(268, 60);
+            this.PremCreateAccBtn.TabIndex = 73;
+            this.PremCreateAccBtn.Text = "CREATE ACCOUNT NOW";
+            this.PremCreateAccBtn.UseVisualStyleBackColor = true;
+            this.PremCreateAccBtn.Click += new System.EventHandler(this.PremCreateAccBtn_Click);
             // 
             // PremiumExitBtn
             // 
@@ -5298,11 +5324,11 @@
             this.MemberScrollPanel.ResumeLayout(false);
             this.MemberAccountPanel.ResumeLayout(false);
             this.MemberAccountPanel.PerformLayout();
-            this.panel34.ResumeLayout(false);
-            this.panel34.PerformLayout();
-            this.panel35.ResumeLayout(false);
-            this.panel35.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.MemberScrollFooterStopperPanel.ResumeLayout(false);
+            this.MemberScrollFooterStopperPanel.PerformLayout();
+            this.MemberFooter.ResumeLayout(false);
+            this.MemberFooter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MemberFooterLogo)).EndInit();
             this.MemberNavBarPanel.ResumeLayout(false);
             this.MemberNavBarPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EnchanteMemberHeaderLogo)).EndInit();
@@ -5313,28 +5339,28 @@
             ((System.ComponentModel.ISupportInitialize)(this.ServiceCard)).EndInit();
             this.PremiumPlanPanel.ResumeLayout(false);
             this.PremiumPlanPanel.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
+            this.PremCardInfoPanel.ResumeLayout(false);
+            this.PremCardInfoPanel.PerformLayout();
+            this.PremPayPPaymentPanel.ResumeLayout(false);
+            this.PremPayPPaymentPanel.PerformLayout();
+            this.PremPayMPaymentPanel.ResumeLayout(false);
+            this.PremPayMPaymentPanel.PerformLayout();
+            this.PremGCPaymentPanel.ResumeLayout(false);
+            this.PremGCPaymentPanel.PerformLayout();
+            this.PremCCPaymentPanel.ResumeLayout(false);
+            this.PremCCPaymentPanel.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
+            this.PremYearlyPlanPanel.ResumeLayout(false);
+            this.PremYearlyPlanPanel.PerformLayout();
+            this.PremMonthlyPlanPanel.ResumeLayout(false);
+            this.PremMonthlyPlanPanel.PerformLayout();
+            this.PremConfirmPassPanel.ResumeLayout(false);
+            this.PremConfirmPassPanel.PerformLayout();
+            this.PremPassPanel.ResumeLayout(false);
+            this.PremPassPanel.PerformLayout();
+            this.PremFooterStopperPanel.ResumeLayout(false);
+            this.PremFooterStopperPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -5565,7 +5591,7 @@
         private FontAwesome.Sharp.IconButton RegularMemberIDCopyBtn;
         private FontAwesome.Sharp.IconButton LoginPassReqBtn;
         private System.Windows.Forms.Label RegularMemberIDCopyLbl;
-        private System.Windows.Forms.Label SVIPMemberCopyLbl;
+        private System.Windows.Forms.Label SVIPMemberIDCopyLbl;
         private System.Windows.Forms.TextBox SVIPPaymentTypeText;
         private System.Windows.Forms.TextBox SVIPPlanExpirationText;
         private System.Windows.Forms.Panel MemberNavBarPanel;
@@ -5579,107 +5605,107 @@
         private FontAwesome.Sharp.IconButton iconButton2;
         private System.Windows.Forms.Panel MemberAccountPanel;
         private System.Windows.Forms.Panel MemberScrollPanel;
-        private System.Windows.Forms.Panel panel34;
-        private System.Windows.Forms.Label label80;
-        private System.Windows.Forms.Panel panel35;
-        private FontAwesome.Sharp.IconButton iconButton33;
-        private FontAwesome.Sharp.IconButton iconButton34;
-        private FontAwesome.Sharp.IconButton iconButton35;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private FontAwesome.Sharp.IconButton iconButton36;
+        private System.Windows.Forms.Panel MemberScrollFooterStopperPanel;
+        private System.Windows.Forms.Label MemberScrollFooterStopperLbl;
+        private System.Windows.Forms.Panel MemberFooter;
+        private FontAwesome.Sharp.IconButton SM_EmailBtn1;
+        private FontAwesome.Sharp.IconButton SM_IGBtn1;
+        private FontAwesome.Sharp.IconButton SM_TwitterBtn1;
+        private System.Windows.Forms.PictureBox MemberFooterLogo;
+        private FontAwesome.Sharp.IconButton SM_FBBtn1;
         private System.Windows.Forms.Panel PremiumPlanPanel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private FontAwesome.Sharp.IconButton iconButton4;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private FontAwesome.Sharp.IconButton iconButton5;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox PremPlanExpirationText;
+        private System.Windows.Forms.Label PremMemberIDCopyLbl;
+        private System.Windows.Forms.TextBox PremNewPriceText;
+        private System.Windows.Forms.TextBox PremOrigPriceText;
+        private System.Windows.Forms.Panel PremCardInfoPanel;
+        private System.Windows.Forms.TextBox PremPaymentTypeText;
+        private System.Windows.Forms.Label PremCardNameLbl;
+        private System.Windows.Forms.TextBox PremCardNameText;
+        private System.Windows.Forms.Label PremCardNumLbl;
+        private System.Windows.Forms.TextBox PremCardNumText;
+        private System.Windows.Forms.Label PremCardNameErrorLbl;
+        private System.Windows.Forms.Label PremCardNumErrorLbl;
+        private System.Windows.Forms.Panel PremPayPPaymentPanel;
+        private System.Windows.Forms.RadioButton PremPayPPaymentRB;
+        private FontAwesome.Sharp.IconButton PremPayPPaymentBtn;
+        private System.Windows.Forms.Label PremCardCVCLbl;
+        private System.Windows.Forms.Panel PremPayMPaymentPanel;
+        private System.Windows.Forms.RadioButton PremPayMPaymentRB;
+        private FontAwesome.Sharp.IconButton PremPayMPaymentBtn;
+        private System.Windows.Forms.TextBox PremCardCVCText;
+        private System.Windows.Forms.Panel PremGCPaymentPanel;
+        private System.Windows.Forms.RadioButton PremGCPaymentRB;
+        private FontAwesome.Sharp.IconButton PremGCPaymentBtn;
+        private System.Windows.Forms.Label PremCardCVCErrorLbl;
+        private System.Windows.Forms.Panel PremCCPaymentPanel;
+        private System.Windows.Forms.RadioButton PremCCPaymentRB;
+        private FontAwesome.Sharp.IconButton PremCCPaymentBtn;
+        private System.Windows.Forms.Label PremCardExpireLbl;
+        private System.Windows.Forms.Label PremCardExpireErrorLbl;
+        private System.Windows.Forms.TextBox PremCardExpireText;
+        private System.Windows.Forms.TextBox PremPlanPeriodText;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label label11;
-        private FontAwesome.Sharp.IconButton iconButton6;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.Label label13;
-        private FontAwesome.Sharp.IconButton iconButton7;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox12;
-        private FontAwesome.Sharp.IconButton iconButton8;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Panel panel10;
-        private FontAwesome.Sharp.IconButton iconButton9;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Panel panel11;
-        private FontAwesome.Sharp.IconButton iconButton10;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label39;
-        private FontAwesome.Sharp.IconButton iconButton11;
-        private FontAwesome.Sharp.IconButton iconButton12;
-        private FontAwesome.Sharp.IconButton iconButton13;
+        private System.Windows.Forms.RadioButton PremBiyearlyPlanRB;
+        private System.Windows.Forms.Label PremBiyearlyPlanLbl;
+        private System.Windows.Forms.TextBox PremBiyearlyPlanRenewText;
+        private System.Windows.Forms.Label PremBiyearlyPlanDiscLbl;
+        private FontAwesome.Sharp.IconButton PremBiyearlyPlanBtn;
+        private System.Windows.Forms.Panel PremYearlyPlanPanel;
+        private System.Windows.Forms.RadioButton PremYearlyPlanRB;
+        private System.Windows.Forms.Label PremYearlyPlanLbl;
+        private System.Windows.Forms.TextBox PremYearlyPlanRenewText;
+        private System.Windows.Forms.Label PremYearlyPlanDiscLbl;
+        private FontAwesome.Sharp.IconButton PremYearlyPlanBtn;
+        private System.Windows.Forms.Panel PremMonthlyPlanPanel;
+        private System.Windows.Forms.RadioButton PremMonthlyPlanRB;
+        private System.Windows.Forms.Label PremMonthlyPlanLbl;
+        private System.Windows.Forms.TextBox PremMonthlyPlanRenewText;
+        private FontAwesome.Sharp.IconButton PremMonthlyPlanBtn;
+        private System.Windows.Forms.Label PremSelectPaymentLbl;
+        private System.Windows.Forms.Label PremBasicInfoLbl;
+        private System.Windows.Forms.Label PremMemberIDLbl;
+        private System.Windows.Forms.Panel PremConfirmPassPanel;
+        private FontAwesome.Sharp.IconButton PremShowHideConfirmPassBtn;
+        private System.Windows.Forms.TextBox PremConfirmPassText;
+        private System.Windows.Forms.Label PremConfirmPassErrorLbl;
+        private System.Windows.Forms.TextBox PremMemberIDText;
+        private System.Windows.Forms.Label PremConfirmPassLbl;
+        private System.Windows.Forms.Label PremLastNameErrorLbl;
+        private System.Windows.Forms.Label PremFirstNameErrorLbl;
+        private System.Windows.Forms.Label PremCPNumErrorLbl;
+        private System.Windows.Forms.Label PremGenderErrorLbl;
+        private System.Windows.Forms.Label PremAgeErrorLbl;
+        private System.Windows.Forms.Label PremEmailErrorLbl;
+        private System.Windows.Forms.Panel PremPassPanel;
+        private FontAwesome.Sharp.IconButton PremShowHidePassBtn;
+        private System.Windows.Forms.TextBox PremPassText;
+        private System.Windows.Forms.Label PremPassErrorLbl;
+        private System.Windows.Forms.Label PremPassLbl;
+        private System.Windows.Forms.TextBox PremEmailText;
+        private System.Windows.Forms.Label PremEmailLbl;
+        private System.Windows.Forms.Label PremCreateAccLbl;
+        private System.Windows.Forms.TextBox PremCPNumText;
+        private System.Windows.Forms.Label PremCPNumLbl;
+        private System.Windows.Forms.ComboBox PremGenderComboText;
+        private System.Windows.Forms.Label PremGenderLbl;
+        private System.Windows.Forms.DateTimePicker PremBdayPicker;
+        private System.Windows.Forms.Panel PremFooterStopperPanel;
+        private System.Windows.Forms.Label PremFooterStopperLbl;
+        private System.Windows.Forms.TextBox PremAgeText;
+        private System.Windows.Forms.Label PremAgeLbl;
+        private System.Windows.Forms.Label PremBdayLbl;
+        private System.Windows.Forms.TextBox PremLastNameText;
+        private System.Windows.Forms.Label PremLastNameLbl;
+        private System.Windows.Forms.TextBox PremFirstNameText;
+        private System.Windows.Forms.Label PremFirstNameLbl;
+        private System.Windows.Forms.Label PremPlanPeriodLbl;
+        private System.Windows.Forms.TextBox PremSelectedPlanText;
+        private System.Windows.Forms.Label PremSelectedLbl;
+        private System.Windows.Forms.Label PremAccLbl;
+        private FontAwesome.Sharp.IconButton PremMemberIDCopyBtn;
+        private FontAwesome.Sharp.IconButton PremPassReqBtn;
+        private FontAwesome.Sharp.IconButton PremCreateAccBtn;
         private FontAwesome.Sharp.IconButton PremiumExitBtn;
     }
 }
