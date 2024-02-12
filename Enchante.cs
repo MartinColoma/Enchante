@@ -1195,12 +1195,16 @@ namespace Enchante
 
             if (SVIPMonthlyPlanRB.Checked == false)
             {
+                SVIPMonthlyPlanRB.Visible = true;
                 SVIPMonthlyPlanRB.Checked = true;
                 SVIPPlanPeriodText.Text = "Super VIP Plan - Monthly";
 
                 SVIPOrigPriceText.Visible = false;
                 SVIPOrigPriceText.Text = "Php. 4999.00";
                 SVIPNewPriceText.Text = "Php. 4999.00";
+
+                SVIPYearlyPlanRB.Visible = false;
+                SVIPBiyearlyPlanRB.Visible = false;
                 SVIPYearlyPlanRB.Checked = false;
                 SVIPBiyearlyPlanRB.Checked = false;
                 return;
@@ -1212,6 +1216,9 @@ namespace Enchante
                 SVIPOrigPriceText.Visible = false;
                 SVIPOrigPriceText.Text = "Php. 4999.00";
                 SVIPNewPriceText.Text = "Php. 4999.00";
+
+                SVIPYearlyPlanRB.Visible = false;
+                SVIPBiyearlyPlanRB.Visible = false;
                 SVIPYearlyPlanRB.Checked = false;
                 SVIPBiyearlyPlanRB.Checked = false;
             }
@@ -1222,19 +1229,23 @@ namespace Enchante
 
             if (SVIPYearlyPlanRB.Checked == false)
             {
+                SVIPYearlyPlanRB.Visible = true;
                 SVIPYearlyPlanRB.Checked = true;
                 SVIPPlanPeriodText.Text = "Super VIP Plan - 12 Months";
 
                 SVIPOrigPriceText.Visible = true;
                 SVIPOrigPriceText.Text = "Php. 4999.00";
                 SVIPNewPriceText.Text = "Php. 3499.00";
+
+                SVIPMonthlyPlanRB.Visible = false;
+                SVIPBiyearlyPlanRB.Visible = false;
                 SVIPMonthlyPlanRB.Checked = false;
                 SVIPBiyearlyPlanRB.Checked = false;
             }
             else
             {
+                SVIPYearlyPlanRB.Visible = true;
                 SVIPYearlyPlanRB.Checked = true;
-
             }
         }
         private void SVIPBiyearly()
@@ -1243,17 +1254,22 @@ namespace Enchante
 
             if (SVIPBiyearlyPlanRB.Checked == false)
             {
+                SVIPBiyearlyPlanRB.Visible = true;
                 SVIPBiyearlyPlanRB.Checked = true;
                 SVIPPlanPeriodText.Text = "Super VIP Plan - 24 Months";
 
                 SVIPOrigPriceText.Visible = true;
                 SVIPOrigPriceText.Text = "Php. 4999.00";
                 SVIPNewPriceText.Text = "Php. 2999.00";
+
+                SVIPMonthlyPlanRB.Visible = false;
+                SVIPYearlyPlanRB.Visible = false;
                 SVIPMonthlyPlanRB.Checked = false;
                 SVIPYearlyPlanRB.Checked = false;
             }
             else
             {
+                SVIPBiyearlyPlanRB.Visible = true;
                 SVIPBiyearlyPlanRB.Checked = true;
             }
         }
@@ -1378,15 +1394,20 @@ namespace Enchante
         {
             if (SVIPCCPaymentRB.Checked == false)
             {
+                SVIPCCPaymentRB.Visible = true;
                 SVIPCCPaymentRB.Checked = true;
                 SVIPPaymentTypeText.Text = "Credit Card";
 
+                SVIPPayPPaymentRB.Visible = false;
+                SVIPGCPaymentRB.Visible = false;
+                SVIPPayMPaymentRB.Visible = false;
                 SVIPPayPPaymentRB.Checked = false;
                 SVIPGCPaymentRB.Checked = false;
                 SVIPPayMPaymentRB.Checked = false;
             }
             else
             {
+                SVIPCCPaymentRB.Visible = true;
                 SVIPCCPaymentRB.Checked = true;
             }
         }
@@ -1395,15 +1416,20 @@ namespace Enchante
         {
             if (SVIPPayPPaymentRB.Checked == false)
             {
+                SVIPPayPPaymentRB.Visible = true;
                 SVIPPayPPaymentRB.Checked = true;
                 SVIPPaymentTypeText.Text = "Paypal";
 
+                SVIPCCPaymentRB.Visible = false;
+                SVIPGCPaymentRB.Visible = false;
+                SVIPPayMPaymentRB.Visible = false;
                 SVIPCCPaymentRB.Checked = false;
                 SVIPGCPaymentRB.Checked = false;
                 SVIPPayMPaymentRB.Checked = false;
             }
             else
             {
+                SVIPPayPPaymentRB.Visible = true;
                 SVIPPayPPaymentRB.Checked = true;
             }
         }
@@ -1412,15 +1438,20 @@ namespace Enchante
         {
             if (SVIPGCPaymentRB.Checked == false)
             {
+                SVIPGCPaymentRB.Visible = true;
                 SVIPGCPaymentRB.Checked = true;
                 SVIPPaymentTypeText.Text = "GCash";
 
+                SVIPCCPaymentRB.Visible = false;
+                SVIPPayPPaymentRB.Visible = false;
+                SVIPPayMPaymentRB.Visible = false;
                 SVIPCCPaymentRB.Checked = false;
                 SVIPPayPPaymentRB.Checked = false;
                 SVIPPayMPaymentRB.Checked = false;
             }
             else
             {
+                SVIPGCPaymentRB.Visible = true;
                 SVIPGCPaymentRB.Checked = true;
             }
         }
@@ -1429,9 +1460,14 @@ namespace Enchante
         {
             if (SVIPPayMPaymentRB.Checked == false)
             {
+                SVIPPayMPaymentRB.Visible = true;
                 SVIPPayMPaymentRB.Checked = true;
                 SVIPPaymentTypeText.Text = "Paymaya";
 
+
+                SVIPCCPaymentRB.Visible = false;
+                SVIPPayPPaymentRB.Visible = false;
+                SVIPGCPaymentRB.Visible = false;
                 SVIPCCPaymentRB.Checked = false;
                 SVIPPayPPaymentRB.Checked = false;
                 SVIPGCPaymentRB.Checked = false;
@@ -1647,7 +1683,10 @@ namespace Enchante
             SVIPBdayPicker.Value = DateTime.Now;
 
         }
-
-              
+        //PREMIUM REGISTRATION
+        private void PremiumExitBtn_Click(object sender, EventArgs e)
+        {
+            Registration.PanelShow(MembershipPlanPanel);
+        }
     }
 }
