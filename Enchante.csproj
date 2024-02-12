@@ -194,5 +194,8 @@
   <ItemGroup>
     <None Include="Resources\download %281%29.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Enchante Logo %28200 x 200 px%29 %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

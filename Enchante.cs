@@ -23,6 +23,7 @@ namespace Enchante
 
         //cardlayout panel classes
         private ParentCard ParentPanelShow; //Parent Card
+
         private Registration Registration; //Membership Type Card
         private ServiceCard Service; //Service Card
 
@@ -35,6 +36,7 @@ namespace Enchante
         private string[] genders = { "Male", "Female", "Prefer Not to Say" };
 
 
+
         public Enchante()
         {
             InitializeComponent();
@@ -43,10 +45,12 @@ namespace Enchante
             this.FormClosing += new FormClosingEventHandler(MainForm_FormClosing);
 
 
+
             //Landing Pages Cardlayout Panel Manager
             ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteMngrPage, EnchanteMemberPage,EnchanteAdminPage);
             Registration = new Registration(MembershipPlanPanel, RegularPlanPanel, PremiumPlanPanel, SVIPPlanPanel);
             Service = new ServiceCard(ServiceType, ServiceHairStyling, ServiceFaceSkin, ServiceNailCare, ServiceSpa, ServiceMassage);
+
 
             //icon tool tip
             iconToolTip = new System.Windows.Forms.ToolTip();
@@ -158,7 +162,9 @@ namespace Enchante
             if (EnchanteLoginForm.Visible == false)
             {
 
+
                 HomeLocationAndColor();
+
 
                 EnchanteLoginForm.Visible = true;
                 return;
@@ -167,7 +173,9 @@ namespace Enchante
             {
 
 
+
                 HomeLocationAndColor();
+
 
 
                 EnchanteLoginForm.Visible = false;
@@ -177,6 +185,12 @@ namespace Enchante
         }
 
         private void EnchanteHomeBtn_Click(object sender, EventArgs e)
+        {
+            //Reset Panel to Show Default
+            HomePanelReset();
+            HomeLocationAndColor();
+        }
+        private void EnchanteHeaderLogo_Click(object sender, EventArgs e)
         {
             //Reset Panel to Show Default
             HomePanelReset();
@@ -321,6 +335,7 @@ namespace Enchante
             iconToolTip.SetToolTip(EnchanteServiceBtn, "Service");
         }
 
+
         private void EnchanteMemberBtn_MouseHover(object sender, EventArgs e)
         {
             iconToolTip.SetToolTip(EnchanteMemberBtn, "Membership");
@@ -345,6 +360,7 @@ namespace Enchante
         }
 
         //services part
+
         private void ServiceHSBtn_Click(object sender, EventArgs e)
         {
             Service.PanelShow(ServiceHairStyling);
@@ -388,6 +404,7 @@ namespace Enchante
             {
                 LoginPassText.UseSystemPasswordChar = true;
                 ShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+
 
 
 
@@ -444,7 +461,9 @@ namespace Enchante
                 //Test Admin
                 LoginEmailAddErrorLbl.Visible = true;
                 LoginPassErrorLbl.Visible = false;
+
                 LoginEmailAddErrorLbl.Text = "EMAIL ADDRESS DOES NOT EXIST";
+
                 return;
             }
             else if (LoginEmailAddText.Text == "Admin" && LoginPassText.Text != "Admin123")
@@ -452,7 +471,9 @@ namespace Enchante
                 //Test Admin
                 LoginEmailAddErrorLbl.Visible = false;
                 LoginPassErrorLbl.Visible = true;
+
                 LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
+
                 return;
             }
             else if (LoginEmailAddText.Text == "Manager" && LoginPassText.Text == "Manager123")
@@ -463,6 +484,7 @@ namespace Enchante
                 LoginEmailAddErrorLbl.Visible = false;
                 LoginPassErrorLbl.Visible = false;
                 logincredclear();
+
 
 
                 return;
@@ -686,37 +708,27 @@ namespace Enchante
 
         private void MemberSignOut_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to sign out user?", "Sign Out Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                EnchanteLoginForm.Visible = false;
-                ParentPanelShow.PanelShow(EnchanteHomePage);
-            }
+            LogoutChecker();
         }
 
         private void MngrSignOutBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to sign out user?", "Sign Out Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                EnchanteLoginForm.Visible = false;
-                ParentPanelShow.PanelShow(EnchanteHomePage);
-            }
+            LogoutChecker();
         }
 
         private void StaffSignOutBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to sign out user?", "Sign Out Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                EnchanteLoginForm.Visible = false;
-                ParentPanelShow.PanelShow(EnchanteHomePage);
-            }
+            LogoutChecker();
         }
 
         private void AdminSignOutBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to sign out user?", "Sign Out Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            LogoutChecker();
+        }
+
+        private void LogoutChecker()
+        {
+            DialogResult result = MessageBox.Show("Do you want to logout user?", "Logout Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 EnchanteLoginForm.Visible = false;
@@ -793,6 +805,8 @@ namespace Enchante
         {
             Registration.PanelShow(SVIPPlanPanel);
             SVIPAccIDGenerator();
+            SetExpirationDate("monthly");
+            SVIPMonthly();
 
         }
 
@@ -1029,18 +1043,22 @@ namespace Enchante
                     using (MySqlConnection connection = new MySqlConnection(mysqlconn))
                     {
                         connection.Open();
+                        // Check if email already exists
+                        string checkEmailQuery = "SELECT COUNT(*) FROM membershipaccount WHERE EmailAdd = @email";
+                        MySqlCommand checkEmailCmd = new MySqlCommand(checkEmailQuery, connection);
+                        checkEmailCmd.Parameters.AddWithValue("@email", rEmailAdd);
 
+                        int emailCount = Convert.ToInt32(checkEmailCmd.ExecuteScalar());
+
+                        if (emailCount > 0)
+                        {
+                            // Email already exists, show a message or take appropriate action
+                            MessageBox.Show("Email already exists. Please use a different email.", "Email Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return; // Exit the method without inserting the new account
+                        }
                         string insertQuery = "INSERT INTO membershipaccount (MembershipType, MemberIDNumber, AccountStatus, FirstName, " +
                             "LastName, Birthday, Age, CPNumber, EmailAdd, HashedPass, SaltedPass, UserSaltedPass, PlanPeriod, AccountCreated) " +
                             "VALUES (@type, @ID, @status, @firstName, @lastName, @bday, @age, @cpnum, @email, @hashedpass, @saltedpass, @usersaltedpass, @period, @created)"; 
-
-
-
-                        //string insertQuery = "INSERT INTO membershipaccount (MembershipType, MemberIDNumber, AccountStatus, FirstName, " +
-                        //    "LastName, Birthday, Age, CPNumber, EmailAdd, HashedPass, SaltedPass, UserSaltedPass, PlanPeriod, " +
-                        //    "PaymentType, Cardholder Name, CardNumber, CardExpiration, CVCCode, AccountCreated, PlanExpiration, PlanRenewal) " +
-                        //    "VALUES (@type, @ID, @status, @firstName, @lastName, @bday, @age, @cpnum, @email, @hashedpass, @saltedpass, @usersaltedpass, " +
-                        //    "@period, @payment, @cardname, @cardnumber, @cardexpiration, @cvc, @created, @planExpiration, @planRenew)";
 
                         MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
                         cmd.Parameters.AddWithValue("@type", rType);
@@ -1145,20 +1163,48 @@ namespace Enchante
         }
         private void SVIPMonthlyPlanBtn_Click(object sender, EventArgs e)
         {
+            SVIPMonthly();
+        }
+        private void SVIPYearlyPlanBtn_Click(object sender, EventArgs e)
+        {
+            SVIPYearly();
+        }
+
+        private void SVIPBiyearlyPlanBtn_Click(object sender, EventArgs e)
+        {
+            SVIPBiyearly();
+        }
+
+        private void SVIPMonthlyPlanRB_CheckedChanged(object sender, EventArgs e)
+        {
+            //SVIPMonthly();
+        }
+
+        private void SVIPYearlyPlanRB_CheckedChanged(object sender, EventArgs e)
+        {
+            //SVIPYearly();
+        }
+
+        private void SVIPBiyearlyPlanRB_CheckedChanged(object sender, EventArgs e)
+        {
+            //SVIPBiyearly();
+        }
+        private void SVIPMonthly()
+        {
             SetExpirationDate("monthly");
 
             if (SVIPMonthlyPlanRB.Checked == false)
             {
                 SVIPMonthlyPlanRB.Checked = true;
                 SVIPPlanPeriodText.Text = "Super VIP Plan - Monthly";
-                
+
                 SVIPOrigPriceText.Visible = false;
                 SVIPOrigPriceText.Text = "Php. 4999.00";
                 SVIPNewPriceText.Text = "Php. 4999.00";
                 SVIPYearlyPlanRB.Checked = false;
                 SVIPBiyearlyPlanRB.Checked = false;
                 return;
-            } 
+            }
             else if (SVIPMonthlyPlanRB.Checked == true)
             {
                 SVIPPlanPeriodText.Text = "Super VIP Plan - Monthly";
@@ -1169,10 +1215,8 @@ namespace Enchante
                 SVIPYearlyPlanRB.Checked = false;
                 SVIPBiyearlyPlanRB.Checked = false;
             }
-
         }
-
-        private void SVIPYearlyPlanBtn_Click(object sender, EventArgs e)
+        private void SVIPYearly()
         {
             SetExpirationDate("yearly");
 
@@ -1180,7 +1224,7 @@ namespace Enchante
             {
                 SVIPYearlyPlanRB.Checked = true;
                 SVIPPlanPeriodText.Text = "Super VIP Plan - 12 Months";
-                
+
                 SVIPOrigPriceText.Visible = true;
                 SVIPOrigPriceText.Text = "Php. 4999.00";
                 SVIPNewPriceText.Text = "Php. 3499.00";
@@ -1193,8 +1237,7 @@ namespace Enchante
 
             }
         }
-
-        private void SVIPBiyearlyPlanBtn_Click(object sender, EventArgs e)
+        private void SVIPBiyearly()
         {
             SetExpirationDate("biyearly");
 
@@ -1214,7 +1257,6 @@ namespace Enchante
                 SVIPBiyearlyPlanRB.Checked = true;
             }
         }
-
         public class SVIPClientIDGenerator
         {
             private static Random random = new Random();
@@ -1404,7 +1446,7 @@ namespace Enchante
             if (SVIPConfirmPassText.Text != SVIPPassText.Text)
             {
                 SVIPConfirmPassErrorLbl.Visible = true;
-                SVIPPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
+                SVIPConfirmPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
             }
             else
             {
@@ -1523,6 +1565,21 @@ namespace Enchante
                     {
                         connection.Open();
 
+                        // Check if email already exists
+                        string checkEmailQuery = "SELECT COUNT(*) FROM membershipaccount WHERE EmailAdd = @email";
+                        MySqlCommand checkEmailCmd = new MySqlCommand(checkEmailQuery, connection);
+                        checkEmailCmd.Parameters.AddWithValue("@email", SVEmailAdd);
+
+                        int emailCount = Convert.ToInt32(checkEmailCmd.ExecuteScalar());
+
+                        if (emailCount > 0)
+                        {
+                            // Email already exists, show a message or take appropriate action
+                            MessageBox.Show("Email already exists. Please use a different email.", "Email Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return; // Exit the method without inserting the new account
+                        }
+
+                        // Email doesn't exist, proceed with insertion
                         string insertQuery = "INSERT INTO membershipaccount (MembershipType, MemberIDNumber, AccountStatus, FirstName, " +
                             "LastName, Birthday, Age, CPNumber, EmailAdd, HashedPass, SaltedPass, UserSaltedPass, PlanPeriod, " +
                             "PaymentType, CardholderName, CardNumber, CardExpiration, CVCCode, AccountCreated, PlanExpiration, PlanRenewal, AmountPaid) " +
@@ -1561,7 +1618,6 @@ namespace Enchante
                     SVIPAccIDGenerator();
                     SVIPMembershipBoxClear();
                     MemberLocationAndColor();
-
                 }
                 catch (MySqlException ex)
                 {
@@ -1570,9 +1626,11 @@ namespace Enchante
                 }
                 finally
                 {
-                    // Make sure to close the connection
-                    connection.Close();
+                    // No need to close the connection here as it is in a using statement
                 }
+
+
+
             }
         }
         private void SVIPMembershipBoxClear()
@@ -1590,120 +1648,6 @@ namespace Enchante
 
         }
 
-                return;
-            }
-            else if (LoginEmailAddText.Text != "Member" && LoginPassText.Text == "Member123")
-            {
-                //Test Member
-                LoginEmailAddErrorLbl.Visible = true;
-                LoginPassErrorLbl.Visible = false;
-                return;
-            }
-            else if (LoginEmailAddText.Text == "Member" && LoginPassText.Text != "Member123")
-            {
-                //Test Member
-                LoginEmailAddErrorLbl.Visible = false;
-                LoginPassErrorLbl.Visible = true;
-                return;
-            }
-            else if (string.IsNullOrEmpty(LoginEmailAddText.Text) || string.IsNullOrEmpty(LoginPassText.Text))
-            {
-                MessageBox.Show("Missing text on required fields.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                //db connection query
-            }
-        }
-
-        private void logincredclear()
-        {
-            LoginEmailAddText.Text = "";
-            LoginPassText.Text = "";
-
-        }
-
-        private void MemberSignOut_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Do you want to sign out user?", "Sign Out Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                EnchanteLoginForm.Visible = false;
-                ParentPanelShow.PanelShow(EnchanteHomePage);
-            }
-        }
-
-        private void MngrSignOutBtn_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Do you want to sign out user?", "Sign Out Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                EnchanteLoginForm.Visible = false;
-                ParentPanelShow.PanelShow(EnchanteHomePage);
-            }
-        }
-
-        private void StaffSignOutBtn_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Do you want to sign out user?", "Sign Out Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                EnchanteLoginForm.Visible = false;
-                ParentPanelShow.PanelShow(EnchanteHomePage);
-            }
-        }
-
-        private void AdminSignOutBtn_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Do you want to sign out user?", "Sign Out Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                EnchanteLoginForm.Visible = false;
-                ParentPanelShow.PanelShow(EnchanteHomePage);
-            }
-        }
-
-        private void LoginRegisterHereLbl_Click(object sender, EventArgs e)
-        {
-            //location scroll
-            int serviceSectionY = 1600;
-            ScrollToCoordinates(0, serviceSectionY);
-
-            //Change color once clicked
-            EnchanteMemberBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            //Change back to original
-            EnchanteHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteReviewBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteTeamBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteAbtUsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-
-        }
-
-        private void SM_FBBtn_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://www.facebook.com/enchantesalon2024");
-        }
-
-        private void SM_TwitterBtn_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://twitter.com/Enchante2024");
-        }
-
-        private void SM_IGBtn_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://www.instagram.com/enchantesalon2024/");
-        }
-
-        private void SM_GmailBtn_Click(object sender, EventArgs e)
-        {
-            string emailAddress = "enchantesalon2024@gmail.com";
-            string subject = "Subject of your email";
-            string body = "Body of your email";
-
-            string mailtoLink = $"mailto:{emailAddress}?subject={Uri.EscapeDataString(subject)}&body={Uri.EscapeDataString(body)}";
-
-            System.Diagnostics.Process.Start(mailtoLink);
-        }
+              
     }
 }
