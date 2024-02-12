@@ -172,6 +172,12 @@ namespace Enchante
             HomePanelReset();
             HomeLocationAndColor();
         }
+        private void EnchanteHeaderLogo_Click(object sender, EventArgs e)
+        {
+            //Reset Panel to Show Default
+            HomePanelReset();
+            HomeLocationAndColor();
+        }
         private void HomeLocationAndColor()
         {
             // Scroll to the Home position (0, 0)
@@ -672,37 +678,27 @@ namespace Enchante
 
         private void MemberSignOut_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to sign out user?", "Sign Out Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                EnchanteLoginForm.Visible = false;
-                ParentPanelShow.PanelShow(EnchanteHomePage);
-            }
+            LogoutChecker();
         }
 
         private void MngrSignOutBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to sign out user?", "Sign Out Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                EnchanteLoginForm.Visible = false;
-                ParentPanelShow.PanelShow(EnchanteHomePage);
-            }
+            LogoutChecker();
         }
 
         private void StaffSignOutBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to sign out user?", "Sign Out Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                EnchanteLoginForm.Visible = false;
-                ParentPanelShow.PanelShow(EnchanteHomePage);
-            }
+            LogoutChecker();
         }
 
         private void AdminSignOutBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to sign out user?", "Sign Out Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            LogoutChecker();
+        }
+
+        private void LogoutChecker()
+        {
+            DialogResult result = MessageBox.Show("Do you want to logout user?", "Logout Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 EnchanteLoginForm.Visible = false;
@@ -779,6 +775,8 @@ namespace Enchante
         {
             Registration.PanelShow(SVIPPlanPanel);
             SVIPAccIDGenerator();
+            SetExpirationDate("monthly");
+            SVIPMonthly();
 
         }
 
@@ -1015,18 +1013,22 @@ namespace Enchante
                     using (MySqlConnection connection = new MySqlConnection(mysqlconn))
                     {
                         connection.Open();
+                        // Check if email already exists
+                        string checkEmailQuery = "SELECT COUNT(*) FROM membershipaccount WHERE EmailAdd = @email";
+                        MySqlCommand checkEmailCmd = new MySqlCommand(checkEmailQuery, connection);
+                        checkEmailCmd.Parameters.AddWithValue("@email", rEmailAdd);
 
+                        int emailCount = Convert.ToInt32(checkEmailCmd.ExecuteScalar());
+
+                        if (emailCount > 0)
+                        {
+                            // Email already exists, show a message or take appropriate action
+                            MessageBox.Show("Email already exists. Please use a different email.", "Email Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return; // Exit the method without inserting the new account
+                        }
                         string insertQuery = "INSERT INTO membershipaccount (MembershipType, MemberIDNumber, AccountStatus, FirstName, " +
                             "LastName, Birthday, Age, CPNumber, EmailAdd, HashedPass, SaltedPass, UserSaltedPass, PlanPeriod, AccountCreated) " +
                             "VALUES (@type, @ID, @status, @firstName, @lastName, @bday, @age, @cpnum, @email, @hashedpass, @saltedpass, @usersaltedpass, @period, @created)"; 
-
-
-
-                        //string insertQuery = "INSERT INTO membershipaccount (MembershipType, MemberIDNumber, AccountStatus, FirstName, " +
-                        //    "LastName, Birthday, Age, CPNumber, EmailAdd, HashedPass, SaltedPass, UserSaltedPass, PlanPeriod, " +
-                        //    "PaymentType, Cardholder Name, CardNumber, CardExpiration, CVCCode, AccountCreated, PlanExpiration, PlanRenewal) " +
-                        //    "VALUES (@type, @ID, @status, @firstName, @lastName, @bday, @age, @cpnum, @email, @hashedpass, @saltedpass, @usersaltedpass, " +
-                        //    "@period, @payment, @cardname, @cardnumber, @cardexpiration, @cvc, @created, @planExpiration, @planRenew)";
 
                         MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
                         cmd.Parameters.AddWithValue("@type", rType);
@@ -1131,20 +1133,48 @@ namespace Enchante
         }
         private void SVIPMonthlyPlanBtn_Click(object sender, EventArgs e)
         {
+            SVIPMonthly();
+        }
+        private void SVIPYearlyPlanBtn_Click(object sender, EventArgs e)
+        {
+            SVIPYearly();
+        }
+
+        private void SVIPBiyearlyPlanBtn_Click(object sender, EventArgs e)
+        {
+            SVIPBiyearly();
+        }
+
+        private void SVIPMonthlyPlanRB_CheckedChanged(object sender, EventArgs e)
+        {
+            //SVIPMonthly();
+        }
+
+        private void SVIPYearlyPlanRB_CheckedChanged(object sender, EventArgs e)
+        {
+            //SVIPYearly();
+        }
+
+        private void SVIPBiyearlyPlanRB_CheckedChanged(object sender, EventArgs e)
+        {
+            //SVIPBiyearly();
+        }
+        private void SVIPMonthly()
+        {
             SetExpirationDate("monthly");
 
             if (SVIPMonthlyPlanRB.Checked == false)
             {
                 SVIPMonthlyPlanRB.Checked = true;
                 SVIPPlanPeriodText.Text = "Super VIP Plan - Monthly";
-                
+
                 SVIPOrigPriceText.Visible = false;
                 SVIPOrigPriceText.Text = "Php. 4999.00";
                 SVIPNewPriceText.Text = "Php. 4999.00";
                 SVIPYearlyPlanRB.Checked = false;
                 SVIPBiyearlyPlanRB.Checked = false;
                 return;
-            } 
+            }
             else if (SVIPMonthlyPlanRB.Checked == true)
             {
                 SVIPPlanPeriodText.Text = "Super VIP Plan - Monthly";
@@ -1155,10 +1185,8 @@ namespace Enchante
                 SVIPYearlyPlanRB.Checked = false;
                 SVIPBiyearlyPlanRB.Checked = false;
             }
-
         }
-
-        private void SVIPYearlyPlanBtn_Click(object sender, EventArgs e)
+        private void SVIPYearly()
         {
             SetExpirationDate("yearly");
 
@@ -1166,7 +1194,7 @@ namespace Enchante
             {
                 SVIPYearlyPlanRB.Checked = true;
                 SVIPPlanPeriodText.Text = "Super VIP Plan - 12 Months";
-                
+
                 SVIPOrigPriceText.Visible = true;
                 SVIPOrigPriceText.Text = "Php. 4999.00";
                 SVIPNewPriceText.Text = "Php. 3499.00";
@@ -1179,8 +1207,7 @@ namespace Enchante
 
             }
         }
-
-        private void SVIPBiyearlyPlanBtn_Click(object sender, EventArgs e)
+        private void SVIPBiyearly()
         {
             SetExpirationDate("biyearly");
 
@@ -1200,7 +1227,6 @@ namespace Enchante
                 SVIPBiyearlyPlanRB.Checked = true;
             }
         }
-
         public class SVIPClientIDGenerator
         {
             private static Random random = new Random();
@@ -1390,7 +1416,7 @@ namespace Enchante
             if (SVIPConfirmPassText.Text != SVIPPassText.Text)
             {
                 SVIPConfirmPassErrorLbl.Visible = true;
-                SVIPPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
+                SVIPConfirmPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
             }
             else
             {
@@ -1509,6 +1535,21 @@ namespace Enchante
                     {
                         connection.Open();
 
+                        // Check if email already exists
+                        string checkEmailQuery = "SELECT COUNT(*) FROM membershipaccount WHERE EmailAdd = @email";
+                        MySqlCommand checkEmailCmd = new MySqlCommand(checkEmailQuery, connection);
+                        checkEmailCmd.Parameters.AddWithValue("@email", SVEmailAdd);
+
+                        int emailCount = Convert.ToInt32(checkEmailCmd.ExecuteScalar());
+
+                        if (emailCount > 0)
+                        {
+                            // Email already exists, show a message or take appropriate action
+                            MessageBox.Show("Email already exists. Please use a different email.", "Email Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return; // Exit the method without inserting the new account
+                        }
+
+                        // Email doesn't exist, proceed with insertion
                         string insertQuery = "INSERT INTO membershipaccount (MembershipType, MemberIDNumber, AccountStatus, FirstName, " +
                             "LastName, Birthday, Age, CPNumber, EmailAdd, HashedPass, SaltedPass, UserSaltedPass, PlanPeriod, " +
                             "PaymentType, CardholderName, CardNumber, CardExpiration, CVCCode, AccountCreated, PlanExpiration, PlanRenewal, AmountPaid) " +
@@ -1547,7 +1588,6 @@ namespace Enchante
                     SVIPAccIDGenerator();
                     SVIPMembershipBoxClear();
                     MemberLocationAndColor();
-
                 }
                 catch (MySqlException ex)
                 {
@@ -1556,9 +1596,11 @@ namespace Enchante
                 }
                 finally
                 {
-                    // Make sure to close the connection
-                    connection.Close();
+                    // No need to close the connection here as it is in a using statement
                 }
+
+
+
             }
         }
         private void SVIPMembershipBoxClear()
