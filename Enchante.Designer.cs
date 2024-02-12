@@ -3956,6 +3956,8 @@
         private System.Windows.Forms.Panel EnchanteHomeScrollPanel;
         private System.Windows.Forms.Label ServiceTagline;
         private System.Windows.Forms.Panel RMemberPanel;
+
+
         private System.Windows.Forms.Label RMemberAccLbl;
         private System.Windows.Forms.TextBox RMemberPriceText;
         private System.Windows.Forms.TextBox RMemberText;
@@ -3965,6 +3967,8 @@
         private FontAwesome.Sharp.IconButton ServiceMBtn;
         private FontAwesome.Sharp.IconButton ServiceNCBtn;
         private FontAwesome.Sharp.IconButton ServiceSpaBtn;
+
+
         private System.Windows.Forms.Panel EnchanteFooterBar;
         private FontAwesome.Sharp.IconButton SM_FBBtn;
         private System.Windows.Forms.Panel HomeFooterStopper;
@@ -3975,6 +3979,7 @@
         private FontAwesome.Sharp.IconButton SM_TwitterBtn;
         private FontAwesome.Sharp.IconButton SM_IGBtn;
         private FontAwesome.Sharp.IconButton SM_GmailBtn;
+
         private System.Windows.Forms.Label HomeFooterStopperLbl;
         private FontAwesome.Sharp.IconButton RMemberCreateAccBtn;
         private System.Windows.Forms.Panel MembershipPanel;
@@ -4045,6 +4050,7 @@
         private System.Windows.Forms.TextBox RegularConfirmPassText;
         private System.Windows.Forms.Label RegularConfirmPassErrorLbl;
         private System.Windows.Forms.Label RegularConfirmPassLbl;
+
         private System.Windows.Forms.Label RegularMemberIDLbl;
         private FontAwesome.Sharp.IconButton RegularPassReqBtn;
         private System.Windows.Forms.Panel SVIPPlanPanel;
@@ -4178,6 +4184,7 @@
         private FontAwesome.Sharp.IconButton iconButton35;
         private System.Windows.Forms.PictureBox pictureBox1;
         private FontAwesome.Sharp.IconButton iconButton36;
+
     }
 }
 

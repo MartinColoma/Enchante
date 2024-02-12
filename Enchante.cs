@@ -23,6 +23,7 @@ namespace Enchante
 
         //cardlayout panel classes
         private ParentCard ParentPanelShow; //Parent Card
+
         private Registration Registration; //Membership Type Card
         private ServiceCard Service; //Service Card
 
@@ -35,6 +36,7 @@ namespace Enchante
         private string[] genders = { "Male", "Female", "Prefer Not to Say" };
 
 
+
         public Enchante()
         {
             InitializeComponent();
@@ -42,10 +44,16 @@ namespace Enchante
             // Exit MessageBox 
             this.FormClosing += new FormClosingEventHandler(MainForm_FormClosing);
 
+
+
             //Landing Pages Cardlayout Panel Manager
             ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteMngrPage, EnchanteMemberPage,EnchanteAdminPage);
             Registration = new Registration(MembershipPlanPanel, RegularPlanPanel, PremiumPlanPanel, SVIPPlanPanel);
             Service = new ServiceCard(ServiceType, ServiceHairStyling, ServiceFaceSkin, ServiceNailCare, ServiceSpa, ServiceMassage);
+
+
+            //icon tool tip
+            iconToolTip = new System.Windows.Forms.ToolTip();
 
 
             //icon tool tip
@@ -153,13 +161,23 @@ namespace Enchante
 
             if (EnchanteLoginForm.Visible == false)
             {
+
+
                 HomeLocationAndColor();
+
+
                 EnchanteLoginForm.Visible = true;
                 return;
             }
             else
             {
+
+
+
                 HomeLocationAndColor();
+
+
+
                 EnchanteLoginForm.Visible = false;
                     
             }
@@ -317,6 +335,7 @@ namespace Enchante
             iconToolTip.SetToolTip(EnchanteServiceBtn, "Service");
         }
 
+
         private void EnchanteMemberBtn_MouseHover(object sender, EventArgs e)
         {
             iconToolTip.SetToolTip(EnchanteMemberBtn, "Membership");
@@ -341,6 +360,7 @@ namespace Enchante
         }
 
         //services part
+
         private void ServiceHSBtn_Click(object sender, EventArgs e)
         {
             Service.PanelShow(ServiceHairStyling);
@@ -372,6 +392,7 @@ namespace Enchante
         }
 
 
+
         private void ShowHidePassBtn_Click(object sender, EventArgs e)
         {
             if(LoginPassText.UseSystemPasswordChar == true)
@@ -383,6 +404,10 @@ namespace Enchante
             {
                 LoginPassText.UseSystemPasswordChar = true;
                 ShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+
+
+
+
 
             }
         }
@@ -436,7 +461,9 @@ namespace Enchante
                 //Test Admin
                 LoginEmailAddErrorLbl.Visible = true;
                 LoginPassErrorLbl.Visible = false;
+
                 LoginEmailAddErrorLbl.Text = "EMAIL ADDRESS DOES NOT EXIST";
+
                 return;
             }
             else if (LoginEmailAddText.Text == "Admin" && LoginPassText.Text != "Admin123")
@@ -444,7 +471,9 @@ namespace Enchante
                 //Test Admin
                 LoginEmailAddErrorLbl.Visible = false;
                 LoginPassErrorLbl.Visible = true;
+
                 LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
+
                 return;
             }
             else if (LoginEmailAddText.Text == "Manager" && LoginPassText.Text == "Manager123")
@@ -455,6 +484,7 @@ namespace Enchante
                 LoginEmailAddErrorLbl.Visible = false;
                 LoginPassErrorLbl.Visible = false;
                 logincredclear();
+
 
 
                 return;
@@ -1618,5 +1648,6 @@ namespace Enchante
 
         }
 
+              
     }
 }
