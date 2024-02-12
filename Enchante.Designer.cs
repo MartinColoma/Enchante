@@ -257,7 +257,7 @@
             this.SM_FBBtn1 = new FontAwesome.Sharp.IconButton();
             this.MemberNavBarPanel = new System.Windows.Forms.Panel();
             this.MemberAccUserBtn = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.MemberSubAccUserBtn = new FontAwesome.Sharp.IconButton();
             this.MemberReviewBtn = new FontAwesome.Sharp.IconButton();
             this.MemberBillBtn = new FontAwesome.Sharp.IconButton();
             this.MemberAppointBtn = new FontAwesome.Sharp.IconButton();
@@ -364,6 +364,8 @@
             this.PremPassReqBtn = new FontAwesome.Sharp.IconButton();
             this.PremCreateAccBtn = new FontAwesome.Sharp.IconButton();
             this.PremiumExitBtn = new FontAwesome.Sharp.IconButton();
+            this.MemberNameLbl = new System.Windows.Forms.Label();
+            this.MemberIDLbl = new System.Windows.Forms.Label();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteAdminPage.SuspendLayout();
             this.EnchanteHomePage.SuspendLayout();
@@ -3562,10 +3564,12 @@
             // 
             this.MemberAccountPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.MemberAccountPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.MemberAccountPanel.Controls.Add(this.MemberIDLbl);
+            this.MemberAccountPanel.Controls.Add(this.MemberNameLbl);
             this.MemberAccountPanel.Controls.Add(this.MemberSignOut);
-            this.MemberAccountPanel.Location = new System.Drawing.Point(1549, 15);
+            this.MemberAccountPanel.Location = new System.Drawing.Point(1410, 15);
             this.MemberAccountPanel.Name = "MemberAccountPanel";
-            this.MemberAccountPanel.Size = new System.Drawing.Size(306, 374);
+            this.MemberAccountPanel.Size = new System.Drawing.Size(445, 397);
             this.MemberAccountPanel.TabIndex = 2;
             this.MemberAccountPanel.Visible = false;
             // 
@@ -3583,9 +3587,9 @@
             this.MemberSignOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MemberSignOut.IconSize = 32;
             this.MemberSignOut.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MemberSignOut.Location = new System.Drawing.Point(132, 311);
+            this.MemberSignOut.Location = new System.Drawing.Point(27, 311);
             this.MemberSignOut.Name = "MemberSignOut";
-            this.MemberSignOut.Size = new System.Drawing.Size(155, 60);
+            this.MemberSignOut.Size = new System.Drawing.Size(401, 60);
             this.MemberSignOut.TabIndex = 7;
             this.MemberSignOut.Text = "LOGOUT";
             this.MemberSignOut.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -3718,7 +3722,7 @@
             this.MemberNavBarPanel.AutoScroll = true;
             this.MemberNavBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.MemberNavBarPanel.Controls.Add(this.MemberAccUserBtn);
-            this.MemberNavBarPanel.Controls.Add(this.iconButton2);
+            this.MemberNavBarPanel.Controls.Add(this.MemberSubAccUserBtn);
             this.MemberNavBarPanel.Controls.Add(this.MemberReviewBtn);
             this.MemberNavBarPanel.Controls.Add(this.MemberBillBtn);
             this.MemberNavBarPanel.Controls.Add(this.MemberAppointBtn);
@@ -3752,26 +3756,26 @@
             this.MemberAccUserBtn.UseVisualStyleBackColor = false;
             this.MemberAccUserBtn.Click += new System.EventHandler(this.MemberAccUserBtn_Click);
             // 
-            // iconButton2
+            // MemberSubAccUserBtn
             // 
-            this.iconButton2.AutoSize = true;
-            this.iconButton2.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Crown;
-            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.Location = new System.Drawing.Point(1741, 48);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(54, 54);
-            this.iconButton2.TabIndex = 9;
-            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.MemberSubAccUserBtn.AutoSize = true;
+            this.MemberSubAccUserBtn.BackColor = System.Drawing.Color.Transparent;
+            this.MemberSubAccUserBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MemberSubAccUserBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MemberSubAccUserBtn.FlatAppearance.BorderSize = 0;
+            this.MemberSubAccUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MemberSubAccUserBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MemberSubAccUserBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MemberSubAccUserBtn.IconChar = FontAwesome.Sharp.IconChar.Crown;
+            this.MemberSubAccUserBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MemberSubAccUserBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MemberSubAccUserBtn.Location = new System.Drawing.Point(1741, 48);
+            this.MemberSubAccUserBtn.Name = "MemberSubAccUserBtn";
+            this.MemberSubAccUserBtn.Size = new System.Drawing.Size(54, 54);
+            this.MemberSubAccUserBtn.TabIndex = 9;
+            this.MemberSubAccUserBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MemberSubAccUserBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.MemberSubAccUserBtn.UseVisualStyleBackColor = false;
             // 
             // MemberReviewBtn
             // 
@@ -3913,7 +3917,7 @@
             // 
             this.EnchanteParentCard.ContainerControl = this.EnchanteParentContainer;
             this.EnchanteParentCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.EnchanteParentCard.SelectedCard = "HomePage";
+            this.EnchanteParentCard.SelectedCard = "MemberPage";
             // 
             // MembershipCard
             // 
@@ -5235,6 +5239,30 @@
             this.PremiumExitBtn.UseVisualStyleBackColor = false;
             this.PremiumExitBtn.Click += new System.EventHandler(this.PremiumExitBtn_Click);
             // 
+            // MemberNameLbl
+            // 
+            this.MemberNameLbl.AutoEllipsis = true;
+            this.MemberNameLbl.AutoSize = true;
+            this.MemberNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MemberNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MemberNameLbl.Location = new System.Drawing.Point(22, 23);
+            this.MemberNameLbl.Name = "MemberNameLbl";
+            this.MemberNameLbl.Size = new System.Drawing.Size(173, 29);
+            this.MemberNameLbl.TabIndex = 8;
+            this.MemberNameLbl.Text = "Member Name";
+            // 
+            // MemberIDLbl
+            // 
+            this.MemberIDLbl.AutoEllipsis = true;
+            this.MemberIDLbl.AutoSize = true;
+            this.MemberIDLbl.Font = new System.Drawing.Font("TechnicBold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MemberIDLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MemberIDLbl.Location = new System.Drawing.Point(24, 63);
+            this.MemberIDLbl.Name = "MemberIDLbl";
+            this.MemberIDLbl.Size = new System.Drawing.Size(138, 18);
+            this.MemberIDLbl.TabIndex = 9;
+            this.MemberIDLbl.Text = "Member ID Number";
+            // 
             // Enchante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5602,7 +5630,7 @@
         private FontAwesome.Sharp.IconButton MemberHomeBtn;
         private System.Windows.Forms.PictureBox EnchanteMemberHeaderLogo;
         private FontAwesome.Sharp.IconButton MemberAccUserBtn;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton MemberSubAccUserBtn;
         private System.Windows.Forms.Panel MemberAccountPanel;
         private System.Windows.Forms.Panel MemberScrollPanel;
         private System.Windows.Forms.Panel MemberScrollFooterStopperPanel;
@@ -5707,6 +5735,8 @@
         private FontAwesome.Sharp.IconButton PremPassReqBtn;
         private FontAwesome.Sharp.IconButton PremCreateAccBtn;
         private FontAwesome.Sharp.IconButton PremiumExitBtn;
+        private System.Windows.Forms.Label MemberNameLbl;
+        private System.Windows.Forms.Label MemberIDLbl;
     }
 }
 

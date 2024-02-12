@@ -595,7 +595,7 @@ namespace Enchante
                 {
                     connection.Open();
 
-                    string queryApproved = "SELECT FirstName, MemberIDNumber, MembershipType, HashedPass FROM membershipaccount WHERE EmailAdd = @email";
+                    string queryApproved = "SELECT FirstName, LastName, MemberIDNumber, MembershipType, HashedPass FROM membershipaccount WHERE EmailAdd = @email";
 
                     using (MySqlCommand cmdApproved = new MySqlCommand(queryApproved, connection))
                     {
@@ -606,6 +606,8 @@ namespace Enchante
                             if (readerApproved.Read())
                             {
                                 string name = readerApproved["FirstName"].ToString();
+                                string lastname = readerApproved["LastName"].ToString();
+                                string ID = readerApproved["MemberIDNumber"].ToString();
                                 string membertype = readerApproved["MembershipType"].ToString();
 
                                 if (membertype == "Regular")
@@ -619,6 +621,9 @@ namespace Enchante
                                     if (passwordMatches)
                                     {
                                         MessageBox.Show($"Welcome back, Regular Client {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        MemberSubAccUserBtn.Visible = false;
+                                        MemberNameLbl.Text = name + " " + lastname;
+                                        MemberIDLbl.Text = ID;
                                         ParentPanelShow.PanelShow(EnchanteMemberPage);
                                         logincredclear();
 
@@ -642,6 +647,8 @@ namespace Enchante
                                     if (passwordMatches)
                                     {
                                         MessageBox.Show($"Welcome back, Premium Client {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        MemberNameLbl.Text = name + " " + lastname;
+                                        MemberIDLbl.Text = ID; 
                                         ParentPanelShow.PanelShow(EnchanteMemberPage);
                                         logincredclear();
 
@@ -665,6 +672,8 @@ namespace Enchante
                                     if (passwordMatches)
                                     {
                                         MessageBox.Show($"Welcome back, SVIP Client {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        MemberNameLbl.Text = name + " " + lastname;
+                                        MemberIDLbl.Text = ID; 
                                         ParentPanelShow.PanelShow(EnchanteMemberPage);
                                         logincredclear();
 
@@ -700,6 +709,8 @@ namespace Enchante
         {
             LoginEmailAddText.Text = "";
             LoginPassText.Text = "";
+            LoginEmailAddErrorLbl.Visible = false;
+            LoginPassErrorLbl.Visible = false;
 
         }
 
@@ -1703,11 +1714,6 @@ namespace Enchante
             Registration.PanelShow(MembershipPlanPanel);
         }
 
-        private void MemberAccUserBtn_Click(object sender, EventArgs e)
-        {
-            MemberAccountPanel.Visible = true;
-        }
-
         private void PremMonthlyPlanBtn_Click(object sender, EventArgs e)
         {
             PremMonthly();
@@ -2248,5 +2254,18 @@ namespace Enchante
 
         }
 
+        //Member Panel Starts Here
+        private void MemberAccUserBtn_Click(object sender, EventArgs e)
+        {
+            if (MemberAccountPanel.Visible == false)
+            {
+                MemberAccountPanel.Visible = true;
+
+            }
+            else
+            {
+                MemberAccountPanel.Visible = false;
+            }
+        }
     }
 }
