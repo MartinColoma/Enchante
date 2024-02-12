@@ -126,6 +126,12 @@
     <Compile Include="Enchante.Designer.cs">
       <DependentUpon>Enchante.cs</DependentUpon>
     </Compile>
+    <Compile Include="MemberPlanPeriod.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MemberPlanPeriod.Designer.cs">
+      <DependentUpon>MemberPlanPeriod.cs</DependentUpon>
+    </Compile>
     <Compile Include="ParentCard.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,6 +139,9 @@
     <Compile Include="ServiceCard.cs" />
     <EmbeddedResource Include="Enchante.resx">
       <DependentUpon>Enchante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemberPlanPeriod.resx">
+      <DependentUpon>MemberPlanPeriod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -184,6 +193,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\download %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Enchante Logo %28200 x 200 px%29 %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
