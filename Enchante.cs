@@ -51,11 +51,6 @@ namespace Enchante
             Registration = new Registration(MembershipPlanPanel, RegularPlanPanel, PremiumPlanPanel, SVIPPlanPanel);
             Service = new ServiceCard(ServiceType, ServiceHairStyling, ServiceFaceSkin, ServiceNailCare, ServiceSpa, ServiceMassage);
 
-
-            //icon tool tip
-            iconToolTip = new System.Windows.Forms.ToolTip();
-
-
             //icon tool tip
             iconToolTip = new System.Windows.Forms.ToolTip();
             iconToolTip.IsBalloon = true;
@@ -65,6 +60,8 @@ namespace Enchante
             RegularGenderComboText.DropDownStyle = ComboBoxStyle.DropDownList;
             SVIPGenderComboText.Items.AddRange(genders);
             SVIPGenderComboText.DropDownStyle = ComboBoxStyle.DropDownList;
+            PremGenderComboText.Items.AddRange(genders);
+            PremGenderComboText.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void Enchante_Load(object sender, EventArgs e)
@@ -598,7 +595,7 @@ namespace Enchante
                 {
                     connection.Open();
 
-                    string queryApproved = "SELECT FirstName, MemberIDNumber, MembershipType, HashedPass FROM membershipaccount WHERE EmailAdd = @email";
+                    string queryApproved = "SELECT FirstName, LastName, MemberIDNumber, MembershipType, HashedPass FROM membershipaccount WHERE EmailAdd = @email";
 
                     using (MySqlCommand cmdApproved = new MySqlCommand(queryApproved, connection))
                     {
@@ -609,6 +606,8 @@ namespace Enchante
                             if (readerApproved.Read())
                             {
                                 string name = readerApproved["FirstName"].ToString();
+                                string lastname = readerApproved["LastName"].ToString();
+                                string ID = readerApproved["MemberIDNumber"].ToString();
                                 string membertype = readerApproved["MembershipType"].ToString();
 
                                 if (membertype == "Regular")
@@ -622,6 +621,9 @@ namespace Enchante
                                     if (passwordMatches)
                                     {
                                         MessageBox.Show($"Welcome back, Regular Client {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        MemberSubAccUserBtn.Visible = false;
+                                        MemberNameLbl.Text = name + " " + lastname;
+                                        MemberIDLbl.Text = ID;
                                         ParentPanelShow.PanelShow(EnchanteMemberPage);
                                         logincredclear();
 
@@ -634,7 +636,7 @@ namespace Enchante
                                     }
                                     return;
                                 }
-                                else if (membertype == "Premium")
+                                else if (membertype == "PREMIUM")
                                 {
                                     // Retrieve the HashedPass column
                                     string hashedPasswordFromDB = readerApproved["HashedPass"].ToString();
@@ -645,6 +647,8 @@ namespace Enchante
                                     if (passwordMatches)
                                     {
                                         MessageBox.Show($"Welcome back, Premium Client {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        MemberNameLbl.Text = name + " " + lastname;
+                                        MemberIDLbl.Text = ID; 
                                         ParentPanelShow.PanelShow(EnchanteMemberPage);
                                         logincredclear();
 
@@ -668,6 +672,8 @@ namespace Enchante
                                     if (passwordMatches)
                                     {
                                         MessageBox.Show($"Welcome back, SVIP Client {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        MemberNameLbl.Text = name + " " + lastname;
+                                        MemberIDLbl.Text = ID; 
                                         ParentPanelShow.PanelShow(EnchanteMemberPage);
                                         logincredclear();
 
@@ -703,6 +709,8 @@ namespace Enchante
         {
             LoginEmailAddText.Text = "";
             LoginPassText.Text = "";
+            LoginEmailAddErrorLbl.Visible = false;
+            LoginPassErrorLbl.Visible = false;
 
         }
 
@@ -799,6 +807,9 @@ namespace Enchante
         private void PMemberCreateAccBtn_Click(object sender, EventArgs e)
         {
             Registration.PanelShow(PremiumPlanPanel);
+            PremAccIDGenerator();
+            SetExpirationDate("monthly");
+            PremMonthly();
         }
 
         private void SVIPMemberCreateAccBtn_Click(object sender, EventArgs e)
@@ -1128,14 +1139,20 @@ namespace Enchante
             {
                 case "monthly":
                     SVIPPlanExpirationText.Text = CalculateMonthlyExpirationDate(registrationDate);
+                    PremPlanExpirationText.Text = CalculateMonthlyExpirationDate(registrationDate);
+
                     break;
 
                 case "yearly":
                     SVIPPlanExpirationText.Text = CalculateYearlyExpirationDate(registrationDate);
+                    PremPlanExpirationText.Text = CalculateMonthlyExpirationDate(registrationDate);
+
                     break;
 
                 case "biyearly":
                     SVIPPlanExpirationText.Text = CalculateBiyearlyExpirationDate(registrationDate);
+                    PremPlanExpirationText.Text = CalculateMonthlyExpirationDate(registrationDate);
+
                     break;
 
                 default:
@@ -1195,12 +1212,16 @@ namespace Enchante
 
             if (SVIPMonthlyPlanRB.Checked == false)
             {
+                SVIPMonthlyPlanRB.Visible = true;
                 SVIPMonthlyPlanRB.Checked = true;
                 SVIPPlanPeriodText.Text = "Super VIP Plan - Monthly";
 
                 SVIPOrigPriceText.Visible = false;
                 SVIPOrigPriceText.Text = "Php. 4999.00";
                 SVIPNewPriceText.Text = "Php. 4999.00";
+
+                SVIPYearlyPlanRB.Visible = false;
+                SVIPBiyearlyPlanRB.Visible = false;
                 SVIPYearlyPlanRB.Checked = false;
                 SVIPBiyearlyPlanRB.Checked = false;
                 return;
@@ -1212,6 +1233,9 @@ namespace Enchante
                 SVIPOrigPriceText.Visible = false;
                 SVIPOrigPriceText.Text = "Php. 4999.00";
                 SVIPNewPriceText.Text = "Php. 4999.00";
+
+                SVIPYearlyPlanRB.Visible = false;
+                SVIPBiyearlyPlanRB.Visible = false;
                 SVIPYearlyPlanRB.Checked = false;
                 SVIPBiyearlyPlanRB.Checked = false;
             }
@@ -1222,19 +1246,23 @@ namespace Enchante
 
             if (SVIPYearlyPlanRB.Checked == false)
             {
+                SVIPYearlyPlanRB.Visible = true;
                 SVIPYearlyPlanRB.Checked = true;
                 SVIPPlanPeriodText.Text = "Super VIP Plan - 12 Months";
 
                 SVIPOrigPriceText.Visible = true;
                 SVIPOrigPriceText.Text = "Php. 4999.00";
                 SVIPNewPriceText.Text = "Php. 3499.00";
+
+                SVIPMonthlyPlanRB.Visible = false;
+                SVIPBiyearlyPlanRB.Visible = false;
                 SVIPMonthlyPlanRB.Checked = false;
                 SVIPBiyearlyPlanRB.Checked = false;
             }
             else
             {
+                SVIPYearlyPlanRB.Visible = true;
                 SVIPYearlyPlanRB.Checked = true;
-
             }
         }
         private void SVIPBiyearly()
@@ -1243,17 +1271,22 @@ namespace Enchante
 
             if (SVIPBiyearlyPlanRB.Checked == false)
             {
+                SVIPBiyearlyPlanRB.Visible = true;
                 SVIPBiyearlyPlanRB.Checked = true;
                 SVIPPlanPeriodText.Text = "Super VIP Plan - 24 Months";
 
                 SVIPOrigPriceText.Visible = true;
                 SVIPOrigPriceText.Text = "Php. 4999.00";
                 SVIPNewPriceText.Text = "Php. 2999.00";
+
+                SVIPMonthlyPlanRB.Visible = false;
+                SVIPYearlyPlanRB.Visible = false;
                 SVIPMonthlyPlanRB.Checked = false;
                 SVIPYearlyPlanRB.Checked = false;
             }
             else
             {
+                SVIPBiyearlyPlanRB.Visible = true;
                 SVIPBiyearlyPlanRB.Checked = true;
             }
         }
@@ -1297,8 +1330,8 @@ namespace Enchante
         {
             if (!string.IsNullOrEmpty(SVIPMemberIDText.Text))
             {
-                SVIPMemberCopyLbl.Visible = true;
-                SVIPMemberCopyLbl.Text = "ID Number Copied Successfully";
+                SVIPMemberIDCopyLbl.Visible = true;
+                SVIPMemberIDCopyLbl.Text = "ID Number Copied Successfully";
                 Clipboard.SetText(SVIPMemberIDText.Text);
 
             }
@@ -1378,15 +1411,20 @@ namespace Enchante
         {
             if (SVIPCCPaymentRB.Checked == false)
             {
+                SVIPCCPaymentRB.Visible = true;
                 SVIPCCPaymentRB.Checked = true;
                 SVIPPaymentTypeText.Text = "Credit Card";
 
+                SVIPPayPPaymentRB.Visible = false;
+                SVIPGCPaymentRB.Visible = false;
+                SVIPPayMPaymentRB.Visible = false;
                 SVIPPayPPaymentRB.Checked = false;
                 SVIPGCPaymentRB.Checked = false;
                 SVIPPayMPaymentRB.Checked = false;
             }
             else
             {
+                SVIPCCPaymentRB.Visible = true;
                 SVIPCCPaymentRB.Checked = true;
             }
         }
@@ -1395,15 +1433,20 @@ namespace Enchante
         {
             if (SVIPPayPPaymentRB.Checked == false)
             {
+                SVIPPayPPaymentRB.Visible = true;
                 SVIPPayPPaymentRB.Checked = true;
                 SVIPPaymentTypeText.Text = "Paypal";
 
+                SVIPCCPaymentRB.Visible = false;
+                SVIPGCPaymentRB.Visible = false;
+                SVIPPayMPaymentRB.Visible = false;
                 SVIPCCPaymentRB.Checked = false;
                 SVIPGCPaymentRB.Checked = false;
                 SVIPPayMPaymentRB.Checked = false;
             }
             else
             {
+                SVIPPayPPaymentRB.Visible = true;
                 SVIPPayPPaymentRB.Checked = true;
             }
         }
@@ -1412,15 +1455,20 @@ namespace Enchante
         {
             if (SVIPGCPaymentRB.Checked == false)
             {
+                SVIPGCPaymentRB.Visible = true;
                 SVIPGCPaymentRB.Checked = true;
                 SVIPPaymentTypeText.Text = "GCash";
 
+                SVIPCCPaymentRB.Visible = false;
+                SVIPPayPPaymentRB.Visible = false;
+                SVIPPayMPaymentRB.Visible = false;
                 SVIPCCPaymentRB.Checked = false;
                 SVIPPayPPaymentRB.Checked = false;
                 SVIPPayMPaymentRB.Checked = false;
             }
             else
             {
+                SVIPGCPaymentRB.Visible = true;
                 SVIPGCPaymentRB.Checked = true;
             }
         }
@@ -1429,9 +1477,14 @@ namespace Enchante
         {
             if (SVIPPayMPaymentRB.Checked == false)
             {
+                SVIPPayMPaymentRB.Visible = true;
                 SVIPPayMPaymentRB.Checked = true;
                 SVIPPaymentTypeText.Text = "Paymaya";
 
+
+                SVIPCCPaymentRB.Visible = false;
+                SVIPPayPPaymentRB.Visible = false;
+                SVIPGCPaymentRB.Visible = false;
                 SVIPCCPaymentRB.Checked = false;
                 SVIPPayPPaymentRB.Checked = false;
                 SVIPGCPaymentRB.Checked = false;
@@ -1645,9 +1698,574 @@ namespace Enchante
             SVIPPassText.Text = "";
             SVIPConfirmPassText.Text = "";
             SVIPBdayPicker.Value = DateTime.Now;
+            SVIPCardNameText.Text = "";
+            SVIPPlanPeriodText.Text = "";
+            SVIPPaymentTypeText.Text = "";
+            SVIPCardNumText.Text = "";
+            SVIPCardExpireText.Text = "";
+            SVIPCardCVCText.Text = "";
+            SVIPPlanExpirationText.Text = "";
+            SVIPNewPriceText.Text = "";
+
+        }
+        //PREMIUM REGISTRATION
+        private void PremiumExitBtn_Click(object sender, EventArgs e)
+        {
+            Registration.PanelShow(MembershipPlanPanel);
+        }
+
+        private void PremMonthlyPlanBtn_Click(object sender, EventArgs e)
+        {
+            PremMonthly();
+        }
+
+        private void PremYearlyPlanBtn_Click(object sender, EventArgs e)
+        {
+            PremYearly();
+        }
+
+        private void PremBiyearlyPlanBtn_Click(object sender, EventArgs e)
+        {
+            PremBiyearly();
+        }
+
+        private void PremPassReqBtn_MouseHover(object sender, EventArgs e)
+        {
+            string message = "Must be at least 8 character long.\n";
+            message += "First character must be capital.\n";
+            message += "Must include a special character and a number.";
+
+            iconToolTip.SetToolTip(PremPassReqBtn, message);
+        }
+
+        private void PremShowHidePassBtn_MouseHover(object sender, EventArgs e)
+        {
+            if (PremPassText.UseSystemPasswordChar == true)
+            {
+                iconToolTip.SetToolTip(PremShowHidePassBtn, "Show Password");
+            }
+            else if (PremPassText.UseSystemPasswordChar == false)
+            {
+                iconToolTip.SetToolTip(PremShowHidePassBtn, "Hide Password");
+            }
+        }
+
+        private void PremShowHidePassBtn_Click(object sender, EventArgs e)
+        {
+            if (PremPassText.UseSystemPasswordChar == true)
+            {
+                PremPassText.UseSystemPasswordChar = false;
+                PremShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            }
+            else if (SVIPPassText.UseSystemPasswordChar == false)
+            {
+                PremPassText.UseSystemPasswordChar = true;
+                PremShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+
+            }
+        }
+
+        private void PremShowHideConfirmPassBtn_MouseHover(object sender, EventArgs e)
+        {
+            if (PremConfirmPassText.UseSystemPasswordChar == true)
+            {
+                iconToolTip.SetToolTip(PremShowHideConfirmPassBtn, "Show Password");
+            }
+            else if (PremConfirmPassText.UseSystemPasswordChar == false)
+            {
+                iconToolTip.SetToolTip(PremShowHideConfirmPassBtn, "Hide Password");
+            }
+        }
+
+        private void PremShowHideConfirmPassBtn_Click(object sender, EventArgs e)
+        {
+            if (PremConfirmPassText.UseSystemPasswordChar == true)
+            {
+                PremConfirmPassText.UseSystemPasswordChar = false;
+                PremShowHideConfirmPassBtn.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            }
+            else if (SVIPConfirmPassText.UseSystemPasswordChar == false)
+            {
+                PremConfirmPassText.UseSystemPasswordChar = true;
+                PremShowHideConfirmPassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+
+            }
+        }
+        private void PremConfirmPassText_TextChanged(object sender, EventArgs e)
+        {
+            if (PremConfirmPassText.Text != PremPassText.Text)
+            {
+                PremConfirmPassErrorLbl.Visible = true;
+                PremConfirmPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
+            }
+            else
+            {
+                PremConfirmPassErrorLbl.Visible = false;
+            }
+        }
+        private void PremMemberIDCopyBtn_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(SVIPMemberIDText.Text))
+            {
+                PremMemberIDCopyLbl.Visible = true;
+                PremMemberIDCopyLbl.Text = "ID Number Copied Successfully";
+                Clipboard.SetText(PremMemberIDText.Text);
+
+            }
+        }
+
+        private void PremBdayPicker_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime selectedDate = PremBdayPicker.Value;
+            int age = DateTime.Now.Year - selectedDate.Year;
+
+            if (DateTime.Now < selectedDate.AddYears(age))
+            {
+                age--; // Subtract 1 if the birthday hasn't occurred yet this year
+            }
+            PremAgeText.Text = age.ToString();
+            if (age < 18)
+            {
+                PremAgeErrorLbl.Visible = true;
+                PremAgeErrorLbl.Text = "Must be 18 years old and above";
+                return;
+            }
+            else
+            {
+                PremAgeErrorLbl.Visible = false;
+
+            }
+        }
+
+        private void PremGenderComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (PremGenderComboText.SelectedItem != null)
+            {
+                PremGenderComboText.Text = PremGenderComboText.SelectedItem.ToString();
+            }
+        }
+        private void PremMonthly()
+        {
+            SetExpirationDate("monthly");
+
+            if (PremMonthlyPlanRB.Checked == false)
+            {
+                PremMonthlyPlanRB.Visible = true;
+                PremMonthlyPlanRB.Checked = true;
+                PremPlanPeriodText.Text = "Premium Plan - Monthly";
+
+                PremOrigPriceText.Visible = false;
+                PremOrigPriceText.Text = "Php. 1499.00";
+                PremNewPriceText.Text = "Php. 1499.00";
+
+                PremYearlyPlanRB.Visible = false;
+                PremBiyearlyPlanRB.Visible = false;
+                PremYearlyPlanRB.Checked = false;
+                PremBiyearlyPlanRB.Checked = false;
+                return;
+            }
+            else if (PremMonthlyPlanRB.Checked == true)
+            {
+                PremPlanPeriodText.Text = "Premium Plan - Monthly";
+
+                PremOrigPriceText.Visible = false;
+                PremOrigPriceText.Text = "Php. 1499.00";
+                PremNewPriceText.Text = "Php. 1499.00";
+
+                PremYearlyPlanRB.Visible = false;
+                PremBiyearlyPlanRB.Visible = false;
+                PremYearlyPlanRB.Checked = false;
+                PremBiyearlyPlanRB.Checked = false;
+            }
+        }
+        private void PremYearly()
+        {
+            SetExpirationDate("yearly");
+
+            if (PremYearlyPlanRB.Checked == false)
+            {
+                PremYearlyPlanRB.Visible = true;
+                PremYearlyPlanRB.Checked = true;
+                PremPlanPeriodText.Text = "Premium Plan - 12 Months";
+
+                PremOrigPriceText.Visible = true;
+                PremOrigPriceText.Text = "Php. 1499.00";
+                PremNewPriceText.Text = "Php. 1299.00";
+
+                PremMonthlyPlanRB.Visible = false;
+                PremBiyearlyPlanRB.Visible = false;
+                PremMonthlyPlanRB.Checked = false;
+                PremBiyearlyPlanRB.Checked = false;
+            }
+            else
+            {
+                PremYearlyPlanRB.Visible = true;
+                PremYearlyPlanRB.Checked = true;
+            }
+        }
+        private void PremBiyearly()
+        {
+            SetExpirationDate("biyearly");
+
+            if (PremBiyearlyPlanRB.Checked == false)
+            {
+                PremBiyearlyPlanRB.Visible = true;
+                PremBiyearlyPlanRB.Checked = true;
+                PremPlanPeriodText.Text = "Premium Plan - 24 Months";
+
+                PremOrigPriceText.Visible = true;
+                PremOrigPriceText.Text = "Php. 1499.00";
+                PremNewPriceText.Text = "Php. 999.00";
+
+                PremMonthlyPlanRB.Visible = false;
+                PremYearlyPlanRB.Visible = false;
+                PremMonthlyPlanRB.Checked = false;
+                PremYearlyPlanRB.Checked = false;
+            }
+            else
+            {
+                PremBiyearlyPlanRB.Visible = true;
+                PremBiyearlyPlanRB.Checked = true;
+            }
+        }
+        public class PremClientIDGenerator
+        {
+            private static Random random = new Random();
+
+            public static string GenerateClientID()
+            {
+                // Get the current year and extract the last digit
+                int currentYear = DateTime.Now.Year;
+                int lastDigitOfYear = currentYear % 100;
+
+                // Generate a random 6-digit number
+                string randomPart = GenerateRandomNumber();
+
+                // Format the ClientID
+                string clientID = $"PREM-{lastDigitOfYear:D2}-{randomPart:D6}";
+
+                return clientID;
+            }
+
+            private static string GenerateRandomNumber()
+            {
+                // Generate a random 6-digit number
+                int randomNumber = random.Next(100000, 999999);
+
+                return randomNumber.ToString();
+            }
+        }
+        private void PremAccIDGenerator()
+        {
+            PremMemberIDText.Text = "";
+
+            // Call the GenerateClientID method using the type name
+            string generatedClientID = PremClientIDGenerator.GenerateClientID();
+
+            PremMemberIDText.Text = generatedClientID;
+        }
+
+        private void PremCCPaymentBtn_Click(object sender, EventArgs e)
+        {
+            if (PremCCPaymentRB.Checked == false)
+            {
+                PremCCPaymentRB.Visible = true;
+                PremCCPaymentRB.Checked = true;
+                PremPaymentTypeText.Text = "Credit Card";
+
+                PremPayPPaymentRB.Visible = false;
+                PremGCPaymentRB.Visible = false;
+                PremPayMPaymentRB.Visible = false;
+                PremPayPPaymentRB.Checked = false;
+                PremGCPaymentRB.Checked = false;
+                PremPayMPaymentRB.Checked = false;
+            }
+            else
+            {
+                PremCCPaymentRB.Visible = true;
+                PremCCPaymentRB.Checked = true;
+            }
+        }
+
+        private void PremPayPPaymentBtn_Click(object sender, EventArgs e)
+        {
+            if (PremPayPPaymentRB.Checked == false)
+            {
+                PremPayPPaymentRB.Visible = true;
+                PremPayPPaymentRB.Checked = true;
+                PremPaymentTypeText.Text = "Paypal";
+
+                PremCCPaymentRB.Visible = false;
+                PremGCPaymentRB.Visible = false;
+                PremPayMPaymentRB.Visible = false;
+                PremCCPaymentRB.Checked = false;
+                PremGCPaymentRB.Checked = false;
+                PremPayMPaymentRB.Checked = false;
+            }
+            else
+            {
+                PremPayPPaymentRB.Visible = true;
+                PremPayPPaymentRB.Checked = true;
+            }
+        }
+
+        private void PremGCPaymentBtn_Click(object sender, EventArgs e)
+        {
+            if (PremGCPaymentRB.Checked == false)
+            {
+                PremGCPaymentRB.Visible = true;
+                PremGCPaymentRB.Checked = true;
+                PremPaymentTypeText.Text = "GCash";
+
+                PremCCPaymentRB.Visible = false;
+                PremPayPPaymentRB.Visible = false;
+                PremPayMPaymentRB.Visible = false;
+                PremCCPaymentRB.Checked = false;
+                PremPayPPaymentRB.Checked = false;
+                PremPayMPaymentRB.Checked = false;
+            }
+            else
+            {
+                PremGCPaymentRB.Visible = true;
+                PremGCPaymentRB.Checked = true;
+            }
+        }
+
+        private void PremPayMPaymentBtn_Click(object sender, EventArgs e)
+        {
+            if (PremPayMPaymentRB.Checked == false)
+            {
+                PremPayMPaymentRB.Visible = true;
+                PremPayMPaymentRB.Checked = true;
+                PremPaymentTypeText.Text = "Paymaya";
+
+                PremCCPaymentRB.Visible = false;
+                PremPayPPaymentRB.Visible = false;
+                PremGCPaymentRB.Visible = false;
+                PremCCPaymentRB.Checked = false;
+                PremPayPPaymentRB.Checked = false;
+                PremGCPaymentRB.Checked = false;
+            }
+            else
+            {
+                PremPayMPaymentRB.Checked = true;
+            }
+        }
+
+        private void PremCreateAccBtn_Click(object sender, EventArgs e)
+        {
+            DateTime selectedDate = PremBdayPicker.Value;
+            DateTime currentDate = DateTime.Now;
+
+            string PremCreated = currentDate.ToString("MM-dd-yyyy");
+            string PremStatus = "Active";
+            string PremType = "PREMIUM";
+            string PremFirstname = PremFirstNameText.Text;
+            string PremLastname = PremLastNameText.Text;
+            string PremBday = selectedDate.ToString("MM-dd-yyyy");
+            string PremAge = PremAgeText.Text;
+            string PremGender = PremGenderComboText.Text;
+            string PremNumber = PremCPNumText.Text;
+            string PremEmailAdd = PremEmailText.Text;
+            string PremMemberID = PremMemberIDText.Text;
+            string PremPass = PremPassText.Text;
+            string PremConfirmPass = PremConfirmPassText.Text;
+            string PremPeriod = PremPlanPeriodText.Text;
+            string PremPayment = PremPaymentTypeText.Text;
+            string PremCardName = PremCardNameText.Text;
+            string PremCardNum = PremCardNumText.Text;
+            string PremCardExpire = PremCardExpireText.Text;
+            string Premcvc = PremCardCVCText.Text;
+            string PremPlanExpire = PremPlanExpirationText.Text;
+            string PremPlanRenew = "";
+            string PremAmount = PremNewPriceText.Text;
+
+
+            Regex nameRegex = new Regex("^[A-Z][a-zA-Z]+(?: [a-zA-Z]+)*$");
+            Regex gmailRegex = new Regex(@"^[A-Za-z0-9._%+-]*\d*@gmail\.com$");
+            Regex passwordRegex = new Regex("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?])[A-Za-z\\d!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]{8,}$");
+
+            string hashedPassword = HashHelper.HashString(PremPass);    // Password hashed
+            string fixedSalt = HashHelper_Salt.HashString_Salt("Enchante" + PremPass + "2024");    //Fixed Salt
+            string perUserSalt = HashHelper_SaltperUser.HashString_SaltperUser(PremPass + PremMemberID);    //Per User salt
+
+            int age = DateTime.Now.Year - selectedDate.Year;
+            if (DateTime.Now < selectedDate.AddYears(age))
+            {
+                age--; // Subtract 1 if the birthday hasn't occurred yet this year
+            }
+
+            if (string.IsNullOrEmpty(PremFirstname) || string.IsNullOrEmpty(PremLastname) || string.IsNullOrEmpty(PremAge) ||
+                string.IsNullOrEmpty(PremGender) || string.IsNullOrEmpty(PremNumber) || string.IsNullOrEmpty(PremEmailAdd) ||
+                string.IsNullOrEmpty(PremNumber) || string.IsNullOrEmpty(PremPass) || string.IsNullOrEmpty(PremConfirmPass) ||
+                string.IsNullOrEmpty(PremPeriod) || string.IsNullOrEmpty(PremPayment) || string.IsNullOrEmpty(PremCardName) ||
+                string.IsNullOrEmpty(PremCardNum) || string.IsNullOrEmpty(PremCardExpire) || string.IsNullOrEmpty(Premcvc) || string.IsNullOrEmpty(PremAmount))
+            {
+                SVIPFirstNameErrorLbl.Visible = true;
+                SVIPGenderErrorLbl.Visible = true;
+                SVIPCPNumErrorLbl.Visible = true;
+                SVIPEmailErrorLbl.Visible = true;
+                SVIPPassErrorLbl.Visible = true;
+                SVIPConfirmPassErrorLbl.Visible = true;
+                SVIPLastNameErrorLbl.Visible = true;
+                SVIPAgeErrorLbl.Visible = true;
+
+
+                SVIPFirstNameErrorLbl.Text = "Missing Field";
+                SVIPGenderErrorLbl.Text = "Missing Field";
+                SVIPCPNumErrorLbl.Text = "Missing Field";
+                SVIPEmailErrorLbl.Text = "Missing Field";
+                SVIPPassErrorLbl.Text = "Missing Field";
+                SVIPConfirmPassErrorLbl.Text = "Missing Field";
+                SVIPLastNameErrorLbl.Text = "Missing Field";
+                SVIPAgeErrorLbl.Text = "Missing Field";
+
+            }
+            else if (age < 18)
+            {
+                SVIPAgeErrorLbl.Visible = true;
+                SVIPAgeErrorLbl.Text = "Must be 18 years old and above";
+                return;
+            }
+            else if (!nameRegex.IsMatch(PremFirstname) && !nameRegex.IsMatch(PremLastname))
+            {
+                PremFirstNameErrorLbl.Visible = true;
+                PremLastNameErrorLbl.Visible = true;
+
+                PremFirstNameErrorLbl.Text = "First Letter Must Be Capital";
+                PremLastNameErrorLbl.Text = "First Letter Must Be Capital";
+
+                return;
+            }
+            else if (!gmailRegex.IsMatch(PremEmailAdd))
+            {
+                PremEmailErrorLbl.Visible = true;
+                PremEmailErrorLbl.Text = "Invalid Email Format";
+                return;
+            }
+            else if (!passwordRegex.IsMatch(PremPass))
+            {
+                PremPassErrorLbl.Visible = true;
+                PremPassErrorLbl.Text = "Invalid Password Format";
+                return;
+            }
+            else if (PremPass != PremConfirmPass)
+            {
+                PremConfirmPassErrorLbl.Visible = true;
+                PremConfirmPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
+                return;
+            }
+            else
+            {
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    {
+                        connection.Open();
+
+                        // Check if email already exists
+                        string checkEmailQuery = "SELECT COUNT(*) FROM membershipaccount WHERE EmailAdd = @email";
+                        MySqlCommand checkEmailCmd = new MySqlCommand(checkEmailQuery, connection);
+                        checkEmailCmd.Parameters.AddWithValue("@email", PremEmailAdd);
+
+                        int emailCount = Convert.ToInt32(checkEmailCmd.ExecuteScalar());
+
+                        if (emailCount > 0)
+                        {
+                            // Email already exists, show a message or take appropriate action
+                            MessageBox.Show("Email already exists. Please use a different email.", "Email Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return; // Exit the method without inserting the new account
+                        }
+
+                        // Email doesn't exist, proceed with insertion
+                        string insertQuery = "INSERT INTO membershipaccount (MembershipType, MemberIDNumber, AccountStatus, FirstName, " +
+                            "LastName, Birthday, Age, CPNumber, EmailAdd, HashedPass, SaltedPass, UserSaltedPass, PlanPeriod, " +
+                            "PaymentType, CardholderName, CardNumber, CardExpiration, CVCCode, AccountCreated, PlanExpiration, PlanRenewal, AmountPaid) " +
+                            "VALUES (@type, @ID, @status, @firstName, @lastName, @bday, @age, @cpnum, @email, @hashedpass, @saltedpass, @usersaltedpass, " +
+                            "@period, @payment, @cardname, @cardnumber, @cardexpiration, @cvc, @created, @planExpiration, @planRenew, @amount)";
+
+                        MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
+                        cmd.Parameters.AddWithValue("@type", PremType);
+                        cmd.Parameters.AddWithValue("@ID", PremMemberID);
+                        cmd.Parameters.AddWithValue("@status", PremStatus);
+                        cmd.Parameters.AddWithValue("@firstName", PremFirstname);
+                        cmd.Parameters.AddWithValue("@lastName", PremLastname);
+                        cmd.Parameters.AddWithValue("@bday", PremBday);
+                        cmd.Parameters.AddWithValue("@age", PremAge);
+                        cmd.Parameters.AddWithValue("@cpnum", PremNumber);
+                        cmd.Parameters.AddWithValue("@email", PremEmailAdd);
+                        cmd.Parameters.AddWithValue("@hashedpass", hashedPassword);
+                        cmd.Parameters.AddWithValue("@saltedpass", fixedSalt);
+                        cmd.Parameters.AddWithValue("@usersaltedpass", perUserSalt);
+                        cmd.Parameters.AddWithValue("@period", PremPeriod);
+                        cmd.Parameters.AddWithValue("@payment", PremPayment);
+                        cmd.Parameters.AddWithValue("@cardname", PremCardName);
+                        cmd.Parameters.AddWithValue("@cardnumber", PremCardNum);
+                        cmd.Parameters.AddWithValue("@cardexpiration", PremCardExpire);
+                        cmd.Parameters.AddWithValue("@cvc", Premcvc);
+                        cmd.Parameters.AddWithValue("@created", PremCreated);
+                        cmd.Parameters.AddWithValue("@planExpiration", PremPlanExpire);
+                        cmd.Parameters.AddWithValue("@planRenew", PremPlanRenew);
+                        cmd.Parameters.AddWithValue("@amount", PremAmount);
+
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // Successful insertion
+                    MessageBox.Show("Premium Account is successfully created.", "Welcome to Enchanté", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    PremAccIDGenerator();
+                    PremMembershipBoxClear();
+                    MemberLocationAndColor();
+                }
+                catch (MySqlException ex)
+                {
+                    // Handle MySQL database exception
+                    MessageBox.Show("MySQL Error: " + ex.Message, "Creating Premium Account Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    // No need to close the connection here as it is in a using statement
+                }
+
+
+
+            }
+        }
+        private void PremMembershipBoxClear()
+        {
+            PremFirstNameText.Text = "";
+            PremLastNameText.Text = "";
+            PremAgeText.Text = "";
+            PremGenderComboText.SelectedIndex = -1;
+            PremCPNumText.Text = "";
+            PremEmailText.Text = "";
+            PremMemberIDText.Text = "";
+            PremPassText.Text = "";
+            PremConfirmPassText.Text = "";
+            PremBdayPicker.Value = DateTime.Now;
+            PremCardNameText.Text = "";
+            PremPlanPeriodText.Text = "";
+            PremPaymentTypeText.Text = "";
+            PremCardNumText.Text = "";
+            PremCardExpireText.Text = "";
+            PremCardCVCText.Text = "";
+            PremPlanExpirationText.Text = "";
+            PremNewPriceText.Text = "";
 
         }
 
-              
+        //Member Panel Starts Here
+        private void MemberAccUserBtn_Click(object sender, EventArgs e)
+        {
+            if (MemberAccountPanel.Visible == false)
+            {
+                MemberAccountPanel.Visible = true;
+
+            }
+            else
+            {
+                MemberAccountPanel.Visible = false;
+            }
+        }
     }
 }
