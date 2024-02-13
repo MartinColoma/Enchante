@@ -26,7 +26,7 @@ namespace Enchante
 
         private Registration Registration; //Membership Type Card
         private ServiceCard Service; //Service Card
-
+        private StaffCard Staff; // Staff Card
 
         //tool tip
         private System.Windows.Forms.ToolTip iconToolTip;
@@ -50,6 +50,7 @@ namespace Enchante
             ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteMngrPage, EnchanteMemberPage,EnchanteAdminPage);
             Registration = new Registration(MembershipPlanPanel, RegularPlanPanel, PremiumPlanPanel, SVIPPlanPanel);
             Service = new ServiceCard(ServiceType, ServiceHairStyling, ServiceFaceSkin, ServiceNailCare, ServiceSpa, ServiceMassage);
+            Staff = new StaffCard(CurrentPanel, HistoryPanel);
 
             //icon tool tip
             iconToolTip = new System.Windows.Forms.ToolTip();
@@ -2266,6 +2267,17 @@ namespace Enchante
             {
                 MemberAccountPanel.Visible = false;
             }
+        }
+
+        private void iconButton7_Click(object sender, EventArgs e)
+        {
+            Staff.PanelShow(CurrentPanel);
+        }
+
+        private void iconButton6_Click(object sender, EventArgs e)
+        {
+            Staff.PanelShow(HistoryPanel);
+
         }
     }
 }
