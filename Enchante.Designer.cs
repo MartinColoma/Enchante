@@ -63,6 +63,100 @@
             this.ServiceSpaBtn = new FontAwesome.Sharp.IconButton();
             this.ServiceMBtn = new FontAwesome.Sharp.IconButton();
             this.MembershipPanel = new System.Windows.Forms.Panel();
+            this.PremiumPlanPanel = new System.Windows.Forms.Panel();
+            this.PremPlanExpirationText = new System.Windows.Forms.TextBox();
+            this.PremMemberIDCopyLbl = new System.Windows.Forms.Label();
+            this.PremNewPriceText = new System.Windows.Forms.TextBox();
+            this.PremOrigPriceText = new System.Windows.Forms.TextBox();
+            this.PremCardInfoPanel = new System.Windows.Forms.Panel();
+            this.PremPaymentTypeText = new System.Windows.Forms.TextBox();
+            this.PremCardNameLbl = new System.Windows.Forms.Label();
+            this.PremCardNameText = new System.Windows.Forms.TextBox();
+            this.PremCardNumLbl = new System.Windows.Forms.Label();
+            this.PremCardNumText = new System.Windows.Forms.TextBox();
+            this.PremCardNameErrorLbl = new System.Windows.Forms.Label();
+            this.PremCardNumErrorLbl = new System.Windows.Forms.Label();
+            this.PremPayPPaymentPanel = new System.Windows.Forms.Panel();
+            this.PremPayPPaymentRB = new System.Windows.Forms.RadioButton();
+            this.PremPayPPaymentBtn = new FontAwesome.Sharp.IconButton();
+            this.PremCardCVCLbl = new System.Windows.Forms.Label();
+            this.PremPayMPaymentPanel = new System.Windows.Forms.Panel();
+            this.PremPayMPaymentRB = new System.Windows.Forms.RadioButton();
+            this.PremPayMPaymentBtn = new FontAwesome.Sharp.IconButton();
+            this.PremCardCVCText = new System.Windows.Forms.TextBox();
+            this.PremGCPaymentPanel = new System.Windows.Forms.Panel();
+            this.PremGCPaymentRB = new System.Windows.Forms.RadioButton();
+            this.PremGCPaymentBtn = new FontAwesome.Sharp.IconButton();
+            this.PremCardCVCErrorLbl = new System.Windows.Forms.Label();
+            this.PremCCPaymentPanel = new System.Windows.Forms.Panel();
+            this.PremCCPaymentRB = new System.Windows.Forms.RadioButton();
+            this.PremCCPaymentBtn = new FontAwesome.Sharp.IconButton();
+            this.PremCardExpireLbl = new System.Windows.Forms.Label();
+            this.PremCardExpireErrorLbl = new System.Windows.Forms.Label();
+            this.PremCardExpireText = new System.Windows.Forms.TextBox();
+            this.PremPlanPeriodText = new System.Windows.Forms.TextBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.PremBiyearlyPlanRB = new System.Windows.Forms.RadioButton();
+            this.PremBiyearlyPlanLbl = new System.Windows.Forms.Label();
+            this.PremBiyearlyPlanRenewText = new System.Windows.Forms.TextBox();
+            this.PremBiyearlyPlanDiscLbl = new System.Windows.Forms.Label();
+            this.PremBiyearlyPlanBtn = new FontAwesome.Sharp.IconButton();
+            this.PremYearlyPlanPanel = new System.Windows.Forms.Panel();
+            this.PremYearlyPlanRB = new System.Windows.Forms.RadioButton();
+            this.PremYearlyPlanLbl = new System.Windows.Forms.Label();
+            this.PremYearlyPlanRenewText = new System.Windows.Forms.TextBox();
+            this.PremYearlyPlanDiscLbl = new System.Windows.Forms.Label();
+            this.PremYearlyPlanBtn = new FontAwesome.Sharp.IconButton();
+            this.PremMonthlyPlanPanel = new System.Windows.Forms.Panel();
+            this.PremMonthlyPlanRB = new System.Windows.Forms.RadioButton();
+            this.PremMonthlyPlanLbl = new System.Windows.Forms.Label();
+            this.PremMonthlyPlanRenewText = new System.Windows.Forms.TextBox();
+            this.PremMonthlyPlanBtn = new FontAwesome.Sharp.IconButton();
+            this.PremSelectPaymentLbl = new System.Windows.Forms.Label();
+            this.PremBasicInfoLbl = new System.Windows.Forms.Label();
+            this.PremMemberIDLbl = new System.Windows.Forms.Label();
+            this.PremConfirmPassPanel = new System.Windows.Forms.Panel();
+            this.PremShowHideConfirmPassBtn = new FontAwesome.Sharp.IconButton();
+            this.PremConfirmPassText = new System.Windows.Forms.TextBox();
+            this.PremConfirmPassErrorLbl = new System.Windows.Forms.Label();
+            this.PremMemberIDText = new System.Windows.Forms.TextBox();
+            this.PremConfirmPassLbl = new System.Windows.Forms.Label();
+            this.PremLastNameErrorLbl = new System.Windows.Forms.Label();
+            this.PremFirstNameErrorLbl = new System.Windows.Forms.Label();
+            this.PremCPNumErrorLbl = new System.Windows.Forms.Label();
+            this.PremGenderErrorLbl = new System.Windows.Forms.Label();
+            this.PremAgeErrorLbl = new System.Windows.Forms.Label();
+            this.PremEmailErrorLbl = new System.Windows.Forms.Label();
+            this.PremPassPanel = new System.Windows.Forms.Panel();
+            this.PremShowHidePassBtn = new FontAwesome.Sharp.IconButton();
+            this.PremPassText = new System.Windows.Forms.TextBox();
+            this.PremPassErrorLbl = new System.Windows.Forms.Label();
+            this.PremPassLbl = new System.Windows.Forms.Label();
+            this.PremEmailText = new System.Windows.Forms.TextBox();
+            this.PremEmailLbl = new System.Windows.Forms.Label();
+            this.PremCreateAccLbl = new System.Windows.Forms.Label();
+            this.PremCPNumText = new System.Windows.Forms.TextBox();
+            this.PremCPNumLbl = new System.Windows.Forms.Label();
+            this.PremGenderComboText = new System.Windows.Forms.ComboBox();
+            this.PremGenderLbl = new System.Windows.Forms.Label();
+            this.PremBdayPicker = new System.Windows.Forms.DateTimePicker();
+            this.PremFooterStopperPanel = new System.Windows.Forms.Panel();
+            this.PremFooterStopperLbl = new System.Windows.Forms.Label();
+            this.PremAgeText = new System.Windows.Forms.TextBox();
+            this.PremAgeLbl = new System.Windows.Forms.Label();
+            this.PremBdayLbl = new System.Windows.Forms.Label();
+            this.PremLastNameText = new System.Windows.Forms.TextBox();
+            this.PremLastNameLbl = new System.Windows.Forms.Label();
+            this.PremFirstNameText = new System.Windows.Forms.TextBox();
+            this.PremFirstNameLbl = new System.Windows.Forms.Label();
+            this.PremPlanPeriodLbl = new System.Windows.Forms.Label();
+            this.PremSelectedPlanText = new System.Windows.Forms.TextBox();
+            this.PremSelectedLbl = new System.Windows.Forms.Label();
+            this.PremAccLbl = new System.Windows.Forms.Label();
+            this.PremMemberIDCopyBtn = new FontAwesome.Sharp.IconButton();
+            this.PremPassReqBtn = new FontAwesome.Sharp.IconButton();
+            this.PremCreateAccBtn = new FontAwesome.Sharp.IconButton();
+            this.PremiumExitBtn = new FontAwesome.Sharp.IconButton();
             this.SVIPPlanPanel = new System.Windows.Forms.Panel();
             this.SVIPPlanExpirationText = new System.Windows.Forms.TextBox();
             this.SVIPMemberIDCopyLbl = new System.Windows.Forms.Label();
@@ -246,6 +340,8 @@
             this.EnchanteMemberPage = new System.Windows.Forms.Panel();
             this.MemberScrollPanel = new System.Windows.Forms.Panel();
             this.MemberAccountPanel = new System.Windows.Forms.Panel();
+            this.MemberIDLbl = new System.Windows.Forms.Label();
+            this.MemberNameLbl = new System.Windows.Forms.Label();
             this.MemberSignOut = new FontAwesome.Sharp.IconButton();
             this.MemberScrollFooterStopperPanel = new System.Windows.Forms.Panel();
             this.MemberScrollFooterStopperLbl = new System.Windows.Forms.Label();
@@ -270,102 +366,6 @@
             this.EnchanteParentCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.MembershipCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.ServiceCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
-            this.PremiumPlanPanel = new System.Windows.Forms.Panel();
-            this.PremPlanExpirationText = new System.Windows.Forms.TextBox();
-            this.PremMemberIDCopyLbl = new System.Windows.Forms.Label();
-            this.PremNewPriceText = new System.Windows.Forms.TextBox();
-            this.PremOrigPriceText = new System.Windows.Forms.TextBox();
-            this.PremCardInfoPanel = new System.Windows.Forms.Panel();
-            this.PremPaymentTypeText = new System.Windows.Forms.TextBox();
-            this.PremCardNameLbl = new System.Windows.Forms.Label();
-            this.PremCardNameText = new System.Windows.Forms.TextBox();
-            this.PremCardNumLbl = new System.Windows.Forms.Label();
-            this.PremCardNumText = new System.Windows.Forms.TextBox();
-            this.PremCardNameErrorLbl = new System.Windows.Forms.Label();
-            this.PremCardNumErrorLbl = new System.Windows.Forms.Label();
-            this.PremPayPPaymentPanel = new System.Windows.Forms.Panel();
-            this.PremPayPPaymentRB = new System.Windows.Forms.RadioButton();
-            this.PremPayPPaymentBtn = new FontAwesome.Sharp.IconButton();
-            this.PremCardCVCLbl = new System.Windows.Forms.Label();
-            this.PremPayMPaymentPanel = new System.Windows.Forms.Panel();
-            this.PremPayMPaymentRB = new System.Windows.Forms.RadioButton();
-            this.PremPayMPaymentBtn = new FontAwesome.Sharp.IconButton();
-            this.PremCardCVCText = new System.Windows.Forms.TextBox();
-            this.PremGCPaymentPanel = new System.Windows.Forms.Panel();
-            this.PremGCPaymentRB = new System.Windows.Forms.RadioButton();
-            this.PremGCPaymentBtn = new FontAwesome.Sharp.IconButton();
-            this.PremCardCVCErrorLbl = new System.Windows.Forms.Label();
-            this.PremCCPaymentPanel = new System.Windows.Forms.Panel();
-            this.PremCCPaymentRB = new System.Windows.Forms.RadioButton();
-            this.PremCCPaymentBtn = new FontAwesome.Sharp.IconButton();
-            this.PremCardExpireLbl = new System.Windows.Forms.Label();
-            this.PremCardExpireErrorLbl = new System.Windows.Forms.Label();
-            this.PremCardExpireText = new System.Windows.Forms.TextBox();
-            this.PremPlanPeriodText = new System.Windows.Forms.TextBox();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.PremBiyearlyPlanRB = new System.Windows.Forms.RadioButton();
-            this.PremBiyearlyPlanLbl = new System.Windows.Forms.Label();
-            this.PremBiyearlyPlanRenewText = new System.Windows.Forms.TextBox();
-            this.PremBiyearlyPlanDiscLbl = new System.Windows.Forms.Label();
-            this.PremBiyearlyPlanBtn = new FontAwesome.Sharp.IconButton();
-            this.PremYearlyPlanPanel = new System.Windows.Forms.Panel();
-            this.PremYearlyPlanRB = new System.Windows.Forms.RadioButton();
-            this.PremYearlyPlanLbl = new System.Windows.Forms.Label();
-            this.PremYearlyPlanRenewText = new System.Windows.Forms.TextBox();
-            this.PremYearlyPlanDiscLbl = new System.Windows.Forms.Label();
-            this.PremYearlyPlanBtn = new FontAwesome.Sharp.IconButton();
-            this.PremMonthlyPlanPanel = new System.Windows.Forms.Panel();
-            this.PremMonthlyPlanRB = new System.Windows.Forms.RadioButton();
-            this.PremMonthlyPlanLbl = new System.Windows.Forms.Label();
-            this.PremMonthlyPlanRenewText = new System.Windows.Forms.TextBox();
-            this.PremMonthlyPlanBtn = new FontAwesome.Sharp.IconButton();
-            this.PremSelectPaymentLbl = new System.Windows.Forms.Label();
-            this.PremBasicInfoLbl = new System.Windows.Forms.Label();
-            this.PremMemberIDLbl = new System.Windows.Forms.Label();
-            this.PremConfirmPassPanel = new System.Windows.Forms.Panel();
-            this.PremShowHideConfirmPassBtn = new FontAwesome.Sharp.IconButton();
-            this.PremConfirmPassText = new System.Windows.Forms.TextBox();
-            this.PremConfirmPassErrorLbl = new System.Windows.Forms.Label();
-            this.PremMemberIDText = new System.Windows.Forms.TextBox();
-            this.PremConfirmPassLbl = new System.Windows.Forms.Label();
-            this.PremLastNameErrorLbl = new System.Windows.Forms.Label();
-            this.PremFirstNameErrorLbl = new System.Windows.Forms.Label();
-            this.PremCPNumErrorLbl = new System.Windows.Forms.Label();
-            this.PremGenderErrorLbl = new System.Windows.Forms.Label();
-            this.PremAgeErrorLbl = new System.Windows.Forms.Label();
-            this.PremEmailErrorLbl = new System.Windows.Forms.Label();
-            this.PremPassPanel = new System.Windows.Forms.Panel();
-            this.PremShowHidePassBtn = new FontAwesome.Sharp.IconButton();
-            this.PremPassText = new System.Windows.Forms.TextBox();
-            this.PremPassErrorLbl = new System.Windows.Forms.Label();
-            this.PremPassLbl = new System.Windows.Forms.Label();
-            this.PremEmailText = new System.Windows.Forms.TextBox();
-            this.PremEmailLbl = new System.Windows.Forms.Label();
-            this.PremCreateAccLbl = new System.Windows.Forms.Label();
-            this.PremCPNumText = new System.Windows.Forms.TextBox();
-            this.PremCPNumLbl = new System.Windows.Forms.Label();
-            this.PremGenderComboText = new System.Windows.Forms.ComboBox();
-            this.PremGenderLbl = new System.Windows.Forms.Label();
-            this.PremBdayPicker = new System.Windows.Forms.DateTimePicker();
-            this.PremFooterStopperPanel = new System.Windows.Forms.Panel();
-            this.PremFooterStopperLbl = new System.Windows.Forms.Label();
-            this.PremAgeText = new System.Windows.Forms.TextBox();
-            this.PremAgeLbl = new System.Windows.Forms.Label();
-            this.PremBdayLbl = new System.Windows.Forms.Label();
-            this.PremLastNameText = new System.Windows.Forms.TextBox();
-            this.PremLastNameLbl = new System.Windows.Forms.Label();
-            this.PremFirstNameText = new System.Windows.Forms.TextBox();
-            this.PremFirstNameLbl = new System.Windows.Forms.Label();
-            this.PremPlanPeriodLbl = new System.Windows.Forms.Label();
-            this.PremSelectedPlanText = new System.Windows.Forms.TextBox();
-            this.PremSelectedLbl = new System.Windows.Forms.Label();
-            this.PremAccLbl = new System.Windows.Forms.Label();
-            this.PremMemberIDCopyBtn = new FontAwesome.Sharp.IconButton();
-            this.PremPassReqBtn = new FontAwesome.Sharp.IconButton();
-            this.PremCreateAccBtn = new FontAwesome.Sharp.IconButton();
-            this.PremiumExitBtn = new FontAwesome.Sharp.IconButton();
-            this.MemberNameLbl = new System.Windows.Forms.Label();
-            this.MemberIDLbl = new System.Windows.Forms.Label();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteAdminPage.SuspendLayout();
             this.EnchanteHomePage.SuspendLayout();
@@ -380,6 +380,18 @@
             this.ServiceHairStyling.SuspendLayout();
             this.ServiceType.SuspendLayout();
             this.MembershipPanel.SuspendLayout();
+            this.PremiumPlanPanel.SuspendLayout();
+            this.PremCardInfoPanel.SuspendLayout();
+            this.PremPayPPaymentPanel.SuspendLayout();
+            this.PremPayMPaymentPanel.SuspendLayout();
+            this.PremGCPaymentPanel.SuspendLayout();
+            this.PremCCPaymentPanel.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.PremYearlyPlanPanel.SuspendLayout();
+            this.PremMonthlyPlanPanel.SuspendLayout();
+            this.PremConfirmPassPanel.SuspendLayout();
+            this.PremPassPanel.SuspendLayout();
+            this.PremFooterStopperPanel.SuspendLayout();
             this.SVIPPlanPanel.SuspendLayout();
             this.SVIPCardInfoPanel.SuspendLayout();
             this.SVIPPayPPaymentPanel.SuspendLayout();
@@ -419,18 +431,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.EnchanteParentCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MembershipCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ServiceCard)).BeginInit();
-            this.PremiumPlanPanel.SuspendLayout();
-            this.PremCardInfoPanel.SuspendLayout();
-            this.PremPayPPaymentPanel.SuspendLayout();
-            this.PremPayMPaymentPanel.SuspendLayout();
-            this.PremGCPaymentPanel.SuspendLayout();
-            this.PremCCPaymentPanel.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.PremYearlyPlanPanel.SuspendLayout();
-            this.PremMonthlyPlanPanel.SuspendLayout();
-            this.PremConfirmPassPanel.SuspendLayout();
-            this.PremPassPanel.SuspendLayout();
-            this.PremFooterStopperPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // EnchanteParentContainer
@@ -969,6 +969,1314 @@
             this.MembershipPanel.Name = "MembershipPanel";
             this.MembershipPanel.Size = new System.Drawing.Size(1371, 807);
             this.MembershipPanel.TabIndex = 22;
+            // 
+            // PremiumPlanPanel
+            // 
+            this.PremiumPlanPanel.AutoScroll = true;
+            this.PremiumPlanPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremiumPlanPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MembershipCard.SetCardName(this.PremiumPlanPanel, "PREM");
+            this.PremiumPlanPanel.Controls.Add(this.PremPlanExpirationText);
+            this.PremiumPlanPanel.Controls.Add(this.PremMemberIDCopyLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremNewPriceText);
+            this.PremiumPlanPanel.Controls.Add(this.PremOrigPriceText);
+            this.PremiumPlanPanel.Controls.Add(this.PremCardInfoPanel);
+            this.PremiumPlanPanel.Controls.Add(this.PremPlanPeriodText);
+            this.PremiumPlanPanel.Controls.Add(this.panel7);
+            this.PremiumPlanPanel.Controls.Add(this.PremYearlyPlanPanel);
+            this.PremiumPlanPanel.Controls.Add(this.PremMonthlyPlanPanel);
+            this.PremiumPlanPanel.Controls.Add(this.PremSelectPaymentLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremBasicInfoLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremMemberIDLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremConfirmPassPanel);
+            this.PremiumPlanPanel.Controls.Add(this.PremConfirmPassErrorLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremMemberIDText);
+            this.PremiumPlanPanel.Controls.Add(this.PremConfirmPassLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremLastNameErrorLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremFirstNameErrorLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremCPNumErrorLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremGenderErrorLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremAgeErrorLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremEmailErrorLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremPassPanel);
+            this.PremiumPlanPanel.Controls.Add(this.PremPassErrorLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremPassLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremEmailText);
+            this.PremiumPlanPanel.Controls.Add(this.PremEmailLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremCreateAccLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremCPNumText);
+            this.PremiumPlanPanel.Controls.Add(this.PremCPNumLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremGenderComboText);
+            this.PremiumPlanPanel.Controls.Add(this.PremGenderLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremBdayPicker);
+            this.PremiumPlanPanel.Controls.Add(this.PremFooterStopperPanel);
+            this.PremiumPlanPanel.Controls.Add(this.PremAgeText);
+            this.PremiumPlanPanel.Controls.Add(this.PremAgeLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremBdayLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremLastNameText);
+            this.PremiumPlanPanel.Controls.Add(this.PremLastNameLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremFirstNameText);
+            this.PremiumPlanPanel.Controls.Add(this.PremFirstNameLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremPlanPeriodLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremSelectedPlanText);
+            this.PremiumPlanPanel.Controls.Add(this.PremSelectedLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremAccLbl);
+            this.PremiumPlanPanel.Controls.Add(this.PremMemberIDCopyBtn);
+            this.PremiumPlanPanel.Controls.Add(this.PremPassReqBtn);
+            this.PremiumPlanPanel.Controls.Add(this.PremCreateAccBtn);
+            this.PremiumPlanPanel.Controls.Add(this.PremiumExitBtn);
+            this.PremiumPlanPanel.Location = new System.Drawing.Point(0, 0);
+            this.MembershipCard.SetMinimumSize(this.PremiumPlanPanel, new System.Drawing.Size(200, 100));
+            this.PremiumPlanPanel.Name = "PremiumPlanPanel";
+            this.MembershipCard.SetPreferredSize(this.PremiumPlanPanel, new System.Drawing.Size(200, 100));
+            this.PremiumPlanPanel.Size = new System.Drawing.Size(1371, 807);
+            this.PremiumPlanPanel.TabIndex = 6;
+            // 
+            // PremPlanExpirationText
+            // 
+            this.PremPlanExpirationText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremPlanExpirationText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremPlanExpirationText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremPlanExpirationText.Location = new System.Drawing.Point(521, 1284);
+            this.PremPlanExpirationText.Name = "PremPlanExpirationText";
+            this.PremPlanExpirationText.Size = new System.Drawing.Size(270, 37);
+            this.PremPlanExpirationText.TabIndex = 116;
+            this.PremPlanExpirationText.Visible = false;
+            // 
+            // PremMemberIDCopyLbl
+            // 
+            this.PremMemberIDCopyLbl.AutoSize = true;
+            this.PremMemberIDCopyLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremMemberIDCopyLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremMemberIDCopyLbl.Location = new System.Drawing.Point(354, 772);
+            this.PremMemberIDCopyLbl.Name = "PremMemberIDCopyLbl";
+            this.PremMemberIDCopyLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremMemberIDCopyLbl.Size = new System.Drawing.Size(188, 14);
+            this.PremMemberIDCopyLbl.TabIndex = 123;
+            this.PremMemberIDCopyLbl.Text = "ID Number Copied Successfully";
+            this.PremMemberIDCopyLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremMemberIDCopyLbl.Visible = false;
+            // 
+            // PremNewPriceText
+            // 
+            this.PremNewPriceText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremNewPriceText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PremNewPriceText.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremNewPriceText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremNewPriceText.Location = new System.Drawing.Point(1078, 1289);
+            this.PremNewPriceText.Name = "PremNewPriceText";
+            this.PremNewPriceText.ReadOnly = true;
+            this.PremNewPriceText.Size = new System.Drawing.Size(147, 27);
+            this.PremNewPriceText.TabIndex = 119;
+            this.PremNewPriceText.Text = "Php. 1499.00";
+            // 
+            // PremOrigPriceText
+            // 
+            this.PremOrigPriceText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremOrigPriceText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PremOrigPriceText.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremOrigPriceText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremOrigPriceText.Location = new System.Drawing.Point(899, 1289);
+            this.PremOrigPriceText.Name = "PremOrigPriceText";
+            this.PremOrigPriceText.ReadOnly = true;
+            this.PremOrigPriceText.Size = new System.Drawing.Size(148, 27);
+            this.PremOrigPriceText.TabIndex = 118;
+            this.PremOrigPriceText.Text = "Php. 1499.00";
+            this.PremOrigPriceText.Visible = false;
+            // 
+            // PremCardInfoPanel
+            // 
+            this.PremCardInfoPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PremCardInfoPanel.Controls.Add(this.PremPaymentTypeText);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardNameLbl);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardNameText);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardNumLbl);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardNumText);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardNameErrorLbl);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardNumErrorLbl);
+            this.PremCardInfoPanel.Controls.Add(this.PremPayPPaymentPanel);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardCVCLbl);
+            this.PremCardInfoPanel.Controls.Add(this.PremPayMPaymentPanel);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardCVCText);
+            this.PremCardInfoPanel.Controls.Add(this.PremGCPaymentPanel);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardCVCErrorLbl);
+            this.PremCardInfoPanel.Controls.Add(this.PremCCPaymentPanel);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardExpireLbl);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardExpireErrorLbl);
+            this.PremCardInfoPanel.Controls.Add(this.PremCardExpireText);
+            this.PremCardInfoPanel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.PremCardInfoPanel.Location = new System.Drawing.Point(122, 1355);
+            this.PremCardInfoPanel.Name = "PremCardInfoPanel";
+            this.PremCardInfoPanel.Size = new System.Drawing.Size(1116, 299);
+            this.PremCardInfoPanel.TabIndex = 117;
+            // 
+            // PremPaymentTypeText
+            // 
+            this.PremPaymentTypeText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremPaymentTypeText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremPaymentTypeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremPaymentTypeText.Location = new System.Drawing.Point(725, 228);
+            this.PremPaymentTypeText.Name = "PremPaymentTypeText";
+            this.PremPaymentTypeText.Size = new System.Drawing.Size(270, 37);
+            this.PremPaymentTypeText.TabIndex = 115;
+            this.PremPaymentTypeText.Visible = false;
+            // 
+            // PremCardNameLbl
+            // 
+            this.PremCardNameLbl.AutoSize = true;
+            this.PremCardNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardNameLbl.Location = new System.Drawing.Point(27, 17);
+            this.PremCardNameLbl.Name = "PremCardNameLbl";
+            this.PremCardNameLbl.Size = new System.Drawing.Size(232, 29);
+            this.PremCardNameLbl.TabIndex = 92;
+            this.PremCardNameLbl.Text = "Cardholder Name:";
+            // 
+            // PremCardNameText
+            // 
+            this.PremCardNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremCardNameText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardNameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardNameText.Location = new System.Drawing.Point(32, 49);
+            this.PremCardNameText.Name = "PremCardNameText";
+            this.PremCardNameText.Size = new System.Drawing.Size(553, 37);
+            this.PremCardNameText.TabIndex = 93;
+            // 
+            // PremCardNumLbl
+            // 
+            this.PremCardNumLbl.AutoSize = true;
+            this.PremCardNumLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardNumLbl.Location = new System.Drawing.Point(27, 107);
+            this.PremCardNumLbl.Name = "PremCardNumLbl";
+            this.PremCardNumLbl.Size = new System.Drawing.Size(256, 29);
+            this.PremCardNumLbl.TabIndex = 94;
+            this.PremCardNumLbl.Text = "Cardholder Number:";
+            // 
+            // PremCardNumText
+            // 
+            this.PremCardNumText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremCardNumText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardNumText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardNumText.Location = new System.Drawing.Point(32, 139);
+            this.PremCardNumText.Name = "PremCardNumText";
+            this.PremCardNumText.Size = new System.Drawing.Size(550, 37);
+            this.PremCardNumText.TabIndex = 95;
+            // 
+            // PremCardNameErrorLbl
+            // 
+            this.PremCardNameErrorLbl.AutoSize = true;
+            this.PremCardNameErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardNameErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardNameErrorLbl.Location = new System.Drawing.Point(503, 24);
+            this.PremCardNameErrorLbl.Name = "PremCardNameErrorLbl";
+            this.PremCardNameErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremCardNameErrorLbl.Size = new System.Drawing.Size(82, 14);
+            this.PremCardNameErrorLbl.TabIndex = 96;
+            this.PremCardNameErrorLbl.Text = "Missing Field";
+            this.PremCardNameErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremCardNameErrorLbl.Visible = false;
+            // 
+            // PremCardNumErrorLbl
+            // 
+            this.PremCardNumErrorLbl.AutoSize = true;
+            this.PremCardNumErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardNumErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardNumErrorLbl.Location = new System.Drawing.Point(501, 114);
+            this.PremCardNumErrorLbl.Name = "PremCardNumErrorLbl";
+            this.PremCardNumErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremCardNumErrorLbl.Size = new System.Drawing.Size(82, 14);
+            this.PremCardNumErrorLbl.TabIndex = 97;
+            this.PremCardNumErrorLbl.Text = "Missing Field";
+            this.PremCardNumErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremCardNumErrorLbl.Visible = false;
+            // 
+            // PremPayPPaymentPanel
+            // 
+            this.PremPayPPaymentPanel.Controls.Add(this.PremPayPPaymentRB);
+            this.PremPayPPaymentPanel.Controls.Add(this.PremPayPPaymentBtn);
+            this.PremPayPPaymentPanel.Location = new System.Drawing.Point(877, 81);
+            this.PremPayPPaymentPanel.Name = "PremPayPPaymentPanel";
+            this.PremPayPPaymentPanel.Size = new System.Drawing.Size(223, 50);
+            this.PremPayPPaymentPanel.TabIndex = 114;
+            // 
+            // PremPayPPaymentRB
+            // 
+            this.PremPayPPaymentRB.AutoSize = true;
+            this.PremPayPPaymentRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremPayPPaymentRB.FlatAppearance.BorderSize = 5;
+            this.PremPayPPaymentRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremPayPPaymentRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PremPayPPaymentRB.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.PremPayPPaymentRB.Location = new System.Drawing.Point(196, 16);
+            this.PremPayPPaymentRB.Name = "PremPayPPaymentRB";
+            this.PremPayPPaymentRB.Size = new System.Drawing.Size(13, 12);
+            this.PremPayPPaymentRB.TabIndex = 119;
+            this.PremPayPPaymentRB.UseVisualStyleBackColor = true;
+            this.PremPayPPaymentRB.Visible = false;
+            // 
+            // PremPayPPaymentBtn
+            // 
+            this.PremPayPPaymentBtn.AutoSize = true;
+            this.PremPayPPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremPayPPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PremPayPPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
+            this.PremPayPPaymentBtn.FlatAppearance.BorderSize = 3;
+            this.PremPayPPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremPayPPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremPayPPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.PremPayPPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremPayPPaymentBtn.IconColor = System.Drawing.Color.Black;
+            this.PremPayPPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremPayPPaymentBtn.Location = new System.Drawing.Point(0, 0);
+            this.PremPayPPaymentBtn.Name = "PremPayPPaymentBtn";
+            this.PremPayPPaymentBtn.Size = new System.Drawing.Size(223, 50);
+            this.PremPayPPaymentBtn.TabIndex = 106;
+            this.PremPayPPaymentBtn.Text = "Paypal";
+            this.PremPayPPaymentBtn.UseVisualStyleBackColor = true;
+            this.PremPayPPaymentBtn.Click += new System.EventHandler(this.PremPayPPaymentBtn_Click);
+            // 
+            // PremCardCVCLbl
+            // 
+            this.PremCardCVCLbl.AutoSize = true;
+            this.PremCardCVCLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardCVCLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardCVCLbl.Location = new System.Drawing.Point(27, 196);
+            this.PremCardCVCLbl.Name = "PremCardCVCLbl";
+            this.PremCardCVCLbl.Size = new System.Drawing.Size(71, 29);
+            this.PremCardCVCLbl.TabIndex = 99;
+            this.PremCardCVCLbl.Text = "CVC:";
+            // 
+            // PremPayMPaymentPanel
+            // 
+            this.PremPayMPaymentPanel.Controls.Add(this.PremPayMPaymentRB);
+            this.PremPayMPaymentPanel.Controls.Add(this.PremPayMPaymentBtn);
+            this.PremPayMPaymentPanel.Location = new System.Drawing.Point(877, 164);
+            this.PremPayMPaymentPanel.Name = "PremPayMPaymentPanel";
+            this.PremPayMPaymentPanel.Size = new System.Drawing.Size(223, 50);
+            this.PremPayMPaymentPanel.TabIndex = 113;
+            // 
+            // PremPayMPaymentRB
+            // 
+            this.PremPayMPaymentRB.AutoSize = true;
+            this.PremPayMPaymentRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremPayMPaymentRB.FlatAppearance.BorderSize = 5;
+            this.PremPayMPaymentRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremPayMPaymentRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PremPayMPaymentRB.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.PremPayMPaymentRB.Location = new System.Drawing.Point(196, 19);
+            this.PremPayMPaymentRB.Name = "PremPayMPaymentRB";
+            this.PremPayMPaymentRB.Size = new System.Drawing.Size(13, 12);
+            this.PremPayMPaymentRB.TabIndex = 118;
+            this.PremPayMPaymentRB.UseVisualStyleBackColor = true;
+            this.PremPayMPaymentRB.Visible = false;
+            // 
+            // PremPayMPaymentBtn
+            // 
+            this.PremPayMPaymentBtn.AutoSize = true;
+            this.PremPayMPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremPayMPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PremPayMPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
+            this.PremPayMPaymentBtn.FlatAppearance.BorderSize = 3;
+            this.PremPayMPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremPayMPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremPayMPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.PremPayMPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremPayMPaymentBtn.IconColor = System.Drawing.Color.Black;
+            this.PremPayMPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremPayMPaymentBtn.Location = new System.Drawing.Point(0, 0);
+            this.PremPayMPaymentBtn.Name = "PremPayMPaymentBtn";
+            this.PremPayMPaymentBtn.Size = new System.Drawing.Size(223, 50);
+            this.PremPayMPaymentBtn.TabIndex = 106;
+            this.PremPayMPaymentBtn.Text = "Paymaya";
+            this.PremPayMPaymentBtn.UseVisualStyleBackColor = true;
+            this.PremPayMPaymentBtn.Click += new System.EventHandler(this.PremPayMPaymentBtn_Click);
+            // 
+            // PremCardCVCText
+            // 
+            this.PremCardCVCText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremCardCVCText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardCVCText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardCVCText.Location = new System.Drawing.Point(32, 228);
+            this.PremCardCVCText.Name = "PremCardCVCText";
+            this.PremCardCVCText.Size = new System.Drawing.Size(270, 37);
+            this.PremCardCVCText.TabIndex = 100;
+            // 
+            // PremGCPaymentPanel
+            // 
+            this.PremGCPaymentPanel.Controls.Add(this.PremGCPaymentRB);
+            this.PremGCPaymentPanel.Controls.Add(this.PremGCPaymentBtn);
+            this.PremGCPaymentPanel.Location = new System.Drawing.Point(633, 164);
+            this.PremGCPaymentPanel.Name = "PremGCPaymentPanel";
+            this.PremGCPaymentPanel.Size = new System.Drawing.Size(223, 50);
+            this.PremGCPaymentPanel.TabIndex = 112;
+            // 
+            // PremGCPaymentRB
+            // 
+            this.PremGCPaymentRB.AutoSize = true;
+            this.PremGCPaymentRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremGCPaymentRB.FlatAppearance.BorderSize = 5;
+            this.PremGCPaymentRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremGCPaymentRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PremGCPaymentRB.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.PremGCPaymentRB.Location = new System.Drawing.Point(193, 19);
+            this.PremGCPaymentRB.Name = "PremGCPaymentRB";
+            this.PremGCPaymentRB.Size = new System.Drawing.Size(13, 12);
+            this.PremGCPaymentRB.TabIndex = 117;
+            this.PremGCPaymentRB.UseVisualStyleBackColor = true;
+            this.PremGCPaymentRB.Visible = false;
+            // 
+            // PremGCPaymentBtn
+            // 
+            this.PremGCPaymentBtn.AutoSize = true;
+            this.PremGCPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremGCPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PremGCPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
+            this.PremGCPaymentBtn.FlatAppearance.BorderSize = 3;
+            this.PremGCPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremGCPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremGCPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.PremGCPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremGCPaymentBtn.IconColor = System.Drawing.Color.Black;
+            this.PremGCPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremGCPaymentBtn.Location = new System.Drawing.Point(0, 0);
+            this.PremGCPaymentBtn.Name = "PremGCPaymentBtn";
+            this.PremGCPaymentBtn.Size = new System.Drawing.Size(223, 50);
+            this.PremGCPaymentBtn.TabIndex = 106;
+            this.PremGCPaymentBtn.Text = "Gcash";
+            this.PremGCPaymentBtn.UseVisualStyleBackColor = true;
+            this.PremGCPaymentBtn.Click += new System.EventHandler(this.PremGCPaymentBtn_Click);
+            // 
+            // PremCardCVCErrorLbl
+            // 
+            this.PremCardCVCErrorLbl.AutoSize = true;
+            this.PremCardCVCErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardCVCErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardCVCErrorLbl.Location = new System.Drawing.Point(223, 202);
+            this.PremCardCVCErrorLbl.Name = "PremCardCVCErrorLbl";
+            this.PremCardCVCErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremCardCVCErrorLbl.Size = new System.Drawing.Size(82, 14);
+            this.PremCardCVCErrorLbl.TabIndex = 101;
+            this.PremCardCVCErrorLbl.Text = "Missing Field";
+            this.PremCardCVCErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremCardCVCErrorLbl.Visible = false;
+            // 
+            // PremCCPaymentPanel
+            // 
+            this.PremCCPaymentPanel.Controls.Add(this.PremCCPaymentRB);
+            this.PremCCPaymentPanel.Controls.Add(this.PremCCPaymentBtn);
+            this.PremCCPaymentPanel.Location = new System.Drawing.Point(633, 81);
+            this.PremCCPaymentPanel.Name = "PremCCPaymentPanel";
+            this.PremCCPaymentPanel.Size = new System.Drawing.Size(223, 50);
+            this.PremCCPaymentPanel.TabIndex = 111;
+            // 
+            // PremCCPaymentRB
+            // 
+            this.PremCCPaymentRB.AutoSize = true;
+            this.PremCCPaymentRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremCCPaymentRB.FlatAppearance.BorderSize = 5;
+            this.PremCCPaymentRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremCCPaymentRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PremCCPaymentRB.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.PremCCPaymentRB.Location = new System.Drawing.Point(193, 19);
+            this.PremCCPaymentRB.Name = "PremCCPaymentRB";
+            this.PremCCPaymentRB.Size = new System.Drawing.Size(13, 12);
+            this.PremCCPaymentRB.TabIndex = 116;
+            this.PremCCPaymentRB.UseVisualStyleBackColor = true;
+            this.PremCCPaymentRB.Visible = false;
+            // 
+            // PremCCPaymentBtn
+            // 
+            this.PremCCPaymentBtn.AutoSize = true;
+            this.PremCCPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremCCPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PremCCPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
+            this.PremCCPaymentBtn.FlatAppearance.BorderSize = 3;
+            this.PremCCPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremCCPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCCPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.PremCCPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremCCPaymentBtn.IconColor = System.Drawing.Color.Black;
+            this.PremCCPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremCCPaymentBtn.Location = new System.Drawing.Point(0, 0);
+            this.PremCCPaymentBtn.Name = "PremCCPaymentBtn";
+            this.PremCCPaymentBtn.Size = new System.Drawing.Size(223, 50);
+            this.PremCCPaymentBtn.TabIndex = 106;
+            this.PremCCPaymentBtn.Text = "Credit Card";
+            this.PremCCPaymentBtn.UseVisualStyleBackColor = true;
+            this.PremCCPaymentBtn.Click += new System.EventHandler(this.PremCCPaymentBtn_Click);
+            // 
+            // PremCardExpireLbl
+            // 
+            this.PremCardExpireLbl.AutoSize = true;
+            this.PremCardExpireLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardExpireLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardExpireLbl.Location = new System.Drawing.Point(308, 196);
+            this.PremCardExpireLbl.Name = "PremCardExpireLbl";
+            this.PremCardExpireLbl.Size = new System.Drawing.Size(148, 29);
+            this.PremCardExpireLbl.TabIndex = 102;
+            this.PremCardExpireLbl.Text = "Expiration:";
+            // 
+            // PremCardExpireErrorLbl
+            // 
+            this.PremCardExpireErrorLbl.AutoSize = true;
+            this.PremCardExpireErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardExpireErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardExpireErrorLbl.Location = new System.Drawing.Point(503, 202);
+            this.PremCardExpireErrorLbl.Name = "PremCardExpireErrorLbl";
+            this.PremCardExpireErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremCardExpireErrorLbl.Size = new System.Drawing.Size(82, 14);
+            this.PremCardExpireErrorLbl.TabIndex = 104;
+            this.PremCardExpireErrorLbl.Text = "Missing Field";
+            this.PremCardExpireErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremCardExpireErrorLbl.Visible = false;
+            // 
+            // PremCardExpireText
+            // 
+            this.PremCardExpireText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremCardExpireText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCardExpireText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCardExpireText.Location = new System.Drawing.Point(313, 228);
+            this.PremCardExpireText.Name = "PremCardExpireText";
+            this.PremCardExpireText.Size = new System.Drawing.Size(270, 37);
+            this.PremCardExpireText.TabIndex = 103;
+            // 
+            // PremPlanPeriodText
+            // 
+            this.PremPlanPeriodText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremPlanPeriodText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PremPlanPeriodText.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremPlanPeriodText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremPlanPeriodText.Location = new System.Drawing.Point(122, 1289);
+            this.PremPlanPeriodText.Name = "PremPlanPeriodText";
+            this.PremPlanPeriodText.ReadOnly = true;
+            this.PremPlanPeriodText.Size = new System.Drawing.Size(391, 27);
+            this.PremPlanPeriodText.TabIndex = 116;
+            this.PremPlanPeriodText.Text = "Premium Plan - [Period]";
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.PremBiyearlyPlanRB);
+            this.panel7.Controls.Add(this.PremBiyearlyPlanLbl);
+            this.panel7.Controls.Add(this.PremBiyearlyPlanRenewText);
+            this.panel7.Controls.Add(this.PremBiyearlyPlanDiscLbl);
+            this.panel7.Controls.Add(this.PremBiyearlyPlanBtn);
+            this.panel7.Location = new System.Drawing.Point(854, 291);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(250, 250);
+            this.panel7.TabIndex = 110;
+            // 
+            // PremBiyearlyPlanRB
+            // 
+            this.PremBiyearlyPlanRB.AutoSize = true;
+            this.PremBiyearlyPlanRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremBiyearlyPlanRB.FlatAppearance.BorderSize = 5;
+            this.PremBiyearlyPlanRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremBiyearlyPlanRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PremBiyearlyPlanRB.Location = new System.Drawing.Point(211, 42);
+            this.PremBiyearlyPlanRB.Name = "PremBiyearlyPlanRB";
+            this.PremBiyearlyPlanRB.Size = new System.Drawing.Size(13, 12);
+            this.PremBiyearlyPlanRB.TabIndex = 115;
+            this.PremBiyearlyPlanRB.UseVisualStyleBackColor = true;
+            this.PremBiyearlyPlanRB.Visible = false;
+            // 
+            // PremBiyearlyPlanLbl
+            // 
+            this.PremBiyearlyPlanLbl.AutoSize = true;
+            this.PremBiyearlyPlanLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremBiyearlyPlanLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremBiyearlyPlanLbl.Location = new System.Drawing.Point(63, 35);
+            this.PremBiyearlyPlanLbl.Name = "PremBiyearlyPlanLbl";
+            this.PremBiyearlyPlanLbl.Size = new System.Drawing.Size(125, 26);
+            this.PremBiyearlyPlanLbl.TabIndex = 87;
+            this.PremBiyearlyPlanLbl.Text = "24 Months";
+            // 
+            // PremBiyearlyPlanRenewText
+            // 
+            this.PremBiyearlyPlanRenewText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremBiyearlyPlanRenewText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PremBiyearlyPlanRenewText.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremBiyearlyPlanRenewText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremBiyearlyPlanRenewText.Location = new System.Drawing.Point(68, 182);
+            this.PremBiyearlyPlanRenewText.Multiline = true;
+            this.PremBiyearlyPlanRenewText.Name = "PremBiyearlyPlanRenewText";
+            this.PremBiyearlyPlanRenewText.ReadOnly = true;
+            this.PremBiyearlyPlanRenewText.Size = new System.Drawing.Size(121, 56);
+            this.PremBiyearlyPlanRenewText.TabIndex = 89;
+            this.PremBiyearlyPlanRenewText.Text = "Plan Renews at\r\nPhp. 3499.00 on \r\n[After 2 Years]\r\n";
+            this.PremBiyearlyPlanRenewText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // PremBiyearlyPlanDiscLbl
+            // 
+            this.PremBiyearlyPlanDiscLbl.AutoSize = true;
+            this.PremBiyearlyPlanDiscLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PremBiyearlyPlanDiscLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremBiyearlyPlanDiscLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremBiyearlyPlanDiscLbl.Location = new System.Drawing.Point(34, 0);
+            this.PremBiyearlyPlanDiscLbl.Name = "PremBiyearlyPlanDiscLbl";
+            this.PremBiyearlyPlanDiscLbl.Size = new System.Drawing.Size(183, 31);
+            this.PremBiyearlyPlanDiscLbl.TabIndex = 90;
+            this.PremBiyearlyPlanDiscLbl.Text = "Save. Php. 4k\r\n";
+            // 
+            // PremBiyearlyPlanBtn
+            // 
+            this.PremBiyearlyPlanBtn.AutoSize = true;
+            this.PremBiyearlyPlanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremBiyearlyPlanBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PremBiyearlyPlanBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremBiyearlyPlanBtn.FlatAppearance.BorderSize = 3;
+            this.PremBiyearlyPlanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremBiyearlyPlanBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremBiyearlyPlanBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.PremBiyearlyPlanBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremBiyearlyPlanBtn.IconColor = System.Drawing.Color.Black;
+            this.PremBiyearlyPlanBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremBiyearlyPlanBtn.Location = new System.Drawing.Point(0, 0);
+            this.PremBiyearlyPlanBtn.Name = "PremBiyearlyPlanBtn";
+            this.PremBiyearlyPlanBtn.Size = new System.Drawing.Size(250, 250);
+            this.PremBiyearlyPlanBtn.TabIndex = 86;
+            this.PremBiyearlyPlanBtn.Text = "Php.\r\n999.00";
+            this.PremBiyearlyPlanBtn.UseVisualStyleBackColor = true;
+            this.PremBiyearlyPlanBtn.Click += new System.EventHandler(this.PremBiyearlyPlanBtn_Click);
+            // 
+            // PremYearlyPlanPanel
+            // 
+            this.PremYearlyPlanPanel.Controls.Add(this.PremYearlyPlanRB);
+            this.PremYearlyPlanPanel.Controls.Add(this.PremYearlyPlanLbl);
+            this.PremYearlyPlanPanel.Controls.Add(this.PremYearlyPlanRenewText);
+            this.PremYearlyPlanPanel.Controls.Add(this.PremYearlyPlanDiscLbl);
+            this.PremYearlyPlanPanel.Controls.Add(this.PremYearlyPlanBtn);
+            this.PremYearlyPlanPanel.Location = new System.Drawing.Point(560, 291);
+            this.PremYearlyPlanPanel.Name = "PremYearlyPlanPanel";
+            this.PremYearlyPlanPanel.Size = new System.Drawing.Size(250, 250);
+            this.PremYearlyPlanPanel.TabIndex = 109;
+            // 
+            // PremYearlyPlanRB
+            // 
+            this.PremYearlyPlanRB.AutoSize = true;
+            this.PremYearlyPlanRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremYearlyPlanRB.FlatAppearance.BorderSize = 5;
+            this.PremYearlyPlanRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremYearlyPlanRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PremYearlyPlanRB.Location = new System.Drawing.Point(207, 42);
+            this.PremYearlyPlanRB.Name = "PremYearlyPlanRB";
+            this.PremYearlyPlanRB.Size = new System.Drawing.Size(13, 12);
+            this.PremYearlyPlanRB.TabIndex = 114;
+            this.PremYearlyPlanRB.UseVisualStyleBackColor = true;
+            this.PremYearlyPlanRB.Visible = false;
+            // 
+            // PremYearlyPlanLbl
+            // 
+            this.PremYearlyPlanLbl.AutoSize = true;
+            this.PremYearlyPlanLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremYearlyPlanLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremYearlyPlanLbl.Location = new System.Drawing.Point(66, 35);
+            this.PremYearlyPlanLbl.Name = "PremYearlyPlanLbl";
+            this.PremYearlyPlanLbl.Size = new System.Drawing.Size(118, 26);
+            this.PremYearlyPlanLbl.TabIndex = 82;
+            this.PremYearlyPlanLbl.Text = "12 Months";
+            // 
+            // PremYearlyPlanRenewText
+            // 
+            this.PremYearlyPlanRenewText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremYearlyPlanRenewText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PremYearlyPlanRenewText.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremYearlyPlanRenewText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremYearlyPlanRenewText.Location = new System.Drawing.Point(68, 182);
+            this.PremYearlyPlanRenewText.Multiline = true;
+            this.PremYearlyPlanRenewText.Name = "PremYearlyPlanRenewText";
+            this.PremYearlyPlanRenewText.ReadOnly = true;
+            this.PremYearlyPlanRenewText.Size = new System.Drawing.Size(121, 56);
+            this.PremYearlyPlanRenewText.TabIndex = 84;
+            this.PremYearlyPlanRenewText.Text = "Plan Renews at\r\nPhp. 3999.00 on \r\n[After 1 Year]\r\n";
+            this.PremYearlyPlanRenewText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // PremYearlyPlanDiscLbl
+            // 
+            this.PremYearlyPlanDiscLbl.AutoSize = true;
+            this.PremYearlyPlanDiscLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PremYearlyPlanDiscLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremYearlyPlanDiscLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremYearlyPlanDiscLbl.Location = new System.Drawing.Point(22, 0);
+            this.PremYearlyPlanDiscLbl.Name = "PremYearlyPlanDiscLbl";
+            this.PremYearlyPlanDiscLbl.Size = new System.Drawing.Size(207, 31);
+            this.PremYearlyPlanDiscLbl.TabIndex = 85;
+            this.PremYearlyPlanDiscLbl.Text = "Save. Php. 2.4k\r\n";
+            // 
+            // PremYearlyPlanBtn
+            // 
+            this.PremYearlyPlanBtn.AutoSize = true;
+            this.PremYearlyPlanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremYearlyPlanBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PremYearlyPlanBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremYearlyPlanBtn.FlatAppearance.BorderSize = 3;
+            this.PremYearlyPlanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremYearlyPlanBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremYearlyPlanBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.PremYearlyPlanBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremYearlyPlanBtn.IconColor = System.Drawing.Color.Black;
+            this.PremYearlyPlanBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremYearlyPlanBtn.Location = new System.Drawing.Point(0, 0);
+            this.PremYearlyPlanBtn.Name = "PremYearlyPlanBtn";
+            this.PremYearlyPlanBtn.Size = new System.Drawing.Size(250, 250);
+            this.PremYearlyPlanBtn.TabIndex = 81;
+            this.PremYearlyPlanBtn.Text = "Php.\r\n1299.00";
+            this.PremYearlyPlanBtn.UseVisualStyleBackColor = true;
+            this.PremYearlyPlanBtn.Click += new System.EventHandler(this.PremYearlyPlanBtn_Click);
+            // 
+            // PremMonthlyPlanPanel
+            // 
+            this.PremMonthlyPlanPanel.Controls.Add(this.PremMonthlyPlanRB);
+            this.PremMonthlyPlanPanel.Controls.Add(this.PremMonthlyPlanLbl);
+            this.PremMonthlyPlanPanel.Controls.Add(this.PremMonthlyPlanRenewText);
+            this.PremMonthlyPlanPanel.Controls.Add(this.PremMonthlyPlanBtn);
+            this.PremMonthlyPlanPanel.Location = new System.Drawing.Point(249, 291);
+            this.PremMonthlyPlanPanel.Name = "PremMonthlyPlanPanel";
+            this.PremMonthlyPlanPanel.Size = new System.Drawing.Size(250, 250);
+            this.PremMonthlyPlanPanel.TabIndex = 108;
+            // 
+            // PremMonthlyPlanRB
+            // 
+            this.PremMonthlyPlanRB.AutoSize = true;
+            this.PremMonthlyPlanRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremMonthlyPlanRB.FlatAppearance.BorderSize = 5;
+            this.PremMonthlyPlanRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremMonthlyPlanRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PremMonthlyPlanRB.Location = new System.Drawing.Point(202, 46);
+            this.PremMonthlyPlanRB.Name = "PremMonthlyPlanRB";
+            this.PremMonthlyPlanRB.Size = new System.Drawing.Size(13, 12);
+            this.PremMonthlyPlanRB.TabIndex = 113;
+            this.PremMonthlyPlanRB.UseVisualStyleBackColor = true;
+            this.PremMonthlyPlanRB.Visible = false;
+            // 
+            // PremMonthlyPlanLbl
+            // 
+            this.PremMonthlyPlanLbl.AutoSize = true;
+            this.PremMonthlyPlanLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremMonthlyPlanLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremMonthlyPlanLbl.Location = new System.Drawing.Point(78, 38);
+            this.PremMonthlyPlanLbl.Name = "PremMonthlyPlanLbl";
+            this.PremMonthlyPlanLbl.Size = new System.Drawing.Size(94, 26);
+            this.PremMonthlyPlanLbl.TabIndex = 78;
+            this.PremMonthlyPlanLbl.Text = "1 Month";
+            // 
+            // PremMonthlyPlanRenewText
+            // 
+            this.PremMonthlyPlanRenewText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremMonthlyPlanRenewText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PremMonthlyPlanRenewText.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremMonthlyPlanRenewText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremMonthlyPlanRenewText.Location = new System.Drawing.Point(65, 179);
+            this.PremMonthlyPlanRenewText.Multiline = true;
+            this.PremMonthlyPlanRenewText.Name = "PremMonthlyPlanRenewText";
+            this.PremMonthlyPlanRenewText.ReadOnly = true;
+            this.PremMonthlyPlanRenewText.Size = new System.Drawing.Size(121, 56);
+            this.PremMonthlyPlanRenewText.TabIndex = 80;
+            this.PremMonthlyPlanRenewText.Text = "Plan Renews at\r\nPhp. 4999.00 on \r\n[After 1 month]\r\n";
+            this.PremMonthlyPlanRenewText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // PremMonthlyPlanBtn
+            // 
+            this.PremMonthlyPlanBtn.AutoSize = true;
+            this.PremMonthlyPlanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremMonthlyPlanBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PremMonthlyPlanBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremMonthlyPlanBtn.FlatAppearance.BorderSize = 3;
+            this.PremMonthlyPlanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremMonthlyPlanBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremMonthlyPlanBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.PremMonthlyPlanBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremMonthlyPlanBtn.IconColor = System.Drawing.Color.Black;
+            this.PremMonthlyPlanBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremMonthlyPlanBtn.Location = new System.Drawing.Point(0, 0);
+            this.PremMonthlyPlanBtn.Name = "PremMonthlyPlanBtn";
+            this.PremMonthlyPlanBtn.Size = new System.Drawing.Size(250, 250);
+            this.PremMonthlyPlanBtn.TabIndex = 77;
+            this.PremMonthlyPlanBtn.Text = "Php.\r\n1499.00";
+            this.PremMonthlyPlanBtn.UseVisualStyleBackColor = true;
+            this.PremMonthlyPlanBtn.Click += new System.EventHandler(this.PremMonthlyPlanBtn_Click);
+            // 
+            // PremSelectPaymentLbl
+            // 
+            this.PremSelectPaymentLbl.AutoSize = true;
+            this.PremSelectPaymentLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremSelectPaymentLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremSelectPaymentLbl.Location = new System.Drawing.Point(116, 1227);
+            this.PremSelectPaymentLbl.Name = "PremSelectPaymentLbl";
+            this.PremSelectPaymentLbl.Size = new System.Drawing.Size(406, 35);
+            this.PremSelectPaymentLbl.TabIndex = 98;
+            this.PremSelectPaymentLbl.Text = "4. Select Payment Method";
+            // 
+            // PremBasicInfoLbl
+            // 
+            this.PremBasicInfoLbl.AutoSize = true;
+            this.PremBasicInfoLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremBasicInfoLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremBasicInfoLbl.Location = new System.Drawing.Point(114, 889);
+            this.PremBasicInfoLbl.Name = "PremBasicInfoLbl";
+            this.PremBasicInfoLbl.Size = new System.Drawing.Size(314, 35);
+            this.PremBasicInfoLbl.TabIndex = 91;
+            this.PremBasicInfoLbl.Text = "3. Basic Information";
+            // 
+            // PremMemberIDLbl
+            // 
+            this.PremMemberIDLbl.AutoSize = true;
+            this.PremMemberIDLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremMemberIDLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremMemberIDLbl.Location = new System.Drawing.Point(116, 760);
+            this.PremMemberIDLbl.Name = "PremMemberIDLbl";
+            this.PremMemberIDLbl.Size = new System.Drawing.Size(240, 29);
+            this.PremMemberIDLbl.TabIndex = 75;
+            this.PremMemberIDLbl.Text = "Member ID Number:";
+            // 
+            // PremConfirmPassPanel
+            // 
+            this.PremConfirmPassPanel.Controls.Add(this.PremShowHideConfirmPassBtn);
+            this.PremConfirmPassPanel.Controls.Add(this.PremConfirmPassText);
+            this.PremConfirmPassPanel.Location = new System.Drawing.Point(686, 796);
+            this.PremConfirmPassPanel.Name = "PremConfirmPassPanel";
+            this.PremConfirmPassPanel.Size = new System.Drawing.Size(548, 37);
+            this.PremConfirmPassPanel.TabIndex = 69;
+            // 
+            // PremShowHideConfirmPassBtn
+            // 
+            this.PremShowHideConfirmPassBtn.AutoSize = true;
+            this.PremShowHideConfirmPassBtn.BackColor = System.Drawing.Color.Transparent;
+            this.PremShowHideConfirmPassBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PremShowHideConfirmPassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremShowHideConfirmPassBtn.FlatAppearance.BorderSize = 0;
+            this.PremShowHideConfirmPassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremShowHideConfirmPassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremShowHideConfirmPassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremShowHideConfirmPassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.PremShowHideConfirmPassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremShowHideConfirmPassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremShowHideConfirmPassBtn.IconSize = 30;
+            this.PremShowHideConfirmPassBtn.Location = new System.Drawing.Point(512, 0);
+            this.PremShowHideConfirmPassBtn.Name = "PremShowHideConfirmPassBtn";
+            this.PremShowHideConfirmPassBtn.Size = new System.Drawing.Size(36, 37);
+            this.PremShowHideConfirmPassBtn.TabIndex = 31;
+            this.PremShowHideConfirmPassBtn.UseVisualStyleBackColor = false;
+            this.PremShowHideConfirmPassBtn.Click += new System.EventHandler(this.PremShowHideConfirmPassBtn_Click);
+            this.PremShowHideConfirmPassBtn.MouseHover += new System.EventHandler(this.PremShowHideConfirmPassBtn_MouseHover);
+            // 
+            // PremConfirmPassText
+            // 
+            this.PremConfirmPassText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremConfirmPassText.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PremConfirmPassText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremConfirmPassText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremConfirmPassText.Location = new System.Drawing.Point(0, 0);
+            this.PremConfirmPassText.Margin = new System.Windows.Forms.Padding(50, 10, 10, 10);
+            this.PremConfirmPassText.Name = "PremConfirmPassText";
+            this.PremConfirmPassText.Size = new System.Drawing.Size(499, 37);
+            this.PremConfirmPassText.TabIndex = 25;
+            this.PremConfirmPassText.UseSystemPasswordChar = true;
+            this.PremConfirmPassText.TextChanged += new System.EventHandler(this.PremConfirmPassText_TextChanged);
+            // 
+            // PremConfirmPassErrorLbl
+            // 
+            this.PremConfirmPassErrorLbl.AutoSize = true;
+            this.PremConfirmPassErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremConfirmPassErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremConfirmPassErrorLbl.Location = new System.Drawing.Point(1053, 772);
+            this.PremConfirmPassErrorLbl.Name = "PremConfirmPassErrorLbl";
+            this.PremConfirmPassErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremConfirmPassErrorLbl.Size = new System.Drawing.Size(184, 14);
+            this.PremConfirmPassErrorLbl.TabIndex = 68;
+            this.PremConfirmPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
+            this.PremConfirmPassErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremConfirmPassErrorLbl.Visible = false;
+            // 
+            // PremMemberIDText
+            // 
+            this.PremMemberIDText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremMemberIDText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremMemberIDText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremMemberIDText.Location = new System.Drawing.Point(119, 796);
+            this.PremMemberIDText.Name = "PremMemberIDText";
+            this.PremMemberIDText.ReadOnly = true;
+            this.PremMemberIDText.Size = new System.Drawing.Size(553, 37);
+            this.PremMemberIDText.TabIndex = 74;
+            // 
+            // PremConfirmPassLbl
+            // 
+            this.PremConfirmPassLbl.AutoSize = true;
+            this.PremConfirmPassLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremConfirmPassLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremConfirmPassLbl.Location = new System.Drawing.Point(683, 764);
+            this.PremConfirmPassLbl.Name = "PremConfirmPassLbl";
+            this.PremConfirmPassLbl.Size = new System.Drawing.Size(276, 29);
+            this.PremConfirmPassLbl.TabIndex = 67;
+            this.PremConfirmPassLbl.Text = "CONFIRM PASSWORD:";
+            // 
+            // PremLastNameErrorLbl
+            // 
+            this.PremLastNameErrorLbl.AutoSize = true;
+            this.PremLastNameErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremLastNameErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremLastNameErrorLbl.Location = new System.Drawing.Point(1158, 958);
+            this.PremLastNameErrorLbl.Name = "PremLastNameErrorLbl";
+            this.PremLastNameErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremLastNameErrorLbl.Size = new System.Drawing.Size(82, 14);
+            this.PremLastNameErrorLbl.TabIndex = 72;
+            this.PremLastNameErrorLbl.Text = "Missing Field";
+            this.PremLastNameErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremLastNameErrorLbl.Visible = false;
+            // 
+            // PremFirstNameErrorLbl
+            // 
+            this.PremFirstNameErrorLbl.AutoSize = true;
+            this.PremFirstNameErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremFirstNameErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremFirstNameErrorLbl.Location = new System.Drawing.Point(591, 958);
+            this.PremFirstNameErrorLbl.Name = "PremFirstNameErrorLbl";
+            this.PremFirstNameErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremFirstNameErrorLbl.Size = new System.Drawing.Size(82, 14);
+            this.PremFirstNameErrorLbl.TabIndex = 71;
+            this.PremFirstNameErrorLbl.Text = "Missing Field";
+            this.PremFirstNameErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremFirstNameErrorLbl.Visible = false;
+            // 
+            // PremCPNumErrorLbl
+            // 
+            this.PremCPNumErrorLbl.AutoSize = true;
+            this.PremCPNumErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCPNumErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCPNumErrorLbl.Location = new System.Drawing.Point(1158, 1048);
+            this.PremCPNumErrorLbl.Name = "PremCPNumErrorLbl";
+            this.PremCPNumErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremCPNumErrorLbl.Size = new System.Drawing.Size(82, 14);
+            this.PremCPNumErrorLbl.TabIndex = 70;
+            this.PremCPNumErrorLbl.Text = "Missing Field";
+            this.PremCPNumErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremCPNumErrorLbl.Visible = false;
+            // 
+            // PremGenderErrorLbl
+            // 
+            this.PremGenderErrorLbl.AutoSize = true;
+            this.PremGenderErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremGenderErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremGenderErrorLbl.Location = new System.Drawing.Point(861, 1048);
+            this.PremGenderErrorLbl.Name = "PremGenderErrorLbl";
+            this.PremGenderErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremGenderErrorLbl.Size = new System.Drawing.Size(82, 14);
+            this.PremGenderErrorLbl.TabIndex = 69;
+            this.PremGenderErrorLbl.Text = "Missing Field";
+            this.PremGenderErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremGenderErrorLbl.Visible = false;
+            // 
+            // PremAgeErrorLbl
+            // 
+            this.PremAgeErrorLbl.AutoSize = true;
+            this.PremAgeErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremAgeErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremAgeErrorLbl.Location = new System.Drawing.Point(482, 1048);
+            this.PremAgeErrorLbl.Name = "PremAgeErrorLbl";
+            this.PremAgeErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremAgeErrorLbl.Size = new System.Drawing.Size(195, 14);
+            this.PremAgeErrorLbl.TabIndex = 68;
+            this.PremAgeErrorLbl.Text = "Must be 18 years old and above";
+            this.PremAgeErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremAgeErrorLbl.Visible = false;
+            // 
+            // PremEmailErrorLbl
+            // 
+            this.PremEmailErrorLbl.AutoSize = true;
+            this.PremEmailErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremEmailErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremEmailErrorLbl.Location = new System.Drawing.Point(491, 685);
+            this.PremEmailErrorLbl.Name = "PremEmailErrorLbl";
+            this.PremEmailErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremEmailErrorLbl.Size = new System.Drawing.Size(184, 14);
+            this.PremEmailErrorLbl.TabIndex = 67;
+            this.PremEmailErrorLbl.Text = "Email Address Does Not Exist";
+            this.PremEmailErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremEmailErrorLbl.Visible = false;
+            // 
+            // PremPassPanel
+            // 
+            this.PremPassPanel.Controls.Add(this.PremShowHidePassBtn);
+            this.PremPassPanel.Controls.Add(this.PremPassText);
+            this.PremPassPanel.Location = new System.Drawing.Point(686, 710);
+            this.PremPassPanel.Name = "PremPassPanel";
+            this.PremPassPanel.Size = new System.Drawing.Size(548, 37);
+            this.PremPassPanel.TabIndex = 66;
+            // 
+            // PremShowHidePassBtn
+            // 
+            this.PremShowHidePassBtn.AutoSize = true;
+            this.PremShowHidePassBtn.BackColor = System.Drawing.Color.Transparent;
+            this.PremShowHidePassBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PremShowHidePassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremShowHidePassBtn.FlatAppearance.BorderSize = 0;
+            this.PremShowHidePassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremShowHidePassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremShowHidePassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.PremShowHidePassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremShowHidePassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremShowHidePassBtn.IconSize = 30;
+            this.PremShowHidePassBtn.Location = new System.Drawing.Point(512, 0);
+            this.PremShowHidePassBtn.Name = "PremShowHidePassBtn";
+            this.PremShowHidePassBtn.Size = new System.Drawing.Size(36, 37);
+            this.PremShowHidePassBtn.TabIndex = 31;
+            this.PremShowHidePassBtn.UseVisualStyleBackColor = false;
+            this.PremShowHidePassBtn.Click += new System.EventHandler(this.PremShowHidePassBtn_Click);
+            this.PremShowHidePassBtn.MouseHover += new System.EventHandler(this.PremShowHidePassBtn_MouseHover);
+            // 
+            // PremPassText
+            // 
+            this.PremPassText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremPassText.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PremPassText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremPassText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremPassText.Location = new System.Drawing.Point(0, 0);
+            this.PremPassText.Margin = new System.Windows.Forms.Padding(50, 10, 10, 10);
+            this.PremPassText.Name = "PremPassText";
+            this.PremPassText.Size = new System.Drawing.Size(499, 37);
+            this.PremPassText.TabIndex = 25;
+            this.PremPassText.UseSystemPasswordChar = true;
+            // 
+            // PremPassErrorLbl
+            // 
+            this.PremPassErrorLbl.AutoSize = true;
+            this.PremPassErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremPassErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremPassErrorLbl.Location = new System.Drawing.Point(1092, 685);
+            this.PremPassErrorLbl.Name = "PremPassErrorLbl";
+            this.PremPassErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.PremPassErrorLbl.Size = new System.Drawing.Size(145, 14);
+            this.PremPassErrorLbl.TabIndex = 65;
+            this.PremPassErrorLbl.Text = "INCORRECT PASSWORD";
+            this.PremPassErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.PremPassErrorLbl.Visible = false;
+            // 
+            // PremPassLbl
+            // 
+            this.PremPassLbl.AutoSize = true;
+            this.PremPassLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremPassLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremPassLbl.Location = new System.Drawing.Point(683, 678);
+            this.PremPassLbl.Name = "PremPassLbl";
+            this.PremPassLbl.Size = new System.Drawing.Size(155, 29);
+            this.PremPassLbl.TabIndex = 64;
+            this.PremPassLbl.Text = "PASSWORD:";
+            // 
+            // PremEmailText
+            // 
+            this.PremEmailText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremEmailText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremEmailText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremEmailText.Location = new System.Drawing.Point(121, 710);
+            this.PremEmailText.Name = "PremEmailText";
+            this.PremEmailText.Size = new System.Drawing.Size(553, 37);
+            this.PremEmailText.TabIndex = 61;
+            // 
+            // PremEmailLbl
+            // 
+            this.PremEmailLbl.AutoSize = true;
+            this.PremEmailLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremEmailLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremEmailLbl.Location = new System.Drawing.Point(116, 678);
+            this.PremEmailLbl.Name = "PremEmailLbl";
+            this.PremEmailLbl.Size = new System.Drawing.Size(194, 29);
+            this.PremEmailLbl.TabIndex = 60;
+            this.PremEmailLbl.Text = "Email Address:";
+            // 
+            // PremCreateAccLbl
+            // 
+            this.PremCreateAccLbl.AutoSize = true;
+            this.PremCreateAccLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCreateAccLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCreateAccLbl.Location = new System.Drawing.Point(114, 617);
+            this.PremCreateAccLbl.Name = "PremCreateAccLbl";
+            this.PremCreateAccLbl.Size = new System.Drawing.Size(368, 35);
+            this.PremCreateAccLbl.TabIndex = 59;
+            this.PremCreateAccLbl.Text = "2. Create Your Account";
+            // 
+            // PremCPNumText
+            // 
+            this.PremCPNumText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremCPNumText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCPNumText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCPNumText.Location = new System.Drawing.Point(954, 1074);
+            this.PremCPNumText.Name = "PremCPNumText";
+            this.PremCPNumText.Size = new System.Drawing.Size(283, 37);
+            this.PremCPNumText.TabIndex = 58;
+            // 
+            // PremCPNumLbl
+            // 
+            this.PremCPNumLbl.AutoSize = true;
+            this.PremCPNumLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCPNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCPNumLbl.Location = new System.Drawing.Point(949, 1042);
+            this.PremCPNumLbl.Name = "PremCPNumLbl";
+            this.PremCPNumLbl.Size = new System.Drawing.Size(196, 29);
+            this.PremCPNumLbl.TabIndex = 57;
+            this.PremCPNumLbl.Text = "Mobile Number:";
+            // 
+            // PremGenderComboText
+            // 
+            this.PremGenderComboText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremGenderComboText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremGenderComboText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremGenderComboText.FormattingEnabled = true;
+            this.PremGenderComboText.Location = new System.Drawing.Point(687, 1074);
+            this.PremGenderComboText.Name = "PremGenderComboText";
+            this.PremGenderComboText.Size = new System.Drawing.Size(261, 37);
+            this.PremGenderComboText.TabIndex = 56;
+            this.PremGenderComboText.SelectedIndexChanged += new System.EventHandler(this.PremGenderComboText_SelectedIndexChanged);
+            // 
+            // PremGenderLbl
+            // 
+            this.PremGenderLbl.AutoSize = true;
+            this.PremGenderLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremGenderLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremGenderLbl.Location = new System.Drawing.Point(684, 1041);
+            this.PremGenderLbl.Name = "PremGenderLbl";
+            this.PremGenderLbl.Size = new System.Drawing.Size(105, 29);
+            this.PremGenderLbl.TabIndex = 54;
+            this.PremGenderLbl.Text = "Gender:";
+            // 
+            // PremBdayPicker
+            // 
+            this.PremBdayPicker.CalendarFont = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PremBdayPicker.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremBdayPicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(222)))), ((int)(((byte)(141)))));
+            this.PremBdayPicker.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(222)))), ((int)(((byte)(141)))));
+            this.PremBdayPicker.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.PremBdayPicker.CalendarTrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
+            this.PremBdayPicker.CustomFormat = "MM-dd-yyyy";
+            this.PremBdayPicker.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PremBdayPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.PremBdayPicker.Location = new System.Drawing.Point(120, 1073);
+            this.PremBdayPicker.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
+            this.PremBdayPicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.PremBdayPicker.Name = "PremBdayPicker";
+            this.PremBdayPicker.Size = new System.Drawing.Size(301, 37);
+            this.PremBdayPicker.TabIndex = 53;
+            this.PremBdayPicker.ValueChanged += new System.EventHandler(this.PremBdayPicker_ValueChanged);
+            // 
+            // PremFooterStopperPanel
+            // 
+            this.PremFooterStopperPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremFooterStopperPanel.Controls.Add(this.PremFooterStopperLbl);
+            this.PremFooterStopperPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.PremFooterStopperPanel.Location = new System.Drawing.Point(274, 1813);
+            this.PremFooterStopperPanel.Name = "PremFooterStopperPanel";
+            this.PremFooterStopperPanel.Size = new System.Drawing.Size(804, 88);
+            this.PremFooterStopperPanel.TabIndex = 52;
+            // 
+            // PremFooterStopperLbl
+            // 
+            this.PremFooterStopperLbl.AutoSize = true;
+            this.PremFooterStopperLbl.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremFooterStopperLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.PremFooterStopperLbl.Location = new System.Drawing.Point(206, 29);
+            this.PremFooterStopperLbl.Name = "PremFooterStopperLbl";
+            this.PremFooterStopperLbl.Size = new System.Drawing.Size(362, 51);
+            this.PremFooterStopperLbl.TabIndex = 20;
+            this.PremFooterStopperLbl.Text = "Footer Stopper";
+            this.PremFooterStopperLbl.Visible = false;
+            // 
+            // PremAgeText
+            // 
+            this.PremAgeText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremAgeText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremAgeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremAgeText.Location = new System.Drawing.Point(427, 1074);
+            this.PremAgeText.Name = "PremAgeText";
+            this.PremAgeText.ReadOnly = true;
+            this.PremAgeText.Size = new System.Drawing.Size(246, 37);
+            this.PremAgeText.TabIndex = 51;
+            // 
+            // PremAgeLbl
+            // 
+            this.PremAgeLbl.AutoSize = true;
+            this.PremAgeLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremAgeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremAgeLbl.Location = new System.Drawing.Point(422, 1041);
+            this.PremAgeLbl.Name = "PremAgeLbl";
+            this.PremAgeLbl.Size = new System.Drawing.Size(65, 29);
+            this.PremAgeLbl.TabIndex = 50;
+            this.PremAgeLbl.Text = "Age:";
+            // 
+            // PremBdayLbl
+            // 
+            this.PremBdayLbl.AutoSize = true;
+            this.PremBdayLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremBdayLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremBdayLbl.Location = new System.Drawing.Point(117, 1041);
+            this.PremBdayLbl.Name = "PremBdayLbl";
+            this.PremBdayLbl.Size = new System.Drawing.Size(128, 29);
+            this.PremBdayLbl.TabIndex = 48;
+            this.PremBdayLbl.Text = "Birthday:";
+            // 
+            // PremLastNameText
+            // 
+            this.PremLastNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremLastNameText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremLastNameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremLastNameText.Location = new System.Drawing.Point(687, 983);
+            this.PremLastNameText.Name = "PremLastNameText";
+            this.PremLastNameText.Size = new System.Drawing.Size(550, 37);
+            this.PremLastNameText.TabIndex = 47;
+            // 
+            // PremLastNameLbl
+            // 
+            this.PremLastNameLbl.AutoSize = true;
+            this.PremLastNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremLastNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremLastNameLbl.Location = new System.Drawing.Point(682, 951);
+            this.PremLastNameLbl.Name = "PremLastNameLbl";
+            this.PremLastNameLbl.Size = new System.Drawing.Size(152, 29);
+            this.PremLastNameLbl.TabIndex = 46;
+            this.PremLastNameLbl.Text = "Last Name:";
+            // 
+            // PremFirstNameText
+            // 
+            this.PremFirstNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremFirstNameText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremFirstNameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremFirstNameText.Location = new System.Drawing.Point(120, 983);
+            this.PremFirstNameText.Name = "PremFirstNameText";
+            this.PremFirstNameText.Size = new System.Drawing.Size(553, 37);
+            this.PremFirstNameText.TabIndex = 45;
+            // 
+            // PremFirstNameLbl
+            // 
+            this.PremFirstNameLbl.AutoSize = true;
+            this.PremFirstNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremFirstNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremFirstNameLbl.Location = new System.Drawing.Point(115, 951);
+            this.PremFirstNameLbl.Name = "PremFirstNameLbl";
+            this.PremFirstNameLbl.Size = new System.Drawing.Size(157, 29);
+            this.PremFirstNameLbl.TabIndex = 44;
+            this.PremFirstNameLbl.Text = "First Name:";
+            // 
+            // PremPlanPeriodLbl
+            // 
+            this.PremPlanPeriodLbl.AutoSize = true;
+            this.PremPlanPeriodLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremPlanPeriodLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremPlanPeriodLbl.Location = new System.Drawing.Point(113, 201);
+            this.PremPlanPeriodLbl.Name = "PremPlanPeriodLbl";
+            this.PremPlanPeriodLbl.Size = new System.Drawing.Size(362, 35);
+            this.PremPlanPeriodLbl.TabIndex = 10;
+            this.PremPlanPeriodLbl.Text = "1. Choose a Plan Period";
+            // 
+            // PremSelectedPlanText
+            // 
+            this.PremSelectedPlanText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PremSelectedPlanText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PremSelectedPlanText.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremSelectedPlanText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremSelectedPlanText.Location = new System.Drawing.Point(306, 133);
+            this.PremSelectedPlanText.Name = "PremSelectedPlanText";
+            this.PremSelectedPlanText.ReadOnly = true;
+            this.PremSelectedPlanText.Size = new System.Drawing.Size(281, 27);
+            this.PremSelectedPlanText.TabIndex = 9;
+            this.PremSelectedPlanText.Text = "Premium Plan";
+            // 
+            // PremSelectedLbl
+            // 
+            this.PremSelectedLbl.AutoSize = true;
+            this.PremSelectedLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremSelectedLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremSelectedLbl.Location = new System.Drawing.Point(124, 133);
+            this.PremSelectedLbl.Name = "PremSelectedLbl";
+            this.PremSelectedLbl.Size = new System.Drawing.Size(176, 26);
+            this.PremSelectedLbl.TabIndex = 8;
+            this.PremSelectedLbl.Text = "Selected Plan:";
+            // 
+            // PremAccLbl
+            // 
+            this.PremAccLbl.AutoSize = true;
+            this.PremAccLbl.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremAccLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremAccLbl.Location = new System.Drawing.Point(112, 61);
+            this.PremAccLbl.Name = "PremAccLbl";
+            this.PremAccLbl.Size = new System.Drawing.Size(1035, 51);
+            this.PremAccLbl.TabIndex = 7;
+            this.PremAccLbl.Text = "You\'re almost there! Complete your account.";
+            // 
+            // PremMemberIDCopyBtn
+            // 
+            this.PremMemberIDCopyBtn.AutoSize = true;
+            this.PremMemberIDCopyBtn.BackColor = System.Drawing.Color.Transparent;
+            this.PremMemberIDCopyBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremMemberIDCopyBtn.FlatAppearance.BorderSize = 0;
+            this.PremMemberIDCopyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremMemberIDCopyBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremMemberIDCopyBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremMemberIDCopyBtn.IconChar = FontAwesome.Sharp.IconChar.Copy;
+            this.PremMemberIDCopyBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremMemberIDCopyBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremMemberIDCopyBtn.IconSize = 30;
+            this.PremMemberIDCopyBtn.Location = new System.Drawing.Point(633, 758);
+            this.PremMemberIDCopyBtn.Name = "PremMemberIDCopyBtn";
+            this.PremMemberIDCopyBtn.Size = new System.Drawing.Size(36, 36);
+            this.PremMemberIDCopyBtn.TabIndex = 120;
+            this.PremMemberIDCopyBtn.UseVisualStyleBackColor = false;
+            this.PremMemberIDCopyBtn.Click += new System.EventHandler(this.PremMemberIDCopyBtn_Click);
+            // 
+            // PremPassReqBtn
+            // 
+            this.PremPassReqBtn.AutoSize = true;
+            this.PremPassReqBtn.BackColor = System.Drawing.Color.Transparent;
+            this.PremPassReqBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremPassReqBtn.FlatAppearance.BorderSize = 0;
+            this.PremPassReqBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremPassReqBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremPassReqBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremPassReqBtn.IconChar = FontAwesome.Sharp.IconChar.Question;
+            this.PremPassReqBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremPassReqBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremPassReqBtn.IconSize = 20;
+            this.PremPassReqBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PremPassReqBtn.Location = new System.Drawing.Point(836, 679);
+            this.PremPassReqBtn.Name = "PremPassReqBtn";
+            this.PremPassReqBtn.Size = new System.Drawing.Size(26, 26);
+            this.PremPassReqBtn.TabIndex = 76;
+            this.PremPassReqBtn.UseVisualStyleBackColor = false;
+            this.PremPassReqBtn.MouseHover += new System.EventHandler(this.PremPassReqBtn_MouseHover);
+            // 
+            // PremCreateAccBtn
+            // 
+            this.PremCreateAccBtn.AutoSize = true;
+            this.PremCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremCreateAccBtn.FlatAppearance.BorderSize = 3;
+            this.PremCreateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremCreateAccBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCreateAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremCreateAccBtn.IconColor = System.Drawing.Color.Black;
+            this.PremCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremCreateAccBtn.Location = new System.Drawing.Point(542, 1693);
+            this.PremCreateAccBtn.Name = "PremCreateAccBtn";
+            this.PremCreateAccBtn.Size = new System.Drawing.Size(268, 60);
+            this.PremCreateAccBtn.TabIndex = 73;
+            this.PremCreateAccBtn.Text = "CREATE ACCOUNT NOW";
+            this.PremCreateAccBtn.UseVisualStyleBackColor = true;
+            this.PremCreateAccBtn.Click += new System.EventHandler(this.PremCreateAccBtn_Click);
+            // 
+            // PremiumExitBtn
+            // 
+            this.PremiumExitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.PremiumExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.PremiumExitBtn.FlatAppearance.BorderSize = 0;
+            this.PremiumExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremiumExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.PremiumExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremiumExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremiumExitBtn.Location = new System.Drawing.Point(1289, 16);
+            this.PremiumExitBtn.Name = "PremiumExitBtn";
+            this.PremiumExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.PremiumExitBtn.TabIndex = 43;
+            this.PremiumExitBtn.UseVisualStyleBackColor = false;
+            this.PremiumExitBtn.Click += new System.EventHandler(this.PremiumExitBtn_Click);
             // 
             // SVIPPlanPanel
             // 
@@ -3573,6 +4881,30 @@
             this.MemberAccountPanel.TabIndex = 2;
             this.MemberAccountPanel.Visible = false;
             // 
+            // MemberIDLbl
+            // 
+            this.MemberIDLbl.AutoEllipsis = true;
+            this.MemberIDLbl.AutoSize = true;
+            this.MemberIDLbl.Font = new System.Drawing.Font("TechnicBold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MemberIDLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MemberIDLbl.Location = new System.Drawing.Point(24, 63);
+            this.MemberIDLbl.Name = "MemberIDLbl";
+            this.MemberIDLbl.Size = new System.Drawing.Size(138, 18);
+            this.MemberIDLbl.TabIndex = 9;
+            this.MemberIDLbl.Text = "Member ID Number";
+            // 
+            // MemberNameLbl
+            // 
+            this.MemberNameLbl.AutoEllipsis = true;
+            this.MemberNameLbl.AutoSize = true;
+            this.MemberNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MemberNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MemberNameLbl.Location = new System.Drawing.Point(22, 23);
+            this.MemberNameLbl.Name = "MemberNameLbl";
+            this.MemberNameLbl.Size = new System.Drawing.Size(173, 29);
+            this.MemberNameLbl.TabIndex = 8;
+            this.MemberNameLbl.Text = "Member Name";
+            // 
             // MemberSignOut
             // 
             this.MemberSignOut.AutoSize = true;
@@ -3917,1351 +5249,19 @@
             // 
             this.EnchanteParentCard.ContainerControl = this.EnchanteParentContainer;
             this.EnchanteParentCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.EnchanteParentCard.SelectedCard = "MemberPage";
+            this.EnchanteParentCard.SelectedCard = "HomePage";
             // 
             // MembershipCard
             // 
             this.MembershipCard.ContainerControl = this.MembershipPanel;
             this.MembershipCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.MembershipCard.SelectedCard = "PREM";
+            this.MembershipCard.SelectedCard = "TYPES";
             // 
             // ServiceCard
             // 
             this.ServiceCard.ContainerControl = this.ServicePanel;
             this.ServiceCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
             this.ServiceCard.SelectedCard = "Face";
-            // 
-            // PremiumPlanPanel
-            // 
-            this.PremiumPlanPanel.AutoScroll = true;
-            this.PremiumPlanPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremiumPlanPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.MembershipCard.SetCardName(this.PremiumPlanPanel, "PREM");
-            this.PremiumPlanPanel.Controls.Add(this.PremPlanExpirationText);
-            this.PremiumPlanPanel.Controls.Add(this.PremMemberIDCopyLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremNewPriceText);
-            this.PremiumPlanPanel.Controls.Add(this.PremOrigPriceText);
-            this.PremiumPlanPanel.Controls.Add(this.PremCardInfoPanel);
-            this.PremiumPlanPanel.Controls.Add(this.PremPlanPeriodText);
-            this.PremiumPlanPanel.Controls.Add(this.panel7);
-            this.PremiumPlanPanel.Controls.Add(this.PremYearlyPlanPanel);
-            this.PremiumPlanPanel.Controls.Add(this.PremMonthlyPlanPanel);
-            this.PremiumPlanPanel.Controls.Add(this.PremSelectPaymentLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremBasicInfoLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremMemberIDLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremConfirmPassPanel);
-            this.PremiumPlanPanel.Controls.Add(this.PremConfirmPassErrorLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremMemberIDText);
-            this.PremiumPlanPanel.Controls.Add(this.PremConfirmPassLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremLastNameErrorLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremFirstNameErrorLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremCPNumErrorLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremGenderErrorLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremAgeErrorLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremEmailErrorLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremPassPanel);
-            this.PremiumPlanPanel.Controls.Add(this.PremPassErrorLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremPassLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremEmailText);
-            this.PremiumPlanPanel.Controls.Add(this.PremEmailLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremCreateAccLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremCPNumText);
-            this.PremiumPlanPanel.Controls.Add(this.PremCPNumLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremGenderComboText);
-            this.PremiumPlanPanel.Controls.Add(this.PremGenderLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremBdayPicker);
-            this.PremiumPlanPanel.Controls.Add(this.PremFooterStopperPanel);
-            this.PremiumPlanPanel.Controls.Add(this.PremAgeText);
-            this.PremiumPlanPanel.Controls.Add(this.PremAgeLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremBdayLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremLastNameText);
-            this.PremiumPlanPanel.Controls.Add(this.PremLastNameLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremFirstNameText);
-            this.PremiumPlanPanel.Controls.Add(this.PremFirstNameLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremPlanPeriodLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremSelectedPlanText);
-            this.PremiumPlanPanel.Controls.Add(this.PremSelectedLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremAccLbl);
-            this.PremiumPlanPanel.Controls.Add(this.PremMemberIDCopyBtn);
-            this.PremiumPlanPanel.Controls.Add(this.PremPassReqBtn);
-            this.PremiumPlanPanel.Controls.Add(this.PremCreateAccBtn);
-            this.PremiumPlanPanel.Controls.Add(this.PremiumExitBtn);
-            this.PremiumPlanPanel.Location = new System.Drawing.Point(0, 0);
-            this.MembershipCard.SetMinimumSize(this.PremiumPlanPanel, new System.Drawing.Size(200, 100));
-            this.PremiumPlanPanel.Name = "PremiumPlanPanel";
-            this.MembershipCard.SetPreferredSize(this.PremiumPlanPanel, new System.Drawing.Size(200, 100));
-            this.PremiumPlanPanel.Size = new System.Drawing.Size(1371, 807);
-            this.PremiumPlanPanel.TabIndex = 6;
-            // 
-            // PremPlanExpirationText
-            // 
-            this.PremPlanExpirationText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremPlanExpirationText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremPlanExpirationText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremPlanExpirationText.Location = new System.Drawing.Point(521, 1284);
-            this.PremPlanExpirationText.Name = "PremPlanExpirationText";
-            this.PremPlanExpirationText.Size = new System.Drawing.Size(270, 37);
-            this.PremPlanExpirationText.TabIndex = 116;
-            this.PremPlanExpirationText.Visible = false;
-            // 
-            // PremMemberIDCopyLbl
-            // 
-            this.PremMemberIDCopyLbl.AutoSize = true;
-            this.PremMemberIDCopyLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremMemberIDCopyLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremMemberIDCopyLbl.Location = new System.Drawing.Point(354, 772);
-            this.PremMemberIDCopyLbl.Name = "PremMemberIDCopyLbl";
-            this.PremMemberIDCopyLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.PremMemberIDCopyLbl.Size = new System.Drawing.Size(188, 14);
-            this.PremMemberIDCopyLbl.TabIndex = 123;
-            this.PremMemberIDCopyLbl.Text = "ID Number Copied Successfully";
-            this.PremMemberIDCopyLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.PremMemberIDCopyLbl.Visible = false;
-            // 
-            // PremNewPriceText
-            // 
-            this.PremNewPriceText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremNewPriceText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PremNewPriceText.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremNewPriceText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremNewPriceText.Location = new System.Drawing.Point(1078, 1289);
-            this.PremNewPriceText.Name = "PremNewPriceText";
-            this.PremNewPriceText.ReadOnly = true;
-            this.PremNewPriceText.Size = new System.Drawing.Size(147, 27);
-            this.PremNewPriceText.TabIndex = 119;
-            this.PremNewPriceText.Text = "Php. 1499.00";
-            // 
-            // PremOrigPriceText
-            // 
-            this.PremOrigPriceText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremOrigPriceText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PremOrigPriceText.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremOrigPriceText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremOrigPriceText.Location = new System.Drawing.Point(899, 1289);
-            this.PremOrigPriceText.Name = "PremOrigPriceText";
-            this.PremOrigPriceText.ReadOnly = true;
-            this.PremOrigPriceText.Size = new System.Drawing.Size(148, 27);
-            this.PremOrigPriceText.TabIndex = 118;
-            this.PremOrigPriceText.Text = "Php. 1499.00";
-            this.PremOrigPriceText.Visible = false;
-            // 
-            // PremCardInfoPanel
-            // 
-            this.PremCardInfoPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.PremCardInfoPanel.Controls.Add(this.PremPaymentTypeText);
-            this.PremCardInfoPanel.Controls.Add(this.PremCardNameLbl);
-            this.PremCardInfoPanel.Controls.Add(this.PremCardNameText);
-            this.PremCardInfoPanel.Controls.Add(this.PremCardNumLbl);
-            this.PremCardInfoPanel.Controls.Add(this.PremCardNumText);
-            this.PremCardInfoPanel.Controls.Add(this.PremCardNameErrorLbl);
-            this.PremCardInfoPanel.Controls.Add(this.PremCardNumErrorLbl);
-            this.PremCardInfoPanel.Controls.Add(this.PremPayPPaymentPanel);
-            this.PremCardInfoPanel.Controls.Add(this.PremCardCVCLbl);
-            this.PremCardInfoPanel.Controls.Add(this.PremPayMPaymentPanel);
-            this.PremCardInfoPanel.Controls.Add(this.PremCardCVCText);
-            this.PremCardInfoPanel.Controls.Add(this.PremGCPaymentPanel);
-            this.PremCardInfoPanel.Controls.Add(this.PremCardCVCErrorLbl);
-            this.PremCardInfoPanel.Controls.Add(this.PremCCPaymentPanel);
-            this.PremCardInfoPanel.Controls.Add(this.PremCardExpireLbl);
-            this.PremCardInfoPanel.Controls.Add(this.PremCardExpireErrorLbl);
-            this.PremCardInfoPanel.Controls.Add(this.PremCardExpireText);
-            this.PremCardInfoPanel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.PremCardInfoPanel.Location = new System.Drawing.Point(122, 1355);
-            this.PremCardInfoPanel.Name = "PremCardInfoPanel";
-            this.PremCardInfoPanel.Size = new System.Drawing.Size(1116, 299);
-            this.PremCardInfoPanel.TabIndex = 117;
-            // 
-            // PremPaymentTypeText
-            // 
-            this.PremPaymentTypeText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremPaymentTypeText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremPaymentTypeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremPaymentTypeText.Location = new System.Drawing.Point(725, 228);
-            this.PremPaymentTypeText.Name = "PremPaymentTypeText";
-            this.PremPaymentTypeText.Size = new System.Drawing.Size(270, 37);
-            this.PremPaymentTypeText.TabIndex = 115;
-            this.PremPaymentTypeText.Visible = false;
-            // 
-            // PremCardNameLbl
-            // 
-            this.PremCardNameLbl.AutoSize = true;
-            this.PremCardNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremCardNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremCardNameLbl.Location = new System.Drawing.Point(27, 17);
-            this.PremCardNameLbl.Name = "PremCardNameLbl";
-            this.PremCardNameLbl.Size = new System.Drawing.Size(232, 29);
-            this.PremCardNameLbl.TabIndex = 92;
-            this.PremCardNameLbl.Text = "Cardholder Name:";
-            // 
-            // PremCardNameText
-            // 
-            this.PremCardNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremCardNameText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremCardNameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremCardNameText.Location = new System.Drawing.Point(32, 49);
-            this.PremCardNameText.Name = "PremCardNameText";
-            this.PremCardNameText.Size = new System.Drawing.Size(553, 37);
-            this.PremCardNameText.TabIndex = 93;
-            // 
-            // PremCardNumLbl
-            // 
-            this.PremCardNumLbl.AutoSize = true;
-            this.PremCardNumLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremCardNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremCardNumLbl.Location = new System.Drawing.Point(27, 107);
-            this.PremCardNumLbl.Name = "PremCardNumLbl";
-            this.PremCardNumLbl.Size = new System.Drawing.Size(256, 29);
-            this.PremCardNumLbl.TabIndex = 94;
-            this.PremCardNumLbl.Text = "Cardholder Number:";
-            // 
-            // PremCardNumText
-            // 
-            this.PremCardNumText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremCardNumText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremCardNumText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremCardNumText.Location = new System.Drawing.Point(32, 139);
-            this.PremCardNumText.Name = "PremCardNumText";
-            this.PremCardNumText.Size = new System.Drawing.Size(550, 37);
-            this.PremCardNumText.TabIndex = 95;
-            // 
-            // PremCardNameErrorLbl
-            // 
-            this.PremCardNameErrorLbl.AutoSize = true;
-            this.PremCardNameErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremCardNameErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremCardNameErrorLbl.Location = new System.Drawing.Point(503, 24);
-            this.PremCardNameErrorLbl.Name = "PremCardNameErrorLbl";
-            this.PremCardNameErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.PremCardNameErrorLbl.Size = new System.Drawing.Size(82, 14);
-            this.PremCardNameErrorLbl.TabIndex = 96;
-            this.PremCardNameErrorLbl.Text = "Missing Field";
-            this.PremCardNameErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.PremCardNameErrorLbl.Visible = false;
-            // 
-            // PremCardNumErrorLbl
-            // 
-            this.PremCardNumErrorLbl.AutoSize = true;
-            this.PremCardNumErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremCardNumErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremCardNumErrorLbl.Location = new System.Drawing.Point(501, 114);
-            this.PremCardNumErrorLbl.Name = "PremCardNumErrorLbl";
-            this.PremCardNumErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.PremCardNumErrorLbl.Size = new System.Drawing.Size(82, 14);
-            this.PremCardNumErrorLbl.TabIndex = 97;
-            this.PremCardNumErrorLbl.Text = "Missing Field";
-            this.PremCardNumErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.PremCardNumErrorLbl.Visible = false;
-            // 
-            // PremPayPPaymentPanel
-            // 
-            this.PremPayPPaymentPanel.Controls.Add(this.PremPayPPaymentRB);
-            this.PremPayPPaymentPanel.Controls.Add(this.PremPayPPaymentBtn);
-            this.PremPayPPaymentPanel.Location = new System.Drawing.Point(877, 81);
-            this.PremPayPPaymentPanel.Name = "PremPayPPaymentPanel";
-            this.PremPayPPaymentPanel.Size = new System.Drawing.Size(223, 50);
-            this.PremPayPPaymentPanel.TabIndex = 114;
-            // 
-            // PremPayPPaymentRB
-            // 
-            this.PremPayPPaymentRB.AutoSize = true;
-            this.PremPayPPaymentRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremPayPPaymentRB.FlatAppearance.BorderSize = 5;
-            this.PremPayPPaymentRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremPayPPaymentRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PremPayPPaymentRB.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.PremPayPPaymentRB.Location = new System.Drawing.Point(196, 16);
-            this.PremPayPPaymentRB.Name = "PremPayPPaymentRB";
-            this.PremPayPPaymentRB.Size = new System.Drawing.Size(13, 12);
-            this.PremPayPPaymentRB.TabIndex = 119;
-            this.PremPayPPaymentRB.UseVisualStyleBackColor = true;
-            this.PremPayPPaymentRB.Visible = false;
-            // 
-            // PremPayPPaymentBtn
-            // 
-            this.PremPayPPaymentBtn.AutoSize = true;
-            this.PremPayPPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PremPayPPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PremPayPPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.PremPayPPaymentBtn.FlatAppearance.BorderSize = 3;
-            this.PremPayPPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremPayPPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremPayPPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.PremPayPPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.PremPayPPaymentBtn.IconColor = System.Drawing.Color.Black;
-            this.PremPayPPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremPayPPaymentBtn.Location = new System.Drawing.Point(0, 0);
-            this.PremPayPPaymentBtn.Name = "PremPayPPaymentBtn";
-            this.PremPayPPaymentBtn.Size = new System.Drawing.Size(223, 50);
-            this.PremPayPPaymentBtn.TabIndex = 106;
-            this.PremPayPPaymentBtn.Text = "Paypal";
-            this.PremPayPPaymentBtn.UseVisualStyleBackColor = true;
-            this.PremPayPPaymentBtn.Click += new System.EventHandler(this.PremPayPPaymentBtn_Click);
-            // 
-            // PremCardCVCLbl
-            // 
-            this.PremCardCVCLbl.AutoSize = true;
-            this.PremCardCVCLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremCardCVCLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremCardCVCLbl.Location = new System.Drawing.Point(27, 196);
-            this.PremCardCVCLbl.Name = "PremCardCVCLbl";
-            this.PremCardCVCLbl.Size = new System.Drawing.Size(71, 29);
-            this.PremCardCVCLbl.TabIndex = 99;
-            this.PremCardCVCLbl.Text = "CVC:";
-            // 
-            // PremPayMPaymentPanel
-            // 
-            this.PremPayMPaymentPanel.Controls.Add(this.PremPayMPaymentRB);
-            this.PremPayMPaymentPanel.Controls.Add(this.PremPayMPaymentBtn);
-            this.PremPayMPaymentPanel.Location = new System.Drawing.Point(877, 164);
-            this.PremPayMPaymentPanel.Name = "PremPayMPaymentPanel";
-            this.PremPayMPaymentPanel.Size = new System.Drawing.Size(223, 50);
-            this.PremPayMPaymentPanel.TabIndex = 113;
-            // 
-            // PremPayMPaymentRB
-            // 
-            this.PremPayMPaymentRB.AutoSize = true;
-            this.PremPayMPaymentRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremPayMPaymentRB.FlatAppearance.BorderSize = 5;
-            this.PremPayMPaymentRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremPayMPaymentRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PremPayMPaymentRB.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.PremPayMPaymentRB.Location = new System.Drawing.Point(196, 19);
-            this.PremPayMPaymentRB.Name = "PremPayMPaymentRB";
-            this.PremPayMPaymentRB.Size = new System.Drawing.Size(13, 12);
-            this.PremPayMPaymentRB.TabIndex = 118;
-            this.PremPayMPaymentRB.UseVisualStyleBackColor = true;
-            this.PremPayMPaymentRB.Visible = false;
-            // 
-            // PremPayMPaymentBtn
-            // 
-            this.PremPayMPaymentBtn.AutoSize = true;
-            this.PremPayMPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PremPayMPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PremPayMPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.PremPayMPaymentBtn.FlatAppearance.BorderSize = 3;
-            this.PremPayMPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremPayMPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremPayMPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.PremPayMPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.PremPayMPaymentBtn.IconColor = System.Drawing.Color.Black;
-            this.PremPayMPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremPayMPaymentBtn.Location = new System.Drawing.Point(0, 0);
-            this.PremPayMPaymentBtn.Name = "PremPayMPaymentBtn";
-            this.PremPayMPaymentBtn.Size = new System.Drawing.Size(223, 50);
-            this.PremPayMPaymentBtn.TabIndex = 106;
-            this.PremPayMPaymentBtn.Text = "Paymaya";
-            this.PremPayMPaymentBtn.UseVisualStyleBackColor = true;
-            this.PremPayMPaymentBtn.Click += new System.EventHandler(this.PremPayMPaymentBtn_Click);
-            // 
-            // PremCardCVCText
-            // 
-            this.PremCardCVCText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremCardCVCText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremCardCVCText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremCardCVCText.Location = new System.Drawing.Point(32, 228);
-            this.PremCardCVCText.Name = "PremCardCVCText";
-            this.PremCardCVCText.Size = new System.Drawing.Size(270, 37);
-            this.PremCardCVCText.TabIndex = 100;
-            // 
-            // PremGCPaymentPanel
-            // 
-            this.PremGCPaymentPanel.Controls.Add(this.PremGCPaymentRB);
-            this.PremGCPaymentPanel.Controls.Add(this.PremGCPaymentBtn);
-            this.PremGCPaymentPanel.Location = new System.Drawing.Point(633, 164);
-            this.PremGCPaymentPanel.Name = "PremGCPaymentPanel";
-            this.PremGCPaymentPanel.Size = new System.Drawing.Size(223, 50);
-            this.PremGCPaymentPanel.TabIndex = 112;
-            // 
-            // PremGCPaymentRB
-            // 
-            this.PremGCPaymentRB.AutoSize = true;
-            this.PremGCPaymentRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremGCPaymentRB.FlatAppearance.BorderSize = 5;
-            this.PremGCPaymentRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremGCPaymentRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PremGCPaymentRB.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.PremGCPaymentRB.Location = new System.Drawing.Point(193, 19);
-            this.PremGCPaymentRB.Name = "PremGCPaymentRB";
-            this.PremGCPaymentRB.Size = new System.Drawing.Size(13, 12);
-            this.PremGCPaymentRB.TabIndex = 117;
-            this.PremGCPaymentRB.UseVisualStyleBackColor = true;
-            this.PremGCPaymentRB.Visible = false;
-            // 
-            // PremGCPaymentBtn
-            // 
-            this.PremGCPaymentBtn.AutoSize = true;
-            this.PremGCPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PremGCPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PremGCPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.PremGCPaymentBtn.FlatAppearance.BorderSize = 3;
-            this.PremGCPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremGCPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremGCPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.PremGCPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.PremGCPaymentBtn.IconColor = System.Drawing.Color.Black;
-            this.PremGCPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremGCPaymentBtn.Location = new System.Drawing.Point(0, 0);
-            this.PremGCPaymentBtn.Name = "PremGCPaymentBtn";
-            this.PremGCPaymentBtn.Size = new System.Drawing.Size(223, 50);
-            this.PremGCPaymentBtn.TabIndex = 106;
-            this.PremGCPaymentBtn.Text = "Gcash";
-            this.PremGCPaymentBtn.UseVisualStyleBackColor = true;
-            this.PremGCPaymentBtn.Click += new System.EventHandler(this.PremGCPaymentBtn_Click);
-            // 
-            // PremCardCVCErrorLbl
-            // 
-            this.PremCardCVCErrorLbl.AutoSize = true;
-            this.PremCardCVCErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremCardCVCErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremCardCVCErrorLbl.Location = new System.Drawing.Point(223, 202);
-            this.PremCardCVCErrorLbl.Name = "PremCardCVCErrorLbl";
-            this.PremCardCVCErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.PremCardCVCErrorLbl.Size = new System.Drawing.Size(82, 14);
-            this.PremCardCVCErrorLbl.TabIndex = 101;
-            this.PremCardCVCErrorLbl.Text = "Missing Field";
-            this.PremCardCVCErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.PremCardCVCErrorLbl.Visible = false;
-            // 
-            // PremCCPaymentPanel
-            // 
-            this.PremCCPaymentPanel.Controls.Add(this.PremCCPaymentRB);
-            this.PremCCPaymentPanel.Controls.Add(this.PremCCPaymentBtn);
-            this.PremCCPaymentPanel.Location = new System.Drawing.Point(633, 81);
-            this.PremCCPaymentPanel.Name = "PremCCPaymentPanel";
-            this.PremCCPaymentPanel.Size = new System.Drawing.Size(223, 50);
-            this.PremCCPaymentPanel.TabIndex = 111;
-            // 
-            // PremCCPaymentRB
-            // 
-            this.PremCCPaymentRB.AutoSize = true;
-            this.PremCCPaymentRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremCCPaymentRB.FlatAppearance.BorderSize = 5;
-            this.PremCCPaymentRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremCCPaymentRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PremCCPaymentRB.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.PremCCPaymentRB.Location = new System.Drawing.Point(193, 19);
-            this.PremCCPaymentRB.Name = "PremCCPaymentRB";
-            this.PremCCPaymentRB.Size = new System.Drawing.Size(13, 12);
-            this.PremCCPaymentRB.TabIndex = 116;
-            this.PremCCPaymentRB.UseVisualStyleBackColor = true;
-            this.PremCCPaymentRB.Visible = false;
-            // 
-            // PremCCPaymentBtn
-            // 
-            this.PremCCPaymentBtn.AutoSize = true;
-            this.PremCCPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PremCCPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PremCCPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.PremCCPaymentBtn.FlatAppearance.BorderSize = 3;
-            this.PremCCPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremCCPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremCCPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.PremCCPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.PremCCPaymentBtn.IconColor = System.Drawing.Color.Black;
-            this.PremCCPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremCCPaymentBtn.Location = new System.Drawing.Point(0, 0);
-            this.PremCCPaymentBtn.Name = "PremCCPaymentBtn";
-            this.PremCCPaymentBtn.Size = new System.Drawing.Size(223, 50);
-            this.PremCCPaymentBtn.TabIndex = 106;
-            this.PremCCPaymentBtn.Text = "Credit Card";
-            this.PremCCPaymentBtn.UseVisualStyleBackColor = true;
-            this.PremCCPaymentBtn.Click += new System.EventHandler(this.PremCCPaymentBtn_Click);
-            // 
-            // PremCardExpireLbl
-            // 
-            this.PremCardExpireLbl.AutoSize = true;
-            this.PremCardExpireLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremCardExpireLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremCardExpireLbl.Location = new System.Drawing.Point(308, 196);
-            this.PremCardExpireLbl.Name = "PremCardExpireLbl";
-            this.PremCardExpireLbl.Size = new System.Drawing.Size(148, 29);
-            this.PremCardExpireLbl.TabIndex = 102;
-            this.PremCardExpireLbl.Text = "Expiration:";
-            // 
-            // PremCardExpireErrorLbl
-            // 
-            this.PremCardExpireErrorLbl.AutoSize = true;
-            this.PremCardExpireErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremCardExpireErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremCardExpireErrorLbl.Location = new System.Drawing.Point(503, 202);
-            this.PremCardExpireErrorLbl.Name = "PremCardExpireErrorLbl";
-            this.PremCardExpireErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.PremCardExpireErrorLbl.Size = new System.Drawing.Size(82, 14);
-            this.PremCardExpireErrorLbl.TabIndex = 104;
-            this.PremCardExpireErrorLbl.Text = "Missing Field";
-            this.PremCardExpireErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.PremCardExpireErrorLbl.Visible = false;
-            // 
-            // PremCardExpireText
-            // 
-            this.PremCardExpireText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremCardExpireText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremCardExpireText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremCardExpireText.Location = new System.Drawing.Point(313, 228);
-            this.PremCardExpireText.Name = "PremCardExpireText";
-            this.PremCardExpireText.Size = new System.Drawing.Size(270, 37);
-            this.PremCardExpireText.TabIndex = 103;
-            // 
-            // PremPlanPeriodText
-            // 
-            this.PremPlanPeriodText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremPlanPeriodText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PremPlanPeriodText.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremPlanPeriodText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremPlanPeriodText.Location = new System.Drawing.Point(122, 1289);
-            this.PremPlanPeriodText.Name = "PremPlanPeriodText";
-            this.PremPlanPeriodText.ReadOnly = true;
-            this.PremPlanPeriodText.Size = new System.Drawing.Size(391, 27);
-            this.PremPlanPeriodText.TabIndex = 116;
-            this.PremPlanPeriodText.Text = "Premium Plan - [Period]";
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.PremBiyearlyPlanRB);
-            this.panel7.Controls.Add(this.PremBiyearlyPlanLbl);
-            this.panel7.Controls.Add(this.PremBiyearlyPlanRenewText);
-            this.panel7.Controls.Add(this.PremBiyearlyPlanDiscLbl);
-            this.panel7.Controls.Add(this.PremBiyearlyPlanBtn);
-            this.panel7.Location = new System.Drawing.Point(854, 291);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(250, 250);
-            this.panel7.TabIndex = 110;
-            // 
-            // PremBiyearlyPlanRB
-            // 
-            this.PremBiyearlyPlanRB.AutoSize = true;
-            this.PremBiyearlyPlanRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremBiyearlyPlanRB.FlatAppearance.BorderSize = 5;
-            this.PremBiyearlyPlanRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremBiyearlyPlanRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PremBiyearlyPlanRB.Location = new System.Drawing.Point(211, 42);
-            this.PremBiyearlyPlanRB.Name = "PremBiyearlyPlanRB";
-            this.PremBiyearlyPlanRB.Size = new System.Drawing.Size(13, 12);
-            this.PremBiyearlyPlanRB.TabIndex = 115;
-            this.PremBiyearlyPlanRB.UseVisualStyleBackColor = true;
-            this.PremBiyearlyPlanRB.Visible = false;
-            // 
-            // PremBiyearlyPlanLbl
-            // 
-            this.PremBiyearlyPlanLbl.AutoSize = true;
-            this.PremBiyearlyPlanLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremBiyearlyPlanLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremBiyearlyPlanLbl.Location = new System.Drawing.Point(63, 35);
-            this.PremBiyearlyPlanLbl.Name = "PremBiyearlyPlanLbl";
-            this.PremBiyearlyPlanLbl.Size = new System.Drawing.Size(125, 26);
-            this.PremBiyearlyPlanLbl.TabIndex = 87;
-            this.PremBiyearlyPlanLbl.Text = "24 Months";
-            // 
-            // PremBiyearlyPlanRenewText
-            // 
-            this.PremBiyearlyPlanRenewText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremBiyearlyPlanRenewText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PremBiyearlyPlanRenewText.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremBiyearlyPlanRenewText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremBiyearlyPlanRenewText.Location = new System.Drawing.Point(68, 182);
-            this.PremBiyearlyPlanRenewText.Multiline = true;
-            this.PremBiyearlyPlanRenewText.Name = "PremBiyearlyPlanRenewText";
-            this.PremBiyearlyPlanRenewText.ReadOnly = true;
-            this.PremBiyearlyPlanRenewText.Size = new System.Drawing.Size(121, 56);
-            this.PremBiyearlyPlanRenewText.TabIndex = 89;
-            this.PremBiyearlyPlanRenewText.Text = "Plan Renews at\r\nPhp. 3499.00 on \r\n[After 2 Years]\r\n";
-            this.PremBiyearlyPlanRenewText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // PremBiyearlyPlanDiscLbl
-            // 
-            this.PremBiyearlyPlanDiscLbl.AutoSize = true;
-            this.PremBiyearlyPlanDiscLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PremBiyearlyPlanDiscLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremBiyearlyPlanDiscLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremBiyearlyPlanDiscLbl.Location = new System.Drawing.Point(34, 0);
-            this.PremBiyearlyPlanDiscLbl.Name = "PremBiyearlyPlanDiscLbl";
-            this.PremBiyearlyPlanDiscLbl.Size = new System.Drawing.Size(183, 31);
-            this.PremBiyearlyPlanDiscLbl.TabIndex = 90;
-            this.PremBiyearlyPlanDiscLbl.Text = "Save. Php. 4k\r\n";
-            // 
-            // PremBiyearlyPlanBtn
-            // 
-            this.PremBiyearlyPlanBtn.AutoSize = true;
-            this.PremBiyearlyPlanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PremBiyearlyPlanBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PremBiyearlyPlanBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremBiyearlyPlanBtn.FlatAppearance.BorderSize = 3;
-            this.PremBiyearlyPlanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremBiyearlyPlanBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremBiyearlyPlanBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.PremBiyearlyPlanBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.PremBiyearlyPlanBtn.IconColor = System.Drawing.Color.Black;
-            this.PremBiyearlyPlanBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremBiyearlyPlanBtn.Location = new System.Drawing.Point(0, 0);
-            this.PremBiyearlyPlanBtn.Name = "PremBiyearlyPlanBtn";
-            this.PremBiyearlyPlanBtn.Size = new System.Drawing.Size(250, 250);
-            this.PremBiyearlyPlanBtn.TabIndex = 86;
-            this.PremBiyearlyPlanBtn.Text = "Php.\r\n999.00";
-            this.PremBiyearlyPlanBtn.UseVisualStyleBackColor = true;
-            this.PremBiyearlyPlanBtn.Click += new System.EventHandler(this.PremBiyearlyPlanBtn_Click);
-            // 
-            // PremYearlyPlanPanel
-            // 
-            this.PremYearlyPlanPanel.Controls.Add(this.PremYearlyPlanRB);
-            this.PremYearlyPlanPanel.Controls.Add(this.PremYearlyPlanLbl);
-            this.PremYearlyPlanPanel.Controls.Add(this.PremYearlyPlanRenewText);
-            this.PremYearlyPlanPanel.Controls.Add(this.PremYearlyPlanDiscLbl);
-            this.PremYearlyPlanPanel.Controls.Add(this.PremYearlyPlanBtn);
-            this.PremYearlyPlanPanel.Location = new System.Drawing.Point(560, 291);
-            this.PremYearlyPlanPanel.Name = "PremYearlyPlanPanel";
-            this.PremYearlyPlanPanel.Size = new System.Drawing.Size(250, 250);
-            this.PremYearlyPlanPanel.TabIndex = 109;
-            // 
-            // PremYearlyPlanRB
-            // 
-            this.PremYearlyPlanRB.AutoSize = true;
-            this.PremYearlyPlanRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremYearlyPlanRB.FlatAppearance.BorderSize = 5;
-            this.PremYearlyPlanRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremYearlyPlanRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PremYearlyPlanRB.Location = new System.Drawing.Point(207, 42);
-            this.PremYearlyPlanRB.Name = "PremYearlyPlanRB";
-            this.PremYearlyPlanRB.Size = new System.Drawing.Size(13, 12);
-            this.PremYearlyPlanRB.TabIndex = 114;
-            this.PremYearlyPlanRB.UseVisualStyleBackColor = true;
-            this.PremYearlyPlanRB.Visible = false;
-            // 
-            // PremYearlyPlanLbl
-            // 
-            this.PremYearlyPlanLbl.AutoSize = true;
-            this.PremYearlyPlanLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremYearlyPlanLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremYearlyPlanLbl.Location = new System.Drawing.Point(66, 35);
-            this.PremYearlyPlanLbl.Name = "PremYearlyPlanLbl";
-            this.PremYearlyPlanLbl.Size = new System.Drawing.Size(118, 26);
-            this.PremYearlyPlanLbl.TabIndex = 82;
-            this.PremYearlyPlanLbl.Text = "12 Months";
-            // 
-            // PremYearlyPlanRenewText
-            // 
-            this.PremYearlyPlanRenewText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremYearlyPlanRenewText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PremYearlyPlanRenewText.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremYearlyPlanRenewText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremYearlyPlanRenewText.Location = new System.Drawing.Point(68, 182);
-            this.PremYearlyPlanRenewText.Multiline = true;
-            this.PremYearlyPlanRenewText.Name = "PremYearlyPlanRenewText";
-            this.PremYearlyPlanRenewText.ReadOnly = true;
-            this.PremYearlyPlanRenewText.Size = new System.Drawing.Size(121, 56);
-            this.PremYearlyPlanRenewText.TabIndex = 84;
-            this.PremYearlyPlanRenewText.Text = "Plan Renews at\r\nPhp. 3999.00 on \r\n[After 1 Year]\r\n";
-            this.PremYearlyPlanRenewText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // PremYearlyPlanDiscLbl
-            // 
-            this.PremYearlyPlanDiscLbl.AutoSize = true;
-            this.PremYearlyPlanDiscLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PremYearlyPlanDiscLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremYearlyPlanDiscLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremYearlyPlanDiscLbl.Location = new System.Drawing.Point(22, 0);
-            this.PremYearlyPlanDiscLbl.Name = "PremYearlyPlanDiscLbl";
-            this.PremYearlyPlanDiscLbl.Size = new System.Drawing.Size(207, 31);
-            this.PremYearlyPlanDiscLbl.TabIndex = 85;
-            this.PremYearlyPlanDiscLbl.Text = "Save. Php. 2.4k\r\n";
-            // 
-            // PremYearlyPlanBtn
-            // 
-            this.PremYearlyPlanBtn.AutoSize = true;
-            this.PremYearlyPlanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PremYearlyPlanBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PremYearlyPlanBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremYearlyPlanBtn.FlatAppearance.BorderSize = 3;
-            this.PremYearlyPlanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremYearlyPlanBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremYearlyPlanBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.PremYearlyPlanBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.PremYearlyPlanBtn.IconColor = System.Drawing.Color.Black;
-            this.PremYearlyPlanBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremYearlyPlanBtn.Location = new System.Drawing.Point(0, 0);
-            this.PremYearlyPlanBtn.Name = "PremYearlyPlanBtn";
-            this.PremYearlyPlanBtn.Size = new System.Drawing.Size(250, 250);
-            this.PremYearlyPlanBtn.TabIndex = 81;
-            this.PremYearlyPlanBtn.Text = "Php.\r\n1299.00";
-            this.PremYearlyPlanBtn.UseVisualStyleBackColor = true;
-            this.PremYearlyPlanBtn.Click += new System.EventHandler(this.PremYearlyPlanBtn_Click);
-            // 
-            // PremMonthlyPlanPanel
-            // 
-            this.PremMonthlyPlanPanel.Controls.Add(this.PremMonthlyPlanRB);
-            this.PremMonthlyPlanPanel.Controls.Add(this.PremMonthlyPlanLbl);
-            this.PremMonthlyPlanPanel.Controls.Add(this.PremMonthlyPlanRenewText);
-            this.PremMonthlyPlanPanel.Controls.Add(this.PremMonthlyPlanBtn);
-            this.PremMonthlyPlanPanel.Location = new System.Drawing.Point(249, 291);
-            this.PremMonthlyPlanPanel.Name = "PremMonthlyPlanPanel";
-            this.PremMonthlyPlanPanel.Size = new System.Drawing.Size(250, 250);
-            this.PremMonthlyPlanPanel.TabIndex = 108;
-            // 
-            // PremMonthlyPlanRB
-            // 
-            this.PremMonthlyPlanRB.AutoSize = true;
-            this.PremMonthlyPlanRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremMonthlyPlanRB.FlatAppearance.BorderSize = 5;
-            this.PremMonthlyPlanRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremMonthlyPlanRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PremMonthlyPlanRB.Location = new System.Drawing.Point(202, 46);
-            this.PremMonthlyPlanRB.Name = "PremMonthlyPlanRB";
-            this.PremMonthlyPlanRB.Size = new System.Drawing.Size(13, 12);
-            this.PremMonthlyPlanRB.TabIndex = 113;
-            this.PremMonthlyPlanRB.UseVisualStyleBackColor = true;
-            this.PremMonthlyPlanRB.Visible = false;
-            // 
-            // PremMonthlyPlanLbl
-            // 
-            this.PremMonthlyPlanLbl.AutoSize = true;
-            this.PremMonthlyPlanLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremMonthlyPlanLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremMonthlyPlanLbl.Location = new System.Drawing.Point(78, 38);
-            this.PremMonthlyPlanLbl.Name = "PremMonthlyPlanLbl";
-            this.PremMonthlyPlanLbl.Size = new System.Drawing.Size(94, 26);
-            this.PremMonthlyPlanLbl.TabIndex = 78;
-            this.PremMonthlyPlanLbl.Text = "1 Month";
-            // 
-            // PremMonthlyPlanRenewText
-            // 
-            this.PremMonthlyPlanRenewText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremMonthlyPlanRenewText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PremMonthlyPlanRenewText.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremMonthlyPlanRenewText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremMonthlyPlanRenewText.Location = new System.Drawing.Point(65, 179);
-            this.PremMonthlyPlanRenewText.Multiline = true;
-            this.PremMonthlyPlanRenewText.Name = "PremMonthlyPlanRenewText";
-            this.PremMonthlyPlanRenewText.ReadOnly = true;
-            this.PremMonthlyPlanRenewText.Size = new System.Drawing.Size(121, 56);
-            this.PremMonthlyPlanRenewText.TabIndex = 80;
-            this.PremMonthlyPlanRenewText.Text = "Plan Renews at\r\nPhp. 4999.00 on \r\n[After 1 month]\r\n";
-            this.PremMonthlyPlanRenewText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // PremMonthlyPlanBtn
-            // 
-            this.PremMonthlyPlanBtn.AutoSize = true;
-            this.PremMonthlyPlanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PremMonthlyPlanBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PremMonthlyPlanBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremMonthlyPlanBtn.FlatAppearance.BorderSize = 3;
-            this.PremMonthlyPlanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremMonthlyPlanBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremMonthlyPlanBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.PremMonthlyPlanBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.PremMonthlyPlanBtn.IconColor = System.Drawing.Color.Black;
-            this.PremMonthlyPlanBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremMonthlyPlanBtn.Location = new System.Drawing.Point(0, 0);
-            this.PremMonthlyPlanBtn.Name = "PremMonthlyPlanBtn";
-            this.PremMonthlyPlanBtn.Size = new System.Drawing.Size(250, 250);
-            this.PremMonthlyPlanBtn.TabIndex = 77;
-            this.PremMonthlyPlanBtn.Text = "Php.\r\n1499.00";
-            this.PremMonthlyPlanBtn.UseVisualStyleBackColor = true;
-            this.PremMonthlyPlanBtn.Click += new System.EventHandler(this.PremMonthlyPlanBtn_Click);
-            // 
-            // PremSelectPaymentLbl
-            // 
-            this.PremSelectPaymentLbl.AutoSize = true;
-            this.PremSelectPaymentLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremSelectPaymentLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremSelectPaymentLbl.Location = new System.Drawing.Point(116, 1227);
-            this.PremSelectPaymentLbl.Name = "PremSelectPaymentLbl";
-            this.PremSelectPaymentLbl.Size = new System.Drawing.Size(406, 35);
-            this.PremSelectPaymentLbl.TabIndex = 98;
-            this.PremSelectPaymentLbl.Text = "4. Select Payment Method";
-            // 
-            // PremBasicInfoLbl
-            // 
-            this.PremBasicInfoLbl.AutoSize = true;
-            this.PremBasicInfoLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremBasicInfoLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremBasicInfoLbl.Location = new System.Drawing.Point(114, 889);
-            this.PremBasicInfoLbl.Name = "PremBasicInfoLbl";
-            this.PremBasicInfoLbl.Size = new System.Drawing.Size(314, 35);
-            this.PremBasicInfoLbl.TabIndex = 91;
-            this.PremBasicInfoLbl.Text = "3. Basic Information";
-            // 
-            // PremMemberIDLbl
-            // 
-            this.PremMemberIDLbl.AutoSize = true;
-            this.PremMemberIDLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremMemberIDLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremMemberIDLbl.Location = new System.Drawing.Point(116, 760);
-            this.PremMemberIDLbl.Name = "PremMemberIDLbl";
-            this.PremMemberIDLbl.Size = new System.Drawing.Size(240, 29);
-            this.PremMemberIDLbl.TabIndex = 75;
-            this.PremMemberIDLbl.Text = "Member ID Number:";
-            // 
-            // PremConfirmPassPanel
-            // 
-            this.PremConfirmPassPanel.Controls.Add(this.PremShowHideConfirmPassBtn);
-            this.PremConfirmPassPanel.Controls.Add(this.PremConfirmPassText);
-            this.PremConfirmPassPanel.Location = new System.Drawing.Point(686, 796);
-            this.PremConfirmPassPanel.Name = "PremConfirmPassPanel";
-            this.PremConfirmPassPanel.Size = new System.Drawing.Size(548, 37);
-            this.PremConfirmPassPanel.TabIndex = 69;
-            // 
-            // PremShowHideConfirmPassBtn
-            // 
-            this.PremShowHideConfirmPassBtn.AutoSize = true;
-            this.PremShowHideConfirmPassBtn.BackColor = System.Drawing.Color.Transparent;
-            this.PremShowHideConfirmPassBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PremShowHideConfirmPassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremShowHideConfirmPassBtn.FlatAppearance.BorderSize = 0;
-            this.PremShowHideConfirmPassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremShowHideConfirmPassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremShowHideConfirmPassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremShowHideConfirmPassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.PremShowHideConfirmPassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremShowHideConfirmPassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremShowHideConfirmPassBtn.IconSize = 30;
-            this.PremShowHideConfirmPassBtn.Location = new System.Drawing.Point(512, 0);
-            this.PremShowHideConfirmPassBtn.Name = "PremShowHideConfirmPassBtn";
-            this.PremShowHideConfirmPassBtn.Size = new System.Drawing.Size(36, 37);
-            this.PremShowHideConfirmPassBtn.TabIndex = 31;
-            this.PremShowHideConfirmPassBtn.UseVisualStyleBackColor = false;
-            this.PremShowHideConfirmPassBtn.Click += new System.EventHandler(this.PremShowHideConfirmPassBtn_Click);
-            this.PremShowHideConfirmPassBtn.MouseHover += new System.EventHandler(this.PremShowHideConfirmPassBtn_MouseHover);
-            // 
-            // PremConfirmPassText
-            // 
-            this.PremConfirmPassText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremConfirmPassText.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PremConfirmPassText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremConfirmPassText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremConfirmPassText.Location = new System.Drawing.Point(0, 0);
-            this.PremConfirmPassText.Margin = new System.Windows.Forms.Padding(50, 10, 10, 10);
-            this.PremConfirmPassText.Name = "PremConfirmPassText";
-            this.PremConfirmPassText.Size = new System.Drawing.Size(499, 37);
-            this.PremConfirmPassText.TabIndex = 25;
-            this.PremConfirmPassText.UseSystemPasswordChar = true;
-            this.PremConfirmPassText.TextChanged += new System.EventHandler(this.PremConfirmPassText_TextChanged);
-            // 
-            // PremConfirmPassErrorLbl
-            // 
-            this.PremConfirmPassErrorLbl.AutoSize = true;
-            this.PremConfirmPassErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremConfirmPassErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremConfirmPassErrorLbl.Location = new System.Drawing.Point(1053, 772);
-            this.PremConfirmPassErrorLbl.Name = "PremConfirmPassErrorLbl";
-            this.PremConfirmPassErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.PremConfirmPassErrorLbl.Size = new System.Drawing.Size(184, 14);
-            this.PremConfirmPassErrorLbl.TabIndex = 68;
-            this.PremConfirmPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
-            this.PremConfirmPassErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.PremConfirmPassErrorLbl.Visible = false;
-            // 
-            // PremMemberIDText
-            // 
-            this.PremMemberIDText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremMemberIDText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremMemberIDText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremMemberIDText.Location = new System.Drawing.Point(119, 796);
-            this.PremMemberIDText.Name = "PremMemberIDText";
-            this.PremMemberIDText.ReadOnly = true;
-            this.PremMemberIDText.Size = new System.Drawing.Size(553, 37);
-            this.PremMemberIDText.TabIndex = 74;
-            // 
-            // PremConfirmPassLbl
-            // 
-            this.PremConfirmPassLbl.AutoSize = true;
-            this.PremConfirmPassLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremConfirmPassLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremConfirmPassLbl.Location = new System.Drawing.Point(683, 764);
-            this.PremConfirmPassLbl.Name = "PremConfirmPassLbl";
-            this.PremConfirmPassLbl.Size = new System.Drawing.Size(276, 29);
-            this.PremConfirmPassLbl.TabIndex = 67;
-            this.PremConfirmPassLbl.Text = "CONFIRM PASSWORD:";
-            // 
-            // PremLastNameErrorLbl
-            // 
-            this.PremLastNameErrorLbl.AutoSize = true;
-            this.PremLastNameErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremLastNameErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremLastNameErrorLbl.Location = new System.Drawing.Point(1158, 958);
-            this.PremLastNameErrorLbl.Name = "PremLastNameErrorLbl";
-            this.PremLastNameErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.PremLastNameErrorLbl.Size = new System.Drawing.Size(82, 14);
-            this.PremLastNameErrorLbl.TabIndex = 72;
-            this.PremLastNameErrorLbl.Text = "Missing Field";
-            this.PremLastNameErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.PremLastNameErrorLbl.Visible = false;
-            // 
-            // PremFirstNameErrorLbl
-            // 
-            this.PremFirstNameErrorLbl.AutoSize = true;
-            this.PremFirstNameErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremFirstNameErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremFirstNameErrorLbl.Location = new System.Drawing.Point(591, 958);
-            this.PremFirstNameErrorLbl.Name = "PremFirstNameErrorLbl";
-            this.PremFirstNameErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.PremFirstNameErrorLbl.Size = new System.Drawing.Size(82, 14);
-            this.PremFirstNameErrorLbl.TabIndex = 71;
-            this.PremFirstNameErrorLbl.Text = "Missing Field";
-            this.PremFirstNameErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.PremFirstNameErrorLbl.Visible = false;
-            // 
-            // PremCPNumErrorLbl
-            // 
-            this.PremCPNumErrorLbl.AutoSize = true;
-            this.PremCPNumErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremCPNumErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremCPNumErrorLbl.Location = new System.Drawing.Point(1158, 1048);
-            this.PremCPNumErrorLbl.Name = "PremCPNumErrorLbl";
-            this.PremCPNumErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.PremCPNumErrorLbl.Size = new System.Drawing.Size(82, 14);
-            this.PremCPNumErrorLbl.TabIndex = 70;
-            this.PremCPNumErrorLbl.Text = "Missing Field";
-            this.PremCPNumErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.PremCPNumErrorLbl.Visible = false;
-            // 
-            // PremGenderErrorLbl
-            // 
-            this.PremGenderErrorLbl.AutoSize = true;
-            this.PremGenderErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremGenderErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremGenderErrorLbl.Location = new System.Drawing.Point(861, 1048);
-            this.PremGenderErrorLbl.Name = "PremGenderErrorLbl";
-            this.PremGenderErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.PremGenderErrorLbl.Size = new System.Drawing.Size(82, 14);
-            this.PremGenderErrorLbl.TabIndex = 69;
-            this.PremGenderErrorLbl.Text = "Missing Field";
-            this.PremGenderErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.PremGenderErrorLbl.Visible = false;
-            // 
-            // PremAgeErrorLbl
-            // 
-            this.PremAgeErrorLbl.AutoSize = true;
-            this.PremAgeErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremAgeErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremAgeErrorLbl.Location = new System.Drawing.Point(482, 1048);
-            this.PremAgeErrorLbl.Name = "PremAgeErrorLbl";
-            this.PremAgeErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.PremAgeErrorLbl.Size = new System.Drawing.Size(195, 14);
-            this.PremAgeErrorLbl.TabIndex = 68;
-            this.PremAgeErrorLbl.Text = "Must be 18 years old and above";
-            this.PremAgeErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.PremAgeErrorLbl.Visible = false;
-            // 
-            // PremEmailErrorLbl
-            // 
-            this.PremEmailErrorLbl.AutoSize = true;
-            this.PremEmailErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremEmailErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremEmailErrorLbl.Location = new System.Drawing.Point(491, 685);
-            this.PremEmailErrorLbl.Name = "PremEmailErrorLbl";
-            this.PremEmailErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.PremEmailErrorLbl.Size = new System.Drawing.Size(184, 14);
-            this.PremEmailErrorLbl.TabIndex = 67;
-            this.PremEmailErrorLbl.Text = "Email Address Does Not Exist";
-            this.PremEmailErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.PremEmailErrorLbl.Visible = false;
-            // 
-            // PremPassPanel
-            // 
-            this.PremPassPanel.Controls.Add(this.PremShowHidePassBtn);
-            this.PremPassPanel.Controls.Add(this.PremPassText);
-            this.PremPassPanel.Location = new System.Drawing.Point(686, 710);
-            this.PremPassPanel.Name = "PremPassPanel";
-            this.PremPassPanel.Size = new System.Drawing.Size(548, 37);
-            this.PremPassPanel.TabIndex = 66;
-            // 
-            // PremShowHidePassBtn
-            // 
-            this.PremShowHidePassBtn.AutoSize = true;
-            this.PremShowHidePassBtn.BackColor = System.Drawing.Color.Transparent;
-            this.PremShowHidePassBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PremShowHidePassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremShowHidePassBtn.FlatAppearance.BorderSize = 0;
-            this.PremShowHidePassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremShowHidePassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremShowHidePassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.PremShowHidePassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremShowHidePassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremShowHidePassBtn.IconSize = 30;
-            this.PremShowHidePassBtn.Location = new System.Drawing.Point(512, 0);
-            this.PremShowHidePassBtn.Name = "PremShowHidePassBtn";
-            this.PremShowHidePassBtn.Size = new System.Drawing.Size(36, 37);
-            this.PremShowHidePassBtn.TabIndex = 31;
-            this.PremShowHidePassBtn.UseVisualStyleBackColor = false;
-            this.PremShowHidePassBtn.Click += new System.EventHandler(this.PremShowHidePassBtn_Click);
-            this.PremShowHidePassBtn.MouseHover += new System.EventHandler(this.PremShowHidePassBtn_MouseHover);
-            // 
-            // PremPassText
-            // 
-            this.PremPassText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremPassText.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PremPassText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremPassText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremPassText.Location = new System.Drawing.Point(0, 0);
-            this.PremPassText.Margin = new System.Windows.Forms.Padding(50, 10, 10, 10);
-            this.PremPassText.Name = "PremPassText";
-            this.PremPassText.Size = new System.Drawing.Size(499, 37);
-            this.PremPassText.TabIndex = 25;
-            this.PremPassText.UseSystemPasswordChar = true;
-            // 
-            // PremPassErrorLbl
-            // 
-            this.PremPassErrorLbl.AutoSize = true;
-            this.PremPassErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremPassErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremPassErrorLbl.Location = new System.Drawing.Point(1092, 685);
-            this.PremPassErrorLbl.Name = "PremPassErrorLbl";
-            this.PremPassErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.PremPassErrorLbl.Size = new System.Drawing.Size(145, 14);
-            this.PremPassErrorLbl.TabIndex = 65;
-            this.PremPassErrorLbl.Text = "INCORRECT PASSWORD";
-            this.PremPassErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.PremPassErrorLbl.Visible = false;
-            // 
-            // PremPassLbl
-            // 
-            this.PremPassLbl.AutoSize = true;
-            this.PremPassLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremPassLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremPassLbl.Location = new System.Drawing.Point(683, 678);
-            this.PremPassLbl.Name = "PremPassLbl";
-            this.PremPassLbl.Size = new System.Drawing.Size(155, 29);
-            this.PremPassLbl.TabIndex = 64;
-            this.PremPassLbl.Text = "PASSWORD:";
-            // 
-            // PremEmailText
-            // 
-            this.PremEmailText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremEmailText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremEmailText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremEmailText.Location = new System.Drawing.Point(121, 710);
-            this.PremEmailText.Name = "PremEmailText";
-            this.PremEmailText.Size = new System.Drawing.Size(553, 37);
-            this.PremEmailText.TabIndex = 61;
-            // 
-            // PremEmailLbl
-            // 
-            this.PremEmailLbl.AutoSize = true;
-            this.PremEmailLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremEmailLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremEmailLbl.Location = new System.Drawing.Point(116, 678);
-            this.PremEmailLbl.Name = "PremEmailLbl";
-            this.PremEmailLbl.Size = new System.Drawing.Size(194, 29);
-            this.PremEmailLbl.TabIndex = 60;
-            this.PremEmailLbl.Text = "Email Address:";
-            // 
-            // PremCreateAccLbl
-            // 
-            this.PremCreateAccLbl.AutoSize = true;
-            this.PremCreateAccLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremCreateAccLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremCreateAccLbl.Location = new System.Drawing.Point(114, 617);
-            this.PremCreateAccLbl.Name = "PremCreateAccLbl";
-            this.PremCreateAccLbl.Size = new System.Drawing.Size(368, 35);
-            this.PremCreateAccLbl.TabIndex = 59;
-            this.PremCreateAccLbl.Text = "2. Create Your Account";
-            // 
-            // PremCPNumText
-            // 
-            this.PremCPNumText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremCPNumText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremCPNumText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremCPNumText.Location = new System.Drawing.Point(954, 1074);
-            this.PremCPNumText.Name = "PremCPNumText";
-            this.PremCPNumText.Size = new System.Drawing.Size(283, 37);
-            this.PremCPNumText.TabIndex = 58;
-            // 
-            // PremCPNumLbl
-            // 
-            this.PremCPNumLbl.AutoSize = true;
-            this.PremCPNumLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremCPNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremCPNumLbl.Location = new System.Drawing.Point(949, 1042);
-            this.PremCPNumLbl.Name = "PremCPNumLbl";
-            this.PremCPNumLbl.Size = new System.Drawing.Size(196, 29);
-            this.PremCPNumLbl.TabIndex = 57;
-            this.PremCPNumLbl.Text = "Mobile Number:";
-            // 
-            // PremGenderComboText
-            // 
-            this.PremGenderComboText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremGenderComboText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremGenderComboText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremGenderComboText.FormattingEnabled = true;
-            this.PremGenderComboText.Location = new System.Drawing.Point(687, 1074);
-            this.PremGenderComboText.Name = "PremGenderComboText";
-            this.PremGenderComboText.Size = new System.Drawing.Size(261, 37);
-            this.PremGenderComboText.TabIndex = 56;
-            this.PremGenderComboText.SelectedIndexChanged += new System.EventHandler(this.PremGenderComboText_SelectedIndexChanged);
-            // 
-            // PremGenderLbl
-            // 
-            this.PremGenderLbl.AutoSize = true;
-            this.PremGenderLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremGenderLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremGenderLbl.Location = new System.Drawing.Point(684, 1041);
-            this.PremGenderLbl.Name = "PremGenderLbl";
-            this.PremGenderLbl.Size = new System.Drawing.Size(105, 29);
-            this.PremGenderLbl.TabIndex = 54;
-            this.PremGenderLbl.Text = "Gender:";
-            // 
-            // PremBdayPicker
-            // 
-            this.PremBdayPicker.CalendarFont = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PremBdayPicker.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremBdayPicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(222)))), ((int)(((byte)(141)))));
-            this.PremBdayPicker.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(222)))), ((int)(((byte)(141)))));
-            this.PremBdayPicker.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.PremBdayPicker.CalendarTrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
-            this.PremBdayPicker.CustomFormat = "MM-dd-yyyy";
-            this.PremBdayPicker.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PremBdayPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.PremBdayPicker.Location = new System.Drawing.Point(120, 1073);
-            this.PremBdayPicker.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
-            this.PremBdayPicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.PremBdayPicker.Name = "PremBdayPicker";
-            this.PremBdayPicker.Size = new System.Drawing.Size(301, 37);
-            this.PremBdayPicker.TabIndex = 53;
-            this.PremBdayPicker.ValueChanged += new System.EventHandler(this.PremBdayPicker_ValueChanged);
-            // 
-            // PremFooterStopperPanel
-            // 
-            this.PremFooterStopperPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremFooterStopperPanel.Controls.Add(this.PremFooterStopperLbl);
-            this.PremFooterStopperPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.PremFooterStopperPanel.Location = new System.Drawing.Point(274, 1813);
-            this.PremFooterStopperPanel.Name = "PremFooterStopperPanel";
-            this.PremFooterStopperPanel.Size = new System.Drawing.Size(804, 88);
-            this.PremFooterStopperPanel.TabIndex = 52;
-            // 
-            // PremFooterStopperLbl
-            // 
-            this.PremFooterStopperLbl.AutoSize = true;
-            this.PremFooterStopperLbl.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremFooterStopperLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.PremFooterStopperLbl.Location = new System.Drawing.Point(206, 29);
-            this.PremFooterStopperLbl.Name = "PremFooterStopperLbl";
-            this.PremFooterStopperLbl.Size = new System.Drawing.Size(362, 51);
-            this.PremFooterStopperLbl.TabIndex = 20;
-            this.PremFooterStopperLbl.Text = "Footer Stopper";
-            this.PremFooterStopperLbl.Visible = false;
-            // 
-            // PremAgeText
-            // 
-            this.PremAgeText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremAgeText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremAgeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremAgeText.Location = new System.Drawing.Point(427, 1074);
-            this.PremAgeText.Name = "PremAgeText";
-            this.PremAgeText.ReadOnly = true;
-            this.PremAgeText.Size = new System.Drawing.Size(246, 37);
-            this.PremAgeText.TabIndex = 51;
-            // 
-            // PremAgeLbl
-            // 
-            this.PremAgeLbl.AutoSize = true;
-            this.PremAgeLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremAgeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremAgeLbl.Location = new System.Drawing.Point(422, 1041);
-            this.PremAgeLbl.Name = "PremAgeLbl";
-            this.PremAgeLbl.Size = new System.Drawing.Size(65, 29);
-            this.PremAgeLbl.TabIndex = 50;
-            this.PremAgeLbl.Text = "Age:";
-            // 
-            // PremBdayLbl
-            // 
-            this.PremBdayLbl.AutoSize = true;
-            this.PremBdayLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremBdayLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremBdayLbl.Location = new System.Drawing.Point(117, 1041);
-            this.PremBdayLbl.Name = "PremBdayLbl";
-            this.PremBdayLbl.Size = new System.Drawing.Size(128, 29);
-            this.PremBdayLbl.TabIndex = 48;
-            this.PremBdayLbl.Text = "Birthday:";
-            // 
-            // PremLastNameText
-            // 
-            this.PremLastNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremLastNameText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremLastNameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremLastNameText.Location = new System.Drawing.Point(687, 983);
-            this.PremLastNameText.Name = "PremLastNameText";
-            this.PremLastNameText.Size = new System.Drawing.Size(550, 37);
-            this.PremLastNameText.TabIndex = 47;
-            // 
-            // PremLastNameLbl
-            // 
-            this.PremLastNameLbl.AutoSize = true;
-            this.PremLastNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremLastNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremLastNameLbl.Location = new System.Drawing.Point(682, 951);
-            this.PremLastNameLbl.Name = "PremLastNameLbl";
-            this.PremLastNameLbl.Size = new System.Drawing.Size(152, 29);
-            this.PremLastNameLbl.TabIndex = 46;
-            this.PremLastNameLbl.Text = "Last Name:";
-            // 
-            // PremFirstNameText
-            // 
-            this.PremFirstNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremFirstNameText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremFirstNameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremFirstNameText.Location = new System.Drawing.Point(120, 983);
-            this.PremFirstNameText.Name = "PremFirstNameText";
-            this.PremFirstNameText.Size = new System.Drawing.Size(553, 37);
-            this.PremFirstNameText.TabIndex = 45;
-            // 
-            // PremFirstNameLbl
-            // 
-            this.PremFirstNameLbl.AutoSize = true;
-            this.PremFirstNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremFirstNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremFirstNameLbl.Location = new System.Drawing.Point(115, 951);
-            this.PremFirstNameLbl.Name = "PremFirstNameLbl";
-            this.PremFirstNameLbl.Size = new System.Drawing.Size(157, 29);
-            this.PremFirstNameLbl.TabIndex = 44;
-            this.PremFirstNameLbl.Text = "First Name:";
-            // 
-            // PremPlanPeriodLbl
-            // 
-            this.PremPlanPeriodLbl.AutoSize = true;
-            this.PremPlanPeriodLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremPlanPeriodLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremPlanPeriodLbl.Location = new System.Drawing.Point(113, 201);
-            this.PremPlanPeriodLbl.Name = "PremPlanPeriodLbl";
-            this.PremPlanPeriodLbl.Size = new System.Drawing.Size(362, 35);
-            this.PremPlanPeriodLbl.TabIndex = 10;
-            this.PremPlanPeriodLbl.Text = "1. Choose a Plan Period";
-            // 
-            // PremSelectedPlanText
-            // 
-            this.PremSelectedPlanText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.PremSelectedPlanText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PremSelectedPlanText.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremSelectedPlanText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremSelectedPlanText.Location = new System.Drawing.Point(306, 133);
-            this.PremSelectedPlanText.Name = "PremSelectedPlanText";
-            this.PremSelectedPlanText.ReadOnly = true;
-            this.PremSelectedPlanText.Size = new System.Drawing.Size(281, 27);
-            this.PremSelectedPlanText.TabIndex = 9;
-            this.PremSelectedPlanText.Text = "Premium Plan";
-            // 
-            // PremSelectedLbl
-            // 
-            this.PremSelectedLbl.AutoSize = true;
-            this.PremSelectedLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremSelectedLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremSelectedLbl.Location = new System.Drawing.Point(124, 133);
-            this.PremSelectedLbl.Name = "PremSelectedLbl";
-            this.PremSelectedLbl.Size = new System.Drawing.Size(176, 26);
-            this.PremSelectedLbl.TabIndex = 8;
-            this.PremSelectedLbl.Text = "Selected Plan:";
-            // 
-            // PremAccLbl
-            // 
-            this.PremAccLbl.AutoSize = true;
-            this.PremAccLbl.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremAccLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremAccLbl.Location = new System.Drawing.Point(112, 61);
-            this.PremAccLbl.Name = "PremAccLbl";
-            this.PremAccLbl.Size = new System.Drawing.Size(1035, 51);
-            this.PremAccLbl.TabIndex = 7;
-            this.PremAccLbl.Text = "You\'re almost there! Complete your account.";
-            // 
-            // PremMemberIDCopyBtn
-            // 
-            this.PremMemberIDCopyBtn.AutoSize = true;
-            this.PremMemberIDCopyBtn.BackColor = System.Drawing.Color.Transparent;
-            this.PremMemberIDCopyBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremMemberIDCopyBtn.FlatAppearance.BorderSize = 0;
-            this.PremMemberIDCopyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremMemberIDCopyBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremMemberIDCopyBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremMemberIDCopyBtn.IconChar = FontAwesome.Sharp.IconChar.Copy;
-            this.PremMemberIDCopyBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremMemberIDCopyBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremMemberIDCopyBtn.IconSize = 30;
-            this.PremMemberIDCopyBtn.Location = new System.Drawing.Point(633, 758);
-            this.PremMemberIDCopyBtn.Name = "PremMemberIDCopyBtn";
-            this.PremMemberIDCopyBtn.Size = new System.Drawing.Size(36, 36);
-            this.PremMemberIDCopyBtn.TabIndex = 120;
-            this.PremMemberIDCopyBtn.UseVisualStyleBackColor = false;
-            this.PremMemberIDCopyBtn.Click += new System.EventHandler(this.PremMemberIDCopyBtn_Click);
-            // 
-            // PremPassReqBtn
-            // 
-            this.PremPassReqBtn.AutoSize = true;
-            this.PremPassReqBtn.BackColor = System.Drawing.Color.Transparent;
-            this.PremPassReqBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremPassReqBtn.FlatAppearance.BorderSize = 0;
-            this.PremPassReqBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremPassReqBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremPassReqBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremPassReqBtn.IconChar = FontAwesome.Sharp.IconChar.Question;
-            this.PremPassReqBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremPassReqBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremPassReqBtn.IconSize = 20;
-            this.PremPassReqBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PremPassReqBtn.Location = new System.Drawing.Point(836, 679);
-            this.PremPassReqBtn.Name = "PremPassReqBtn";
-            this.PremPassReqBtn.Size = new System.Drawing.Size(26, 26);
-            this.PremPassReqBtn.TabIndex = 76;
-            this.PremPassReqBtn.UseVisualStyleBackColor = false;
-            this.PremPassReqBtn.MouseHover += new System.EventHandler(this.PremPassReqBtn_MouseHover);
-            // 
-            // PremCreateAccBtn
-            // 
-            this.PremCreateAccBtn.AutoSize = true;
-            this.PremCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PremCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremCreateAccBtn.FlatAppearance.BorderSize = 3;
-            this.PremCreateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremCreateAccBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremCreateAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.PremCreateAccBtn.IconColor = System.Drawing.Color.Black;
-            this.PremCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremCreateAccBtn.Location = new System.Drawing.Point(542, 1693);
-            this.PremCreateAccBtn.Name = "PremCreateAccBtn";
-            this.PremCreateAccBtn.Size = new System.Drawing.Size(268, 60);
-            this.PremCreateAccBtn.TabIndex = 73;
-            this.PremCreateAccBtn.Text = "CREATE ACCOUNT NOW";
-            this.PremCreateAccBtn.UseVisualStyleBackColor = true;
-            this.PremCreateAccBtn.Click += new System.EventHandler(this.PremCreateAccBtn_Click);
-            // 
-            // PremiumExitBtn
-            // 
-            this.PremiumExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.PremiumExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.PremiumExitBtn.FlatAppearance.BorderSize = 0;
-            this.PremiumExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremiumExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.PremiumExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremiumExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremiumExitBtn.Location = new System.Drawing.Point(1289, 16);
-            this.PremiumExitBtn.Name = "PremiumExitBtn";
-            this.PremiumExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.PremiumExitBtn.TabIndex = 43;
-            this.PremiumExitBtn.UseVisualStyleBackColor = false;
-            this.PremiumExitBtn.Click += new System.EventHandler(this.PremiumExitBtn_Click);
-            // 
-            // MemberNameLbl
-            // 
-            this.MemberNameLbl.AutoEllipsis = true;
-            this.MemberNameLbl.AutoSize = true;
-            this.MemberNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MemberNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MemberNameLbl.Location = new System.Drawing.Point(22, 23);
-            this.MemberNameLbl.Name = "MemberNameLbl";
-            this.MemberNameLbl.Size = new System.Drawing.Size(173, 29);
-            this.MemberNameLbl.TabIndex = 8;
-            this.MemberNameLbl.Text = "Member Name";
-            // 
-            // MemberIDLbl
-            // 
-            this.MemberIDLbl.AutoEllipsis = true;
-            this.MemberIDLbl.AutoSize = true;
-            this.MemberIDLbl.Font = new System.Drawing.Font("TechnicBold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MemberIDLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MemberIDLbl.Location = new System.Drawing.Point(24, 63);
-            this.MemberIDLbl.Name = "MemberIDLbl";
-            this.MemberIDLbl.Size = new System.Drawing.Size(138, 18);
-            this.MemberIDLbl.TabIndex = 9;
-            this.MemberIDLbl.Text = "Member ID Number";
             // 
             // Enchante
             // 
@@ -5298,6 +5298,30 @@
             this.ServiceType.ResumeLayout(false);
             this.ServiceType.PerformLayout();
             this.MembershipPanel.ResumeLayout(false);
+            this.PremiumPlanPanel.ResumeLayout(false);
+            this.PremiumPlanPanel.PerformLayout();
+            this.PremCardInfoPanel.ResumeLayout(false);
+            this.PremCardInfoPanel.PerformLayout();
+            this.PremPayPPaymentPanel.ResumeLayout(false);
+            this.PremPayPPaymentPanel.PerformLayout();
+            this.PremPayMPaymentPanel.ResumeLayout(false);
+            this.PremPayMPaymentPanel.PerformLayout();
+            this.PremGCPaymentPanel.ResumeLayout(false);
+            this.PremGCPaymentPanel.PerformLayout();
+            this.PremCCPaymentPanel.ResumeLayout(false);
+            this.PremCCPaymentPanel.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.PremYearlyPlanPanel.ResumeLayout(false);
+            this.PremYearlyPlanPanel.PerformLayout();
+            this.PremMonthlyPlanPanel.ResumeLayout(false);
+            this.PremMonthlyPlanPanel.PerformLayout();
+            this.PremConfirmPassPanel.ResumeLayout(false);
+            this.PremConfirmPassPanel.PerformLayout();
+            this.PremPassPanel.ResumeLayout(false);
+            this.PremPassPanel.PerformLayout();
+            this.PremFooterStopperPanel.ResumeLayout(false);
+            this.PremFooterStopperPanel.PerformLayout();
             this.SVIPPlanPanel.ResumeLayout(false);
             this.SVIPPlanPanel.PerformLayout();
             this.SVIPCardInfoPanel.ResumeLayout(false);
@@ -5365,30 +5389,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.EnchanteParentCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MembershipCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ServiceCard)).EndInit();
-            this.PremiumPlanPanel.ResumeLayout(false);
-            this.PremiumPlanPanel.PerformLayout();
-            this.PremCardInfoPanel.ResumeLayout(false);
-            this.PremCardInfoPanel.PerformLayout();
-            this.PremPayPPaymentPanel.ResumeLayout(false);
-            this.PremPayPPaymentPanel.PerformLayout();
-            this.PremPayMPaymentPanel.ResumeLayout(false);
-            this.PremPayMPaymentPanel.PerformLayout();
-            this.PremGCPaymentPanel.ResumeLayout(false);
-            this.PremGCPaymentPanel.PerformLayout();
-            this.PremCCPaymentPanel.ResumeLayout(false);
-            this.PremCCPaymentPanel.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.PremYearlyPlanPanel.ResumeLayout(false);
-            this.PremYearlyPlanPanel.PerformLayout();
-            this.PremMonthlyPlanPanel.ResumeLayout(false);
-            this.PremMonthlyPlanPanel.PerformLayout();
-            this.PremConfirmPassPanel.ResumeLayout(false);
-            this.PremConfirmPassPanel.PerformLayout();
-            this.PremPassPanel.ResumeLayout(false);
-            this.PremPassPanel.PerformLayout();
-            this.PremFooterStopperPanel.ResumeLayout(false);
-            this.PremFooterStopperPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
