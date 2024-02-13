@@ -11,6 +11,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace Enchante
@@ -34,7 +35,7 @@ namespace Enchante
 
         //gender combo box
         private string[] genders = { "Male", "Female", "Prefer Not to Say" };
-
+        private currenttransactiondetails currenttransactiondetails;
 
 
         public Enchante()
@@ -2278,6 +2279,11 @@ namespace Enchante
         {
             Staff.PanelShow(HistoryPanel);
 
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
