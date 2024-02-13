@@ -4811,8 +4811,6 @@
             // 
             // EnchanteAppointBtn
             // 
-            this.EnchanteAppointBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.EnchanteAppointBtn.AutoSize = true;
             this.EnchanteAppointBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(98)))), ((int)(((byte)(60)))));
             this.EnchanteAppointBtn.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -5255,7 +5253,7 @@
             // 
             this.MembershipCard.ContainerControl = this.MembershipPanel;
             this.MembershipCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.MembershipCard.SelectedCard = "TYPES";
+            this.MembershipCard.SelectedCard = "PREM";
             // 
             // ServiceCard
             // 
