@@ -1,16 +1,19 @@
 ﻿using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Asn1.X509;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
 
 namespace Enchante
@@ -23,10 +26,10 @@ namespace Enchante
 
         //cardlayout panel classes
         private ParentCard ParentPanelShow; //Parent Card
-
         private Registration Registration; //Membership Type Card
         private ServiceCard Service; //Service Card
-
+        private ReceptionTransactionCard Transaction;
+        private ReceptionInventoryCard Inventory;
 
         //tool tip
         private System.Windows.Forms.ToolTip iconToolTip;
@@ -35,7 +38,13 @@ namespace Enchante
         //gender combo box
         private string[] genders = { "Male", "Female", "Prefer Not to Say" };
 
-
+        // service category combo box
+        private string[] Service_Category = { "Hair Styling", "Nail Care", "Face & Skin", "Massage", "Spa" };
+        //service type combo box
+        private string[] Service_type = { "Hair Cut", "Hair Blowout", "Hair Color", "Hair Extension", "Manicure",
+        "Pedicure", "Nail Extension", "Nail Repair", "Package", "Skin Whitening", "Exfoliation Treatment", "Chemical Peel",
+        "Hydration Treatment", "Acne Treatment", "Anti-aging Treatment", "Soft Massage", "Moderate Massage", "Hard Massage",
+        "Herbal Pool", "Sauna"};
 
         public Enchante()
         {
@@ -47,9 +56,13 @@ namespace Enchante
 
 
             //Landing Pages Cardlayout Panel Manager
-            ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteMngrPage, EnchanteMemberPage,EnchanteAdminPage);
+            ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteReceptionPage, EnchanteMemberPage,EnchanteAdminPage);
             Registration = new Registration(MembershipPlanPanel, RegularPlanPanel, PremiumPlanPanel, SVIPPlanPanel);
             Service = new ServiceCard(ServiceType, ServiceHairStyling, ServiceFaceSkin, ServiceNailCare, ServiceSpa, ServiceMassage);
+            Transaction = new ReceptionTransactionCard(RecTransactionPanel, RecWalkInPanel, RecAppointmentPanel);
+            Inventory = new ReceptionInventoryCard(RecInventoryTypePanel, RecInventoryServicesPanel, RecInventoryMembershipPanel, RecInventoryProductsPanel);
+
+            
 
             //icon tool tip
             iconToolTip = new System.Windows.Forms.ToolTip();
@@ -62,13 +75,63 @@ namespace Enchante
             SVIPGenderComboText.DropDownStyle = ComboBoxStyle.DropDownList;
             PremGenderComboText.Items.AddRange(genders);
             PremGenderComboText.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            //inventory services combobox
+            RecServicesCategoryComboText.Items.AddRange(Service_Category);
+            RecServicesCategoryComboText.DropDownStyle = ComboBoxStyle.DropDownList;
+            RecServicesTypeComboText.Items.AddRange(Service_type);
+            RecServicesTypeComboText.DropDownStyle = ComboBoxStyle.DropDownList;
+
         }
 
         private void Enchante_Load(object sender, EventArgs e)
         {
             //Reset Panel to Show Default
             HomePanelReset();
+            DB_Loader();
         }
+
+        private void DB_Loader()
+        {
+            ReceptionLoadServices();
+        }
+        public void ReceptionLoadServices()
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+                    string sql = "SELECT * FROM `services`";
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+
+                        RecInventoryServicesTable.DataSource = dataTable;
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("An error occurred: " + e.Message, "Inventory Service List");
+            }
+            finally
+            {
+                // Make sure to close the connection (if it's open)
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
+            // Rest of your code for configuring DataGridView to display images without distortion
+        }
+
         private void EnchanteHomeScrollPanel_Click(object sender, EventArgs e)
         {
             //Reset Panel to Show Default
@@ -82,6 +145,33 @@ namespace Enchante
             Registration.PanelShow(MembershipPlanPanel);
 
         }
+
+        private void ReceptionHomePanelReset()
+        {
+            ParentPanelShow.PanelShow(EnchanteReceptionPage);
+            Transaction.PanelShow(RecTransactionPanel);
+            Inventory.PanelShow(RecInventoryTypePanel);
+        }
+
+        private void StaffHomePanelReset()
+        {
+            ParentPanelShow.PanelShow(EnchanteStaffPage);
+            Transaction.PanelShow(RecTransactionPanel);
+            Inventory.PanelShow(RecInventoryTypePanel);
+        }
+        private void AdminHomePanelReset()
+        {
+            ParentPanelShow.PanelShow(EnchanteAdminPage);
+            Transaction.PanelShow(RecTransactionPanel);
+            Inventory.PanelShow(RecInventoryTypePanel);
+        }
+        private void MemberHomePanelReset()
+        {
+            ParentPanelShow.PanelShow(EnchanteMemberPage);
+            Transaction.PanelShow(RecTransactionPanel);
+            Inventory.PanelShow(RecInventoryTypePanel);
+        }
+
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
 
@@ -477,7 +567,9 @@ namespace Enchante
             {
                 //Test Mngr
                 MessageBox.Show("Welcome back, Manager.", "Login Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ParentPanelShow.PanelShow(EnchanteMngrPage);
+                ReceptionHomePanelReset();
+                RecNameLbl.Text = "Test Receptionist";
+                RecIDNumLbl.Text = "TRec-0000-0000";
                 LoginEmailAddErrorLbl.Visible = false;
                 LoginPassErrorLbl.Visible = false;
                 logincredclear();
@@ -591,7 +683,7 @@ namespace Enchante
                 string password = LoginPassText.Text;
                 string passchecker = HashHelper.HashString(password); // Assuming "enteredPassword" is supposed to be "LoginPassText"
 
-                try
+                try //user member login
                 {
                     connection.Open();
 
@@ -2265,6 +2357,310 @@ namespace Enchante
             else
             {
                 MemberAccountPanel.Visible = false;
+            }
+        }
+
+        //Reception Panel Starts Here
+
+        private void ReceptionLogoutBtn_Click(object sender, EventArgs e)
+        {
+            LogoutChecker();
+
+        }
+
+        private void ReceptionAccBtn_Click(object sender, EventArgs e)
+        {
+            if (ReceptionAccPanel.Visible == false)
+            {
+                ReceptionAccPanel.Visible = true;
+
+            }
+            else
+            {
+                ReceptionAccPanel.Visible = false;
+            }
+        }
+
+        private void RecWalkInBtn_Click(object sender, EventArgs e)
+        {
+            Transaction.PanelShow(RecWalkInPanel);
+        }
+
+        private void RecAppointmentBtn_Click(object sender, EventArgs e)
+        {
+            Transaction.PanelShow(RecAppointmentPanel);
+        }
+
+        private void RecHomeBtn_Click(object sender, EventArgs e)
+        {
+            // Scroll to the Home position (0, 0)
+            ScrollToCoordinates(0, 0);
+            ReceptionHomePanelReset();
+
+            //Change color once clicked
+            RecHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+
+            //Change back to original
+            RecTransactBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            RecInventoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+        }
+
+        private void RecTransactBtn_Click(object sender, EventArgs e)
+        {
+            //ScrollToCoordinates(0, 0);
+            //Change color once clicked
+            RecTransactBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+
+            //Change back to original
+            RecHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            RecInventoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+        }
+
+        private void RecInventoryBtn_Click(object sender, EventArgs e)
+        {
+            //ScrollToCoordinates(0, 0);
+            //Change color once clicked
+            RecInventoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+
+            //Change back to original
+            RecHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            RecTransactBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+        }
+
+        private void RecHomeBtn_MouseHover(object sender, EventArgs e)
+        {
+            iconToolTip.SetToolTip(RecHomeBtn, "Home");
+        }
+
+        private void RecTransactBtn_MouseHover(object sender, EventArgs e)
+        {
+            iconToolTip.SetToolTip(RecTransactBtn, "Transaction");
+        }
+
+        private void RecInventoryBtn_MouseHover(object sender, EventArgs e)
+        {
+            iconToolTip.SetToolTip(RecInventoryBtn, "Inventory");
+        }
+
+        private void ReceptionAccBtn_MouseHover(object sender, EventArgs e)
+        {
+            iconToolTip.SetToolTip(ReceptionAccBtn, "Profile");
+        }
+
+        //Reception walk in transaction starts here
+        private void RecWalkInExitBtn_Click(object sender, EventArgs e)
+        {
+            Transaction.PanelShow(RecTransactionPanel);
+        }
+
+        private void RecInventoryMembershipBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(RecInventoryMembershipPanel);
+
+        }
+
+        private void RecInventoryProductsBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(RecInventoryProductsPanel);
+
+        }
+
+        private void RecInventoryServicesBtn_Click_1(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(RecInventoryServicesPanel);
+
+        }
+
+        private void RecInventoryServicesExitBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(RecInventoryTypePanel);
+
+        }
+
+        private void RecServicesCategoryComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (RecServicesCategoryComboText.SelectedItem != null)
+            {
+                RecServicesCategoryComboText.Text = RecServicesCategoryComboText.SelectedItem.ToString();
+            }
+        }
+
+        private void RecServicesTypeComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (RecServicesTypeComboText.SelectedItem != null)
+            {
+                RecServicesTypeComboText.Text = RecServicesTypeComboText.SelectedItem.ToString();
+            }
+        }
+
+        private void RecServicesCreateBtn_Click(object sender, EventArgs e)
+        {
+            
+            string category = RecServicesCategoryComboText.Text;
+            string type = RecServicesTypeComboText.Text;
+            string name = RecServicesNameText.Text;
+            string describe = RecServicesDescriptionText.Text;
+            string duration = RecServicesDurationText.Text;
+            string price = RecServicesPriceText.Text;
+            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(type) && string.IsNullOrEmpty(category) && string.IsNullOrEmpty(describe)
+                && string.IsNullOrEmpty(duration) && string.IsNullOrEmpty(price))
+            {
+                MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(category) || string.IsNullOrEmpty(describe)
+                || string.IsNullOrEmpty(duration)|| string.IsNullOrEmpty(price))
+            {
+                MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    {
+                        connection.Open();
+                        // Check if email already exists
+                        string checkEmailQuery = "SELECT COUNT(*) FROM services WHERE Name = @name";
+                        MySqlCommand checkEmailCmd = new MySqlCommand(checkEmailQuery, connection);
+                        checkEmailCmd.Parameters.AddWithValue("@name", name);
+
+                        int nameCount = Convert.ToInt32(checkEmailCmd.ExecuteScalar());
+
+                        if (nameCount > 0)
+                        {
+                            // Email already exists, show a message or take appropriate action
+                            MessageBox.Show("Service name already exists. Please use a different name.", "Service Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return; // Exit the method without inserting the new account
+                        }
+                        string insertQuery = "INSERT INTO services (Category, Type, Name, Description, Duration, Price)" +
+                            "VALUES (@category, @type, @name, @describe, @duration, @price)";
+
+                        MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
+                        cmd.Parameters.AddWithValue("@category", category);
+                        cmd.Parameters.AddWithValue("@type", type);
+                        cmd.Parameters.AddWithValue("@name", name);
+                        cmd.Parameters.AddWithValue("@describe", describe);
+                        cmd.Parameters.AddWithValue("@duration", duration);
+                        cmd.Parameters.AddWithValue("@price", price);
+
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // Successful insertion
+                    MessageBox.Show("Salon service is successfully created.", "Enchanté Service", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ServiceBoxClear();
+                    ReceptionLoadServices();
+
+
+                }
+                catch (MySqlException ex)
+                {
+                    // Handle MySQL database exception
+                    MessageBox.Show("MySQL Error: " + ex.Message, "Creating Enchanté Service Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    // Make sure to close the connection
+                    connection.Close();
+                }
+            }
+
+        }
+        private void ServiceBoxClear()
+        {
+            RecServicesCategoryComboText.Text = "";
+            RecServicesTypeComboText.Text = "";
+            RecServicesNameText.Text = "";
+            RecServicesDescriptionText.Text = "";
+            RecServicesDurationText.Text = "";
+            RecServicesPriceText.Text = "";
+
+
+        }
+
+        private void RecServicesUpdateInfoBtn_Click(object sender, EventArgs e)
+        {
+            if (RecInventoryServicesTable.SelectedRows.Count > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Do you want to edit the selected data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    // Iterate through selected rows in PendingTable
+                    foreach (DataGridViewRow selectedRow in RecInventoryServicesTable.SelectedRows)
+                    {
+                        try
+                        {
+                            //// Re data into the database
+                            RetrieveItemDataFromDB(selectedRow);
+
+                        }
+                        catch (Exception ex)
+                        {
+                            // Handle any database-related errors here
+                            MessageBox.Show("Error: " + ex.Message);
+                        }
+                    }
+
+
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select a table row first.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+        }
+        private void RetrieveItemDataFromDB(DataGridViewRow selectedRow)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    string name = selectedRow.Cells[2].Value.ToString();
+
+                    string selectQuery = "SELECT * FROM services WHERE Name = @Name";
+                    MySqlCommand selectCmd = new MySqlCommand(selectQuery, connection);
+                    selectCmd.Parameters.AddWithValue("@Name", name);
+
+                    using (MySqlDataReader reader = selectCmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string serviceCategory = reader["Category"].ToString();
+                            string serviceType= reader["Type"].ToString();
+                            string serviceName = reader["Name"].ToString();
+                            string serviceDescribe = reader["Description"].ToString();
+                            string serviceDuration = reader["Duration"].ToString();
+                            string servicePrice = reader["Price"].ToString();
+
+                            RecServicesCategoryComboText.Text = serviceCategory;
+                            RecServicesTypeComboText.Text = serviceType;
+                            RecServicesNameText.Text = serviceName;
+                            RecServicesDescriptionText.Text = serviceDescribe;
+                            RecServicesDurationText.Text = serviceDuration;
+                            RecServicesPriceText.Text = servicePrice;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Retrieving Food Item Data Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            finally
+            {
+                connection.Close();
             }
         }
     }
