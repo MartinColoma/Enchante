@@ -2483,6 +2483,48 @@ namespace Enchante
             if (RecServicesCategoryComboText.SelectedItem != null)
             {
                 RecServicesCategoryComboText.Text = RecServicesCategoryComboText.SelectedItem.ToString();
+                UpdateServiceTypeComboBox();
+                GenerateServiceID();
+            }
+        }
+
+        private void UpdateServiceTypeComboBox()
+        {
+            RecServicesTypeComboText.Items.Clear();
+
+            // Get the selected category
+            string selectedCategory = RecServicesCategoryComboText.SelectedItem.ToString();
+
+            // Filter and add the relevant service types based on the selected category
+            switch (selectedCategory)
+            {
+                case "Hair Styling":
+                    RecServicesTypeComboText.Items.AddRange(new string[] { "Hair Cut", "Hair Blowout", "Hair Color", "Hair Extension", "Package" });
+                    break;
+                case "Nail Care":
+                    RecServicesTypeComboText.Items.AddRange(new string[] { "Manicure", "Pedicure", "Nail Extension", "Nail Repair", "Package" });
+                    break;
+                case "Face & Skin":
+                    // Add relevant face and skin service types here
+                    RecServicesTypeComboText.Items.AddRange(new string[] { "Skin Whitening", "Exfoliation Treatment", "Chemical Peel", "Hydration Treatment", "Acne Treatment", "Anti-Aging Treatment", "Package" });
+                    break;
+                case "Massage":
+                    // Add relevant massage service types here
+                    RecServicesTypeComboText.Items.AddRange(new string[] { "Soft Massage", "Moderate Massage", "Hard Massage", "Package" });
+
+                    break;
+                case "Spa":
+                    // Add relevant spa service types here
+                    RecServicesTypeComboText.Items.AddRange(new string[] { "Herbal Pool", "Sauna", "Package" });
+                    break;
+                default:
+                    break;
+            }        
+
+            // Select the first item in the list
+            if (RecServicesTypeComboText.Items.Count > 0)
+            {
+                RecServicesTypeComboText.SelectedIndex = 0;
             }
         }
 
@@ -2491,27 +2533,76 @@ namespace Enchante
             if (RecServicesTypeComboText.SelectedItem != null)
             {
                 RecServicesTypeComboText.Text = RecServicesTypeComboText.SelectedItem.ToString();
+                GenerateServiceID();
+
+            }
+        }
+        public class DynamicIDGenerator
+        {
+            private static Random random = new Random();
+
+            public static string GenerateServiceID(string selectedCategory, string selectedType)
+            {
+                // Get the first two characters of the service category
+                string categoryCode = selectedCategory.Substring(0, 2).ToUpper();
+
+                // Get the first character of the service type
+                char typeCode = selectedType[0];
+
+                // Generate a random 6-digit number
+                string randomPart = GenerateRandomNumber();
+
+                // Format the ServiceID
+                string serviceID = $"{categoryCode}-{typeCode}-{randomPart:D6}";
+
+                return serviceID;
+            }
+
+            private static string GenerateRandomNumber()
+            {
+                // Generate a random 6-digit number
+                int randomNumber = random.Next(100000, 999999);
+
+                return randomNumber.ToString();
+            }
+        }
+
+
+        private void GenerateServiceID()
+        {
+            if (RecServicesCategoryComboText.SelectedIndex >= 0 && RecServicesTypeComboText.SelectedIndex >= 0)
+            {
+                // Get the selected items from both combo boxes
+                string selectedCategory = RecServicesCategoryComboText.SelectedItem.ToString();
+                string selectedType = RecServicesTypeComboText.SelectedItem.ToString();
+
+                // Call the GenerateServiceID method
+                string generatedServiceID = DynamicIDGenerator.GenerateServiceID(selectedCategory, selectedType);
+
+                // Update your UI element with the generated ID
+                RecServicesIDNumText.Text = generatedServiceID;
             }
         }
 
         private void RecServicesCreateBtn_Click(object sender, EventArgs e)
         {
-            
             string category = RecServicesCategoryComboText.Text;
             string type = RecServicesTypeComboText.Text;
             string name = RecServicesNameText.Text;
             string describe = RecServicesDescriptionText.Text;
             string duration = RecServicesDurationText.Text;
             string price = RecServicesPriceText.Text;
+            string ID = RecServicesIDNumText.Text;
+
             if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(type) && string.IsNullOrEmpty(category) && string.IsNullOrEmpty(describe)
                 && string.IsNullOrEmpty(duration) && string.IsNullOrEmpty(price))
             {
                 MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(category) || string.IsNullOrEmpty(describe)
+            else if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(category) || string.IsNullOrEmpty(describe)
                 || string.IsNullOrEmpty(duration)|| string.IsNullOrEmpty(price))
-            {
+            { 
                 MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -2524,24 +2615,25 @@ namespace Enchante
                     {
                         connection.Open();
                         // Check if email already exists
-                        string checkEmailQuery = "SELECT COUNT(*) FROM services WHERE Name = @name";
-                        MySqlCommand checkEmailCmd = new MySqlCommand(checkEmailQuery, connection);
-                        checkEmailCmd.Parameters.AddWithValue("@name", name);
+                        string checkIDQuery = "SELECT COUNT(*) FROM services WHERE ServiceID = @ID";
+                        MySqlCommand checkIDCmd = new MySqlCommand(checkIDQuery, connection);
+                        checkIDCmd.Parameters.AddWithValue("@ID", ID);
 
-                        int nameCount = Convert.ToInt32(checkEmailCmd.ExecuteScalar());
+                        int ID_Count = Convert.ToInt32(checkIDCmd.ExecuteScalar());
 
-                        if (nameCount > 0)
+                        if (ID_Count > 0)
                         {
                             // Email already exists, show a message or take appropriate action
-                            MessageBox.Show("Service name already exists. Please use a different name.", "Service Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Service ID already exists. Please use a different ID Number.", "Salon Service Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return; // Exit the method without inserting the new account
                         }
-                        string insertQuery = "INSERT INTO services (Category, Type, Name, Description, Duration, Price)" +
-                            "VALUES (@category, @type, @name, @describe, @duration, @price)";
+                        string insertQuery = "INSERT INTO services (Category, Type, ServiceID, Name, Description, Duration, Price)" +
+                            "VALUES (@category, @type, @ID, @name, @describe, @duration, @price)";
 
                         MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
                         cmd.Parameters.AddWithValue("@category", category);
-                        cmd.Parameters.AddWithValue("@type", type);
+                        cmd.Parameters.AddWithValue("@type", type); 
+                        cmd.Parameters.AddWithValue("@ID", ID);
                         cmd.Parameters.AddWithValue("@name", name);
                         cmd.Parameters.AddWithValue("@describe", describe);
                         cmd.Parameters.AddWithValue("@duration", duration);
@@ -2578,7 +2670,7 @@ namespace Enchante
             RecServicesDescriptionText.Text = "";
             RecServicesDurationText.Text = "";
             RecServicesPriceText.Text = "";
-
+            RecServicesIDNumText.Text = "";
 
         }
 
@@ -2596,8 +2688,11 @@ namespace Enchante
                         try
                         {
                             //// Re data into the database
-                            RetrieveItemDataFromDB(selectedRow);
-
+                            RetrieveServiceDataFromDB(selectedRow);
+                            RecServicesUpdateBtn.Visible = true;
+                            RecServicesCreateBtn.Visible = false;
+                            RecServicesCategoryComboText.Enabled = false;
+                            RecServicesTypeComboText.Enabled = false;
                         }
                         catch (Exception ex)
                         {
@@ -2618,7 +2713,7 @@ namespace Enchante
                 MessageBox.Show("Select a table row first.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
-        private void RetrieveItemDataFromDB(DataGridViewRow selectedRow)
+        private void RetrieveServiceDataFromDB(DataGridViewRow selectedRow)
         {
             try
             {
@@ -2626,11 +2721,11 @@ namespace Enchante
                 {
                     connection.Open();
 
-                    string name = selectedRow.Cells[2].Value.ToString();
+                    string ID = selectedRow.Cells[2].Value.ToString();
 
-                    string selectQuery = "SELECT * FROM services WHERE Name = @Name";
+                    string selectQuery = "SELECT * FROM services WHERE ServiceID = @ID";
                     MySqlCommand selectCmd = new MySqlCommand(selectQuery, connection);
-                    selectCmd.Parameters.AddWithValue("@Name", name);
+                    selectCmd.Parameters.AddWithValue("@ID", ID);
 
                     using (MySqlDataReader reader = selectCmd.ExecuteReader())
                     {
@@ -2638,6 +2733,7 @@ namespace Enchante
                         {
                             string serviceCategory = reader["Category"].ToString();
                             string serviceType= reader["Type"].ToString();
+                            string serviceID = reader["ServiceID"].ToString();
                             string serviceName = reader["Name"].ToString();
                             string serviceDescribe = reader["Description"].ToString();
                             string serviceDuration = reader["Duration"].ToString();
@@ -2645,6 +2741,7 @@ namespace Enchante
 
                             RecServicesCategoryComboText.Text = serviceCategory;
                             RecServicesTypeComboText.Text = serviceType;
+                            RecServicesIDNumText.Text = serviceID;
                             RecServicesNameText.Text = serviceName;
                             RecServicesDescriptionText.Text = serviceDescribe;
                             RecServicesDurationText.Text = serviceDuration;
@@ -2662,6 +2759,92 @@ namespace Enchante
             {
                 connection.Close();
             }
+        }
+
+
+        private void RecServicesUpdateBtn_Click(object sender, EventArgs e)
+        {
+            string category = RecServicesCategoryComboText.Text;
+            string type = RecServicesTypeComboText.Text;
+            string name = RecServicesNameText.Text;
+            string describe = RecServicesDescriptionText.Text;
+            string duration = RecServicesDurationText.Text;
+            string price = RecServicesPriceText.Text;
+            string ID = RecServicesIDNumText.Text;
+
+            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(type) && string.IsNullOrEmpty(category) && string.IsNullOrEmpty(describe)
+                && string.IsNullOrEmpty(duration) && string.IsNullOrEmpty(price))
+            {
+                MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(category) || string.IsNullOrEmpty(describe)
+                || string.IsNullOrEmpty(duration) || string.IsNullOrEmpty(price))
+            {
+                MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    {
+                        connection.Open();
+
+                        // Check if the employee with the given Employee ID exists
+                        string checkExistQuery = "SELECT COUNT(*) FROM services WHERE ServiceID = @ID";
+                        MySqlCommand checkExistCmd = new MySqlCommand(checkExistQuery, connection);
+                        checkExistCmd.Parameters.AddWithValue("@ID", ID);
+                        int serviceCount = Convert.ToInt32(checkExistCmd.ExecuteScalar());
+
+                        if (serviceCount == 0)
+                        {
+                            MessageBox.Show("Service with the provided ID does not exist in the database.", "Service Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+
+                        // Update without image
+                        string updateQuery = "UPDATE services SET Category = @category, Type = @type, Name = @name, Description = @describe, Duration = @duration, Price = @price " +
+                            "WHERE ServiceID = @ID";
+                        MySqlCommand updateCmd = new MySqlCommand(updateQuery, connection);
+                        updateCmd.Parameters.AddWithValue("@category", category);
+                        updateCmd.Parameters.AddWithValue("@type", type);
+                        updateCmd.Parameters.AddWithValue("@ID", ID);
+                        updateCmd.Parameters.AddWithValue("@name", name);
+                        updateCmd.Parameters.AddWithValue("@describe", describe);
+                        updateCmd.Parameters.AddWithValue("@duration", duration);
+                        updateCmd.Parameters.AddWithValue("@price", price);
+
+                        updateCmd.ExecuteNonQuery();
+
+                    }
+
+                    // Successful update
+                    MessageBox.Show("Service information has been successfully updated.", "Service Info Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RecServicesCreateBtn.Visible = true;
+                    RecServicesUpdateBtn.Visible = false; 
+                    RecServicesCategoryComboText.Enabled = true;
+                    RecServicesTypeComboText.Enabled = true;
+                    RecServicesCategoryComboText.SelectedIndex = -1;
+                    RecServicesTypeComboText.SelectedIndex= -1;
+                    ServiceBoxClear();
+                    ReceptionLoadServices();
+
+
+                }
+                catch (MySqlException ex)
+                {
+                    // Handle MySQL database exception
+                    MessageBox.Show("MySQL Error: " + ex.Message, "Updating Service Information Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+
         }
     }
 }
