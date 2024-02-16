@@ -14,6 +14,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Transactions;
+using System.Windows.Documents;
 using System.Windows.Forms;
 
 namespace Enchante
@@ -2469,6 +2470,7 @@ namespace Enchante
         private void RecInventoryServicesBtn_Click_1(object sender, EventArgs e)
         {
             Inventory.PanelShow(RecInventoryServicesPanel);
+            ReceptionLoadServices();
 
         }
 
@@ -2502,7 +2504,7 @@ namespace Enchante
                     RecServicesTypeComboText.Items.AddRange(new string[] { "Hair Cut", "Hair Blowout", "Hair Color", "Hair Extension", "Package" });
                     break;
                 case "Nail Care":
-                    RecServicesTypeComboText.Items.AddRange(new string[] { "Manicure", "Pedicure", "Nail Extension", "Nail Repair", "Package" });
+                    RecServicesTypeComboText.Items.AddRange(new string[] { "Manicure", "Pedicure", "Nail Extension", "Nail Art", "Nail Treatment", "Nail Repair", "Package" });
                     break;
                 case "Face & Skin":
                     // Add relevant face and skin service types here
@@ -2646,6 +2648,7 @@ namespace Enchante
                     MessageBox.Show("Salon service is successfully created.", "Enchanté Service", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ServiceBoxClear();
                     ReceptionLoadServices();
+                    GenerateServiceID();
 
 
                 }
@@ -2845,6 +2848,341 @@ namespace Enchante
                 }
             }
 
+        }
+
+        private void RecWalkInCatHSBtn_Click(object sender, EventArgs e)
+        {
+            HairStyle();
+        }
+
+        private void RecWalkInCatFSBtn_Click(object sender, EventArgs e)
+        {
+            LoadServiceTypeComboBox("Face & Skin");
+        }
+
+        private void RecWalkInCatNCBtn_Click(object sender, EventArgs e)
+        {
+            LoadServiceTypeComboBox("Nail Care");
+
+        }
+
+        private void RecWalkInCatSpaBtn_Click(object sender, EventArgs e)
+        {
+            LoadServiceTypeComboBox("Spa");
+
+        }
+
+        private void RecWalkInCatMassageBtn_Click(object sender, EventArgs e)
+        {
+            LoadServiceTypeComboBox("Massage");
+
+        }
+        private void HairStyle()
+        {
+            if (RecWalkInCatHSRB.Checked == false)
+            {
+                RecWalkInCatHSRB.Visible = true;
+                RecWalkInCatHSRB.Checked = true;
+                LoadServiceTypeComboBox("Hair Styling");
+
+                RecWalkInCatFSRB.Visible = false;
+                RecWalkInCatNCRB.Visible = false;
+                RecWalkInCatSpaRB.Visible = false;
+                RecWalkInCatMassageRB.Visible = false;
+                RecWalkInCatFSRB.Checked = false;
+                RecWalkInCatNCRB.Checked = false;
+                RecWalkInCatSpaRB.Checked = false;
+                RecWalkInCatMassageRB.Checked = false;
+                return;
+            }
+            else if (SVIPMonthlyPlanRB.Checked == true)
+            {
+                RecWalkInCatHSRB.Visible = true;
+                RecWalkInCatHSRB.Checked = true;
+                LoadServiceTypeComboBox("Hair Styling");
+
+                RecWalkInCatFSRB.Visible = false;
+                RecWalkInCatNCRB.Visible = false;
+                RecWalkInCatSpaRB.Visible = false;
+                RecWalkInCatMassageRB.Visible = false;
+                RecWalkInCatFSRB.Checked = false;
+                RecWalkInCatNCRB.Checked = false;
+                RecWalkInCatSpaRB.Checked = false;
+                RecWalkInCatMassageRB.Checked = false;
+            }
+        }
+        public void ReceptionLoadHairStyleType()
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    // Filter and sort the data by FoodType
+                    string sql = "SELECT * FROM `services` WHERE Category = 'Hair Styling' ORDER BY Category";
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+                        RecWalkInServiceTypeTable.Columns.Clear();
+
+
+                        RecWalkInServiceTypeTable.DataSource = dataTable;
+
+                        RecWalkInServiceTypeTable.Columns[0].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[1].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[2].Visible = false;
+                        RecWalkInServiceTypeTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("An error occurred: " + e.Message, "Cashier Burger Item List");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public void ReceptionFaceSkinType()
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    // Filter and sort the data by FoodType
+                    string sql = "SELECT * FROM `services` WHERE Category = 'Face & Skin' ORDER BY Category";
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+                        RecWalkInServiceTypeTable.Columns.Clear();
+
+
+                        RecWalkInServiceTypeTable.DataSource = dataTable;
+
+                        RecWalkInServiceTypeTable.Columns[0].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[1].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[2].Visible = false;
+                        RecWalkInServiceTypeTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("An error occurred: " + e.Message, "Cashier Burger Item List");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public void ReceptionNailCareType()
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    // Filter and sort the data by FoodType
+                    string sql = "SELECT * FROM `services` WHERE Category = 'Nail Care' ORDER BY Category";
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+                        RecWalkInServiceTypeTable.Columns.Clear();
+
+
+                        RecWalkInServiceTypeTable.DataSource = dataTable;
+
+                        RecWalkInServiceTypeTable.Columns[0].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[1].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[2].Visible = false;
+                        RecWalkInServiceTypeTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("An error occurred: " + e.Message, "Cashier Burger Item List");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public void ReceptionSpaType()
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    // Filter and sort the data by FoodType
+                    string sql = "SELECT * FROM `services` WHERE Category = 'Spa' ORDER BY Category";
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+                        RecWalkInServiceTypeTable.Columns.Clear();
+
+
+                        RecWalkInServiceTypeTable.DataSource = dataTable;
+
+                        RecWalkInServiceTypeTable.Columns[0].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[1].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[2].Visible = false;
+                        RecWalkInServiceTypeTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("An error occurred: " + e.Message, "Cashier Burger Item List");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public void ReceptionMassageType()
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    // Filter and sort the data by FoodType
+                    string sql = "SELECT * FROM `services` WHERE Category = 'Massage' ORDER BY Category";
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+                        RecWalkInServiceTypeTable.Columns.Clear();
+
+
+                        RecWalkInServiceTypeTable.DataSource = dataTable;
+
+                        RecWalkInServiceTypeTable.Columns[0].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[1].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[2].Visible = false;
+                        RecWalkInServiceTypeTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("An error occurred: " + e.Message, "Cashier Burger Item List");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        private void LoadServiceTypeComboBox(string selectedCategory)
+        {
+             // Filter and add the relevant service types based on the selected category
+            switch (selectedCategory)
+            {
+                case "Hair Styling":
+                    ReceptionLoadHairStyleType();
+                    break;
+                case "Nail Care":
+                    ReceptionNailCareType();
+                    break;
+                case "Face & Skin":
+                    ReceptionFaceSkinType();
+                    break;
+                case "Massage":
+                    ReceptionMassageType();
+                    break;
+                case "Spa":
+                    ReceptionSpaType();
+                    break;
+                default:
+                    break;
+            }
+
+        }
+        private void SearchAcrossCategories(string searchText)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    // Modify the query to search for the specified text in all categories
+                    string sql = "SELECT * FROM `services` WHERE " +
+                                 "(Name LIKE @searchText OR " +
+                                 "Description LIKE @searchText OR " +
+                                 "Duration LIKE @searchText OR " +
+                                 "Price LIKE @searchText)";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    cmd.Parameters.AddWithValue("@searchText", "%" + searchText + "%");
+
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+                        RecWalkInServiceTypeTable.Columns.Clear();
+
+                        RecWalkInServiceTypeTable.DataSource = dataTable;
+
+                        // Adjust column visibility and sizing as needed
+                        RecWalkInServiceTypeTable.Columns[0].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[1].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[2].Visible = false;
+                        RecWalkInServiceTypeTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("An error occurred: " + e.Message, "Error");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
+        private void RecWalkInSearchServiceTypeText_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = RecWalkInSearchServiceTypeText.Text;
+            SearchAcrossCategories(searchText);
+        }
+
+        private void RecWalkInSearchServiceTypeBtn_Click(object sender, EventArgs e)
+        {
+            string searchText = RecWalkInSearchServiceTypeText.Text;
+            SearchAcrossCategories(searchText);
         }
     }
 }
