@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using iTextSharp.text.pdf;
+using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Asn1.X509;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ using System.Threading.Tasks;
 using System.Transactions;
 using System.Windows.Documents;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Enchante
 {
@@ -46,6 +48,13 @@ namespace Enchante
         "Pedicure", "Nail Extension", "Nail Repair", "Package", "Skin Whitening", "Exfoliation Treatment", "Chemical Peel",
         "Hydration Treatment", "Acne Treatment", "Anti-aging Treatment", "Soft Massage", "Moderate Massage", "Hard Massage",
         "Herbal Pool", "Sauna"};
+        //admin employee combobox
+        private string[] emplType = {"Admin", "Manager", "Staff"};
+        private string[] emplCategories = { "Hair Styling", "Face & Skin", "Nail Care", "Massage", "Spa" };
+        private string[] emplCatLevels = { "Junior", "Assistant", "Senior"};
+
+
+
 
         public Enchante()
         {
@@ -82,6 +91,16 @@ namespace Enchante
             RecServicesCategoryComboText.DropDownStyle = ComboBoxStyle.DropDownList;
             RecServicesTypeComboText.Items.AddRange(Service_type);
             RecServicesTypeComboText.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            //admin combobox
+            AdminGenderComboText.Items.AddRange(genders);
+            AdminGenderComboText.DropDownStyle = ComboBoxStyle.DropDownList; 
+            AdminEmplTypeComboText.Items.AddRange(emplType);
+            AdminEmplTypeComboText.DropDownStyle = ComboBoxStyle.DropDownList;
+            AdminEmplCatComboText.Items.AddRange(emplCategories);
+            AdminEmplCatComboText.DropDownStyle = ComboBoxStyle.DropDownList;
+            AdminEmplCatLvlComboText.Items.AddRange(emplCatLevels);
+            AdminEmplCatLvlComboText.DropDownStyle = ComboBoxStyle.DropDownList;
 
         }
 
@@ -538,6 +557,7 @@ namespace Enchante
                 //Test Admin
                 MessageBox.Show("Welcome back, Admin.", "Login Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ParentPanelShow.PanelShow(EnchanteAdminPage);
+                PopulateUserInfoDataGrid();
                 LoginEmailAddErrorLbl.Visible = false;
                 LoginPassErrorLbl.Visible = false;
 
@@ -3183,6 +3203,589 @@ namespace Enchante
         {
             string searchText = RecWalkInSearchServiceTypeText.Text;
             SearchAcrossCategories(searchText);
+        }
+
+        private void AdminSignOutBtn_Click_1(object sender, EventArgs e)
+        {
+            LogoutChecker();
+
+        }
+
+        private void AdminAccUserBtn_Click(object sender, EventArgs e)
+        {
+            if (AdminAccUserPanel.Visible == false)
+            {
+                AdminAccUserPanel.Visible = true;
+
+            }
+            else
+            {
+                AdminAccUserPanel.Visible = false;
+            }
+        }
+
+        private void AdminBdayPicker_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime selectedDate = AdminBdayPicker.Value;
+            int age = DateTime.Now.Year - selectedDate.Year;
+
+            if (DateTime.Now < selectedDate.AddYears(age))
+            {
+                age--; // Subtract 1 if the birthday hasn't occurred yet this year
+            }
+            AdminAgeText.Text = age.ToString();
+            if (age < 18)
+            {
+                AdminAgeErrorLbl.Visible = true;
+                AdminAgeErrorLbl.Text = "Must be 18 years old and above";
+                return;
+            }
+            else
+            {
+                AdminAgeErrorLbl.Visible = false;
+
+            }
+        }
+        private string selectedHashedPerUser;
+
+        private void AdminEditAccBtn_Click(object sender, EventArgs e)
+        {
+            DateTime selectedDate = RegularBdayPicker.Value;
+            DateTime currentDate = DateTime.Now;
+
+            string fname = AdminFirstNameText.Text;
+            string lname = AdminLastNameText.Text;
+            string bday = selectedDate.ToString("MM-dd-yyyy");
+            string age = AdminAgeText.Text;
+            string gender = AdminGenderComboText.Text;
+            string cpnum = AdminCPNumText.Text;
+            string emplType = AdminEmplTypeComboText.Text;
+            string emplCat = AdminEmplCatComboText.Text;
+            string emplCatLvl = AdminEmplCatLvlComboText.Text;
+            string emplID = AdminEmplIDText.Text;
+            string email = AdminEmailText.Text;
+            string pass = AdminPassText.Text;
+            string confirm = AdminConfirmPassText.Text;
+
+            string hashedPassword = HashHelper.HashString(pass);    // Password hashed
+            string fixedSalt = HashHelper_Salt.HashString_Salt("Enchante" + pass + "2024");    //Fixed Salt
+            string perUserSalt = HashHelper_SaltperUser.HashString_SaltperUser(pass + emplID);    //Per User salt
+
+            if (AdminAccountTable.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = AdminAccountTable.SelectedRows[0];
+
+                bool rowIsEmpty = true;
+                foreach (DataGridViewCell cell in selectedRow.Cells)
+                {
+                    if (!string.IsNullOrEmpty(cell.Value?.ToString()))
+                    {
+                        rowIsEmpty = false;
+                        break;
+                    }
+                }
+
+                if (rowIsEmpty)
+                {
+                    MessageBox.Show("The selected row is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                AdminFirstNameText.Text = selectedRow.Cells["FirstName"].Value?.ToString();
+                AdminLastNameText.Text = selectedRow.Cells["LastName"].Value?.ToString();
+                AdminEmailText.Text = selectedRow.Cells["Email"].Value?.ToString();
+                AdminAgeText.Text = selectedRow.Cells["Age"].Value?.ToString();
+                AdminGenderComboText.SelectedItem = selectedRow.Cells["Gender"].Value?.ToString();
+                AdminCPNumText.Text = selectedRow.Cells["PhoneNumber"].Value?.ToString();
+                AdminEmplTypeComboText.SelectedItem = selectedRow.Cells["EmployeeType"].Value?.ToString();
+                AdminEmplCatComboText.SelectedItem = selectedRow.Cells["EmployeeCategory"].Value?.ToString();
+                AdminEmplCatLvlComboText.SelectedItem= selectedRow.Cells["EmployeeCategoryLevel"].Value?.ToString();
+                AdminEmplIDText.Text = selectedRow.Cells["EmployeeID"].Value?.ToString();
+
+                string birthdayString = selectedRow.Cells["Birthday"].Value?.ToString() ?? string.Empty;
+                DateTime birthday;
+                if (!string.IsNullOrEmpty(birthdayString) && DateTime.TryParseExact(birthdayString, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out birthday))
+                {
+                    AdminBdayPicker.Value = birthday.Date;
+                }
+                else if (string.IsNullOrEmpty(birthdayString))
+                {
+                    AdminBdayPicker.Value = DateTime.Today;
+                }
+                else
+                {
+                    MessageBox.Show("Invalid date format in the 'Birthday' column.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                selectedHashedPerUser = selectedRow.Cells["HashedPerUser"].Value?.ToString();
+                AdminEmplTypeComboText.Enabled = false;
+                AdminEmplCatComboText.Enabled = false;
+                AdminCreateAccBtn.Visible = false;
+                AdminUpdateAccBtn.Visible = true;
+
+            }
+            else
+            {
+                MessageBox.Show("Please select a row first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void AdminEmplTypeComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (AdminEmplTypeComboText.SelectedItem != null)
+            {
+                string selectedEmpType = AdminEmplTypeComboText.SelectedItem?.ToString() ?? string.Empty;
+
+                if (selectedEmpType == "Admin" || selectedEmpType == "Manager")
+                {
+                    AdminEmplCatComboText.SelectedIndex = AdminEmplCatComboText.Items.IndexOf("Not Applicable");
+                    AdminEmplCatLvlComboText.SelectedIndex = AdminEmplCatLvlComboText.Items.IndexOf("Not Applicable");
+                    AdminEmplCatComboText.Enabled = false;
+                    AdminEmplCatLvlComboText.Enabled = false;
+                    AdminGenerateID();
+                }
+                else if (selectedEmpType == "Staff")
+                {
+                    AdminEmplCatComboText.SelectedIndex = -1;
+                    AdminEmplCatLvlComboText.SelectedIndex = -1;
+                    AdminEmplCatComboText.Enabled = true;
+                    AdminEmplCatLvlComboText.Enabled = true;
+                    AdminGenerateID();
+                }
+            }
+        }
+
+        private void AdminEmplCatLvlComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (AdminEmplCatLvlComboText.SelectedItem != null)
+            {
+                AdminEmplCatLvlComboText.Text = AdminEmplCatLvlComboText.SelectedItem.ToString();
+                AdminGenerateID();
+            }
+        }
+
+        private void AdminEmplCatComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (AdminEmplCatComboText.SelectedItem != null)
+            {
+                AdminEmplCatComboText.Text = AdminEmplCatComboText.SelectedItem.ToString();
+                AdminGenerateID();
+            }
+        }
+
+        private void AdminShowHidePassBtn_Click(object sender, EventArgs e)
+        {
+            if (AdminPassText.UseSystemPasswordChar == true)
+            {
+                AdminPassText.UseSystemPasswordChar = false;
+                AdminShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            }
+            else if (AdminPassText.UseSystemPasswordChar == false)
+            {
+                AdminPassText.UseSystemPasswordChar = true;
+                AdminShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+
+            }
+        }
+
+        private void AdminShowHideConfirmPassBtn_Click(object sender, EventArgs e)
+        {
+            if (AdminConfirmPassText.UseSystemPasswordChar == true)
+            {
+                AdminConfirmPassText.UseSystemPasswordChar = false;
+                AdminShowHideConfirmPassBtn.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            }
+            else if (AdminConfirmPassText.UseSystemPasswordChar == false)
+            {
+                AdminConfirmPassText.UseSystemPasswordChar = true;
+                AdminShowHideConfirmPassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+
+            }
+        }
+
+        private void AdminConfirmPassText_TextChanged(object sender, EventArgs e)
+        {
+            if (AdminConfirmPassText.Text != AdminPassText.Text)
+            {
+                AdminConfirmPassErrorLbl.Visible = true;
+                AdminConfirmPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
+            }
+            else
+            {
+                AdminConfirmPassErrorLbl.Visible = false;
+            }
+        }
+        private bool ContainsNumbers(string input)
+        {
+            return input.Any(char.IsDigit);
+        }
+        private bool IsNumeric(string input)
+        {
+            foreach (char c in input)
+            {
+                if (!char.IsDigit(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        private void AdminCreateAccBtn_Click(object sender, EventArgs e)
+        {
+            DateTime selectedDate = RegularBdayPicker.Value;
+            DateTime currentDate = DateTime.Now;
+
+            string fname = AdminFirstNameText.Text;
+            string lname = AdminLastNameText.Text;
+            string bday = selectedDate.ToString("MM-dd-yyyy");
+            string age = AdminAgeText.Text;
+            string gender = AdminGenderComboText.Text;
+            string cpnum = AdminCPNumText.Text;
+            string emplType = AdminEmplTypeComboText.Text;
+            string emplCat = AdminEmplCatComboText.Text;
+            string emplCatLvl = AdminEmplCatLvlComboText.Text;
+            string emplID = AdminEmplIDText.Text;
+            string email = AdminEmailText.Text;
+            string pass = AdminPassText.Text;
+            string confirm = AdminConfirmPassText.Text;
+
+            string hashedPassword = HashHelper.HashString(pass);    // Password hashed
+            string fixedSalt = HashHelper_Salt.HashString_Salt("Enchante" + pass + "2024");    //Fixed Salt
+            string perUserSalt = HashHelper_SaltperUser.HashString_SaltperUser(pass + emplID);    //Per User salt
+
+
+            if (string.IsNullOrWhiteSpace(fname) || string.IsNullOrWhiteSpace(lname) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(age) ||
+               string.IsNullOrWhiteSpace(cpnum) || string.IsNullOrWhiteSpace(emplID) || string.IsNullOrWhiteSpace(pass) || string.IsNullOrWhiteSpace(confirm) ||
+               AdminBdayPicker.Value == null || AdminGenderComboText.SelectedItem == null || AdminEmplTypeComboText.SelectedItem == null || AdminEmplCatComboText.SelectedItem == null || AdminEmplCatLvlComboText.SelectedItem == null)
+            {
+                MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (ContainsNumbers(fname))
+            {
+                MessageBox.Show("First Name should not contain numbers.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (ContainsNumbers(lname))
+            {
+                MessageBox.Show("Last Name should not contain numbers.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!email.Contains("@") || !email.Contains(".com"))
+            {
+                MessageBox.Show("Invalid email format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!IsNumeric(age))
+            {
+                MessageBox.Show("Invalid Age.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!IsNumeric(cpnum))
+            {
+                MessageBox.Show("Invalid Phone Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (pass != confirm)
+            {
+                MessageBox.Show("Passwords do not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    {
+                        connection.Open();
+
+                        string query = "INSERT INTO systemusers (FirstName, LastName, Email, Birthday, Age, Gender, PhoneNumber, EmployeeType, EmployeeCategory, EmployeeCategoryLevel, EmployeeID, HashedPass, HashedFixedSalt, HashedPerUser) " +
+                                       "VALUES (@FirstName, @LastName, @Email, @Birthday, @Age, @Gender, @PhoneNumber, @EmployeeType, @EmployeeCategory, @EmployeeCategoryLevel, @EmployeeID, @HashedPass, @HashedFixedSalt, @HashedPerUser)";
+
+                        MySqlCommand command = new MySqlCommand(query, connection);
+                        command.Parameters.AddWithValue("@FirstName", fname);
+                        command.Parameters.AddWithValue("@LastName", lname);
+                        command.Parameters.AddWithValue("@Email", email);
+                        command.Parameters.AddWithValue("@Birthday", bday);
+                        command.Parameters.AddWithValue("@Age", int.Parse(age));
+                        command.Parameters.AddWithValue("@Gender", gender);
+                        command.Parameters.AddWithValue("@PhoneNumber", cpnum);
+                        command.Parameters.AddWithValue("@EmployeeType", emplType);
+                        command.Parameters.AddWithValue("@EmployeeCategory", emplCat);
+                        command.Parameters.AddWithValue("@EmployeeCategoryLevel", emplCatLvl);
+                        command.Parameters.AddWithValue("@EmployeeID", emplID);
+                        command.Parameters.AddWithValue("@HashedPass", hashedPassword);
+                        command.Parameters.AddWithValue("@HashedFixedSalt", fixedSalt);
+                        command.Parameters.AddWithValue("@HashedPerUser", perUserSalt);
+
+                        command.ExecuteNonQuery();
+
+                        MessageBox.Show("Registered Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        PopulateUserInfoDataGrid();
+                        ClearFields();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void ClearFields()
+        {
+            AdminFirstNameText.Text = "";
+            AdminLastNameText.Text = "";
+            AdminBdayPicker.Value = DateTime.Now;
+            AdminAgeText.Text = "";
+            AdminGenderComboText.Text = "";
+            AdminCPNumText.Text = "";
+            AdminEmplTypeComboText.Text = "";
+            AdminEmplCatComboText.Text = "";
+            AdminEmplCatLvlComboText.Text = "";
+            AdminEmplIDText.Text = "";
+            AdminPassText.Text = "";
+            AdminConfirmPassText.Text = "";
+        }
+        private void AdminUpdateAccBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(AdminFirstNameText.Text) || string.IsNullOrWhiteSpace(AdminLastNameText.Text) || string.IsNullOrWhiteSpace(AdminEmailText.Text) || string.IsNullOrWhiteSpace(AdminAgeText.Text) ||
+    string.IsNullOrWhiteSpace(AdminCPNumText.Text) || string.IsNullOrWhiteSpace(AdminEmplIDText.Text) || AdminBdayPicker.Value == null || AdminGenderComboText.SelectedItem == null || AdminEmplTypeComboText.SelectedItem == null ||
+    AdminEmplCatComboText.SelectedItem == null || AdminEmplCatLvlComboText.SelectedItem == null)
+            {
+                MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (ContainsNumbers(AdminFirstNameText.Text))
+            {
+                MessageBox.Show("First Name should not contain numbers.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (ContainsNumbers(AdminLastNameText.Text))
+            {
+                MessageBox.Show("Last Name should not contain numbers.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!AdminEmailText.Text.Contains("@") || !AdminEmailText.Text.Contains(".com"))
+            {
+                MessageBox.Show("Invalid email format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!IsNumeric(AdminAgeText.Text))
+            {
+                MessageBox.Show("Invalid Age.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!IsNumeric(AdminCPNumText.Text))
+            {
+                MessageBox.Show("Invalid Phone Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (selectedHashedPerUser != null)
+            {
+                string connectionString = "Server=localhost;Database=enchante;User=root;Password=;";
+                string query = @"UPDATE systemusers 
+                 SET FirstName = @FirstName, 
+                     LastName = @LastName, 
+                     Email = @Email, 
+                     Birthday = @Birthday, 
+                     Age = @Age, 
+                     Gender = @Gender, 
+                     PhoneNumber = @PhoneNumber, 
+                     EmployeeType = @EmployeeType, 
+                     EmployeeCategory = @EmployeeCategory, 
+                     EmployeeCategoryLevel = @EmployeeCategoryLevel, 
+                     EmployeeID = @EmployeeID 
+                 WHERE HashedPerUser = @HashedPerUser";
+
+                try
+                {
+                    bool fieldsChanged = false;
+                    string selectQuery = "SELECT FirstName, LastName, Email, Birthday, Age, Gender, PhoneNumber, EmployeeType, EmployeeCategory, EmployeeCategoryLevel, EmployeeID FROM systemusers WHERE HashedPerUser = @HashedPerUser";
+
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        connection.Open();
+
+                        using (MySqlCommand selectCommand = new MySqlCommand(selectQuery, connection))
+                        {
+                            selectCommand.Parameters.AddWithValue("@HashedPerUser", selectedHashedPerUser);
+
+                            using (MySqlDataReader reader = selectCommand.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    if (reader["FirstName"].ToString() != AdminFirstNameText.Text ||
+                                        reader["LastName"].ToString() != AdminLastNameText.Text ||
+                                        reader["Email"].ToString() != AdminEmailText.Text ||
+                                        !DateTime.TryParse(reader["Birthday"].ToString(), out DateTime birthday) || birthday != AdminBdayPicker.Value ||
+                                        Convert.ToInt32(reader["Age"]) != int.Parse(AdminAgeText.Text) ||
+                                        reader["Gender"].ToString() != AdminGenderComboText.SelectedItem.ToString() ||
+                                        reader["PhoneNumber"].ToString() != AdminCPNumText.Text ||
+                                        reader["EmployeeType"].ToString() != AdminEmplTypeComboText.SelectedItem.ToString() ||
+                                        reader["EmployeeCategory"].ToString() != AdminEmplCatComboText.SelectedItem.ToString() ||
+                                        reader["EmployeeCategoryLevel"].ToString() != AdminEmplCatLvlComboText.SelectedItem.ToString() ||
+                                        reader["EmployeeID"].ToString() != AdminEmplIDText.Text)
+                                    {
+                                        fieldsChanged = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    if (fieldsChanged)
+                    {
+                        using (MySqlConnection connection = new MySqlConnection(connectionString))
+                        {
+                            connection.Open();
+
+                            using (MySqlCommand command = new MySqlCommand(query, connection))
+                            {
+                                command.Parameters.AddWithValue("@FirstName", AdminFirstNameText.Text);
+                                command.Parameters.AddWithValue("@LastName", AdminLastNameText.Text);
+                                command.Parameters.AddWithValue("@Email", AdminEmailText.Text);
+                                command.Parameters.AddWithValue("@Birthday", AdminBdayPicker.Value);
+                                command.Parameters.AddWithValue("@Age", int.Parse(AdminAgeText.Text));
+                                command.Parameters.AddWithValue("@Gender", AdminGenderComboText.SelectedItem.ToString());
+                                command.Parameters.AddWithValue("@PhoneNumber", AdminCPNumText.Text);
+                                command.Parameters.AddWithValue("@EmployeeType", AdminEmplTypeComboText.SelectedItem.ToString());
+                                command.Parameters.AddWithValue("@EmployeeCategory", AdminEmplCatComboText.SelectedItem.ToString());
+                                command.Parameters.AddWithValue("@EmployeeCategoryLevel", AdminEmplCatLvlComboText.SelectedItem.ToString());
+                                command.Parameters.AddWithValue("@EmployeeID", AdminEmplIDText.Text);
+                                command.Parameters.AddWithValue("@HashedPerUser", selectedHashedPerUser);
+
+                                int rowsAffected = command.ExecuteNonQuery();
+
+                                if (rowsAffected > 0)
+                                {
+                                    MessageBox.Show("Data updated successfully.", "Success", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                                    PopulateUserInfoDataGrid();
+                                    AdminEmplTypeComboText.Enabled = true;
+                                    AdminEmplCatComboText.Enabled = true;
+                                    AdminCreateAccBtn.Visible = true;
+                                    AdminUpdateAccBtn.Visible = false;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No rows updated.", "Information", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No changes have been made.", "Information", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void AdminGenderComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (AdminGenderComboText.SelectedItem != null)
+            {
+                AdminGenderComboText.Text = AdminGenderComboText.SelectedItem.ToString();
+            }
+        }
+        private void PopulateUserInfoDataGrid()
+        {
+            string connectionString = "Server=localhost;Database=enchante;User=root;Password=;";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT FirstName, LastName, Email, Birthday, Age, Gender, PhoneNumber, EmployeeType, EmployeeCategory, EmployeeCategoryLevel, EmployeeID, HashedPass, HashedFixedSalt, HashedPerUser FROM systemusers";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                        {
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
+
+                            // Bind the DataTable to the DataGridView
+                            AdminAccountTable.DataSource = dataTable;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+        }
+        private void AdminGenerateID()
+        {
+            string empType = AdminEmplTypeComboText.SelectedItem?.ToString() ?? string.Empty;
+            string empCategory = AdminEmplCatComboText.SelectedItem?.ToString() ?? string.Empty;
+
+            string empTypePrefix = "";
+            string empCategoryPrefix = "";
+
+            if (empType == "Admin")
+            {
+                empTypePrefix = "A-";
+            }
+            else if (empType == "Manager")
+            {
+                empTypePrefix = "M-";
+            }
+            else if (empType == "Staff")
+            {
+                empTypePrefix = "S-";
+            }
+
+            if (empCategory == "Hair Styling")
+            {
+                empCategoryPrefix = "HS-";
+            }
+            else if (empCategory == "Face & Skin")
+            {
+                empCategoryPrefix = "FS-";
+            }
+            else if (empCategory == "Nail Care")
+            {
+                empCategoryPrefix = "NC-";
+            }
+            else if (empCategory == "Massage")
+            {
+                empCategoryPrefix = "MS-";
+            }
+            else if (empCategory == "Spa")
+            {
+                empCategoryPrefix = "SP-";
+            }
+
+            Random random = new Random();
+            int randomNumber = random.Next(100000, 999999);
+            string randomNumberString = randomNumber.ToString("D6");
+            string finalID = empTypePrefix + empCategoryPrefix + randomNumberString;
+            AdminEmplIDText.Text = finalID;
         }
     }
 }
