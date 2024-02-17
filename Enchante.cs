@@ -69,7 +69,7 @@ namespace Enchante
             ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteReceptionPage, EnchanteMemberPage,EnchanteAdminPage);
             Registration = new Registration(MembershipPlanPanel, RegularPlanPanel, PremiumPlanPanel, SVIPPlanPanel);
             Service = new ServiceCard(ServiceType, ServiceHairStyling, ServiceFaceSkin, ServiceNailCare, ServiceSpa, ServiceMassage);
-            Transaction = new ReceptionTransactionCard(RecTransactionPanel, RecWalkInPanel, RecAppointmentPanel);
+            Transaction = new ReceptionTransactionCard(RecTransactionPanel, RecWalkinPanel, RecAppointmentPanel);
             Inventory = new ReceptionInventoryCard(RecInventoryTypePanel, RecInventoryServicesPanel, RecInventoryMembershipPanel, RecInventoryProductsPanel);
 
             
@@ -2512,7 +2512,7 @@ namespace Enchante
 
         private void RecWalkInBtn_Click(object sender, EventArgs e)
         {
-            Transaction.PanelShow(RecWalkInPanel);
+            Transaction.PanelShow(RecWalkinPanel);
         }
 
         private void RecAppointmentBtn_Click(object sender, EventArgs e)
@@ -2985,58 +2985,151 @@ namespace Enchante
 
         private void RecWalkInCatFSBtn_Click(object sender, EventArgs e)
         {
-            LoadServiceTypeComboBox("Face & Skin");
+            Face();
         }
 
         private void RecWalkInCatNCBtn_Click(object sender, EventArgs e)
         {
-            LoadServiceTypeComboBox("Nail Care");
-
+            Nail();
         }
 
         private void RecWalkInCatSpaBtn_Click(object sender, EventArgs e)
         {
-            LoadServiceTypeComboBox("Spa");
-
+            Spa();
         }
 
         private void RecWalkInCatMassageBtn_Click(object sender, EventArgs e)
         {
-            LoadServiceTypeComboBox("Massage");
-
+            Massage();
         }
         private void HairStyle()
         {
-            if (RecWalkInCatHSRB.Checked == false)
+            if (RecWalkinCatHSRB.Checked == false)
             {
-                RecWalkInCatHSRB.Visible = true;
-                RecWalkInCatHSRB.Checked = true;
+                RecWalkinCatHSRB.Visible = true;
+                RecWalkinCatHSRB.Checked = true;
                 LoadServiceTypeComboBox("Hair Styling");
 
-                RecWalkInCatFSRB.Visible = false;
-                RecWalkInCatNCRB.Visible = false;
-                RecWalkInCatSpaRB.Visible = false;
-                RecWalkInCatMassageRB.Visible = false;
-                RecWalkInCatFSRB.Checked = false;
-                RecWalkInCatNCRB.Checked = false;
-                RecWalkInCatSpaRB.Checked = false;
-                RecWalkInCatMassageRB.Checked = false;
+                RecWalkinCatFSRB.Visible = false;
+                RecWalkinCatNCRB.Visible = false;
+                RecWalkinCatSpaRB.Visible = false;
+                RecWalkinCatMassageRB.Visible = false;
+                RecWalkinCatFSRB.Checked = false;
+                RecWalkinCatNCRB.Checked = false;
+                RecWalkinCatSpaRB.Checked = false;
+                RecWalkinCatMassageRB.Checked = false;
                 return;
             }
-            else if (SVIPMonthlyPlanRB.Checked == true)
+            else if (RecWalkinCatHSRB.Checked == true)
             {
-                RecWalkInCatHSRB.Visible = true;
-                RecWalkInCatHSRB.Checked = true;
+                RecWalkinCatHSRB.Visible = true;
+                RecWalkinCatHSRB.Checked = true;
                 LoadServiceTypeComboBox("Hair Styling");
 
-                RecWalkInCatFSRB.Visible = false;
-                RecWalkInCatNCRB.Visible = false;
-                RecWalkInCatSpaRB.Visible = false;
-                RecWalkInCatMassageRB.Visible = false;
-                RecWalkInCatFSRB.Checked = false;
-                RecWalkInCatNCRB.Checked = false;
-                RecWalkInCatSpaRB.Checked = false;
-                RecWalkInCatMassageRB.Checked = false;
+                RecWalkinCatFSRB.Visible = false;
+                RecWalkinCatNCRB.Visible = false;
+                RecWalkinCatSpaRB.Visible = false;
+                RecWalkinCatMassageRB.Visible = false;
+                RecWalkinCatFSRB.Checked = false;
+                RecWalkinCatNCRB.Checked = false;
+                RecWalkinCatSpaRB.Checked = false;
+                RecWalkinCatMassageRB.Checked = false;
+            }
+        }
+        private void Face()
+        {
+            if (RecWalkinCatFSRB.Checked == false)
+            {
+                RecWalkinCatFSRB.Visible = true;
+                RecWalkinCatFSRB.Checked = true;
+                LoadServiceTypeComboBox("Face & Skin");
+
+                RecWalkinCatHSRB.Visible = false;
+                RecWalkinCatNCRB.Visible = false;
+                RecWalkinCatSpaRB.Visible = false;
+                RecWalkinCatMassageRB.Visible = false;
+                RecWalkinCatHSRB.Checked = false;
+                RecWalkinCatNCRB.Checked = false;
+                RecWalkinCatSpaRB.Checked = false;
+                RecWalkinCatMassageRB.Checked = false;
+                return;
+            }
+            else if (RecWalkinCatFSRB.Checked == true)
+            {
+                RecWalkinCatFSRB.Visible = true;
+                RecWalkinCatFSRB.Checked = true;
+            }
+        }
+        private void Nail()
+        {
+            if (RecWalkinCatNCRB.Checked == false)
+            {
+                RecWalkinCatNCRB.Visible = true;
+                RecWalkinCatNCRB.Checked = true;
+                LoadServiceTypeComboBox("Nail Care");
+
+                RecWalkinCatHSRB.Visible = false;
+                RecWalkinCatFSRB.Visible = false;
+                RecWalkinCatSpaRB.Visible = false;
+                RecWalkinCatMassageRB.Visible = false;
+                RecWalkinCatHSRB.Checked = false;
+                RecWalkinCatFSRB.Checked = false;
+                RecWalkinCatSpaRB.Checked = false;
+                RecWalkinCatMassageRB.Checked = false;
+                return;
+            }
+            else if (RecWalkinCatNCRB.Checked == true)
+            {
+                RecWalkinCatNCRB.Visible = true;
+                RecWalkinCatNCRB.Checked = true;
+            }
+        }
+        private void Spa()
+        {
+            if (RecWalkinCatSpaRB.Checked == false)
+            {
+                RecWalkinCatSpaRB.Visible = true;
+                RecWalkinCatSpaRB.Checked = true;
+                LoadServiceTypeComboBox("Spa");
+
+                RecWalkinCatHSRB.Visible = false;
+                RecWalkinCatFSRB.Visible = false;
+                RecWalkinCatNCRB.Visible = false;
+                RecWalkinCatMassageRB.Visible = false;
+                RecWalkinCatHSRB.Checked = false;
+                RecWalkinCatFSRB.Checked = false;
+                RecWalkinCatNCRB.Checked = false;
+                RecWalkinCatMassageRB.Checked = false;
+                return;
+            }
+            else if (RecWalkinCatSpaRB.Checked == true)
+            {
+                RecWalkinCatSpaRB.Visible = true;
+                RecWalkinCatSpaRB.Checked = true;
+            }
+        }
+        private void Massage()
+        {
+            if (RecWalkinCatMassageRB.Checked == false)
+            {
+                RecWalkinCatMassageRB.Visible = true;
+                RecWalkinCatMassageRB.Checked = true;
+                LoadServiceTypeComboBox("Massage");
+
+                RecWalkinCatHSRB.Visible = false;
+                RecWalkinCatFSRB.Visible = false;
+                RecWalkinCatNCRB.Visible = false;
+                RecWalkinCatSpaRB.Visible = false;
+                RecWalkinCatHSRB.Checked = false;
+                RecWalkinCatFSRB.Checked = false;
+                RecWalkinCatNCRB.Checked = false;
+                RecWalkinCatSpaRB.Checked = false;
+                return;
+            }
+            else if (RecWalkinCatMassageRB.Checked == true)
+            {
+                RecWalkinCatMassageRB.Visible = true;
+                RecWalkinCatMassageRB.Checked = true;
             }
         }
         public void ReceptionLoadHairStyleType()
@@ -3303,13 +3396,13 @@ namespace Enchante
 
         private void RecWalkInSearchServiceTypeText_TextChanged(object sender, EventArgs e)
         {
-            string searchText = RecWalkInSearchServiceTypeText.Text;
+            string searchText = RecWalkinSearchServiceTypeText.Text;
             SearchAcrossCategories(searchText);
         }
 
         private void RecWalkInSearchServiceTypeBtn_Click(object sender, EventArgs e)
         {
-            string searchText = RecWalkInSearchServiceTypeText.Text;
+            string searchText = RecWalkinSearchServiceTypeText.Text;
             SearchAcrossCategories(searchText);
         }
 
@@ -3895,5 +3988,17 @@ namespace Enchante
             string finalID = empTypePrefix + empCategoryPrefix + randomNumberString;
             AdminEmplIDText.Text = finalID;
         }
+        
+        //reception dashboard continues here
+        private void RecCalendar_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            // Get the selected date and set your text based on it
+            DateTime selectedDate = RecWalkinCalendar.SelectionStart;
+
+            // Example: Set a label text based on the selected date
+            RecWalkinSelectedDateText.Text = selectedDate.ToShortDateString();
+        }
+
+
     }
 }
