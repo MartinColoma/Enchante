@@ -176,20 +176,17 @@ namespace Enchante
         private void StaffHomePanelReset()
         {
             ParentPanelShow.PanelShow(EnchanteStaffPage);
-            Transaction.PanelShow(RecTransactionPanel);
-            Inventory.PanelShow(RecInventoryTypePanel);
+
         }
         private void AdminHomePanelReset()
         {
             ParentPanelShow.PanelShow(EnchanteAdminPage);
-            Transaction.PanelShow(RecTransactionPanel);
-            Inventory.PanelShow(RecInventoryTypePanel);
+
         }
         private void MemberHomePanelReset()
         {
             ParentPanelShow.PanelShow(EnchanteMemberPage);
-            Transaction.PanelShow(RecTransactionPanel);
-            Inventory.PanelShow(RecInventoryTypePanel);
+
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -556,7 +553,7 @@ namespace Enchante
             {
                 //Test Admin
                 MessageBox.Show("Welcome back, Admin.", "Login Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ParentPanelShow.PanelShow(EnchanteAdminPage);
+                AdminHomePanelReset();
                 PopulateUserInfoDataGrid();
                 LoginEmailAddErrorLbl.Visible = false;
                 LoginPassErrorLbl.Visible = false;
@@ -619,7 +616,7 @@ namespace Enchante
             {
                 //Test Staff
                 MessageBox.Show("Welcome back, Staff.", "Login Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ParentPanelShow.PanelShow(EnchanteStaffPage);
+                StaffHomePanelReset();
                 LoginEmailAddErrorLbl.Visible = false;
                 LoginPassErrorLbl.Visible = false;
                 logincredclear();
@@ -649,8 +646,7 @@ namespace Enchante
                 LoginEmailAddErrorLbl.Visible = false;
                 LoginPassErrorLbl.Visible = true;
                 MessageBox.Show("Welcome back, Member.", "Login Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ParentPanelShow.PanelShow(EnchanteMemberPage);
-
+                MemberHomePanelReset();
                 logincredclear();
 
                 return;
@@ -737,7 +733,7 @@ namespace Enchante
                                         MemberSubAccUserBtn.Visible = false;
                                         MemberNameLbl.Text = name + " " + lastname;
                                         MemberIDLbl.Text = ID;
-                                        ParentPanelShow.PanelShow(EnchanteMemberPage);
+                                        MemberHomePanelReset();
                                         logincredclear();
 
                                     }
@@ -761,8 +757,8 @@ namespace Enchante
                                     {
                                         MessageBox.Show($"Welcome back, Premium Client {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         MemberNameLbl.Text = name + " " + lastname;
-                                        MemberIDLbl.Text = ID; 
-                                        ParentPanelShow.PanelShow(EnchanteMemberPage);
+                                        MemberIDLbl.Text = ID;
+                                        MemberHomePanelReset();
                                         logincredclear();
 
                                     }
@@ -786,8 +782,120 @@ namespace Enchante
                                     {
                                         MessageBox.Show($"Welcome back, SVIP Client {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         MemberNameLbl.Text = name + " " + lastname;
-                                        MemberIDLbl.Text = ID; 
-                                        ParentPanelShow.PanelShow(EnchanteMemberPage);
+                                        MemberIDLbl.Text = ID;
+                                        MemberHomePanelReset();
+                                        logincredclear();
+
+                                    }
+                                    else
+                                    {
+                                        LoginEmailAddErrorLbl.Visible = false;
+                                        LoginPassErrorLbl.Visible = true;
+                                        LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
+                                    }
+                                    return;
+                                }
+                            }
+
+                        }
+
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message, "Login Verifier", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    connection?.Close();
+                }
+
+                try //addmin, staff, and manager login
+                {
+                    connection.Open();
+
+                    string queryApproved = "SELECT FirstName, LastName, EmployeeID, EmployeeType, HashedPass FROM systemusers WHERE Email = @email";
+
+                    using (MySqlCommand cmdApproved = new MySqlCommand(queryApproved, connection))
+                    {
+                        cmdApproved.Parameters.AddWithValue("@email", email);
+
+                        using (MySqlDataReader readerApproved = cmdApproved.ExecuteReader())
+                        {
+                            if (readerApproved.Read())
+                            {
+                                string name = readerApproved["FirstName"].ToString();
+                                string lastname = readerApproved["LastName"].ToString();
+                                string ID = readerApproved["EmployeeID"].ToString();
+                                string membertype = readerApproved["EmployeeType"].ToString();
+
+                                if (membertype == "Admin")
+                                {
+                                    // Retrieve the HashedPass column
+                                    string hashedPasswordFromDB = readerApproved["HashedPass"].ToString();
+
+                                    // Check if the entered password matches
+                                    bool passwordMatches = hashedPasswordFromDB.Equals(passchecker);
+
+                                    if (passwordMatches)
+                                    {
+                                        MessageBox.Show($"Welcome back, Admin {name}.", "System User Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        AdminNameLbl.Text = name + " " + lastname;
+                                        AdminIDNumlbl.Text = ID;
+                                        AdminHomePanelReset();
+                                        PopulateUserInfoDataGrid();
+                                        logincredclear();
+
+                                    }
+                                    else
+                                    {
+                                        LoginEmailAddErrorLbl.Visible = false;
+                                        LoginPassErrorLbl.Visible = true;
+                                        LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
+                                    }
+                                    return;
+                                }
+                                else if (membertype == "Manager")
+                                {
+                                    // Retrieve the HashedPass column
+                                    string hashedPasswordFromDB = readerApproved["HashedPass"].ToString();
+
+                                    // Check if the entered password matches
+                                    bool passwordMatches = hashedPasswordFromDB.Equals(passchecker);
+
+                                    if (passwordMatches)
+                                    {
+                                        MessageBox.Show($"Welcome back, Manager {name}.", "System User Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        RecNameLbl.Text = name + " " + lastname;
+                                        RecIDNumLbl.Text = ID;
+                                        ReceptionHomePanelReset();
+                                        logincredclear();
+
+                                    }
+                                    else
+                                    {
+                                        LoginEmailAddErrorLbl.Visible = false;
+                                        LoginPassErrorLbl.Visible = true;
+                                        LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
+                                    }
+                                    return;
+                                }
+                                else if (membertype == "Staff")
+                                {
+                                    // Retrieve the HashedPass column
+                                    string hashedPasswordFromDB = readerApproved["HashedPass"].ToString();
+
+                                    // Check if the entered password matches
+                                    bool passwordMatches = hashedPasswordFromDB.Equals(passchecker);
+
+                                    if (passwordMatches)
+                                    {
+                                        MessageBox.Show($"Welcome back, Staff {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        //MemberNameLbl.Text = name + " " + lastname;
+                                        //MemberIDLbl.Text = ID;
+                                        StaffHomePanelReset();
                                         logincredclear();
 
                                     }
