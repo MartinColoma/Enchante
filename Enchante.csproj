@@ -144,6 +144,13 @@
     <Compile Include="ReceptionTransactionCard.cs" />
     <Compile Include="Registration.cs" />
     <Compile Include="ServiceCard.cs" />
+    <Compile Include="StaffCard.cs" />
+    <Compile Include="CurrentTransactionDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CurrentTransactionDetails.Designer.cs">
+      <DependentUpon>CurrentTransactionDetails.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Enchante.resx">
       <DependentUpon>Enchante.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,6 +167,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="CurrentTransactionDetails.resx">
+      <DependentUpon>CurrentTransactionDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
