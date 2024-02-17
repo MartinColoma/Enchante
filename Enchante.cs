@@ -16,6 +16,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Transactions;
 using System.Windows.Documents;
+
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
@@ -33,6 +34,7 @@ namespace Enchante
         private ServiceCard Service; //Service Card
         private ReceptionTransactionCard Transaction;
         private ReceptionInventoryCard Inventory;
+
 
         //tool tip
         private System.Windows.Forms.ToolTip iconToolTip;
@@ -2489,6 +2491,7 @@ namespace Enchante
             }
         }
 
+
         //Reception Panel Starts Here
 
         private void ReceptionLogoutBtn_Click(object sender, EventArgs e)
@@ -3998,6 +4001,7 @@ namespace Enchante
             // Example: Set a label text based on the selected date
             RecWalkinSelectedDateText.Text = selectedDate.ToShortDateString();
         }
+
 
 
     }
