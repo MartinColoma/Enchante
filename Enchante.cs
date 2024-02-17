@@ -1,18 +1,24 @@
-﻿using MySql.Data.MySqlClient;
+﻿using iTextSharp.text.pdf;
+using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Asn1.X509;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Windows.Controls;
+using System.Transactions;
+using System.Windows.Documents;
+
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Enchante
 {
@@ -24,10 +30,11 @@ namespace Enchante
 
         //cardlayout panel classes
         private ParentCard ParentPanelShow; //Parent Card
-
         private Registration Registration; //Membership Type Card
         private ServiceCard Service; //Service Card
-        private StaffCard Staff; // Staff Card
+        private ReceptionTransactionCard Transaction;
+        private ReceptionInventoryCard Inventory;
+
 
         //tool tip
         private System.Windows.Forms.ToolTip iconToolTip;
@@ -35,7 +42,20 @@ namespace Enchante
 
         //gender combo box
         private string[] genders = { "Male", "Female", "Prefer Not to Say" };
-        private currenttransactiondetails currenttransactiondetails;
+
+        // service category combo box
+        private string[] Service_Category = { "Hair Styling", "Nail Care", "Face & Skin", "Massage", "Spa" };
+        //service type combo box
+        private string[] Service_type = { "Hair Cut", "Hair Blowout", "Hair Color", "Hair Extension", "Manicure",
+        "Pedicure", "Nail Extension", "Nail Repair", "Package", "Skin Whitening", "Exfoliation Treatment", "Chemical Peel",
+        "Hydration Treatment", "Acne Treatment", "Anti-aging Treatment", "Soft Massage", "Moderate Massage", "Hard Massage",
+        "Herbal Pool", "Sauna"};
+        //admin employee combobox
+        private string[] emplType = {"Admin", "Manager", "Staff"};
+        private string[] emplCategories = { "Hair Styling", "Face & Skin", "Nail Care", "Massage", "Spa" };
+        private string[] emplCatLevels = { "Junior", "Assistant", "Senior"};
+
+
 
 
         public Enchante()
@@ -48,10 +68,13 @@ namespace Enchante
 
 
             //Landing Pages Cardlayout Panel Manager
-            ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteMngrPage, EnchanteMemberPage,EnchanteAdminPage);
+            ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteReceptionPage, EnchanteMemberPage,EnchanteAdminPage);
             Registration = new Registration(MembershipPlanPanel, RegularPlanPanel, PremiumPlanPanel, SVIPPlanPanel);
             Service = new ServiceCard(ServiceType, ServiceHairStyling, ServiceFaceSkin, ServiceNailCare, ServiceSpa, ServiceMassage);
-            Staff = new StaffCard(CurrentPanel, HistoryPanel);
+            Transaction = new ReceptionTransactionCard(RecTransactionPanel, RecWalkinPanel, RecAppointmentPanel);
+            Inventory = new ReceptionInventoryCard(RecInventoryTypePanel, RecInventoryServicesPanel, RecInventoryMembershipPanel, RecInventoryProductsPanel);
+
+            
 
             //icon tool tip
             iconToolTip = new System.Windows.Forms.ToolTip();
@@ -64,13 +87,73 @@ namespace Enchante
             SVIPGenderComboText.DropDownStyle = ComboBoxStyle.DropDownList;
             PremGenderComboText.Items.AddRange(genders);
             PremGenderComboText.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            //inventory services combobox
+            RecServicesCategoryComboText.Items.AddRange(Service_Category);
+            RecServicesCategoryComboText.DropDownStyle = ComboBoxStyle.DropDownList;
+            RecServicesTypeComboText.Items.AddRange(Service_type);
+            RecServicesTypeComboText.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            //admin combobox
+            AdminGenderComboText.Items.AddRange(genders);
+            AdminGenderComboText.DropDownStyle = ComboBoxStyle.DropDownList; 
+            AdminEmplTypeComboText.Items.AddRange(emplType);
+            AdminEmplTypeComboText.DropDownStyle = ComboBoxStyle.DropDownList;
+            AdminEmplCatComboText.Items.AddRange(emplCategories);
+            AdminEmplCatComboText.DropDownStyle = ComboBoxStyle.DropDownList;
+            AdminEmplCatLvlComboText.Items.AddRange(emplCatLevels);
+            AdminEmplCatLvlComboText.DropDownStyle = ComboBoxStyle.DropDownList;
+
         }
 
         private void Enchante_Load(object sender, EventArgs e)
         {
             //Reset Panel to Show Default
             HomePanelReset();
+            DB_Loader();
         }
+
+        private void DB_Loader()
+        {
+            ReceptionLoadServices();
+        }
+        public void ReceptionLoadServices()
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+                    string sql = "SELECT * FROM `services`";
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+
+                        RecInventoryServicesTable.DataSource = dataTable;
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("An error occurred: " + e.Message, "Inventory Service List");
+            }
+            finally
+            {
+                // Make sure to close the connection (if it's open)
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
+            // Rest of your code for configuring DataGridView to display images without distortion
+        }
+
         private void EnchanteHomeScrollPanel_Click(object sender, EventArgs e)
         {
             //Reset Panel to Show Default
@@ -84,6 +167,30 @@ namespace Enchante
             Registration.PanelShow(MembershipPlanPanel);
 
         }
+
+        private void ReceptionHomePanelReset()
+        {
+            ParentPanelShow.PanelShow(EnchanteReceptionPage);
+            Transaction.PanelShow(RecTransactionPanel);
+            Inventory.PanelShow(RecInventoryTypePanel);
+        }
+
+        private void StaffHomePanelReset()
+        {
+            ParentPanelShow.PanelShow(EnchanteStaffPage);
+
+        }
+        private void AdminHomePanelReset()
+        {
+            ParentPanelShow.PanelShow(EnchanteAdminPage);
+
+        }
+        private void MemberHomePanelReset()
+        {
+            ParentPanelShow.PanelShow(EnchanteMemberPage);
+
+        }
+
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
 
@@ -448,7 +555,8 @@ namespace Enchante
             {
                 //Test Admin
                 MessageBox.Show("Welcome back, Admin.", "Login Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ParentPanelShow.PanelShow(EnchanteAdminPage);
+                AdminHomePanelReset();
+                PopulateUserInfoDataGrid();
                 LoginEmailAddErrorLbl.Visible = false;
                 LoginPassErrorLbl.Visible = false;
 
@@ -479,7 +587,9 @@ namespace Enchante
             {
                 //Test Mngr
                 MessageBox.Show("Welcome back, Manager.", "Login Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ParentPanelShow.PanelShow(EnchanteMngrPage);
+                ReceptionHomePanelReset();
+                RecNameLbl.Text = "Test Receptionist";
+                RecIDNumLbl.Text = "TRec-0000-0000";
                 LoginEmailAddErrorLbl.Visible = false;
                 LoginPassErrorLbl.Visible = false;
                 logincredclear();
@@ -508,7 +618,7 @@ namespace Enchante
             {
                 //Test Staff
                 MessageBox.Show("Welcome back, Staff.", "Login Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ParentPanelShow.PanelShow(EnchanteStaffPage);
+                StaffHomePanelReset();
                 LoginEmailAddErrorLbl.Visible = false;
                 LoginPassErrorLbl.Visible = false;
                 logincredclear();
@@ -538,8 +648,7 @@ namespace Enchante
                 LoginEmailAddErrorLbl.Visible = false;
                 LoginPassErrorLbl.Visible = true;
                 MessageBox.Show("Welcome back, Member.", "Login Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ParentPanelShow.PanelShow(EnchanteMemberPage);
-
+                MemberHomePanelReset();
                 logincredclear();
 
                 return;
@@ -593,7 +702,7 @@ namespace Enchante
                 string password = LoginPassText.Text;
                 string passchecker = HashHelper.HashString(password); // Assuming "enteredPassword" is supposed to be "LoginPassText"
 
-                try
+                try //user member login
                 {
                     connection.Open();
 
@@ -626,7 +735,7 @@ namespace Enchante
                                         MemberSubAccUserBtn.Visible = false;
                                         MemberNameLbl.Text = name + " " + lastname;
                                         MemberIDLbl.Text = ID;
-                                        ParentPanelShow.PanelShow(EnchanteMemberPage);
+                                        MemberHomePanelReset();
                                         logincredclear();
 
                                     }
@@ -650,8 +759,8 @@ namespace Enchante
                                     {
                                         MessageBox.Show($"Welcome back, Premium Client {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         MemberNameLbl.Text = name + " " + lastname;
-                                        MemberIDLbl.Text = ID; 
-                                        ParentPanelShow.PanelShow(EnchanteMemberPage);
+                                        MemberIDLbl.Text = ID;
+                                        MemberHomePanelReset();
                                         logincredclear();
 
                                     }
@@ -675,8 +784,120 @@ namespace Enchante
                                     {
                                         MessageBox.Show($"Welcome back, SVIP Client {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         MemberNameLbl.Text = name + " " + lastname;
-                                        MemberIDLbl.Text = ID; 
-                                        ParentPanelShow.PanelShow(EnchanteMemberPage);
+                                        MemberIDLbl.Text = ID;
+                                        MemberHomePanelReset();
+                                        logincredclear();
+
+                                    }
+                                    else
+                                    {
+                                        LoginEmailAddErrorLbl.Visible = false;
+                                        LoginPassErrorLbl.Visible = true;
+                                        LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
+                                    }
+                                    return;
+                                }
+                            }
+
+                        }
+
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message, "Login Verifier", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    connection?.Close();
+                }
+
+                try //addmin, staff, and manager login
+                {
+                    connection.Open();
+
+                    string queryApproved = "SELECT FirstName, LastName, EmployeeID, EmployeeType, HashedPass FROM systemusers WHERE Email = @email";
+
+                    using (MySqlCommand cmdApproved = new MySqlCommand(queryApproved, connection))
+                    {
+                        cmdApproved.Parameters.AddWithValue("@email", email);
+
+                        using (MySqlDataReader readerApproved = cmdApproved.ExecuteReader())
+                        {
+                            if (readerApproved.Read())
+                            {
+                                string name = readerApproved["FirstName"].ToString();
+                                string lastname = readerApproved["LastName"].ToString();
+                                string ID = readerApproved["EmployeeID"].ToString();
+                                string membertype = readerApproved["EmployeeType"].ToString();
+
+                                if (membertype == "Admin")
+                                {
+                                    // Retrieve the HashedPass column
+                                    string hashedPasswordFromDB = readerApproved["HashedPass"].ToString();
+
+                                    // Check if the entered password matches
+                                    bool passwordMatches = hashedPasswordFromDB.Equals(passchecker);
+
+                                    if (passwordMatches)
+                                    {
+                                        MessageBox.Show($"Welcome back, Admin {name}.", "System User Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        AdminNameLbl.Text = name + " " + lastname;
+                                        AdminIDNumlbl.Text = ID;
+                                        AdminHomePanelReset();
+                                        PopulateUserInfoDataGrid();
+                                        logincredclear();
+
+                                    }
+                                    else
+                                    {
+                                        LoginEmailAddErrorLbl.Visible = false;
+                                        LoginPassErrorLbl.Visible = true;
+                                        LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
+                                    }
+                                    return;
+                                }
+                                else if (membertype == "Manager")
+                                {
+                                    // Retrieve the HashedPass column
+                                    string hashedPasswordFromDB = readerApproved["HashedPass"].ToString();
+
+                                    // Check if the entered password matches
+                                    bool passwordMatches = hashedPasswordFromDB.Equals(passchecker);
+
+                                    if (passwordMatches)
+                                    {
+                                        MessageBox.Show($"Welcome back, Manager {name}.", "System User Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        RecNameLbl.Text = name + " " + lastname;
+                                        RecIDNumLbl.Text = ID;
+                                        ReceptionHomePanelReset();
+                                        logincredclear();
+
+                                    }
+                                    else
+                                    {
+                                        LoginEmailAddErrorLbl.Visible = false;
+                                        LoginPassErrorLbl.Visible = true;
+                                        LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
+                                    }
+                                    return;
+                                }
+                                else if (membertype == "Staff")
+                                {
+                                    // Retrieve the HashedPass column
+                                    string hashedPasswordFromDB = readerApproved["HashedPass"].ToString();
+
+                                    // Check if the entered password matches
+                                    bool passwordMatches = hashedPasswordFromDB.Equals(passchecker);
+
+                                    if (passwordMatches)
+                                    {
+                                        MessageBox.Show($"Welcome back, Staff {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        //MemberNameLbl.Text = name + " " + lastname;
+                                        //MemberIDLbl.Text = ID;
+                                        StaffHomePanelReset();
                                         logincredclear();
 
                                     }
@@ -2270,20 +2491,1518 @@ namespace Enchante
             }
         }
 
-        private void iconButton7_Click(object sender, EventArgs e)
-        {
-            Staff.PanelShow(CurrentPanel);
-        }
 
-        private void iconButton6_Click(object sender, EventArgs e)
+        //Reception Panel Starts Here
+
+        private void ReceptionLogoutBtn_Click(object sender, EventArgs e)
         {
-            Staff.PanelShow(HistoryPanel);
+            LogoutChecker();
 
         }
 
-        private void iconButton1_Click(object sender, EventArgs e)
+        private void ReceptionAccBtn_Click(object sender, EventArgs e)
         {
-            
+            if (ReceptionAccPanel.Visible == false)
+            {
+                ReceptionAccPanel.Visible = true;
+
+            }
+            else
+            {
+                ReceptionAccPanel.Visible = false;
+            }
         }
+
+        private void RecWalkInBtn_Click(object sender, EventArgs e)
+        {
+            Transaction.PanelShow(RecWalkinPanel);
+        }
+
+        private void RecAppointmentBtn_Click(object sender, EventArgs e)
+        {
+            Transaction.PanelShow(RecAppointmentPanel);
+        }
+
+        private void RecHomeBtn_Click(object sender, EventArgs e)
+        {
+            // Scroll to the Home position (0, 0)
+            ScrollToCoordinates(0, 0);
+            ReceptionHomePanelReset();
+
+            //Change color once clicked
+            RecHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+
+            //Change back to original
+            RecTransactBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            RecInventoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+        }
+
+        private void RecTransactBtn_Click(object sender, EventArgs e)
+        {
+            //ScrollToCoordinates(0, 0);
+            //Change color once clicked
+            RecTransactBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+
+            //Change back to original
+            RecHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            RecInventoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+        }
+
+        private void RecInventoryBtn_Click(object sender, EventArgs e)
+        {
+            //ScrollToCoordinates(0, 0);
+            //Change color once clicked
+            RecInventoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+
+            //Change back to original
+            RecHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            RecTransactBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+        }
+
+        private void RecHomeBtn_MouseHover(object sender, EventArgs e)
+        {
+            iconToolTip.SetToolTip(RecHomeBtn, "Home");
+        }
+
+        private void RecTransactBtn_MouseHover(object sender, EventArgs e)
+        {
+            iconToolTip.SetToolTip(RecTransactBtn, "Transaction");
+        }
+
+        private void RecInventoryBtn_MouseHover(object sender, EventArgs e)
+        {
+            iconToolTip.SetToolTip(RecInventoryBtn, "Inventory");
+        }
+
+        private void ReceptionAccBtn_MouseHover(object sender, EventArgs e)
+        {
+            iconToolTip.SetToolTip(ReceptionAccBtn, "Profile");
+        }
+
+        //Reception walk in transaction starts here
+        private void RecWalkInExitBtn_Click(object sender, EventArgs e)
+        {
+            Transaction.PanelShow(RecTransactionPanel);
+        }
+
+        private void RecInventoryMembershipBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(RecInventoryMembershipPanel);
+
+        }
+
+        private void RecInventoryProductsBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(RecInventoryProductsPanel);
+
+        }
+
+        private void RecInventoryServicesBtn_Click_1(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(RecInventoryServicesPanel);
+            ReceptionLoadServices();
+
+        }
+
+        private void RecInventoryServicesExitBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(RecInventoryTypePanel);
+
+        }
+
+        private void RecServicesCategoryComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (RecServicesCategoryComboText.SelectedItem != null)
+            {
+                RecServicesCategoryComboText.Text = RecServicesCategoryComboText.SelectedItem.ToString();
+                UpdateServiceTypeComboBox();
+                GenerateServiceID();
+            }
+        }
+
+        private void UpdateServiceTypeComboBox()
+        {
+            RecServicesTypeComboText.Items.Clear();
+
+            // Get the selected category
+            string selectedCategory = RecServicesCategoryComboText.SelectedItem.ToString();
+
+            // Filter and add the relevant service types based on the selected category
+            switch (selectedCategory)
+            {
+                case "Hair Styling":
+                    RecServicesTypeComboText.Items.AddRange(new string[] { "Hair Cut", "Hair Blowout", "Hair Color", "Hair Extension", "Package" });
+                    break;
+                case "Nail Care":
+                    RecServicesTypeComboText.Items.AddRange(new string[] { "Manicure", "Pedicure", "Nail Extension", "Nail Art", "Nail Treatment", "Nail Repair", "Package" });
+                    break;
+                case "Face & Skin":
+                    // Add relevant face and skin service types here
+                    RecServicesTypeComboText.Items.AddRange(new string[] { "Skin Whitening", "Exfoliation Treatment", "Chemical Peel", "Hydration Treatment", "Acne Treatment", "Anti-Aging Treatment", "Package" });
+                    break;
+                case "Massage":
+                    // Add relevant massage service types here
+                    RecServicesTypeComboText.Items.AddRange(new string[] { "Soft Massage", "Moderate Massage", "Hard Massage", "Package" });
+
+                    break;
+                case "Spa":
+                    // Add relevant spa service types here
+                    RecServicesTypeComboText.Items.AddRange(new string[] { "Herbal Pool", "Sauna", "Package" });
+                    break;
+                default:
+                    break;
+            }        
+
+            // Select the first item in the list
+            if (RecServicesTypeComboText.Items.Count > 0)
+            {
+                RecServicesTypeComboText.SelectedIndex = 0;
+            }
+        }
+
+        private void RecServicesTypeComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (RecServicesTypeComboText.SelectedItem != null)
+            {
+                RecServicesTypeComboText.Text = RecServicesTypeComboText.SelectedItem.ToString();
+                GenerateServiceID();
+
+            }
+        }
+        public class DynamicIDGenerator
+        {
+            private static Random random = new Random();
+
+            public static string GenerateServiceID(string selectedCategory, string selectedType)
+            {
+                // Get the first two characters of the service category
+                string categoryCode = selectedCategory.Substring(0, 2).ToUpper();
+
+                // Get the first character of the service type
+                char typeCode = selectedType[0];
+
+                // Generate a random 6-digit number
+                string randomPart = GenerateRandomNumber();
+
+                // Format the ServiceID
+                string serviceID = $"{categoryCode}-{typeCode}-{randomPart:D6}";
+
+                return serviceID;
+            }
+
+            private static string GenerateRandomNumber()
+            {
+                // Generate a random 6-digit number
+                int randomNumber = random.Next(100000, 999999);
+
+                return randomNumber.ToString();
+            }
+        }
+
+
+        private void GenerateServiceID()
+        {
+            if (RecServicesCategoryComboText.SelectedIndex >= 0 && RecServicesTypeComboText.SelectedIndex >= 0)
+            {
+                // Get the selected items from both combo boxes
+                string selectedCategory = RecServicesCategoryComboText.SelectedItem.ToString();
+                string selectedType = RecServicesTypeComboText.SelectedItem.ToString();
+
+                // Call the GenerateServiceID method
+                string generatedServiceID = DynamicIDGenerator.GenerateServiceID(selectedCategory, selectedType);
+
+                // Update your UI element with the generated ID
+                RecServicesIDNumText.Text = generatedServiceID;
+            }
+        }
+
+        private void RecServicesCreateBtn_Click(object sender, EventArgs e)
+        {
+            string category = RecServicesCategoryComboText.Text;
+            string type = RecServicesTypeComboText.Text;
+            string name = RecServicesNameText.Text;
+            string describe = RecServicesDescriptionText.Text;
+            string duration = RecServicesDurationText.Text;
+            string price = RecServicesPriceText.Text;
+            string ID = RecServicesIDNumText.Text;
+
+            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(type) && string.IsNullOrEmpty(category) && string.IsNullOrEmpty(describe)
+                && string.IsNullOrEmpty(duration) && string.IsNullOrEmpty(price))
+            {
+                MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(category) || string.IsNullOrEmpty(describe)
+                || string.IsNullOrEmpty(duration)|| string.IsNullOrEmpty(price))
+            { 
+                MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    {
+                        connection.Open();
+                        // Check if email already exists
+                        string checkIDQuery = "SELECT COUNT(*) FROM services WHERE ServiceID = @ID";
+                        MySqlCommand checkIDCmd = new MySqlCommand(checkIDQuery, connection);
+                        checkIDCmd.Parameters.AddWithValue("@ID", ID);
+
+                        int ID_Count = Convert.ToInt32(checkIDCmd.ExecuteScalar());
+
+                        if (ID_Count > 0)
+                        {
+                            // Email already exists, show a message or take appropriate action
+                            MessageBox.Show("Service ID already exists. Please use a different ID Number.", "Salon Service Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return; // Exit the method without inserting the new account
+                        }
+                        string insertQuery = "INSERT INTO services (Category, Type, ServiceID, Name, Description, Duration, Price)" +
+                            "VALUES (@category, @type, @ID, @name, @describe, @duration, @price)";
+
+                        MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
+                        cmd.Parameters.AddWithValue("@category", category);
+                        cmd.Parameters.AddWithValue("@type", type); 
+                        cmd.Parameters.AddWithValue("@ID", ID);
+                        cmd.Parameters.AddWithValue("@name", name);
+                        cmd.Parameters.AddWithValue("@describe", describe);
+                        cmd.Parameters.AddWithValue("@duration", duration);
+                        cmd.Parameters.AddWithValue("@price", price);
+
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // Successful insertion
+                    MessageBox.Show("Salon service is successfully created.", "Enchanté Service", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ServiceBoxClear();
+                    ReceptionLoadServices();
+                    GenerateServiceID();
+
+
+                }
+                catch (MySqlException ex)
+                {
+                    // Handle MySQL database exception
+                    MessageBox.Show("MySQL Error: " + ex.Message, "Creating Enchanté Service Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    // Make sure to close the connection
+                    connection.Close();
+                }
+            }
+
+        }
+        private void ServiceBoxClear()
+        {
+            RecServicesCategoryComboText.Text = "";
+            RecServicesTypeComboText.Text = "";
+            RecServicesNameText.Text = "";
+            RecServicesDescriptionText.Text = "";
+            RecServicesDurationText.Text = "";
+            RecServicesPriceText.Text = "";
+            RecServicesIDNumText.Text = "";
+
+        }
+
+        private void RecServicesUpdateInfoBtn_Click(object sender, EventArgs e)
+        {
+            if (RecInventoryServicesTable.SelectedRows.Count > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Do you want to edit the selected data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    // Iterate through selected rows in PendingTable
+                    foreach (DataGridViewRow selectedRow in RecInventoryServicesTable.SelectedRows)
+                    {
+                        try
+                        {
+                            //// Re data into the database
+                            RetrieveServiceDataFromDB(selectedRow);
+                            RecServicesUpdateBtn.Visible = true;
+                            RecServicesCreateBtn.Visible = false;
+                            RecServicesCategoryComboText.Enabled = false;
+                            RecServicesTypeComboText.Enabled = false;
+                        }
+                        catch (Exception ex)
+                        {
+                            // Handle any database-related errors here
+                            MessageBox.Show("Error: " + ex.Message);
+                        }
+                    }
+
+
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select a table row first.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+        }
+        private void RetrieveServiceDataFromDB(DataGridViewRow selectedRow)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    string ID = selectedRow.Cells[2].Value.ToString();
+
+                    string selectQuery = "SELECT * FROM services WHERE ServiceID = @ID";
+                    MySqlCommand selectCmd = new MySqlCommand(selectQuery, connection);
+                    selectCmd.Parameters.AddWithValue("@ID", ID);
+
+                    using (MySqlDataReader reader = selectCmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string serviceCategory = reader["Category"].ToString();
+                            string serviceType= reader["Type"].ToString();
+                            string serviceID = reader["ServiceID"].ToString();
+                            string serviceName = reader["Name"].ToString();
+                            string serviceDescribe = reader["Description"].ToString();
+                            string serviceDuration = reader["Duration"].ToString();
+                            string servicePrice = reader["Price"].ToString();
+
+                            RecServicesCategoryComboText.Text = serviceCategory;
+                            RecServicesTypeComboText.Text = serviceType;
+                            RecServicesIDNumText.Text = serviceID;
+                            RecServicesNameText.Text = serviceName;
+                            RecServicesDescriptionText.Text = serviceDescribe;
+                            RecServicesDurationText.Text = serviceDuration;
+                            RecServicesPriceText.Text = servicePrice;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Retrieving Food Item Data Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
+        private void RecServicesUpdateBtn_Click(object sender, EventArgs e)
+        {
+            string category = RecServicesCategoryComboText.Text;
+            string type = RecServicesTypeComboText.Text;
+            string name = RecServicesNameText.Text;
+            string describe = RecServicesDescriptionText.Text;
+            string duration = RecServicesDurationText.Text;
+            string price = RecServicesPriceText.Text;
+            string ID = RecServicesIDNumText.Text;
+
+            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(type) && string.IsNullOrEmpty(category) && string.IsNullOrEmpty(describe)
+                && string.IsNullOrEmpty(duration) && string.IsNullOrEmpty(price))
+            {
+                MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(category) || string.IsNullOrEmpty(describe)
+                || string.IsNullOrEmpty(duration) || string.IsNullOrEmpty(price))
+            {
+                MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    {
+                        connection.Open();
+
+                        // Check if the employee with the given Employee ID exists
+                        string checkExistQuery = "SELECT COUNT(*) FROM services WHERE ServiceID = @ID";
+                        MySqlCommand checkExistCmd = new MySqlCommand(checkExistQuery, connection);
+                        checkExistCmd.Parameters.AddWithValue("@ID", ID);
+                        int serviceCount = Convert.ToInt32(checkExistCmd.ExecuteScalar());
+
+                        if (serviceCount == 0)
+                        {
+                            MessageBox.Show("Service with the provided ID does not exist in the database.", "Service Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+
+                        // Update without image
+                        string updateQuery = "UPDATE services SET Category = @category, Type = @type, Name = @name, Description = @describe, Duration = @duration, Price = @price " +
+                            "WHERE ServiceID = @ID";
+                        MySqlCommand updateCmd = new MySqlCommand(updateQuery, connection);
+                        updateCmd.Parameters.AddWithValue("@category", category);
+                        updateCmd.Parameters.AddWithValue("@type", type);
+                        updateCmd.Parameters.AddWithValue("@ID", ID);
+                        updateCmd.Parameters.AddWithValue("@name", name);
+                        updateCmd.Parameters.AddWithValue("@describe", describe);
+                        updateCmd.Parameters.AddWithValue("@duration", duration);
+                        updateCmd.Parameters.AddWithValue("@price", price);
+
+                        updateCmd.ExecuteNonQuery();
+
+                    }
+
+                    // Successful update
+                    MessageBox.Show("Service information has been successfully updated.", "Service Info Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RecServicesCreateBtn.Visible = true;
+                    RecServicesUpdateBtn.Visible = false; 
+                    RecServicesCategoryComboText.Enabled = true;
+                    RecServicesTypeComboText.Enabled = true;
+                    RecServicesCategoryComboText.SelectedIndex = -1;
+                    RecServicesTypeComboText.SelectedIndex= -1;
+                    ServiceBoxClear();
+                    ReceptionLoadServices();
+
+
+                }
+                catch (MySqlException ex)
+                {
+                    // Handle MySQL database exception
+                    MessageBox.Show("MySQL Error: " + ex.Message, "Updating Service Information Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+
+        }
+
+        private void RecWalkInCatHSBtn_Click(object sender, EventArgs e)
+        {
+            HairStyle();
+        }
+
+        private void RecWalkInCatFSBtn_Click(object sender, EventArgs e)
+        {
+            Face();
+        }
+
+        private void RecWalkInCatNCBtn_Click(object sender, EventArgs e)
+        {
+            Nail();
+        }
+
+        private void RecWalkInCatSpaBtn_Click(object sender, EventArgs e)
+        {
+            Spa();
+        }
+
+        private void RecWalkInCatMassageBtn_Click(object sender, EventArgs e)
+        {
+            Massage();
+        }
+        private void HairStyle()
+        {
+            if (RecWalkinCatHSRB.Checked == false)
+            {
+                RecWalkinCatHSRB.Visible = true;
+                RecWalkinCatHSRB.Checked = true;
+                LoadServiceTypeComboBox("Hair Styling");
+
+                RecWalkinCatFSRB.Visible = false;
+                RecWalkinCatNCRB.Visible = false;
+                RecWalkinCatSpaRB.Visible = false;
+                RecWalkinCatMassageRB.Visible = false;
+                RecWalkinCatFSRB.Checked = false;
+                RecWalkinCatNCRB.Checked = false;
+                RecWalkinCatSpaRB.Checked = false;
+                RecWalkinCatMassageRB.Checked = false;
+                return;
+            }
+            else if (RecWalkinCatHSRB.Checked == true)
+            {
+                RecWalkinCatHSRB.Visible = true;
+                RecWalkinCatHSRB.Checked = true;
+                LoadServiceTypeComboBox("Hair Styling");
+
+                RecWalkinCatFSRB.Visible = false;
+                RecWalkinCatNCRB.Visible = false;
+                RecWalkinCatSpaRB.Visible = false;
+                RecWalkinCatMassageRB.Visible = false;
+                RecWalkinCatFSRB.Checked = false;
+                RecWalkinCatNCRB.Checked = false;
+                RecWalkinCatSpaRB.Checked = false;
+                RecWalkinCatMassageRB.Checked = false;
+            }
+        }
+        private void Face()
+        {
+            if (RecWalkinCatFSRB.Checked == false)
+            {
+                RecWalkinCatFSRB.Visible = true;
+                RecWalkinCatFSRB.Checked = true;
+                LoadServiceTypeComboBox("Face & Skin");
+
+                RecWalkinCatHSRB.Visible = false;
+                RecWalkinCatNCRB.Visible = false;
+                RecWalkinCatSpaRB.Visible = false;
+                RecWalkinCatMassageRB.Visible = false;
+                RecWalkinCatHSRB.Checked = false;
+                RecWalkinCatNCRB.Checked = false;
+                RecWalkinCatSpaRB.Checked = false;
+                RecWalkinCatMassageRB.Checked = false;
+                return;
+            }
+            else if (RecWalkinCatFSRB.Checked == true)
+            {
+                RecWalkinCatFSRB.Visible = true;
+                RecWalkinCatFSRB.Checked = true;
+            }
+        }
+        private void Nail()
+        {
+            if (RecWalkinCatNCRB.Checked == false)
+            {
+                RecWalkinCatNCRB.Visible = true;
+                RecWalkinCatNCRB.Checked = true;
+                LoadServiceTypeComboBox("Nail Care");
+
+                RecWalkinCatHSRB.Visible = false;
+                RecWalkinCatFSRB.Visible = false;
+                RecWalkinCatSpaRB.Visible = false;
+                RecWalkinCatMassageRB.Visible = false;
+                RecWalkinCatHSRB.Checked = false;
+                RecWalkinCatFSRB.Checked = false;
+                RecWalkinCatSpaRB.Checked = false;
+                RecWalkinCatMassageRB.Checked = false;
+                return;
+            }
+            else if (RecWalkinCatNCRB.Checked == true)
+            {
+                RecWalkinCatNCRB.Visible = true;
+                RecWalkinCatNCRB.Checked = true;
+            }
+        }
+        private void Spa()
+        {
+            if (RecWalkinCatSpaRB.Checked == false)
+            {
+                RecWalkinCatSpaRB.Visible = true;
+                RecWalkinCatSpaRB.Checked = true;
+                LoadServiceTypeComboBox("Spa");
+
+                RecWalkinCatHSRB.Visible = false;
+                RecWalkinCatFSRB.Visible = false;
+                RecWalkinCatNCRB.Visible = false;
+                RecWalkinCatMassageRB.Visible = false;
+                RecWalkinCatHSRB.Checked = false;
+                RecWalkinCatFSRB.Checked = false;
+                RecWalkinCatNCRB.Checked = false;
+                RecWalkinCatMassageRB.Checked = false;
+                return;
+            }
+            else if (RecWalkinCatSpaRB.Checked == true)
+            {
+                RecWalkinCatSpaRB.Visible = true;
+                RecWalkinCatSpaRB.Checked = true;
+            }
+        }
+        private void Massage()
+        {
+            if (RecWalkinCatMassageRB.Checked == false)
+            {
+                RecWalkinCatMassageRB.Visible = true;
+                RecWalkinCatMassageRB.Checked = true;
+                LoadServiceTypeComboBox("Massage");
+
+                RecWalkinCatHSRB.Visible = false;
+                RecWalkinCatFSRB.Visible = false;
+                RecWalkinCatNCRB.Visible = false;
+                RecWalkinCatSpaRB.Visible = false;
+                RecWalkinCatHSRB.Checked = false;
+                RecWalkinCatFSRB.Checked = false;
+                RecWalkinCatNCRB.Checked = false;
+                RecWalkinCatSpaRB.Checked = false;
+                return;
+            }
+            else if (RecWalkinCatMassageRB.Checked == true)
+            {
+                RecWalkinCatMassageRB.Visible = true;
+                RecWalkinCatMassageRB.Checked = true;
+            }
+        }
+        public void ReceptionLoadHairStyleType()
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    // Filter and sort the data by FoodType
+                    string sql = "SELECT * FROM `services` WHERE Category = 'Hair Styling' ORDER BY Category";
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+                        RecWalkInServiceTypeTable.Columns.Clear();
+
+
+                        RecWalkInServiceTypeTable.DataSource = dataTable;
+
+                        RecWalkInServiceTypeTable.Columns[0].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[1].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[2].Visible = false;
+                        RecWalkInServiceTypeTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("An error occurred: " + e.Message, "Cashier Burger Item List");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public void ReceptionFaceSkinType()
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    // Filter and sort the data by FoodType
+                    string sql = "SELECT * FROM `services` WHERE Category = 'Face & Skin' ORDER BY Category";
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+                        RecWalkInServiceTypeTable.Columns.Clear();
+
+
+                        RecWalkInServiceTypeTable.DataSource = dataTable;
+
+                        RecWalkInServiceTypeTable.Columns[0].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[1].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[2].Visible = false;
+                        RecWalkInServiceTypeTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("An error occurred: " + e.Message, "Cashier Burger Item List");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public void ReceptionNailCareType()
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    // Filter and sort the data by FoodType
+                    string sql = "SELECT * FROM `services` WHERE Category = 'Nail Care' ORDER BY Category";
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+                        RecWalkInServiceTypeTable.Columns.Clear();
+
+
+                        RecWalkInServiceTypeTable.DataSource = dataTable;
+
+                        RecWalkInServiceTypeTable.Columns[0].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[1].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[2].Visible = false;
+                        RecWalkInServiceTypeTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("An error occurred: " + e.Message, "Cashier Burger Item List");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public void ReceptionSpaType()
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    // Filter and sort the data by FoodType
+                    string sql = "SELECT * FROM `services` WHERE Category = 'Spa' ORDER BY Category";
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+                        RecWalkInServiceTypeTable.Columns.Clear();
+
+
+                        RecWalkInServiceTypeTable.DataSource = dataTable;
+
+                        RecWalkInServiceTypeTable.Columns[0].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[1].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[2].Visible = false;
+                        RecWalkInServiceTypeTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("An error occurred: " + e.Message, "Cashier Burger Item List");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public void ReceptionMassageType()
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    // Filter and sort the data by FoodType
+                    string sql = "SELECT * FROM `services` WHERE Category = 'Massage' ORDER BY Category";
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+                        RecWalkInServiceTypeTable.Columns.Clear();
+
+
+                        RecWalkInServiceTypeTable.DataSource = dataTable;
+
+                        RecWalkInServiceTypeTable.Columns[0].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[1].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[2].Visible = false;
+                        RecWalkInServiceTypeTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("An error occurred: " + e.Message, "Cashier Burger Item List");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        private void LoadServiceTypeComboBox(string selectedCategory)
+        {
+             // Filter and add the relevant service types based on the selected category
+            switch (selectedCategory)
+            {
+                case "Hair Styling":
+                    ReceptionLoadHairStyleType();
+                    break;
+                case "Nail Care":
+                    ReceptionNailCareType();
+                    break;
+                case "Face & Skin":
+                    ReceptionFaceSkinType();
+                    break;
+                case "Massage":
+                    ReceptionMassageType();
+                    break;
+                case "Spa":
+                    ReceptionSpaType();
+                    break;
+                default:
+                    break;
+            }
+
+        }
+        private void SearchAcrossCategories(string searchText)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    // Modify the query to search for the specified text in all categories
+                    string sql = "SELECT * FROM `services` WHERE " +
+                                 "(Name LIKE @searchText OR " +
+                                 "Description LIKE @searchText OR " +
+                                 "Duration LIKE @searchText OR " +
+                                 "Price LIKE @searchText)";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    cmd.Parameters.AddWithValue("@searchText", "%" + searchText + "%");
+
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+                        RecWalkInServiceTypeTable.Columns.Clear();
+
+                        RecWalkInServiceTypeTable.DataSource = dataTable;
+
+                        // Adjust column visibility and sizing as needed
+                        RecWalkInServiceTypeTable.Columns[0].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[1].Visible = false;
+                        RecWalkInServiceTypeTable.Columns[2].Visible = false;
+                        RecWalkInServiceTypeTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("An error occurred: " + e.Message, "Error");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
+        private void RecWalkInSearchServiceTypeText_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = RecWalkinSearchServiceTypeText.Text;
+            SearchAcrossCategories(searchText);
+        }
+
+        private void RecWalkInSearchServiceTypeBtn_Click(object sender, EventArgs e)
+        {
+            string searchText = RecWalkinSearchServiceTypeText.Text;
+            SearchAcrossCategories(searchText);
+        }
+
+        private void AdminSignOutBtn_Click_1(object sender, EventArgs e)
+        {
+            LogoutChecker();
+
+        }
+
+        private void AdminAccUserBtn_Click(object sender, EventArgs e)
+        {
+            if (AdminAccUserPanel.Visible == false)
+            {
+                AdminAccUserPanel.Visible = true;
+
+            }
+            else
+            {
+                AdminAccUserPanel.Visible = false;
+            }
+        }
+
+        private void AdminBdayPicker_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime selectedDate = AdminBdayPicker.Value;
+            int age = DateTime.Now.Year - selectedDate.Year;
+
+            if (DateTime.Now < selectedDate.AddYears(age))
+            {
+                age--; // Subtract 1 if the birthday hasn't occurred yet this year
+            }
+            AdminAgeText.Text = age.ToString();
+            if (age < 18)
+            {
+                AdminAgeErrorLbl.Visible = true;
+                AdminAgeErrorLbl.Text = "Must be 18 years old and above";
+                return;
+            }
+            else
+            {
+                AdminAgeErrorLbl.Visible = false;
+
+            }
+        }
+        private string selectedHashedPerUser;
+
+        private void AdminEditAccBtn_Click(object sender, EventArgs e)
+        {
+            DateTime selectedDate = RegularBdayPicker.Value;
+            DateTime currentDate = DateTime.Now;
+
+            string fname = AdminFirstNameText.Text;
+            string lname = AdminLastNameText.Text;
+            string bday = selectedDate.ToString("MM-dd-yyyy");
+            string age = AdminAgeText.Text;
+            string gender = AdminGenderComboText.Text;
+            string cpnum = AdminCPNumText.Text;
+            string emplType = AdminEmplTypeComboText.Text;
+            string emplCat = AdminEmplCatComboText.Text;
+            string emplCatLvl = AdminEmplCatLvlComboText.Text;
+            string emplID = AdminEmplIDText.Text;
+            string email = AdminEmailText.Text;
+            string pass = AdminPassText.Text;
+            string confirm = AdminConfirmPassText.Text;
+
+            string hashedPassword = HashHelper.HashString(pass);    // Password hashed
+            string fixedSalt = HashHelper_Salt.HashString_Salt("Enchante" + pass + "2024");    //Fixed Salt
+            string perUserSalt = HashHelper_SaltperUser.HashString_SaltperUser(pass + emplID);    //Per User salt
+
+            if (AdminAccountTable.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = AdminAccountTable.SelectedRows[0];
+
+                bool rowIsEmpty = true;
+                foreach (DataGridViewCell cell in selectedRow.Cells)
+                {
+                    if (!string.IsNullOrEmpty(cell.Value?.ToString()))
+                    {
+                        rowIsEmpty = false;
+                        break;
+                    }
+                }
+
+                if (rowIsEmpty)
+                {
+                    MessageBox.Show("The selected row is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                AdminFirstNameText.Text = selectedRow.Cells["FirstName"].Value?.ToString();
+                AdminLastNameText.Text = selectedRow.Cells["LastName"].Value?.ToString();
+                AdminEmailText.Text = selectedRow.Cells["Email"].Value?.ToString();
+                AdminAgeText.Text = selectedRow.Cells["Age"].Value?.ToString();
+                AdminGenderComboText.SelectedItem = selectedRow.Cells["Gender"].Value?.ToString();
+                AdminCPNumText.Text = selectedRow.Cells["PhoneNumber"].Value?.ToString();
+                AdminEmplTypeComboText.SelectedItem = selectedRow.Cells["EmployeeType"].Value?.ToString();
+                AdminEmplCatComboText.SelectedItem = selectedRow.Cells["EmployeeCategory"].Value?.ToString();
+                AdminEmplCatLvlComboText.SelectedItem= selectedRow.Cells["EmployeeCategoryLevel"].Value?.ToString();
+                AdminEmplIDText.Text = selectedRow.Cells["EmployeeID"].Value?.ToString();
+
+                string birthdayString = selectedRow.Cells["Birthday"].Value?.ToString() ?? string.Empty;
+                DateTime birthday;
+                if (!string.IsNullOrEmpty(birthdayString) && DateTime.TryParseExact(birthdayString, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out birthday))
+                {
+                    AdminBdayPicker.Value = birthday.Date;
+                }
+                else if (string.IsNullOrEmpty(birthdayString))
+                {
+                    AdminBdayPicker.Value = DateTime.Today;
+                }
+                else
+                {
+                    MessageBox.Show("Invalid date format in the 'Birthday' column.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                selectedHashedPerUser = selectedRow.Cells["HashedPerUser"].Value?.ToString();
+                AdminEmplTypeComboText.Enabled = false;
+                AdminEmplCatComboText.Enabled = false;
+                AdminCreateAccBtn.Visible = false;
+                AdminUpdateAccBtn.Visible = true;
+
+            }
+            else
+            {
+                MessageBox.Show("Please select a row first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void AdminEmplTypeComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (AdminEmplTypeComboText.SelectedItem != null)
+            {
+                string selectedEmpType = AdminEmplTypeComboText.SelectedItem?.ToString() ?? string.Empty;
+
+                if (selectedEmpType == "Admin" || selectedEmpType == "Manager")
+                {
+                    AdminEmplCatComboText.SelectedIndex = AdminEmplCatComboText.Items.IndexOf("Not Applicable");
+                    AdminEmplCatLvlComboText.SelectedIndex = AdminEmplCatLvlComboText.Items.IndexOf("Not Applicable");
+                    AdminEmplCatComboText.Enabled = false;
+                    AdminEmplCatLvlComboText.Enabled = false;
+                    AdminGenerateID();
+                }
+                else if (selectedEmpType == "Staff")
+                {
+                    AdminEmplCatComboText.SelectedIndex = -1;
+                    AdminEmplCatLvlComboText.SelectedIndex = -1;
+                    AdminEmplCatComboText.Enabled = true;
+                    AdminEmplCatLvlComboText.Enabled = true;
+                    AdminGenerateID();
+                }
+            }
+        }
+
+        private void AdminEmplCatLvlComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (AdminEmplCatLvlComboText.SelectedItem != null)
+            {
+                AdminEmplCatLvlComboText.Text = AdminEmplCatLvlComboText.SelectedItem.ToString();
+                AdminGenerateID();
+            }
+        }
+
+        private void AdminEmplCatComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (AdminEmplCatComboText.SelectedItem != null)
+            {
+                AdminEmplCatComboText.Text = AdminEmplCatComboText.SelectedItem.ToString();
+                AdminGenerateID();
+            }
+        }
+
+        private void AdminShowHidePassBtn_Click(object sender, EventArgs e)
+        {
+            if (AdminPassText.UseSystemPasswordChar == true)
+            {
+                AdminPassText.UseSystemPasswordChar = false;
+                AdminShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            }
+            else if (AdminPassText.UseSystemPasswordChar == false)
+            {
+                AdminPassText.UseSystemPasswordChar = true;
+                AdminShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+
+            }
+        }
+
+        private void AdminShowHideConfirmPassBtn_Click(object sender, EventArgs e)
+        {
+            if (AdminConfirmPassText.UseSystemPasswordChar == true)
+            {
+                AdminConfirmPassText.UseSystemPasswordChar = false;
+                AdminShowHideConfirmPassBtn.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            }
+            else if (AdminConfirmPassText.UseSystemPasswordChar == false)
+            {
+                AdminConfirmPassText.UseSystemPasswordChar = true;
+                AdminShowHideConfirmPassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+
+            }
+        }
+
+        private void AdminConfirmPassText_TextChanged(object sender, EventArgs e)
+        {
+            if (AdminConfirmPassText.Text != AdminPassText.Text)
+            {
+                AdminConfirmPassErrorLbl.Visible = true;
+                AdminConfirmPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
+            }
+            else
+            {
+                AdminConfirmPassErrorLbl.Visible = false;
+            }
+        }
+        private bool ContainsNumbers(string input)
+        {
+            return input.Any(char.IsDigit);
+        }
+        private bool IsNumeric(string input)
+        {
+            foreach (char c in input)
+            {
+                if (!char.IsDigit(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        private void AdminCreateAccBtn_Click(object sender, EventArgs e)
+        {
+            DateTime selectedDate = RegularBdayPicker.Value;
+            DateTime currentDate = DateTime.Now;
+
+            string fname = AdminFirstNameText.Text;
+            string lname = AdminLastNameText.Text;
+            string bday = selectedDate.ToString("MM-dd-yyyy");
+            string age = AdminAgeText.Text;
+            string gender = AdminGenderComboText.Text;
+            string cpnum = AdminCPNumText.Text;
+            string emplType = AdminEmplTypeComboText.Text;
+            string emplCat = AdminEmplCatComboText.Text;
+            string emplCatLvl = AdminEmplCatLvlComboText.Text;
+            string emplID = AdminEmplIDText.Text;
+            string email = AdminEmailText.Text;
+            string pass = AdminPassText.Text;
+            string confirm = AdminConfirmPassText.Text;
+
+            string hashedPassword = HashHelper.HashString(pass);    // Password hashed
+            string fixedSalt = HashHelper_Salt.HashString_Salt("Enchante" + pass + "2024");    //Fixed Salt
+            string perUserSalt = HashHelper_SaltperUser.HashString_SaltperUser(pass + emplID);    //Per User salt
+
+
+            if (string.IsNullOrWhiteSpace(fname) || string.IsNullOrWhiteSpace(lname) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(age) ||
+               string.IsNullOrWhiteSpace(cpnum) || string.IsNullOrWhiteSpace(emplID) || string.IsNullOrWhiteSpace(pass) || string.IsNullOrWhiteSpace(confirm) ||
+               AdminBdayPicker.Value == null || AdminGenderComboText.SelectedItem == null || AdminEmplTypeComboText.SelectedItem == null || AdminEmplCatComboText.SelectedItem == null || AdminEmplCatLvlComboText.SelectedItem == null)
+            {
+                MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (ContainsNumbers(fname))
+            {
+                MessageBox.Show("First Name should not contain numbers.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (ContainsNumbers(lname))
+            {
+                MessageBox.Show("Last Name should not contain numbers.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!email.Contains("@") || !email.Contains(".com"))
+            {
+                MessageBox.Show("Invalid email format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!IsNumeric(age))
+            {
+                MessageBox.Show("Invalid Age.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!IsNumeric(cpnum))
+            {
+                MessageBox.Show("Invalid Phone Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (pass != confirm)
+            {
+                MessageBox.Show("Passwords do not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    {
+                        connection.Open();
+
+                        string query = "INSERT INTO systemusers (FirstName, LastName, Email, Birthday, Age, Gender, PhoneNumber, EmployeeType, EmployeeCategory, EmployeeCategoryLevel, EmployeeID, HashedPass, HashedFixedSalt, HashedPerUser) " +
+                                       "VALUES (@FirstName, @LastName, @Email, @Birthday, @Age, @Gender, @PhoneNumber, @EmployeeType, @EmployeeCategory, @EmployeeCategoryLevel, @EmployeeID, @HashedPass, @HashedFixedSalt, @HashedPerUser)";
+
+                        MySqlCommand command = new MySqlCommand(query, connection);
+                        command.Parameters.AddWithValue("@FirstName", fname);
+                        command.Parameters.AddWithValue("@LastName", lname);
+                        command.Parameters.AddWithValue("@Email", email);
+                        command.Parameters.AddWithValue("@Birthday", bday);
+                        command.Parameters.AddWithValue("@Age", int.Parse(age));
+                        command.Parameters.AddWithValue("@Gender", gender);
+                        command.Parameters.AddWithValue("@PhoneNumber", cpnum);
+                        command.Parameters.AddWithValue("@EmployeeType", emplType);
+                        command.Parameters.AddWithValue("@EmployeeCategory", emplCat);
+                        command.Parameters.AddWithValue("@EmployeeCategoryLevel", emplCatLvl);
+                        command.Parameters.AddWithValue("@EmployeeID", emplID);
+                        command.Parameters.AddWithValue("@HashedPass", hashedPassword);
+                        command.Parameters.AddWithValue("@HashedFixedSalt", fixedSalt);
+                        command.Parameters.AddWithValue("@HashedPerUser", perUserSalt);
+
+                        command.ExecuteNonQuery();
+
+                        MessageBox.Show("Registered Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        PopulateUserInfoDataGrid();
+                        ClearFields();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void ClearFields()
+        {
+            AdminFirstNameText.Text = "";
+            AdminLastNameText.Text = "";
+            AdminBdayPicker.Value = DateTime.Now;
+            AdminAgeText.Text = "";
+            AdminGenderComboText.Text = "";
+            AdminCPNumText.Text = "";
+            AdminEmplTypeComboText.Text = "";
+            AdminEmplCatComboText.Text = "";
+            AdminEmplCatLvlComboText.Text = "";
+            AdminEmplIDText.Text = "";
+            AdminPassText.Text = "";
+            AdminConfirmPassText.Text = "";
+        }
+        private void AdminUpdateAccBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(AdminFirstNameText.Text) || string.IsNullOrWhiteSpace(AdminLastNameText.Text) || string.IsNullOrWhiteSpace(AdminEmailText.Text) || string.IsNullOrWhiteSpace(AdminAgeText.Text) ||
+    string.IsNullOrWhiteSpace(AdminCPNumText.Text) || string.IsNullOrWhiteSpace(AdminEmplIDText.Text) || AdminBdayPicker.Value == null || AdminGenderComboText.SelectedItem == null || AdminEmplTypeComboText.SelectedItem == null ||
+    AdminEmplCatComboText.SelectedItem == null || AdminEmplCatLvlComboText.SelectedItem == null)
+            {
+                MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (ContainsNumbers(AdminFirstNameText.Text))
+            {
+                MessageBox.Show("First Name should not contain numbers.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (ContainsNumbers(AdminLastNameText.Text))
+            {
+                MessageBox.Show("Last Name should not contain numbers.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!AdminEmailText.Text.Contains("@") || !AdminEmailText.Text.Contains(".com"))
+            {
+                MessageBox.Show("Invalid email format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!IsNumeric(AdminAgeText.Text))
+            {
+                MessageBox.Show("Invalid Age.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!IsNumeric(AdminCPNumText.Text))
+            {
+                MessageBox.Show("Invalid Phone Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (selectedHashedPerUser != null)
+            {
+                string connectionString = "Server=localhost;Database=enchante;User=root;Password=;";
+                string query = @"UPDATE systemusers 
+                 SET FirstName = @FirstName, 
+                     LastName = @LastName, 
+                     Email = @Email, 
+                     Birthday = @Birthday, 
+                     Age = @Age, 
+                     Gender = @Gender, 
+                     PhoneNumber = @PhoneNumber, 
+                     EmployeeType = @EmployeeType, 
+                     EmployeeCategory = @EmployeeCategory, 
+                     EmployeeCategoryLevel = @EmployeeCategoryLevel, 
+                     EmployeeID = @EmployeeID 
+                 WHERE HashedPerUser = @HashedPerUser";
+
+                try
+                {
+                    bool fieldsChanged = false;
+                    string selectQuery = "SELECT FirstName, LastName, Email, Birthday, Age, Gender, PhoneNumber, EmployeeType, EmployeeCategory, EmployeeCategoryLevel, EmployeeID FROM systemusers WHERE HashedPerUser = @HashedPerUser";
+
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        connection.Open();
+
+                        using (MySqlCommand selectCommand = new MySqlCommand(selectQuery, connection))
+                        {
+                            selectCommand.Parameters.AddWithValue("@HashedPerUser", selectedHashedPerUser);
+
+                            using (MySqlDataReader reader = selectCommand.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    if (reader["FirstName"].ToString() != AdminFirstNameText.Text ||
+                                        reader["LastName"].ToString() != AdminLastNameText.Text ||
+                                        reader["Email"].ToString() != AdminEmailText.Text ||
+                                        !DateTime.TryParse(reader["Birthday"].ToString(), out DateTime birthday) || birthday != AdminBdayPicker.Value ||
+                                        Convert.ToInt32(reader["Age"]) != int.Parse(AdminAgeText.Text) ||
+                                        reader["Gender"].ToString() != AdminGenderComboText.SelectedItem.ToString() ||
+                                        reader["PhoneNumber"].ToString() != AdminCPNumText.Text ||
+                                        reader["EmployeeType"].ToString() != AdminEmplTypeComboText.SelectedItem.ToString() ||
+                                        reader["EmployeeCategory"].ToString() != AdminEmplCatComboText.SelectedItem.ToString() ||
+                                        reader["EmployeeCategoryLevel"].ToString() != AdminEmplCatLvlComboText.SelectedItem.ToString() ||
+                                        reader["EmployeeID"].ToString() != AdminEmplIDText.Text)
+                                    {
+                                        fieldsChanged = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    if (fieldsChanged)
+                    {
+                        using (MySqlConnection connection = new MySqlConnection(connectionString))
+                        {
+                            connection.Open();
+
+                            using (MySqlCommand command = new MySqlCommand(query, connection))
+                            {
+                                command.Parameters.AddWithValue("@FirstName", AdminFirstNameText.Text);
+                                command.Parameters.AddWithValue("@LastName", AdminLastNameText.Text);
+                                command.Parameters.AddWithValue("@Email", AdminEmailText.Text);
+                                command.Parameters.AddWithValue("@Birthday", AdminBdayPicker.Value);
+                                command.Parameters.AddWithValue("@Age", int.Parse(AdminAgeText.Text));
+                                command.Parameters.AddWithValue("@Gender", AdminGenderComboText.SelectedItem.ToString());
+                                command.Parameters.AddWithValue("@PhoneNumber", AdminCPNumText.Text);
+                                command.Parameters.AddWithValue("@EmployeeType", AdminEmplTypeComboText.SelectedItem.ToString());
+                                command.Parameters.AddWithValue("@EmployeeCategory", AdminEmplCatComboText.SelectedItem.ToString());
+                                command.Parameters.AddWithValue("@EmployeeCategoryLevel", AdminEmplCatLvlComboText.SelectedItem.ToString());
+                                command.Parameters.AddWithValue("@EmployeeID", AdminEmplIDText.Text);
+                                command.Parameters.AddWithValue("@HashedPerUser", selectedHashedPerUser);
+
+                                int rowsAffected = command.ExecuteNonQuery();
+
+                                if (rowsAffected > 0)
+                                {
+                                    MessageBox.Show("Data updated successfully.", "Success", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                                    PopulateUserInfoDataGrid();
+                                    AdminEmplTypeComboText.Enabled = true;
+                                    AdminEmplCatComboText.Enabled = true;
+                                    AdminCreateAccBtn.Visible = true;
+                                    AdminUpdateAccBtn.Visible = false;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No rows updated.", "Information", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No changes have been made.", "Information", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void AdminGenderComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (AdminGenderComboText.SelectedItem != null)
+            {
+                AdminGenderComboText.Text = AdminGenderComboText.SelectedItem.ToString();
+            }
+        }
+        private void PopulateUserInfoDataGrid()
+        {
+            string connectionString = "Server=localhost;Database=enchante;User=root;Password=;";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT FirstName, LastName, Email, Birthday, Age, Gender, PhoneNumber, EmployeeType, EmployeeCategory, EmployeeCategoryLevel, EmployeeID, HashedPass, HashedFixedSalt, HashedPerUser FROM systemusers";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                        {
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
+
+                            // Bind the DataTable to the DataGridView
+                            AdminAccountTable.DataSource = dataTable;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+        }
+        private void AdminGenerateID()
+        {
+            string empType = AdminEmplTypeComboText.SelectedItem?.ToString() ?? string.Empty;
+            string empCategory = AdminEmplCatComboText.SelectedItem?.ToString() ?? string.Empty;
+
+            string empTypePrefix = "";
+            string empCategoryPrefix = "";
+
+            if (empType == "Admin")
+            {
+                empTypePrefix = "A-";
+            }
+            else if (empType == "Manager")
+            {
+                empTypePrefix = "M-";
+            }
+            else if (empType == "Staff")
+            {
+                empTypePrefix = "S-";
+            }
+
+            if (empCategory == "Hair Styling")
+            {
+                empCategoryPrefix = "HS-";
+            }
+            else if (empCategory == "Face & Skin")
+            {
+                empCategoryPrefix = "FS-";
+            }
+            else if (empCategory == "Nail Care")
+            {
+                empCategoryPrefix = "NC-";
+            }
+            else if (empCategory == "Massage")
+            {
+                empCategoryPrefix = "MS-";
+            }
+            else if (empCategory == "Spa")
+            {
+                empCategoryPrefix = "SP-";
+            }
+
+            Random random = new Random();
+            int randomNumber = random.Next(100000, 999999);
+            string randomNumberString = randomNumber.ToString("D6");
+            string finalID = empTypePrefix + empCategoryPrefix + randomNumberString;
+            AdminEmplIDText.Text = finalID;
+        }
+        
+        //reception dashboard continues here
+        private void RecCalendar_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            // Get the selected date and set your text based on it
+            DateTime selectedDate = RecWalkinCalendar.SelectionStart;
+
+            // Example: Set a label text based on the selected date
+            RecWalkinSelectedDateText.Text = selectedDate.ToShortDateString();
+        }
+
+
+
     }
 }
