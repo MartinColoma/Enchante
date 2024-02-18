@@ -4019,7 +4019,7 @@ namespace Enchante
         {
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
             {
-                string query = "SELECT EmployeeID, FirstName, LastName, EmployeeCategory, EmployeeCategoryLevel, Schedule, Availability FROM systemusers";
+                string query = "SELECT EmployeeID, FirstName, LastName, EmployeeCategory, EmployeeCategoryLevel, Schedule, Availability FROM systemusers WHERE EmployeeType = 'Staff'";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 DataTable dataTable = new DataTable();
@@ -4077,25 +4077,57 @@ namespace Enchante
             {
                 connection.Open();
 
-                string updatstaffschedequery = "UPDATE systemusers SET Schedule = @Schedule, Availability = @Availability WHERE  EmployeeID = @EmployeeID";
+                bool availabilityUpdated = false;
+                bool scheduleUpdated = false;
 
-                MySqlCommand updateCommand = new MySqlCommand(updatstaffschedequery, connection);
-                updateCommand.Parameters.AddWithValue("@Schedule", EmployeeTimeScheduleValue);
-                updateCommand.Parameters.AddWithValue("@Availability", EmployeeAvailabilityValue);
-                updateCommand.Parameters.AddWithValue("@EmployeeID", EmployeeIDValue);
-
-                int rowsAffected = updateCommand.ExecuteNonQuery();
-
-                if (rowsAffected > 0)
+                if (RecStaffAvailabilityComboBox.SelectedIndex != 0)
                 {
-                    MessageBox.Show("Update successful!");
+                    string updateAvailabilityQuery = "UPDATE systemusers SET Availability = @Availability WHERE EmployeeID = @EmployeeID";
+                    MySqlCommand availabilityCommand = new MySqlCommand(updateAvailabilityQuery, connection);
+                    availabilityCommand.Parameters.AddWithValue("@Availability", EmployeeAvailabilityValue);
+                    availabilityCommand.Parameters.AddWithValue("@EmployeeID", EmployeeIDValue);
+                    int availabilityRowsAffected = availabilityCommand.ExecuteNonQuery();
+
+                    if (availabilityRowsAffected > 0)
+                    {
+                        availabilityUpdated = true;
+                    }
                 }
-                else
+
+                if (RecStaffSchedComboBox.SelectedIndex != 0)
                 {
-                    MessageBox.Show("Update failed!");
+                    string updateScheduleQuery = "UPDATE systemusers SET Schedule = @Schedule WHERE EmployeeID = @EmployeeID";
+                    MySqlCommand scheduleCommand = new MySqlCommand(updateScheduleQuery, connection);
+                    scheduleCommand.Parameters.AddWithValue("@Schedule", EmployeeTimeScheduleValue);
+                    scheduleCommand.Parameters.AddWithValue("@EmployeeID", EmployeeIDValue);
+                    int scheduleRowsAffected = scheduleCommand.ExecuteNonQuery();
+
+                    if (scheduleRowsAffected > 0)
+                    {
+                        scheduleUpdated = true;
+                    }
+                }
+
+                if (availabilityUpdated)
+                {
+                    MessageBox.Show("Availability updated.");
+                }
+
+                if (scheduleUpdated)
+                {
+                    MessageBox.Show("Schedule updated.");
+                }
+
+                if (!availabilityUpdated && !scheduleUpdated)
+                {
+                    MessageBox.Show("No updates were made.");
                 }
             }
+
+            InitializeAvailableStaffFlowLayout();
+            FillRecStaffScheduleViewDataGrid();
         }
+        
 
         public class AvailableStaff
         {
@@ -4121,10 +4153,7 @@ namespace Enchante
                     addedavailablestaffusercontrol.AvailableStaffSetData(staff);
                     RecAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
                 }
-                else
-                {
-                    MessageBox.Show("No Match");
-                }
+               
             }
         }
 
