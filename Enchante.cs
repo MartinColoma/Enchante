@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using System.Transactions;
 using System.Windows.Documents;
 using System.Windows.Forms;
+using static Enchante.Enchante;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Enchante
@@ -50,12 +51,12 @@ namespace Enchante
         "Hydration Treatment", "Acne Treatment", "Anti-aging Treatment", "Soft Massage", "Moderate Massage", "Hard Massage",
         "Herbal Pool", "Sauna"};
         //admin employee combobox
-        private string[] emplType = {"Admin", "Manager", "Staff"};
+        private string[] emplType = { "Admin", "Manager", "Staff" };
         private string[] emplCategories = { "Hair Styling", "Face & Skin", "Nail Care", "Massage", "Spa" };
         private string[] emplCatLevels = { "Junior", "Assistant", "Senior" };
 
 
-
+        public List<AvailableStaff> filteredbyschedstaff;
 
         public Enchante()
         {
@@ -293,7 +294,7 @@ namespace Enchante
 
 
                 EnchanteLoginForm.Visible = false;
-                    
+
             }
 
         }
@@ -509,12 +510,12 @@ namespace Enchante
 
         private void ShowHidePassBtn_Click(object sender, EventArgs e)
         {
-            if(LoginPassText.UseSystemPasswordChar == true)
+            if (LoginPassText.UseSystemPasswordChar == true)
             {
                 LoginPassText.UseSystemPasswordChar = false;
                 ShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
             }
-            else if(LoginPassText.UseSystemPasswordChar == false)
+            else if (LoginPassText.UseSystemPasswordChar == false)
             {
                 LoginPassText.UseSystemPasswordChar = true;
                 ShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
@@ -780,7 +781,7 @@ namespace Enchante
                                     }
                                     return;
                                 }
-                                else  if (membertype == "SVIP")
+                                else if (membertype == "SVIP")
                                 {
                                     // Retrieve the HashedPass column
                                     string hashedPasswordFromDB = readerApproved["HashedPass"].ToString();
@@ -1221,26 +1222,26 @@ namespace Enchante
                 age--; // Subtract 1 if the birthday hasn't occurred yet this year
             }
 
-            if (string.IsNullOrEmpty(rFirstname) || string.IsNullOrEmpty(rLastname) || string.IsNullOrEmpty(rAge) || 
-                string.IsNullOrEmpty(rGender) || string.IsNullOrEmpty(rNumber) || string.IsNullOrEmpty(rEmailAdd) || 
+            if (string.IsNullOrEmpty(rFirstname) || string.IsNullOrEmpty(rLastname) || string.IsNullOrEmpty(rAge) ||
+                string.IsNullOrEmpty(rGender) || string.IsNullOrEmpty(rNumber) || string.IsNullOrEmpty(rEmailAdd) ||
                 string.IsNullOrEmpty(rNumber) || string.IsNullOrEmpty(rPass) || string.IsNullOrEmpty(rConfirmPass))
             {
-                RegularFirstNameErrorLbl.Visible = true; 
-                RegularGenderErrorLbl.Visible = true; 
+                RegularFirstNameErrorLbl.Visible = true;
+                RegularGenderErrorLbl.Visible = true;
                 RegularMobileNumErrorLbl.Visible = true;
-                RegularEmailErrorLbl.Visible = true; 
-                RegularPassErrorLbl.Visible = true; 
+                RegularEmailErrorLbl.Visible = true;
+                RegularPassErrorLbl.Visible = true;
                 RegularConfirmPassErrorLbl.Visible = true;
-                RegularLastNameErrorLbl.Visible = true; 
+                RegularLastNameErrorLbl.Visible = true;
                 RegularAgeErrorLbl.Visible = true;
 
-                RegularFirstNameErrorLbl.Text = "Missing Field"; 
-                RegularGenderErrorLbl.Text = "Missing Field"; 
+                RegularFirstNameErrorLbl.Text = "Missing Field";
+                RegularGenderErrorLbl.Text = "Missing Field";
                 RegularMobileNumErrorLbl.Text = "Missing Field";
-                RegularEmailErrorLbl.Text = "Missing Field"; 
-                RegularPassErrorLbl.Text = "Missing Field"; 
+                RegularEmailErrorLbl.Text = "Missing Field";
+                RegularPassErrorLbl.Text = "Missing Field";
                 RegularConfirmPassErrorLbl.Text = "Missing Field";
-                RegularLastNameErrorLbl.Text = "Missing Field"; 
+                RegularLastNameErrorLbl.Text = "Missing Field";
                 RegularAgeErrorLbl.Text = "Missing Field";
 
             }
@@ -1272,7 +1273,7 @@ namespace Enchante
                 RegularPassErrorLbl.Text = "Invalid Password Format";
                 return;
             }
-            else if (rPass!=rConfirmPass)
+            else if (rPass != rConfirmPass)
             {
                 RegularConfirmPassErrorLbl.Visible = true;
                 RegularPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
@@ -1300,7 +1301,7 @@ namespace Enchante
                         }
                         string insertQuery = "INSERT INTO membershipaccount (MembershipType, MemberIDNumber, AccountStatus, FirstName, " +
                             "LastName, Birthday, Age, CPNumber, EmailAdd, HashedPass, SaltedPass, UserSaltedPass, PlanPeriod, AccountCreated) " +
-                            "VALUES (@type, @ID, @status, @firstName, @lastName, @bday, @age, @cpnum, @email, @hashedpass, @saltedpass, @usersaltedpass, @period, @created)"; 
+                            "VALUES (@type, @ID, @status, @firstName, @lastName, @bday, @age, @cpnum, @email, @hashedpass, @saltedpass, @usersaltedpass, @period, @created)";
 
                         MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
                         cmd.Parameters.AddWithValue("@type", rType);
@@ -1356,7 +1357,7 @@ namespace Enchante
 
 
         }
-        
+
         //Super VIP Plan Membership
         private void SVIPExitBtn_Click(object sender, EventArgs e)
         {
@@ -1795,7 +1796,7 @@ namespace Enchante
                 SVIPConfirmPassErrorLbl.Visible = true;
                 SVIPLastNameErrorLbl.Visible = true;
                 SVIPAgeErrorLbl.Visible = true;
-                
+
 
                 SVIPFirstNameErrorLbl.Text = "Missing Field";
                 SVIPGenderErrorLbl.Text = "Missing Field";
@@ -2659,7 +2660,7 @@ namespace Enchante
                     break;
                 default:
                     break;
-            }        
+            }
 
             // Select the first item in the list
             if (RecServicesTypeComboText.Items.Count > 0)
@@ -2741,8 +2742,8 @@ namespace Enchante
                 return;
             }
             else if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(category) || string.IsNullOrEmpty(describe)
-                || string.IsNullOrEmpty(duration)|| string.IsNullOrEmpty(price))
-            { 
+                || string.IsNullOrEmpty(duration) || string.IsNullOrEmpty(price))
+            {
                 MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -2772,7 +2773,7 @@ namespace Enchante
 
                         MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
                         cmd.Parameters.AddWithValue("@category", category);
-                        cmd.Parameters.AddWithValue("@type", type); 
+                        cmd.Parameters.AddWithValue("@type", type);
                         cmd.Parameters.AddWithValue("@ID", ID);
                         cmd.Parameters.AddWithValue("@name", name);
                         cmd.Parameters.AddWithValue("@describe", describe);
@@ -2873,7 +2874,7 @@ namespace Enchante
                         if (reader.Read())
                         {
                             string serviceCategory = reader["Category"].ToString();
-                            string serviceType= reader["Type"].ToString();
+                            string serviceType = reader["Type"].ToString();
                             string serviceID = reader["ServiceID"].ToString();
                             string serviceName = reader["Name"].ToString();
                             string serviceDescribe = reader["Description"].ToString();
@@ -2965,11 +2966,11 @@ namespace Enchante
                     // Successful update
                     MessageBox.Show("Service information has been successfully updated.", "Service Info Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RecServicesCreateBtn.Visible = true;
-                    RecServicesUpdateBtn.Visible = false; 
+                    RecServicesUpdateBtn.Visible = false;
                     RecServicesCategoryComboText.Enabled = true;
                     RecServicesTypeComboText.Enabled = true;
                     RecServicesCategoryComboText.SelectedIndex = -1;
-                    RecServicesTypeComboText.SelectedIndex= -1;
+                    RecServicesTypeComboText.SelectedIndex = -1;
                     ServiceBoxClear();
                     ReceptionLoadServices();
 
@@ -2990,27 +2991,69 @@ namespace Enchante
 
         private void RecWalkInCatHSBtn_Click(object sender, EventArgs e)
         {
-            HairStyle();
+            if (RecPrefferedTimePMComboBox.SelectedIndex == 0 && RecPrefferedTimeAMComboBox.SelectedIndex == 0)
+            {
+                MessageBox.Show("Please Select a prefferred time first");
+            }
+            else
+            {
+                HairStyle();
+                FilterAvailableStaffInRecFlowLayoutPanelByHairStyling();
+            }
+
         }
 
         private void RecWalkInCatFSBtn_Click(object sender, EventArgs e)
         {
-            Face();
+            if (RecPrefferedTimePMComboBox.SelectedIndex == 0 && RecPrefferedTimeAMComboBox.SelectedIndex == 0)
+            {
+                MessageBox.Show("Please Select a prefferred time first");
+            }
+            else
+            {
+                Face();
+                FilterAvailableStaffInRecFlowLayoutPanelByFaceandSkin();
+            }
         }
 
         private void RecWalkInCatNCBtn_Click(object sender, EventArgs e)
         {
-            Nail();
+            if (RecPrefferedTimePMComboBox.SelectedIndex == 0 && RecPrefferedTimeAMComboBox.SelectedIndex == 0)
+            {
+                MessageBox.Show("Please Select a prefferred time first");
+            }
+            else
+            {
+                Nail();
+                FilterAvailableStaffInRecFlowLayoutPanelByNailCare();
+            }
         }
 
         private void RecWalkInCatSpaBtn_Click(object sender, EventArgs e)
         {
-            Spa();
+            if (RecPrefferedTimePMComboBox.SelectedIndex == 0 && RecPrefferedTimeAMComboBox.SelectedIndex == 0)
+            {
+                MessageBox.Show("Please Select a prefferred time first");
+            }
+            else 
+            {
+                Spa();
+                FilterAvailableStaffInRecFlowLayoutPanelBySpa();
+            }
         }
 
         private void RecWalkInCatMassageBtn_Click(object sender, EventArgs e)
         {
-            Massage();
+            if (RecPrefferedTimePMComboBox.SelectedIndex == 0 && RecPrefferedTimeAMComboBox.SelectedIndex == 0)
+            {
+                MessageBox.Show("Please Select a prefferred time first");
+            }
+            else
+            {
+                Massage();
+                FilterAvailableStaffInRecFlowLayoutPanelByMassage();
+            }
+
         }
         private void HairStyle()
         {
@@ -3334,7 +3377,7 @@ namespace Enchante
         }
         private void LoadServiceTypeComboBox(string selectedCategory)
         {
-             // Filter and add the relevant service types based on the selected category
+            // Filter and add the relevant service types based on the selected category
             switch (selectedCategory)
             {
                 case "Hair Styling":
@@ -3510,7 +3553,7 @@ namespace Enchante
                 AdminCPNumText.Text = selectedRow.Cells["PhoneNumber"].Value?.ToString();
                 AdminEmplTypeComboText.SelectedItem = selectedRow.Cells["EmployeeType"].Value?.ToString();
                 AdminEmplCatComboText.SelectedItem = selectedRow.Cells["EmployeeCategory"].Value?.ToString();
-                AdminEmplCatLvlComboText.SelectedItem= selectedRow.Cells["EmployeeCategoryLevel"].Value?.ToString();
+                AdminEmplCatLvlComboText.SelectedItem = selectedRow.Cells["EmployeeCategoryLevel"].Value?.ToString();
                 AdminEmplIDText.Text = selectedRow.Cells["EmployeeID"].Value?.ToString();
 
                 string birthdayString = selectedRow.Cells["Birthday"].Value?.ToString() ?? string.Empty;
@@ -3881,7 +3924,7 @@ namespace Enchante
 
                                 if (rowsAffected > 0)
                                 {
-                                    MessageBox.Show("Data updated successfully.", "Success", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                                    MessageBox.Show("Data updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     PopulateUserInfoDataGrid();
                                     AdminEmplTypeComboText.Enabled = true;
                                     AdminEmplCatComboText.Enabled = true;
@@ -3890,7 +3933,7 @@ namespace Enchante
                                 }
                                 else
                                 {
-                                    MessageBox.Show("No rows updated.", "Information", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                                    MessageBox.Show("No rows updated.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
                             }
                         }
@@ -3998,7 +4041,7 @@ namespace Enchante
             string finalID = empTypePrefix + empCategoryPrefix + randomNumberString;
             AdminEmplIDText.Text = finalID;
         }
-        
+
         //reception dashboard continues here
         private void RecCalendar_DateSelected(object sender, DateRangeEventArgs e)
         {
@@ -4011,10 +4054,10 @@ namespace Enchante
 
         private void RecEditSchedBtn_Click(object sender, EventArgs e)
         {
-            
+
 
         }
-        
+
         private void FillRecStaffScheduleViewDataGrid()
         {
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
@@ -4127,7 +4170,7 @@ namespace Enchante
             InitializeAvailableStaffFlowLayout();
             FillRecStaffScheduleViewDataGrid();
         }
-        
+
 
         public class AvailableStaff
         {
@@ -4153,7 +4196,7 @@ namespace Enchante
                     addedavailablestaffusercontrol.AvailableStaffSetData(staff);
                     RecAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
                 }
-               
+
             }
         }
 
@@ -4210,6 +4253,7 @@ namespace Enchante
             {
                 RecPrefferedTimePMComboBox.Enabled = true;
             }
+            FilterAvailableStaffInRecFlowLayoutPanelAM();
         }
 
         private void RecPrefferedTimePMComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -4222,8 +4266,184 @@ namespace Enchante
             {
                 RecPrefferedTimeAMComboBox.Enabled = true;
             }
+            FilterAvailableStaffInRecFlowLayoutPanelPM();
         }
+
+
+        private void FilterAvailableStaffInRecFlowLayoutPanelAM()
+        {
+            List<AvailableStaff> availableStaff = RetrieveAvailableStaffFromDB();//DEFAULT STAFF
+            if (RecPrefferedTimeAMComboBox.SelectedIndex != 0)
+            {
+                List<AvailableStaff> filterbyschedstaff = new List<AvailableStaff>();
+                RecAvaialableStaffFlowLayout.Controls.Clear();
+
+                foreach (AvailableStaff staff in availableStaff)
+                {
+                    if (staff.EmployeeAvailability == "Available" && staff.EmployeeSchedule == "AM")
+                    {
+                        filterbyschedstaff.Add(staff);
+                        AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+                        addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+                        RecAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+                    }
+
+                }
+                filteredbyschedstaff = filterbyschedstaff.ToList();
+            }
+            else
+            {
+                foreach (AvailableStaff staff in availableStaff)
+                {
+                    if (staff.EmployeeAvailability == "Available")
+                    {
+                        AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+                        addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+                        RecAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+                    }
+
+                }
+            }
+
+        }
+
+
+        private void FilterAvailableStaffInRecFlowLayoutPanelPM()
+        {
+            List<AvailableStaff> availableStaff = RetrieveAvailableStaffFromDB(); // DEFAULT AVAILABLE STAFF
+
+            if (RecPrefferedTimePMComboBox.SelectedIndex != 0)
+            {
+                List<AvailableStaff> filterbyschedstaff = new List<AvailableStaff>();
+                RecAvaialableStaffFlowLayout.Controls.Clear();
+
+                foreach (AvailableStaff staff in availableStaff)
+                {
+                    if (staff.EmployeeAvailability == "Available" && staff.EmployeeSchedule == "PM")
+                    {
+                        filterbyschedstaff.Add(staff);
+                        AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+                        addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+                        RecAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+                    }
+
+                }
+
+                filteredbyschedstaff = filterbyschedstaff.ToList();
+            }
+            else
+            {
+                foreach (AvailableStaff staff in availableStaff)
+                {
+                    if (staff.EmployeeAvailability == "Available")
+                    {
+                        AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+                        addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+                        RecAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+                    }
+
+                }
+            }
+
+        }
+
+        private void FilterAvailableStaffInRecFlowLayoutPanelByHairStyling()
+        {
+            List<AvailableStaff> filteredbysched = filteredbyschedstaff.ToList();
+
+            RecAvaialableStaffFlowLayout.Controls.Clear();
+
+            foreach (AvailableStaff staff in filteredbysched)
+            {
+                if (staff.EmployeeCategory == "HairStyling")
+                {
+                    AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+                    addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+                    RecAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+                }
+
+            }
+
+        }
+
+        private void FilterAvailableStaffInRecFlowLayoutPanelByFaceandSkin()
+        {
+            List<AvailableStaff> filteredbysched = filteredbyschedstaff;
+
+            RecAvaialableStaffFlowLayout.Controls.Clear();
+
+            foreach (AvailableStaff staff in filteredbysched)
+            {
+                if (staff.EmployeeCategory == "Face & Skin")
+                {
+                    AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+                    addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+                    RecAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+                }
+
+            }
+
+        }
+
+        private void FilterAvailableStaffInRecFlowLayoutPanelByNailCare()
+        {
+            List<AvailableStaff> filteredbysched = filteredbyschedstaff;
+
+            RecAvaialableStaffFlowLayout.Controls.Clear();
+
+            foreach (AvailableStaff staff in filteredbysched)
+            {
+                if (staff.EmployeeCategory == "Nail Care")
+                {
+                    AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+                    addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+                    RecAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+                }
+
+            }
+
+        }
+
+        private void FilterAvailableStaffInRecFlowLayoutPanelByMassage()
+        {
+            List<AvailableStaff> filteredbysched = filteredbyschedstaff;
+
+            RecAvaialableStaffFlowLayout.Controls.Clear();
+
+            foreach (AvailableStaff staff in filteredbysched)
+            {
+                if (staff.EmployeeCategory == "Massage")
+                {
+                    AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+                    addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+                    RecAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+                }
+
+            }
+
+        }
+
+        private void FilterAvailableStaffInRecFlowLayoutPanelBySpa()
+        {
+            List<AvailableStaff> filteredbysched = filteredbyschedstaff;
+
+            RecAvaialableStaffFlowLayout.Controls.Clear();
+
+            foreach (AvailableStaff staff in filteredbysched)
+            {
+                if (staff.EmployeeCategory == "Spa")
+                {
+                    AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+                    addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+                    RecAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+                }
+
+            }
+
+        }
+
     }
-        
-    
+
+
+
 }
