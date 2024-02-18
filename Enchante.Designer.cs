@@ -8982,6 +8982,96 @@
             this.RecTransactBtn.Click += new System.EventHandler(this.RecTransactBtn_Click);
             this.RecTransactBtn.MouseHover += new System.EventHandler(this.RecTransactBtn_MouseHover);
             // 
+            // RecIDNumLbl
+            // 
+            this.RecIDNumLbl.AutoEllipsis = true;
+            this.RecIDNumLbl.AutoSize = true;
+            this.RecIDNumLbl.Font = new System.Drawing.Font("TechnicBold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecIDNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecIDNumLbl.Location = new System.Drawing.Point(24, 63);
+            this.RecIDNumLbl.Name = "RecIDNumLbl";
+            this.RecIDNumLbl.Size = new System.Drawing.Size(138, 18);
+            this.RecIDNumLbl.TabIndex = 9;
+            this.RecIDNumLbl.Text = "Member ID Number";
+            // 
+            // RecNameLbl
+            // 
+            this.RecNameLbl.AutoEllipsis = true;
+            this.RecNameLbl.AutoSize = true;
+            this.RecNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecNameLbl.Location = new System.Drawing.Point(22, 23);
+            this.RecNameLbl.Name = "RecNameLbl";
+            this.RecNameLbl.Size = new System.Drawing.Size(173, 29);
+            this.RecNameLbl.TabIndex = 8;
+            this.RecNameLbl.Text = "Member Name";
+            // 
+            // ReceptionLogoutBtn
+            // 
+            this.ReceptionLogoutBtn.AutoSize = true;
+            this.ReceptionLogoutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ReceptionLogoutBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.ReceptionLogoutBtn.FlatAppearance.BorderSize = 0;
+            this.ReceptionLogoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReceptionLogoutBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.ReceptionLogoutBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ReceptionLogoutBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.ReceptionLogoutBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ReceptionLogoutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ReceptionLogoutBtn.IconSize = 32;
+            this.ReceptionLogoutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ReceptionLogoutBtn.Location = new System.Drawing.Point(82, 114);
+            this.ReceptionLogoutBtn.Name = "ReceptionLogoutBtn";
+            this.ReceptionLogoutBtn.Size = new System.Drawing.Size(176, 60);
+            this.ReceptionLogoutBtn.TabIndex = 7;
+            this.ReceptionLogoutBtn.Text = "LOGOUT";
+            this.ReceptionLogoutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ReceptionLogoutBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.ReceptionLogoutBtn.UseVisualStyleBackColor = true;
+            this.ReceptionLogoutBtn.Click += new System.EventHandler(this.ReceptionLogoutBtn_Click);
+            // 
+            // RecInventoryBtn
+            // 
+            this.RecInventoryBtn.AutoSize = true;
+            this.RecInventoryBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.RecInventoryBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecInventoryBtn.FlatAppearance.BorderSize = 0;
+            this.RecInventoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecInventoryBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecInventoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecInventoryBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.RecInventoryBtn.IconColor = System.Drawing.Color.Black;
+            this.RecInventoryBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecInventoryBtn.Location = new System.Drawing.Point(516, 47);
+            this.RecInventoryBtn.Name = "RecInventoryBtn";
+            this.RecInventoryBtn.Size = new System.Drawing.Size(163, 54);
+            this.RecInventoryBtn.TabIndex = 3;
+            this.RecInventoryBtn.Text = "INVENTORY";
+            this.RecInventoryBtn.UseVisualStyleBackColor = true;
+            this.RecInventoryBtn.Click += new System.EventHandler(this.RecInventoryBtn_Click);
+            this.RecInventoryBtn.MouseHover += new System.EventHandler(this.RecInventoryBtn_MouseHover);
+            // 
+            // RecTransactBtn
+            // 
+            this.RecTransactBtn.AutoSize = true;
+            this.RecTransactBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.RecTransactBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecTransactBtn.FlatAppearance.BorderSize = 0;
+            this.RecTransactBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecTransactBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecTransactBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecTransactBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.RecTransactBtn.IconColor = System.Drawing.Color.Black;
+            this.RecTransactBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecTransactBtn.Location = new System.Drawing.Point(312, 47);
+            this.RecTransactBtn.Name = "RecTransactBtn";
+            this.RecTransactBtn.Size = new System.Drawing.Size(199, 54);
+            this.RecTransactBtn.TabIndex = 2;
+            this.RecTransactBtn.Text = "TRANSACTION";
+            this.RecTransactBtn.UseVisualStyleBackColor = true;
+            this.RecTransactBtn.Click += new System.EventHandler(this.RecTransactBtn_Click);
+            this.RecTransactBtn.MouseHover += new System.EventHandler(this.RecTransactBtn_MouseHover);
+            // 
             // RecHomeBtn
             // 
             this.RecHomeBtn.AutoSize = true;
