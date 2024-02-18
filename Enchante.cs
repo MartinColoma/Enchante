@@ -1,6 +1,7 @@
 ﻿using iTextSharp.text.pdf;
 using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Asn1.X509;
+using Syncfusion.Styles;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -51,7 +52,7 @@ namespace Enchante
         //admin employee combobox
         private string[] emplType = {"Admin", "Manager", "Staff"};
         private string[] emplCategories = { "Hair Styling", "Face & Skin", "Nail Care", "Massage", "Spa" };
-        private string[] emplCatLevels = { "Junior", "Assistant", "Senior"};
+        private string[] emplCatLevels = { "Junior", "Assistant", "Senior" };
 
 
 
@@ -59,20 +60,20 @@ namespace Enchante
         public Enchante()
         {
             InitializeComponent();
-            
+
             // Exit MessageBox 
             this.FormClosing += new FormClosingEventHandler(MainForm_FormClosing);
 
 
 
             //Landing Pages Cardlayout Panel Manager
-            ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteReceptionPage, EnchanteMemberPage,EnchanteAdminPage);
+            ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteReceptionPage, EnchanteMemberPage, EnchanteAdminPage);
             Registration = new Registration(MembershipPlanPanel, RegularPlanPanel, PremiumPlanPanel, SVIPPlanPanel);
             Service = new ServiceCard(ServiceType, ServiceHairStyling, ServiceFaceSkin, ServiceNailCare, ServiceSpa, ServiceMassage);
             Transaction = new ReceptionTransactionCard(RecTransactionPanel, RecWalkinPanel, RecAppointmentPanel);
             Inventory = new ReceptionInventoryCard(RecInventoryTypePanel, RecInventoryServicesPanel, RecInventoryMembershipPanel, RecInventoryProductsPanel);
 
-            
+
 
             //icon tool tip
             iconToolTip = new System.Windows.Forms.ToolTip();
@@ -94,7 +95,7 @@ namespace Enchante
 
             //admin combobox
             AdminGenderComboText.Items.AddRange(genders);
-            AdminGenderComboText.DropDownStyle = ComboBoxStyle.DropDownList; 
+            AdminGenderComboText.DropDownStyle = ComboBoxStyle.DropDownList;
             AdminEmplTypeComboText.Items.AddRange(emplType);
             AdminEmplTypeComboText.DropDownStyle = ComboBoxStyle.DropDownList;
             AdminEmplCatComboText.Items.AddRange(emplCategories);
@@ -102,6 +103,14 @@ namespace Enchante
             AdminEmplCatLvlComboText.Items.AddRange(emplCatLevels);
             AdminEmplCatLvlComboText.DropDownStyle = ComboBoxStyle.DropDownList;
 
+            RecEditSchedBtn.Click += RecEditSchedBtn_Click;
+            RecStaffAvailabilityComboBox.SelectedIndex = 0;
+            RecStaffSchedComboBox.SelectedIndex = 0;
+
+            InitializeAvailableStaffFlowLayout();
+
+            RecPrefferedTimeAMComboBox.SelectedIndex = 0;
+            RecPrefferedTimePMComboBox.SelectedIndex = 0;
         }
 
         private void Enchante_Load(object sender, EventArgs e)
@@ -109,6 +118,7 @@ namespace Enchante
             //Reset Panel to Show Default
             HomePanelReset();
             DB_Loader();
+            FillRecStaffScheduleViewDataGrid();
         }
 
         private void DB_Loader()
@@ -3999,6 +4009,192 @@ namespace Enchante
             RecWalkinSelectedDateText.Text = selectedDate.ToShortDateString();
         }
 
+        private void RecEditSchedBtn_Click(object sender, EventArgs e)
+        {
+            
 
+        }
+        
+        private void FillRecStaffScheduleViewDataGrid()
+        {
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                string query = "SELECT EmployeeID, FirstName, LastName, EmployeeCategory, EmployeeCategoryLevel, Schedule, Availability FROM systemusers";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                RecStaffSchedViewDataGrid.Rows.Clear(); // Clear existing rows
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    int index = RecStaffSchedViewDataGrid.Rows.Add(); // Add a new row to the DataGridView
+
+                    // Fill the existing columns with data
+                    RecStaffSchedViewDataGrid.Rows[index].Cells["EmployeeID"].Value = row["EmployeeID"];
+                    RecStaffSchedViewDataGrid.Rows[index].Cells["FirstName"].Value = row["FirstName"];
+                    RecStaffSchedViewDataGrid.Rows[index].Cells["LastName"].Value = row["LastName"];
+                    RecStaffSchedViewDataGrid.Rows[index].Cells["EmployeeCategory"].Value = row["EmployeeCategory"];
+                    RecStaffSchedViewDataGrid.Rows[index].Cells["CategoryLevel"].Value = row["EmployeeCategoryLevel"];
+                    RecStaffSchedViewDataGrid.Rows[index].Cells["Schedule"].Value = row["Schedule"];
+                    RecStaffSchedViewDataGrid.Rows[index].Cells["Availability"].Value = row["Availability"];
+                }
+            }
+        }
+
+        private void RecEditStaffSchedBtn_Click(object sender, EventArgs e)
+        {
+            if (RecStaffSchedViewDataGrid.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = RecStaffSchedViewDataGrid.SelectedRows[0];
+
+                string EmployeeIDValue = selectedRow.Cells["EmployeeID"].Value.ToString();
+                string FirstNameValue = selectedRow.Cells["FirstName"].Value.ToString();
+                string LastNameValue = selectedRow.Cells["LastName"].Value.ToString();
+                string EmployeeCategoryValue = selectedRow.Cells["EmployeeCategory"].Value.ToString();
+                string CategoryLevelValue = selectedRow.Cells["CategoryLevel"].Value.ToString();
+                string ScheduleValue = selectedRow.Cells["Schedule"].Value.ToString();
+                string AvailabilityValue = selectedRow.Cells["Availability"].Value.ToString();
+
+                RecEmployeeIDLbl.Text = EmployeeIDValue;
+                RecEmployeeFirstNameLbl.Text = FirstNameValue;
+                RecEmployeeLastNameLbl.Text = LastNameValue;
+                RecEmployeeCategoryLbl.Text = EmployeeCategoryValue;
+                RecEmployeeCategoryLevelLbl.Text = CategoryLevelValue;
+                RecCurrentSchedLbl.Text = ScheduleValue;
+                RecCurrentAvailabilityLbl.Text = AvailabilityValue;
+            }
+        }
+
+        private void RecChangeStaffSchedBtn_Click(object sender, EventArgs e)
+        {
+            string EmployeeIDValue = RecEmployeeIDLbl.Text;
+            string EmployeeAvailabilityValue = RecStaffAvailabilityComboBox.SelectedItem.ToString();
+            string EmployeeTimeScheduleValue = RecStaffSchedComboBox.SelectedItem.ToString();
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string updatstaffschedequery = "UPDATE systemusers SET Schedule = @Schedule, Availability = @Availability WHERE  EmployeeID = @EmployeeID";
+
+                MySqlCommand updateCommand = new MySqlCommand(updatstaffschedequery, connection);
+                updateCommand.Parameters.AddWithValue("@Schedule", EmployeeTimeScheduleValue);
+                updateCommand.Parameters.AddWithValue("@Availability", EmployeeAvailabilityValue);
+                updateCommand.Parameters.AddWithValue("@EmployeeID", EmployeeIDValue);
+
+                int rowsAffected = updateCommand.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Update successful!");
+                }
+                else
+                {
+                    MessageBox.Show("Update failed!");
+                }
+            }
+        }
+
+        public class AvailableStaff
+        {
+            public string EmployeeAvailability { get; set; }
+            public string EmployeeSchedule { get; set; }
+            public string EmployeeID { get; set; }
+            public string EmployeeFirstName { get; set; }
+            public string EmployeeLastName { get; set; }
+            public string EmployeeCategory { get; set; }
+            public string EmployeeCategoryLevel { get; set; }
+        }
+
+        private void InitializeAvailableStaffFlowLayout()
+        {
+            List<AvailableStaff> availableStaff = RetrieveAvailableStaffFromDB();
+
+
+            foreach (AvailableStaff staff in availableStaff)
+            {
+                if (staff.EmployeeAvailability == "Available")
+                {
+                    AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+                    addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+                    RecAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+                }
+                else
+                {
+                    MessageBox.Show("No Match");
+                }
+            }
+        }
+
+        private List<AvailableStaff> RetrieveAvailableStaffFromDB()
+        {
+            List<AvailableStaff> result = new List<AvailableStaff>();
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string availablestaffquery = "SELECT Availability, Schedule, EmployeeID, FirstName, LastName, EmployeeCategory, EmployeeCategoryLevel FROM systemusers WHERE Availability = 'Available' ";
+                MySqlCommand command = new MySqlCommand(availablestaffquery, connection);
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    // Check if there are any results
+                    if (reader.HasRows)
+                    {
+                        int count = 0; // Counter for the number of results
+
+                        while (reader.Read())
+                        {
+                            AvailableStaff availableStaff = new AvailableStaff
+                            {
+                                EmployeeAvailability = reader.GetString("Availability"),
+                                EmployeeSchedule = reader.GetString("Schedule"),
+                                EmployeeID = reader.GetString("EmployeeID"),
+                                EmployeeFirstName = reader.GetString("FirstName"),
+                                EmployeeLastName = reader.GetString("LastName"),
+                                EmployeeCategory = reader.GetString("EmployeeCategory"),
+                                EmployeeCategoryLevel = reader.GetString("EmployeeCategoryLevel")
+                            };
+
+                            result.Add(availableStaff);
+                            count++; // Increment the counter
+                            // Gumagana to tamang values
+                        }
+
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        private void RecPrefferedTimeAMComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (RecPrefferedTimeAMComboBox.SelectedIndex != 0)
+            {
+                RecPrefferedTimePMComboBox.Enabled = false;
+            }
+            else
+            {
+                RecPrefferedTimePMComboBox.Enabled = true;
+            }
+        }
+
+        private void RecPrefferedTimePMComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (RecPrefferedTimePMComboBox.SelectedIndex != 0)
+            {
+                RecPrefferedTimeAMComboBox.Enabled = false;
+            }
+            else
+            {
+                RecPrefferedTimeAMComboBox.Enabled = true;
+            }
+        }
     }
+        
+    
 }
