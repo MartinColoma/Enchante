@@ -1,4 +1,6 @@
-﻿using iTextSharp.text.pdf;
+﻿using Guna.UI2.WinForms;
+using Guna.UI2.WinForms.Suite;
+using iTextSharp.text.pdf;
 using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Asn1.X509;
 using Syncfusion.Styles;
@@ -18,6 +20,8 @@ using System.Threading.Tasks;
 using System.Transactions;
 using System.Windows.Documents;
 using System.Windows.Forms;
+using System.Xml;
+using static Enchante.Enchante;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Enchante
@@ -50,12 +54,14 @@ namespace Enchante
         "Hydration Treatment", "Acne Treatment", "Anti-aging Treatment", "Soft Massage", "Moderate Massage", "Hard Massage",
         "Herbal Pool", "Sauna"};
         //admin employee combobox
-        private string[] emplType = {"Admin", "Manager", "Staff"};
+        private string[] emplType = { "Admin", "Manager", "Staff" };
         private string[] emplCategories = { "Hair Styling", "Face & Skin", "Nail Care", "Massage", "Spa" };
         private string[] emplCatLevels = { "Junior", "Assistant", "Senior" };
 
 
-
+        public List<AvailableStaff> filteredbyschedstaff;
+        public Guna.UI2.WinForms.Guna2ToggleSwitch AvailableStaffActiveToggleSwitch;
+        private bool IsPrefferredTimeSchedComboBoxModified = false;
 
         public Enchante()
         {
@@ -111,6 +117,12 @@ namespace Enchante
 
             RecPrefferedTimeAMComboBox.SelectedIndex = 0;
             RecPrefferedTimePMComboBox.SelectedIndex = 0;
+
+            RecPrefferedTimeAMComboBox.SelectedIndexChanged += RecPrefferedTimeComboBox_SelectedIndexChanged;
+            RecPrefferedTimePMComboBox.SelectedIndexChanged += RecPrefferedTimeComboBox_SelectedIndexChanged;
+
+            RecPrefferedTimeAMComboBox.Enabled = false;
+            RecPrefferedTimePMComboBox.Enabled = false;
         }
 
         private void Enchante_Load(object sender, EventArgs e)
@@ -293,7 +305,7 @@ namespace Enchante
 
 
                 EnchanteLoginForm.Visible = false;
-                    
+
             }
 
         }
@@ -509,12 +521,12 @@ namespace Enchante
 
         private void ShowHidePassBtn_Click(object sender, EventArgs e)
         {
-            if(LoginPassText.UseSystemPasswordChar == true)
+            if (LoginPassText.UseSystemPasswordChar == true)
             {
                 LoginPassText.UseSystemPasswordChar = false;
                 ShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
             }
-            else if(LoginPassText.UseSystemPasswordChar == false)
+            else if (LoginPassText.UseSystemPasswordChar == false)
             {
                 LoginPassText.UseSystemPasswordChar = true;
                 ShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
@@ -780,7 +792,7 @@ namespace Enchante
                                     }
                                     return;
                                 }
-                                else  if (membertype == "SVIP")
+                                else if (membertype == "SVIP")
                                 {
                                     // Retrieve the HashedPass column
                                     string hashedPasswordFromDB = readerApproved["HashedPass"].ToString();
@@ -1221,26 +1233,26 @@ namespace Enchante
                 age--; // Subtract 1 if the birthday hasn't occurred yet this year
             }
 
-            if (string.IsNullOrEmpty(rFirstname) || string.IsNullOrEmpty(rLastname) || string.IsNullOrEmpty(rAge) || 
-                string.IsNullOrEmpty(rGender) || string.IsNullOrEmpty(rNumber) || string.IsNullOrEmpty(rEmailAdd) || 
+            if (string.IsNullOrEmpty(rFirstname) || string.IsNullOrEmpty(rLastname) || string.IsNullOrEmpty(rAge) ||
+                string.IsNullOrEmpty(rGender) || string.IsNullOrEmpty(rNumber) || string.IsNullOrEmpty(rEmailAdd) ||
                 string.IsNullOrEmpty(rNumber) || string.IsNullOrEmpty(rPass) || string.IsNullOrEmpty(rConfirmPass))
             {
-                RegularFirstNameErrorLbl.Visible = true; 
-                RegularGenderErrorLbl.Visible = true; 
+                RegularFirstNameErrorLbl.Visible = true;
+                RegularGenderErrorLbl.Visible = true;
                 RegularMobileNumErrorLbl.Visible = true;
-                RegularEmailErrorLbl.Visible = true; 
-                RegularPassErrorLbl.Visible = true; 
+                RegularEmailErrorLbl.Visible = true;
+                RegularPassErrorLbl.Visible = true;
                 RegularConfirmPassErrorLbl.Visible = true;
-                RegularLastNameErrorLbl.Visible = true; 
+                RegularLastNameErrorLbl.Visible = true;
                 RegularAgeErrorLbl.Visible = true;
 
-                RegularFirstNameErrorLbl.Text = "Missing Field"; 
-                RegularGenderErrorLbl.Text = "Missing Field"; 
+                RegularFirstNameErrorLbl.Text = "Missing Field";
+                RegularGenderErrorLbl.Text = "Missing Field";
                 RegularMobileNumErrorLbl.Text = "Missing Field";
-                RegularEmailErrorLbl.Text = "Missing Field"; 
-                RegularPassErrorLbl.Text = "Missing Field"; 
+                RegularEmailErrorLbl.Text = "Missing Field";
+                RegularPassErrorLbl.Text = "Missing Field";
                 RegularConfirmPassErrorLbl.Text = "Missing Field";
-                RegularLastNameErrorLbl.Text = "Missing Field"; 
+                RegularLastNameErrorLbl.Text = "Missing Field";
                 RegularAgeErrorLbl.Text = "Missing Field";
 
             }
@@ -1272,7 +1284,7 @@ namespace Enchante
                 RegularPassErrorLbl.Text = "Invalid Password Format";
                 return;
             }
-            else if (rPass!=rConfirmPass)
+            else if (rPass != rConfirmPass)
             {
                 RegularConfirmPassErrorLbl.Visible = true;
                 RegularPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
@@ -1300,7 +1312,7 @@ namespace Enchante
                         }
                         string insertQuery = "INSERT INTO membershipaccount (MembershipType, MemberIDNumber, AccountStatus, FirstName, " +
                             "LastName, Birthday, Age, CPNumber, EmailAdd, HashedPass, SaltedPass, UserSaltedPass, PlanPeriod, AccountCreated) " +
-                            "VALUES (@type, @ID, @status, @firstName, @lastName, @bday, @age, @cpnum, @email, @hashedpass, @saltedpass, @usersaltedpass, @period, @created)"; 
+                            "VALUES (@type, @ID, @status, @firstName, @lastName, @bday, @age, @cpnum, @email, @hashedpass, @saltedpass, @usersaltedpass, @period, @created)";
 
                         MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
                         cmd.Parameters.AddWithValue("@type", rType);
@@ -1356,7 +1368,7 @@ namespace Enchante
 
 
         }
-        
+
         //Super VIP Plan Membership
         private void SVIPExitBtn_Click(object sender, EventArgs e)
         {
@@ -1795,7 +1807,7 @@ namespace Enchante
                 SVIPConfirmPassErrorLbl.Visible = true;
                 SVIPLastNameErrorLbl.Visible = true;
                 SVIPAgeErrorLbl.Visible = true;
-                
+
 
                 SVIPFirstNameErrorLbl.Text = "Missing Field";
                 SVIPGenderErrorLbl.Text = "Missing Field";
@@ -2659,7 +2671,7 @@ namespace Enchante
                     break;
                 default:
                     break;
-            }        
+            }
 
             // Select the first item in the list
             if (RecServicesTypeComboText.Items.Count > 0)
@@ -2741,8 +2753,8 @@ namespace Enchante
                 return;
             }
             else if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(category) || string.IsNullOrEmpty(describe)
-                || string.IsNullOrEmpty(duration)|| string.IsNullOrEmpty(price))
-            { 
+                || string.IsNullOrEmpty(duration) || string.IsNullOrEmpty(price))
+            {
                 MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -2772,7 +2784,7 @@ namespace Enchante
 
                         MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
                         cmd.Parameters.AddWithValue("@category", category);
-                        cmd.Parameters.AddWithValue("@type", type); 
+                        cmd.Parameters.AddWithValue("@type", type);
                         cmd.Parameters.AddWithValue("@ID", ID);
                         cmd.Parameters.AddWithValue("@name", name);
                         cmd.Parameters.AddWithValue("@describe", describe);
@@ -2873,7 +2885,7 @@ namespace Enchante
                         if (reader.Read())
                         {
                             string serviceCategory = reader["Category"].ToString();
-                            string serviceType= reader["Type"].ToString();
+                            string serviceType = reader["Type"].ToString();
                             string serviceID = reader["ServiceID"].ToString();
                             string serviceName = reader["Name"].ToString();
                             string serviceDescribe = reader["Description"].ToString();
@@ -2965,11 +2977,11 @@ namespace Enchante
                     // Successful update
                     MessageBox.Show("Service information has been successfully updated.", "Service Info Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RecServicesCreateBtn.Visible = true;
-                    RecServicesUpdateBtn.Visible = false; 
+                    RecServicesUpdateBtn.Visible = false;
                     RecServicesCategoryComboText.Enabled = true;
                     RecServicesTypeComboText.Enabled = true;
                     RecServicesCategoryComboText.SelectedIndex = -1;
-                    RecServicesTypeComboText.SelectedIndex= -1;
+                    RecServicesTypeComboText.SelectedIndex = -1;
                     ServiceBoxClear();
                     ReceptionLoadServices();
 
@@ -2990,27 +3002,89 @@ namespace Enchante
 
         private void RecWalkInCatHSBtn_Click(object sender, EventArgs e)
         {
-            HairStyle();
+            if (!IsPrefferredTimeSchedComboBoxModified && RecPrefferedTimePMComboBox.SelectedIndex == 0 && RecPrefferedTimeAMComboBox.SelectedIndex == 0)
+            {
+                return;
+            }
+            if (RecPrefferedTimePMComboBox.SelectedIndex == 0 && RecPrefferedTimeAMComboBox.SelectedIndex == 0)
+            {
+                MessageBox.Show("Please Select a prefferred time first");
+            }
+            else
+            {
+                HairStyle();
+                FilterAvailableStaffInRecFlowLayoutPanelByHairStyling();
+            }
+
         }
 
         private void RecWalkInCatFSBtn_Click(object sender, EventArgs e)
         {
-            Face();
+            if (!IsPrefferredTimeSchedComboBoxModified && RecPrefferedTimePMComboBox.SelectedIndex == 0 && RecPrefferedTimeAMComboBox.SelectedIndex == 0)
+            {
+                return;
+            }
+            if (RecPrefferedTimePMComboBox.SelectedIndex == 0 && RecPrefferedTimeAMComboBox.SelectedIndex == 0)
+            {
+                MessageBox.Show("Please Select a prefferred time first");
+            }
+            else
+            {
+                Face();
+                FilterAvailableStaffInRecFlowLayoutPanelByFaceandSkin();
+            }
         }
 
         private void RecWalkInCatNCBtn_Click(object sender, EventArgs e)
         {
-            Nail();
+            if (!IsPrefferredTimeSchedComboBoxModified && RecPrefferedTimePMComboBox.SelectedIndex == 0 && RecPrefferedTimeAMComboBox.SelectedIndex == 0)
+            {
+                return;
+            }
+            if (RecPrefferedTimePMComboBox.SelectedIndex == 0 && RecPrefferedTimeAMComboBox.SelectedIndex == 0)
+            {
+                MessageBox.Show("Please Select a prefferred time first");
+            }
+            else
+            {
+                Nail();
+                FilterAvailableStaffInRecFlowLayoutPanelByNailCare();
+            }
         }
 
         private void RecWalkInCatSpaBtn_Click(object sender, EventArgs e)
         {
-            Spa();
+            if (!IsPrefferredTimeSchedComboBoxModified && RecPrefferedTimePMComboBox.SelectedIndex == 0 && RecPrefferedTimeAMComboBox.SelectedIndex == 0)
+            {
+                return;
+            }
+            if ( RecPrefferedTimePMComboBox.SelectedIndex == 0 && RecPrefferedTimeAMComboBox.SelectedIndex == 0)
+            {
+                MessageBox.Show("Please Select a prefferred time first");
+            }
+            else
+            {
+                Spa();
+                FilterAvailableStaffInRecFlowLayoutPanelBySpa();
+            }
         }
 
         private void RecWalkInCatMassageBtn_Click(object sender, EventArgs e)
         {
-            Massage();
+            if (!IsPrefferredTimeSchedComboBoxModified && RecPrefferedTimePMComboBox.SelectedIndex == 0 && RecPrefferedTimeAMComboBox.SelectedIndex == 0)
+            {
+                return;
+            }
+            if (RecPrefferedTimePMComboBox.SelectedIndex == 0 && RecPrefferedTimeAMComboBox.SelectedIndex == 0)
+            {
+                MessageBox.Show("Please Select a prefferred time first");
+            }
+            else
+            {
+                Massage();
+                FilterAvailableStaffInRecFlowLayoutPanelByMassage();
+            }
+
         }
         private void HairStyle()
         {
@@ -3168,6 +3242,7 @@ namespace Enchante
                         RecWalkInServiceTypeTable.Columns[1].Visible = false;
                         RecWalkInServiceTypeTable.Columns[2].Visible = false;
                         RecWalkInServiceTypeTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        RecWalkInServiceTypeTable.ClearSelection();
                     }
                 }
             }
@@ -3206,6 +3281,7 @@ namespace Enchante
                         RecWalkInServiceTypeTable.Columns[1].Visible = false;
                         RecWalkInServiceTypeTable.Columns[2].Visible = false;
                         RecWalkInServiceTypeTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        RecWalkInServiceTypeTable.ClearSelection();
                     }
                 }
             }
@@ -3244,6 +3320,7 @@ namespace Enchante
                         RecWalkInServiceTypeTable.Columns[1].Visible = false;
                         RecWalkInServiceTypeTable.Columns[2].Visible = false;
                         RecWalkInServiceTypeTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        RecWalkInServiceTypeTable.ClearSelection();
                     }
                 }
             }
@@ -3282,6 +3359,7 @@ namespace Enchante
                         RecWalkInServiceTypeTable.Columns[1].Visible = false;
                         RecWalkInServiceTypeTable.Columns[2].Visible = false;
                         RecWalkInServiceTypeTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        RecWalkInServiceTypeTable.ClearSelection();
                     }
                 }
             }
@@ -3320,6 +3398,7 @@ namespace Enchante
                         RecWalkInServiceTypeTable.Columns[1].Visible = false;
                         RecWalkInServiceTypeTable.Columns[2].Visible = false;
                         RecWalkInServiceTypeTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        RecWalkInServiceTypeTable.ClearSelection();
                     }
                 }
             }
@@ -3334,7 +3413,7 @@ namespace Enchante
         }
         private void LoadServiceTypeComboBox(string selectedCategory)
         {
-             // Filter and add the relevant service types based on the selected category
+            // Filter and add the relevant service types based on the selected category
             switch (selectedCategory)
             {
                 case "Hair Styling":
@@ -3390,6 +3469,7 @@ namespace Enchante
                         RecWalkInServiceTypeTable.Columns[1].Visible = false;
                         RecWalkInServiceTypeTable.Columns[2].Visible = false;
                         RecWalkInServiceTypeTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        RecWalkInServiceTypeTable.ClearSelection();
                     }
                 }
             }
@@ -3510,7 +3590,7 @@ namespace Enchante
                 AdminCPNumText.Text = selectedRow.Cells["PhoneNumber"].Value?.ToString();
                 AdminEmplTypeComboText.SelectedItem = selectedRow.Cells["EmployeeType"].Value?.ToString();
                 AdminEmplCatComboText.SelectedItem = selectedRow.Cells["EmployeeCategory"].Value?.ToString();
-                AdminEmplCatLvlComboText.SelectedItem= selectedRow.Cells["EmployeeCategoryLevel"].Value?.ToString();
+                AdminEmplCatLvlComboText.SelectedItem = selectedRow.Cells["EmployeeCategoryLevel"].Value?.ToString();
                 AdminEmplIDText.Text = selectedRow.Cells["EmployeeID"].Value?.ToString();
 
                 string birthdayString = selectedRow.Cells["Birthday"].Value?.ToString() ?? string.Empty;
@@ -3881,7 +3961,7 @@ namespace Enchante
 
                                 if (rowsAffected > 0)
                                 {
-                                    MessageBox.Show("Data updated successfully.", "Success", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                                    MessageBox.Show("Data updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     PopulateUserInfoDataGrid();
                                     AdminEmplTypeComboText.Enabled = true;
                                     AdminEmplCatComboText.Enabled = true;
@@ -3890,7 +3970,7 @@ namespace Enchante
                                 }
                                 else
                                 {
-                                    MessageBox.Show("No rows updated.", "Information", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                                    MessageBox.Show("No rows updated.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
                             }
                         }
@@ -3998,7 +4078,7 @@ namespace Enchante
             string finalID = empTypePrefix + empCategoryPrefix + randomNumberString;
             AdminEmplIDText.Text = finalID;
         }
-        
+
         //reception dashboard continues here
         private void RecCalendar_DateSelected(object sender, DateRangeEventArgs e)
         {
@@ -4011,15 +4091,15 @@ namespace Enchante
 
         private void RecEditSchedBtn_Click(object sender, EventArgs e)
         {
-            
+
 
         }
-        
+
         private void FillRecStaffScheduleViewDataGrid()
         {
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
             {
-                string query = "SELECT EmployeeID, FirstName, LastName, EmployeeCategory, EmployeeCategoryLevel, Schedule, Availability FROM systemusers";
+                string query = "SELECT EmployeeID, FirstName, LastName, EmployeeCategory, EmployeeCategoryLevel, Schedule, Availability FROM systemusers WHERE EmployeeType = 'Staff'";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 DataTable dataTable = new DataTable();
@@ -4077,25 +4157,57 @@ namespace Enchante
             {
                 connection.Open();
 
-                string updatstaffschedequery = "UPDATE systemusers SET Schedule = @Schedule, Availability = @Availability WHERE  EmployeeID = @EmployeeID";
+                bool availabilityUpdated = false;
+                bool scheduleUpdated = false;
 
-                MySqlCommand updateCommand = new MySqlCommand(updatstaffschedequery, connection);
-                updateCommand.Parameters.AddWithValue("@Schedule", EmployeeTimeScheduleValue);
-                updateCommand.Parameters.AddWithValue("@Availability", EmployeeAvailabilityValue);
-                updateCommand.Parameters.AddWithValue("@EmployeeID", EmployeeIDValue);
-
-                int rowsAffected = updateCommand.ExecuteNonQuery();
-
-                if (rowsAffected > 0)
+                if (RecStaffAvailabilityComboBox.SelectedIndex != 0)
                 {
-                    MessageBox.Show("Update successful!");
+                    string updateAvailabilityQuery = "UPDATE systemusers SET Availability = @Availability WHERE EmployeeID = @EmployeeID";
+                    MySqlCommand availabilityCommand = new MySqlCommand(updateAvailabilityQuery, connection);
+                    availabilityCommand.Parameters.AddWithValue("@Availability", EmployeeAvailabilityValue);
+                    availabilityCommand.Parameters.AddWithValue("@EmployeeID", EmployeeIDValue);
+                    int availabilityRowsAffected = availabilityCommand.ExecuteNonQuery();
+
+                    if (availabilityRowsAffected > 0)
+                    {
+                        availabilityUpdated = true;
+                    }
                 }
-                else
+
+                if (RecStaffSchedComboBox.SelectedIndex != 0)
                 {
-                    MessageBox.Show("Update failed!");
+                    string updateScheduleQuery = "UPDATE systemusers SET Schedule = @Schedule WHERE EmployeeID = @EmployeeID";
+                    MySqlCommand scheduleCommand = new MySqlCommand(updateScheduleQuery, connection);
+                    scheduleCommand.Parameters.AddWithValue("@Schedule", EmployeeTimeScheduleValue);
+                    scheduleCommand.Parameters.AddWithValue("@EmployeeID", EmployeeIDValue);
+                    int scheduleRowsAffected = scheduleCommand.ExecuteNonQuery();
+
+                    if (scheduleRowsAffected > 0)
+                    {
+                        scheduleUpdated = true;
+                    }
+                }
+
+                if (availabilityUpdated)
+                {
+                    MessageBox.Show("Availability updated.");
+                }
+
+                if (scheduleUpdated)
+                {
+                    MessageBox.Show("Schedule updated.");
+                }
+
+                if (!availabilityUpdated && !scheduleUpdated)
+                {
+                    MessageBox.Show("No updates were made.");
                 }
             }
+
+            InitializeAvailableStaffFlowLayout();
+            FillRecStaffScheduleViewDataGrid();
         }
+
 
         public class AvailableStaff
         {
@@ -4104,6 +4216,7 @@ namespace Enchante
             public string EmployeeID { get; set; }
             public string EmployeeFirstName { get; set; }
             public string EmployeeLastName { get; set; }
+            public string EmployeeName { get; set; }
             public string EmployeeCategory { get; set; }
             public string EmployeeCategoryLevel { get; set; }
         }
@@ -4119,12 +4232,14 @@ namespace Enchante
                 {
                     AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
                     addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+                    AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+                    if (AvailableStaffActiveToggleSwitch != null)
+                    {
+                        AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
+                    }
                     RecAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
                 }
-                else
-                {
-                    MessageBox.Show("No Match");
-                }
+
             }
         }
 
@@ -4144,8 +4259,6 @@ namespace Enchante
                     // Check if there are any results
                     if (reader.HasRows)
                     {
-                        int count = 0; // Counter for the number of results
-
                         while (reader.Read())
                         {
                             AvailableStaff availableStaff = new AvailableStaff
@@ -4160,8 +4273,6 @@ namespace Enchante
                             };
 
                             result.Add(availableStaff);
-                            count++; // Increment the counter
-                            // Gumagana to tamang values
                         }
 
                     }
@@ -4171,8 +4282,22 @@ namespace Enchante
             return result;
         }
 
+        private void DisbaleTimeSchedIfNoDateIsSelected()
+        {
+            if (string.IsNullOrEmpty(RecWalkinSelectedDateText.Text))
+            {
+                RecPrefferedTimeAMComboBox.Enabled = false;
+                RecPrefferedTimePMComboBox.Enabled = false;
+            }
+            else
+            {
+                RecPrefferedTimeAMComboBox.Enabled = true;
+                RecPrefferedTimePMComboBox.Enabled = true;
+            }
+        }
         private void RecPrefferedTimeAMComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             if (RecPrefferedTimeAMComboBox.SelectedIndex != 0)
             {
                 RecPrefferedTimePMComboBox.Enabled = false;
@@ -4181,10 +4306,14 @@ namespace Enchante
             {
                 RecPrefferedTimePMComboBox.Enabled = true;
             }
+            FilterAvailableStaffInRecFlowLayoutPanelAM();
+           
+
         }
 
         private void RecPrefferedTimePMComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             if (RecPrefferedTimePMComboBox.SelectedIndex != 0)
             {
                 RecPrefferedTimeAMComboBox.Enabled = false;
@@ -4193,8 +4322,409 @@ namespace Enchante
             {
                 RecPrefferedTimeAMComboBox.Enabled = true;
             }
+            FilterAvailableStaffInRecFlowLayoutPanelPM();
+            
+
+        }
+
+
+        private void FilterAvailableStaffInRecFlowLayoutPanelAM()
+        {
+            List<AvailableStaff> availableStaff = RetrieveAvailableStaffFromDB();//DEFAULT STAFF
+            if (RecPrefferedTimeAMComboBox.SelectedIndex != 0)
+            {
+                List<AvailableStaff> filterbyschedstaff = new List<AvailableStaff>();
+                RecAvaialableStaffFlowLayout.Controls.Clear();
+
+                foreach (AvailableStaff staff in availableStaff)
+                {
+                    if (staff.EmployeeAvailability == "Available" && staff.EmployeeSchedule == "AM")
+                    {
+                        filterbyschedstaff.Add(staff);
+                        AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+                        addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+                        AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+                        if (AvailableStaffActiveToggleSwitch != null)
+                        {
+                            AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
+                        }
+                        RecAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+                    }
+
+                }
+                filteredbyschedstaff = filterbyschedstaff.ToList();
+            }
+            else
+            {
+                foreach (AvailableStaff staff in availableStaff)
+                {
+                    if (staff.EmployeeAvailability == "Available")
+                    {
+                        AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+                        addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+                        AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+                        if (AvailableStaffActiveToggleSwitch != null)
+                        {
+                            AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
+                        }
+                        RecAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+                    }
+
+                }
+            }
+
+        }
+
+
+        private void FilterAvailableStaffInRecFlowLayoutPanelPM()
+        {
+            List<AvailableStaff> availableStaff = RetrieveAvailableStaffFromDB(); // DEFAULT AVAILABLE STAFF
+
+            if (RecPrefferedTimePMComboBox.SelectedIndex != 0)
+            {
+                List<AvailableStaff> filterbyschedstaff = new List<AvailableStaff>();
+                RecAvaialableStaffFlowLayout.Controls.Clear();
+
+                foreach (AvailableStaff staff in availableStaff)
+                {
+                    if (staff.EmployeeAvailability == "Available" && staff.EmployeeSchedule == "PM")
+                    {
+                        filterbyschedstaff.Add(staff);
+                        AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+                        addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+                        AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+                        if (AvailableStaffActiveToggleSwitch != null)
+                        {
+                            AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
+                        }
+                        RecAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+                    }
+
+                }
+
+                filteredbyschedstaff = filterbyschedstaff.ToList();
+            }
+            else
+            {
+                foreach (AvailableStaff staff in availableStaff)
+                {
+                    if (staff.EmployeeAvailability == "Available")
+                    {
+                        AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+                        addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+                        AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+                        if (AvailableStaffActiveToggleSwitch != null)
+                        {
+                            AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
+                        }
+                        RecAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+                    }
+
+                }
+            }
+
+        }
+
+        private void FilterAvailableStaffInRecFlowLayoutPanelByHairStyling()
+        {
+            List<AvailableStaff> filteredbysched = filteredbyschedstaff.ToList();
+
+            RecAvaialableStaffFlowLayout.Controls.Clear();
+
+            foreach (AvailableStaff staff in filteredbysched)
+            {
+                if (staff.EmployeeCategory == "Hair Styling")
+                {
+                    AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+                    addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+                    AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+                    if (AvailableStaffActiveToggleSwitch != null)
+                    {
+                        AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
+                    }
+                    RecAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+                }
+
+            }
+
+        }
+
+        private void FilterAvailableStaffInRecFlowLayoutPanelByFaceandSkin()
+        {
+            List<AvailableStaff> filteredbysched = filteredbyschedstaff.ToList();
+
+            RecAvaialableStaffFlowLayout.Controls.Clear();
+
+            foreach (AvailableStaff staff in filteredbysched)
+            {
+                if (staff.EmployeeCategory == "Face & Skin")
+                {
+                    AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+                    addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+                    AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+                    if (AvailableStaffActiveToggleSwitch != null)
+                    {
+                        AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
+                    }
+                    RecAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+                }
+
+            }
+
+        }
+
+        private void FilterAvailableStaffInRecFlowLayoutPanelByNailCare()
+        {
+            List<AvailableStaff> filteredbysched = filteredbyschedstaff.ToList();
+
+            RecAvaialableStaffFlowLayout.Controls.Clear();
+
+            foreach (AvailableStaff staff in filteredbysched)
+            {
+                if (staff.EmployeeCategory == "Nail Care")
+                {
+                    AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+                    addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+                    AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+                    if (AvailableStaffActiveToggleSwitch != null)
+                    {
+                        AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
+                    }
+                    RecAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+                }
+
+            }
+
+        }
+
+        private void FilterAvailableStaffInRecFlowLayoutPanelByMassage()
+        {
+            List<AvailableStaff> filteredbysched = filteredbyschedstaff.ToList();
+
+            RecAvaialableStaffFlowLayout.Controls.Clear();
+
+            foreach (AvailableStaff staff in filteredbysched)
+            {
+                if (staff.EmployeeCategory == "Massage")
+                {
+                    AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+                    addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+                    AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+                    if (AvailableStaffActiveToggleSwitch != null)
+                    {
+                        AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
+                    }
+                    RecAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+                }
+
+            }
+
+        }
+
+        private void FilterAvailableStaffInRecFlowLayoutPanelBySpa()
+        {
+            List<AvailableStaff> filteredbysched = filteredbyschedstaff.ToList();
+
+            RecAvaialableStaffFlowLayout.Controls.Clear();
+
+            foreach (AvailableStaff staff in filteredbysched)
+            {
+                if (staff.EmployeeCategory == "Spa")
+                {
+                    AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+                    addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+                    AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+                    if (AvailableStaffActiveToggleSwitch != null)
+                    {
+                        AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
+                    }
+                    RecAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+                }
+
+            }
+
+        }
+
+        private void AvailableStaffToggleSwitch_CheckedChanged(object sender, EventArgs e)
+        {
+            Guna.UI2.WinForms.Guna2ToggleSwitch toggleSwitch = (Guna.UI2.WinForms.Guna2ToggleSwitch)sender;
+            UserControl userControl = (UserControl)toggleSwitch.Parent;
+
+            if (toggleSwitch.Checked)
+            {
+                if (AvailableStaffActiveToggleSwitch != null && AvailableStaffActiveToggleSwitch != toggleSwitch)
+                {
+                    AvailableStaffActiveToggleSwitch.Checked = false;
+                }
+                AvailableStaffActiveToggleSwitch = toggleSwitch;
+            }
+            else if (AvailableStaffActiveToggleSwitch == toggleSwitch)
+            {
+                AvailableStaffActiveToggleSwitch = null;
+            }
+        }
+
+        private void RecPrefferedTimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            IsPrefferredTimeSchedComboBoxModified = true;
+        }
+
+        private void RecSelectServiceAndStaffBtn_Click(object sender, EventArgs e)
+        {
+            bool IsStaffSelectedToggleSwitch = false;
+            AvailableStaff selectedStaff = null;
+
+            foreach (AvailableStaffUserControl availabelstaffusercontrol in RecAvaialableStaffFlowLayout.Controls)
+            {
+                Guna.UI2.WinForms.Guna2ToggleSwitch availabelstaffusercontroltoggleswitch = availabelstaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+
+                if (availabelstaffusercontroltoggleswitch != null && availabelstaffusercontroltoggleswitch.Checked)
+                {
+                    IsStaffSelectedToggleSwitch = true;
+                    selectedStaff = availabelstaffusercontrol.GetAvailableStaffData();
+
+                    break;
+                }
+            }
+
+            if (!IsStaffSelectedToggleSwitch)
+            {
+                MessageBox.Show("Please select a staff member.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (RecWalkInServiceTypeTable.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a serive.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            DataGridViewRow selectedRow = RecWalkInServiceTypeTable.SelectedRows[0];
+
+            string SelectedDateValue = RecWalkinSelectedDateText.Text;
+            string TimePickedValue = CustomerTimePicked();
+            string TimeSchedPickedValue = TimeSchedPicked();
+            string CustomerName = RecWalkinLNameText.Text + ", " + RecWalkinFNameText.Text;
+            string CustomerMobileNumber = RecWalkinCPNumText.Text;
+            string ServiceID = selectedRow.Cells[2].Value.ToString();
+            string ServiceName = selectedRow.Cells[3].Value.ToString();
+            string ServiceDuration = selectedRow.Cells[5].Value.ToString();
+            string ServicePrice = selectedRow.Cells[6].Value.ToString();
+            string CustomerCustomizations = RecCustomerCustomizationsTextBox.Text;
+            string CustomerAdditionalNotes = RecCustomerCustomerAdditionalNotesTextBox.Text;
+            string EmployeeID = selectedStaff.EmployeeID;
+            string EmployeeName = selectedStaff.EmployeeName;
+            string EmployeeCategory = selectedStaff.EmployeeCategory;
+            string EmployeeCategoryLevel = selectedStaff.EmployeeCategoryLevel;
+            string EmployeeSchedule = selectedStaff.EmployeeSchedule;
+
+            string serviceID = selectedRow.Cells[2].Value.ToString();
+
+            // Check if the service is already in the RecSelectedServiceDataGrid
+            foreach (DataGridViewRow row in RecSelectedServiceDataGrid.Rows)
+            {
+                string existingServiceID = row.Cells["ServiceID"].Value.ToString();
+
+                if (serviceID == existingServiceID)
+                {
+                    MessageBox.Show("This service is already selected.", "Duplicate Service", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+
+            DialogResult result = MessageBox.Show("Are you sure you want to add this service?", "Confirm Service Selection", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                // Add the row
+                DataGridViewRow NewSelectedServiceRow = RecSelectedServiceDataGrid.Rows[RecSelectedServiceDataGrid.Rows.Add()];
+
+                // Set the cell values
+                NewSelectedServiceRow.Cells["SelectedDate"].Value = SelectedDateValue;
+                NewSelectedServiceRow.Cells["TimePicked"].Value = TimePickedValue;
+                NewSelectedServiceRow.Cells["TimeSched"].Value = TimeSchedPickedValue;
+                NewSelectedServiceRow.Cells["CustomerName"].Value = CustomerName;
+                NewSelectedServiceRow.Cells["MobileNumber"].Value = CustomerMobileNumber;
+                NewSelectedServiceRow.Cells["ServiceID"].Value = ServiceID;
+                NewSelectedServiceRow.Cells["SelectedService"].Value = ServiceName;
+                NewSelectedServiceRow.Cells["ServiceDuration"].Value = ServiceDuration;
+                NewSelectedServiceRow.Cells["ServicePrice"].Value = ServicePrice;
+                NewSelectedServiceRow.Cells["CustomerCustomizations"].Value = CustomerCustomizations;
+                NewSelectedServiceRow.Cells["CustomerAdditionalNotes"].Value = CustomerAdditionalNotes;
+                NewSelectedServiceRow.Cells["StaffSelectedID"].Value = EmployeeID;
+                NewSelectedServiceRow.Cells["StaffName"].Value = EmployeeName;
+                NewSelectedServiceRow.Cells["StaffCategory"].Value = EmployeeCategory;
+                NewSelectedServiceRow.Cells["StaffCategoryLevel"].Value = EmployeeCategoryLevel;
+                NewSelectedServiceRow.Cells["StaffTimeSched"].Value = EmployeeSchedule;
+
+                RecWalkInServiceTypeTable.ClearSelection();
+                RecCustomerCustomizationsTextBox.Clear();
+                RecCustomerCustomerAdditionalNotesTextBox.Clear();
+
+                foreach (AvailableStaffUserControl availabelstaffusercontrol in RecAvaialableStaffFlowLayout.Controls)
+                {
+                    Guna.UI2.WinForms.Guna2ToggleSwitch availabelstaffusercontroltoggleswitch = availabelstaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+
+                    if (availabelstaffusercontroltoggleswitch != null)
+                    {
+                        availabelstaffusercontroltoggleswitch.Checked = false;
+                    }
+                }
+            }
+        }
+
+        private string CustomerTimePicked()
+        {
+            string TimePicked = string.Empty;
+
+            if (RecPrefferedTimeAMComboBox.SelectedIndex == 0)
+            {
+                TimePicked = RecPrefferedTimePMComboBox.SelectedIndex.ToString();
+            }
+            else if (RecPrefferedTimePMComboBox.SelectedIndex == 0)
+            {
+                TimePicked = RecPrefferedTimeAMComboBox.SelectedIndex.ToString();
+            }
+
+            return TimePicked;
+        }
+
+        private string TimeSchedPicked()
+        {
+            string TimeSched = string.Empty;
+
+            if (RecPrefferedTimeAMComboBox.SelectedIndex == 0)
+            {
+                TimeSched = "PM";
+            }
+            else if (RecPrefferedTimePMComboBox.SelectedIndex == 0)
+            {
+                TimeSched = "AM";
+            }
+
+            return TimeSched;
+        }
+        private void RecWalkinSelectedDateText_TextChanged(object sender, EventArgs e)
+        {
+            DisbaleTimeSchedIfNoDateIsSelected();
+        }
+
+        private void RecDeleteSelectedServiceAndStaffBtn_Click(object sender, EventArgs e)
+        {
+            if (RecSelectedServiceDataGrid.SelectedRows.Count > 0)
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this row?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    DataGridViewRow selectedRow = RecSelectedServiceDataGrid.SelectedRows[0];
+                    RecSelectedServiceDataGrid.Rows.Remove(selectedRow);
+                }
+            }
         }
     }
-        
-    
+
+
+
 }
