@@ -59,5 +59,10 @@ namespace Enchante
             staff.EmployeeSchedule = GetStaffTimeSched();
             return staff;
         }
+
+        private void AvailableStaffUserControl_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -2535,13 +2535,38 @@ namespace Enchante
         private void RecWalkInBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecWalkinPanel);
+            MngrTransactNumRefresh();
         }
 
         private void RecAppointmentBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecAppointmentPanel);
         }
+        public class CashierSessionOrderNumberGenerator
+        {
+            private static int transactNumber = 1; // Starting order number
 
+
+            public static string GenerateOrderNumber()
+            {
+                string datePart = DateTime.Now.ToString("MMddhhmm");
+
+                // Use only the order number
+                string orderPart = transactNumber.ToString("D3");
+
+                // Increment the order number for the next order
+                transactNumber++;
+                string ordersessionNumber = $"W-{datePart}-{orderPart}";
+
+                return ordersessionNumber;
+            }
+        }
+
+        private void MngrTransactNumRefresh()
+        {
+            RecWalkinTransNumText.Text = CashierSessionOrderNumberGenerator.GenerateOrderNumber();
+
+        }
         private void RecHomeBtn_Click(object sender, EventArgs e)
         {
             // Scroll to the Home position (0, 0)
@@ -4086,7 +4111,7 @@ namespace Enchante
             DateTime selectedDate = RecWalkinCalendar.SelectionStart;
 
             // Example: Set a label text based on the selected date
-            RecWalkinSelectedDateText.Text = selectedDate.ToShortDateString();
+            RecWalkinSelectedDateText.Text = selectedDate.ToString("MM-dd-yyyy");
         }
 
         private void RecEditSchedBtn_Click(object sender, EventArgs e)
@@ -4572,6 +4597,10 @@ namespace Enchante
 
         private void RecSelectServiceAndStaffBtn_Click(object sender, EventArgs e)
         {
+            AddService();
+        }
+        private void AddService()
+        {
             bool IsStaffSelectedToggleSwitch = false;
             AvailableStaff selectedStaff = null;
 
@@ -4596,13 +4625,15 @@ namespace Enchante
 
             if (RecWalkInServiceTypeTable.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Please select a serive.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please select a service.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
             DataGridViewRow selectedRow = RecWalkInServiceTypeTable.SelectedRows[0];
 
             string SelectedDateValue = RecWalkinSelectedDateText.Text;
+            //string TimePickedValue = CustomerTimePicked();
+            //string TimeSchedPickedValue = TimeSchedPicked();
             string TimePickedValue = CustomerTimePicked();
             string TimeSchedPickedValue = TimeSchedPicked();
             string CustomerName = RecWalkinLNameText.Text + ", " + RecWalkinFNameText.Text;
@@ -4619,12 +4650,32 @@ namespace Enchante
             string EmployeeCategoryLevel = selectedStaff.EmployeeCategoryLevel;
             string EmployeeSchedule = selectedStaff.EmployeeSchedule;
 
-            string serviceID = selectedRow.Cells[2].Value.ToString();
+            string serviceID = selectedRow.Cells[2]?.Value?.ToString(); // Use null-conditional operator to avoid NullReferenceException
+
+            // ... (existing code)
+
+            if (RecWalkInServiceTypeTable.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a service.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (selectedRow == null)
+            {
+                MessageBox.Show("Selected row is null.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(serviceID))
+            {
+                MessageBox.Show("Service ID is null or empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             // Check if the service is already in the RecSelectedServiceDataGrid
-            foreach (DataGridViewRow row in RecSelectedServiceDataGrid.Rows)
+            foreach (DataGridViewRow row in RecSelectedServiceDataGrid1.Rows)
             {
-                string existingServiceID = row.Cells["ServiceID"].Value.ToString();
+                string existingServiceID = row.Cells["ServiceID"]?.Value?.ToString(); // Use null-conditional operator
 
                 if (serviceID == existingServiceID)
                 {
@@ -4633,30 +4684,33 @@ namespace Enchante
                 }
             }
 
+            // ... (existing code)
+
+
             DialogResult result = MessageBox.Show("Are you sure you want to add this service?", "Confirm Service Selection", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
                 // Add the row
-                DataGridViewRow NewSelectedServiceRow = RecSelectedServiceDataGrid.Rows[RecSelectedServiceDataGrid.Rows.Add()];
+                DataGridViewRow NewSelectedServiceRow = RecSelectedServiceDataGrid1.Rows[RecSelectedServiceDataGrid1.Rows.Add()];
 
                 // Set the cell values
-                NewSelectedServiceRow.Cells["SelectedDate"].Value = SelectedDateValue;
-                NewSelectedServiceRow.Cells["TimePicked"].Value = TimePickedValue;
-                NewSelectedServiceRow.Cells["TimeSched"].Value = TimeSchedPickedValue;
-                NewSelectedServiceRow.Cells["CustomerName"].Value = CustomerName;
-                NewSelectedServiceRow.Cells["MobileNumber"].Value = CustomerMobileNumber;
-                NewSelectedServiceRow.Cells["ServiceID"].Value = ServiceID;
+                //NewSelectedServiceRow.Cells["SelectedDate"].Value = SelectedDateValue;
+                //NewSelectedServiceRow.Cells["TimePicked"].Value = TimePickedValue;
+                //NewSelectedServiceRow.Cells["TimeSched"].Value = TimeSchedPickedValue;
+                //NewSelectedServiceRow.Cells["CustomerName"].Value = CustomerName;
+                //NewSelectedServiceRow.Cells["MobileNumber"].Value = CustomerMobileNumber;
+                //NewSelectedServiceRow.Cells["ServiceID"].Value = ServiceID;
                 NewSelectedServiceRow.Cells["SelectedService"].Value = ServiceName;
-                NewSelectedServiceRow.Cells["ServiceDuration"].Value = ServiceDuration;
+                //NewSelectedServiceRow.Cells["ServiceDuration"].Value = ServiceDuration;
                 NewSelectedServiceRow.Cells["ServicePrice"].Value = ServicePrice;
                 NewSelectedServiceRow.Cells["CustomerCustomizations"].Value = CustomerCustomizations;
-                NewSelectedServiceRow.Cells["CustomerAdditionalNotes"].Value = CustomerAdditionalNotes;
-                NewSelectedServiceRow.Cells["StaffSelectedID"].Value = EmployeeID;
-                NewSelectedServiceRow.Cells["StaffName"].Value = EmployeeName;
-                NewSelectedServiceRow.Cells["StaffCategory"].Value = EmployeeCategory;
-                NewSelectedServiceRow.Cells["StaffCategoryLevel"].Value = EmployeeCategoryLevel;
-                NewSelectedServiceRow.Cells["StaffTimeSched"].Value = EmployeeSchedule;
+                //NewSelectedServiceRow.Cells["CustomerAdditionalNotes"].Value = CustomerAdditionalNotes;
+                //NewSelectedServiceRow.Cells["StaffSelectedID"].Value = EmployeeID;
+                //NewSelectedServiceRow.Cells["StaffName"].Value = EmployeeName;
+                //NewSelectedServiceRow.Cells["StaffCategory"].Value = EmployeeCategory;
+                //NewSelectedServiceRow.Cells["StaffCategoryLevel"].Value = EmployeeCategoryLevel;
+                //NewSelectedServiceRow.Cells["StaffTimeSched"].Value = EmployeeSchedule;
 
                 RecWalkInServiceTypeTable.ClearSelection();
                 RecCustomerCustomizationsTextBox.Clear();
@@ -4673,18 +4727,17 @@ namespace Enchante
                 }
             }
         }
-
         private string CustomerTimePicked()
         {
             string TimePicked = string.Empty;
 
             if (RecPrefferedTimeAMComboBox.SelectedIndex == 0)
             {
-                TimePicked = RecPrefferedTimePMComboBox.SelectedIndex.ToString();
+                TimePicked = RecPrefferedTimePMComboBox.SelectedItem.ToString();
             }
             else if (RecPrefferedTimePMComboBox.SelectedIndex == 0)
             {
-                TimePicked = RecPrefferedTimeAMComboBox.SelectedIndex.ToString();
+                TimePicked = RecPrefferedTimeAMComboBox.SelectedItem.ToString();
             }
 
             return TimePicked;
@@ -4712,15 +4765,380 @@ namespace Enchante
 
         private void RecDeleteSelectedServiceAndStaffBtn_Click(object sender, EventArgs e)
         {
-            if (RecSelectedServiceDataGrid.SelectedRows.Count > 0)
+            if (RecSelectedServiceDataGrid1.SelectedRows.Count > 0)
             {
                 DialogResult result = MessageBox.Show("Are you sure you want to delete this row?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
-                    DataGridViewRow selectedRow = RecSelectedServiceDataGrid.SelectedRows[0];
-                    RecSelectedServiceDataGrid.Rows.Remove(selectedRow);
+                    DataGridViewRow selectedRow = RecSelectedServiceDataGrid1.SelectedRows[0];
+                    RecSelectedServiceDataGrid1.Rows.Remove(selectedRow);
                 }
+            }
+        }
+
+        private void RecSelectedServiceDataGrid1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void RecWalkInServiceTypeTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AddService();
+            ReceptionCalculateTotalPrice();
+        }
+
+        private void RecWalkinBookTransactBtn_Click(object sender, EventArgs e)
+        {
+            ReceptionistWalk_in_AppointmentDB();
+
+
+        }
+
+        private void ReceptionistWalk_in_AppointmentDB()
+        {
+            DateTime currentDate = RecDateTimePicker.Value;
+
+            string transactionNum = RecWalkinTransNumText.Text;
+            string serviceStatus = "Pending";
+
+            string SelectedDateValue = RecWalkinSelectedDateText.Text; //appointment date
+            string TimePickedValue = CustomerTimePicked(); //appointment time
+            //string EmployeeName = selectedStaff.EmployeeName;//attending staff
+            //basic info
+            string CustomerName = RecWalkinFNameText.Text + " " + RecWalkinLNameText.Text; //client name
+            string CustomerMobileNumber = RecWalkinCPNumText.Text; //client cp num
+            //cash values
+            string netAmount = RecWalkinNetAmountBox.Text; //net amount
+            string vat = RecWalkinVATBox.Text; //vat 
+            string discount = RecWalkinDiscountBox.Text;//discount
+            string grossAmount = RecWalkinGrossAmountBox.Text; //gross amount
+            string cash = RecWalkinCashBox.Text; //cashgiven
+            string change = RecWalkinChangeBox.Text; //due change
+            string paymentMethod = RecWalkinTypeText.Text; //payment method
+            //booked values
+            string bookedDate = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
+            string bookedTime = currentDate.ToString("hh:mm tt"); //bookedTime
+            string bookedBy = RecNameLbl.Text; //booked by
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+                    string insertQuery = "INSERT INTO walk_in_appointment (TransactionNumber, ServiceStatus, AppointmentDate, AppointmentTime, " +
+                                        "ClientName, ClientCPNum, NetPrice, VatAmount, DiscountAmount, GrossAmount, CashGiven, " +
+                                        "DueChange, PaymentMethod, ServiceDuration, BookedBy, BookedDate, BookedTime )" +
+                                        "VALUES (@Transact, @status, @appointDate, @appointTime, @clientName, @clientCP, @net, @vat, " +
+                                        "@discount, @gross, @cash, @change, @payment, @duration, @bookedBy, @bookedDate, @bookedTime)";
+
+                    MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
+                    cmd.Parameters.AddWithValue("@Transact", transactionNum);
+                    cmd.Parameters.AddWithValue("@status", serviceStatus);
+                    cmd.Parameters.AddWithValue("@appointDate", SelectedDateValue);
+                    cmd.Parameters.AddWithValue("@appointTime", TimePickedValue);
+                    //cmd.Parameters.AddWithValue("@staff", EmployeeName);
+                    cmd.Parameters.AddWithValue("@clientName", CustomerName);
+                    cmd.Parameters.AddWithValue("@clientCP", CustomerMobileNumber);
+                    cmd.Parameters.AddWithValue("@net", netAmount);
+                    cmd.Parameters.AddWithValue("@vat", vat);
+                    cmd.Parameters.AddWithValue("@discount", discount);
+                    cmd.Parameters.AddWithValue("@gross", grossAmount);
+                    cmd.Parameters.AddWithValue("@cash", cash);
+                    cmd.Parameters.AddWithValue("@change", change);
+                    cmd.Parameters.AddWithValue("@payment", paymentMethod);
+                    cmd.Parameters.AddWithValue("@duration", "00:00:00");
+                    cmd.Parameters.AddWithValue("@bookedBy", bookedBy);
+                    cmd.Parameters.AddWithValue("@bookedDate", bookedDate);
+                    cmd.Parameters.AddWithValue("@bookedTime", bookedTime);
+
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                // Successful insertion
+                MessageBox.Show("Order successfully placed.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Transaction.PanelShow(RecTransactionPanel);
+
+            }
+            catch (MySqlException ex)
+            {
+                // Handle MySQL database exception
+                MessageBox.Show("An error occurred: " + ex.Message, "Manager Place Order Sales Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Make sure to close the connection
+                connection.Close();
+            }
+        }
+        private void ReceptionCalculateTotalPrice()
+        {
+            decimal total = 0;
+
+            // Assuming the "Price" column is of decimal type
+            int priceColumnIndex = RecSelectedServiceDataGrid1.Columns["ServicePrice"].Index;
+
+            foreach (DataGridViewRow row in RecSelectedServiceDataGrid1.Rows)
+            {
+                if (row.Cells[priceColumnIndex].Value != null)
+                {
+                    decimal price = decimal.Parse(row.Cells[priceColumnIndex].Value.ToString());
+                    total += price;
+                }
+            }
+
+            // Display the total price in the GrossAmountBox TextBox
+            RecWalkinGrossAmountBox.Text = total.ToString("F2"); // Format to two decimal places
+
+            ReceptionCalculateVATAndNetAmount();
+        }
+
+        public void ReceptionCalculateVATAndNetAmount()
+        {
+            // Get the Gross Amount from the TextBox (MngrGrossAmountBox)
+            if (decimal.TryParse(RecWalkinGrossAmountBox.Text, out decimal grossAmount))
+            {
+                // Fixed VAT rate of 12%
+                decimal rate = 12;
+
+                // Calculate the VAT Amount
+                decimal netAmount = grossAmount / ((rate / 100) + 1);
+
+                // Calculate the Net Amount
+                decimal vatAmount = grossAmount - netAmount;
+
+                // Display the calculated values in TextBoxes
+                RecWalkinVATBox.Text = vatAmount.ToString("0.00");
+                RecWalkinNetAmountBox.Text = netAmount.ToString("0.00");
+                RecWalkinVATBox.Text = vatAmount.ToString("0.00");
+                RecWalkinNetAmountBox.Text = netAmount.ToString("0.00");
+            }
+
+        }
+
+        private void DateTimePickerTimer_Tick(object sender, EventArgs e)
+        {
+            RecDateTimePicker.Value = DateTime.Now;
+            DateTime mngrcurrentDate = RecDateTimePicker.Value;
+            string mngrtoday = mngrcurrentDate.ToString("MM-dd-yyyy dddd hh:mm tt");
+            RecDateTimePicker.Text = mngrtoday;
+        }
+        private bool discountApplied = false; // Flag to track if the discount has been applied
+        private decimal originalGrossAmount; // Store the original value
+
+        private void RecWalkinDiscountSenior_CheckedChanged(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(RecWalkinGrossAmountBox.Text, out decimal grossAmount))
+            {
+                if (RecWalkinDiscountSenior.Checked && !discountApplied)
+                {
+                    // Apply the 20% discount if the checkbox is checked and the discount hasn't been applied before
+                    originalGrossAmount = grossAmount; // Store the original value
+                    decimal discountPercentage = 20m;
+                    decimal discountAmount = grossAmount * (discountPercentage / 100); // Calculate the discount amount
+                    decimal discountedAmount = grossAmount - discountAmount; // Subtract the discount amount
+                    RecWalkinGrossAmountBox.Text = discountedAmount.ToString("0.00"); // Format to display as currency
+                    discountApplied = true; // Set the flag to indicate that the discount has been applied
+                    RecWalkinDiscountBox.Text = discountAmount.ToString("0.00"); // Display the discount amount
+                }
+                else if (!RecWalkinDiscountSenior.Checked && discountApplied)
+                {
+                    // Unchecked, set MngrGrossAmount to the original value if the discount has been applied before
+                    RecWalkinGrossAmountBox.Text = originalGrossAmount.ToString("0.00");
+                    discountApplied = false; // Reset the flag
+                    RecWalkinDiscountBox.Text = "0.00"; // Reset the discount amount display
+                }
+                else
+                {
+                    // If the checkbox is checked but the discount has already been applied, update the discount amount display
+                    decimal discountPercentage = 20m;
+                    decimal discountAmount = originalGrossAmount * (discountPercentage / 100);
+                    RecWalkinDiscountBox.Text = discountAmount.ToString("0.00");
+                }
+            }
+        }
+
+        private void RecWalkinDiscountPWD_CheckedChanged(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(RecWalkinGrossAmountBox.Text, out decimal grossAmount))
+            {
+                if (RecWalkinDiscountPWD.Checked && !discountApplied)
+                {
+                    // Apply the 20% discount if the checkbox is checked and the discount hasn't been applied before
+                    originalGrossAmount = grossAmount; // Store the original value
+                    decimal discountPercentage = 20m;
+                    decimal discountAmount = grossAmount * (discountPercentage / 100); // Calculate the discount amount
+                    decimal discountedAmount = grossAmount - discountAmount; // Subtract the discount amount
+                    RecWalkinGrossAmountBox.Text = discountedAmount.ToString("0.00"); // Format to display as currency
+                    discountApplied = true; // Set the flag to indicate that the discount has been applied
+                    RecWalkinDiscountBox.Text = discountAmount.ToString("0.00"); // Display the discount amount
+                }
+                else if (!RecWalkinDiscountPWD.Checked && discountApplied)
+                {
+                    // Unchecked, set MngrGrossAmount to the original value if the discount has been applied before
+                    RecWalkinGrossAmountBox.Text = originalGrossAmount.ToString("0.00");
+                    discountApplied = false; // Reset the flag
+                    RecWalkinDiscountBox.Text = "0.00"; // Reset the discount amount display
+                }
+                else
+                {
+                    // If the checkbox is checked but the discount has already been applied, update the discount amount display
+                    decimal discountPercentage = 20m;
+                    decimal discountAmount = originalGrossAmount * (discountPercentage / 100);
+                    RecWalkinDiscountBox.Text = discountAmount.ToString("0.00");
+                }
+            }
+        }
+
+        private void RecWalkinCashBox_TextChanged(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(RecWalkinGrossAmountBox.Text, out decimal grossAmount))
+            {
+                // Get the Cash Amount from the TextBox (MngrCashBox)
+                if (decimal.TryParse(RecWalkinCashBox.Text, out decimal cashAmount))
+                {
+                    // Calculate the Change
+                    decimal change = cashAmount - grossAmount;
+
+                    // Display the calculated change value in the MngrChangeBox
+                    RecWalkinChangeBox.Text = change.ToString("0.00");
+                }
+                else
+                {
+                    // Handle invalid input in MngrCashBox, e.g., display an error message
+                    RecWalkinChangeBox.Text = "Invalid Input";
+                }
+            }
+            else
+            {
+                // Handle invalid input in MngrGrossAmountBox, e.g., display an error message
+                RecWalkinChangeBox.Text = "Invalid Input";
+            }
+        }
+
+        private void RecWalkinCCPaymentBtn_Click(object sender, EventArgs e)
+        {
+            if (RecWalkinCCPaymentRB.Checked == false)
+            {
+                RecWalkinCCPaymentRB.Visible = true;
+                RecWalkinCCPaymentRB.Checked = true;
+                RecWalkinTypeText.Text = "Credit Card";
+
+                RecWalkinPPPaymentRB.Visible = false;
+                RecWalkinCashPaymentRB.Visible=false;
+                RecWalkinGCPaymentRB.Visible = false;
+                RecWalkinPMPaymentRB.Visible = false;
+
+                RecWalkinPPPaymentRB.Checked = false;
+                RecWalkinCashPaymentRB.Checked = false;
+                RecWalkinGCPaymentRB.Checked = false;
+                RecWalkinPMPaymentRB.Checked = false;
+            }
+            else
+            {
+                RecWalkinCCPaymentRB.Visible = true;
+                RecWalkinCCPaymentRB.Checked = true;
+            }
+        }
+
+        private void RecWalkinPPPaymentBtn_Click(object sender, EventArgs e)
+        {
+            if (RecWalkinPPPaymentRB.Checked == false)
+            {
+                RecWalkinPPPaymentRB.Visible = true;
+                RecWalkinPPPaymentRB.Checked = true;
+                RecWalkinTypeText.Text = "Paypal";
+
+                RecWalkinCCPaymentRB.Visible = false;
+                RecWalkinCashPaymentRB.Visible = false;
+                RecWalkinGCPaymentRB.Visible = false;
+                RecWalkinPMPaymentRB.Visible = false;
+
+                RecWalkinCCPaymentRB.Checked = false;
+                RecWalkinCashPaymentRB.Checked = false;
+                RecWalkinGCPaymentRB.Checked = false;
+                RecWalkinPMPaymentRB.Checked = false;
+            }
+            else
+            {
+                RecWalkinPPPaymentRB.Visible = true;
+                RecWalkinPPPaymentRB.Checked = true;
+            }
+        }
+
+        private void RecWalkinCashPaymentBtn_Click(object sender, EventArgs e)
+        {
+            if (RecWalkinCashPaymentRB.Checked == false)
+            {
+                RecWalkinCashPaymentRB.Visible = true;
+                RecWalkinCashPaymentRB.Checked = true;
+                RecWalkinTypeText.Text = "Cash";
+
+                RecWalkinCCPaymentRB.Visible = false;
+                RecWalkinPPPaymentRB.Visible = false;
+                RecWalkinGCPaymentRB.Visible = false;
+                RecWalkinPMPaymentRB.Visible = false;
+
+                RecWalkinCCPaymentRB.Checked = false;
+                RecWalkinPPPaymentRB.Checked = false;
+                RecWalkinGCPaymentRB.Checked = false;
+                RecWalkinPMPaymentRB.Checked = false;
+            }
+            else
+            {
+                RecWalkinCashPaymentRB.Visible = true;
+                RecWalkinCashPaymentRB.Checked = true;
+            }
+        }
+
+        private void RecWalkinGCPaymentBtn_Click(object sender, EventArgs e)
+        {
+            if (RecWalkinGCPaymentRB.Checked == false)
+            {
+                RecWalkinGCPaymentRB.Visible = true;
+                RecWalkinGCPaymentRB.Checked = true;
+                RecWalkinTypeText.Text = "Gcash";
+
+                RecWalkinCCPaymentRB.Visible = false;
+                RecWalkinPPPaymentRB.Visible = false;
+                RecWalkinCashPaymentRB.Visible = false;
+                RecWalkinPMPaymentRB.Visible = false;
+
+                RecWalkinCCPaymentRB.Checked = false;
+                RecWalkinPPPaymentRB.Checked = false;
+                RecWalkinCashPaymentRB.Checked = false;
+                RecWalkinPMPaymentRB.Checked = false;
+            }
+            else
+            {
+                RecWalkinGCPaymentRB.Visible = true;
+                RecWalkinGCPaymentRB.Checked = true;
+            }
+        }
+
+        private void RecWalkinPMPaymentBtn_Click(object sender, EventArgs e)
+        {
+            if (RecWalkinPMPaymentRB.Checked == false)
+            {
+                RecWalkinPMPaymentRB.Visible = true;
+                RecWalkinPMPaymentRB.Checked = true;
+                RecWalkinTypeText.Text = "Paymaya";
+
+                RecWalkinCCPaymentRB.Visible = false;
+                RecWalkinPPPaymentRB.Visible = false;
+                RecWalkinCashPaymentRB.Visible = false;
+                RecWalkinGCPaymentRB.Visible = false;
+
+                RecWalkinCCPaymentRB.Checked = false;
+                RecWalkinPPPaymentRB.Checked = false;
+                RecWalkinCashPaymentRB.Checked = false;
+                RecWalkinGCPaymentRB.Checked = false;
+            }
+            else
+            {
+                RecWalkinPMPaymentRB.Visible = true;
+                RecWalkinPMPaymentRB.Checked = true;
             }
         }
     }
