@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Enchante));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.EnchanteParentContainer = new System.Windows.Forms.Panel();
             this.EnchanteAdminPage = new System.Windows.Forms.Panel();
             this.AdminScrollPanel = new System.Windows.Forms.Panel();
@@ -641,6 +641,13 @@
             this.RecTransactionCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.RecInventoryCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.DateTimePickerTimer = new System.Windows.Forms.Timer(this.components);
+            this.StaffNavBarPanel = new System.Windows.Forms.Panel();
+            this.StaffUserAccBtn = new FontAwesome.Sharp.IconButton();
+            this.StaffCurrentTransactionBtn = new FontAwesome.Sharp.IconButton();
+            this.StaffHomeBtn = new FontAwesome.Sharp.IconButton();
+            this.StaffHeaderLogo = new System.Windows.Forms.PictureBox();
+            this.StaffScrollPanel = new System.Windows.Forms.Panel();
+            this.StaffPastTransactionBtn = new FontAwesome.Sharp.IconButton();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteAdminPage.SuspendLayout();
             this.AdminScrollPanel.SuspendLayout();
@@ -754,6 +761,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ServiceCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecTransactionCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecInventoryCard)).BeginInit();
+            this.StaffNavBarPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.StaffHeaderLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // EnchanteParentContainer
@@ -787,6 +796,7 @@
             // 
             this.AdminScrollPanel.AutoScroll = true;
             this.AdminScrollPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.AdminScrollPanel.Controls.Add(this.AdminAccUserPanel);
             this.AdminScrollPanel.Controls.Add(this.AdminFooterStopper);
             this.AdminScrollPanel.Controls.Add(this.AdminRegiformPanel);
             this.AdminScrollPanel.Controls.Add(this.panel14);
@@ -1551,24 +1561,24 @@
             this.AdminAccountTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.AdminAccountTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.AdminAccountTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AdminAccountTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AdminAccountTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.AdminAccountTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AdminAccountTable.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.AdminAccountTable.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.AdminAccountTable.DefaultCellStyle = dataGridViewCellStyle10;
             this.AdminAccountTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.AdminAccountTable.Location = new System.Drawing.Point(955, 81);
             this.AdminAccountTable.Name = "AdminAccountTable";
@@ -1681,7 +1691,6 @@
             // 
             this.AdminNavBarPanel.AutoScroll = true;
             this.AdminNavBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.AdminNavBarPanel.Controls.Add(this.AdminAccUserPanel);
             this.AdminNavBarPanel.Controls.Add(this.AdminAccUserBtn);
             this.AdminNavBarPanel.Controls.Add(this.AdminAccsBtn);
             this.AdminNavBarPanel.Controls.Add(this.AdminHomeBtn);
@@ -1699,9 +1708,9 @@
             this.AdminAccUserPanel.Controls.Add(this.AdminIDNumlbl);
             this.AdminAccUserPanel.Controls.Add(this.AdminNameLbl);
             this.AdminAccUserPanel.Controls.Add(this.AdminSignOutBtn);
-            this.AdminAccUserPanel.Location = new System.Drawing.Point(1277, 64);
+            this.AdminAccUserPanel.Location = new System.Drawing.Point(1598, 6);
             this.AdminAccUserPanel.Name = "AdminAccUserPanel";
-            this.AdminAccUserPanel.Size = new System.Drawing.Size(445, 397);
+            this.AdminAccUserPanel.Size = new System.Drawing.Size(257, 397);
             this.AdminAccUserPanel.TabIndex = 2;
             this.AdminAccUserPanel.Visible = false;
             // 
@@ -1743,9 +1752,9 @@
             this.AdminSignOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.AdminSignOutBtn.IconSize = 32;
             this.AdminSignOutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AdminSignOutBtn.Location = new System.Drawing.Point(27, 311);
+            this.AdminSignOutBtn.Location = new System.Drawing.Point(10, 305);
             this.AdminSignOutBtn.Name = "AdminSignOutBtn";
-            this.AdminSignOutBtn.Size = new System.Drawing.Size(401, 60);
+            this.AdminSignOutBtn.Size = new System.Drawing.Size(231, 60);
             this.AdminSignOutBtn.TabIndex = 7;
             this.AdminSignOutBtn.Text = "LOGOUT";
             this.AdminSignOutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -7351,24 +7360,24 @@
             this.RecInventoryServicesTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecInventoryServicesTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecInventoryServicesTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecInventoryServicesTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecInventoryServicesTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.RecInventoryServicesTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecInventoryServicesTable.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecInventoryServicesTable.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecInventoryServicesTable.DefaultCellStyle = dataGridViewCellStyle12;
             this.RecInventoryServicesTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecInventoryServicesTable.Location = new System.Drawing.Point(57, 56);
             this.RecInventoryServicesTable.Name = "RecInventoryServicesTable";
@@ -7771,7 +7780,7 @@
             this.RecWalkinPaymentButton.IconChar = FontAwesome.Sharp.IconChar.None;
             this.RecWalkinPaymentButton.IconColor = System.Drawing.Color.Black;
             this.RecWalkinPaymentButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecWalkinPaymentButton.Location = new System.Drawing.Point(861, 2718);
+            this.RecWalkinPaymentButton.Location = new System.Drawing.Point(408, 2718);
             this.RecWalkinPaymentButton.Name = "RecWalkinPaymentButton";
             this.RecWalkinPaymentButton.Size = new System.Drawing.Size(268, 60);
             this.RecWalkinPaymentButton.TabIndex = 145;
@@ -7819,6 +7828,7 @@
             this.RecWalkinSelectedDateText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.RecWalkinSelectedDateText.Location = new System.Drawing.Point(349, 356);
             this.RecWalkinSelectedDateText.Name = "RecWalkinSelectedDateText";
+            this.RecWalkinSelectedDateText.ReadOnly = true;
             this.RecWalkinSelectedDateText.Size = new System.Drawing.Size(553, 30);
             this.RecWalkinSelectedDateText.TabIndex = 139;
             this.RecWalkinSelectedDateText.TextChanged += new System.EventHandler(this.RecWalkinSelectedDateText_TextChanged);
@@ -8088,14 +8098,14 @@
             this.RecSelectedServiceDataGrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecSelectedServiceDataGrid1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecSelectedServiceDataGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecSelectedServiceDataGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecSelectedServiceDataGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.RecSelectedServiceDataGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecSelectedServiceDataGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SelectedService,
@@ -8103,14 +8113,14 @@
             this.CustomerCustomizations,
             this.ServicePrice});
             this.RecSelectedServiceDataGrid1.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecSelectedServiceDataGrid1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecSelectedServiceDataGrid1.DefaultCellStyle = dataGridViewCellStyle14;
             this.RecSelectedServiceDataGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecSelectedServiceDataGrid1.Location = new System.Drawing.Point(852, 131);
             this.RecSelectedServiceDataGrid1.Name = "RecSelectedServiceDataGrid1";
@@ -8577,24 +8587,24 @@
             this.RecWalkInServiceTypeTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecWalkInServiceTypeTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecWalkInServiceTypeTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecWalkInServiceTypeTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecWalkInServiceTypeTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.RecWalkInServiceTypeTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecWalkInServiceTypeTable.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecWalkInServiceTypeTable.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecWalkInServiceTypeTable.DefaultCellStyle = dataGridViewCellStyle16;
             this.RecWalkInServiceTypeTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecWalkInServiceTypeTable.Location = new System.Drawing.Point(925, 1164);
             this.RecWalkInServiceTypeTable.Name = "RecWalkInServiceTypeTable";
@@ -8950,9 +8960,9 @@
             this.RecWalkInFooterStopperPanel.Controls.Add(this.RecWalkInFooterStopperLbl);
             this.RecWalkInFooterStopperPanel.Controls.Add(this.RecCalenderPanel);
             this.RecWalkInFooterStopperPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.RecWalkInFooterStopperPanel.Location = new System.Drawing.Point(522, 3008);
+            this.RecWalkInFooterStopperPanel.Location = new System.Drawing.Point(405, 2801);
             this.RecWalkInFooterStopperPanel.Name = "RecWalkInFooterStopperPanel";
-            this.RecWalkInFooterStopperPanel.Size = new System.Drawing.Size(804, 105);
+            this.RecWalkInFooterStopperPanel.Size = new System.Drawing.Size(804, 77);
             this.RecWalkInFooterStopperPanel.TabIndex = 52;
             // 
             // RecWalkInFooterStopperLbl
@@ -9114,7 +9124,7 @@
             this.RecWalkinBookTransactBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.RecWalkinBookTransactBtn.IconColor = System.Drawing.Color.Black;
             this.RecWalkinBookTransactBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecWalkinBookTransactBtn.Location = new System.Drawing.Point(1212, 2718);
+            this.RecWalkinBookTransactBtn.Location = new System.Drawing.Point(687, 2718);
             this.RecWalkinBookTransactBtn.Name = "RecWalkinBookTransactBtn";
             this.RecWalkinBookTransactBtn.Size = new System.Drawing.Size(268, 60);
             this.RecWalkinBookTransactBtn.TabIndex = 73;
@@ -9330,7 +9340,8 @@
             // 
             this.EnchanteStaffPage.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.EnchanteParentCard.SetCardName(this.EnchanteStaffPage, "Staff");
-            this.EnchanteStaffPage.Controls.Add(this.StaffSignOutBtn);
+            this.EnchanteStaffPage.Controls.Add(this.StaffScrollPanel);
+            this.EnchanteStaffPage.Controls.Add(this.StaffNavBarPanel);
             this.EnchanteStaffPage.Location = new System.Drawing.Point(0, 0);
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteStaffPage, new System.Drawing.Size(200, 100));
             this.EnchanteStaffPage.Name = "EnchanteStaffPage";
@@ -9343,7 +9354,7 @@
             this.StaffSignOutBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.StaffSignOutBtn.IconColor = System.Drawing.Color.Black;
             this.StaffSignOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.StaffSignOutBtn.Location = new System.Drawing.Point(915, 509);
+            this.StaffSignOutBtn.Location = new System.Drawing.Point(1707, 58);
             this.StaffSignOutBtn.Name = "StaffSignOutBtn";
             this.StaffSignOutBtn.Size = new System.Drawing.Size(75, 23);
             this.StaffSignOutBtn.TabIndex = 2;
@@ -9355,7 +9366,7 @@
             // 
             this.EnchanteParentCard.ContainerControl = this.EnchanteParentContainer;
             this.EnchanteParentCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.EnchanteParentCard.SelectedCard = "Reception";
+            this.EnchanteParentCard.SelectedCard = "Staff";
             // 
             // MembershipCard
             // 
@@ -9384,6 +9395,121 @@
             // DateTimePickerTimer
             // 
             this.DateTimePickerTimer.Tick += new System.EventHandler(this.DateTimePickerTimer_Tick);
+            // 
+            // StaffNavBarPanel
+            // 
+            this.StaffNavBarPanel.AutoScroll = true;
+            this.StaffNavBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.StaffNavBarPanel.Controls.Add(this.StaffPastTransactionBtn);
+            this.StaffNavBarPanel.Controls.Add(this.StaffUserAccBtn);
+            this.StaffNavBarPanel.Controls.Add(this.StaffSignOutBtn);
+            this.StaffNavBarPanel.Controls.Add(this.StaffCurrentTransactionBtn);
+            this.StaffNavBarPanel.Controls.Add(this.StaffHomeBtn);
+            this.StaffNavBarPanel.Controls.Add(this.StaffHeaderLogo);
+            this.StaffNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.StaffNavBarPanel.Location = new System.Drawing.Point(0, 0);
+            this.StaffNavBarPanel.Name = "StaffNavBarPanel";
+            this.StaffNavBarPanel.Size = new System.Drawing.Size(1904, 150);
+            this.StaffNavBarPanel.TabIndex = 5;
+            // 
+            // StaffUserAccBtn
+            // 
+            this.StaffUserAccBtn.AutoSize = true;
+            this.StaffUserAccBtn.BackColor = System.Drawing.Color.Transparent;
+            this.StaffUserAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.StaffUserAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.StaffUserAccBtn.FlatAppearance.BorderSize = 0;
+            this.StaffUserAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StaffUserAccBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.StaffUserAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.StaffUserAccBtn.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.StaffUserAccBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.StaffUserAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.StaffUserAccBtn.Location = new System.Drawing.Point(1801, 48);
+            this.StaffUserAccBtn.Name = "StaffUserAccBtn";
+            this.StaffUserAccBtn.Size = new System.Drawing.Size(54, 54);
+            this.StaffUserAccBtn.TabIndex = 8;
+            this.StaffUserAccBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.StaffUserAccBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.StaffUserAccBtn.UseVisualStyleBackColor = false;
+            // 
+            // StaffCurrentTransactionBtn
+            // 
+            this.StaffCurrentTransactionBtn.AutoSize = true;
+            this.StaffCurrentTransactionBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.StaffCurrentTransactionBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.StaffCurrentTransactionBtn.FlatAppearance.BorderSize = 0;
+            this.StaffCurrentTransactionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StaffCurrentTransactionBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.StaffCurrentTransactionBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.StaffCurrentTransactionBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.StaffCurrentTransactionBtn.IconColor = System.Drawing.Color.Black;
+            this.StaffCurrentTransactionBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.StaffCurrentTransactionBtn.Location = new System.Drawing.Point(312, 47);
+            this.StaffCurrentTransactionBtn.Name = "StaffCurrentTransactionBtn";
+            this.StaffCurrentTransactionBtn.Size = new System.Drawing.Size(283, 54);
+            this.StaffCurrentTransactionBtn.TabIndex = 2;
+            this.StaffCurrentTransactionBtn.Text = "Current Transaction";
+            this.StaffCurrentTransactionBtn.UseVisualStyleBackColor = true;
+            // 
+            // StaffHomeBtn
+            // 
+            this.StaffHomeBtn.AutoSize = true;
+            this.StaffHomeBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.StaffHomeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.StaffHomeBtn.FlatAppearance.BorderSize = 0;
+            this.StaffHomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StaffHomeBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.StaffHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.StaffHomeBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.StaffHomeBtn.IconColor = System.Drawing.Color.Black;
+            this.StaffHomeBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.StaffHomeBtn.Location = new System.Drawing.Point(214, 47);
+            this.StaffHomeBtn.Name = "StaffHomeBtn";
+            this.StaffHomeBtn.Size = new System.Drawing.Size(92, 54);
+            this.StaffHomeBtn.TabIndex = 1;
+            this.StaffHomeBtn.Text = "HOME";
+            this.StaffHomeBtn.UseVisualStyleBackColor = true;
+            // 
+            // StaffHeaderLogo
+            // 
+            this.StaffHeaderLogo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.StaffHeaderLogo.Image = global::Enchante.Properties.Resources.Enchante_Logo__200_x_200_px___1_;
+            this.StaffHeaderLogo.Location = new System.Drawing.Point(81, 25);
+            this.StaffHeaderLogo.Name = "StaffHeaderLogo";
+            this.StaffHeaderLogo.Size = new System.Drawing.Size(100, 100);
+            this.StaffHeaderLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.StaffHeaderLogo.TabIndex = 0;
+            this.StaffHeaderLogo.TabStop = false;
+            // 
+            // StaffScrollPanel
+            // 
+            this.StaffScrollPanel.AutoScroll = true;
+            this.StaffScrollPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.StaffScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.StaffScrollPanel.Location = new System.Drawing.Point(0, 150);
+            this.StaffScrollPanel.Name = "StaffScrollPanel";
+            this.StaffScrollPanel.Size = new System.Drawing.Size(1904, 891);
+            this.StaffScrollPanel.TabIndex = 6;
+            // 
+            // StaffPastTransactionBtn
+            // 
+            this.StaffPastTransactionBtn.AutoSize = true;
+            this.StaffPastTransactionBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.StaffPastTransactionBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.StaffPastTransactionBtn.FlatAppearance.BorderSize = 0;
+            this.StaffPastTransactionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StaffPastTransactionBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.StaffPastTransactionBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.StaffPastTransactionBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.StaffPastTransactionBtn.IconColor = System.Drawing.Color.Black;
+            this.StaffPastTransactionBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.StaffPastTransactionBtn.Location = new System.Drawing.Point(601, 47);
+            this.StaffPastTransactionBtn.Name = "StaffPastTransactionBtn";
+            this.StaffPastTransactionBtn.Size = new System.Drawing.Size(243, 54);
+            this.StaffPastTransactionBtn.TabIndex = 9;
+            this.StaffPastTransactionBtn.Text = "Past Transaction";
+            this.StaffPastTransactionBtn.UseVisualStyleBackColor = true;
             // 
             // Enchante
             // 
@@ -9589,6 +9715,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ServiceCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecTransactionCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecInventoryCard)).EndInit();
+            this.StaffNavBarPanel.ResumeLayout(false);
+            this.StaffNavBarPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.StaffHeaderLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -10204,6 +10333,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ServiceID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerCustomizations;
         private System.Windows.Forms.DataGridViewTextBoxColumn ServicePrice;
+        private System.Windows.Forms.Panel StaffNavBarPanel;
+        private FontAwesome.Sharp.IconButton StaffUserAccBtn;
+        private FontAwesome.Sharp.IconButton StaffCurrentTransactionBtn;
+        private FontAwesome.Sharp.IconButton StaffHomeBtn;
+        private System.Windows.Forms.PictureBox StaffHeaderLogo;
+        private System.Windows.Forms.Panel StaffScrollPanel;
+        private FontAwesome.Sharp.IconButton StaffPastTransactionBtn;
     }
 }
 
