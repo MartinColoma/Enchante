@@ -4617,6 +4617,20 @@ namespace Enchante
             string EmployeeCategoryLevel = selectedStaff.EmployeeCategoryLevel;
             string EmployeeSchedule = selectedStaff.EmployeeSchedule;
 
+            string serviceID = selectedRow.Cells[2].Value.ToString();
+
+            // Check if the service is already in the RecSelectedServiceDataGrid
+            foreach (DataGridViewRow row in RecSelectedServiceDataGrid.Rows)
+            {
+                string existingServiceID = row.Cells["ServiceID"].Value.ToString();
+
+                if (serviceID == existingServiceID)
+                {
+                    MessageBox.Show("This service is already selected.", "Duplicate Service", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+
             DialogResult result = MessageBox.Show("Are you sure you want to add this service?", "Confirm Service Selection", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
@@ -4641,6 +4655,16 @@ namespace Enchante
                 NewSelectedServiceRow.Cells["StaffTimeSched"].Value = EmployeeSchedule;
 
                 RecWalkInServiceTypeTable.ClearSelection();
+
+                foreach (AvailableStaffUserControl availabelstaffusercontrol in RecAvaialableStaffFlowLayout.Controls)
+                {
+                    Guna.UI2.WinForms.Guna2ToggleSwitch availabelstaffusercontroltoggleswitch = availabelstaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+
+                    if (availabelstaffusercontroltoggleswitch != null)
+                    {
+                        availabelstaffusercontroltoggleswitch.Checked = false;
+                    }
+                }
             }
         }
 
