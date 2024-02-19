@@ -125,6 +125,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AvailableStaffUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AvailableStaffUserControl.Designer.cs">
+      <DependentUpon>AvailableStaffUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enchante.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     <Compile Include="ReceptionTransactionCard.cs" />
     <Compile Include="Registration.cs" />
     <Compile Include="ServiceCard.cs" />
+    <EmbeddedResource Include="AvailableStaffUserControl.resx">
+      <DependentUpon>AvailableStaffUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Enchante.resx">
       <DependentUpon>Enchante.cs</DependentUpon>
     </EmbeddedResource>
