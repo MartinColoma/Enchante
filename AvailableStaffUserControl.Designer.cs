@@ -38,97 +38,114 @@
             // 
             // AvailStaffNameTextBox
             // 
+            this.AvailStaffNameTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.AvailStaffNameTextBox.BorderRadius = 12;
+            this.AvailStaffNameTextBox.BorderThickness = 2;
             this.AvailStaffNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.AvailStaffNameTextBox.DefaultText = "";
             this.AvailStaffNameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.AvailStaffNameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.AvailStaffNameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.AvailStaffNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.AvailStaffNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.AvailStaffNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.AvailStaffNameTextBox.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AvailStaffNameTextBox.ForeColor = System.Drawing.Color.Black;
+            this.AvailStaffNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.AvailStaffNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.AvailStaffNameTextBox.Location = new System.Drawing.Point(131, 12);
+            this.AvailStaffNameTextBox.Location = new System.Drawing.Point(131, 11);
             this.AvailStaffNameTextBox.Name = "AvailStaffNameTextBox";
             this.AvailStaffNameTextBox.PasswordChar = '\0';
             this.AvailStaffNameTextBox.PlaceholderText = "";
+            this.AvailStaffNameTextBox.ReadOnly = true;
             this.AvailStaffNameTextBox.SelectedText = "";
             this.AvailStaffNameTextBox.Size = new System.Drawing.Size(107, 31);
             this.AvailStaffNameTextBox.TabIndex = 1;
             // 
             // AvailStaffCategoryTextBox
             // 
+            this.AvailStaffCategoryTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.AvailStaffCategoryTextBox.BorderRadius = 12;
+            this.AvailStaffCategoryTextBox.BorderThickness = 2;
             this.AvailStaffCategoryTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.AvailStaffCategoryTextBox.DefaultText = "";
             this.AvailStaffCategoryTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.AvailStaffCategoryTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.AvailStaffCategoryTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.AvailStaffCategoryTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.AvailStaffCategoryTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.AvailStaffCategoryTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.AvailStaffCategoryTextBox.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AvailStaffCategoryTextBox.ForeColor = System.Drawing.Color.Black;
+            this.AvailStaffCategoryTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.AvailStaffCategoryTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.AvailStaffCategoryTextBox.Location = new System.Drawing.Point(244, 12);
+            this.AvailStaffCategoryTextBox.Location = new System.Drawing.Point(244, 11);
             this.AvailStaffCategoryTextBox.Name = "AvailStaffCategoryTextBox";
             this.AvailStaffCategoryTextBox.PasswordChar = '\0';
             this.AvailStaffCategoryTextBox.PlaceholderForeColor = System.Drawing.Color.Black;
             this.AvailStaffCategoryTextBox.PlaceholderText = "";
+            this.AvailStaffCategoryTextBox.ReadOnly = true;
             this.AvailStaffCategoryTextBox.SelectedText = "";
             this.AvailStaffCategoryTextBox.Size = new System.Drawing.Size(109, 31);
             this.AvailStaffCategoryTextBox.TabIndex = 2;
             // 
             // AvailStaffCategoryLevelTextBox
             // 
+            this.AvailStaffCategoryLevelTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.AvailStaffCategoryLevelTextBox.BorderRadius = 12;
+            this.AvailStaffCategoryLevelTextBox.BorderThickness = 2;
             this.AvailStaffCategoryLevelTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.AvailStaffCategoryLevelTextBox.DefaultText = "";
             this.AvailStaffCategoryLevelTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.AvailStaffCategoryLevelTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.AvailStaffCategoryLevelTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.AvailStaffCategoryLevelTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.AvailStaffCategoryLevelTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.AvailStaffCategoryLevelTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.AvailStaffCategoryLevelTextBox.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AvailStaffCategoryLevelTextBox.ForeColor = System.Drawing.Color.Black;
+            this.AvailStaffCategoryLevelTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.AvailStaffCategoryLevelTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.AvailStaffCategoryLevelTextBox.Location = new System.Drawing.Point(359, 12);
+            this.AvailStaffCategoryLevelTextBox.Location = new System.Drawing.Point(359, 11);
             this.AvailStaffCategoryLevelTextBox.Name = "AvailStaffCategoryLevelTextBox";
             this.AvailStaffCategoryLevelTextBox.PasswordChar = '\0';
             this.AvailStaffCategoryLevelTextBox.PlaceholderForeColor = System.Drawing.Color.Black;
             this.AvailStaffCategoryLevelTextBox.PlaceholderText = "";
+            this.AvailStaffCategoryLevelTextBox.ReadOnly = true;
             this.AvailStaffCategoryLevelTextBox.SelectedText = "";
             this.AvailStaffCategoryLevelTextBox.Size = new System.Drawing.Size(93, 31);
             this.AvailStaffCategoryLevelTextBox.TabIndex = 3;
             // 
             // AvailStaffEmployeeIDTextBox
             // 
+            this.AvailStaffEmployeeIDTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.AvailStaffEmployeeIDTextBox.BorderRadius = 12;
+            this.AvailStaffEmployeeIDTextBox.BorderThickness = 2;
             this.AvailStaffEmployeeIDTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.AvailStaffEmployeeIDTextBox.DefaultText = "";
             this.AvailStaffEmployeeIDTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.AvailStaffEmployeeIDTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.AvailStaffEmployeeIDTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.AvailStaffEmployeeIDTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.AvailStaffEmployeeIDTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.AvailStaffEmployeeIDTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.AvailStaffEmployeeIDTextBox.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AvailStaffEmployeeIDTextBox.ForeColor = System.Drawing.Color.Black;
+            this.AvailStaffEmployeeIDTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.AvailStaffEmployeeIDTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.AvailStaffEmployeeIDTextBox.Location = new System.Drawing.Point(67, 12);
+            this.AvailStaffEmployeeIDTextBox.Location = new System.Drawing.Point(67, 11);
             this.AvailStaffEmployeeIDTextBox.Name = "AvailStaffEmployeeIDTextBox";
             this.AvailStaffEmployeeIDTextBox.PasswordChar = '\0';
             this.AvailStaffEmployeeIDTextBox.PlaceholderText = "";
+            this.AvailStaffEmployeeIDTextBox.ReadOnly = true;
             this.AvailStaffEmployeeIDTextBox.SelectedText = "";
             this.AvailStaffEmployeeIDTextBox.Size = new System.Drawing.Size(58, 31);
             this.AvailStaffEmployeeIDTextBox.TabIndex = 0;
             // 
             // AvailStaffSelectToggleSwitch
             // 
-            this.AvailStaffSelectToggleSwitch.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.AvailStaffSelectToggleSwitch.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.AvailStaffSelectToggleSwitch.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.AvailStaffSelectToggleSwitch.CheckedState.BorderRadius = 2;
+            this.AvailStaffSelectToggleSwitch.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.AvailStaffSelectToggleSwitch.CheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.AvailStaffSelectToggleSwitch.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.AvailStaffSelectToggleSwitch.Location = new System.Drawing.Point(15, 12);
+            this.AvailStaffSelectToggleSwitch.Location = new System.Drawing.Point(15, 16);
             this.AvailStaffSelectToggleSwitch.Name = "AvailStaffSelectToggleSwitch";
             this.AvailStaffSelectToggleSwitch.Size = new System.Drawing.Size(35, 20);
             this.AvailStaffSelectToggleSwitch.TabIndex = 4;
@@ -139,22 +156,26 @@
             // 
             // AvailStaffTimeSchedTextBox
             // 
+            this.AvailStaffTimeSchedTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.AvailStaffTimeSchedTextBox.BorderRadius = 12;
+            this.AvailStaffTimeSchedTextBox.BorderThickness = 2;
             this.AvailStaffTimeSchedTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.AvailStaffTimeSchedTextBox.DefaultText = "";
             this.AvailStaffTimeSchedTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.AvailStaffTimeSchedTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.AvailStaffTimeSchedTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.AvailStaffTimeSchedTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.AvailStaffTimeSchedTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.AvailStaffTimeSchedTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.AvailStaffTimeSchedTextBox.Font = new System.Drawing.Font("Arial Narrow", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AvailStaffTimeSchedTextBox.ForeColor = System.Drawing.Color.Black;
+            this.AvailStaffTimeSchedTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.AvailStaffTimeSchedTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.AvailStaffTimeSchedTextBox.Location = new System.Drawing.Point(458, 12);
+            this.AvailStaffTimeSchedTextBox.Location = new System.Drawing.Point(458, 11);
             this.AvailStaffTimeSchedTextBox.Name = "AvailStaffTimeSchedTextBox";
             this.AvailStaffTimeSchedTextBox.PasswordChar = '\0';
             this.AvailStaffTimeSchedTextBox.PlaceholderForeColor = System.Drawing.Color.Black;
             this.AvailStaffTimeSchedTextBox.PlaceholderText = "";
+            this.AvailStaffTimeSchedTextBox.ReadOnly = true;
             this.AvailStaffTimeSchedTextBox.SelectedText = "";
             this.AvailStaffTimeSchedTextBox.Size = new System.Drawing.Size(110, 31);
             this.AvailStaffTimeSchedTextBox.TabIndex = 5;
@@ -171,6 +192,7 @@
             this.Controls.Add(this.AvailStaffEmployeeIDTextBox);
             this.Name = "AvailableStaffUserControl";
             this.Size = new System.Drawing.Size(582, 52);
+            this.Load += new System.EventHandler(this.AvailableStaffUserControl_Load);
             this.ResumeLayout(false);
 
         }
