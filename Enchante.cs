@@ -4611,6 +4611,8 @@ namespace Enchante
             string ServiceName = selectedRow.Cells[3].Value.ToString();
             string ServiceDuration = selectedRow.Cells[5].Value.ToString();
             string ServicePrice = selectedRow.Cells[6].Value.ToString();
+            string CustomerCustomizations = RecCustomerCustomizationsTextBox.Text;
+            string CustomerAdditionalNotes = RecCustomerCustomerAdditionalNotesTextBox.Text;
             string EmployeeID = selectedStaff.EmployeeID;
             string EmployeeName = selectedStaff.EmployeeName;
             string EmployeeCategory = selectedStaff.EmployeeCategory;
@@ -4648,6 +4650,8 @@ namespace Enchante
                 NewSelectedServiceRow.Cells["SelectedService"].Value = ServiceName;
                 NewSelectedServiceRow.Cells["ServiceDuration"].Value = ServiceDuration;
                 NewSelectedServiceRow.Cells["ServicePrice"].Value = ServicePrice;
+                NewSelectedServiceRow.Cells["CustomerCustomizations"].Value = CustomerCustomizations;
+                NewSelectedServiceRow.Cells["CustomerAdditionalNotes"].Value = CustomerAdditionalNotes;
                 NewSelectedServiceRow.Cells["StaffSelectedID"].Value = EmployeeID;
                 NewSelectedServiceRow.Cells["StaffName"].Value = EmployeeName;
                 NewSelectedServiceRow.Cells["StaffCategory"].Value = EmployeeCategory;
@@ -4655,6 +4659,8 @@ namespace Enchante
                 NewSelectedServiceRow.Cells["StaffTimeSched"].Value = EmployeeSchedule;
 
                 RecWalkInServiceTypeTable.ClearSelection();
+                RecCustomerCustomizationsTextBox.Clear();
+                RecCustomerCustomerAdditionalNotesTextBox.Clear();
 
                 foreach (AvailableStaffUserControl availabelstaffusercontrol in RecAvaialableStaffFlowLayout.Controls)
                 {
