@@ -62,6 +62,8 @@ namespace Enchante
         public List<AvailableStaff> filteredbyschedstaff;
         public Guna.UI2.WinForms.Guna2ToggleSwitch AvailableStaffActiveToggleSwitch;
         private bool IsPrefferredTimeSchedComboBoxModified = false;
+        public string membercategory;
+
 
         public Enchante()
         {
@@ -123,6 +125,8 @@ namespace Enchante
 
             RecPrefferedTimeAMComboBox.Enabled = false;
             RecPrefferedTimePMComboBox.Enabled = false;
+
+            InitializePendingCustomersForStaff();
         }
 
         private void Enchante_Load(object sender, EventArgs e)
@@ -131,6 +135,7 @@ namespace Enchante
             HomePanelReset();
             DB_Loader();
             FillRecStaffScheduleViewDataGrid();
+            
         }
 
         private void DB_Loader()
@@ -838,7 +843,7 @@ namespace Enchante
                 {
                     connection.Open();
 
-                    string queryApproved = "SELECT FirstName, LastName, EmployeeID, EmployeeType, HashedPass FROM systemusers WHERE Email = @email";
+                    string queryApproved = "SELECT FirstName, LastName, EmployeeID, EmployeeType, EmployeeCategory, HashedPass FROM systemusers WHERE Email = @email";
 
                     using (MySqlCommand cmdApproved = new MySqlCommand(queryApproved, connection))
                     {
@@ -852,6 +857,7 @@ namespace Enchante
                                 string lastname = readerApproved["LastName"].ToString();
                                 string ID = readerApproved["EmployeeID"].ToString();
                                 string membertype = readerApproved["EmployeeType"].ToString();
+                                string category = readerApproved["EmployeeCategory"].ToString();
 
                                 if (membertype == "Admin")
                                 {
@@ -917,6 +923,11 @@ namespace Enchante
                                         MessageBox.Show($"Welcome back, Staff {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         //MemberNameLbl.Text = name + " " + lastname;
                                         //MemberIDLbl.Text = ID;
+                                        StaffIDLbl.Text = ID;
+                                        StaffMemeberCategoryLbl.Text = category;
+                                        membercategory = category;
+                                        StaffCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+                                        InitializePendingCustomersForStaff();
                                         StaffHomePanelReset();
                                         logincredclear();
 
@@ -970,6 +981,10 @@ namespace Enchante
         private void StaffSignOutBtn_Click(object sender, EventArgs e)
         {
             LogoutChecker();
+            membercategory = "";
+            StaffIDLbl.Text = string.Empty;
+            StaffMemeberCategoryLbl.Text = string.Empty;
+            StaffCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
         }
 
         private void AdminSignOutBtn_Click(object sender, EventArgs e)
@@ -3083,7 +3098,7 @@ namespace Enchante
             {
                 return;
             }
-            if ( RecPrefferedTimePMComboBox.SelectedIndex == 0 && RecPrefferedTimeAMComboBox.SelectedIndex == 0)
+            if (RecPrefferedTimePMComboBox.SelectedIndex == 0 && RecPrefferedTimeAMComboBox.SelectedIndex == 0)
             {
                 MessageBox.Show("Please Select a prefferred time first");
             }
@@ -4322,7 +4337,7 @@ namespace Enchante
         }
         private void RecPrefferedTimeAMComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             if (RecPrefferedTimeAMComboBox.SelectedIndex != 0)
             {
                 RecPrefferedTimePMComboBox.Enabled = false;
@@ -4332,13 +4347,13 @@ namespace Enchante
                 RecPrefferedTimePMComboBox.Enabled = true;
             }
             FilterAvailableStaffInRecFlowLayoutPanelAM();
-           
+
 
         }
 
         private void RecPrefferedTimePMComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             if (RecPrefferedTimePMComboBox.SelectedIndex != 0)
             {
                 RecPrefferedTimeAMComboBox.Enabled = false;
@@ -4348,7 +4363,7 @@ namespace Enchante
                 RecPrefferedTimeAMComboBox.Enabled = true;
             }
             FilterAvailableStaffInRecFlowLayoutPanelPM();
-            
+
 
         }
 
@@ -4591,7 +4606,7 @@ namespace Enchante
 
         private void RecPrefferedTimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             IsPrefferredTimeSchedComboBoxModified = true;
         }
 
@@ -4716,15 +4731,15 @@ namespace Enchante
                 RecCustomerCustomizationsTextBox.Clear();
                 RecCustomerCustomerAdditionalNotesTextBox.Clear();
 
-                foreach (AvailableStaffUserControl availabelstaffusercontrol in RecAvaialableStaffFlowLayout.Controls)
-                {
-                    Guna.UI2.WinForms.Guna2ToggleSwitch availabelstaffusercontroltoggleswitch = availabelstaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+                //foreach (AvailableStaffUserControl availabelstaffusercontrol in RecAvaialableStaffFlowLayout.Controls)
+                //{
+                //    Guna.UI2.WinForms.Guna2ToggleSwitch availabelstaffusercontroltoggleswitch = availabelstaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
 
-                    if (availabelstaffusercontroltoggleswitch != null)
-                    {
-                        availabelstaffusercontroltoggleswitch.Checked = false;
-                    }
-                }
+                //    if (availabelstaffusercontroltoggleswitch != null)
+                //    {
+                //        availabelstaffusercontroltoggleswitch.Checked = false;
+                //    }
+                //}
             }
         }
         private string CustomerTimePicked()
@@ -4797,6 +4812,26 @@ namespace Enchante
 
         private void ReceptionistWalk_in_AppointmentDB()
         {
+
+
+            bool IsStaffSelectedToggleSwitch = false;
+            AvailableStaff selectedStaff = null;
+
+            foreach (AvailableStaffUserControl availabelstaffusercontrol in RecAvaialableStaffFlowLayout.Controls)
+            {
+                Guna.UI2.WinForms.Guna2ToggleSwitch availabelstaffusercontroltoggleswitch = availabelstaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+
+                if (availabelstaffusercontroltoggleswitch != null && availabelstaffusercontroltoggleswitch.Checked)
+                {
+                    IsStaffSelectedToggleSwitch = true;
+                    selectedStaff = availabelstaffusercontrol.GetAvailableStaffData();
+
+                    break;
+                }
+            }
+
+
+
             DateTime currentDate = RecDateTimePicker.Value;
 
             string transactionNum = RecWalkinTransNumText.Text;
@@ -4804,7 +4839,7 @@ namespace Enchante
 
             string SelectedDateValue = RecWalkinSelectedDateText.Text; //appointment date
             string TimePickedValue = CustomerTimePicked(); //appointment time
-            //string EmployeeName = selectedStaff.EmployeeName;//attending staff
+            string EmployeeName = selectedStaff.EmployeeName;//attending staff
             //basic info
             string CustomerName = RecWalkinFNameText.Text + " " + RecWalkinLNameText.Text; //client name
             string CustomerMobileNumber = RecWalkinCPNumText.Text; //client cp num
@@ -4828,16 +4863,16 @@ namespace Enchante
                     connection.Open();
                     string insertQuery = "INSERT INTO walk_in_appointment (TransactionNumber, ServiceStatus, AppointmentDate, AppointmentTime, " +
                                         "ClientName, ClientCPNum, NetPrice, VatAmount, DiscountAmount, GrossAmount, CashGiven, " +
-                                        "DueChange, PaymentMethod, ServiceDuration, BookedBy, BookedDate, BookedTime )" +
+                                        "DueChange, PaymentMethod, ServiceDuration, BookedBy, BookedDate, BookedTime, StaffName )" +
                                         "VALUES (@Transact, @status, @appointDate, @appointTime, @clientName, @clientCP, @net, @vat, " +
-                                        "@discount, @gross, @cash, @change, @payment, @duration, @bookedBy, @bookedDate, @bookedTime)";
+                                        "@discount, @gross, @cash, @change, @payment, @duration, @bookedBy, @bookedDate, @bookedTime, @staff)";
 
                     MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
                     cmd.Parameters.AddWithValue("@Transact", transactionNum);
                     cmd.Parameters.AddWithValue("@status", serviceStatus);
                     cmd.Parameters.AddWithValue("@appointDate", SelectedDateValue);
                     cmd.Parameters.AddWithValue("@appointTime", TimePickedValue);
-                    //cmd.Parameters.AddWithValue("@staff", EmployeeName);
+                    cmd.Parameters.AddWithValue("@staff", EmployeeName);
                     cmd.Parameters.AddWithValue("@clientName", CustomerName);
                     cmd.Parameters.AddWithValue("@clientCP", CustomerMobileNumber);
                     cmd.Parameters.AddWithValue("@net", netAmount);
@@ -5026,7 +5061,7 @@ namespace Enchante
                 RecWalkinTypeText.Text = "Credit Card";
 
                 RecWalkinPPPaymentRB.Visible = false;
-                RecWalkinCashPaymentRB.Visible=false;
+                RecWalkinCashPaymentRB.Visible = false;
                 RecWalkinGCPaymentRB.Visible = false;
                 RecWalkinPMPaymentRB.Visible = false;
 
@@ -5140,6 +5175,116 @@ namespace Enchante
                 RecWalkinPMPaymentRB.Visible = true;
                 RecWalkinPMPaymentRB.Checked = true;
             }
+        }
+
+        public class PendingCustomers
+        {
+            public string TransactionNumber { get; set; }
+            public string ClientName { get; set; }
+            public string ServiceID { get; set; }
+            public string ServiceName { get; set; }
+            public string ServiceStatus { get; set; }
+            public string CustomerCustomizations { get; set; }
+            public string AdditionalNotes { get; set; }
+        }
+
+        protected void InitializePendingCustomersForStaff()
+        {
+            List<PendingCustomers> pendingcustomers = RetrievePendingCustomersFromDB();
+
+            foreach (PendingCustomers customer in pendingcustomers)
+            {
+                StaffCurrentAvailableCustomersUserControl availablecustomersusercontrol = new StaffCurrentAvailableCustomersUserControl();
+                availablecustomersusercontrol.AvailableCustomerSetData(customer);
+                availablecustomersusercontrol.ExpandUserControlButtonClicked += AvailableCustomersUserControl_ExpandCollapseButtonClicked;
+                availablecustomersusercontrol.StartServiceButtonClicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+                availablecustomersusercontrol.StaffEndServiceBtnClicked += AvailableCustomersUserControl_EndServiceButtonClicked;
+                StaffCurrentCustomersStatusFlowLayoutPanel.Controls.Add(availablecustomersusercontrol);
+
+            }
+
+        }
+
+        private void AvailableCustomersUserControl_ExpandCollapseButtonClicked(object sender, EventArgs e)
+        {
+            StaffCurrentAvailableCustomersUserControl availablecustomersusercontrol = (StaffCurrentAvailableCustomersUserControl)sender;
+
+            if (availablecustomersusercontrol != null)
+            {
+                if (!availablecustomersusercontrol.Viewing)
+                {
+                    availablecustomersusercontrol.Size = new System.Drawing.Size(795, 190);
+                }
+                else
+                {
+                    availablecustomersusercontrol.Size = new System.Drawing.Size(795, 101);
+                }
+            }
+        }
+        
+        private List<PendingCustomers> RetrievePendingCustomersFromDB()
+        {
+
+            List<PendingCustomers> result = new List<PendingCustomers>();
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string pendingcustomersquery = "SELECT TransactionNumber, ClientName, ServiceStatus, CustomerCustomizations, AdditionalNotes FROM walk_in_appointment WHERE ServiceStatus = 'Pending' AND ServiceCategory = @membercategory";
+                MySqlCommand command = new MySqlCommand(pendingcustomersquery, connection);
+                command.Parameters.AddWithValue("@membercategory", membercategory);
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            PendingCustomers pendingcustomers = new PendingCustomers
+                            {
+                                TransactionNumber = reader.GetString("TransactionNumber"),
+                                ClientName = reader.GetString("ClientName"),
+                                ServiceStatus = reader.GetString("ServiceStatus"),
+                                CustomerCustomizations = reader.GetString("CustomerCustomizations"),
+                                AdditionalNotes = reader.GetString("AdditionalNotes"),
+                            };
+
+                            result.Add(pendingcustomers);
+                        }
+
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        private void AvailableCustomersUserControl_StartServiceButtonClicked(object sender, EventArgs e)
+        {
+            StaffCurrentAvailableCustomersUserControl insessioncustomerusercontrol = (StaffCurrentAvailableCustomersUserControl)sender;
+
+            if (insessioncustomerusercontrol != null)
+            {
+                // Start the timer for the clicked user control
+                insessioncustomerusercontrol.StartTimer();
+            }
+        }
+        private void AvailableCustomersUserControl_EndServiceButtonClicked(object sender, EventArgs e)
+        {
+            StaffCurrentAvailableCustomersUserControl clickedUserControl = (StaffCurrentAvailableCustomersUserControl)sender;
+            TimeSpan elapsedTime = clickedUserControl.GetElapsedTime();
+        }
+
+        private void RefreshFlowLayoutPanel()
+        {
+            StaffCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+            InitializePendingCustomersForStaff();
+        }
+
+        private void StaffRefreshAvailableCustomersBtn_Click(object sender, EventArgs e)
+        {
+            RefreshFlowLayoutPanel();
         }
     }
 
