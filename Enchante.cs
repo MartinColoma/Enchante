@@ -37,7 +37,7 @@ namespace Enchante
         private Registration Registration; //Membership Type Card
         private ServiceCard Service; //Service Card
         private ReceptionTransactionCard Transaction;
-        private ReceptionInventoryCard Inventory;
+        private MngrInventoryCard Inventory;
 
         //tool tip
         private System.Windows.Forms.ToolTip iconToolTip;
@@ -75,11 +75,11 @@ namespace Enchante
 
 
             //Landing Pages Cardlayout Panel Manager
-            ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteReceptionPage, EnchanteMemberPage, EnchanteAdminPage);
+            ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteReceptionPage, EnchanteMemberPage, EnchanteAdminPage, EnchanteMngrPage);
             Registration = new Registration(MembershipPlanPanel, RegularPlanPanel, PremiumPlanPanel, SVIPPlanPanel);
             Service = new ServiceCard(ServiceType, ServiceHairStyling, ServiceFaceSkin, ServiceNailCare, ServiceSpa, ServiceMassage);
             Transaction = new ReceptionTransactionCard(RecTransactionPanel, RecWalkinPanel, RecAppointmentPanel);
-            Inventory = new ReceptionInventoryCard(RecInventoryTypePanel, RecInventoryServicesPanel, RecInventoryMembershipPanel, RecInventoryProductsPanel);
+            Inventory = new MngrInventoryCard(RecInventoryTypePanel, RecInventoryServicesPanel, RecInventoryMembershipPanel, RecInventoryProductsPanel);
 
 
 
@@ -5213,13 +5213,17 @@ namespace Enchante
             {
                 if (!availablecustomersusercontrol.Viewing)
                 {
-                    availablecustomersusercontrol.Size = new System.Drawing.Size(795, 190);
+                    availablecustomersusercontrol.Size = new System.Drawing.Size(900, 350);
+                    //StaffCurrentServicesDropDownBtn.IconChar = FontAwesome.Sharp.IconChar.SquareCaretUp;
                 }
                 else
                 {
-                    availablecustomersusercontrol.Size = new System.Drawing.Size(795, 101);
+                    availablecustomersusercontrol.Size = new System.Drawing.Size(900, 200);
+                    //StaffCurrentServicesDropDownBtn.IconChar = FontAwesome.Sharp.IconChar.SquareCaretDown;
+
                 }
             }
+
         }
         
         private List<PendingCustomers> RetrievePendingCustomersFromDB()
@@ -5285,6 +5289,18 @@ namespace Enchante
         private void StaffRefreshAvailableCustomersBtn_Click(object sender, EventArgs e)
         {
             RefreshFlowLayoutPanel();
+        }
+
+        private void StaffUserAccBtn_Click(object sender, EventArgs e)
+        {
+            if (StaffUserAccPanel.Visible == false)
+            {
+                StaffUserAccPanel.Visible = true;
+            }
+            else
+            {
+                StaffUserAccPanel.Visible = false; 
+            }
         }
     }
 

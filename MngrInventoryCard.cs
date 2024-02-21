@@ -3,14 +3,14 @@
 
 namespace Enchante
 {
-    internal class ReceptionInventoryCard
+    internal class MngrInventoryCard
     {
         private Panel Type;
         private Panel Services;
         private Panel Membership;
         private Panel Products;
 
-        public ReceptionInventoryCard(Panel type, Panel service, Panel member, Panel product)
+        public MngrInventoryCard(Panel type, Panel service, Panel member, Panel product)
         {
             Type = type;
             Services = service;
