@@ -150,6 +150,12 @@
     <Compile Include="ReceptionTransactionCard.cs" />
     <Compile Include="Registration.cs" />
     <Compile Include="ServiceCard.cs" />
+    <Compile Include="StaffCurrentServicesUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StaffCurrentServicesUserControl.Designer.cs">
+      <DependentUpon>StaffCurrentServicesUserControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AvailableStaffUserControl.resx">
       <DependentUpon>AvailableStaffUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -169,6 +175,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="StaffCurrentServicesUserControl.resx">
+      <DependentUpon>StaffCurrentServicesUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
