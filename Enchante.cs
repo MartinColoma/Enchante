@@ -79,7 +79,7 @@ namespace Enchante
             Registration = new Registration(MembershipPlanPanel, RegularPlanPanel, PremiumPlanPanel, SVIPPlanPanel);
             Service = new ServiceCard(ServiceType, ServiceHairStyling, ServiceFaceSkin, ServiceNailCare, ServiceSpa, ServiceMassage);
             Transaction = new ReceptionTransactionCard(RecTransactionPanel, RecWalkinPanel, RecAppointmentPanel);
-            Inventory = new MngrInventoryCard(RecInventoryTypePanel, RecInventoryServicesPanel, RecInventoryMembershipPanel, RecInventoryProductsPanel);
+            Inventory = new MngrInventoryCard(MngrInventoryTypePanel, MngrInventoryServicesPanel, MngrInventoryMembershipPanel, MngrInventoryProductsPanel);
 
 
 
@@ -192,12 +192,15 @@ namespace Enchante
             Registration.PanelShow(MembershipPlanPanel);
 
         }
-
+        private void MngrHomePanelReset()
+        {
+            ParentPanelShow.PanelShow(EnchanteMngrPage);
+            Inventory.PanelShow(MngrInventoryTypePanel);
+        }
         private void ReceptionHomePanelReset()
         {
             ParentPanelShow.PanelShow(EnchanteReceptionPage);
             Transaction.PanelShow(RecTransactionPanel);
-            Inventory.PanelShow(RecInventoryTypePanel);
         }
 
         private void StaffHomePanelReset()
@@ -612,9 +615,9 @@ namespace Enchante
             {
                 //Test Mngr
                 MessageBox.Show("Welcome back, Manager.", "Login Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ReceptionHomePanelReset();
-                RecNameLbl.Text = "Test Receptionist";
-                RecIDNumLbl.Text = "TRec-0000-0000";
+                MngrHomePanelReset();
+                MngrNameLbl.Text = "Test Manager";
+                MngrIDNumLbl.Text = "TMngr-0000-0000";
                 LoginEmailAddErrorLbl.Visible = false;
                 LoginPassErrorLbl.Visible = false;
                 logincredclear();
@@ -634,6 +637,37 @@ namespace Enchante
             else if (LoginEmailAddText.Text == "Manager" && LoginPassText.Text != "Manager123")
             {
                 //Test Mngr
+                LoginEmailAddErrorLbl.Visible = false;
+                LoginPassErrorLbl.Visible = true;
+                LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
+                return;
+            }
+            else if (LoginEmailAddText.Text == "Recept" && LoginPassText.Text == "Recept123")
+            {
+                //Test Recept
+                MessageBox.Show("Welcome back, Receptionist.", "Login Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ReceptionHomePanelReset();
+                RecNameLbl.Text = "Test Receptionist";
+                RecIDNumLbl.Text = "TRec-0000-0000";
+                LoginEmailAddErrorLbl.Visible = false;
+                LoginPassErrorLbl.Visible = false;
+                logincredclear();
+
+
+
+                return;
+            }
+            else if (LoginEmailAddText.Text != "Recept" && LoginPassText.Text == "Recept123")
+            {
+                //Test Recept
+                LoginEmailAddErrorLbl.Visible = true;
+                LoginPassErrorLbl.Visible = false;
+                LoginEmailAddErrorLbl.Text = "EMAIL ADDRESS DOES NOT EXIST";
+                return;
+            }
+            else if (LoginEmailAddText.Text == "Recept" && LoginPassText.Text != "Recept123")
+            {
+                //Test Recept
                 LoginEmailAddErrorLbl.Visible = false;
                 LoginPassErrorLbl.Visible = true;
                 LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
@@ -2647,26 +2681,26 @@ namespace Enchante
 
         private void RecInventoryMembershipBtn_Click(object sender, EventArgs e)
         {
-            Inventory.PanelShow(RecInventoryMembershipPanel);
+            Inventory.PanelShow(MngrInventoryMembershipPanel);
 
         }
 
         private void RecInventoryProductsBtn_Click(object sender, EventArgs e)
         {
-            Inventory.PanelShow(RecInventoryProductsPanel);
+            Inventory.PanelShow(MngrInventoryProductsPanel);
 
         }
 
         private void RecInventoryServicesBtn_Click_1(object sender, EventArgs e)
         {
-            Inventory.PanelShow(RecInventoryServicesPanel);
+            Inventory.PanelShow(MngrInventoryServicesPanel);
             ReceptionLoadServices();
 
         }
 
         private void RecInventoryServicesExitBtn_Click(object sender, EventArgs e)
         {
-            Inventory.PanelShow(RecInventoryTypePanel);
+            Inventory.PanelShow(MngrInventoryTypePanel);
 
         }
 
@@ -5301,6 +5335,34 @@ namespace Enchante
             {
                 StaffUserAccPanel.Visible = false; 
             }
+        }
+
+        private void MngrSignOutBtn_Click_1(object sender, EventArgs e)
+        {
+            LogoutChecker();
+        }
+
+        private void MngrUserAccBtn_Click(object sender, EventArgs e)
+        {
+            if (MngrUserAccPanel.Visible == false)
+            {
+                MngrUserAccPanel.Visible = true;
+            }
+            else
+            {
+                MngrUserAccPanel.Visible = false;
+            }
+        }
+
+        private void RecInventoryServicesBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrInventoryServicesPanel);
+            ReceptionLoadServices();
+        }
+
+        private void RecInventoryMembershipBtn_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 
