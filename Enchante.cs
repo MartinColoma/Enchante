@@ -57,7 +57,8 @@ namespace Enchante
         private string[] emplType = { "Admin", "Manager", "Staff" };
         private string[] emplCategories = { "Hair Styling", "Face & Skin", "Nail Care", "Massage", "Spa" };
         private string[] emplCatLevels = { "Junior", "Assistant", "Senior" };
-
+        private string[] productType = { "Service Product", "Retail Product" };
+        private string[] productStat = { "High Stock", "Low Stock" };
 
         public List<AvailableStaff> filteredbyschedstaff;
         public Guna.UI2.WinForms.Guna2ToggleSwitch AvailableStaffActiveToggleSwitch;
@@ -79,7 +80,7 @@ namespace Enchante
             Registration = new Registration(MembershipPlanPanel, RegularPlanPanel, PremiumPlanPanel, SVIPPlanPanel);
             Service = new ServiceCard(ServiceType, ServiceHairStyling, ServiceFaceSkin, ServiceNailCare, ServiceSpa, ServiceMassage);
             Transaction = new ReceptionTransactionCard(RecTransactionPanel, RecWalkinPanel, RecAppointmentPanel);
-            Inventory = new MngrInventoryCard(MngrInventoryTypePanel, MngrInventoryServicesPanel, MngrInventoryMembershipPanel, MngrInventoryProductsPanel);
+            Inventory = new MngrInventoryCard(MngrInventoryTypePanel, MngrInventoryServicesPanel, MngrInventoryMembershipPanel, MngrInventoryProductsPanel, MngrPayServicePanel, MngrInventoryProductHistoryPanel, MngrSchedPanel);
 
 
 
@@ -95,11 +96,18 @@ namespace Enchante
             PremGenderComboText.Items.AddRange(genders);
             PremGenderComboText.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            //inventory services combobox
+            //Mngr inventory comboboxes
             RecServicesCategoryComboText.Items.AddRange(Service_Category);
             RecServicesCategoryComboText.DropDownStyle = ComboBoxStyle.DropDownList;
             RecServicesTypeComboText.Items.AddRange(Service_type);
             RecServicesTypeComboText.DropDownStyle = ComboBoxStyle.DropDownList;
+            
+            MngrInventoryProductsCatComboText.Items.AddRange(Service_Category);
+            MngrInventoryProductsCatComboText.DropDownStyle = ComboBoxStyle.DropDownList;
+            MngrInventoryProductsTypeComboText.Items.AddRange(productType);
+            MngrInventoryProductsTypeComboText.DropDownStyle = ComboBoxStyle.DropDownList;
+            MngrInventoryProductsStatusComboText.Items.AddRange(productStat);
+            MngrInventoryProductsStatusComboText.DropDownStyle = ComboBoxStyle.DropDownList;
 
             //admin combobox
             AdminGenderComboText.Items.AddRange(genders);
@@ -111,9 +119,12 @@ namespace Enchante
             AdminEmplCatLvlComboText.Items.AddRange(emplCatLevels);
             AdminEmplCatLvlComboText.DropDownStyle = ComboBoxStyle.DropDownList;
 
+            //mngr combobox
+
+
             RecEditSchedBtn.Click += RecEditSchedBtn_Click;
-            RecStaffAvailabilityComboBox.SelectedIndex = 0;
-            RecStaffSchedComboBox.SelectedIndex = 0;
+            MngrStaffAvailabilityComboBox.SelectedIndex = 0;
+            MngrStaffSchedComboBox.SelectedIndex = 0;
 
             InitializeAvailableStaffFlowLayout();
 
@@ -2688,7 +2699,7 @@ namespace Enchante
         private void RecInventoryProductsBtn_Click(object sender, EventArgs e)
         {
             Inventory.PanelShow(MngrInventoryProductsPanel);
-
+            MngrInventoryProductData();
         }
 
         private void RecInventoryServicesBtn_Click_1(object sender, EventArgs e)
@@ -2701,6 +2712,7 @@ namespace Enchante
         private void RecInventoryServicesExitBtn_Click(object sender, EventArgs e)
         {
             Inventory.PanelShow(MngrInventoryTypePanel);
+            ServiceBoxClear();
 
         }
 
@@ -2891,6 +2903,12 @@ namespace Enchante
         }
         private void ServiceBoxClear()
         {
+            RecServicesCreateBtn.Visible = true;
+            RecServicesUpdateBtn.Visible = false;
+            RecServicesCategoryComboText.Enabled = true;
+            RecServicesTypeComboText.Enabled = true;
+            RecServicesCategoryComboText.SelectedIndex = -1;
+            RecServicesTypeComboText.SelectedIndex = -1;
             RecServicesCategoryComboText.Text = "";
             RecServicesTypeComboText.Text = "";
             RecServicesNameText.Text = "";
@@ -3050,12 +3068,7 @@ namespace Enchante
 
                     // Successful update
                     MessageBox.Show("Service information has been successfully updated.", "Service Info Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RecServicesCreateBtn.Visible = true;
-                    RecServicesUpdateBtn.Visible = false;
-                    RecServicesCategoryComboText.Enabled = true;
-                    RecServicesTypeComboText.Enabled = true;
-                    RecServicesCategoryComboText.SelectedIndex = -1;
-                    RecServicesTypeComboText.SelectedIndex = -1;
+
                     ServiceBoxClear();
                     ReceptionLoadServices();
 
@@ -3893,7 +3906,7 @@ namespace Enchante
 
                         MessageBox.Show("Registered Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         PopulateUserInfoDataGrid();
-                        ClearFields();
+                        AdminClearFields();
                     }
                 }
                 catch (Exception ex)
@@ -3902,7 +3915,7 @@ namespace Enchante
                 }
             }
         }
-        private void ClearFields()
+        private void AdminClearFields()
         {
             AdminFirstNameText.Text = "";
             AdminLastNameText.Text = "";
@@ -3959,8 +3972,11 @@ namespace Enchante
 
             if (selectedHashedPerUser != null)
             {
-                string connectionString = "Server=localhost;Database=enchante;User=root;Password=;";
-                string query = @"UPDATE systemusers 
+                try
+                {
+                    bool fieldsChanged = false;
+                    string selectQuery = "SELECT FirstName, LastName, Email, Birthday, Age, Gender, PhoneNumber, EmployeeType, EmployeeCategory, EmployeeCategoryLevel, EmployeeID FROM systemusers WHERE HashedPerUser = @HashedPerUser";
+                    string query = @"UPDATE systemusers 
                  SET FirstName = @FirstName, 
                      LastName = @LastName, 
                      Email = @Email, 
@@ -3973,13 +3989,7 @@ namespace Enchante
                      EmployeeCategoryLevel = @EmployeeCategoryLevel, 
                      EmployeeID = @EmployeeID 
                  WHERE HashedPerUser = @HashedPerUser";
-
-                try
-                {
-                    bool fieldsChanged = false;
-                    string selectQuery = "SELECT FirstName, LastName, Email, Birthday, Age, Gender, PhoneNumber, EmployeeType, EmployeeCategory, EmployeeCategoryLevel, EmployeeID FROM systemusers WHERE HashedPerUser = @HashedPerUser";
-
-                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
                     {
                         connection.Open();
 
@@ -4012,7 +4022,7 @@ namespace Enchante
 
                     if (fieldsChanged)
                     {
-                        using (MySqlConnection connection = new MySqlConnection(connectionString))
+                        using (MySqlConnection connection = new MySqlConnection(mysqlconn))
                         {
                             connection.Open();
 
@@ -4041,6 +4051,7 @@ namespace Enchante
                                     AdminEmplCatComboText.Enabled = true;
                                     AdminCreateAccBtn.Visible = true;
                                     AdminUpdateAccBtn.Visible = false;
+                                    AdminClearFields();
                                 }
                                 else
                                 {
@@ -4179,29 +4190,29 @@ namespace Enchante
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
 
-                RecStaffSchedViewDataGrid.Rows.Clear(); // Clear existing rows
+                MngrStaffSchedViewDataGrid.Rows.Clear(); // Clear existing rows
 
                 foreach (DataRow row in dataTable.Rows)
                 {
-                    int index = RecStaffSchedViewDataGrid.Rows.Add(); // Add a new row to the DataGridView
+                    int index = MngrStaffSchedViewDataGrid.Rows.Add(); // Add a new row to the DataGridView
 
                     // Fill the existing columns with data
-                    RecStaffSchedViewDataGrid.Rows[index].Cells["EmployeeID"].Value = row["EmployeeID"];
-                    RecStaffSchedViewDataGrid.Rows[index].Cells["FirstName"].Value = row["FirstName"];
-                    RecStaffSchedViewDataGrid.Rows[index].Cells["LastName"].Value = row["LastName"];
-                    RecStaffSchedViewDataGrid.Rows[index].Cells["EmployeeCategory"].Value = row["EmployeeCategory"];
-                    RecStaffSchedViewDataGrid.Rows[index].Cells["CategoryLevel"].Value = row["EmployeeCategoryLevel"];
-                    RecStaffSchedViewDataGrid.Rows[index].Cells["Schedule"].Value = row["Schedule"];
-                    RecStaffSchedViewDataGrid.Rows[index].Cells["Availability"].Value = row["Availability"];
+                    MngrStaffSchedViewDataGrid.Rows[index].Cells["EmployeeID"].Value = row["EmployeeID"];
+                    MngrStaffSchedViewDataGrid.Rows[index].Cells["FirstName"].Value = row["FirstName"];
+                    MngrStaffSchedViewDataGrid.Rows[index].Cells["LastName"].Value = row["LastName"];
+                    MngrStaffSchedViewDataGrid.Rows[index].Cells["EmployeeCategory"].Value = row["EmployeeCategory"];
+                    MngrStaffSchedViewDataGrid.Rows[index].Cells["CategoryLevel"].Value = row["EmployeeCategoryLevel"];
+                    MngrStaffSchedViewDataGrid.Rows[index].Cells["Schedule"].Value = row["Schedule"];
+                    MngrStaffSchedViewDataGrid.Rows[index].Cells["Availability"].Value = row["Availability"];
                 }
             }
         }
 
         private void RecEditStaffSchedBtn_Click(object sender, EventArgs e)
         {
-            if (RecStaffSchedViewDataGrid.SelectedRows.Count > 0)
+            if (MngrStaffSchedViewDataGrid.SelectedRows.Count > 0)
             {
-                DataGridViewRow selectedRow = RecStaffSchedViewDataGrid.SelectedRows[0];
+                DataGridViewRow selectedRow = MngrStaffSchedViewDataGrid.SelectedRows[0];
 
                 string EmployeeIDValue = selectedRow.Cells["EmployeeID"].Value.ToString();
                 string FirstNameValue = selectedRow.Cells["FirstName"].Value.ToString();
@@ -4211,21 +4222,21 @@ namespace Enchante
                 string ScheduleValue = selectedRow.Cells["Schedule"].Value.ToString();
                 string AvailabilityValue = selectedRow.Cells["Availability"].Value.ToString();
 
-                RecEmployeeIDLbl.Text = EmployeeIDValue;
-                RecEmployeeFirstNameLbl.Text = FirstNameValue;
-                RecEmployeeLastNameLbl.Text = LastNameValue;
-                RecEmployeeCategoryLbl.Text = EmployeeCategoryValue;
-                RecEmployeeCategoryLevelLbl.Text = CategoryLevelValue;
-                RecCurrentSchedLbl.Text = ScheduleValue;
-                RecCurrentAvailabilityLbl.Text = AvailabilityValue;
+                MngrEmployeeIDText.Text = EmployeeIDValue;
+                MngrEmployeeFirstNameLbl.Text = FirstNameValue;
+                MngrEmployeeLastNameLbl.Text = LastNameValue;
+                MngrEmployeeCategoryText.Text = EmployeeCategoryValue;
+                MngrEmployeeCategoryLevelText.Text = CategoryLevelValue;
+                MngrCurrentSchedText.Text = ScheduleValue;
+                MngrCurrentAvailabilityText.Text = AvailabilityValue;
             }
         }
 
         private void RecChangeStaffSchedBtn_Click(object sender, EventArgs e)
         {
-            string EmployeeIDValue = RecEmployeeIDLbl.Text;
-            string EmployeeAvailabilityValue = RecStaffAvailabilityComboBox.SelectedItem.ToString();
-            string EmployeeTimeScheduleValue = RecStaffSchedComboBox.SelectedItem.ToString();
+            string EmployeeIDValue = MngrEmployeeIDText.Text;
+            string EmployeeAvailabilityValue = MngrStaffAvailabilityComboBox.SelectedItem.ToString();
+            string EmployeeTimeScheduleValue = MngrStaffSchedComboBox.SelectedItem.ToString();
 
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
             {
@@ -4234,7 +4245,7 @@ namespace Enchante
                 bool availabilityUpdated = false;
                 bool scheduleUpdated = false;
 
-                if (RecStaffAvailabilityComboBox.SelectedIndex != 0)
+                if (MngrStaffAvailabilityComboBox.SelectedIndex != 0)
                 {
                     string updateAvailabilityQuery = "UPDATE systemusers SET Availability = @Availability WHERE EmployeeID = @EmployeeID";
                     MySqlCommand availabilityCommand = new MySqlCommand(updateAvailabilityQuery, connection);
@@ -4248,7 +4259,7 @@ namespace Enchante
                     }
                 }
 
-                if (RecStaffSchedComboBox.SelectedIndex != 0)
+                if (MngrStaffSchedComboBox.SelectedIndex != 0)
                 {
                     string updateScheduleQuery = "UPDATE systemusers SET Schedule = @Schedule WHERE EmployeeID = @EmployeeID";
                     MySqlCommand scheduleCommand = new MySqlCommand(updateScheduleQuery, connection);
@@ -4262,17 +4273,15 @@ namespace Enchante
                     }
                 }
 
-                if (availabilityUpdated)
+                if (availabilityUpdated && scheduleUpdated)
                 {
-                    MessageBox.Show("Availability updated.");
+                    MessageBox.Show("Availability and schedule updated.");
                 }
-
-                if (scheduleUpdated)
+                else if (availabilityUpdated || scheduleUpdated)
                 {
-                    MessageBox.Show("Schedule updated.");
+                    MessageBox.Show("Availability or schedule was updated.");
                 }
-
-                if (!availabilityUpdated && !scheduleUpdated)
+                else if (!availabilityUpdated && !scheduleUpdated)
                 {
                     MessageBox.Show("No updates were made.");
                 }
@@ -5354,13 +5363,353 @@ namespace Enchante
             }
         }
 
-        private void RecInventoryServicesBtn_Click(object sender, EventArgs e)
+        private void MngrInventoryProductsExitBtn_Click(object sender, EventArgs e)
         {
-            Inventory.PanelShow(MngrInventoryServicesPanel);
-            ReceptionLoadServices();
+            Inventory.PanelShow(MngrInventoryTypePanel);
+            MngrProductClearFields();
         }
 
-        private void RecInventoryMembershipBtn_Click_1(object sender, EventArgs e)
+        private void StaffCurrentCustomerText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MngrInventoryProductData()
+        {
+            string connectionString = "Server=localhost;Database=enchante;User=root;Password=;";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT ItemID, ProductCategory, ItemName, ItemStock, ItemPrice, ProductType, ItemStatus FROM inventory";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                        {
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
+
+                            // Bind the DataTable to the DataGridView
+                            MngrInventoryProductsTable.DataSource = dataTable;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+        }
+
+        private void MngrHomeBtn_Click(object sender, EventArgs e)
+        {
+            MngrHomePanelReset();
+        }
+        private bool shouldGenerateItemID = true;
+
+        private void MngrInventoryProductsCatComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (shouldGenerateItemID)
+            {
+                ProductGenerateItemID();
+
+            }
+        }
+        private void ProductGenerateItemID()
+        {
+            string empType = AdminEmplTypeComboText.SelectedItem?.ToString() ?? string.Empty;
+
+            string productcat = null;
+            if (MngrInventoryProductsCatComboText.SelectedItem != null)
+            {
+                productcat = MngrInventoryProductsCatComboText.SelectedItem.ToString();
+            }
+            string pdcat = "";
+
+            if (productcat == "Hair Styling")
+            {
+                pdcat = "HS-";
+            }
+            else if (productcat == "Face & Skin")
+            {
+                pdcat = "FS-";
+            }
+            else if (productcat == "Nail Care")
+            {
+                pdcat = "NC-";
+            }
+            else if (productcat == "Massage")
+            {
+                pdcat = "MS-";
+            }
+            else if (productcat == "Spa")
+            {
+                pdcat = "SP-";
+            }
+
+            Random random = new Random();
+            int randomNumber = random.Next(100000, 999999);
+            string randomNumberString = randomNumber.ToString("D5");
+            string itemID = pdcat + randomNumberString;
+            MngrInventoryProductsIDText.Text = itemID;
+        }
+
+        private void MngrInventoryProductsInsertBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(MngrInventoryProductsNameText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsPriceText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsStockText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsIDText.Text) ||
+    MngrInventoryProductsCatComboText.SelectedItem == null || MngrInventoryProductsTypeComboText.SelectedItem == null || MngrInventoryProductsStatusComboText.SelectedItem == null)
+            {
+                MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!IsNumeric(MngrInventoryProductsStockText.Text))
+            {
+                MessageBox.Show("Invalid Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (MngrInventoryProductsPriceText.Text != "Not Applicable" && !IsNumeric(MngrInventoryProductsPriceText.Text))
+            {
+                MessageBox.Show("Invalid Price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            string query = "INSERT INTO inventory (ItemID, ProductCategory, ItemName, ItemStock, ItemPrice, ProductType, ItemStatus) " +
+                           "VALUES (@ItemID, @ProductCategory, @ItemName, @ItemStock, @ItemPrice, @ProductType, @ItemStatus)";
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                try
+                {
+                    connection.Open();
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ItemName", MngrInventoryProductsNameText.Text);
+                        command.Parameters.AddWithValue("@ItemPrice", MngrInventoryProductsPriceText.Text);
+                        command.Parameters.AddWithValue("@ItemStock", MngrInventoryProductsStockText.Text);
+                        command.Parameters.AddWithValue("@ItemID", MngrInventoryProductsIDText.Text);
+                        command.Parameters.AddWithValue("@ProductCategory", MngrInventoryProductsCatComboText.SelectedItem.ToString());
+                        command.Parameters.AddWithValue("@ProductType", MngrInventoryProductsTypeComboText.SelectedItem.ToString());
+                        command.Parameters.AddWithValue("@ItemStatus", MngrInventoryProductsStatusComboText.SelectedItem.ToString());
+
+                        command.ExecuteNonQuery();
+
+                    }
+                    MessageBox.Show("Item added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    shouldGenerateItemID = false;
+                    MngrInventoryProductData();
+                    MngrProductClearFields();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+
+        private void MngrInventoryProductsInfoEditBtn_Click(object sender, EventArgs e)
+        {
+            if (MngrInventoryProductsTable.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = MngrInventoryProductsTable.SelectedRows[0];
+
+                bool rowIsEmpty = true;
+                foreach (DataGridViewCell cell in selectedRow.Cells)
+                {
+                    if (!string.IsNullOrEmpty(cell.Value?.ToString()))
+                    {
+                        rowIsEmpty = false;
+                        break;
+                    }
+                }
+
+                if (rowIsEmpty)
+                {
+                    MessageBox.Show("The selected row is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                shouldGenerateItemID = false;
+                MngrInventoryProductsCatComboText.Enabled = false;
+                MngrInventoryProductsTypeComboText.Enabled = false;
+                MngrInventoryProductsIDText.Text = selectedRow.Cells["ItemID"].Value.ToString();
+                MngrInventoryProductsNameText.Text = selectedRow.Cells["ItemName"].Value.ToString();
+                MngrInventoryProductsPriceText.Text = selectedRow.Cells["ItemPrice"].Value.ToString();
+                MngrInventoryProductsStockText.Text = selectedRow.Cells["ItemStock"].Value.ToString();
+                MngrInventoryProductsCatComboText.SelectedItem = selectedRow.Cells["ProductCategory"].Value.ToString();
+                MngrInventoryProductsTypeComboText.SelectedItem = selectedRow.Cells["ProductType"].Value.ToString();
+                MngrInventoryProductsStatusComboText.SelectedItem = selectedRow.Cells["ItemStatus"].Value.ToString();
+
+                MngrInventoryProductsUpdateBtn.Visible = true;
+                MngrInventoryProductsInsertBtn.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to edit.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void MngrInventoryProductsUpdateBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(MngrInventoryProductsNameText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsPriceText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsStockText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsIDText.Text) ||
+               MngrInventoryProductsCatComboText.SelectedItem == null || MngrInventoryProductsTypeComboText.SelectedItem == null || MngrInventoryProductsStatusComboText.SelectedItem == null)
+            {
+                MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!IsNumeric(MngrInventoryProductsStockText.Text))
+            {
+                MessageBox.Show("Invalid Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (MngrInventoryProductsPriceText.Text != "Not Applicable" && !IsNumeric(MngrInventoryProductsPriceText.Text))
+            {
+                MessageBox.Show("Invalid Price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string connectionString = "server=localhost;user=root;database=enchante;password=";
+            string query = @"UPDATE inventory 
+             SET ItemName = @ItemName, 
+                 ItemPrice = @ItemPrice, 
+                 ItemStock = @ItemStock, 
+                 ProductCategory = @ProductCategory, 
+                 ProductType = @ProductType, 
+                 ItemStatus = @ItemStatus 
+             WHERE ItemID = @ItemID";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ItemName", MngrInventoryProductsNameText.Text);
+                    command.Parameters.AddWithValue("@ItemPrice", MngrInventoryProductsPriceText.Text);
+                    command.Parameters.AddWithValue("@ItemStock", MngrInventoryProductsStockText.Text);
+                    command.Parameters.AddWithValue("@ItemID", MngrInventoryProductsIDText.Text);
+                    command.Parameters.AddWithValue("@ProductCategory", MngrInventoryProductsCatComboText.SelectedItem.ToString());
+                    command.Parameters.AddWithValue("@ProductType", MngrInventoryProductsTypeComboText.SelectedItem.ToString());
+                    command.Parameters.AddWithValue("@ItemStatus", MngrInventoryProductsStatusComboText.SelectedItem.ToString());
+
+                    try
+                    {
+                        connection.Open();
+                        bool fieldsChanged = false;
+
+                        string selectQuery = "SELECT ItemName, ItemPrice, ItemStock, ProductCategory, ProductType, ItemStatus FROM inventory WHERE ItemID = @ItemID";
+                        using (MySqlCommand selectCommand = new MySqlCommand(selectQuery, connection))
+                        {
+                            selectCommand.Parameters.AddWithValue("@ItemID", MngrInventoryProductsIDText.Text);
+
+                            using (MySqlDataReader reader = selectCommand.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    if (reader["ItemName"].ToString() != MngrInventoryProductsNameText.Text ||
+                                        reader["ItemPrice"].ToString() != MngrInventoryProductsPriceText.Text ||
+                                        reader["ItemStock"].ToString() != MngrInventoryProductsStockText.Text ||
+                                        reader["ProductCategory"].ToString() != MngrInventoryProductsCatComboText.SelectedItem.ToString() ||
+                                        reader["ProductType"].ToString() != MngrInventoryProductsTypeComboText.SelectedItem.ToString() ||
+                                        reader["ItemStatus"].ToString() != MngrInventoryProductsStatusComboText.SelectedItem.ToString())
+                                    {
+                                        fieldsChanged = true;
+                                    }
+                                }
+                            }
+                        }
+
+                        if (fieldsChanged)
+                        {
+                            int rowsAffected = command.ExecuteNonQuery();
+
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Item updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MngrInventoryProductData();
+                                MngrProductClearFields();
+                                MngrInventoryProductsCatComboText.Enabled = true;
+                                MngrInventoryProductsTypeComboText.Enabled = true;
+                                MngrInventoryProductsUpdateBtn.Visible = false;
+                                MngrInventoryProductsInsertBtn.Visible = true;
+                            }
+                            else
+                            {
+                                MessageBox.Show("No rows updated.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("No changes have been made.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+        private void MngrProductClearFields()
+        {
+            MngrInventoryProductsIDText.Text = "";
+            MngrInventoryProductsNameText.Text = "";
+            MngrInventoryProductsPriceText.Text = "";
+            MngrInventoryProductsStockText.Text = "";
+            MngrInventoryProductsCatComboText.SelectedIndex = -1;
+            MngrInventoryProductsTypeComboText.SelectedIndex = -1;
+            MngrInventoryProductsStatusComboText.SelectedIndex = -1;
+            shouldGenerateItemID = true;
+
+        }
+
+        private void MngrSchedExitBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrInventoryTypePanel);
+        }
+
+        private void MngrInventoryProductHistoryExitBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrInventoryTypePanel);
+        }
+
+        private void MngrPayServiceExitBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrInventoryTypePanel);
+
+        }
+
+        private void MngrInventoryServicesHistoryBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrPayServicePanel);
+
+        }
+
+        private void MngrInventoryProductsHistoryBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrInventoryProductHistoryPanel);
+
+        }
+
+        private void MngrInventoryStaffSchedBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrSchedPanel);
+
+        }
+
+        private void MngrInventoryMembershipExitBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrInventoryTypePanel);
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
