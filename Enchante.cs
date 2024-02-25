@@ -13,6 +13,7 @@ using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Management;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -139,6 +140,7 @@ namespace Enchante
             RecAppPrefferedTimePMComboBox.Enabled = false;
 
             InitializePendingCustomersForStaff();
+            
         }
 
         private void Enchante_Load(object sender, EventArgs e)
@@ -974,6 +976,7 @@ namespace Enchante
                                         StaffIDLbl.Text = ID;
                                         StaffMemeberCategoryLbl.Text = category;
                                         membercategory = category;
+                                        InitializeStaffInventoryDataGrid();
                                         StaffCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
                                         InitializePendingCustomersForStaff();
                                         StaffHomePanelReset();
@@ -1036,11 +1039,8 @@ namespace Enchante
                     MessageBox.Show("Service Currently In Session");
                     return;
                 }
+                
             }
-            membercategory = "";
-            StaffIDLbl.Text = string.Empty;
-            StaffMemeberCategoryLbl.Text = string.Empty;
-            StaffCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
             LogoutChecker();
         }
 
@@ -1057,6 +1057,10 @@ namespace Enchante
                 EnchanteLoginForm.Visible = false;
                 ParentPanelShow.PanelShow(EnchanteHomePage);
                 StaffCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+                membercategory = "";
+                StaffIDLbl.Text = string.Empty;
+                StaffMemeberCategoryLbl.Text = string.Empty;
+                StaffInventoryDataGrid.Rows.Clear();
             }
         }
 
@@ -5850,9 +5854,39 @@ namespace Enchante
 
         }
 
-        
+        public void InitializeStaffInventoryDataGrid()
+        {
+            StaffInventoryDataGrid.Rows.Clear();
+           
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string inventoryquery = "SELECT ItemID, ItemName, ItemStock, ItemPrice, ItemStatus FROM inventory WHERE ProductType = 'Service Product' AND ProductCategory = @ProductCategory";
+
+                using (MySqlCommand command = new MySqlCommand(inventoryquery, connection))
+                {
+                    command.Parameters.AddWithValue("@ProductCategory", membercategory);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            object[] rowData = new object[4];
+                            rowData[0] = reader["ItemID"];
+                            rowData[1] = reader["ItemName"];
+                            rowData[2] = reader["ItemStock"];
+                            rowData[3] = reader["ItemStatus"];
+
+                            StaffInventoryDataGrid.Rows.Add(rowData);
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+
     }
-
-
 
 }
