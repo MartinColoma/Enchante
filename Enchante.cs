@@ -977,6 +977,7 @@ namespace Enchante
                                         StaffMemeberCategoryLbl.Text = category;
                                         membercategory = category;
                                         InitializeStaffInventoryDataGrid();
+                                        InitializeStaffPersonalInventoryDataGrid();
                                         StaffCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
                                         InitializePendingCustomersForStaff();
                                         StaffHomePanelReset();
@@ -5886,7 +5887,112 @@ namespace Enchante
 
         }
 
+        public void InitializeStaffPersonalInventoryDataGrid()
+        {
+            StaffPersonalInventoryDataGrid.Rows.Clear();
+            string staffID = StaffIDLbl.Text;
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
 
+                string personalinventoryquery = "SELECT ItemID, ItemName, ItemStock, ItemStatus FROM staff_inventory WHERE EmployeeID = @EmployeeID";
+
+                using (MySqlCommand command = new MySqlCommand(personalinventoryquery, connection))
+                {
+                    command.Parameters.AddWithValue("@EmployeeID", staffID);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            object[] rowData = new object[4];
+                            rowData[0] = reader["ItemID"];
+                            rowData[1] = reader["ItemName"];
+                            rowData[2] = reader["ItemStock"];
+                            rowData[3] = reader["ItemStatus"];
+
+                            StaffPersonalInventoryDataGrid.Rows.Add(rowData);
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+
+        private void StaffAddToInventoryButton_Click(object sender, EventArgs e)
+        {
+            if (StaffInventoryDataGrid.SelectedRows.Count > 0 && !string.IsNullOrEmpty(StaffItemSelectedCountTextBox.Text))
+            {
+                string itemID = StaffInventoryDataGrid.SelectedRows[0].Cells["ItemID"].Value.ToString();
+                string itemName = StaffInventoryDataGrid.SelectedRows[0].Cells["ItemName"].Value.ToString();
+                string itemStock = StaffInventoryDataGrid.SelectedRows[0].Cells["ItemStock"].Value.ToString();
+                string itemStatus = StaffInventoryDataGrid.SelectedRows[0].Cells["ItemStatus"].Value.ToString();
+                string itemStockToBeAdded = StaffItemSelectedCountTextBox.Text;
+                string staffID = StaffIDLbl.Text;
+
+                DataTable dataTable = new DataTable();
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    string selectQuery = "SELECT * FROM staff_inventory WHERE ItemID = @ItemID AND EmployeeID = @EmployeeID";
+                    using (MySqlCommand selectCommand = new MySqlCommand(selectQuery, connection))
+                    {
+                        selectCommand.Parameters.AddWithValue("@ItemID", itemID);
+                        selectCommand.Parameters.AddWithValue("@EmployeeID", staffID);
+
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(selectCommand))
+                        {
+                            adapter.Fill(dataTable);
+                        }
+                    }
+
+                    if (dataTable.Rows.Count > 0)
+                    {
+                        int currentStock = int.Parse(dataTable.Rows[0]["ItemStock"].ToString());
+                        int newStock = currentStock + int.Parse(itemStockToBeAdded);
+
+                        string updateQuery = "UPDATE staff_inventory SET ItemStock = @NewStock WHERE ItemID = @ItemID AND EmployeeID = @EmployeeID";
+                        using (MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection))
+                        {
+                            updateCommand.Parameters.AddWithValue("@NewStock", newStock);
+                            updateCommand.Parameters.AddWithValue("@ItemID", itemID);
+                            updateCommand.Parameters.AddWithValue("@EmployeeID", staffID);
+                            updateCommand.ExecuteNonQuery();
+                        }
+                    }
+                    else
+                    {
+                        string insertQuery = "INSERT INTO staff_inventory (ItemID, ItemName, ItemStock, ItemStatus, EmployeeID) " +
+                                             "VALUES (@ItemID, @ItemName, @ItemStock, @ItemStatus, @EmployeeID)";
+                        using (MySqlCommand insertCommand = new MySqlCommand(insertQuery, connection))
+                        {
+                            insertCommand.Parameters.AddWithValue("@ItemID", itemID);
+                            insertCommand.Parameters.AddWithValue("@ItemName", itemName);
+                            insertCommand.Parameters.AddWithValue("@ItemStock", itemStockToBeAdded);
+                            insertCommand.Parameters.AddWithValue("@ItemStatus", itemStatus);
+                            insertCommand.Parameters.AddWithValue("@EmployeeID", staffID);
+                            insertCommand.ExecuteNonQuery();
+                        }
+                    }
+
+                    string deductQuery = "UPDATE inventory SET ItemStock = ItemStock - @SelectedCount WHERE ItemID = @ItemID";
+                    using (MySqlCommand deductCommand = new MySqlCommand(deductQuery, connection))
+                    {
+                        deductCommand.Parameters.AddWithValue("@SelectedCount", itemStockToBeAdded);
+                        deductCommand.Parameters.AddWithValue("@ItemID", itemID);
+                        deductCommand.ExecuteNonQuery();
+                    }
+                    InitializeStaffPersonalInventoryDataGrid();
+                    InitializeStaffInventoryDataGrid();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row in the inventory and enter a value for Selected Count.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 
 }
