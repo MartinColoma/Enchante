@@ -46,6 +46,10 @@ namespace Enchante
             {
                 ExpandUserControlButtonClicked(this, EventArgs.Empty);
             }
+            else
+            {
+                StaffCurrentServicesDropDownBtn.IconChar = FontAwesome.Sharp.IconChar.SquareCaretUp;
+            }
         }
 
         public void AvailableCustomerSetData(Enchante.PendingCustomers customer)
