@@ -65,7 +65,7 @@ namespace Enchante
         public Guna.UI2.WinForms.Guna2ToggleSwitch AvailableStaffActiveToggleSwitch;
         private bool IsPrefferredTimeSchedComboBoxModified = false;
         public string membercategory;
-
+        public string membertype;
 
         public Enchante()
         {
@@ -791,7 +791,7 @@ namespace Enchante
                                 string name = readerApproved["FirstName"].ToString();
                                 string lastname = readerApproved["LastName"].ToString();
                                 string ID = readerApproved["MemberIDNumber"].ToString();
-                                string membertype = readerApproved["MembershipType"].ToString();
+                                membertype = readerApproved["MembershipType"].ToString();
 
                                 if (membertype == "Regular")
                                 {
@@ -970,6 +970,7 @@ namespace Enchante
                                         MessageBox.Show($"Welcome back, Staff {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         //MemberNameLbl.Text = name + " " + lastname;
                                         //MemberIDLbl.Text = ID;
+                                        
                                         StaffIDLbl.Text = ID;
                                         StaffMemeberCategoryLbl.Text = category;
                                         membercategory = category;
@@ -1027,11 +1028,20 @@ namespace Enchante
 
         private void StaffSignOutBtn_Click(object sender, EventArgs e)
         {
-            LogoutChecker();
+            foreach (Control control in StaffCurrentCustomersStatusFlowLayoutPanel.Controls)
+            {
+                if (control is StaffCurrentAvailableCustomersUserControl userControl &&
+                    userControl.StaffCustomerServiceStatusTextBox.Text == "In Session")
+                {
+                    MessageBox.Show("Service Currently In Session");
+                    return;
+                }
+            }
             membercategory = "";
             StaffIDLbl.Text = string.Empty;
             StaffMemeberCategoryLbl.Text = string.Empty;
             StaffCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+            LogoutChecker();
         }
 
         private void AdminSignOutBtn_Click(object sender, EventArgs e)
@@ -1046,6 +1056,7 @@ namespace Enchante
             {
                 EnchanteLoginForm.Visible = false;
                 ParentPanelShow.PanelShow(EnchanteHomePage);
+                StaffCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
             }
         }
 
@@ -5337,13 +5348,13 @@ namespace Enchante
 
             foreach (PendingCustomers customer in pendingcustomers)
             {
-                StaffCurrentAvailableCustomersUserControl availablecustomersusercontrol = new StaffCurrentAvailableCustomersUserControl();
+                StaffCurrentAvailableCustomersUserControl availablecustomersusercontrol = new StaffCurrentAvailableCustomersUserControl(this);
                 availablecustomersusercontrol.AvailableCustomerSetData(customer);
                 availablecustomersusercontrol.ExpandUserControlButtonClicked += AvailableCustomersUserControl_ExpandCollapseButtonClicked;
                 availablecustomersusercontrol.StartServiceButtonClicked += AvailableCustomersUserControl_StartServiceButtonClicked;
                 availablecustomersusercontrol.StaffEndServiceBtnClicked += AvailableCustomersUserControl_EndServiceButtonClicked;
                 StaffCurrentCustomersStatusFlowLayoutPanel.Controls.Add(availablecustomersusercontrol);
-
+                availablecustomersusercontrol.CurrentStaffID = StaffIDLbl.Text;
             }
 
         }
@@ -5368,7 +5379,7 @@ namespace Enchante
             }
 
         }
-        
+
         private List<PendingCustomers> RetrievePendingCustomersFromDB()
         {
 
@@ -5378,7 +5389,7 @@ namespace Enchante
             {
                 connection.Open();
 
-                string pendingcustomersquery = "SELECT TransactionNumber, ClientName, ServiceStatus, Customization, AddNotes FROM servicehistory WHERE ServiceStatus = 'Pending' AND ServiceCategory = @membercategory";
+                string pendingcustomersquery = "SELECT TransactionNumber, ClientName, ServiceStatus, SelectedService, ServiceID, Customization, AddNotes FROM servicehistory WHERE ServiceStatus = 'Pending' AND ServiceCategory = @membercategory";
                 MySqlCommand command = new MySqlCommand(pendingcustomersquery, connection);
                 command.Parameters.AddWithValue("@membercategory", membercategory);
 
@@ -5393,8 +5404,10 @@ namespace Enchante
                                 TransactionNumber = reader.GetString("TransactionNumber"),
                                 ClientName = reader.GetString("ClientName"),
                                 ServiceStatus = reader.GetString("ServiceStatus"),
+                                ServiceName = reader.GetString("SelectedService"),
                                 CustomerCustomizations = reader.GetString("Customization"),
                                 AdditionalNotes = reader.GetString("AddNotes"),
+                                ServiceID = reader.GetString("ServiceID")
                             };
 
                             result.Add(pendingcustomers);
@@ -5407,15 +5420,17 @@ namespace Enchante
             return result;
         }
 
+
+
         private void AvailableCustomersUserControl_StartServiceButtonClicked(object sender, EventArgs e)
         {
             StaffCurrentAvailableCustomersUserControl insessioncustomerusercontrol = (StaffCurrentAvailableCustomersUserControl)sender;
 
             if (insessioncustomerusercontrol != null)
             {
-                // Start the timer for the clicked user control
                 insessioncustomerusercontrol.StartTimer();
             }
+
         }
         private void AvailableCustomersUserControl_EndServiceButtonClicked(object sender, EventArgs e)
         {
@@ -5423,14 +5438,35 @@ namespace Enchante
             TimeSpan elapsedTime = clickedUserControl.GetElapsedTime();
         }
 
-        private void RefreshFlowLayoutPanel()
+        public void RefreshFlowLayoutPanel()
         {
+            foreach (Control control in StaffCurrentCustomersStatusFlowLayoutPanel.Controls)
+            {
+                if (control is StaffCurrentAvailableCustomersUserControl userControl &&
+                    userControl.StaffCustomerServiceStatusTextBox.Text == "In Session")
+                {
+                    return;
+                }
+            }
             StaffCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
             InitializePendingCustomersForStaff();
         }
 
+        public void RemovePendingUserControls(StaffCurrentAvailableCustomersUserControl selectedControl)
+        {
+            foreach (Control control in StaffCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<StaffCurrentAvailableCustomersUserControl>().ToList())
+            {
+                if (control != selectedControl)
+                {
+                    StaffCurrentCustomersStatusFlowLayoutPanel.Controls.Remove(control);
+                    control.Dispose();
+                }
+            }
+        }
+
         private void StaffRefreshAvailableCustomersBtn_Click(object sender, EventArgs e)
         {
+
             RefreshFlowLayoutPanel();
         }
 
