@@ -37,8 +37,8 @@
             this.StaffEndServiceBtn = new Guna.UI2.WinForms.Guna2Button();
             this.StaffCustomerCustomizationsTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.StaffAdditionalNotesTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.StaffCustomizationsLbl = new System.Windows.Forms.Label();
+            this.StaffAdditionalNotesLbl = new System.Windows.Forms.Label();
             this.StaffCurrentServicesDropDownBtn = new FontAwesome.Sharp.IconButton();
             this.StaffServiceIDTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.SuspendLayout();
@@ -46,28 +46,27 @@
             // StaffCustomerServiceNameSelectedTextBox
             // 
             this.StaffCustomerServiceNameSelectedTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.StaffCustomerServiceNameSelectedTextBox.BorderRadius = 5;
-            this.StaffCustomerServiceNameSelectedTextBox.BorderThickness = 3;
+            this.StaffCustomerServiceNameSelectedTextBox.BorderThickness = 0;
             this.StaffCustomerServiceNameSelectedTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.StaffCustomerServiceNameSelectedTextBox.DefaultText = "";
             this.StaffCustomerServiceNameSelectedTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.StaffCustomerServiceNameSelectedTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.StaffCustomerServiceNameSelectedTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.StaffCustomerServiceNameSelectedTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.StaffCustomerServiceNameSelectedTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.StaffCustomerServiceNameSelectedTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.StaffCustomerServiceNameSelectedTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffCustomerServiceNameSelectedTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffCustomerServiceNameSelectedTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.StaffCustomerServiceNameSelectedTextBox.Font = new System.Drawing.Font("Arial Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StaffCustomerServiceNameSelectedTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.StaffCustomerServiceNameSelectedTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffCustomerServiceNameSelectedTextBox.Location = new System.Drawing.Point(47, 27);
+            this.StaffCustomerServiceNameSelectedTextBox.Location = new System.Drawing.Point(48, 27);
             this.StaffCustomerServiceNameSelectedTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.StaffCustomerServiceNameSelectedTextBox.Name = "StaffCustomerServiceNameSelectedTextBox";
             this.StaffCustomerServiceNameSelectedTextBox.PasswordChar = '\0';
-            this.StaffCustomerServiceNameSelectedTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.StaffCustomerServiceNameSelectedTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.StaffCustomerServiceNameSelectedTextBox.PlaceholderText = "[Service Name]";
             this.StaffCustomerServiceNameSelectedTextBox.ReadOnly = true;
             this.StaffCustomerServiceNameSelectedTextBox.SelectedText = "";
-            this.StaffCustomerServiceNameSelectedTextBox.Size = new System.Drawing.Size(359, 49);
+            this.StaffCustomerServiceNameSelectedTextBox.Size = new System.Drawing.Size(585, 49);
             this.StaffCustomerServiceNameSelectedTextBox.TabIndex = 0;
             // 
             // StaffCustomerServiceStatusTextBox
@@ -81,20 +80,20 @@
             this.StaffCustomerServiceStatusTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.StaffCustomerServiceStatusTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.StaffCustomerServiceStatusTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.StaffCustomerServiceStatusTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.StaffCustomerServiceStatusTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.StaffCustomerServiceStatusTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.StaffCustomerServiceStatusTextBox.Font = new System.Drawing.Font("Arial Black", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffCustomerServiceStatusTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.StaffCustomerServiceStatusTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.StaffCustomerServiceStatusTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffCustomerServiceStatusTextBox.Location = new System.Drawing.Point(416, 27);
+            this.StaffCustomerServiceStatusTextBox.Location = new System.Drawing.Point(187, 73);
             this.StaffCustomerServiceStatusTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.StaffCustomerServiceStatusTextBox.Name = "StaffCustomerServiceStatusTextBox";
             this.StaffCustomerServiceStatusTextBox.PasswordChar = '\0';
-            this.StaffCustomerServiceStatusTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.StaffCustomerServiceStatusTextBox.PlaceholderText = "[Service Status]";
+            this.StaffCustomerServiceStatusTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.StaffCustomerServiceStatusTextBox.PlaceholderText = "[Status]";
             this.StaffCustomerServiceStatusTextBox.ReadOnly = true;
             this.StaffCustomerServiceStatusTextBox.SelectedText = "";
-            this.StaffCustomerServiceStatusTextBox.Size = new System.Drawing.Size(171, 40);
+            this.StaffCustomerServiceStatusTextBox.Size = new System.Drawing.Size(101, 25);
             this.StaffCustomerServiceStatusTextBox.TabIndex = 2;
             // 
             // StaffTransactionIDTextBox
@@ -107,16 +106,16 @@
             this.StaffTransactionIDTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.StaffTransactionIDTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.StaffTransactionIDTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.StaffTransactionIDTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.StaffTransactionIDTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.StaffTransactionIDTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.StaffTransactionIDTextBox.Font = new System.Drawing.Font("Arial Black", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffTransactionIDTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.StaffTransactionIDTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.StaffTransactionIDTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffTransactionIDTextBox.Location = new System.Drawing.Point(47, 81);
+            this.StaffTransactionIDTextBox.Location = new System.Drawing.Point(48, 73);
             this.StaffTransactionIDTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.StaffTransactionIDTextBox.Name = "StaffTransactionIDTextBox";
             this.StaffTransactionIDTextBox.PasswordChar = '\0';
-            this.StaffTransactionIDTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.StaffTransactionIDTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.StaffTransactionIDTextBox.PlaceholderText = "[Transaction ID]";
             this.StaffTransactionIDTextBox.ReadOnly = true;
             this.StaffTransactionIDTextBox.SelectedText = "";
@@ -127,27 +126,27 @@
             // 
             this.StaffCustomerNameTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.StaffCustomerNameTextBox.BorderRadius = 5;
-            this.StaffCustomerNameTextBox.BorderThickness = 3;
+            this.StaffCustomerNameTextBox.BorderThickness = 0;
             this.StaffCustomerNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.StaffCustomerNameTextBox.DefaultText = "";
             this.StaffCustomerNameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.StaffCustomerNameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.StaffCustomerNameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.StaffCustomerNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.StaffCustomerNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.StaffCustomerNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.StaffCustomerNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffCustomerNameTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffCustomerNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.StaffCustomerNameTextBox.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StaffCustomerNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.StaffCustomerNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffCustomerNameTextBox.Location = new System.Drawing.Point(47, 131);
+            this.StaffCustomerNameTextBox.Location = new System.Drawing.Point(48, 127);
             this.StaffCustomerNameTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.StaffCustomerNameTextBox.Name = "StaffCustomerNameTextBox";
             this.StaffCustomerNameTextBox.PasswordChar = '\0';
-            this.StaffCustomerNameTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.StaffCustomerNameTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.StaffCustomerNameTextBox.PlaceholderText = "[Client Name]";
             this.StaffCustomerNameTextBox.ReadOnly = true;
             this.StaffCustomerNameTextBox.SelectedText = "";
-            this.StaffCustomerNameTextBox.Size = new System.Drawing.Size(359, 40);
+            this.StaffCustomerNameTextBox.Size = new System.Drawing.Size(585, 40);
             this.StaffCustomerNameTextBox.TabIndex = 7;
             // 
             // StaffElapsedTimeTextBox
@@ -161,22 +160,21 @@
             this.StaffElapsedTimeTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.StaffElapsedTimeTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.StaffElapsedTimeTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.StaffElapsedTimeTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.StaffElapsedTimeTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.StaffElapsedTimeTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.StaffElapsedTimeTextBox.Font = new System.Drawing.Font("Arial Black", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffElapsedTimeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.StaffElapsedTimeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.StaffElapsedTimeTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffElapsedTimeTextBox.Location = new System.Drawing.Point(198, 81);
+            this.StaffElapsedTimeTextBox.Location = new System.Drawing.Point(283, 73);
             this.StaffElapsedTimeTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.StaffElapsedTimeTextBox.Name = "StaffElapsedTimeTextBox";
             this.StaffElapsedTimeTextBox.PasswordChar = '\0';
-            this.StaffElapsedTimeTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.StaffElapsedTimeTextBox.PlaceholderText = "[Time Duration]";
+            this.StaffElapsedTimeTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.StaffElapsedTimeTextBox.PlaceholderText = "00:00:00";
             this.StaffElapsedTimeTextBox.ReadOnly = true;
             this.StaffElapsedTimeTextBox.SelectedText = "";
             this.StaffElapsedTimeTextBox.Size = new System.Drawing.Size(174, 25);
             this.StaffElapsedTimeTextBox.TabIndex = 9;
-            this.StaffElapsedTimeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // StaffStartServiceBtn
             // 
@@ -191,8 +189,8 @@
             this.StaffStartServiceBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.StaffStartServiceBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.StaffStartServiceBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffStartServiceBtn.ForeColor = System.Drawing.Color.White;
-            this.StaffStartServiceBtn.Location = new System.Drawing.Point(711, 62);
+            this.StaffStartServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.StaffStartServiceBtn.Location = new System.Drawing.Point(682, 58);
             this.StaffStartServiceBtn.Name = "StaffStartServiceBtn";
             this.StaffStartServiceBtn.Size = new System.Drawing.Size(118, 40);
             this.StaffStartServiceBtn.TabIndex = 10;
@@ -210,8 +208,8 @@
             this.StaffEndServiceBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.StaffEndServiceBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.StaffEndServiceBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffEndServiceBtn.ForeColor = System.Drawing.Color.White;
-            this.StaffEndServiceBtn.Location = new System.Drawing.Point(711, 107);
+            this.StaffEndServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.StaffEndServiceBtn.Location = new System.Drawing.Point(682, 103);
             this.StaffEndServiceBtn.Name = "StaffEndServiceBtn";
             this.StaffEndServiceBtn.Size = new System.Drawing.Size(118, 40);
             this.StaffEndServiceBtn.TabIndex = 11;
@@ -229,14 +227,16 @@
             this.StaffCustomerCustomizationsTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.StaffCustomerCustomizationsTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.StaffCustomerCustomizationsTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.StaffCustomerCustomizationsTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.StaffCustomerCustomizationsTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.StaffCustomerCustomizationsTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffCustomerCustomizationsTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.StaffCustomerCustomizationsTextBox.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StaffCustomerCustomizationsTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.StaffCustomerCustomizationsTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffCustomerCustomizationsTextBox.Location = new System.Drawing.Point(51, 227);
+            this.StaffCustomerCustomizationsTextBox.Location = new System.Drawing.Point(59, 227);
             this.StaffCustomerCustomizationsTextBox.Name = "StaffCustomerCustomizationsTextBox";
             this.StaffCustomerCustomizationsTextBox.PasswordChar = '\0';
             this.StaffCustomerCustomizationsTextBox.PlaceholderText = "";
+            this.StaffCustomerCustomizationsTextBox.ReadOnly = true;
             this.StaffCustomerCustomizationsTextBox.SelectedText = "";
             this.StaffCustomerCustomizationsTextBox.Size = new System.Drawing.Size(380, 89);
             this.StaffCustomerCustomizationsTextBox.TabIndex = 12;
@@ -252,49 +252,51 @@
             this.StaffAdditionalNotesTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.StaffAdditionalNotesTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.StaffAdditionalNotesTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.StaffAdditionalNotesTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.StaffAdditionalNotesTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.StaffAdditionalNotesTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffAdditionalNotesTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.StaffAdditionalNotesTextBox.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StaffAdditionalNotesTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.StaffAdditionalNotesTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffAdditionalNotesTextBox.Location = new System.Drawing.Point(437, 227);
+            this.StaffAdditionalNotesTextBox.Location = new System.Drawing.Point(445, 227);
             this.StaffAdditionalNotesTextBox.Name = "StaffAdditionalNotesTextBox";
             this.StaffAdditionalNotesTextBox.PasswordChar = '\0';
             this.StaffAdditionalNotesTextBox.PlaceholderText = "";
+            this.StaffAdditionalNotesTextBox.ReadOnly = true;
             this.StaffAdditionalNotesTextBox.SelectedText = "";
             this.StaffAdditionalNotesTextBox.Size = new System.Drawing.Size(396, 89);
             this.StaffAdditionalNotesTextBox.TabIndex = 13;
             // 
-            // label6
+            // StaffCustomizationsLbl
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label6.Location = new System.Drawing.Point(48, 199);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(167, 16);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Customer Customizations";
+            this.StaffCustomizationsLbl.AutoSize = true;
+            this.StaffCustomizationsLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StaffCustomizationsLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.StaffCustomizationsLbl.Location = new System.Drawing.Point(56, 200);
+            this.StaffCustomizationsLbl.Name = "StaffCustomizationsLbl";
+            this.StaffCustomizationsLbl.Size = new System.Drawing.Size(167, 16);
+            this.StaffCustomizationsLbl.TabIndex = 14;
+            this.StaffCustomizationsLbl.Text = "Customer Customizations";
             // 
-            // label7
+            // StaffAdditionalNotesLbl
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label7.Location = new System.Drawing.Point(437, 199);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(111, 16);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Additional Notes";
+            this.StaffAdditionalNotesLbl.AutoSize = true;
+            this.StaffAdditionalNotesLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StaffAdditionalNotesLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.StaffAdditionalNotesLbl.Location = new System.Drawing.Point(442, 200);
+            this.StaffAdditionalNotesLbl.Name = "StaffAdditionalNotesLbl";
+            this.StaffAdditionalNotesLbl.Size = new System.Drawing.Size(111, 16);
+            this.StaffAdditionalNotesLbl.TabIndex = 15;
+            this.StaffAdditionalNotesLbl.Text = "Additional Notes";
             // 
             // StaffCurrentServicesDropDownBtn
             // 
-            this.StaffCurrentServicesDropDownBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.StaffCurrentServicesDropDownBtn.BackColor = System.Drawing.Color.Transparent;
             this.StaffCurrentServicesDropDownBtn.FlatAppearance.BorderSize = 0;
             this.StaffCurrentServicesDropDownBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StaffCurrentServicesDropDownBtn.IconChar = FontAwesome.Sharp.IconChar.SquareCaretDown;
-            this.StaffCurrentServicesDropDownBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.StaffCurrentServicesDropDownBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.StaffCurrentServicesDropDownBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.StaffCurrentServicesDropDownBtn.Location = new System.Drawing.Point(832, 17);
+            this.StaffCurrentServicesDropDownBtn.Location = new System.Drawing.Point(800, 12);
             this.StaffCurrentServicesDropDownBtn.Name = "StaffCurrentServicesDropDownBtn";
             this.StaffCurrentServicesDropDownBtn.Size = new System.Drawing.Size(48, 48);
             this.StaffCurrentServicesDropDownBtn.TabIndex = 16;
@@ -312,8 +314,9 @@
             this.StaffServiceIDTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.StaffServiceIDTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.StaffServiceIDTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.StaffServiceIDTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.StaffServiceIDTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffServiceIDTextBox.Location = new System.Drawing.Point(678, 175);
+            this.StaffServiceIDTextBox.Location = new System.Drawing.Point(651, 158);
             this.StaffServiceIDTextBox.Name = "StaffServiceIDTextBox";
             this.StaffServiceIDTextBox.PasswordChar = '\0';
             this.StaffServiceIDTextBox.PlaceholderText = "";
@@ -326,23 +329,23 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.BackColor = System.Drawing.Color.Transparent;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.StaffServiceIDTextBox);
             this.Controls.Add(this.StaffCurrentServicesDropDownBtn);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.StaffAdditionalNotesLbl);
+            this.Controls.Add(this.StaffCustomizationsLbl);
             this.Controls.Add(this.StaffAdditionalNotesTextBox);
             this.Controls.Add(this.StaffCustomerCustomizationsTextBox);
             this.Controls.Add(this.StaffEndServiceBtn);
             this.Controls.Add(this.StaffStartServiceBtn);
-            this.Controls.Add(this.StaffElapsedTimeTextBox);
             this.Controls.Add(this.StaffCustomerNameTextBox);
             this.Controls.Add(this.StaffTransactionIDTextBox);
             this.Controls.Add(this.StaffCustomerServiceNameSelectedTextBox);
             this.Controls.Add(this.StaffCustomerServiceStatusTextBox);
+            this.Controls.Add(this.StaffElapsedTimeTextBox);
             this.Name = "StaffCurrentAvailableCustomersUserControl";
-            this.Size = new System.Drawing.Size(900, 200);
+            this.Size = new System.Drawing.Size(875, 200);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,8 +362,8 @@
         public Guna.UI2.WinForms.Guna2Button StaffEndServiceBtn;
         private Guna.UI2.WinForms.Guna2TextBox StaffCustomerCustomizationsTextBox;
         private Guna.UI2.WinForms.Guna2TextBox StaffAdditionalNotesTextBox;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label StaffCustomizationsLbl;
+        private System.Windows.Forms.Label StaffAdditionalNotesLbl;
         private FontAwesome.Sharp.IconButton StaffCurrentServicesDropDownBtn;
         private Guna.UI2.WinForms.Guna2TextBox StaffServiceIDTextBox;
     }

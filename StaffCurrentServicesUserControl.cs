@@ -18,7 +18,7 @@ namespace Enchante
         public event EventHandler ExpandUserControlButtonClicked;
         public event EventHandler StaffEndServiceBtnClicked;
         private System.Windows.Forms.Timer timer;
-        private TimeSpan elapsedTime;
+        private TimeSpan elapsedTime = TimeSpan.Zero;
         private TimeSpan lastElapsedTime;
         private System.Diagnostics.Stopwatch stopwatch;
         private bool viewing = false;
@@ -62,7 +62,7 @@ namespace Enchante
             StaffTransactionIDTextBox.Text = customer.TransactionNumber;
             StaffCustomerServiceNameSelectedTextBox.Text = customer.ServiceName;
             StaffCustomerServiceStatusTextBox.Text = customer.ServiceStatus;
-            StaffCustomerNameTextBox.Text = customer.ClientName;
+            StaffCustomerNameTextBox.Text = "Client Name: " + customer.ClientName;
             StaffCustomerCustomizationsTextBox.Text = customer.CustomerCustomizations;
             StaffAdditionalNotesTextBox.Text = customer.AdditionalNotes;
             StaffServiceIDTextBox.Text = customer.ServiceID;
@@ -97,6 +97,7 @@ namespace Enchante
         }
 
 
+
         private void StaffUpdateServiceStatusOfCustomerinDB(string UpdatedServiceStatus)
         {
             string transactionID = StaffTransactionIDTextBox.Text;
@@ -105,6 +106,7 @@ namespace Enchante
             string timeElapsed = StaffElapsedTimeTextBox.Text;
 
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+
             {
                 connection.Open();
 
@@ -131,13 +133,15 @@ namespace Enchante
                 }
                 else if (UpdatedServiceStatus == "Completed")
                 {
-                    string updateQuery = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus WHERE TransactionNumber = @TransactionNumber";
+                    string updateQuery = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
                     string updateQuery2 = "UPDATE servicehistory SET ServiceStatus = @ServiceStatus, ServiceEnd = @ServiceEnd, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber AND ServiceID = @ServiceID";
 
                     using (MySqlCommand command = new MySqlCommand(updateQuery, connection))
                     {
                         command.Parameters.AddWithValue("@ServiceStatus", UpdatedServiceStatus);
                         command.Parameters.AddWithValue("@TransactionNumber", transactionID);
+                        command.Parameters.AddWithValue("@ServiceDuration", timeElapsed); //di nag-uupdate
+
                         command.ExecuteNonQuery();
                     }
                     using (MySqlCommand command = new MySqlCommand(updateQuery2, connection))
@@ -156,7 +160,6 @@ namespace Enchante
 
         private void StaffStartServiceBtn_Click(object sender, EventArgs e)
         {
-            StartTimer();
             StartServiceButtonClicked?.Invoke(this, EventArgs.Empty);
             StaffEndServiceBtn.Enabled = true;
             EnchanteForm.RemovePendingUserControls(this);
