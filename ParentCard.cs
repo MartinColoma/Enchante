@@ -6,26 +6,29 @@ namespace Enchante
     {
         private Panel HomePage;
         private Panel StaffDash;
-        private Panel ManagerDash;
+        private Panel ReceptionDash;
         private Panel Admin;
-        private Panel VIPPage;
+        private Panel Member;
+        private Panel MngrDash;
 
-        public ParentCard(Panel home, Panel staff, Panel manager, Panel vip, Panel admin)
+        public ParentCard(Panel home, Panel staff, Panel recept, Panel member, Panel admin, Panel mgnr)
         {
             HomePage = home;
             StaffDash = staff;
-            ManagerDash = manager;
-            VIPPage = vip;
+            ReceptionDash = recept;
+            Member = member;
             Admin = admin;
+            MngrDash = mgnr;
         }
 
         public void PanelShow(Panel panelToShow)
         {
             HomePage.Hide();
             StaffDash.Hide();
-            ManagerDash.Hide();
-            VIPPage.Hide();
+            ReceptionDash.Hide();
+            Member.Hide();
             Admin.Hide();
+            MngrDash.Hide();
             panelToShow.Show();
         }
     }
