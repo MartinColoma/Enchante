@@ -25,6 +25,15 @@ using System.Xml;
 using static Enchante.Enchante;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.text.pdf.draw;
+using Paragraph = iTextSharp.text.Paragraph;
+using System.Xml.Linq;
+using System.Runtime.InteropServices;
+using System.Web;
+using System.Reflection;
+using System.Windows.Controls;
 
 namespace Enchante
 {
@@ -81,9 +90,8 @@ namespace Enchante
             ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteReceptionPage, EnchanteMemberPage, EnchanteAdminPage, EnchanteMngrPage);
             Registration = new Registration(MembershipPlanPanel, RegularPlanPanel, PremiumPlanPanel, SVIPPlanPanel);
             Service = new ServiceCard(ServiceType, ServiceHairStyling, ServiceFaceSkin, ServiceNailCare, ServiceSpa, ServiceMassage);
-            Transaction = new ReceptionTransactionCard(RecTransactionPanel, RecWalkinPanel, RecAppointmentPanel);
-            Inventory = new MngrInventoryCard(MngrInventoryTypePanel, MngrInventoryServicesPanel, MngrInventoryMembershipPanel, MngrInventoryProductsPanel, MngrPayServicePanel, MngrInventoryProductHistoryPanel, MngrSchedPanel);
-
+            Transaction = new ReceptionTransactionCard(RecTransactionPanel, RecWalkinPanel, RecAppointmentPanel, RecPayServicePanel);
+            Inventory = new MngrInventoryCard(MngrInventoryTypePanel, MngrInventoryServicesPanel, MngrInventoryMembershipPanel, MngrInventoryProductsPanel, MngrInventoryProductHistoryPanel, MngrSchedPanel);
 
 
             //icon tool tip
@@ -1061,7 +1069,7 @@ namespace Enchante
 
         private void StaffSignOutBtn_Click(object sender, EventArgs e)
         {
-            foreach (Control control in StaffCurrentCustomersStatusFlowLayoutPanel.Controls)
+            foreach (System.Windows.Forms.Control control in StaffCurrentCustomersStatusFlowLayoutPanel.Controls)
             {
                 if (control is StaffCurrentAvailableCustomersUserControl userControl &&
                     userControl.StaffCustomerServiceStatusTextBox.Text == "In Session")
@@ -4673,7 +4681,7 @@ namespace Enchante
         private void AvailableStaffToggleSwitch_CheckedChanged(object sender, EventArgs e)
         {
             Guna.UI2.WinForms.Guna2ToggleSwitch toggleSwitch = (Guna.UI2.WinForms.Guna2ToggleSwitch)sender;
-            UserControl userControl = (UserControl)toggleSwitch.Parent;
+            System.Windows.Forms.UserControl userControl = (System.Windows.Forms.UserControl)toggleSwitch.Parent;
 
             if (toggleSwitch.Checked)
             {
@@ -5495,7 +5503,7 @@ namespace Enchante
 
         public void RefreshFlowLayoutPanel()
         {
-            foreach (Control control in StaffCurrentCustomersStatusFlowLayoutPanel.Controls)
+            foreach (System.Windows.Forms.Control control in StaffCurrentCustomersStatusFlowLayoutPanel.Controls)
             {
                 if (control is StaffCurrentAvailableCustomersUserControl userControl &&
                     userControl.StaffCustomerServiceStatusTextBox.Text == "In Session")
@@ -5509,7 +5517,7 @@ namespace Enchante
 
         public void RemovePendingUserControls(StaffCurrentAvailableCustomersUserControl selectedControl)
         {
-            foreach (Control control in StaffCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<StaffCurrentAvailableCustomersUserControl>().ToList())
+            foreach (System.Windows.Forms.Control control in StaffCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<StaffCurrentAvailableCustomersUserControl>().ToList())
             {
                 if (control != selectedControl)
                 {
@@ -5879,8 +5887,7 @@ namespace Enchante
 
         private void MngrInventoryServicesHistoryBtn_Click(object sender, EventArgs e)
         {
-            Inventory.PanelShow(MngrPayServicePanel);
-            MngrLoadCompletedTrans();
+
 
         }
 
@@ -6102,15 +6109,10 @@ namespace Enchante
             {
                 // Get TransactNumber and OrderNumber from the clicked cell in MngrSalesTable
                 string transactNumber = MngrPayServiceCompleteTransDGV.Rows[e.RowIndex].Cells["TransactionNumber"].Value.ToString();
-                //string orderNumber = MngrSalesTable.Rows[e.RowIndex].Cells["OrderNumber"].Value.ToString();
+                string clientName = MngrPayServiceCompleteTransDGV.Rows[e.RowIndex].Cells["ClientName"].Value.ToString();
 
-                // Update TextBox controls with TransactNumber and OrderNumber
                 MngrPayServiceTransactNumLbl.Text = transactNumber;
-                //MngrSalesORNumBox.Text = orderNumber;
-
-                // Load order history based on TransactNumber and OrderNumber
-                //MngrLoadOrderHistoryDB(transactNumber, orderNumber);
-
+                MngrPayServiceClientNameLbl.Text = clientName;
                 MngrLoadServiceHistoryDB(transactNumber);
                 ReceptionCalculateTotalPrice();
 
@@ -6340,15 +6342,266 @@ namespace Enchante
             //    }
             //    return;
             //}
+            //else if (RecPayServicePrintReceiptChk.Checked)
+            //{
+            //    InvoiceReceiptGenerator();
+            //    return;
+            //}
             //else
             //{
             //    UpdateWalk_in_AppointmentDB();
             //    MngrLoadCompletedTrans();
 
             //}
+
             UpdateWalk_in_AppointmentDB();
             MngrLoadCompletedTrans();
+            InvoiceReceiptGenerator();
         }
+
+        private void RecPayServiceBtn_Click(object sender, EventArgs e)
+        {
+            Transaction.PanelShow(RecPayServicePanel);
+            MngrLoadCompletedTrans();
+        }
+
+        private void RecWalkinAttendingStaffComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        // Method to get image bytes from resource
+        private byte[] GetImageBytesFromResource(string resourceName)
+        {
+            try
+            {
+                using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName))
+                {
+                    if (stream != null)
+                    {
+                        using (MemoryStream memoryStream = new MemoryStream())
+                        {
+                            stream.CopyTo(memoryStream);
+                            return memoryStream.ToArray();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Resource stream for '{resourceName}' is null.", "Manager Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Manager Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        private void InvoiceReceiptGenerator()
+        {
+            DateTime currentDate = MngrDateTimePicker.Value;
+            string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
+            string timePrinted = currentDate.ToString("hh:mm tt");
+            string timePrintedFile = currentDate.ToString("hh-mm-ss");
+            string transactNum = MngrPayServiceTransactNumLbl.Text;
+            string clientName = MngrPayServiceClientNameLbl.Text;
+            string receptionName = RecNameLbl.Text;
+            string legal = "Thank you for trusting Enchanté Salon for your beauty needs." +
+                " This receipt will serve as your sales invoice of any services done in Enchanté Salon." +
+                " Any concerns about your services please ask and show this receipt in the frontdesk of Enchanté Salon.";
+            // Increment the file name
+
+            // Generate a unique filename for the PDF
+            string fileName = $"Enchanté-Receipt-{transactNum}-{timePrintedFile}.pdf";
+
+            // Create a SaveFileDialog to choose the save location
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF Files|*.pdf";
+            saveFileDialog.FileName = fileName;
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = saveFileDialog.FileName;
+
+                // Create a new document with custom page size (8.5"x4.25" in landscape mode)
+                Document doc = new Document(new iTextSharp.text.Rectangle(Utilities.MillimetersToPoints(133f), Utilities.MillimetersToPoints(203f)));
+
+                try
+                {
+                    // Create a PdfWriter instance
+                    PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(filePath, FileMode.Create));
+
+                    // Open the document for writing
+                    doc.Open();
+
+                    //string imagePath = "C:\\Users\\Pepper\\source\\repos\\Enchante\\Resources\\Enchante Logo (200 x 200 px) (1).png"; // Replace with the path to your logo image
+                    // Load the image from project resources
+                    //if (File.Exists(imagePath))
+                    //{
+                    //    //iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imagePath);
+                    //}
+
+                    // Load the image from project resources
+                    byte[] imageBytes = GetImageBytesFromResource("Enchante.Resources.Enchante Logo (200 x 200 px) (1).png");
+
+                    if (imageBytes != null)
+                    {
+                        iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imageBytes);
+                        logo.ScaleAbsolute(50f, 50f);
+                        logo.Alignment = Element.ALIGN_CENTER;
+                        doc.Add(logo);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error loading image from resources.", "Manager Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    };
+
+                    iTextSharp.text.Font headerFont = FontFactory.GetFont("Courier", 16, iTextSharp.text.Font.BOLD);
+                    iTextSharp.text.Font boldfont = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.BOLD);
+                    iTextSharp.text.Font font = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.NORMAL);
+
+                    // Create a centered alignment for text
+                    iTextSharp.text.Paragraph centerAligned = new Paragraph();
+                    centerAligned.Alignment = Element.ALIGN_CENTER;
+
+                    // Add centered content to the centerAligned Paragraph
+                    centerAligned.Add(new Chunk("Enchanté Salon", headerFont));
+                    centerAligned.Add(new Chunk("\n69th flr. Enchanté Bldg. Ortigas Extension Ave. \nManggahan, Pasig City 1611 Philippines", font));
+                    centerAligned.Add(new Chunk("\nTel. No.: (1101) 111-1010", font));
+                    centerAligned.Add(new Chunk($"\nDate: {datetoday} Time: {timePrinted}", font));
+
+                    // Add the centered content to the document
+                    doc.Add(centerAligned);
+                    doc.Add(new Chunk("\n")); // New line
+
+                    doc.Add(new Paragraph($"Transaction No.: {transactNum}", font));
+                    //doc.Add(new Paragraph($"Order Date: {today}", font));
+                    doc.Add(new Paragraph($"Reception Name: {receptionName}", font));
+                    doc.Add(new Chunk("\n")); // New line
+
+                    doc.Add(new LineSeparator()); // Dotted line
+                    PdfPTable itemTable = new PdfPTable(3); // 3 columns for the item table
+                    itemTable.SetWidths(new float[] { 5f, 10f, 5f }); // Column widths
+                    itemTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+                    itemTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                    itemTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    itemTable.AddCell(new Phrase("Staff ID", boldfont));
+                    itemTable.AddCell(new Phrase("Service", boldfont));
+                    itemTable.AddCell(new Phrase("Price", boldfont));
+                    doc.Add(itemTable);
+                    doc.Add(new LineSeparator()); // Dotted line
+                    // Iterate through the rows of your 
+                    foreach (DataGridViewRow row in MngrPayServicesAcquiredDGV.Rows)
+                    {
+                        try
+                        {
+                            string itemName = row.Cells["SelectedService"].Value?.ToString();
+                            if (string.IsNullOrEmpty(itemName))
+                            {
+                                continue; // Skip empty rows
+                            }
+
+                            string staffID = row.Cells["AttendingStaff"].Value?.ToString();
+                            string itemTotalcost = row.Cells["ServicePrice"].Value?.ToString();
+
+                            // Add cells to the item table
+                            PdfPTable serviceTable = new PdfPTable(3); // 4 columns for the item table
+                            serviceTable.SetWidths(new float[] { 3f, 5f, 3f }); // Column widths
+                            serviceTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+                            serviceTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                            serviceTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                            serviceTable.AddCell(new Phrase(staffID, font));
+                            serviceTable.AddCell(new Phrase(itemName, font));
+                            serviceTable.AddCell(new Phrase(itemTotalcost, font));
+
+                            // Add the item table to the document
+                            doc.Add(serviceTable);
+                        }
+                        catch (Exception ex)
+                        {
+                            // Handle or log any exceptions that occur while processing DataGridView data
+                            MessageBox.Show("An error occurred: " + ex.Message, "Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    doc.Add(new Chunk("\n")); // New line
+                    doc.Add(new LineSeparator()); // Dotted line
+                    doc.Add(new Chunk("\n")); // New line
+
+                    // Total from your textboxes as decimal
+                    decimal netAmount = decimal.Parse(MngrPayServiceNetAmountBox.Text);
+                    decimal discount = decimal.Parse(RecWalkinDiscountBox.Text);
+                    decimal vat = decimal.Parse(MngrPayServiceVATBox.Text);
+                    decimal grossAmount = decimal.Parse(MngrPayServiceGrossAmountBox.Text);
+                    decimal cash = decimal.Parse(MngrPayServiceCashBox.Text);
+                    decimal change = decimal.Parse(MngrPayServiceChangeBox.Text);
+
+                    // Create a new table for the "Total" section
+                    PdfPTable totalTable = new PdfPTable(2); // 2 columns for the "Total" table
+                    totalTable.SetWidths(new float[] { 5f, 3f }); // Column widths
+                    totalTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+
+                    // Add cells to the "Total" table
+                    totalTable.AddCell(new Phrase($"Total # of Service ({MngrPayServicesAcquiredDGV.Rows.Count})", font));
+                    totalTable.AddCell(new Phrase($"Php {grossAmount:F2}", font));
+                    totalTable.AddCell(new Phrase($"Cash Given", font));
+                    totalTable.AddCell(new Phrase($"Php {cash:F2}", font));
+                    totalTable.AddCell(new Phrase($"Change", font));
+                    totalTable.AddCell(new Phrase($"Php {change:F2}", font));
+
+                    // Add the "Total" table to the document
+                    doc.Add(totalTable);
+                    doc.Add(new Chunk("\n")); // New line
+
+                    // Create a new table for the "VATable" section
+                    PdfPTable vatTable = new PdfPTable(2); // 2 columns for the "VATable" table
+                    vatTable.SetWidths(new float[] { 5f, 3f }); // Column widths
+                    vatTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+
+                    // Add cells to the "VATable" table
+                    vatTable.AddCell(new Phrase("VATable ", font));
+                    vatTable.AddCell(new Phrase($"Php {netAmount:F2}", font));
+                    vatTable.AddCell(new Phrase("VAT Tax (12%)", font));
+                    vatTable.AddCell(new Phrase($"Php {vat:F2}", font));
+                    vatTable.AddCell(new Phrase("Discount (20%)", font));
+                    vatTable.AddCell(new Phrase($"Php {discount:F2}", font));
+
+                    // Add the "VATable" table to the document
+                    doc.Add(vatTable);
+
+
+                    // Add the "Served To" section
+                    doc.Add(new Chunk("\n")); // New line
+                    doc.Add(new Paragraph($"Served To: {clientName}", font));
+                    doc.Add(new Paragraph("Address:_______________________________", font));
+                    doc.Add(new Paragraph("TIN No.:_______________________________", font));
+
+                    // Add the legal string with center alignment
+                    Paragraph paragraph_footer = new Paragraph($"\n\n{legal}", font);
+                    paragraph_footer.Alignment = Element.ALIGN_CENTER;
+                    doc.Add(paragraph_footer);
+                }
+                catch (DocumentException de)
+                {
+                    MessageBox.Show("An error occurred: " + de.Message, "Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (IOException ioe)
+                {
+                    MessageBox.Show("An error occurred: " + ioe.Message, "Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    // Close the document
+                    doc.Close();
+                }
+
+                //MessageBox.Show($"Receipt saved as {filePath}", "Receipt Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+
+        
+
     }
 
 }

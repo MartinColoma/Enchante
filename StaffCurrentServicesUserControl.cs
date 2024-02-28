@@ -114,6 +114,7 @@ namespace Enchante
                 {
                     string updateQuery = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus WHERE TransactionNumber = @TransactionNumber";
                     string updateQuery2 = "UPDATE servicehistory SET ServiceStatus = @ServiceStatus, AttendingStaff = @AttendingStaff, ServiceStart = @ServiceStart WHERE TransactionNumber = @TransactionNumber AND ServiceID = @ServiceID";
+                    string updateQuery3 = "UPDATE systemusers SET Availabilty = @available";
 
                     using (MySqlCommand command = new MySqlCommand(updateQuery, connection))
                     {
