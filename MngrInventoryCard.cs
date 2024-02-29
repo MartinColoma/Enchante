@@ -8,7 +8,6 @@ namespace Enchante
     internal class MngrInventoryCard
     {
         private Panel Type;
-        private Panel Payment;
         private Panel Services;
         private Panel Membership;
         private Panel Products;
@@ -16,13 +15,12 @@ namespace Enchante
         private Panel StaffSched;
 
 
-        public MngrInventoryCard(Panel type, Panel pay, Panel service, Panel member, Panel product, Panel history, Panel sched)
+        public MngrInventoryCard(Panel type, Panel service, Panel member, Panel product, Panel history, Panel sched)
         {
             Type = type;
             Services = service;
             Membership = member;
             Products = product;
-            Payment = pay;
             ProductHistory = history;
             StaffSched = sched;
         }
@@ -33,7 +31,6 @@ namespace Enchante
             Services.Hide();
             Membership.Hide();
             Products.Hide();
-            Payment.Hide();
             ProductHistory.Hide();
             StaffSched.Hide();
 
