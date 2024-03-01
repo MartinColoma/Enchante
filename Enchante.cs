@@ -34,6 +34,8 @@ using System.Runtime.InteropServices;
 using System.Web;
 using System.Reflection;
 using System.Windows.Controls;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Data.SqlClient;
 
 namespace Enchante
 {
@@ -67,15 +69,20 @@ namespace Enchante
         //admin employee combobox
         private string[] emplType = { "Admin", "Manager", "Receptionist", "Staff" };
         private string[] emplCategories = { "Not Applicable", "Hair Styling", "Face & Skin", "Nail Care", "Massage", "Spa" };
-        private string[] emplCatLevels = {"Not Applicable", "Junior", "Assistant", "Senior" };
+        private string[] emplCatLevels = { "Not Applicable", "Junior", "Assistant", "Senior" };
         private string[] productType = { "Service Product", "Retail Product" };
         private string[] productStat = { "High Stock", "Low Stock" };
 
-        public List<AvailableStaff> filteredbyschedstaff;
-        public Guna.UI2.WinForms.Guna2ToggleSwitch AvailableStaffActiveToggleSwitch;
-        private bool IsPrefferredTimeSchedComboBoxModified = false;
+        // public List<AvailableStaff> filteredbyschedstaff;
+        // public Guna.UI2.WinForms.Guna2ToggleSwitch AvailableStaffActiveToggleSwitch;
+
+        public string filterstaffbyservicecategory;
+        public bool haschosenacategory = false;
+        public string selectedStaffID;
+        //private bool IsPrefferredTimeSchedComboBoxModified = false;
         public string membercategory;
         public string membertype;
+        
 
         public Enchante()
         {
@@ -111,7 +118,7 @@ namespace Enchante
             RecServicesCategoryComboText.DropDownStyle = ComboBoxStyle.DropDownList;
             RecServicesTypeComboText.Items.AddRange(Service_type);
             RecServicesTypeComboText.DropDownStyle = ComboBoxStyle.DropDownList;
-            
+
             MngrInventoryProductsCatComboText.Items.AddRange(Service_Category);
             MngrInventoryProductsCatComboText.DropDownStyle = ComboBoxStyle.DropDownList;
             MngrInventoryProductsTypeComboText.Items.AddRange(productType);
@@ -136,19 +143,20 @@ namespace Enchante
             MngrStaffAvailabilityComboBox.SelectedIndex = 0;
             MngrStaffSchedComboBox.SelectedIndex = 0;
 
-            InitializeAvailableStaffFlowLayout();
+            //InitializeAvailableStaffFlowLayout();
 
-            RecAppPrefferedTimeAMComboBox.SelectedIndex = 0;
-            RecAppPrefferedTimePMComboBox.SelectedIndex = 0;
+            //RecAppPrefferedTimeAMComboBox.SelectedIndex = 0;
+            //RecAppPrefferedTimePMComboBox.SelectedIndex = 0;
 
-            RecAppPrefferedTimeAMComboBox.SelectedIndexChanged += RecPrefferedTimeComboBox_SelectedIndexChanged;
-            RecAppPrefferedTimePMComboBox.SelectedIndexChanged += RecPrefferedTimeComboBox_SelectedIndexChanged;
+            //RecAppPrefferedTimeAMComboBox.SelectedIndexChanged += RecPrefferedTimeComboBox_SelectedIndexChanged;
+            //RecAppPrefferedTimePMComboBox.SelectedIndexChanged += RecPrefferedTimeComboBox_SelectedIndexChanged;
 
-            RecAppPrefferedTimeAMComboBox.Enabled = false;
-            RecAppPrefferedTimePMComboBox.Enabled = false;
+            //RecAppPrefferedTimeAMComboBox.Enabled = false;
+            //RecAppPrefferedTimePMComboBox.Enabled = false;
 
-            InitializePendingCustomersForStaff();
-            
+            //InitializePendingCustomersForStaff();
+            RecSelectedServiceDataGrid1.Columns["QueType"].Visible = false;
+
         }
 
         private void Enchante_Load(object sender, EventArgs e)
@@ -1015,8 +1023,10 @@ namespace Enchante
                                         membercategory = category;
                                         InitializeStaffInventoryDataGrid();
                                         InitializeStaffPersonalInventoryDataGrid();
-                                        StaffCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
-                                        InitializePendingCustomersForStaff();
+                                        StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+                                        StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+                                        InitializePreferredCuePendingCustomersForStaff();
+                                        InitializeGeneralCuePendingCustomersForStaff();
                                         StaffHomePanelReset();
                                         logincredclear();
 
@@ -1069,7 +1079,7 @@ namespace Enchante
 
         private void StaffSignOutBtn_Click(object sender, EventArgs e)
         {
-            foreach (System.Windows.Forms.Control control in StaffCurrentCustomersStatusFlowLayoutPanel.Controls)
+            foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
             {
                 if (control is StaffCurrentAvailableCustomersUserControl userControl &&
                     userControl.StaffCustomerServiceStatusTextBox.Text == "In Session")
@@ -1077,7 +1087,7 @@ namespace Enchante
                     MessageBox.Show("Service Currently In Session");
                     return;
                 }
-                
+
             }
             LogoutChecker();
         }
@@ -1094,7 +1104,7 @@ namespace Enchante
             {
                 EnchanteLoginForm.Visible = false;
                 ParentPanelShow.PanelShow(EnchanteHomePage);
-                StaffCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+                StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
                 membercategory = "";
                 StaffIDNumLbl.Text = string.Empty;
                 StaffMemeberCategoryLbl.Text = string.Empty;
@@ -3144,6 +3154,8 @@ namespace Enchante
             //{
             //    FilterAvailableStaffInRecFlowLayoutPanelByHairStyling();
             //}
+            filterstaffbyservicecategory = "Hair Styling";
+            haschosenacategory = true;
             HairStyle();
 
         }
@@ -3162,6 +3174,8 @@ namespace Enchante
             //{
             //    FilterAvailableStaffInRecFlowLayoutPanelByFaceandSkin();
             //}
+            filterstaffbyservicecategory = "Face & Skin";
+            haschosenacategory = true;
             Face();
 
         }
@@ -3180,6 +3194,8 @@ namespace Enchante
             //{
             //    FilterAvailableStaffInRecFlowLayoutPanelByNailCare();
             //}
+            filterstaffbyservicecategory = "Nail Care";
+            haschosenacategory = true;
             Nail();
 
         }
@@ -3198,6 +3214,8 @@ namespace Enchante
             //{
             //    FilterAvailableStaffInRecFlowLayoutPanelBySpa();
             //}
+            filterstaffbyservicecategory = "Spa";
+            haschosenacategory = true;
             Spa();
 
         }
@@ -3216,9 +3234,13 @@ namespace Enchante
             //{
             //    FilterAvailableStaffInRecFlowLayoutPanelByMassage();
             //}
+            filterstaffbyservicecategory = "Massage";
+            haschosenacategory = true;
             Massage();
 
         }
+
+
         private void HairStyle()
         {
             if (RecWalkinCatHSRB.Checked == false)
@@ -4337,7 +4359,7 @@ namespace Enchante
                 }
             }
 
-            InitializeAvailableStaffFlowLayout();
+            //InitializeAvailableStaffFlowLayout();
             FillRecStaffScheduleViewDataGrid();
         }
 
@@ -4354,27 +4376,27 @@ namespace Enchante
             public string EmployeeCategoryLevel { get; set; }
         }
 
-        private void InitializeAvailableStaffFlowLayout()
-        {
-            List<AvailableStaff> availableStaff = RetrieveAvailableStaffFromDB();
+        //private void InitializeAvailableStaffFlowLayout()
+        //{
+        //    List<AvailableStaff> availableStaff = RetrieveAvailableStaffFromDB();
 
 
-            foreach (AvailableStaff staff in availableStaff)
-            {
-                if (staff.EmployeeAvailability == "Available")
-                {
-                    AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
-                    addedavailablestaffusercontrol.AvailableStaffSetData(staff);
-                    AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
-                    if (AvailableStaffActiveToggleSwitch != null)
-                    {
-                        AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
-                    }
-                    RecAppAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
-                }
+        //    foreach (AvailableStaff staff in availableStaff)
+        //    {
+        //        if (staff.EmployeeAvailability == "Available")
+        //        {
+        //            AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+        //            addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+        //            AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+        //            if (AvailableStaffActiveToggleSwitch != null)
+        //            {
+        //                AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
+        //            }
+        //            RecAppAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
         private List<AvailableStaff> RetrieveAvailableStaffFromDB()
         {
@@ -4431,15 +4453,15 @@ namespace Enchante
         private void RecPrefferedTimeAMComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (RecAppPrefferedTimeAMComboBox.SelectedIndex != 0)
-            {
-                RecAppPrefferedTimePMComboBox.Enabled = false;
-            }
-            else
-            {
-                RecAppPrefferedTimePMComboBox.Enabled = true;
-            }
-            FilterAvailableStaffInRecFlowLayoutPanelAM();
+            //if (RecAppPrefferedTimeAMComboBox.SelectedIndex != 0)
+            //{
+            //    RecAppPrefferedTimePMComboBox.Enabled = false;
+            //}
+            //else
+            //{
+            //    RecAppPrefferedTimePMComboBox.Enabled = true;
+            //}
+            //FilterAvailableStaffInRecFlowLayoutPanelAM();
 
 
         }
@@ -4447,261 +4469,261 @@ namespace Enchante
         private void RecPrefferedTimePMComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (RecAppPrefferedTimePMComboBox.SelectedIndex != 0)
-            {
-                RecAppPrefferedTimeAMComboBox.Enabled = false;
-            }
-            else
-            {
-                RecAppPrefferedTimeAMComboBox.Enabled = true;
-            }
-            FilterAvailableStaffInRecFlowLayoutPanelPM();
+            //if (RecAppPrefferedTimePMComboBox.SelectedIndex != 0)
+            //{
+            //    RecAppPrefferedTimeAMComboBox.Enabled = false;
+            //}
+            //else
+            //{
+            //    RecAppPrefferedTimeAMComboBox.Enabled = true;
+            //}
+            //FilterAvailableStaffInRecFlowLayoutPanelPM();
 
 
         }
 
 
-        private void FilterAvailableStaffInRecFlowLayoutPanelAM()
-        {
-            List<AvailableStaff> availableStaff = RetrieveAvailableStaffFromDB();//DEFAULT STAFF
-            if (RecAppPrefferedTimeAMComboBox.SelectedIndex != 0)
-            {
-                List<AvailableStaff> filterbyschedstaff = new List<AvailableStaff>();
-                RecAppAvaialableStaffFlowLayout.Controls.Clear();
+        //private void FilterAvailableStaffInRecFlowLayoutPanelAM()
+        //{
+        //    List<AvailableStaff> availableStaff = RetrieveAvailableStaffFromDB();//DEFAULT STAFF
+        //    if (RecAppPrefferedTimeAMComboBox.SelectedIndex != 0)
+        //    {
+        //        List<AvailableStaff> filterbyschedstaff = new List<AvailableStaff>();
+        //        RecAppAvaialableStaffFlowLayout.Controls.Clear();
 
-                foreach (AvailableStaff staff in availableStaff)
-                {
-                    if (staff.EmployeeAvailability == "Available" && staff.EmployeeSchedule == "AM")
-                    {
-                        filterbyschedstaff.Add(staff);
-                        AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
-                        addedavailablestaffusercontrol.AvailableStaffSetData(staff);
-                        AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
-                        if (AvailableStaffActiveToggleSwitch != null)
-                        {
-                            AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
-                        }
-                        RecAppAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
-                    }
+        //        foreach (AvailableStaff staff in availableStaff)
+        //        {
+        //            if (staff.EmployeeAvailability == "Available" && staff.EmployeeSchedule == "AM")
+        //            {
+        //                filterbyschedstaff.Add(staff);
+        //                AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+        //                addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+        //                AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+        //                if (AvailableStaffActiveToggleSwitch != null)
+        //                {
+        //                    AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
+        //                }
+        //                RecAppAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+        //            }
 
-                }
-                filteredbyschedstaff = filterbyschedstaff.ToList();
-            }
-            else
-            {
-                foreach (AvailableStaff staff in availableStaff)
-                {
-                    if (staff.EmployeeAvailability == "Available")
-                    {
-                        AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
-                        addedavailablestaffusercontrol.AvailableStaffSetData(staff);
-                        AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
-                        if (AvailableStaffActiveToggleSwitch != null)
-                        {
-                            AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
-                        }
-                        RecAppAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
-                    }
+        //        }
+        //        filteredbyschedstaff = filterbyschedstaff.ToList();
+        //    }
+        //    else
+        //    {
+        //        foreach (AvailableStaff staff in availableStaff)
+        //        {
+        //            if (staff.EmployeeAvailability == "Available")
+        //            {
+        //                AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+        //                addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+        //                AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+        //                if (AvailableStaffActiveToggleSwitch != null)
+        //                {
+        //                    AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
+        //                }
+        //                RecAppAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+        //            }
 
-                }
-            }
+        //        }
+        //    }
 
-        }
+        //}
 
 
-        private void FilterAvailableStaffInRecFlowLayoutPanelPM()
-        {
-            List<AvailableStaff> availableStaff = RetrieveAvailableStaffFromDB(); // DEFAULT AVAILABLE STAFF
+        //private void FilterAvailableStaffInRecFlowLayoutPanelPM()
+        //{
+        //    List<AvailableStaff> availableStaff = RetrieveAvailableStaffFromDB(); // DEFAULT AVAILABLE STAFF
 
-            if (RecAppPrefferedTimePMComboBox.SelectedIndex != 0)
-            {
-                List<AvailableStaff> filterbyschedstaff = new List<AvailableStaff>();
-                RecAppAvaialableStaffFlowLayout.Controls.Clear();
+        //    if (RecAppPrefferedTimePMComboBox.SelectedIndex != 0)
+        //    {
+        //        List<AvailableStaff> filterbyschedstaff = new List<AvailableStaff>();
+        //        RecAppAvaialableStaffFlowLayout.Controls.Clear();
 
-                foreach (AvailableStaff staff in availableStaff)
-                {
-                    if (staff.EmployeeAvailability == "Available" && staff.EmployeeSchedule == "PM")
-                    {
-                        filterbyschedstaff.Add(staff);
-                        AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
-                        addedavailablestaffusercontrol.AvailableStaffSetData(staff);
-                        AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
-                        if (AvailableStaffActiveToggleSwitch != null)
-                        {
-                            AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
-                        }
-                        RecAppAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
-                    }
+        //        foreach (AvailableStaff staff in availableStaff)
+        //        {
+        //            if (staff.EmployeeAvailability == "Available" && staff.EmployeeSchedule == "PM")
+        //            {
+        //                filterbyschedstaff.Add(staff);
+        //                AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+        //                addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+        //                AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+        //                if (AvailableStaffActiveToggleSwitch != null)
+        //                {
+        //                    AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
+        //                }
+        //                RecAppAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+        //            }
 
-                }
+        //        }
 
-                filteredbyschedstaff = filterbyschedstaff.ToList();
-            }
-            else
-            {
-                foreach (AvailableStaff staff in availableStaff)
-                {
-                    if (staff.EmployeeAvailability == "Available")
-                    {
-                        AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
-                        addedavailablestaffusercontrol.AvailableStaffSetData(staff);
-                        AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
-                        if (AvailableStaffActiveToggleSwitch != null)
-                        {
-                            AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
-                        }
-                        RecAppAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
-                    }
+        //        filteredbyschedstaff = filterbyschedstaff.ToList();
+        //    }
+        //    else
+        //    {
+        //        foreach (AvailableStaff staff in availableStaff)
+        //        {
+        //            if (staff.EmployeeAvailability == "Available")
+        //            {
+        //                AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+        //                addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+        //                AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+        //                if (AvailableStaffActiveToggleSwitch != null)
+        //                {
+        //                    AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
+        //                }
+        //                RecAppAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+        //            }
 
-                }
-            }
+        //        }
+        //    }
 
-        }
+        //}
 
-        private void FilterAvailableStaffInRecFlowLayoutPanelByHairStyling()
-        {
-            List<AvailableStaff> filteredbysched = filteredbyschedstaff.ToList();
+        //private void FilterAvailableStaffInRecFlowLayoutPanelByHairStyling()
+        //{
+        //    List<AvailableStaff> filteredbysched = filteredbyschedstaff.ToList();
 
-            RecAppAvaialableStaffFlowLayout.Controls.Clear();
+        //    RecAppAvaialableStaffFlowLayout.Controls.Clear();
 
-            foreach (AvailableStaff staff in filteredbysched)
-            {
-                if (staff.EmployeeCategory == "Hair Styling")
-                {
-                    AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
-                    addedavailablestaffusercontrol.AvailableStaffSetData(staff);
-                    AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
-                    if (AvailableStaffActiveToggleSwitch != null)
-                    {
-                        AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
-                    }
-                    RecAppAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
-                }
+        //    foreach (AvailableStaff staff in filteredbysched)
+        //    {
+        //        if (staff.EmployeeCategory == "Hair Styling")
+        //        {
+        //            AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+        //            addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+        //            AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+        //            if (AvailableStaffActiveToggleSwitch != null)
+        //            {
+        //                AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
+        //            }
+        //            RecAppAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+        //        }
 
-            }
+        //    }
 
-        }
+        //}
 
-        private void FilterAvailableStaffInRecFlowLayoutPanelByFaceandSkin()
-        {
-            List<AvailableStaff> filteredbysched = filteredbyschedstaff.ToList();
+        //private void FilterAvailableStaffInRecFlowLayoutPanelByFaceandSkin()
+        //{
+        //    List<AvailableStaff> filteredbysched = filteredbyschedstaff.ToList();
 
-            RecAppAvaialableStaffFlowLayout.Controls.Clear();
+        //    RecAppAvaialableStaffFlowLayout.Controls.Clear();
 
-            foreach (AvailableStaff staff in filteredbysched)
-            {
-                if (staff.EmployeeCategory == "Face & Skin")
-                {
-                    AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
-                    addedavailablestaffusercontrol.AvailableStaffSetData(staff);
-                    AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
-                    if (AvailableStaffActiveToggleSwitch != null)
-                    {
-                        AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
-                    }
-                    RecAppAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
-                }
+        //    foreach (AvailableStaff staff in filteredbysched)
+        //    {
+        //        if (staff.EmployeeCategory == "Face & Skin")
+        //        {
+        //            AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+        //            addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+        //            AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+        //            if (AvailableStaffActiveToggleSwitch != null)
+        //            {
+        //                AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
+        //            }
+        //            RecAppAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+        //        }
 
-            }
+        //    }
 
-        }
+        //}
 
-        private void FilterAvailableStaffInRecFlowLayoutPanelByNailCare()
-        {
-            List<AvailableStaff> filteredbysched = filteredbyschedstaff.ToList();
+        //private void FilterAvailableStaffInRecFlowLayoutPanelByNailCare()
+        //{
+        //    List<AvailableStaff> filteredbysched = filteredbyschedstaff.ToList();
 
-            RecAppAvaialableStaffFlowLayout.Controls.Clear();
+        //    RecAppAvaialableStaffFlowLayout.Controls.Clear();
 
-            foreach (AvailableStaff staff in filteredbysched)
-            {
-                if (staff.EmployeeCategory == "Nail Care")
-                {
-                    AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
-                    addedavailablestaffusercontrol.AvailableStaffSetData(staff);
-                    AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
-                    if (AvailableStaffActiveToggleSwitch != null)
-                    {
-                        AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
-                    }
-                    RecAppAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
-                }
+        //    foreach (AvailableStaff staff in filteredbysched)
+        //    {
+        //        if (staff.EmployeeCategory == "Nail Care")
+        //        {
+        //            AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+        //            addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+        //            AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+        //            if (AvailableStaffActiveToggleSwitch != null)
+        //            {
+        //                AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
+        //            }
+        //            RecAppAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+        //        }
 
-            }
+        //    }
 
-        }
+        //}
 
-        private void FilterAvailableStaffInRecFlowLayoutPanelByMassage()
-        {
-            List<AvailableStaff> filteredbysched = filteredbyschedstaff.ToList();
+        //private void FilterAvailableStaffInRecFlowLayoutPanelByMassage()
+        //{
+        //    List<AvailableStaff> filteredbysched = filteredbyschedstaff.ToList();
 
-            RecAppAvaialableStaffFlowLayout.Controls.Clear();
+        //    RecAppAvaialableStaffFlowLayout.Controls.Clear();
 
-            foreach (AvailableStaff staff in filteredbysched)
-            {
-                if (staff.EmployeeCategory == "Massage")
-                {
-                    AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
-                    addedavailablestaffusercontrol.AvailableStaffSetData(staff);
-                    AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
-                    if (AvailableStaffActiveToggleSwitch != null)
-                    {
-                        AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
-                    }
-                    RecAppAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
-                }
+        //    foreach (AvailableStaff staff in filteredbysched)
+        //    {
+        //        if (staff.EmployeeCategory == "Massage")
+        //        {
+        //            AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+        //            addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+        //            AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+        //            if (AvailableStaffActiveToggleSwitch != null)
+        //            {
+        //                AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
+        //            }
+        //            RecAppAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+        //        }
 
-            }
+        //    }
 
-        }
+        //}
 
-        private void FilterAvailableStaffInRecFlowLayoutPanelBySpa()
-        {
-            List<AvailableStaff> filteredbysched = filteredbyschedstaff.ToList();
+        //private void FilterAvailableStaffInRecFlowLayoutPanelBySpa()
+        //{
+        //    List<AvailableStaff> filteredbysched = filteredbyschedstaff.ToList();
 
-            RecAppAvaialableStaffFlowLayout.Controls.Clear();
+        //    RecAppAvaialableStaffFlowLayout.Controls.Clear();
 
-            foreach (AvailableStaff staff in filteredbysched)
-            {
-                if (staff.EmployeeCategory == "Spa")
-                {
-                    AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
-                    addedavailablestaffusercontrol.AvailableStaffSetData(staff);
-                    AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
-                    if (AvailableStaffActiveToggleSwitch != null)
-                    {
-                        AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
-                    }
-                    RecAppAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
-                }
+        //    foreach (AvailableStaff staff in filteredbysched)
+        //    {
+        //        if (staff.EmployeeCategory == "Spa")
+        //        {
+        //            AvailableStaffUserControl addedavailablestaffusercontrol = new AvailableStaffUserControl();
+        //            addedavailablestaffusercontrol.AvailableStaffSetData(staff);
+        //            AvailableStaffActiveToggleSwitch = addedavailablestaffusercontrol.Controls.OfType<Guna.UI2.WinForms.Guna2ToggleSwitch>().FirstOrDefault();
+        //            if (AvailableStaffActiveToggleSwitch != null)
+        //            {
+        //                AvailableStaffActiveToggleSwitch.CheckedChanged += AvailableStaffToggleSwitch_CheckedChanged;
+        //            }
+        //            RecAppAvaialableStaffFlowLayout.Controls.Add(addedavailablestaffusercontrol);
+        //        }
 
-            }
+        //    }
 
-        }
+        //}
 
-        private void AvailableStaffToggleSwitch_CheckedChanged(object sender, EventArgs e)
-        {
-            Guna.UI2.WinForms.Guna2ToggleSwitch toggleSwitch = (Guna.UI2.WinForms.Guna2ToggleSwitch)sender;
-            System.Windows.Forms.UserControl userControl = (System.Windows.Forms.UserControl)toggleSwitch.Parent;
+        //private void AvailableStaffToggleSwitch_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    Guna.UI2.WinForms.Guna2ToggleSwitch toggleSwitch = (Guna.UI2.WinForms.Guna2ToggleSwitch)sender;
+        //    System.Windows.Forms.UserControl userControl = (System.Windows.Forms.UserControl)toggleSwitch.Parent;
 
-            if (toggleSwitch.Checked)
-            {
-                if (AvailableStaffActiveToggleSwitch != null && AvailableStaffActiveToggleSwitch != toggleSwitch)
-                {
-                    AvailableStaffActiveToggleSwitch.Checked = false;
-                }
-                AvailableStaffActiveToggleSwitch = toggleSwitch;
-            }
-            else if (AvailableStaffActiveToggleSwitch == toggleSwitch)
-            {
-                AvailableStaffActiveToggleSwitch = null;
-            }
-        }
+        //    if (toggleSwitch.Checked)
+        //    {
+        //        if (AvailableStaffActiveToggleSwitch != null && AvailableStaffActiveToggleSwitch != toggleSwitch)
+        //        {
+        //            AvailableStaffActiveToggleSwitch.Checked = false;
+        //        }
+        //        AvailableStaffActiveToggleSwitch = toggleSwitch;
+        //    }
+        //    else if (AvailableStaffActiveToggleSwitch == toggleSwitch)
+        //    {
+        //        AvailableStaffActiveToggleSwitch = null;
+        //    }
+        //}
 
-        private void RecPrefferedTimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        //private void RecPrefferedTimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        //{
 
-            IsPrefferredTimeSchedComboBoxModified = true;
-        }
+        //    IsPrefferredTimeSchedComboBoxModified = true;
+        //}
 
         private void RecSelectServiceAndStaffBtn_Click(object sender, EventArgs e)
         {
@@ -4736,7 +4758,11 @@ namespace Enchante
                 MessageBox.Show("Please select a service.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
+            if (string.IsNullOrEmpty(selectedStaffID))
+            {
+                MessageBox.Show("Please select a prefered staff or toggle anyone ", "No Selection",  MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             DataGridViewRow selectedRow = RecWalkInServiceTypeTable.SelectedRows[0];
 
             string SelectedDateValue = RecAppSelectedDateText.Text;
@@ -4753,6 +4779,7 @@ namespace Enchante
             string ServicePrice = selectedRow.Cells[6].Value.ToString();
             string CustomerCustomizations = RecCustomerCustomizationsTextBox.Text;
             string CustomerAdditionalNotes = RecCustomerCustomerAdditionalNotesTextBox.Text;
+
             //string EmployeeID = selectedStaff.EmployeeID;
             //string EmployeeName = selectedStaff.EmployeeName;
             //string EmployeeCategory = selectedStaff.EmployeeCategory;
@@ -4817,15 +4844,27 @@ namespace Enchante
                 //NewSelectedServiceRow.Cells["StaffCategory"].Value = EmployeeCategory;
                 //NewSelectedServiceRow.Cells["StaffCategoryLevel"].Value = EmployeeCategoryLevel;
                 //NewSelectedServiceRow.Cells["StaffTimeSched"].Value = EmployeeSchedule;
-                
+
+                string appointmentDate = DateTime.Now.ToString("MM-dd-yyyy dddd");
+                string serviceCategory = SelectedCategory;
+                int latestquenumber = GetLargestQueNum(appointmentDate, serviceCategory);
+  
                 NewSelectedServiceRow.Cells["ServicePrice"].Value = ServicePrice;
-                NewSelectedServiceRow.Cells["ServiceCategory"].Value = SelectedCategory; 
+                NewSelectedServiceRow.Cells["ServiceCategory"].Value = SelectedCategory;
                 NewSelectedServiceRow.Cells["SelectedService"].Value = ServiceName;
                 NewSelectedServiceRow.Cells["ServiceID"].Value = ServiceID;
+                NewSelectedServiceRow.Cells["QueNumber"].Value = latestquenumber;
+                NewSelectedServiceRow.Cells["StaffSelected"].Value = selectedStaffID;
+                QueTypeIdentifier(NewSelectedServiceRow.Cells["QueType"]);
 
+                RecWalkinPrefferedStaffToggleSwitch.Checked = false;
+                RecWalkinAnyStaffToggleSwitch.Checked = false;
+                selectedStaffID = string.Empty;
+                RecWalkinAttendingStaffSelectedComboBox.Items.Clear();
                 RecWalkInServiceTypeTable.ClearSelection();
                 RecCustomerCustomizationsTextBox.Clear();
                 RecCustomerCustomerAdditionalNotesTextBox.Clear();
+
 
                 //foreach (AvailableStaffUserControl availabelstaffusercontrol in RecAvaialableStaffFlowLayout.Controls)
                 //{
@@ -4836,6 +4875,48 @@ namespace Enchante
                 //        availabelstaffusercontroltoggleswitch.Checked = false;
                 //    }
                 //}
+            }
+        }
+
+        private int GetLargestQueNum(string appointmentDate, string serviceCategory)
+        {
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    string query = "SELECT MAX(QueNumber) FROM servicehistory WHERE AppointmentDate = @AppointmentDate AND ServiceCategory = @ServiceCategory";
+                    command.CommandText = query;
+
+                    command.Parameters.AddWithValue("@AppointmentDate", appointmentDate);
+                    command.Parameters.AddWithValue("@ServiceCategory", serviceCategory);
+
+                    object result = command.ExecuteScalar();
+                    int largestquenumber = result != DBNull.Value ? Convert.ToInt32(result) : 0;
+
+                    if (largestquenumber > 0)
+                    {
+                        largestquenumber++; 
+                    }
+                    else
+                    {
+                        largestquenumber = 1; 
+                    }
+
+                    return largestquenumber;
+                }
+            }
+        }
+        private void QueTypeIdentifier(DataGridViewCell QueType)
+        {
+            if (selectedStaffID == "Anyone")
+            {
+                QueType.Value = "GeneralQue";
+            }
+            else
+            {
+                QueType.Value = "Preffered";
             }
         }
         private string CustomerTimePicked()
@@ -4921,12 +5002,12 @@ namespace Enchante
             //basic info
             string CustomerName = RecWalkinFNameText.Text + " " + RecWalkinLNameText.Text; //client name
             string CustomerMobileNumber = RecWalkinCPNumText.Text; //client cp num
-            
+
             //booked values
             string bookedDate = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
             string bookedTime = currentDate.ToString("hh:mm tt"); //bookedTime
             string bookedBy = RecNameLbl.Text; //booked by
-            
+
             //customize & add notes
             string custom = RecCustomerCustomizationsTextBox.Text;
             string notes = RecCustomerCustomerAdditionalNotesTextBox.Text;
@@ -4984,7 +5065,7 @@ namespace Enchante
             //booked values
             string bookedDate = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
             string bookedTime = currentDate.ToString("hh:mm tt"); //bookedTime
-            
+
             //basic info
             string CustomerName = RecWalkinFNameText.Text + " " + RecWalkinLNameText.Text; //client name
 
@@ -5007,11 +5088,15 @@ namespace Enchante
                                 string serviceCat = row.Cells["ServiceCategory"].Value.ToString();
                                 string serviceID = row.Cells["ServiceID"].Value.ToString();
                                 decimal servicePrice = Convert.ToDecimal(row.Cells["ServicePrice"].Value);
+                                string selectedStaff = row.Cells["StaffSelected"].Value.ToString();
+                                string queNumber = row.Cells["QueNumber"].Value.ToString();
+                                string queType = row.Cells["QueType"].Value.ToString();
 
                                 string insertQuery = "INSERT INTO servicehistory (TransactionNumber, ServiceStatus, AppointmentDate, AppointmentTime, ClientName, " +
-                                                    "ServiceCategory, ServiceID, SelectedService, ServicePrice, Customization, AddNotes)" +
-                                                    "VALUES (@Transact, @status, @appointDate, @appointTime, @name, @serviceCat, @ID, @serviceName, @servicePrice, " +
-                                                    "@custom, @notes)";
+                                                     "ServiceCategory, ServiceID, SelectedService, ServicePrice, Customization, AddNotes, PrefferedStaff, QueNumber," +
+                                                     "QueType" +
+                                                     ") VALUES (@Transact, @status, @appointDate, @appointTime, @name, @serviceCat, @ID, @serviceName, @servicePrice, " +
+                                                     "@custom, @notes, @preferedstaff, @quenumber, @quetype)";
 
                                 MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
                                 cmd.Parameters.AddWithValue("@Transact", transactionNum);
@@ -5025,6 +5110,9 @@ namespace Enchante
                                 cmd.Parameters.AddWithValue("@servicePrice", servicePrice);
                                 cmd.Parameters.AddWithValue("@custom", custom);
                                 cmd.Parameters.AddWithValue("@notes", notes);
+                                cmd.Parameters.AddWithValue("@preferedstaff", selectedStaff);
+                                cmd.Parameters.AddWithValue("@quenumber", queNumber);
+                                cmd.Parameters.AddWithValue("@quetype", queType);
 
                                 cmd.ExecuteNonQuery();
                             }
@@ -5044,7 +5132,7 @@ namespace Enchante
             {
                 MessageBox.Show("No items to insert into the database.");
             }
-            
+
         }
 
         private void ReceptionCalculateTotalPrice()
@@ -5300,7 +5388,7 @@ namespace Enchante
                 MngrPayServiceCashBox.Visible = true;
                 MngrPayServiceChangeLbl.Visible = true;
                 MngrPayServiceChangeBox.Visible = true;
-                
+
                 //disable other payment panel
                 MngrPayServiceBankPaymentPanel.Visible = false;
                 MngrPayServiceWalletPaymentPanel.Visible = false;
@@ -5403,23 +5491,50 @@ namespace Enchante
             public string ServiceStatus { get; set; }
             public string CustomerCustomizations { get; set; }
             public string AdditionalNotes { get; set; }
+            public string QueNumber { get; set; }
         }
 
-        protected void InitializePendingCustomersForStaff()
+        protected void InitializeGeneralCuePendingCustomersForStaff()
         {
-            List<PendingCustomers> pendingcustomers = RetrievePendingCustomersFromDB();
+            List<PendingCustomers> generalquependingcustomers = RetrieveGeneralQuePendingCustomersFromDB();
 
-            foreach (PendingCustomers customer in pendingcustomers)
+            int smallestQueNumber = int.MaxValue;
+
+            foreach (PendingCustomers customer in generalquependingcustomers)
             {
                 StaffCurrentAvailableCustomersUserControl availablecustomersusercontrol = new StaffCurrentAvailableCustomersUserControl(this);
                 availablecustomersusercontrol.AvailableCustomerSetData(customer);
                 availablecustomersusercontrol.ExpandUserControlButtonClicked += AvailableCustomersUserControl_ExpandCollapseButtonClicked;
                 availablecustomersusercontrol.StartServiceButtonClicked += AvailableCustomersUserControl_StartServiceButtonClicked;
                 availablecustomersusercontrol.StaffEndServiceBtnClicked += AvailableCustomersUserControl_EndServiceButtonClicked;
-                StaffCurrentCustomersStatusFlowLayoutPanel.Controls.Add(availablecustomersusercontrol);
+                StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(availablecustomersusercontrol);
                 availablecustomersusercontrol.CurrentStaffID = StaffIDNumLbl.Text;
+
+                string queNumberText = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
+                if (int.TryParse(queNumberText, out int queNumber))
+                {
+                    if (queNumber < smallestQueNumber)
+                    {
+                        smallestQueNumber = queNumber;
+                    }
+                }
             }
 
+            foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
+            {
+                string queNumberText = userControl.StaffQueNumberTextBox.Text;
+                if (int.TryParse(queNumberText, out int queNumber))
+                {
+                    if (queNumber == smallestQueNumber)
+                    {
+                        userControl.StaffStartServiceBtn.Enabled = true;
+                    }
+                    else
+                    {
+                        userControl.StaffStartServiceBtn.Enabled = false;
+                    }
+                }
+            }
         }
 
         private void AvailableCustomersUserControl_ExpandCollapseButtonClicked(object sender, EventArgs e)
@@ -5443,7 +5558,7 @@ namespace Enchante
 
         }
 
-        private List<PendingCustomers> RetrievePendingCustomersFromDB()
+        private List<PendingCustomers> RetrieveGeneralQuePendingCustomersFromDB()
         {
 
             List<PendingCustomers> result = new List<PendingCustomers>();
@@ -5452,8 +5567,8 @@ namespace Enchante
             {
                 connection.Open();
 
-                string pendingcustomersquery = "SELECT TransactionNumber, ClientName, ServiceStatus, SelectedService, ServiceID, Customization, AddNotes FROM servicehistory WHERE ServiceStatus = 'Pending' AND ServiceCategory = @membercategory";
-                MySqlCommand command = new MySqlCommand(pendingcustomersquery, connection);
+                string generalquependingcustomersquery = "SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.Customization, sh.AddNotes, sh.QueNumber FROM servicehistory sh INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber WHERE sh.ServiceStatus = 'Pending' AND sh.ServiceCategory = @membercategory AND sh.QueType = 'GeneralQue' AND wa.ServiceStatus = 'Pending'";
+                MySqlCommand command = new MySqlCommand(generalquependingcustomersquery, connection);
                 command.Parameters.AddWithValue("@membercategory", membercategory);
 
                 using (MySqlDataReader reader = command.ExecuteReader())
@@ -5462,7 +5577,7 @@ namespace Enchante
                     {
                         while (reader.Read())
                         {
-                            PendingCustomers pendingcustomers = new PendingCustomers
+                            PendingCustomers generalquependingcustomers = new PendingCustomers
                             {
                                 TransactionNumber = reader.GetString("TransactionNumber"),
                                 ClientName = reader.GetString("ClientName"),
@@ -5470,10 +5585,11 @@ namespace Enchante
                                 ServiceName = reader.GetString("SelectedService"),
                                 CustomerCustomizations = reader.GetString("Customization"),
                                 AdditionalNotes = reader.GetString("AddNotes"),
-                                ServiceID = reader.GetString("ServiceID")
+                                ServiceID = reader.GetString("ServiceID"),
+                                QueNumber = reader.GetString("QueNumber")
                             };
 
-                            result.Add(pendingcustomers);
+                            result.Add(generalquependingcustomers);
                         }
 
                     }
@@ -5503,7 +5619,7 @@ namespace Enchante
 
         public void RefreshFlowLayoutPanel()
         {
-            foreach (System.Windows.Forms.Control control in StaffCurrentCustomersStatusFlowLayoutPanel.Controls)
+            foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
             {
                 if (control is StaffCurrentAvailableCustomersUserControl userControl &&
                     userControl.StaffCustomerServiceStatusTextBox.Text == "In Session")
@@ -5511,27 +5627,122 @@ namespace Enchante
                     return;
                 }
             }
-            StaffCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
-            InitializePendingCustomersForStaff();
+            StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+            InitializeGeneralCuePendingCustomersForStaff();
         }
+
+
+
 
         public void RemovePendingUserControls(StaffCurrentAvailableCustomersUserControl selectedControl)
         {
-            foreach (System.Windows.Forms.Control control in StaffCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<StaffCurrentAvailableCustomersUserControl>().ToList())
+            foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<StaffCurrentAvailableCustomersUserControl>().ToList())
             {
                 if (control != selectedControl)
                 {
-                    StaffCurrentCustomersStatusFlowLayoutPanel.Controls.Remove(control);
+                    StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Remove(control);
                     control.Dispose();
                 }
             }
         }
+
+
 
         private void StaffRefreshAvailableCustomersBtn_Click(object sender, EventArgs e)
         {
 
             RefreshFlowLayoutPanel();
         }
+
+
+        private List<PendingCustomers> RetrievePreferredQuePendingCustomersFromDB()
+        {
+            string staffID = StaffIDNumLbl.Text;
+            List<PendingCustomers> result = new List<PendingCustomers>();
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string preferredquependingcustomersquery = @"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.Customization, sh.AddNotes, sh.QueNumber
+                                                           FROM servicehistory sh INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber
+                                                           WHERE sh.ServiceStatus = 'Pending' AND sh.ServiceCategory = @membercategory AND sh.PrefferedStaff = @prefferedstaff  AND wa.ServiceStatus = 'Pending' ";
+
+                MySqlCommand command = new MySqlCommand(preferredquependingcustomersquery, connection);
+                command.Parameters.AddWithValue("@membercategory", membercategory);
+                command.Parameters.AddWithValue("@prefferedstaff", staffID);
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            PendingCustomers preferredquependingcustomers = new PendingCustomers
+                            {
+                                TransactionNumber = reader.GetString("TransactionNumber"),
+                                ClientName = reader.GetString("ClientName"),
+                                ServiceStatus = reader.GetString("ServiceStatus"),
+                                ServiceName = reader.GetString("SelectedService"),
+                                CustomerCustomizations = reader.GetString("Customization"),
+                                AdditionalNotes = reader.GetString("AddNotes"),
+                                ServiceID = reader.GetString("ServiceID"),
+                                QueNumber = reader.GetString("QueNumber")
+                            };
+
+                            result.Add(preferredquependingcustomers);
+                        }
+
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        protected void InitializePreferredCuePendingCustomersForStaff()
+        {
+            List<PendingCustomers> preferredquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
+
+            int smallestQueNumber = int.MaxValue;
+
+            foreach (PendingCustomers customer in preferredquependingcustomers)
+            {
+                StaffCurrentAvailableCustomersUserControl availablecustomersusercontrol = new StaffCurrentAvailableCustomersUserControl(this);
+                availablecustomersusercontrol.AvailableCustomerSetData(customer);
+                availablecustomersusercontrol.ExpandUserControlButtonClicked += AvailableCustomersUserControl_ExpandCollapseButtonClicked;
+                availablecustomersusercontrol.StartServiceButtonClicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+                availablecustomersusercontrol.StaffEndServiceBtnClicked += AvailableCustomersUserControl_EndServiceButtonClicked;
+                StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(availablecustomersusercontrol);
+                availablecustomersusercontrol.CurrentStaffID = StaffIDNumLbl.Text;
+
+                string queNumberText = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
+                if (int.TryParse(queNumberText, out int queNumber))
+                {
+                    if (queNumber < smallestQueNumber)
+                    {
+                        smallestQueNumber = queNumber;
+                    }
+                }
+            }
+
+            foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls)
+            {
+                string queNumberText = userControl.StaffQueNumberTextBox.Text;
+                if (int.TryParse(queNumberText, out int queNumber))
+                {
+                    if (queNumber == smallestQueNumber)
+                    {
+                        userControl.StaffStartServiceBtn.Enabled = true;
+                    }
+                    else
+                    {
+                        userControl.StaffStartServiceBtn.Enabled = false;
+                    }
+                }
+            }
+        }
+
 
         private void StaffUserAccBtn_Click(object sender, EventArgs e)
         {
@@ -5541,7 +5752,7 @@ namespace Enchante
             }
             else
             {
-                StaffUserAccPanel.Visible = false; 
+                StaffUserAccPanel.Visible = false;
             }
         }
 
@@ -5915,7 +6126,7 @@ namespace Enchante
         public void InitializeStaffInventoryDataGrid()
         {
             StaffInventoryDataGrid.Rows.Clear();
-           
+
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
             {
                 connection.Open();
@@ -6599,9 +6810,119 @@ namespace Enchante
             }
         }
 
+        public void InitializePrefferedStaffComboBox()
+        {
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
 
-        
+                string query = "SELECT EmployeeID, Gender, LastName, FirstName FROM systemusers WHERE EmployeeCategory = @FilterValue";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@FilterValue", filterstaffbyservicecategory);
 
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string employeeID = reader.GetString("EmployeeID");
+                        string gender = reader.GetString("Gender");
+                        string lastName = reader.GetString("LastName");
+                        string firstName = reader.GetString("FirstName");
+
+                        string comboBoxItem = $"{employeeID}-{gender}-{lastName}, {firstName}";
+
+                        RecWalkinAttendingStaffSelectedComboBox.Items.Add(comboBoxItem);
+                    }
+                }
+            }
+        }
+
+        private void RecWalkinAnyStaffToggleSwitch_CheckedChanged(object sender, EventArgs e)
+        {
+            if (haschosenacategory == false)
+            {
+                ShowNoServiceCategoryChosenWarningMessage();
+                RecWalkinAnyStaffToggleSwitch.CheckedChanged -= RecWalkinAnyStaffToggleSwitch_CheckedChanged;
+                RecWalkinAnyStaffToggleSwitch.Checked = false;
+                RecWalkinAnyStaffToggleSwitch.CheckedChanged += RecWalkinAnyStaffToggleSwitch_CheckedChanged;
+                return;
+            }
+            else
+            {
+                if (RecWalkinAnyStaffToggleSwitch.Checked)
+                {
+                    RecWalkinPrefferedStaffToggleSwitch.Checked = false;
+                    RecWalkinAttendingStaffSelectedComboBox.Enabled = false;
+                    selectedStaffID = "Anyone";
+                    RecWalkinAttendingStaffSelectedComboBox.Items.Clear();
+                }
+            }
+        }
+
+        private void RecWalkinPrefferedStaffToggleSwitch_CheckedChanged(object sender, EventArgs e)
+        {
+            if (haschosenacategory == false)
+            {
+                ShowNoServiceCategoryChosenWarningMessage();
+                RecWalkinPrefferedStaffToggleSwitch.CheckedChanged -= RecWalkinPrefferedStaffToggleSwitch_CheckedChanged;
+                RecWalkinPrefferedStaffToggleSwitch.Checked = false;
+                RecWalkinPrefferedStaffToggleSwitch.CheckedChanged += RecWalkinPrefferedStaffToggleSwitch_CheckedChanged;
+                return;
+            }
+            else
+            {
+                if (RecWalkinPrefferedStaffToggleSwitch.Checked)
+                {
+                    RecWalkinAnyStaffToggleSwitch.Checked = false;
+                    RecWalkinAttendingStaffSelectedComboBox.Enabled = true;
+                    InitializePrefferedStaffComboBox();
+                }
+                else
+                {
+                    selectedStaffID = "Anyone";
+                    RecWalkinAttendingStaffSelectedComboBox.Enabled = false;
+                    RecWalkinAttendingStaffSelectedComboBox.Items.Clear();
+                }
+            }
+
+        }
+
+        private void ShowNoServiceCategoryChosenWarningMessage()
+        {
+            RecWalkinNoServiceCategoryChosenWarningLbl.Visible = true;
+            AnimateShakeEffect(RecWalkinNoServiceCategoryChosenWarningLbl);
+            Timer timer = new Timer();
+            timer.Interval = 1500; // 1 seconds
+            timer.Tick += (s, e) =>
+            {
+                RecWalkinNoServiceCategoryChosenWarningLbl.Visible = false;
+                timer.Stop();
+            };
+            timer.Start();
+        }
+
+        private void AnimateShakeEffect(System.Windows.Forms.Control control)
+        {
+            int originalX = control.Location.X;
+            Random rand = new Random();
+            System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+            timer.Interval = 30; // 
+            timer.Tick += (s, e) =>
+            {
+                int newX = originalX + rand.Next(-4, 4); 
+                control.Location = new System.Drawing.Point(newX, control.Location.Y);
+            };
+            timer.Start();
+        }
+
+        private void RecWalkinAttendingStaffSelectedComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (RecWalkinAttendingStaffSelectedComboBox.SelectedItem != null)
+            {
+                string selectedValue = RecWalkinAttendingStaffSelectedComboBox.SelectedItem.ToString();
+                selectedStaffID = selectedValue.Substring(0, 11);
+            }
+        }
     }
 
 }
