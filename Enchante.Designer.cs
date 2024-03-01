@@ -767,8 +767,6 @@
             this.RecWalkinAnyStaffLbl = new System.Windows.Forms.Label();
             this.RecWalkinAnyStaffToggleSwitch = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.RecWalkinPrefferedStaffToggleSwitch = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.RecWalkinPreferredStaffLbl = new System.Windows.Forms.Label();
             this.RecWalkinSearchServiceTypeText = new System.Windows.Forms.TextBox();
             this.RecWalkInServiceTypeTable = new System.Windows.Forms.DataGridView();
@@ -862,6 +860,9 @@
             this.DateTimePickerTimer = new System.Windows.Forms.Timer(this.components);
             this.MngrInventoryCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.flowLayout1 = new Syncfusion.Windows.Forms.Tools.FlowLayout(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteMngrPage.SuspendLayout();
             this.MngrScrollPanel.SuspendLayout();
@@ -1031,7 +1032,7 @@
             this.EnchanteParentContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnchanteParentContainer.Location = new System.Drawing.Point(0, 0);
             this.EnchanteParentContainer.Name = "EnchanteParentContainer";
-            this.EnchanteParentContainer.Size = new System.Drawing.Size(1370, 749);
+            this.EnchanteParentContainer.Size = new System.Drawing.Size(1904, 1041);
             this.EnchanteParentContainer.TabIndex = 0;
             // 
             // EnchanteMngrPage
@@ -1043,7 +1044,7 @@
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteMngrPage, new System.Drawing.Size(200, 100));
             this.EnchanteMngrPage.Name = "EnchanteMngrPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteMngrPage, new System.Drawing.Size(200, 100));
-            this.EnchanteMngrPage.Size = new System.Drawing.Size(1370, 749);
+            this.EnchanteMngrPage.Size = new System.Drawing.Size(1904, 1041);
             this.EnchanteMngrPage.TabIndex = 6;
             // 
             // MngrScrollPanel
@@ -1056,7 +1057,7 @@
             this.MngrScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MngrScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.MngrScrollPanel.Name = "MngrScrollPanel";
-            this.MngrScrollPanel.Size = new System.Drawing.Size(1370, 599);
+            this.MngrScrollPanel.Size = new System.Drawing.Size(1904, 891);
             this.MngrScrollPanel.TabIndex = 4;
             // 
             // MngrFooterStopperPanel
@@ -2502,7 +2503,7 @@
             this.MngrNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.MngrNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.MngrNavBarPanel.Name = "MngrNavBarPanel";
-            this.MngrNavBarPanel.Size = new System.Drawing.Size(1370, 150);
+            this.MngrNavBarPanel.Size = new System.Drawing.Size(1904, 150);
             this.MngrNavBarPanel.TabIndex = 3;
             // 
             // iconButton6
@@ -2625,7 +2626,7 @@
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteAdminPage, new System.Drawing.Size(200, 100));
             this.EnchanteAdminPage.Name = "EnchanteAdminPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteAdminPage, new System.Drawing.Size(200, 100));
-            this.EnchanteAdminPage.Size = new System.Drawing.Size(1370, 749);
+            this.EnchanteAdminPage.Size = new System.Drawing.Size(1904, 1041);
             this.EnchanteAdminPage.TabIndex = 5;
             // 
             // AdminScrollPanel
@@ -2639,7 +2640,7 @@
             this.AdminScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AdminScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.AdminScrollPanel.Name = "AdminScrollPanel";
-            this.AdminScrollPanel.Size = new System.Drawing.Size(1370, 599);
+            this.AdminScrollPanel.Size = new System.Drawing.Size(1904, 891);
             this.AdminScrollPanel.TabIndex = 20;
             // 
             // AdminUserAccPanel
@@ -3461,7 +3462,7 @@
             this.AdminAccountTable.RowHeadersVisible = false;
             this.AdminAccountTable.RowHeadersWidth = 51;
             this.AdminAccountTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.AdminAccountTable.Size = new System.Drawing.Size(511, 590);
+            this.AdminAccountTable.Size = new System.Drawing.Size(494, 590);
             this.AdminAccountTable.TabIndex = 12;
             // 
             // panel27
@@ -3499,7 +3500,7 @@
             this.panel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.panel14.Location = new System.Drawing.Point(0, 1034);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(1855, 166);
+            this.panel14.Size = new System.Drawing.Size(1887, 166);
             this.panel14.TabIndex = 20;
             // 
             // iconButton17
@@ -3595,7 +3596,7 @@
             this.AdminNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.AdminNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.AdminNavBarPanel.Name = "AdminNavBarPanel";
-            this.AdminNavBarPanel.Size = new System.Drawing.Size(1370, 150);
+            this.AdminNavBarPanel.Size = new System.Drawing.Size(1904, 150);
             this.AdminNavBarPanel.TabIndex = 4;
             // 
             // AdminAccUserBtn
@@ -3683,7 +3684,7 @@
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteHomePage, new System.Drawing.Size(200, 100));
             this.EnchanteHomePage.Name = "EnchanteHomePage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteHomePage, new System.Drawing.Size(200, 100));
-            this.EnchanteHomePage.Size = new System.Drawing.Size(1370, 749);
+            this.EnchanteHomePage.Size = new System.Drawing.Size(1904, 1041);
             this.EnchanteHomePage.TabIndex = 4;
             // 
             // EnchanteHomeNavBar
@@ -3701,7 +3702,7 @@
             this.EnchanteHomeNavBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.EnchanteHomeNavBar.Location = new System.Drawing.Point(0, 0);
             this.EnchanteHomeNavBar.Name = "EnchanteHomeNavBar";
-            this.EnchanteHomeNavBar.Size = new System.Drawing.Size(1370, 170);
+            this.EnchanteHomeNavBar.Size = new System.Drawing.Size(1904, 170);
             this.EnchanteHomeNavBar.TabIndex = 0;
             // 
             // EnchanteHLoginBtn
@@ -3877,7 +3878,7 @@
             this.EnchanteHomeScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnchanteHomeScrollPanel.Location = new System.Drawing.Point(0, 0);
             this.EnchanteHomeScrollPanel.Name = "EnchanteHomeScrollPanel";
-            this.EnchanteHomeScrollPanel.Size = new System.Drawing.Size(1370, 749);
+            this.EnchanteHomeScrollPanel.Size = new System.Drawing.Size(1904, 1041);
             this.EnchanteHomeScrollPanel.TabIndex = 18;
             this.EnchanteHomeScrollPanel.Click += new System.EventHandler(this.EnchanteHomeScrollPanel_Click);
             // 
@@ -7894,7 +7895,7 @@
             this.EnchanteFooterBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.EnchanteFooterBar.Location = new System.Drawing.Point(0, 3100);
             this.EnchanteFooterBar.Name = "EnchanteFooterBar";
-            this.EnchanteFooterBar.Size = new System.Drawing.Size(1779, 166);
+            this.EnchanteFooterBar.Size = new System.Drawing.Size(1887, 166);
             this.EnchanteFooterBar.TabIndex = 20;
             // 
             // SM_GmailBtn
@@ -8042,7 +8043,7 @@
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteMemberPage, new System.Drawing.Size(200, 100));
             this.EnchanteMemberPage.Name = "EnchanteMemberPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteMemberPage, new System.Drawing.Size(200, 100));
-            this.EnchanteMemberPage.Size = new System.Drawing.Size(1370, 749);
+            this.EnchanteMemberPage.Size = new System.Drawing.Size(1904, 1041);
             this.EnchanteMemberPage.TabIndex = 3;
             // 
             // MemberScrollPanel
@@ -8055,7 +8056,7 @@
             this.MemberScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MemberScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.MemberScrollPanel.Name = "MemberScrollPanel";
-            this.MemberScrollPanel.Size = new System.Drawing.Size(1370, 599);
+            this.MemberScrollPanel.Size = new System.Drawing.Size(1904, 891);
             this.MemberScrollPanel.TabIndex = 19;
             // 
             // MemberUserAccPanel
@@ -8154,7 +8155,7 @@
             this.MemberFooter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.MemberFooter.Location = new System.Drawing.Point(0, 1132);
             this.MemberFooter.Name = "MemberFooter";
-            this.MemberFooter.Size = new System.Drawing.Size(1855, 166);
+            this.MemberFooter.Size = new System.Drawing.Size(1887, 166);
             this.MemberFooter.TabIndex = 20;
             // 
             // SM_EmailBtn1
@@ -8253,7 +8254,7 @@
             this.MemberNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.MemberNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.MemberNavBarPanel.Name = "MemberNavBarPanel";
-            this.MemberNavBarPanel.Size = new System.Drawing.Size(1370, 150);
+            this.MemberNavBarPanel.Size = new System.Drawing.Size(1904, 150);
             this.MemberNavBarPanel.TabIndex = 1;
             // 
             // MemberAccUserBtn
@@ -8395,7 +8396,7 @@
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteReceptionPage, new System.Drawing.Size(200, 100));
             this.EnchanteReceptionPage.Name = "EnchanteReceptionPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteReceptionPage, new System.Drawing.Size(200, 100));
-            this.EnchanteReceptionPage.Size = new System.Drawing.Size(1370, 749);
+            this.EnchanteReceptionPage.Size = new System.Drawing.Size(1904, 1041);
             this.EnchanteReceptionPage.TabIndex = 2;
             // 
             // ReceptionScrollPanel
@@ -8409,7 +8410,7 @@
             this.ReceptionScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ReceptionScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.ReceptionScrollPanel.Name = "ReceptionScrollPanel";
-            this.ReceptionScrollPanel.Size = new System.Drawing.Size(1370, 599);
+            this.ReceptionScrollPanel.Size = new System.Drawing.Size(1904, 891);
             this.ReceptionScrollPanel.TabIndex = 20;
             // 
             // ReceptionUserAccPanel
@@ -8423,7 +8424,7 @@
             this.ReceptionUserAccPanel.Controls.Add(this.ReceptionLogoutBtn);
             this.ReceptionUserAccPanel.Location = new System.Drawing.Point(1580, 17);
             this.ReceptionUserAccPanel.Name = "ReceptionUserAccPanel";
-            this.ReceptionUserAccPanel.Size = new System.Drawing.Size(282, 192);
+            this.ReceptionUserAccPanel.Size = new System.Drawing.Size(282, 80);
             this.ReceptionUserAccPanel.TabIndex = 2;
             this.ReceptionUserAccPanel.Visible = false;
             // 
@@ -8521,7 +8522,7 @@
             this.ReceptionFooterPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.ReceptionFooterPanel.Location = new System.Drawing.Point(0, 955);
             this.ReceptionFooterPanel.Name = "ReceptionFooterPanel";
-            this.ReceptionFooterPanel.Size = new System.Drawing.Size(1862, 166);
+            this.ReceptionFooterPanel.Size = new System.Drawing.Size(1887, 166);
             this.ReceptionFooterPanel.TabIndex = 20;
             // 
             // SM_EmailBtn2
@@ -9580,11 +9581,12 @@
             this.MngrPayServiceExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.MngrPayServiceExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrPayServiceExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrPayServiceExitBtn.Location = new System.Drawing.Point(1720, 17);
+            this.MngrPayServiceExitBtn.Location = new System.Drawing.Point(1546, 27);
             this.MngrPayServiceExitBtn.Name = "MngrPayServiceExitBtn";
             this.MngrPayServiceExitBtn.Size = new System.Drawing.Size(48, 48);
             this.MngrPayServiceExitBtn.TabIndex = 100;
             this.MngrPayServiceExitBtn.UseVisualStyleBackColor = false;
+            this.MngrPayServiceExitBtn.Click += new System.EventHandler(this.MngrPayServiceExitBtn_Click);
             // 
             // RecAppointmentPanel
             // 
@@ -11125,6 +11127,7 @@
             this.RecAppointmentExitBtn.Size = new System.Drawing.Size(48, 48);
             this.RecAppointmentExitBtn.TabIndex = 43;
             this.RecAppointmentExitBtn.UseVisualStyleBackColor = false;
+            this.RecAppointmentExitBtn.Click += new System.EventHandler(this.RecAppointmentExitBtn_Click);
             // 
             // RecWalkinPanel
             // 
@@ -11132,14 +11135,13 @@
             this.RecWalkinPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecWalkinPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RecTransactionCard.SetCardName(this.RecWalkinPanel, "Card1");
+            this.RecWalkinPanel.Controls.Add(this.label4);
             this.RecWalkinPanel.Controls.Add(this.RecSelectedServiceDataGrid1);
             this.RecWalkinPanel.Controls.Add(this.RecWalkinNoServiceCategoryChosenWarningLbl);
             this.RecWalkinPanel.Controls.Add(this.RecWalkinAttendingStaffSelectedComboBox);
             this.RecWalkinPanel.Controls.Add(this.RecWalkinAnyStaffLbl);
             this.RecWalkinPanel.Controls.Add(this.RecWalkinAnyStaffToggleSwitch);
             this.RecWalkinPanel.Controls.Add(this.RecWalkinPrefferedStaffToggleSwitch);
-            this.RecWalkinPanel.Controls.Add(this.guna2TextBox3);
-            this.RecWalkinPanel.Controls.Add(this.textBox2);
             this.RecWalkinPanel.Controls.Add(this.RecWalkinPreferredStaffLbl);
             this.RecWalkinPanel.Controls.Add(this.RecWalkinSearchServiceTypeText);
             this.RecWalkinPanel.Controls.Add(this.RecWalkInServiceTypeTable);
@@ -11170,8 +11172,6 @@
             this.RecWalkinPanel.Controls.Add(this.RecWalkinSearchServiceTypeBtn);
             this.RecWalkinPanel.Controls.Add(this.RecWalkInExitBtn);
             this.RecWalkinPanel.Controls.Add(this.RecWalkinBookTransactBtn);
-            this.RecWalkinPanel.Controls.Add(this.RecCustomerCustomizationsTextBox);
-            this.RecWalkinPanel.Controls.Add(this.RecCustomerCustomerAdditionalNotesTextBox);
             this.RecWalkinPanel.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecWalkinPanel.Location = new System.Drawing.Point(0, 0);
             this.RecTransactionCard.SetMinimumSize(this.RecWalkinPanel, new System.Drawing.Size(1371, 807));
@@ -11216,7 +11216,7 @@
             dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.RecSelectedServiceDataGrid1.DefaultCellStyle = dataGridViewCellStyle18;
             this.RecSelectedServiceDataGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecSelectedServiceDataGrid1.Location = new System.Drawing.Point(822, 1057);
+            this.RecSelectedServiceDataGrid1.Location = new System.Drawing.Point(803, 1198);
             this.RecSelectedServiceDataGrid1.Name = "RecSelectedServiceDataGrid1";
             this.RecSelectedServiceDataGrid1.ReadOnly = true;
             this.RecSelectedServiceDataGrid1.RowHeadersVisible = false;
@@ -11272,7 +11272,7 @@
             this.RecWalkinNoServiceCategoryChosenWarningLbl.AutoSize = true;
             this.RecWalkinNoServiceCategoryChosenWarningLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinNoServiceCategoryChosenWarningLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinNoServiceCategoryChosenWarningLbl.Location = new System.Drawing.Point(428, 1571);
+            this.RecWalkinNoServiceCategoryChosenWarningLbl.Location = new System.Drawing.Point(625, 875);
             this.RecWalkinNoServiceCategoryChosenWarningLbl.Name = "RecWalkinNoServiceCategoryChosenWarningLbl";
             this.RecWalkinNoServiceCategoryChosenWarningLbl.Size = new System.Drawing.Size(365, 29);
             this.RecWalkinNoServiceCategoryChosenWarningLbl.TabIndex = 161;
@@ -11290,10 +11290,11 @@
             this.RecWalkinAttendingStaffSelectedComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.RecWalkinAttendingStaffSelectedComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.RecWalkinAttendingStaffSelectedComboBox.ItemHeight = 30;
-            this.RecWalkinAttendingStaffSelectedComboBox.Location = new System.Drawing.Point(821, 1610);
+            this.RecWalkinAttendingStaffSelectedComboBox.Location = new System.Drawing.Point(493, 1003);
             this.RecWalkinAttendingStaffSelectedComboBox.Name = "RecWalkinAttendingStaffSelectedComboBox";
             this.RecWalkinAttendingStaffSelectedComboBox.Size = new System.Drawing.Size(633, 36);
             this.RecWalkinAttendingStaffSelectedComboBox.TabIndex = 160;
+            this.RecWalkinAttendingStaffSelectedComboBox.Visible = false;
             this.RecWalkinAttendingStaffSelectedComboBox.SelectedIndexChanged += new System.EventHandler(this.RecWalkinAttendingStaffSelectedComboBox_SelectedIndexChanged);
             // 
             // RecWalkinAnyStaffLbl
@@ -11301,7 +11302,7 @@
             this.RecWalkinAnyStaffLbl.AutoSize = true;
             this.RecWalkinAnyStaffLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinAnyStaffLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinAnyStaffLbl.Location = new System.Drawing.Point(623, 1617);
+            this.RecWalkinAnyStaffLbl.Location = new System.Drawing.Point(570, 917);
             this.RecWalkinAnyStaffLbl.Name = "RecWalkinAnyStaffLbl";
             this.RecWalkinAnyStaffLbl.Size = new System.Drawing.Size(99, 29);
             this.RecWalkinAnyStaffLbl.TabIndex = 159;
@@ -11313,7 +11314,7 @@
             this.RecWalkinAnyStaffToggleSwitch.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.RecWalkinAnyStaffToggleSwitch.CheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.RecWalkinAnyStaffToggleSwitch.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.RecWalkinAnyStaffToggleSwitch.Location = new System.Drawing.Point(566, 1617);
+            this.RecWalkinAnyStaffToggleSwitch.Location = new System.Drawing.Point(513, 917);
             this.RecWalkinAnyStaffToggleSwitch.Name = "RecWalkinAnyStaffToggleSwitch";
             this.RecWalkinAnyStaffToggleSwitch.Size = new System.Drawing.Size(51, 31);
             this.RecWalkinAnyStaffToggleSwitch.TabIndex = 158;
@@ -11329,7 +11330,7 @@
             this.RecWalkinPrefferedStaffToggleSwitch.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.RecWalkinPrefferedStaffToggleSwitch.CheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.RecWalkinPrefferedStaffToggleSwitch.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.RecWalkinPrefferedStaffToggleSwitch.Location = new System.Drawing.Point(172, 1617);
+            this.RecWalkinPrefferedStaffToggleSwitch.Location = new System.Drawing.Point(829, 917);
             this.RecWalkinPrefferedStaffToggleSwitch.Name = "RecWalkinPrefferedStaffToggleSwitch";
             this.RecWalkinPrefferedStaffToggleSwitch.Size = new System.Drawing.Size(52, 31);
             this.RecWalkinPrefferedStaffToggleSwitch.TabIndex = 157;
@@ -11339,44 +11340,12 @@
             this.RecWalkinPrefferedStaffToggleSwitch.UncheckedState.InnerColor = System.Drawing.Color.White;
             this.RecWalkinPrefferedStaffToggleSwitch.CheckedChanged += new System.EventHandler(this.RecWalkinPrefferedStaffToggleSwitch_CheckedChanged);
             // 
-            // guna2TextBox3
-            // 
-            this.guna2TextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox3.DefaultText = "";
-            this.guna2TextBox3.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.Location = new System.Drawing.Point(803, 161);
-            this.guna2TextBox3.Name = "guna2TextBox3";
-            this.guna2TextBox3.PasswordChar = '\0';
-            this.guna2TextBox3.PlaceholderText = "";
-            this.guna2TextBox3.SelectedText = "";
-            this.guna2TextBox3.Size = new System.Drawing.Size(44, 28);
-            this.guna2TextBox3.TabIndex = 156;
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox2.Location = new System.Drawing.Point(628, 160);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(169, 27);
-            this.textBox2.TabIndex = 155;
-            this.textBox2.Text = "Ticket Number";
-            // 
             // RecWalkinPreferredStaffLbl
             // 
             this.RecWalkinPreferredStaffLbl.AutoSize = true;
             this.RecWalkinPreferredStaffLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinPreferredStaffLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinPreferredStaffLbl.Location = new System.Drawing.Point(230, 1617);
+            this.RecWalkinPreferredStaffLbl.Location = new System.Drawing.Point(887, 918);
             this.RecWalkinPreferredStaffLbl.Name = "RecWalkinPreferredStaffLbl";
             this.RecWalkinPreferredStaffLbl.Size = new System.Drawing.Size(215, 29);
             this.RecWalkinPreferredStaffLbl.TabIndex = 143;
@@ -11387,7 +11356,7 @@
             this.RecWalkinSearchServiceTypeText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecWalkinSearchServiceTypeText.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecWalkinSearchServiceTypeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinSearchServiceTypeText.Location = new System.Drawing.Point(163, 996);
+            this.RecWalkinSearchServiceTypeText.Location = new System.Drawing.Point(134, 1137);
             this.RecWalkinSearchServiceTypeText.Name = "RecWalkinSearchServiceTypeText";
             this.RecWalkinSearchServiceTypeText.Size = new System.Drawing.Size(571, 37);
             this.RecWalkinSearchServiceTypeText.TabIndex = 132;
@@ -11421,7 +11390,7 @@
             dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.RecWalkInServiceTypeTable.DefaultCellStyle = dataGridViewCellStyle20;
             this.RecWalkInServiceTypeTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecWalkInServiceTypeTable.Location = new System.Drawing.Point(162, 1057);
+            this.RecWalkInServiceTypeTable.Location = new System.Drawing.Point(143, 1198);
             this.RecWalkInServiceTypeTable.Name = "RecWalkInServiceTypeTable";
             this.RecWalkInServiceTypeTable.ReadOnly = true;
             this.RecWalkInServiceTypeTable.RowHeadersVisible = false;
@@ -11436,7 +11405,7 @@
             this.RecWalkInServiceTypeLbl.AutoSize = true;
             this.RecWalkInServiceTypeLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkInServiceTypeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkInServiceTypeLbl.Location = new System.Drawing.Point(84, 921);
+            this.RecWalkInServiceTypeLbl.Location = new System.Drawing.Point(62, 1069);
             this.RecWalkInServiceTypeLbl.Name = "RecWalkInServiceTypeLbl";
             this.RecWalkInServiceTypeLbl.Size = new System.Drawing.Size(388, 35);
             this.RecWalkInServiceTypeLbl.TabIndex = 124;
@@ -11576,7 +11545,7 @@
             // 
             // RecDeleteSelectedServiceAndStaffBtn
             // 
-            this.RecDeleteSelectedServiceAndStaffBtn.Location = new System.Drawing.Point(1378, 1527);
+            this.RecDeleteSelectedServiceAndStaffBtn.Location = new System.Drawing.Point(1397, 1673);
             this.RecDeleteSelectedServiceAndStaffBtn.Name = "RecDeleteSelectedServiceAndStaffBtn";
             this.RecDeleteSelectedServiceAndStaffBtn.Size = new System.Drawing.Size(75, 36);
             this.RecDeleteSelectedServiceAndStaffBtn.TabIndex = 152;
@@ -11630,7 +11599,7 @@
             // 
             // RecSelectServiceAndStaffBtn
             // 
-            this.RecSelectServiceAndStaffBtn.Location = new System.Drawing.Point(711, 1527);
+            this.RecSelectServiceAndStaffBtn.Location = new System.Drawing.Point(692, 1673);
             this.RecSelectServiceAndStaffBtn.Name = "RecSelectServiceAndStaffBtn";
             this.RecSelectServiceAndStaffBtn.Size = new System.Drawing.Size(81, 36);
             this.RecSelectServiceAndStaffBtn.TabIndex = 151;
@@ -11740,11 +11709,12 @@
             this.RecWalkinAttendingStaffLbl.AutoSize = true;
             this.RecWalkinAttendingStaffLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinAttendingStaffLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinAttendingStaffLbl.Location = new System.Drawing.Point(817, 1571);
+            this.RecWalkinAttendingStaffLbl.Location = new System.Drawing.Point(489, 964);
             this.RecWalkinAttendingStaffLbl.Name = "RecWalkinAttendingStaffLbl";
             this.RecWalkinAttendingStaffLbl.Size = new System.Drawing.Size(224, 29);
             this.RecWalkinAttendingStaffLbl.TabIndex = 60;
             this.RecWalkinAttendingStaffLbl.Text = "Attending Staff:";
+            this.RecWalkinAttendingStaffLbl.Visible = false;
             // 
             // RecWalkinCPNumText
             // 
@@ -11771,10 +11741,12 @@
             // 
             this.RecWalkInFooterStopperPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecWalkInFooterStopperPanel.Controls.Add(this.RecWalkInFooterStopperLbl);
+            this.RecWalkInFooterStopperPanel.Controls.Add(this.RecCustomerCustomizationsTextBox);
+            this.RecWalkInFooterStopperPanel.Controls.Add(this.RecCustomerCustomerAdditionalNotesTextBox);
             this.RecWalkInFooterStopperPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.RecWalkInFooterStopperPanel.Location = new System.Drawing.Point(413, 1890);
+            this.RecWalkInFooterStopperPanel.Location = new System.Drawing.Point(405, 1852);
             this.RecWalkInFooterStopperPanel.Name = "RecWalkInFooterStopperPanel";
-            this.RecWalkInFooterStopperPanel.Size = new System.Drawing.Size(804, 55);
+            this.RecWalkInFooterStopperPanel.Size = new System.Drawing.Size(804, 42);
             this.RecWalkInFooterStopperPanel.TabIndex = 52;
             // 
             // RecWalkInFooterStopperLbl
@@ -11890,7 +11862,7 @@
             this.RecWalkinSearchServiceTypeBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.RecWalkinSearchServiceTypeBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.RecWalkinSearchServiceTypeBtn.IconSize = 40;
-            this.RecWalkinSearchServiceTypeBtn.Location = new System.Drawing.Point(747, 987);
+            this.RecWalkinSearchServiceTypeBtn.Location = new System.Drawing.Point(727, 1128);
             this.RecWalkinSearchServiceTypeBtn.Name = "RecWalkinSearchServiceTypeBtn";
             this.RecWalkinSearchServiceTypeBtn.Size = new System.Drawing.Size(46, 46);
             this.RecWalkinSearchServiceTypeBtn.TabIndex = 133;
@@ -11906,7 +11878,7 @@
             this.RecWalkInExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.RecWalkInExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.RecWalkInExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecWalkInExitBtn.Location = new System.Drawing.Point(1518, 23);
+            this.RecWalkInExitBtn.Location = new System.Drawing.Point(1546, 24);
             this.RecWalkInExitBtn.Name = "RecWalkInExitBtn";
             this.RecWalkInExitBtn.Size = new System.Drawing.Size(48, 48);
             this.RecWalkInExitBtn.TabIndex = 43;
@@ -11925,7 +11897,7 @@
             this.RecWalkinBookTransactBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.RecWalkinBookTransactBtn.IconColor = System.Drawing.Color.Black;
             this.RecWalkinBookTransactBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecWalkinBookTransactBtn.Location = new System.Drawing.Point(673, 1786);
+            this.RecWalkinBookTransactBtn.Location = new System.Drawing.Point(673, 1751);
             this.RecWalkinBookTransactBtn.Name = "RecWalkinBookTransactBtn";
             this.RecWalkinBookTransactBtn.Size = new System.Drawing.Size(268, 60);
             this.RecWalkinBookTransactBtn.TabIndex = 73;
@@ -11938,24 +11910,26 @@
             this.RecCustomerCustomizationsTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecCustomerCustomizationsTextBox.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecCustomerCustomizationsTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecCustomerCustomizationsTextBox.Location = new System.Drawing.Point(163, 1712);
+            this.RecCustomerCustomizationsTextBox.Location = new System.Drawing.Point(-289, -38);
             this.RecCustomerCustomizationsTextBox.Multiline = true;
             this.RecCustomerCustomizationsTextBox.Name = "RecCustomerCustomizationsTextBox";
             this.RecCustomerCustomizationsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.RecCustomerCustomizationsTextBox.Size = new System.Drawing.Size(630, 106);
             this.RecCustomerCustomizationsTextBox.TabIndex = 61;
+            this.RecCustomerCustomizationsTextBox.Visible = false;
             // 
             // RecCustomerCustomerAdditionalNotesTextBox
             // 
             this.RecCustomerCustomerAdditionalNotesTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecCustomerCustomerAdditionalNotesTextBox.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecCustomerCustomerAdditionalNotesTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecCustomerCustomerAdditionalNotesTextBox.Location = new System.Drawing.Point(822, 1712);
+            this.RecCustomerCustomerAdditionalNotesTextBox.Location = new System.Drawing.Point(390, -26);
             this.RecCustomerCustomerAdditionalNotesTextBox.Multiline = true;
             this.RecCustomerCustomerAdditionalNotesTextBox.Name = "RecCustomerCustomerAdditionalNotesTextBox";
             this.RecCustomerCustomerAdditionalNotesTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.RecCustomerCustomerAdditionalNotesTextBox.Size = new System.Drawing.Size(630, 106);
             this.RecCustomerCustomerAdditionalNotesTextBox.TabIndex = 144;
+            this.RecCustomerCustomerAdditionalNotesTextBox.Visible = false;
             // 
             // RecTransactionPanel
             // 
@@ -12046,7 +12020,7 @@
             this.ReceptionNavBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.ReceptionNavBar.Location = new System.Drawing.Point(0, 0);
             this.ReceptionNavBar.Name = "ReceptionNavBar";
-            this.ReceptionNavBar.Size = new System.Drawing.Size(1370, 150);
+            this.ReceptionNavBar.Size = new System.Drawing.Size(1904, 150);
             this.ReceptionNavBar.TabIndex = 2;
             // 
             // RecDateTimeText
@@ -12147,31 +12121,34 @@
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteStaffPage, new System.Drawing.Size(200, 100));
             this.EnchanteStaffPage.Name = "EnchanteStaffPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteStaffPage, new System.Drawing.Size(200, 100));
-            this.EnchanteStaffPage.Size = new System.Drawing.Size(1370, 749);
+            this.EnchanteStaffPage.Size = new System.Drawing.Size(1904, 1041);
             this.EnchanteStaffPage.TabIndex = 1;
             // 
             // StaffScrollPanel
             // 
             this.StaffScrollPanel.AutoScroll = true;
             this.StaffScrollPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.StaffScrollPanel.Controls.Add(this.StaffUserAccPanel);
+            this.StaffScrollPanel.Controls.Add(this.label3);
+            this.StaffScrollPanel.Controls.Add(this.label1);
             this.StaffScrollPanel.Controls.Add(this.StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel);
             this.StaffScrollPanel.Controls.Add(this.StaffFooterStopperPanel);
-            this.StaffScrollPanel.Controls.Add(this.StaffUserAccPanel);
             this.StaffScrollPanel.Controls.Add(this.StaffRefreshAvailableCustomersBtn);
             this.StaffScrollPanel.Controls.Add(this.guna2GradientPanel1);
             this.StaffScrollPanel.Controls.Add(this.StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel);
             this.StaffScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StaffScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.StaffScrollPanel.Name = "StaffScrollPanel";
-            this.StaffScrollPanel.Size = new System.Drawing.Size(1370, 599);
+            this.StaffScrollPanel.Size = new System.Drawing.Size(1904, 891);
             this.StaffScrollPanel.TabIndex = 6;
             // 
             // StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel
             // 
             this.StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.AutoScroll = true;
-            this.StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Location = new System.Drawing.Point(207, 447);
+            this.StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Location = new System.Drawing.Point(496, 527);
             this.StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Name = "StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel";
-            this.StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Size = new System.Drawing.Size(900, 273);
+            this.StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Size = new System.Drawing.Size(900, 333);
             this.StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.TabIndex = 23;
             // 
             // StaffFooterStopperPanel
@@ -12180,9 +12157,9 @@
             this.StaffFooterStopperPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.StaffFooterStopperPanel.Controls.Add(this.StaffFooterStopperLbl);
             this.StaffFooterStopperPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.StaffFooterStopperPanel.Location = new System.Drawing.Point(500, 780);
+            this.StaffFooterStopperPanel.Location = new System.Drawing.Point(500, 1382);
             this.StaffFooterStopperPanel.Name = "StaffFooterStopperPanel";
-            this.StaffFooterStopperPanel.Size = new System.Drawing.Size(804, 111);
+            this.StaffFooterStopperPanel.Size = new System.Drawing.Size(804, 70);
             this.StaffFooterStopperPanel.TabIndex = 21;
             // 
             // StaffFooterStopperLbl
@@ -12280,7 +12257,7 @@
             this.StaffRefreshAvailableCustomersBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.StaffRefreshAvailableCustomersBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StaffRefreshAvailableCustomersBtn.ForeColor = System.Drawing.Color.White;
-            this.StaffRefreshAvailableCustomersBtn.Location = new System.Drawing.Point(987, 402);
+            this.StaffRefreshAvailableCustomersBtn.Location = new System.Drawing.Point(1276, 430);
             this.StaffRefreshAvailableCustomersBtn.Name = "StaffRefreshAvailableCustomersBtn";
             this.StaffRefreshAvailableCustomersBtn.Size = new System.Drawing.Size(120, 39);
             this.StaffRefreshAvailableCustomersBtn.TabIndex = 1;
@@ -12295,9 +12272,9 @@
             this.guna2GradientPanel1.Controls.Add(this.StaffAddToInventoryButton);
             this.guna2GradientPanel1.Controls.Add(this.StaffPersonalInventoryDataGrid);
             this.guna2GradientPanel1.Controls.Add(this.StaffInventoryDataGrid);
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(1140, 54);
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(379, 1008);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(555, 666);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(1128, 328);
             this.guna2GradientPanel1.TabIndex = 22;
             // 
             // guna2TextBox2
@@ -12312,7 +12289,7 @@
             this.guna2TextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox2.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Location = new System.Drawing.Point(12, 276);
+            this.guna2TextBox2.Location = new System.Drawing.Point(569, 44);
             this.guna2TextBox2.Name = "guna2TextBox2";
             this.guna2TextBox2.PasswordChar = '\0';
             this.guna2TextBox2.PlaceholderText = "";
@@ -12333,7 +12310,7 @@
             this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox1.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(12, 44);
+            this.guna2TextBox1.Location = new System.Drawing.Point(32, 44);
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PasswordChar = '\0';
             this.guna2TextBox1.PlaceholderText = "";
@@ -12353,7 +12330,7 @@
             this.StaffItemSelectedCountTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.StaffItemSelectedCountTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.StaffItemSelectedCountTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffItemSelectedCountTextBox.Location = new System.Drawing.Point(321, 257);
+            this.StaffItemSelectedCountTextBox.Location = new System.Drawing.Point(219, 242);
             this.StaffItemSelectedCountTextBox.Name = "StaffItemSelectedCountTextBox";
             this.StaffItemSelectedCountTextBox.PasswordChar = '\0';
             this.StaffItemSelectedCountTextBox.PlaceholderText = "";
@@ -12369,7 +12346,7 @@
             this.StaffAddToInventoryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.StaffAddToInventoryButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.StaffAddToInventoryButton.ForeColor = System.Drawing.Color.White;
-            this.StaffAddToInventoryButton.Location = new System.Drawing.Point(420, 257);
+            this.StaffAddToInventoryButton.Location = new System.Drawing.Point(332, 251);
             this.StaffAddToInventoryButton.Name = "StaffAddToInventoryButton";
             this.StaffAddToInventoryButton.Size = new System.Drawing.Size(119, 19);
             this.StaffAddToInventoryButton.TabIndex = 2;
@@ -12406,7 +12383,7 @@
             dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.StaffPersonalInventoryDataGrid.DefaultCellStyle = dataGridViewCellStyle23;
             this.StaffPersonalInventoryDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.StaffPersonalInventoryDataGrid.Location = new System.Drawing.Point(12, 301);
+            this.StaffPersonalInventoryDataGrid.Location = new System.Drawing.Point(569, 69);
             this.StaffPersonalInventoryDataGrid.Name = "StaffPersonalInventoryDataGrid";
             this.StaffPersonalInventoryDataGrid.ReadOnly = true;
             this.StaffPersonalInventoryDataGrid.RowHeadersVisible = false;
@@ -12488,7 +12465,7 @@
             dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.StaffInventoryDataGrid.DefaultCellStyle = dataGridViewCellStyle26;
             this.StaffInventoryDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.StaffInventoryDataGrid.Location = new System.Drawing.Point(12, 69);
+            this.StaffInventoryDataGrid.Location = new System.Drawing.Point(32, 69);
             this.StaffInventoryDataGrid.Name = "StaffInventoryDataGrid";
             this.StaffInventoryDataGrid.ReadOnly = true;
             this.StaffInventoryDataGrid.RowHeadersVisible = false;
@@ -12544,7 +12521,7 @@
             // 
             this.StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.AutoScroll = true;
             this.StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Location = new System.Drawing.Point(207, 54);
+            this.StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Location = new System.Drawing.Point(496, 79);
             this.StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Name = "StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel";
             this.StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Size = new System.Drawing.Size(900, 333);
             this.StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.TabIndex = 0;
@@ -12561,7 +12538,7 @@
             this.StaffNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.StaffNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.StaffNavBarPanel.Name = "StaffNavBarPanel";
-            this.StaffNavBarPanel.Size = new System.Drawing.Size(1370, 150);
+            this.StaffNavBarPanel.Size = new System.Drawing.Size(1904, 150);
             this.StaffNavBarPanel.TabIndex = 5;
             // 
             // StaffPastTransactionBtn
@@ -12658,7 +12635,7 @@
             // 
             this.EnchanteParentCard.ContainerControl = this.EnchanteParentContainer;
             this.EnchanteParentCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.EnchanteParentCard.SelectedCard = "Staff";
+            this.EnchanteParentCard.SelectedCard = "Reception";
             // 
             // HomeMembershipCard
             // 
@@ -12688,12 +12665,47 @@
             this.MngrInventoryCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
             this.MngrInventoryCard.SelectedCard = "Card4";
             // 
+            // label1
+            // 
+            this.label1.AutoEllipsis = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.label1.Location = new System.Drawing.Point(491, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(307, 29);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Current Client/Service:";
+            // 
+            // label3
+            // 
+            this.label3.AutoEllipsis = true;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.label3.Location = new System.Drawing.Point(491, 482);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(299, 29);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Pending Client/Service:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.label4.Location = new System.Drawing.Point(62, 840);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(292, 35);
+            this.label4.TabIndex = 163;
+            this.label4.Text = "3. Staff Selection";
+            // 
             // Enchante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.EnchanteParentContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -12944,6 +12956,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.RecHeaderLogo)).EndInit();
             this.EnchanteStaffPage.ResumeLayout(false);
             this.StaffScrollPanel.ResumeLayout(false);
+            this.StaffScrollPanel.PerformLayout();
             this.StaffFooterStopperPanel.ResumeLayout(false);
             this.StaffFooterStopperPanel.PerformLayout();
             this.StaffUserAccPanel.ResumeLayout(false);
@@ -13759,9 +13772,7 @@
         private FontAwesome.Sharp.IconButton MngrPayServiceExitBtn;
         private FontAwesome.Sharp.IconButton RecPayServiceBtn;
         private System.Windows.Forms.CheckBox RecPayServicePrintReceiptChk;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label MngrPayServiceClientNameLbl;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
         private Guna.UI2.WinForms.Guna2ToggleSwitch RecWalkinAnyStaffToggleSwitch;
         private Guna.UI2.WinForms.Guna2ToggleSwitch RecWalkinPrefferedStaffToggleSwitch;
         private System.Windows.Forms.Label RecWalkinAnyStaffLbl;
@@ -13778,6 +13789,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn QueType;
         private System.Windows.Forms.FlowLayoutPanel StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel;
         private Syncfusion.Windows.Forms.Tools.FlowLayout flowLayout1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 

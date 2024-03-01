@@ -6092,7 +6092,7 @@ namespace Enchante
 
         private void MngrPayServiceExitBtn_Click(object sender, EventArgs e)
         {
-            Inventory.PanelShow(MngrInventoryTypePanel);
+            Transaction.PanelShow(RecTransactionPanel);
 
         }
 
@@ -6844,6 +6844,8 @@ namespace Enchante
                 ShowNoServiceCategoryChosenWarningMessage();
                 RecWalkinAnyStaffToggleSwitch.CheckedChanged -= RecWalkinAnyStaffToggleSwitch_CheckedChanged;
                 RecWalkinAnyStaffToggleSwitch.Checked = false;
+                RecWalkinAttendingStaffLbl.Visible = false;
+                RecWalkinAttendingStaffSelectedComboBox.Visible = false;
                 RecWalkinAnyStaffToggleSwitch.CheckedChanged += RecWalkinAnyStaffToggleSwitch_CheckedChanged;
                 return;
             }
@@ -6853,6 +6855,8 @@ namespace Enchante
                 {
                     RecWalkinPrefferedStaffToggleSwitch.Checked = false;
                     RecWalkinAttendingStaffSelectedComboBox.Enabled = false;
+                    RecWalkinAttendingStaffLbl.Visible = false;
+                    RecWalkinAttendingStaffSelectedComboBox.Visible = false;
                     selectedStaffID = "Anyone";
                     RecWalkinAttendingStaffSelectedComboBox.Items.Clear();
                 }
@@ -6866,6 +6870,8 @@ namespace Enchante
                 ShowNoServiceCategoryChosenWarningMessage();
                 RecWalkinPrefferedStaffToggleSwitch.CheckedChanged -= RecWalkinPrefferedStaffToggleSwitch_CheckedChanged;
                 RecWalkinPrefferedStaffToggleSwitch.Checked = false;
+                RecWalkinAttendingStaffLbl.Visible = false;
+                RecWalkinAttendingStaffSelectedComboBox.Visible = false;
                 RecWalkinPrefferedStaffToggleSwitch.CheckedChanged += RecWalkinPrefferedStaffToggleSwitch_CheckedChanged;
                 return;
             }
@@ -6875,12 +6881,16 @@ namespace Enchante
                 {
                     RecWalkinAnyStaffToggleSwitch.Checked = false;
                     RecWalkinAttendingStaffSelectedComboBox.Enabled = true;
+                    RecWalkinAttendingStaffLbl.Visible = true;
+                    RecWalkinAttendingStaffSelectedComboBox.Visible = true;
                     InitializePrefferedStaffComboBox();
                 }
                 else
                 {
                     selectedStaffID = "Anyone";
                     RecWalkinAttendingStaffSelectedComboBox.Enabled = false;
+                    RecWalkinAttendingStaffLbl.Visible = false;
+                    RecWalkinAttendingStaffSelectedComboBox.Visible = false;
                     RecWalkinAttendingStaffSelectedComboBox.Items.Clear();
                 }
             }
@@ -6922,6 +6932,11 @@ namespace Enchante
                 string selectedValue = RecWalkinAttendingStaffSelectedComboBox.SelectedItem.ToString();
                 selectedStaffID = selectedValue.Substring(0, 11);
             }
+        }
+
+        private void RecAppointmentExitBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
