@@ -102,11 +102,10 @@ namespace Enchante
             ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteReceptionPage, EnchanteMemberPage, EnchanteAdminPage, EnchanteMngrPage);
             Registration = new Registration(MembershipPlanPanel, RegularPlanPanel, PremiumPlanPanel, SVIPPlanPanel);
             Service = new ServiceCard(ServiceType, ServiceHairStyling, ServiceFaceSkin, ServiceNailCare, ServiceSpa, ServiceMassage);
-            Transaction = new ReceptionTransactionCard(RecTransactionPanel, RecWalkinPanel, RecAppointmentPanel, RecPayServicePanel);
+            Transaction = new ReceptionTransactionCard(RecTransactionPanel, RecWalkinPanel, RecAppointmentPanel, RecPayServicePanel, RecQueWinPanel);
             Inventory = new MngrInventoryCard(MngrInventoryTypePanel, MngrInventoryServicesPanel, MngrInventoryMembershipPanel, MngrInventoryProductsPanel, MngrInventoryProductHistoryPanel, MngrSchedPanel, MngrWalkinSalesPanel, MngrIndemandPanel);
 
-            Inventory.PanelShow(MngrWalkinSalesPanel);
-            Inventory.PanelShow(MngrIndemandPanel);
+            
 
             //icon tool tip
             iconToolTip = new System.Windows.Forms.ToolTip();
@@ -637,9 +636,6 @@ namespace Enchante
                 AdminNameLbl.Text = "Admin Tester";
                 AdminIDNumLbl.Text = "AT-0000-0000";
                 PopulateUserInfoDataGrid();
-                LoginEmailAddErrorLbl.Visible = false;
-                LoginPassErrorLbl.Visible = false;
-
                 logincredclear();
                 return;
             }
@@ -670,8 +666,6 @@ namespace Enchante
                 MngrHomePanelReset();
                 MngrNameLbl.Text = "Manager Tester";
                 MngrIDNumLbl.Text = "MT-0000-0000";
-                LoginEmailAddErrorLbl.Visible = false;
-                LoginPassErrorLbl.Visible = false;
                 logincredclear();
 
 
@@ -699,14 +693,10 @@ namespace Enchante
                 //Test Recept
                 MessageBox.Show("Welcome back, Receptionist.", "Login Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ReceptionHomePanelReset();
+                RecWalkinTransactNumRefresh();
                 RecNameLbl.Text = "Receptionist Tester";
                 RecIDNumLbl.Text = "RT-0000-0000";
-                LoginEmailAddErrorLbl.Visible = false;
-                LoginPassErrorLbl.Visible = false;
                 logincredclear();
-
-
-
                 return;
             }
             else if (LoginEmailAddText.Text != "Recept" && LoginPassText.Text == "Recept123")
@@ -732,8 +722,6 @@ namespace Enchante
                 StaffHomePanelReset();
                 StaffNameLbl.Text = "Staff Tester";
                 StaffIDNumLbl.Text = "ST-0000-0000";
-                LoginEmailAddErrorLbl.Visible = false;
-                LoginPassErrorLbl.Visible = false;
                 logincredclear();
                 Service.PanelShow(ServiceType);
 
@@ -1014,6 +1002,7 @@ namespace Enchante
                                         RecNameLbl.Text = name + " " + lastname;
                                         RecIDNumLbl.Text = ID;
                                         ReceptionHomePanelReset();
+                                        RecWalkinTransactNumRefresh();
                                         logincredclear();
 
                                     }
@@ -2685,7 +2674,6 @@ namespace Enchante
         private void RecWalkInBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecWalkinPanel);
-            MngrTransactNumRefresh();
         }
 
         private void RecAppointmentBtn_Click(object sender, EventArgs e)
@@ -2712,7 +2700,7 @@ namespace Enchante
             }
         }
 
-        private void MngrTransactNumRefresh()
+        private void RecWalkinTransactNumRefresh()
         {
             RecWalkinTransNumText.Text = CashierSessionOrderNumberGenerator.GenerateOrderNumber();
 
@@ -2760,6 +2748,8 @@ namespace Enchante
         private void RecWalkInExitBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecTransactionPanel);
+            RecWalkinTransactionClear();
+
         }
 
         private void RecInventoryMembershipBtn_Click(object sender, EventArgs e)
@@ -3610,7 +3600,7 @@ namespace Enchante
             }
 
         }
-        private void SearchAcrossCategories(string searchText)
+        private void SearchAcrossCategories(string searchText, string category)
         {
             try
             {
@@ -3618,8 +3608,8 @@ namespace Enchante
                 {
                     connection.Open();
 
-                    // Modify the query to search for the specified text in all categories
-                    string sql = "SELECT * FROM `services` WHERE " +
+                    // Modify the query to search for the specified text in a specific category
+                    string sql = "SELECT * FROM `services` WHERE Category = @category AND " +
                                  "(Name LIKE @searchText OR " +
                                  "Description LIKE @searchText OR " +
                                  "Duration LIKE @searchText OR " +
@@ -3627,6 +3617,7 @@ namespace Enchante
 
                     MySqlCommand cmd = new MySqlCommand(sql, connection);
                     cmd.Parameters.AddWithValue("@searchText", "%" + searchText + "%");
+                    cmd.Parameters.AddWithValue("@category", category);
 
                     System.Data.DataTable dataTable = new System.Data.DataTable();
 
@@ -3653,21 +3644,51 @@ namespace Enchante
             }
             finally
             {
-                connection.Close();
+                // Ensure the connection is closed even in case of an exception
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
             }
         }
 
 
         private void RecWalkInSearchServiceTypeText_TextChanged(object sender, EventArgs e)
         {
-            string searchText = RecWalkinSearchServiceTypeText.Text;
-            SearchAcrossCategories(searchText);
+            RecWalkinSearchServicePerCat();
         }
-
-        private void RecWalkInSearchServiceTypeBtn_Click(object sender, EventArgs e)
+        private void RecWalkinSearchServicePerCat()
         {
             string searchText = RecWalkinSearchServiceTypeText.Text;
-            SearchAcrossCategories(searchText);
+            if (RecWalkinCatHSRB.Checked)
+            {
+                SearchAcrossCategories(searchText, "Hair Styling");
+                return;
+            }
+            else if (RecWalkinCatFSRB.Checked)
+            {
+                SearchAcrossCategories(searchText, "Face & Skin");
+                return;
+            }
+            else if (RecWalkinCatNCRB.Checked)
+            {
+                SearchAcrossCategories(searchText, "Nail Care");
+                return;
+            }
+            else if (RecWalkinCatSpaRB.Checked)
+            {
+                SearchAcrossCategories(searchText, "Spa");
+                return;
+            }
+            else if (RecWalkinCatMassageRB.Checked)
+            {
+                SearchAcrossCategories(searchText, "Massage");
+                return;
+            }
+        }
+        private void RecWalkInSearchServiceTypeBtn_Click(object sender, EventArgs e)
+        {
+            RecWalkinSearchServicePerCat();
         }
 
         private void AdminSignOutBtn_Click_1(object sender, EventArgs e)
@@ -5008,8 +5029,23 @@ namespace Enchante
             {
                 RecWalkinServiceHistoryDB(RecSelectedServiceDataGrid1);
                 ReceptionistWalk_in_AppointmentDB();
+                RecWalkinTransactNumRefresh();
+                RecWalkinTransactionClear();
             }
 
+        }
+
+        private void RecWalkinTransactionClear()
+        {
+            RecWalkinFNameText.Text = "";
+            RecWalkinLNameText.Text = "";
+            RecWalkinCPNumText.Text = "";
+            RecWalkinCatHSRB.Checked = false;
+            RecWalkinCatFSRB.Checked = false;
+            RecWalkinCatNCRB.Checked = false;
+            RecWalkinCatSpaRB.Checked = false;
+            RecWalkinCatMassageRB.Checked = false;
+            RecSelectedServiceDataGrid1.Rows.Clear();
         }
 
         private void ReceptionistWalk_in_AppointmentDB()
@@ -7640,9 +7676,190 @@ namespace Enchante
         {
             Inventory.PanelShow(MngrInventoryTypePanel);
         }
+
         #endregion
 
+        private void RecQueWinBtn_Click(object sender, EventArgs e)
+        {
+            Transaction.PanelShow(RecQueWinPanel);
+            RecQueStaffLoadData();
+            RecQueGeneralLoadData();
+        }
 
+        private void RecQueWinExitBtn_Click(object sender, EventArgs e)
+        {
+            Transaction.PanelShow(RecTransactionPanel);
+
+        }
+        private void RecQueStaffLoadData()
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    string sql = "SELECT * FROM `systemusers` WHERE EmployeeType = 'Staff' ORDER BY EmployeeType";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+
+                        RecQueWinStaffListDGV.DataSource = dataTable;
+                        RecQueWinStaffListDGV.Columns[2].Visible = false;
+                        RecQueWinStaffListDGV.Columns[3].Visible = false;
+                        RecQueWinStaffListDGV.Columns[4].Visible = false;
+                        RecQueWinStaffListDGV.Columns[5].Visible = false;
+                        RecQueWinStaffListDGV.Columns[6].Visible = false;
+                        RecQueWinStaffListDGV.Columns[7].Visible = false;
+                        RecQueWinStaffListDGV.Columns[9].Visible = false;
+                        RecQueWinStaffListDGV.Columns[11].Visible = false;
+                        RecQueWinStaffListDGV.Columns[15].Visible = false;
+                        RecQueWinStaffListDGV.Columns[16].Visible = false;
+                        RecQueWinStaffListDGV.Columns[17].Visible = false;
+
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("An error occurred: " + e.Message, "Inventory Service List");
+            }
+            finally
+            {
+                // Make sure to close the connection (if it's open)
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+        private void RecQueGeneralLoadData()
+        {
+            string todayDate = DateTime.Today.ToString("MM-dd-yyyy dddd");
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    string sql = "SELECT * FROM `servicehistory` WHERE QueType = 'GeneralQue' AND ServiceStatus = 'Pending' AND AppointmentDate = @todayDate";
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+                    cmd.Parameters.AddWithValue("@todayDate", todayDate);
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+
+                        RecQueWinNextCustomerDGV.DataSource = dataTable;
+
+                        RecQueWinNextCustomerDGV.Columns[0].Visible = false; //transact number
+                        RecQueWinNextCustomerDGV.Columns[2].Visible = false; //appointment date
+                        RecQueWinNextCustomerDGV.Columns[3].Visible = false; //appointment time
+                        RecQueWinNextCustomerDGV.Columns[5].Visible = false; //service category
+                        RecQueWinNextCustomerDGV.Columns[6].Visible = false; //attending staff
+                        RecQueWinNextCustomerDGV.Columns[7].Visible = false; //service ID
+                        RecQueWinNextCustomerDGV.Columns[10].Visible = false; //service start
+                        RecQueWinNextCustomerDGV.Columns[11].Visible = false; //service end
+                        RecQueWinNextCustomerDGV.Columns[12].Visible = false; //service duration
+                        RecQueWinNextCustomerDGV.Columns[13].Visible = false; //customization
+                        RecQueWinNextCustomerDGV.Columns[14].Visible = false; // add notes
+                        RecQueWinNextCustomerDGV.Columns[15].Visible = false; // preferred staff
+                        RecQueWinNextCustomerDGV.Columns[17].Visible = false; // Queue type
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("An error occurred: " + e.Message, "Inventory Service List");
+            }
+            finally
+            {
+                // Make sure to close the connection (if it's open)
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        private void RecQueWinStaffListDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Check if a valid cell is clicked
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Get TransactNumber and OrderNumber from the clicked cell in MngrSalesTable
+                string ID = RecQueWinStaffListDGV.Rows[e.RowIndex].Cells["EmployeeID"].Value.ToString();
+                RecQueWinEmplIDLbl.Text = ID;
+                RecLoadQueuedClient(ID);
+
+            }
+        }
+        public void RecLoadQueuedClient(string ID)
+        {
+            string todayDate = DateTime.Today.ToString("MM-dd-yyyy dddd");
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    string sql = "SELECT * FROM `servicehistory` WHERE PrefferedStaff = @emplID AND ServiceStatus = 'Pending' AND AppointmentDate = @todayDate";
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+
+                    // Add parameters to the query
+                    cmd.Parameters.AddWithValue("@emplID", ID);
+                    cmd.Parameters.AddWithValue("@todayDate", todayDate);
+
+
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+                        RecQueWinNextCustomerDGV.DataSource = dataTable;
+
+                        RecQueWinNextCustomerDGV.Columns[0].Visible = false; //transact number
+                        RecQueWinNextCustomerDGV.Columns[2].Visible = false; //appointment date
+                        RecQueWinNextCustomerDGV.Columns[3].Visible = false; //appointment time
+                        RecQueWinNextCustomerDGV.Columns[5].Visible = false; //service category
+                        RecQueWinNextCustomerDGV.Columns[6].Visible = false; //attending staff
+                        RecQueWinNextCustomerDGV.Columns[7].Visible = false; //service ID
+                        RecQueWinNextCustomerDGV.Columns[10].Visible = false; //service start
+                        RecQueWinNextCustomerDGV.Columns[11].Visible = false; //service end
+                        RecQueWinNextCustomerDGV.Columns[12].Visible = false; //service duration
+                        RecQueWinNextCustomerDGV.Columns[13].Visible = false; //customization
+                        RecQueWinNextCustomerDGV.Columns[14].Visible = false; // add notes
+                        RecQueWinNextCustomerDGV.Columns[15].Visible = false; // preferred staff
+                        RecQueWinNextCustomerDGV.Columns[17].Visible = false; // Queue type
+
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Manager Order History List");
+            }
+            finally
+            {
+                // Make sure to close the connection (if it's open)
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
     }
 
 }
