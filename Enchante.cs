@@ -36,6 +36,7 @@ using System.Reflection;
 using System.Windows.Controls;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Data.SqlClient;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Enchante
 {
@@ -72,6 +73,10 @@ namespace Enchante
         private string[] emplCatLevels = { "Not Applicable", "Junior", "Assistant", "Senior" };
         private string[] productType = { "Service Product", "Retail Product" };
         private string[] productStat = { "High Stock", "Low Stock" };
+        private string[] SalesDatePeriod = { "Day", "Week", "Month", "Specific Date Range" };
+        private string[] SalesCategories = { "Hair Styling", "Face & Skin", "Nail Care", "Massage", "Spa", "All categories" };
+        private string[] BestCategories = { "Hair Styling", "Face & Skin", "Nail Care", "Massage", "Spa", "Top Service Category" };
+
 
         // public List<AvailableStaff> filteredbyschedstaff;
         // public Guna.UI2.WinForms.Guna2ToggleSwitch AvailableStaffActiveToggleSwitch;
@@ -98,8 +103,10 @@ namespace Enchante
             Registration = new Registration(MembershipPlanPanel, RegularPlanPanel, PremiumPlanPanel, SVIPPlanPanel);
             Service = new ServiceCard(ServiceType, ServiceHairStyling, ServiceFaceSkin, ServiceNailCare, ServiceSpa, ServiceMassage);
             Transaction = new ReceptionTransactionCard(RecTransactionPanel, RecWalkinPanel, RecAppointmentPanel, RecPayServicePanel);
-            Inventory = new MngrInventoryCard(MngrInventoryTypePanel, MngrInventoryServicesPanel, MngrInventoryMembershipPanel, MngrInventoryProductsPanel, MngrInventoryProductHistoryPanel, MngrSchedPanel);
+            Inventory = new MngrInventoryCard(MngrInventoryTypePanel, MngrInventoryServicesPanel, MngrInventoryMembershipPanel, MngrInventoryProductsPanel, MngrInventoryProductHistoryPanel, MngrSchedPanel, MngrWalkinSalesPanel, MngrIndemandPanel);
 
+            Inventory.PanelShow(MngrWalkinSalesPanel);
+            Inventory.PanelShow(MngrIndemandPanel);
 
             //icon tool tip
             iconToolTip = new System.Windows.Forms.ToolTip();
@@ -137,11 +144,23 @@ namespace Enchante
             AdminEmplCatLvlComboText.DropDownStyle = ComboBoxStyle.DropDownList;
 
             //mngr combobox
-
+            //walk-in sales comboboxes
+            MngrWalkinSalesPeriod.Items.AddRange(SalesDatePeriod);
+            MngrWalkinSalesPeriod.DropDownStyle = ComboBoxStyle.DropDownList;
+            MngrWalkinSalesSelectCatBox.Items.AddRange(SalesCategories);
+            MngrWalkinSalesSelectCatBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            //best employee
+            ServiceHistoryPeriod.Items.AddRange(SalesDatePeriod);
+            ServiceHistoryPeriod.DropDownStyle = ComboBoxStyle.DropDownList;
+            MngrIndemandSelectCatBox.Items.AddRange(BestCategories);
+            MngrIndemandSelectCatBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
             RecEditSchedBtn.Click += RecEditSchedBtn_Click;
             MngrStaffAvailabilityComboBox.SelectedIndex = 0;
             MngrStaffSchedComboBox.SelectedIndex = 0;
+
+
+
 
             //InitializeAvailableStaffFlowLayout();
 
@@ -6096,10 +6115,9 @@ namespace Enchante
 
         }
 
-        private void MngrInventoryServicesHistoryBtn_Click(object sender, EventArgs e)
+        private void MngrInventoryWalkinSalesBtn_Click(object sender, EventArgs e)
         {
-
-
+            Inventory.PanelShow(MngrWalkinSalesPanel);
         }
 
         private void MngrInventoryProductsHistoryBtn_Click(object sender, EventArgs e)
@@ -6938,6 +6956,693 @@ namespace Enchante
         {
 
         }
+
+        //PANEL OF WALK-IN REVENUE
+        #region
+        private void IncomeBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(MngrWalkinSalesPeriod.Text))
+            {
+                MessageBox.Show("Please select a sale period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DateTime toDate;
+            string selectedCategory = MngrWalkinSalesSelectCatBox.SelectedItem?.ToString();
+            string salePeriod = MngrWalkinSalesPeriod.SelectedItem.ToString();
+            DateTime fromDate = DateTime.MinValue;
+
+            switch (salePeriod)
+            {
+                case "Day":
+                    if (!DateTime.TryParseExact(MngrWalkinSalesSelectedPeriodText.Text, "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDate))
+                    {
+                        MessageBox.Show("Please choose a day in the calendar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    toDate = fromDate;
+                    break;
+                case "Week":
+                    if (MngrWalkinSalesSelectedPeriodText.Text.Length < 23 ||
+                        !DateTime.TryParseExact(MngrWalkinSalesSelectedPeriodText.Text.Substring(0, 10), "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDate) ||
+                        !DateTime.TryParseExact(MngrWalkinSalesSelectedPeriodText.Text.Substring(14), "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out toDate))
+                    {
+                        MessageBox.Show("Please choose a week in the calendar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    break;
+                case "Month":
+                    if (!DateTime.TryParseExact(MngrWalkinSalesSelectedPeriodText.Text, "MMMM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDate))
+                    {
+                        MessageBox.Show("Please choose a month in the calendar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    toDate = fromDate.AddMonths(1).AddDays(-1);
+                    break;
+                case "Specific Date Range":
+                    fromDate = MngrWalkinSalesFromDatePicker.Value;
+                    toDate = MngrWalkinSalesToDatePicker.Value;
+                    break;
+                default:
+                    MessageBox.Show("Invalid SalePeriod selection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+            }
+
+
+            if (fromDate > toDate)
+            {
+                MessageBox.Show("From Date cannot be ahead of To Date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(selectedCategory))
+            {
+                MessageBox.Show("Please select a category.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+
+            List<DateTime> dates = new List<DateTime>();
+            Dictionary<string, List<decimal>> categoryRevenues = new Dictionary<string, List<decimal>>();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string query = @"SELECT STR_TO_DATE(AppointmentDate, '%m-%d-%Y') AS AppointmentDay, 
+                            ServiceCategory,
+                            SUM(CAST(ServicePrice AS DECIMAL(10, 2))) AS TotalRevenue 
+                            FROM servicehistory 
+                            WHERE ServiceStatus = 'Completed' 
+                            AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y') BETWEEN @FromDate AND @ToDate ";
+
+                    if (selectedCategory != "All Categories")
+                    {
+                        query += " AND ServiceCategory = @SelectedCategory";
+                    }
+
+                    query += " GROUP BY AppointmentDay, ServiceCategory";
+
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@FromDate", fromDate.ToString("yyyy-MM-dd"));
+                    command.Parameters.AddWithValue("@ToDate", toDate.ToString("yyyy-MM-dd"));
+
+                    if (selectedCategory != "All Categories")
+                    {
+                        command.Parameters.AddWithValue("@SelectedCategory", selectedCategory);
+                    }
+
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        DateTime appointmentDay = (DateTime)reader["AppointmentDay"];
+                        string category = (string)reader["ServiceCategory"];
+                        decimal totalRevenue = (decimal)reader["TotalRevenue"];
+
+                        if (!categoryRevenues.ContainsKey(category))
+                        {
+                            categoryRevenues[category] = new List<decimal>();
+                        }
+
+                        categoryRevenues[category].Add(totalRevenue);
+
+                        if (!dates.Contains(appointmentDay))
+                        {
+                            dates.Add(appointmentDay);
+                        }
+                    }
+
+                    reader.Close();
+
+                    MngrWalkinSalesGraph.Series.Clear();
+                    MngrWalkinSalesGraph.Legends.Clear();
+
+                    foreach (var category in categoryRevenues.Keys)
+                    {
+                        Series series = MngrWalkinSalesGraph.Series.Add($"{category} Revenue");
+                        series.ChartType = SeriesChartType.Line;
+                        series.BorderWidth = 3;
+
+                        for (int i = 0; i < dates.Count; i++)
+                        {
+                            if (categoryRevenues[category].Count > i)
+                            {
+                                series.Points.AddXY(dates[i].ToShortDateString(), categoryRevenues[category][i]);
+                                series.Points[i].MarkerStyle = MarkerStyle.Circle;
+                                series.Points[i].MarkerSize = 8;
+                            }
+                            else
+                            {
+                                series.Points.AddXY(dates[i].ToShortDateString(), 0);
+                            }
+                        }
+                    }
+
+                    MngrWalkinSalesGraph.ChartAreas[0].AxisX.Title = "Dates";
+                    MngrWalkinSalesGraph.ChartAreas[0].AxisX.TitleFont = new System.Drawing.Font("Arial", 10, FontStyle.Bold);
+                    MngrWalkinSalesGraph.ChartAreas[0].AxisY.Title = "Revenue";
+                    MngrWalkinSalesGraph.ChartAreas[0].AxisY.TitleFont = new System.Drawing.Font("Arial", 10, FontStyle.Bold);
+
+                    MngrWalkinSalesGraph.Legends.Add("Legend1");
+                    MngrWalkinSalesGraph.Legends[0].Enabled = true;
+                    MngrWalkinSalesGraph.Legends[0].Docking = Docking.Bottom;
+
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("TransactionNumber");
+                    dt.Columns.Add("AppointmentDate");
+                    dt.Columns.Add("TotalServicePrice", typeof(decimal));
+
+                    string transNumQuery = @"SELECT TransactionNumber, AppointmentDate, SUM(CAST(ServicePrice AS DECIMAL(10, 2))) AS TotalServicePrice 
+                    FROM servicehistory 
+                    WHERE ServiceStatus = 'Completed' 
+                    AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y %W') BETWEEN @FromDate AND @ToDate ";
+
+                    if (selectedCategory != "All Categories")
+                    {
+                        transNumQuery += " AND ServiceCategory = @SelectedCategory";
+                    }
+
+                    transNumQuery += " GROUP BY TransactionNumber";
+
+                    MySqlCommand transNumCommand = new MySqlCommand(transNumQuery, connection);
+                    transNumCommand.Parameters.AddWithValue("@FromDate", fromDate);
+                    transNumCommand.Parameters.AddWithValue("@ToDate", toDate);
+
+                    if (selectedCategory != "All Categories")
+                    {
+                        transNumCommand.Parameters.AddWithValue("@SelectedCategory", selectedCategory);
+                    }
+
+                    using (MySqlDataReader transNumReader = transNumCommand.ExecuteReader())
+                    {
+                        while (transNumReader.Read())
+                        {
+                            string transactionNumber = transNumReader["TransactionNumber"].ToString();
+                            string appointmentDate = transNumReader["AppointmentDate"].ToString();
+                            decimal totalServicePrice = (decimal)transNumReader["TotalServicePrice"];
+
+                            dt.Rows.Add(transactionNumber, appointmentDate, totalServicePrice);
+                        }
+                    }
+
+                    MngrWalkinSalesTransRepDGV.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
+        private void SalePeriod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            MngrWalkinSalesSelectedPeriodText.Text = "";
+            string selectedItem = MngrWalkinSalesPeriod.SelectedItem.ToString();
+
+            if (selectedItem == "Day" || selectedItem == "Week" || selectedItem == "Month")
+            {
+                MngrWalkinSalesPeriodCalendar.Visible = true;
+                MngrWalkinSalesFromLbl.Visible = false;
+                MngrWalkinSalesToLbl.Visible = false;
+                MngrWalkinSalesFromDatePicker.Visible = false;
+                MngrWalkinSalesToDatePicker.Visible = false;
+                MngrWalkinSalesSelectedPeriodLbl.Visible = true;
+                MngrWalkinSalesSelectedPeriodText.Visible = true;
+            }
+
+            else if (selectedItem == "Specific Date Range")
+            {
+                MngrWalkinSalesPeriodCalendar.Visible = false;
+                MngrWalkinSalesFromLbl.Visible = true;
+                MngrWalkinSalesToLbl.Visible = true;
+                MngrWalkinSalesFromDatePicker.Visible = true;
+                MngrWalkinSalesToDatePicker.Visible = true;
+                MngrWalkinSalesSelectedPeriodLbl.Visible = false;
+                MngrWalkinSalesSelectedPeriodText.Visible = false;
+            }
+        }
+
+        private void SalesPeriodCalendar_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            DateTime selectedDate = MngrWalkinSalesPeriodCalendar.SelectionStart;
+            string selectedPeriod = "";
+            string salePeriod = MngrWalkinSalesPeriod.SelectedItem.ToString();
+
+            switch (salePeriod)
+            {
+                case "Day":
+                    selectedPeriod = selectedDate.ToString("MM-dd-yyyy");
+                    break;
+                case "Week":
+                    DateTime monday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + (int)DayOfWeek.Monday);
+                    DateTime sunday = monday.AddDays(6);
+                    selectedPeriod = monday.ToString("MM-dd-yyyy") + " to " + sunday.ToString("MM-dd-yyyy");
+                    break;
+                case "Month":
+                    selectedPeriod = selectedDate.ToString("MMMM-yyyy");
+                    break;
+                default:
+                    break;
+            }
+            MngrWalkinSalesSelectedPeriodText.Text = selectedPeriod;
+        }
+
+        private void View_Click(object sender, EventArgs e)
+        {
+            ViewWalkinSales();
+        }
+
+        private void ViewWalkinSales() 
+        {
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+
+            if (MngrWalkinSalesTransRepDGV == null || MngrWalkinSalesTransRepDGV.SelectedRows.Count == 0 || MngrWalkinSalesTransRepDGV.SelectedRows[0].Cells["TransactionNumber"] == null)
+            {
+                MessageBox.Show("Please select a row to view.", "No Row Selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string transactionNumber = MngrWalkinSalesTransRepDGV.SelectedRows[0].Cells["TransactionNumber"].Value?.ToString();
+
+            if (string.IsNullOrEmpty(transactionNumber))
+            {
+                MessageBox.Show("TransactionNumber is null or empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string categoryFilter = "";
+            if (MngrWalkinSalesSelectCatBox.SelectedItem?.ToString() != "All Categories")
+            {
+                categoryFilter = "AND ServiceCategory = @ServiceCategory";
+            }
+
+            string query = "SELECT ServiceCategory, SelectedService, ServicePrice FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND ServiceStatus = 'Completed' " + categoryFilter;
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+
+                    if (MngrWalkinSalesSelectCatBox.SelectedItem?.ToString() != "All Categories")
+                    {
+                        command.Parameters.AddWithValue("@ServiceCategory", MngrWalkinSalesSelectCatBox.SelectedItem?.ToString());
+                    }
+
+                    DataTable dataTable = new DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        adapter.Fill(dataTable);
+                    }
+
+                    MngrWalkinSalesTransServiceHisDGV.DataSource = dataTable;
+
+                    // Display the TransactionNumber in the TextBox
+                    MngrWalkinSalesTransIDShow.Text = transactionNumber;
+                }
+                connection.Close();
+            }
+        }
+        private void TransNum_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ViewWalkinSales();
+        }
+        private void MngrWalkinSalesExitBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrInventoryTypePanel);
+
+        }
+        #endregion
+
+        private void MngrInventoryInDemandBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrIndemandPanel);
+        }
+        //PANEL OF SERVICE DEMAND
+        #region
+        private void ServiceHistoryBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ServiceHistoryPeriod.SelectedItem == null || string.IsNullOrEmpty(ServiceHistoryPeriod.SelectedItem.ToString()))
+                {
+                    MessageBox.Show("Please select a service history period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                DateTime fromDate, toDate;
+
+                string selectedPeriod = ServiceHistoryPeriod.SelectedItem.ToString();
+
+                if (selectedPeriod == "Day" || selectedPeriod == "Week" || selectedPeriod == "Month")
+                {
+                    if (string.IsNullOrWhiteSpace(MngrIndemandSelectPeriod.Text))
+                    {
+                        MessageBox.Show("Please provide a date for the selected period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
+                if (selectedPeriod == "Day")
+                {
+                    fromDate = toDate = DateTime.ParseExact(MngrIndemandSelectPeriod.Text, "MM-dd-yyyy", CultureInfo.InvariantCulture);
+                }
+                else if (selectedPeriod == "Week")
+                {
+                    string[] dates = MngrIndemandSelectPeriod.Text.Split(new string[] { " to " }, StringSplitOptions.None);
+                    fromDate = DateTime.ParseExact(dates[0], "MM-dd-yyyy", CultureInfo.InvariantCulture);
+                    toDate = DateTime.ParseExact(dates[1], "MM-dd-yyyy", CultureInfo.InvariantCulture);
+                }
+                else if (selectedPeriod == "Month")
+                {
+                    fromDate = new DateTime(DateTime.ParseExact(MngrIndemandSelectPeriod.Text, "MMMM-yyyy", CultureInfo.InvariantCulture).Year,
+                                            DateTime.ParseExact(MngrIndemandSelectPeriod.Text, "MMMM-yyyy", CultureInfo.InvariantCulture).Month,
+                                            1);
+                    toDate = fromDate.AddMonths(1).AddDays(-1);
+                }
+                else
+                {
+                    fromDate = MngrIndemandDatePickerFrom.Value;
+                    toDate = MngrIndemandDatePickerTo.Value;
+                }
+
+                if (MngrIndemandSelectCatBox.SelectedItem == null)
+                {
+                    MessageBox.Show("Please select a category.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string selectedCategory = MngrIndemandSelectCatBox.SelectedItem.ToString();
+
+                string query;
+                Dictionary<string, int> counts;
+
+                if (selectedCategory == "Top Service Category")
+                {
+                    query = @"
+                        SELECT 
+                            ServiceCategory,
+                            AttendingStaff,
+                        COUNT(*) AS CategoryCount
+                        FROM 
+                            servicehistory 
+                        WHERE 
+                            ServiceStatus = 'Completed' 
+                            AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y') BETWEEN @FromDate AND @ToDate 
+                        GROUP BY
+                            ServiceCategory, AttendingStaff";
+                    counts = new Dictionary<string, int>();
+                }
+                else
+                {
+                    query = @"
+                        SELECT 
+                            AttendingStaff,
+                            STR_TO_DATE(AppointmentDate, '%m-%d-%Y') AS AppointmentDay, 
+                            ServiceCategory,
+                            SelectedService
+                        FROM 
+                            servicehistory 
+                        WHERE 
+                            ServiceStatus = 'Completed' 
+                            AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y') BETWEEN @FromDate AND @ToDate 
+                            AND ServiceCategory = @SelectedCategory";
+                    counts = new Dictionary<string, int>();
+                }
+
+                using (MySqlConnection connection = new MySqlConnection("Server=localhost;Database=enchante;Uid=root;Pwd=;"))
+                {
+                    connection.Open();
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@FromDate", fromDate.ToString("yyyy-MM-dd"));
+                        command.Parameters.AddWithValue("@ToDate", toDate.ToString("yyyy-MM-dd"));
+                        command.Parameters.AddWithValue("@SelectedCategory", selectedCategory);
+
+                        Dictionary<string, int> serviceCounts = new Dictionary<string, int>();
+                        Dictionary<string, int> staffCounts = new Dictionary<string, int>();
+
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                if (selectedCategory == "Top Service Category")
+                                {
+                                    string serviceCategory = reader.GetString("ServiceCategory");
+                                    int categoryCount = reader.GetInt32("CategoryCount");
+                                    serviceCounts[serviceCategory] = categoryCount;
+
+                                    string attendingStaff = reader.GetString("AttendingStaff");
+                                    if (staffCounts.ContainsKey(attendingStaff))
+                                    {
+                                        staffCounts[attendingStaff] += categoryCount;
+                                    }
+                                    else
+                                    {
+                                        staffCounts[attendingStaff] = categoryCount;
+                                    }
+                                }
+                                else
+                                {
+                                    string selectedService = reader.GetString("SelectedService");
+                                    if (serviceCounts.ContainsKey(selectedService))
+                                    {
+                                        serviceCounts[selectedService]++;
+
+                                        string attendingStaff = reader.GetString("AttendingStaff");
+                                        if (staffCounts.ContainsKey(attendingStaff))
+                                        {
+                                            staffCounts[attendingStaff]++;
+                                        }
+                                        else
+                                        {
+                                            staffCounts[attendingStaff] = 1;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        serviceCounts[selectedService] = 1;
+
+                                        string attendingStaff = reader.GetString("AttendingStaff");
+                                        if (staffCounts.ContainsKey(attendingStaff))
+                                        {
+                                            staffCounts[attendingStaff]++;
+                                        }
+                                        else
+                                        {
+                                            staffCounts[attendingStaff] = 1;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        if (selectedCategory == "Top Service Category")
+                        {
+                            MngrIndemandServiceGraph.Series.Clear();
+                            var series = MngrIndemandServiceGraph.Series.Add("ServiceCount");
+                            series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+
+                            foreach (var kvp in serviceCounts)
+                            {
+                                string serviceName = kvp.Key;
+                                int serviceCount = kvp.Value;
+
+                                var dataPoint = series.Points.Add(serviceCount);
+                                series.Points.Last().LegendText = serviceName;
+                            }
+
+                            MngrIndemandServiceGraph.Titles.Clear();
+                            var title = MngrIndemandServiceGraph.Titles.Add("Top Service");
+                            title.Font = new System.Drawing.Font("Arial", 12f, System.Drawing.FontStyle.Bold);
+
+                            DataTable serviceCategoryTable = new DataTable();
+                            serviceCategoryTable.Columns.Add("Service Category");
+                            serviceCategoryTable.Columns.Add("Top Service Count");
+
+                            foreach (var kvp in serviceCounts)
+                            {
+                                serviceCategoryTable.Rows.Add(kvp.Key, kvp.Value);
+                            }
+
+                            MngrIndemandServiceSelection.DataSource = serviceCategoryTable;
+
+                            DataTable staffTable = new DataTable();
+                            staffTable.Columns.Add("Rank");
+                            staffTable.Columns.Add("ID");
+                            staffTable.Columns.Add("First Name");
+                            staffTable.Columns.Add("Last Name");
+                            staffTable.Columns.Add("# of Services Done");
+
+                            List<KeyValuePair<string, int>> sortedStaffCounts = staffCounts.ToList();
+                            sortedStaffCounts.Sort((x, y) => y.Value.CompareTo(x.Value));
+
+                            int rank = 1;
+                            foreach (var kvp in sortedStaffCounts)
+                            {
+                                string employeeID = kvp.Key;
+                                string firstName, lastName;
+                                using (MySqlCommand userCommand = new MySqlCommand("SELECT FirstName, LastName FROM systemusers WHERE EmployeeID = @EmployeeID", connection))
+                                {
+                                    userCommand.Parameters.AddWithValue("@EmployeeID", employeeID);
+
+                                    using (MySqlDataReader userReader = userCommand.ExecuteReader())
+                                    {
+                                        if (userReader.Read())
+                                        {
+                                            firstName = userReader.GetString("FirstName");
+                                            lastName = userReader.GetString("LastName");
+
+                                            staffTable.Rows.Add(rank, employeeID, firstName, lastName, kvp.Value);
+                                            rank++;
+                                        }
+                                    }
+                                }
+                            }
+                            MngrIndemandBestEmployee.DataSource = staffTable;
+                        }
+                        else
+                        {
+                            DataTable serviceTable = new DataTable();
+                            serviceTable.Columns.Add("Service Name");
+                            serviceTable.Columns.Add("Service Selection Counts");
+
+                            foreach (var kvp in serviceCounts)
+                            {
+                                serviceTable.Rows.Add(kvp.Key, kvp.Value);
+                            }
+
+                            MngrIndemandServiceSelection.DataSource = serviceTable;
+
+                            DataTable staffTable = new DataTable();
+                            staffTable.Columns.Add("Rank");
+                            staffTable.Columns.Add("ID");
+                            staffTable.Columns.Add("First Name");
+                            staffTable.Columns.Add("Last Name");
+                            staffTable.Columns.Add("# of Services Done");
+
+                            List<KeyValuePair<string, int>> sortedStaffCounts = staffCounts.ToList();
+                            sortedStaffCounts.Sort((x, y) => y.Value.CompareTo(x.Value));
+                            int rank = 1;
+
+                            foreach (var kvp in sortedStaffCounts)
+                            {
+                                string employeeID = kvp.Key;
+                                string firstName, lastName;
+                                using (MySqlCommand userCommand = new MySqlCommand("SELECT FirstName, LastName FROM systemusers WHERE EmployeeID = @EmployeeID", connection))
+                                {
+                                    userCommand.Parameters.AddWithValue("@EmployeeID", employeeID);
+
+                                    using (MySqlDataReader userReader = userCommand.ExecuteReader())
+                                    {
+                                        if (userReader.Read())
+                                        {
+                                            firstName = userReader.GetString("FirstName");
+                                            lastName = userReader.GetString("LastName");
+
+                                            staffTable.Rows.Add(rank, employeeID, firstName, lastName, kvp.Value);
+                                            rank++;
+                                        }
+                                    }
+                                }
+                            }
+
+                            DataView dv = staffTable.DefaultView;
+                            dv.Sort = "# of Services Done DESC";
+                            MngrIndemandBestEmployee.DataSource = dv.ToTable();
+
+                            MngrIndemandServiceGraph.Series.Clear();
+                            var pieSeries = MngrIndemandServiceGraph.Series.Add("ServiceCount");
+                            pieSeries.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+
+                            foreach (var kvp in serviceCounts)
+                            {
+                                string serviceName = kvp.Key;
+                                int serviceCount = kvp.Value;
+
+                                var dataPoint = pieSeries.Points.Add(serviceCount);
+                                pieSeries.Points.Last().LegendText = serviceName;
+                            }
+                            MngrIndemandServiceGraph.Titles.Clear();
+                            var chartTitle = MngrIndemandServiceGraph.Titles.Add("Service Demand");
+                            chartTitle.Font = new System.Drawing.Font("Arial", 12f, System.Drawing.FontStyle.Bold);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ServiceHistoryPeriod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MngrIndemandSelectPeriod.Text = "";
+            string selectedItem = ServiceHistoryPeriod.SelectedItem.ToString();
+
+            if (selectedItem == "Day" || selectedItem == "Week" || selectedItem == "Month")
+            {
+                MngrIndemandServicePeriodCalendar.Visible = true;
+                MngrIndemandFromLbl.Visible = false;
+                MngrIndemandToLbl.Visible = false;
+                MngrIndemandDatePickerFrom.Visible = false;
+                MngrIndemandDatePickerTo.Visible = false;
+                MngrIndemandSelectPeriodLbl.Visible = true;
+                MngrIndemandSelectPeriod.Visible = true;
+            }
+
+            else if (selectedItem == "Specific Date Range")
+            {
+                MngrIndemandServicePeriodCalendar.Visible = false;
+                MngrIndemandFromLbl.Visible = true;
+                MngrIndemandToLbl.Visible = true;
+                MngrIndemandDatePickerFrom.Visible = true;
+                MngrIndemandDatePickerTo.Visible = true;
+                MngrIndemandSelectPeriodLbl.Visible = false;
+                MngrIndemandSelectPeriod.Visible = false;
+            }
+        }
+
+        private void ServicePeriodCalendar_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            DateTime selectedDate = MngrIndemandServicePeriodCalendar.SelectionStart;
+            string selectedPeriod = "";
+            string salePeriod = ServiceHistoryPeriod.SelectedItem.ToString();
+
+            switch (salePeriod)
+            {
+                case "Day":
+                    selectedPeriod = selectedDate.ToString("MM-dd-yyyy");
+                    break;
+                case "Week":
+                    DateTime monday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + (int)DayOfWeek.Monday);
+                    DateTime sunday = monday.AddDays(6);
+                    selectedPeriod = monday.ToString("MM-dd-yyyy") + " to " + sunday.ToString("MM-dd-yyyy");
+                    break;
+                case "Month":
+                    selectedPeriod = selectedDate.ToString("MMMM-yyyy");
+                    break;
+                default:
+                    break;
+            }
+            MngrIndemandSelectPeriod.Text = selectedPeriod;
+        }
+        private void MngrIndemandExitBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrInventoryTypePanel);
+        }
+        #endregion
+
+
     }
 
 }
