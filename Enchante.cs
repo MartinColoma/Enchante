@@ -625,7 +625,21 @@ namespace Enchante
                 loginchecker();
 
                 e.SuppressKeyPress = true;
+                return;
             }
+            else if (e.KeyCode == Keys.Up)
+            {
+                LoginEmailAddText.Focus();
+            }
+
+        }
+        private void LoginEmailAddText_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Down)
+            {
+                LoginPassText.Focus();
+            }
+
         }
         private void loginchecker()
         {
@@ -5048,6 +5062,206 @@ namespace Enchante
             RecWalkinCatMassageRB.Checked = false;
             RecSelectedServiceDataGrid1.Rows.Clear();
         }
+        private void QueueNumReceiptGenerator()
+        {
+            DateTime currentDate = RecDateTimePicker.Value;
+            string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
+            string timePrinted = currentDate.ToString("hh:mm tt");
+            string timePrintedFile = currentDate.ToString("hh-mm-ss");
+            string transactNum = RecPayServiceTransactNumLbl.Text;
+            string clientName = RecPayServiceClientNameLbl.Text;
+            string receptionName = RecNameLbl.Text;
+            string legal = "Thank you for trusting Enchanté Salon for your beauty needs." +
+                " This receipt will serve as your sales invoice of any services done in Enchanté Salon." +
+                " Any concerns about your services please ask and show this receipt in the frontdesk of Enchanté Salon.";
+            // Increment the file name
+
+            // Generate a unique filename for the PDF
+            string fileName = $"Enchanté-Receipt-{transactNum}-{timePrintedFile}.pdf";
+
+            // Create a SaveFileDialog to choose the save location
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF Files|*.pdf";
+            saveFileDialog.FileName = fileName;
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = saveFileDialog.FileName;
+
+                // Create a new document with custom page size (8.5"x4.25" in landscape mode)
+                Document doc = new Document(new iTextSharp.text.Rectangle(Utilities.MillimetersToPoints(133f), Utilities.MillimetersToPoints(203f)));
+
+                try
+                {
+                    // Create a PdfWriter instance
+                    PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(filePath, FileMode.Create));
+
+                    // Open the document for writing
+                    doc.Open();
+
+                    //string imagePath = "C:\\Users\\Pepper\\source\\repos\\Enchante\\Resources\\Enchante Logo (200 x 200 px) (1).png"; // Replace with the path to your logo image
+                    // Load the image from project resources
+                    //if (File.Exists(imagePath))
+                    //{
+                    //    //iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imagePath);
+                    //}
+
+                    // Load the image from project resources
+                    byte[] imageBytes = GetImageBytesFromResource("Enchante.Resources.Enchante Logo (200 x 200 px) (1).png");
+
+                    if (imageBytes != null)
+                    {
+                        iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imageBytes);
+                        logo.ScaleAbsolute(50f, 50f);
+                        logo.Alignment = Element.ALIGN_CENTER;
+                        doc.Add(logo);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error loading image from resources.", "Manager Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    };
+
+                    iTextSharp.text.Font headerFont = FontFactory.GetFont("Courier", 16, iTextSharp.text.Font.BOLD);
+                    iTextSharp.text.Font boldfont = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.BOLD);
+                    iTextSharp.text.Font font = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.NORMAL);
+
+                    // Create a centered alignment for text
+                    iTextSharp.text.Paragraph centerAligned = new Paragraph();
+                    centerAligned.Alignment = Element.ALIGN_CENTER;
+
+                    // Add centered content to the centerAligned Paragraph
+                    centerAligned.Add(new Chunk("Enchanté Salon", headerFont));
+                    centerAligned.Add(new Chunk("\n69th flr. Enchanté Bldg. Ortigas Extension Ave. \nManggahan, Pasig City 1611 Philippines", font));
+                    centerAligned.Add(new Chunk("\nTel. No.: (1101) 111-1010", font));
+                    centerAligned.Add(new Chunk($"\nDate: {datetoday} Time: {timePrinted}", font));
+
+                    // Add the centered content to the document
+                    doc.Add(centerAligned);
+                    doc.Add(new Chunk("\n")); // New line
+
+                    doc.Add(new Paragraph($"Transaction No.: {transactNum}", font));
+                    //doc.Add(new Paragraph($"Order Date: {today}", font));
+                    doc.Add(new Paragraph($"Reception Name: {receptionName}", font));
+                    doc.Add(new Chunk("\n")); // New line
+
+                    doc.Add(new LineSeparator()); // Dotted line
+                    PdfPTable itemTable = new PdfPTable(3); // 3 columns for the item table
+                    itemTable.SetWidths(new float[] { 5f, 10f, 5f }); // Column widths
+                    itemTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+                    itemTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                    itemTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    itemTable.AddCell(new Phrase("Staff ID", boldfont));
+                    itemTable.AddCell(new Phrase("Service", boldfont));
+                    itemTable.AddCell(new Phrase("Price", boldfont));
+                    doc.Add(itemTable);
+                    doc.Add(new LineSeparator()); // Dotted line
+                    // Iterate through the rows of your 
+                    foreach (DataGridViewRow row in RecPayServicesAcquiredDGV.Rows)
+                    {
+                        try
+                        {
+                            string itemName = row.Cells["SelectedService"].Value?.ToString();
+                            if (string.IsNullOrEmpty(itemName))
+                            {
+                                continue; // Skip empty rows
+                            }
+
+                            string staffID = row.Cells["AttendingStaff"].Value?.ToString();
+                            string itemTotalcost = row.Cells["ServicePrice"].Value?.ToString();
+
+                            // Add cells to the item table
+                            PdfPTable serviceTable = new PdfPTable(3); // 4 columns for the item table
+                            serviceTable.SetWidths(new float[] { 3f, 5f, 3f }); // Column widths
+                            serviceTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+                            serviceTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                            serviceTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                            serviceTable.AddCell(new Phrase(staffID, font));
+                            serviceTable.AddCell(new Phrase(itemName, font));
+                            serviceTable.AddCell(new Phrase(itemTotalcost, font));
+
+                            // Add the item table to the document
+                            doc.Add(serviceTable);
+                        }
+                        catch (Exception ex)
+                        {
+                            // Handle or log any exceptions that occur while processing DataGridView data
+                            MessageBox.Show("An error occurred: " + ex.Message, "Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    doc.Add(new Chunk("\n")); // New line
+                    doc.Add(new LineSeparator()); // Dotted line
+                    doc.Add(new Chunk("\n")); // New line
+
+                    // Total from your textboxes as decimal
+                    decimal netAmount = decimal.Parse(MngrPayServiceNetAmountBox.Text);
+                    decimal discount = decimal.Parse(RecWalkinDiscountBox.Text);
+                    decimal vat = decimal.Parse(MngrPayServiceVATBox.Text);
+                    decimal grossAmount = decimal.Parse(MngrPayServiceGrossAmountBox.Text);
+                    decimal cash = decimal.Parse(MngrPayServiceCashBox.Text);
+                    decimal change = decimal.Parse(MngrPayServiceChangeBox.Text);
+
+                    // Create a new table for the "Total" section
+                    PdfPTable totalTable = new PdfPTable(2); // 2 columns for the "Total" table
+                    totalTable.SetWidths(new float[] { 5f, 3f }); // Column widths
+                    totalTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+
+                    // Add cells to the "Total" table
+                    totalTable.AddCell(new Phrase($"Total # of Service ({RecPayServicesAcquiredDGV.Rows.Count})", font));
+                    totalTable.AddCell(new Phrase($"Php {grossAmount:F2}", font));
+                    totalTable.AddCell(new Phrase($"Cash Given", font));
+                    totalTable.AddCell(new Phrase($"Php {cash:F2}", font));
+                    totalTable.AddCell(new Phrase($"Change", font));
+                    totalTable.AddCell(new Phrase($"Php {change:F2}", font));
+
+                    // Add the "Total" table to the document
+                    doc.Add(totalTable);
+                    doc.Add(new Chunk("\n")); // New line
+
+                    // Create a new table for the "VATable" section
+                    PdfPTable vatTable = new PdfPTable(2); // 2 columns for the "VATable" table
+                    vatTable.SetWidths(new float[] { 5f, 3f }); // Column widths
+                    vatTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+
+                    // Add cells to the "VATable" table
+                    vatTable.AddCell(new Phrase("VATable ", font));
+                    vatTable.AddCell(new Phrase($"Php {netAmount:F2}", font));
+                    vatTable.AddCell(new Phrase("VAT Tax (12%)", font));
+                    vatTable.AddCell(new Phrase($"Php {vat:F2}", font));
+                    vatTable.AddCell(new Phrase("Discount (20%)", font));
+                    vatTable.AddCell(new Phrase($"Php {discount:F2}", font));
+
+                    // Add the "VATable" table to the document
+                    doc.Add(vatTable);
+
+
+                    // Add the "Served To" section
+                    doc.Add(new Chunk("\n")); // New line
+                    doc.Add(new Paragraph($"Served To: {clientName}", font));
+                    doc.Add(new Paragraph("Address:_______________________________", font));
+                    doc.Add(new Paragraph("TIN No.:_______________________________", font));
+
+                    // Add the legal string with center alignment
+                    Paragraph paragraph_footer = new Paragraph($"\n\n{legal}", font);
+                    paragraph_footer.Alignment = Element.ALIGN_CENTER;
+                    doc.Add(paragraph_footer);
+                }
+                catch (DocumentException de)
+                {
+                    MessageBox.Show("An error occurred: " + de.Message, "Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (IOException ioe)
+                {
+                    MessageBox.Show("An error occurred: " + ioe.Message, "Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    // Close the document
+                    doc.Close();
+                }
+
+                //MessageBox.Show($"Receipt saved as {filePath}", "Receipt Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
 
         private void ReceptionistWalk_in_AppointmentDB()
         {
@@ -5196,9 +5410,9 @@ namespace Enchante
             decimal total = 0;
 
             // Assuming the "Price" column is of decimal type
-            int priceColumnIndex = MngrPayServicesAcquiredDGV.Columns["ServicePrice"].Index;
+            int priceColumnIndex = RecPayServicesAcquiredDGV.Columns["ServicePrice"].Index;
 
-            foreach (DataGridViewRow row in MngrPayServicesAcquiredDGV.Rows)
+            foreach (DataGridViewRow row in RecPayServicesAcquiredDGV.Rows)
             {
                 if (row.Cells[priceColumnIndex].Value != null)
                 {
@@ -5337,7 +5551,7 @@ namespace Enchante
         }
         private void RecWalkinGrossAmountBox_TextChanged(object sender, EventArgs e)
         {
-            ReceptionCalculateVATAndNetAmount();
+            //ReceptionCalculateVATAndNetAmount();
             if (decimal.TryParse(MngrPayServiceGrossAmountBox.Text, out decimal grossAmount))
             {
                 // Get the Cash Amount from the TextBox (MngrCashBox)
@@ -5363,16 +5577,16 @@ namespace Enchante
         }
         private void RecWalkinCCPaymentBtn_Click(object sender, EventArgs e)
         {
-            if (MngrPayServiceCCPaymentRB.Checked == false)
+            if (RecPayServiceCCPaymentRB.Checked == false)
             {
-                MngrPayServiceCCPaymentRB.Visible = true;
-                MngrPayServiceCCPaymentRB.Checked = true;
-                MngrPayServiceTypeText.Text = "Credit Card";
-                MngrPayServiceBankPaymentPanel.Visible = true;
+                RecPayServiceCCPaymentRB.Visible = true;
+                RecPayServiceCCPaymentRB.Checked = true;
+                RecPayServiceTypeText.Text = "Credit Card";
+                RecPayServiceBankPaymentPanel.Visible = true;
 
 
                 //disable other payment panel
-                MngrPayServiceWalletPaymentPanel.Visible = false;
+                RecPayServiceWalletPaymentPanel.Visible = false;
                 MngrPayServiceCashLbl.Visible = false;
                 MngrPayServiceCashBox.Visible = false;
                 MngrPayServiceCashBox.Text = "";
@@ -5381,34 +5595,34 @@ namespace Enchante
                 MngrPayServiceChangeBox.Visible = false;
 
                 //disable radio buttons
-                MngrPayServicePPPaymentRB.Visible = false;
-                MngrPayServiceCashPaymentRB.Visible = false;
-                MngrPayServiceGCPaymentRB.Visible = false;
+                RecPayServicePPPaymentRB.Visible = false;
+                RecPayServiceCashPaymentRB.Visible = false;
+                RecPayServiceGCPaymentRB.Visible = false;
                 MngrPayServicePMPaymentRB.Visible = false;
-                MngrPayServicePPPaymentRB.Checked = false;
-                MngrPayServiceCashPaymentRB.Checked = false;
-                MngrPayServiceGCPaymentRB.Checked = false;
+                RecPayServicePPPaymentRB.Checked = false;
+                RecPayServiceCashPaymentRB.Checked = false;
+                RecPayServiceGCPaymentRB.Checked = false;
                 MngrPayServicePMPaymentRB.Checked = false;
             }
             else
             {
-                MngrPayServiceCCPaymentRB.Visible = true;
-                MngrPayServiceCCPaymentRB.Checked = true;
+                RecPayServiceCCPaymentRB.Visible = true;
+                RecPayServiceCCPaymentRB.Checked = true;
             }
         }
 
         private void RecWalkinPPPaymentBtn_Click(object sender, EventArgs e)
         {
-            if (MngrPayServicePPPaymentRB.Checked == false)
+            if (RecPayServicePPPaymentRB.Checked == false)
             {
-                MngrPayServicePPPaymentRB.Visible = true;
-                MngrPayServicePPPaymentRB.Checked = true;
-                MngrPayServiceTypeText.Text = "Paypal";
-                MngrPayServiceBankPaymentPanel.Visible = true;
+                RecPayServicePPPaymentRB.Visible = true;
+                RecPayServicePPPaymentRB.Checked = true;
+                RecPayServiceTypeText.Text = "Paypal";
+                RecPayServiceBankPaymentPanel.Visible = true;
 
 
                 //disable other payment panel
-                MngrPayServiceWalletPaymentPanel.Visible = false;
+                RecPayServiceWalletPaymentPanel.Visible = false;
                 MngrPayServiceCashLbl.Visible = false;
                 MngrPayServiceCashBox.Visible = false;
                 MngrPayServiceCashBox.Text = "";
@@ -5417,67 +5631,67 @@ namespace Enchante
                 MngrPayServiceChangeBox.Visible = false;
 
                 //disable radio buttons
-                MngrPayServiceCCPaymentRB.Visible = false;
-                MngrPayServiceCashPaymentRB.Visible = false;
-                MngrPayServiceGCPaymentRB.Visible = false;
+                RecPayServiceCCPaymentRB.Visible = false;
+                RecPayServiceCashPaymentRB.Visible = false;
+                RecPayServiceGCPaymentRB.Visible = false;
                 MngrPayServicePMPaymentRB.Visible = false;
-                MngrPayServiceCCPaymentRB.Checked = false;
-                MngrPayServiceCashPaymentRB.Checked = false;
-                MngrPayServiceGCPaymentRB.Checked = false;
+                RecPayServiceCCPaymentRB.Checked = false;
+                RecPayServiceCashPaymentRB.Checked = false;
+                RecPayServiceGCPaymentRB.Checked = false;
                 MngrPayServicePMPaymentRB.Checked = false;
             }
             else
             {
-                MngrPayServicePPPaymentRB.Visible = true;
-                MngrPayServicePPPaymentRB.Checked = true;
+                RecPayServicePPPaymentRB.Visible = true;
+                RecPayServicePPPaymentRB.Checked = true;
             }
         }
 
         private void RecWalkinCashPaymentBtn_Click(object sender, EventArgs e)
         {
-            if (MngrPayServiceCashPaymentRB.Checked == false)
+            if (RecPayServiceCashPaymentRB.Checked == false)
             {
-                MngrPayServiceCashPaymentRB.Visible = true;
-                MngrPayServiceCashPaymentRB.Checked = true;
-                MngrPayServiceTypeText.Text = "Cash";
+                RecPayServiceCashPaymentRB.Visible = true;
+                RecPayServiceCashPaymentRB.Checked = true;
+                RecPayServiceTypeText.Text = "Cash";
                 MngrPayServiceCashLbl.Visible = true;
                 MngrPayServiceCashBox.Visible = true;
                 MngrPayServiceChangeLbl.Visible = true;
                 MngrPayServiceChangeBox.Visible = true;
 
                 //disable other payment panel
-                MngrPayServiceBankPaymentPanel.Visible = false;
-                MngrPayServiceWalletPaymentPanel.Visible = false;
+                RecPayServiceBankPaymentPanel.Visible = false;
+                RecPayServiceWalletPaymentPanel.Visible = false;
 
                 //disable radio buttons
-                MngrPayServiceCCPaymentRB.Visible = false;
-                MngrPayServicePPPaymentRB.Visible = false;
-                MngrPayServiceGCPaymentRB.Visible = false;
+                RecPayServiceCCPaymentRB.Visible = false;
+                RecPayServicePPPaymentRB.Visible = false;
+                RecPayServiceGCPaymentRB.Visible = false;
                 MngrPayServicePMPaymentRB.Visible = false;
-                MngrPayServiceCCPaymentRB.Checked = false;
-                MngrPayServicePPPaymentRB.Checked = false;
-                MngrPayServiceGCPaymentRB.Checked = false;
+                RecPayServiceCCPaymentRB.Checked = false;
+                RecPayServicePPPaymentRB.Checked = false;
+                RecPayServiceGCPaymentRB.Checked = false;
                 MngrPayServicePMPaymentRB.Checked = false;
             }
             else
             {
-                MngrPayServiceCashPaymentRB.Visible = true;
-                MngrPayServiceCashPaymentRB.Checked = true;
+                RecPayServiceCashPaymentRB.Visible = true;
+                RecPayServiceCashPaymentRB.Checked = true;
             }
         }
 
         private void RecWalkinGCPaymentBtn_Click(object sender, EventArgs e)
         {
-            if (MngrPayServiceGCPaymentRB.Checked == false)
+            if (RecPayServiceGCPaymentRB.Checked == false)
             {
-                MngrPayServiceGCPaymentRB.Visible = true;
-                MngrPayServiceGCPaymentRB.Checked = true;
-                MngrPayServiceTypeText.Text = "Gcash";
-                MngrPayServiceWalletPaymentPanel.Visible = true;
+                RecPayServiceGCPaymentRB.Visible = true;
+                RecPayServiceGCPaymentRB.Checked = true;
+                RecPayServiceTypeText.Text = "Gcash";
+                RecPayServiceWalletPaymentPanel.Visible = true;
 
 
                 //disable other payment panel
-                MngrPayServiceBankPaymentPanel.Visible = false;
+                RecPayServiceBankPaymentPanel.Visible = false;
                 MngrPayServiceCashLbl.Visible = false;
                 MngrPayServiceCashBox.Visible = false;
                 MngrPayServiceCashBox.Text = "";
@@ -5486,19 +5700,19 @@ namespace Enchante
                 MngrPayServiceChangeBox.Visible = false;
 
                 //disable radio buttons
-                MngrPayServiceCCPaymentRB.Visible = false;
-                MngrPayServicePPPaymentRB.Visible = false;
-                MngrPayServiceCashPaymentRB.Visible = false;
+                RecPayServiceCCPaymentRB.Visible = false;
+                RecPayServicePPPaymentRB.Visible = false;
+                RecPayServiceCashPaymentRB.Visible = false;
                 MngrPayServicePMPaymentRB.Visible = false;
-                MngrPayServiceCCPaymentRB.Checked = false;
-                MngrPayServicePPPaymentRB.Checked = false;
-                MngrPayServiceCashPaymentRB.Checked = false;
+                RecPayServiceCCPaymentRB.Checked = false;
+                RecPayServicePPPaymentRB.Checked = false;
+                RecPayServiceCashPaymentRB.Checked = false;
                 MngrPayServicePMPaymentRB.Checked = false;
             }
             else
             {
-                MngrPayServiceGCPaymentRB.Visible = true;
-                MngrPayServiceGCPaymentRB.Checked = true;
+                RecPayServiceGCPaymentRB.Visible = true;
+                RecPayServiceGCPaymentRB.Checked = true;
             }
         }
 
@@ -5508,12 +5722,12 @@ namespace Enchante
             {
                 MngrPayServicePMPaymentRB.Visible = true;
                 MngrPayServicePMPaymentRB.Checked = true;
-                MngrPayServiceTypeText.Text = "Paymaya";
-                MngrPayServiceWalletPaymentPanel.Visible = true;
+                RecPayServiceTypeText.Text = "Paymaya";
+                RecPayServiceWalletPaymentPanel.Visible = true;
 
 
                 //disable other payment panel
-                MngrPayServiceBankPaymentPanel.Visible = false;
+                RecPayServiceBankPaymentPanel.Visible = false;
                 MngrPayServiceCashLbl.Visible = false;
                 MngrPayServiceCashBox.Visible = false;
                 MngrPayServiceCashBox.Text = "";
@@ -5522,14 +5736,14 @@ namespace Enchante
                 MngrPayServiceChangeBox.Visible = false;
 
                 //disable radio buttons
-                MngrPayServiceCCPaymentRB.Visible = false;
-                MngrPayServicePPPaymentRB.Visible = false;
-                MngrPayServiceCashPaymentRB.Visible = false;
-                MngrPayServiceGCPaymentRB.Visible = false;
-                MngrPayServiceCCPaymentRB.Checked = false;
-                MngrPayServicePPPaymentRB.Checked = false;
-                MngrPayServiceCashPaymentRB.Checked = false;
-                MngrPayServiceGCPaymentRB.Checked = false;
+                RecPayServiceCCPaymentRB.Visible = false;
+                RecPayServicePPPaymentRB.Visible = false;
+                RecPayServiceCashPaymentRB.Visible = false;
+                RecPayServiceGCPaymentRB.Visible = false;
+                RecPayServiceCCPaymentRB.Checked = false;
+                RecPayServicePPPaymentRB.Checked = false;
+                RecPayServiceCashPaymentRB.Checked = false;
+                RecPayServiceGCPaymentRB.Checked = false;
             }
             else
             {
@@ -6337,19 +6551,19 @@ namespace Enchante
                     {
                         adapter.Fill(dataTable);
 
-                        MngrPayServicesAcquiredDGV.DataSource = dataTable;
+                        RecPayServicesAcquiredDGV.DataSource = dataTable;
 
-                        MngrPayServicesAcquiredDGV.Columns[0].Visible = false; //transact number
-                        MngrPayServicesAcquiredDGV.Columns[2].Visible = false; //appointment date
-                        MngrPayServicesAcquiredDGV.Columns[3].Visible = false; //appointment time
-                        MngrPayServicesAcquiredDGV.Columns[4].Visible = false; //client name
-                        MngrPayServicesAcquiredDGV.Columns[5].Visible = false; //service category
-                        MngrPayServicesAcquiredDGV.Columns[7].Visible = false; //service ID
-                        MngrPayServicesAcquiredDGV.Columns[10].Visible = false; //service start
-                        MngrPayServicesAcquiredDGV.Columns[11].Visible = false; //service end
-                        MngrPayServicesAcquiredDGV.Columns[12].Visible = false; //service duration
-                        MngrPayServicesAcquiredDGV.Columns[13].Visible = false; //customization
-                        MngrPayServicesAcquiredDGV.Columns[14].Visible = false; // add notes
+                        RecPayServicesAcquiredDGV.Columns[0].Visible = false; //transact number
+                        RecPayServicesAcquiredDGV.Columns[2].Visible = false; //appointment date
+                        RecPayServicesAcquiredDGV.Columns[3].Visible = false; //appointment time
+                        RecPayServicesAcquiredDGV.Columns[4].Visible = false; //client name
+                        RecPayServicesAcquiredDGV.Columns[5].Visible = false; //service category
+                        RecPayServicesAcquiredDGV.Columns[7].Visible = false; //service ID
+                        RecPayServicesAcquiredDGV.Columns[10].Visible = false; //service start
+                        RecPayServicesAcquiredDGV.Columns[11].Visible = false; //service end
+                        RecPayServicesAcquiredDGV.Columns[12].Visible = false; //service duration
+                        RecPayServicesAcquiredDGV.Columns[13].Visible = false; //customization
+                        RecPayServicesAcquiredDGV.Columns[14].Visible = false; // add notes
 
                     }
                 }
@@ -6374,11 +6588,11 @@ namespace Enchante
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 // Get TransactNumber and OrderNumber from the clicked cell in MngrSalesTable
-                string transactNumber = MngrPayServiceCompleteTransDGV.Rows[e.RowIndex].Cells["TransactionNumber"].Value.ToString();
-                string clientName = MngrPayServiceCompleteTransDGV.Rows[e.RowIndex].Cells["ClientName"].Value.ToString();
+                string transactNumber = RecPayServiceCompleteTransDGV.Rows[e.RowIndex].Cells["TransactionNumber"].Value.ToString();
+                string clientName = RecPayServiceCompleteTransDGV.Rows[e.RowIndex].Cells["ClientName"].Value.ToString();
 
-                MngrPayServiceTransactNumLbl.Text = transactNumber;
-                MngrPayServiceClientNameLbl.Text = clientName;
+                RecPayServiceTransactNumLbl.Text = transactNumber;
+                RecPayServiceClientNameLbl.Text = clientName;
                 MngrLoadServiceHistoryDB(transactNumber);
                 ReceptionCalculateTotalPrice();
 
@@ -6401,38 +6615,38 @@ namespace Enchante
                     {
                         adapter.Fill(dataTable);
 
-                        MngrPayServiceCompleteTransDGV.Columns.Clear();
+                        RecPayServiceCompleteTransDGV.Columns.Clear();
 
 
-                        MngrPayServiceCompleteTransDGV.DataSource = dataTable;
+                        RecPayServiceCompleteTransDGV.DataSource = dataTable;
 
-                        MngrPayServiceCompleteTransDGV.Columns[2].Visible = false; //appointment date
-                        MngrPayServiceCompleteTransDGV.Columns[3].Visible = false; //appointment time
-                        MngrPayServiceCompleteTransDGV.Columns[5].Visible = false; // customizations
-                        MngrPayServiceCompleteTransDGV.Columns[6].Visible = false; // add notes
-                        MngrPayServiceCompleteTransDGV.Columns[7].Visible = false; // client cp num
-                        MngrPayServiceCompleteTransDGV.Columns[8].Visible = false; // net price
-                        MngrPayServiceCompleteTransDGV.Columns[9].Visible = false; // vat amount
-                        MngrPayServiceCompleteTransDGV.Columns[10].Visible = false; // discount amount
-                        MngrPayServiceCompleteTransDGV.Columns[11].Visible = false; // discount amount
-                        MngrPayServiceCompleteTransDGV.Columns[12].Visible = false; // cash given
-                        MngrPayServiceCompleteTransDGV.Columns[13].Visible = false; // due change
-                        MngrPayServiceCompleteTransDGV.Columns[14].Visible = false; // payment method
-                        MngrPayServiceCompleteTransDGV.Columns[15].Visible = false; // card name
-                        MngrPayServiceCompleteTransDGV.Columns[16].Visible = false; // card num
-                        MngrPayServiceCompleteTransDGV.Columns[17].Visible = false; // cvc
-                        MngrPayServiceCompleteTransDGV.Columns[18].Visible = false; // card expiration
-                        MngrPayServiceCompleteTransDGV.Columns[19].Visible = false; // wallet num
-                        MngrPayServiceCompleteTransDGV.Columns[20].Visible = false; // wallet PIN
-                        MngrPayServiceCompleteTransDGV.Columns[21].Visible = false; // wallet OTP
-                        MngrPayServiceCompleteTransDGV.Columns[22].Visible = false; // service duration
-                        MngrPayServiceCompleteTransDGV.Columns[23].Visible = false; // booked by
-                        MngrPayServiceCompleteTransDGV.Columns[24].Visible = false; // booked date
-                        MngrPayServiceCompleteTransDGV.Columns[25].Visible = false; // booked time
-                        MngrPayServiceCompleteTransDGV.Columns[26].Visible = false; // checked out by [manager]
+                        RecPayServiceCompleteTransDGV.Columns[2].Visible = false; //appointment date
+                        RecPayServiceCompleteTransDGV.Columns[3].Visible = false; //appointment time
+                        RecPayServiceCompleteTransDGV.Columns[5].Visible = false; // customizations
+                        RecPayServiceCompleteTransDGV.Columns[6].Visible = false; // add notes
+                        RecPayServiceCompleteTransDGV.Columns[7].Visible = false; // client cp num
+                        RecPayServiceCompleteTransDGV.Columns[8].Visible = false; // net price
+                        RecPayServiceCompleteTransDGV.Columns[9].Visible = false; // vat amount
+                        RecPayServiceCompleteTransDGV.Columns[10].Visible = false; // discount amount
+                        RecPayServiceCompleteTransDGV.Columns[11].Visible = false; // discount amount
+                        RecPayServiceCompleteTransDGV.Columns[12].Visible = false; // cash given
+                        RecPayServiceCompleteTransDGV.Columns[13].Visible = false; // due change
+                        RecPayServiceCompleteTransDGV.Columns[14].Visible = false; // payment method
+                        RecPayServiceCompleteTransDGV.Columns[15].Visible = false; // card name
+                        RecPayServiceCompleteTransDGV.Columns[16].Visible = false; // card num
+                        RecPayServiceCompleteTransDGV.Columns[17].Visible = false; // cvc
+                        RecPayServiceCompleteTransDGV.Columns[18].Visible = false; // card expiration
+                        RecPayServiceCompleteTransDGV.Columns[19].Visible = false; // wallet num
+                        RecPayServiceCompleteTransDGV.Columns[20].Visible = false; // wallet PIN
+                        RecPayServiceCompleteTransDGV.Columns[21].Visible = false; // wallet OTP
+                        RecPayServiceCompleteTransDGV.Columns[22].Visible = false; // service duration
+                        RecPayServiceCompleteTransDGV.Columns[23].Visible = false; // booked by
+                        RecPayServiceCompleteTransDGV.Columns[24].Visible = false; // booked date
+                        RecPayServiceCompleteTransDGV.Columns[25].Visible = false; // booked time
+                        RecPayServiceCompleteTransDGV.Columns[26].Visible = false; // checked out by [manager]
 
-                        MngrPayServiceCompleteTransDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                        MngrPayServiceCompleteTransDGV.ClearSelection();
+                        RecPayServiceCompleteTransDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        RecPayServiceCompleteTransDGV.ClearSelection();
                     }
                 }
             }
@@ -6454,10 +6668,10 @@ namespace Enchante
             string grossAmount = MngrPayServiceGrossAmountBox.Text; //gross amount
             string cash = MngrPayServiceCashBox.Text; //cashgiven
             string change = MngrPayServiceChangeBox.Text; //due change
-            string paymentMethod = MngrPayServiceTypeText.Text; //payment method
+            string paymentMethod = RecPayServiceTypeText.Text; //payment method
 
             string mngr = MngrNameLbl.Text;
-            string transactNum = MngrPayServiceTransactNumLbl.Text;
+            string transactNum = RecPayServiceTransactNumLbl.Text;
 
             //bank & wallet details
             string cardName = MngrPayServiceCardNameText.Text;
@@ -6485,7 +6699,7 @@ namespace Enchante
                                         "GrossAmount = @gross, PaymentMethod = @payment, WalletNumber = @walletNum, WalletPIN = @walletPin, WalletOTP = @walletOTP, CheckedOutBy = @mngr " +
                                         "WHERE TransactionNumber = @transactNum"; //gcash and paymaya query
 
-                    if (MngrPayServiceCashPaymentRB.Checked == true)
+                    if (RecPayServiceCashPaymentRB.Checked == true)
                     {
                         MySqlCommand cmd = new MySqlCommand(cashPayment, connection);
                         cmd.Parameters.AddWithValue("@status", "Paid");
@@ -6504,7 +6718,7 @@ namespace Enchante
                         MessageBox.Show("Service successfully been paid through cash.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Inventory.PanelShow(MngrInventoryTypePanel);
                     }
-                    else if (MngrPayServiceCCPaymentRB.Checked == true || MngrPayServicePPPaymentRB.Checked == true)
+                    else if (RecPayServiceCCPaymentRB.Checked == true || RecPayServicePPPaymentRB.Checked == true)
                     {
                         MySqlCommand cmd = new MySqlCommand(bankPayment, connection);
                         cmd.Parameters.AddWithValue("@status", "Paid");
@@ -6525,7 +6739,7 @@ namespace Enchante
                         MessageBox.Show("Service successfully been paid through bank.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Inventory.PanelShow(MngrInventoryTypePanel);
                     }
-                    else if (MngrPayServiceGCPaymentRB.Checked == true || MngrPayServicePMPaymentRB.Checked == true)
+                    else if (RecPayServiceGCPaymentRB.Checked == true || MngrPayServicePMPaymentRB.Checked == true)
                     {
                         MySqlCommand cmd = new MySqlCommand(walletPayment, connection);
                         cmd.Parameters.AddWithValue("@status", "Paid");
@@ -6670,8 +6884,8 @@ namespace Enchante
             string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
             string timePrinted = currentDate.ToString("hh:mm tt");
             string timePrintedFile = currentDate.ToString("hh-mm-ss");
-            string transactNum = MngrPayServiceTransactNumLbl.Text;
-            string clientName = MngrPayServiceClientNameLbl.Text;
+            string transactNum = RecPayServiceTransactNumLbl.Text;
+            string clientName = RecPayServiceClientNameLbl.Text;
             string receptionName = RecNameLbl.Text;
             string legal = "Thank you for trusting Enchanté Salon for your beauty needs." +
                 " This receipt will serve as your sales invoice of any services done in Enchanté Salon." +
@@ -6758,7 +6972,7 @@ namespace Enchante
                     doc.Add(itemTable);
                     doc.Add(new LineSeparator()); // Dotted line
                     // Iterate through the rows of your 
-                    foreach (DataGridViewRow row in MngrPayServicesAcquiredDGV.Rows)
+                    foreach (DataGridViewRow row in RecPayServicesAcquiredDGV.Rows)
                     {
                         try
                         {
@@ -6808,7 +7022,7 @@ namespace Enchante
                     totalTable.DefaultCell.Border = PdfPCell.NO_BORDER;
 
                     // Add cells to the "Total" table
-                    totalTable.AddCell(new Phrase($"Total # of Service ({MngrPayServicesAcquiredDGV.Rows.Count})", font));
+                    totalTable.AddCell(new Phrase($"Total # of Service ({RecPayServicesAcquiredDGV.Rows.Count})", font));
                     totalTable.AddCell(new Phrase($"Php {grossAmount:F2}", font));
                     totalTable.AddCell(new Phrase($"Cash Given", font));
                     totalTable.AddCell(new Phrase($"Php {cash:F2}", font));
@@ -7724,6 +7938,7 @@ namespace Enchante
                         RecQueWinStaffListDGV.Columns[5].Visible = false;
                         RecQueWinStaffListDGV.Columns[6].Visible = false;
                         RecQueWinStaffListDGV.Columns[7].Visible = false;
+                        RecQueWinStaffListDGV.Columns[8].Visible = false;
                         RecQueWinStaffListDGV.Columns[9].Visible = false;
                         RecQueWinStaffListDGV.Columns[11].Visible = false;
                         RecQueWinStaffListDGV.Columns[15].Visible = false;
@@ -7773,6 +7988,7 @@ namespace Enchante
                         RecQueWinStaffListDGV.Columns[5].Visible = false;
                         RecQueWinStaffListDGV.Columns[6].Visible = false;
                         RecQueWinStaffListDGV.Columns[7].Visible = false;
+                        RecQueWinStaffListDGV.Columns[8].Visible = false;
                         RecQueWinStaffListDGV.Columns[9].Visible = false;
                         RecQueWinStaffListDGV.Columns[11].Visible = false;
                         RecQueWinStaffListDGV.Columns[15].Visible = false;
@@ -8049,6 +8265,36 @@ namespace Enchante
                 return;
             }
         }
+
+        private void MngrPayServiceVATExemptChk_CheckedChanged(object sender, EventArgs e)
+        {
+            if (MngrPayServiceVATExemptChk.Checked)
+            {
+                ReceptionCalculateVATExemption();
+            }
+            else
+            {
+                ReceptionCalculateTotalPrice();
+            }
+        }
+        public void ReceptionCalculateVATExemption()
+        {
+            // Get the Gross Amount from the TextBox (MngrGrossAmountBox)
+            if (decimal.TryParse(MngrPayServiceNetAmountBox.Text, out decimal netAmount))
+            {
+                // For VAT exemption, set VAT Amount to zero
+                decimal vatAmount = 0;
+
+                // Set the Net Amount as the new Gross Amount
+                decimal grossAmount = netAmount;
+
+                // Display the calculated values in TextBoxes
+                MngrPayServiceVATBox.Text = vatAmount.ToString("0.00");
+                MngrPayServiceGrossAmountBox.Text = grossAmount.ToString("0.00");
+            }
+        }
+
+
     }
 
 }
