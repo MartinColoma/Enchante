@@ -125,13 +125,6 @@ namespace Enchante
             RecServicesTypeComboText.Items.AddRange(Service_type);
             RecServicesTypeComboText.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            MngrInventoryProductsCatComboText.Items.AddRange(Service_Category);
-            MngrInventoryProductsCatComboText.DropDownStyle = ComboBoxStyle.DropDownList;
-            MngrInventoryProductsTypeComboText.Items.AddRange(productType);
-            MngrInventoryProductsTypeComboText.DropDownStyle = ComboBoxStyle.DropDownList;
-            MngrInventoryProductsStatusComboText.Items.AddRange(productStat);
-            MngrInventoryProductsStatusComboText.DropDownStyle = ComboBoxStyle.DropDownList;
-
             //admin combobox
             AdminGenderComboText.Items.AddRange(genders);
             AdminGenderComboText.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -143,16 +136,29 @@ namespace Enchante
             AdminEmplCatLvlComboText.DropDownStyle = ComboBoxStyle.DropDownList;
 
             //mngr combobox
+            MngrInventoryProductsCatComboText.Items.AddRange(Service_Category);
+            MngrInventoryProductsCatComboText.DropDownStyle = ComboBoxStyle.DropDownList;
+            MngrInventoryProductsTypeComboText.Items.AddRange(productType);
+            MngrInventoryProductsTypeComboText.DropDownStyle = ComboBoxStyle.DropDownList;
+            MngrInventoryProductsStatusComboText.Items.AddRange(productStat);
+            MngrInventoryProductsStatusComboText.DropDownStyle = ComboBoxStyle.DropDownList;
             //walk-in sales comboboxes
             MngrWalkinSalesPeriod.Items.AddRange(SalesDatePeriod);
             MngrWalkinSalesPeriod.DropDownStyle = ComboBoxStyle.DropDownList;
             MngrWalkinSalesSelectCatBox.Items.AddRange(SalesCategories);
             MngrWalkinSalesSelectCatBox.DropDownStyle = ComboBoxStyle.DropDownList;
             //best employee
-            ServiceHistoryPeriod.Items.AddRange(SalesDatePeriod);
-            ServiceHistoryPeriod.DropDownStyle = ComboBoxStyle.DropDownList;
+            MngrIndemandServiceHistoryPeriod.Items.AddRange(SalesDatePeriod);
+            MngrIndemandServiceHistoryPeriod.DropDownStyle = ComboBoxStyle.DropDownList;
             MngrIndemandSelectCatBox.Items.AddRange(BestCategories);
             MngrIndemandSelectCatBox.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            //Receptionist combobox
+            RecQueWinStaffCatComboText.Items.AddRange(SalesCategories);
+            RecQueWinStaffCatComboText.DropDownStyle = ComboBoxStyle.DropDownList;
+            RecQueWinGenCatComboText.Items.AddRange(SalesCategories);
+            RecQueWinGenCatComboText.DropDownStyle = ComboBoxStyle.DropDownList;
+
 
             RecEditSchedBtn.Click += RecEditSchedBtn_Click;
             MngrStaffAvailabilityComboBox.SelectedIndex = 0;
@@ -173,7 +179,6 @@ namespace Enchante
             //RecAppPrefferedTimePMComboBox.Enabled = false;
 
             //InitializePendingCustomersForStaff();
-            RecSelectedServiceDataGrid1.Columns["QueType"].Visible = false;
 
         }
 
@@ -181,16 +186,12 @@ namespace Enchante
         {
             //Reset Panel to Show Default
             HomePanelReset();
-            DB_Loader();
             FillRecStaffScheduleViewDataGrid();
             DateTimePickerTimer.Interval = 1000;
             DateTimePickerTimer.Start();
         }
 
-        private void DB_Loader()
-        {
-            ReceptionLoadServices();
-        }
+
         public void ReceptionLoadServices()
         {
             try
@@ -7328,14 +7329,14 @@ namespace Enchante
         {
             try
             {
-                if (ServiceHistoryPeriod.SelectedItem == null || string.IsNullOrEmpty(ServiceHistoryPeriod.SelectedItem.ToString()))
+                if (MngrIndemandServiceHistoryPeriod.SelectedItem == null || string.IsNullOrEmpty(MngrIndemandServiceHistoryPeriod.SelectedItem.ToString()))
                 {
                     MessageBox.Show("Please select a service history period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 DateTime fromDate, toDate;
 
-                string selectedPeriod = ServiceHistoryPeriod.SelectedItem.ToString();
+                string selectedPeriod = MngrIndemandServiceHistoryPeriod.SelectedItem.ToString();
 
                 if (selectedPeriod == "Day" || selectedPeriod == "Week" || selectedPeriod == "Month")
                 {
@@ -7623,7 +7624,7 @@ namespace Enchante
         private void ServiceHistoryPeriod_SelectedIndexChanged(object sender, EventArgs e)
         {
             MngrIndemandSelectPeriod.Text = "";
-            string selectedItem = ServiceHistoryPeriod.SelectedItem.ToString();
+            string selectedItem = MngrIndemandServiceHistoryPeriod.SelectedItem.ToString();
 
             if (selectedItem == "Day" || selectedItem == "Week" || selectedItem == "Month")
             {
@@ -7652,7 +7653,7 @@ namespace Enchante
         {
             DateTime selectedDate = MngrIndemandServicePeriodCalendar.SelectionStart;
             string selectedPeriod = "";
-            string salePeriod = ServiceHistoryPeriod.SelectedItem.ToString();
+            string salePeriod = MngrIndemandServiceHistoryPeriod.SelectedItem.ToString();
 
             switch (salePeriod)
             {
@@ -7682,16 +7683,23 @@ namespace Enchante
         private void RecQueWinBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecQueWinPanel);
-            RecQueStaffLoadData();
-            RecQueGeneralLoadData();
+            RecQuePreferredStaffLoadData();
+            RecQueGeneralStaffLoadData();
+            RecQueWinNextCustomerLbl.Text = "| NEXT IN LINE [GENERAL QUEUE]";
+            RecQueWinGenCatComboText.Visible = true;
+            RecQueWinGenCatComboText.SelectedIndex = 5;
+            RecQueWinStaffCatComboText.SelectedIndex = 5;
+
         }
 
         private void RecQueWinExitBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecTransactionPanel);
+            RecQueWinGenCatComboText.SelectedIndex = -1;
+            RecQueWinStaffCatComboText.SelectedIndex = -1;
 
         }
-        private void RecQueStaffLoadData()
+        private void RecQuePreferredStaffLoadData()
         {
             try
             {
@@ -7739,7 +7747,56 @@ namespace Enchante
                 }
             }
         }
-        private void RecQueGeneralLoadData()
+        private void RecQuePreferredStaffCatLoadData(string category)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    string sql = "SELECT * FROM `systemusers` WHERE EmployeeType = 'Staff' AND EmployeeCategory = @category";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+                    cmd.Parameters.AddWithValue("@category", category);
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+
+                        RecQueWinStaffListDGV.DataSource = dataTable;
+                        RecQueWinStaffListDGV.Columns[2].Visible = false;
+                        RecQueWinStaffListDGV.Columns[3].Visible = false;
+                        RecQueWinStaffListDGV.Columns[4].Visible = false;
+                        RecQueWinStaffListDGV.Columns[5].Visible = false;
+                        RecQueWinStaffListDGV.Columns[6].Visible = false;
+                        RecQueWinStaffListDGV.Columns[7].Visible = false;
+                        RecQueWinStaffListDGV.Columns[9].Visible = false;
+                        RecQueWinStaffListDGV.Columns[11].Visible = false;
+                        RecQueWinStaffListDGV.Columns[15].Visible = false;
+                        RecQueWinStaffListDGV.Columns[16].Visible = false;
+                        RecQueWinStaffListDGV.Columns[17].Visible = false;
+
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("An error occurred: " + e.Message, "Inventory Service List");
+            }
+            finally
+            {
+                // Make sure to close the connection (if it's open)
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+        private void RecQueGeneralStaffLoadData()
         {
             string todayDate = DateTime.Today.ToString("MM-dd-yyyy dddd");
 
@@ -7790,17 +7847,76 @@ namespace Enchante
                 }
             }
         }
+        private void RecQueGeneralStaffCatLoadData(string category)
+        {
+            string todayDate = DateTime.Today.ToString("MM-dd-yyyy dddd");
 
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    string sql = "SELECT * FROM `servicehistory` WHERE QueType = 'GeneralQue' AND ServiceStatus = 'Pending' " +
+                        "AND AppointmentDate = @todayDate AND ServiceCategory = @category";
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+                    cmd.Parameters.AddWithValue("@todayDate", todayDate);
+                    cmd.Parameters.AddWithValue("@category", category);
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+
+                        RecQueWinNextCustomerDGV.DataSource = dataTable;
+
+                        RecQueWinNextCustomerDGV.Columns[0].Visible = false; //transact number
+                        RecQueWinNextCustomerDGV.Columns[2].Visible = false; //appointment date
+                        RecQueWinNextCustomerDGV.Columns[3].Visible = false; //appointment time
+                        RecQueWinNextCustomerDGV.Columns[5].Visible = false; //service category
+                        RecQueWinNextCustomerDGV.Columns[6].Visible = false; //attending staff
+                        RecQueWinNextCustomerDGV.Columns[7].Visible = false; //service ID
+                        RecQueWinNextCustomerDGV.Columns[10].Visible = false; //service start
+                        RecQueWinNextCustomerDGV.Columns[11].Visible = false; //service end
+                        RecQueWinNextCustomerDGV.Columns[12].Visible = false; //service duration
+                        RecQueWinNextCustomerDGV.Columns[13].Visible = false; //customization
+                        RecQueWinNextCustomerDGV.Columns[14].Visible = false; // add notes
+                        RecQueWinNextCustomerDGV.Columns[15].Visible = false; // preferred staff
+                        RecQueWinNextCustomerDGV.Columns[17].Visible = false; // Queue type
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("An error occurred: " + e.Message, "Inventory Service List");
+            }
+            finally
+            {
+                // Make sure to close the connection (if it's open)
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
         private void RecQueWinStaffListDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Check if a valid cell is clicked
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                // Get TransactNumber and OrderNumber from the clicked cell in MngrSalesTable
                 string ID = RecQueWinStaffListDGV.Rows[e.RowIndex].Cells["EmployeeID"].Value.ToString();
+                string emplFName = RecQueWinStaffListDGV.Rows[e.RowIndex].Cells["FirstName"].Value.ToString();
+                string emplLName = RecQueWinStaffListDGV.Rows[e.RowIndex].Cells["LastName"].Value.ToString();
+
                 RecQueWinEmplIDLbl.Text = ID;
                 RecLoadQueuedClient(ID);
-
+                RecQueWinNextCustomerLbl.Text = $"| NEXT IN LINE [Staff: {emplFName} {emplLName}]";
+                RecQueWinGenCatComboText.Visible = false;
+            }
+            else
+            {
+                RecQueWinGenCatComboText.Visible = true;
             }
         }
         public void RecLoadQueuedClient(string ID)
@@ -7858,6 +7974,79 @@ namespace Enchante
                 {
                     connection.Close();
                 }
+            }
+        }
+
+        private void RecQueWinStaffCatComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (RecQueWinStaffCatComboText.Text == "Hair Styling")
+            {
+                RecQuePreferredStaffCatLoadData("Hair Styling");
+                return;
+            }
+            else if (RecQueWinStaffCatComboText.Text == "Face & Skin")
+            {
+                RecQuePreferredStaffCatLoadData("Face & Skin");
+                return;
+            }
+            else if (RecQueWinStaffCatComboText.Text == "Nail Care")
+            {
+                RecQuePreferredStaffCatLoadData("Nail Care");
+                return;
+            }
+            else if (RecQueWinStaffCatComboText.Text == "Spa")
+            {
+                RecQuePreferredStaffCatLoadData("Spa");
+                return;
+            }
+            else if (RecQueWinStaffCatComboText.Text == "Massage")
+            {
+                RecQuePreferredStaffCatLoadData("Massage");
+                return;
+            }
+            else if (RecQueWinStaffCatComboText.Text == "All categories")
+            {
+                RecQuePreferredStaffLoadData();
+                RecQueWinNextCustomerLbl.Text = "| NEXT IN LINE [GENERAL QUEUE]";
+                RecQueWinGenCatComboText.Visible = true;
+                RecQueGeneralStaffLoadData();
+;
+                return;
+            }
+
+        }
+
+        private void RecQueWinGenCatComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (RecQueWinGenCatComboText.Text == "Hair Styling")
+            {
+                RecQueGeneralStaffCatLoadData("Hair Styling");
+                return;
+            }
+            else if (RecQueWinGenCatComboText.Text == "Face & Skin")
+            {
+                RecQueGeneralStaffCatLoadData("Face & Skin");
+                return;
+            }
+            else if (RecQueWinGenCatComboText.Text == "Nail Care")
+            {
+                RecQueGeneralStaffCatLoadData("Nail Care");
+                return;
+            }
+            else if (RecQueWinGenCatComboText.Text == "Spa")
+            {
+                RecQueGeneralStaffCatLoadData("Spa");
+                return;
+            }
+            else if (RecQueWinGenCatComboText.Text == "Massage")
+            {
+                RecQueGeneralStaffCatLoadData("Massage");
+                return;
+            }
+            else if (RecQueWinGenCatComboText.Text == "All categories")
+            {
+                RecQueGeneralStaffLoadData();
+                return;
             }
         }
     }
