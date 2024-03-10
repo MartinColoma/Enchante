@@ -93,7 +93,6 @@ namespace Enchante
             this.MngrWalkinSalesViewBtn = new System.Windows.Forms.Button();
             this.MngrWalkinSalesTransServiceHisDGV = new System.Windows.Forms.DataGridView();
             this.MngrWalkinSalesTransRepDGV = new System.Windows.Forms.DataGridView();
-            this.MngrWalkinSalesExitBtn = new FontAwesome.Sharp.IconButton();
             this.MngrWalkinSalesLbl = new System.Windows.Forms.Label();
             this.MngrWalkinSalesGraph = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.MngrWalkinSalesTransIDShow = new System.Windows.Forms.TextBox();
@@ -111,6 +110,7 @@ namespace Enchante
             this.MngrWalkinSalesToDatePicker = new System.Windows.Forms.DateTimePicker();
             this.MngrWalkinSalesFromDatePicker = new System.Windows.Forms.DateTimePicker();
             this.MngrWalkinSalesPeriodCalendar = new System.Windows.Forms.MonthCalendar();
+            this.MngrWalkinSalesExitBtn = new FontAwesome.Sharp.IconButton();
             this.MngrInventoryTypePanel = new System.Windows.Forms.Panel();
             this.MngrInventoryServicesHistoryBtn = new FontAwesome.Sharp.IconButton();
             this.MngrInventoryInDemandBtn = new FontAwesome.Sharp.IconButton();
@@ -819,6 +819,9 @@ namespace Enchante
             this.iconButton16 = new FontAwesome.Sharp.IconButton();
             this.RecAppointmentExitBtn = new FontAwesome.Sharp.IconButton();
             this.RecWalkinPanel = new System.Windows.Forms.Panel();
+            this.ProductSelectedFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.ProductFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.RecCustomerCustomerAdditionalNotesTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.RecSelectedServiceDataGrid1 = new System.Windows.Forms.DataGridView();
             this.SelectedService = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -832,7 +835,7 @@ namespace Enchante
             this.RecWalkinAttendingStaffSelectedComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.RecWalkinAnyStaffLbl = new System.Windows.Forms.Label();
             this.RecWalkinAnyStaffToggleSwitch = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            this.RecWalkinPrefferedStaffToggleSwitch = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.RecWalkinPreferredStaffToggleSwitch = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.RecWalkinPreferredStaffLbl = new System.Windows.Forms.Label();
             this.RecWalkinSearchServiceTypeText = new System.Windows.Forms.TextBox();
             this.RecWalkInServiceTypeTable = new System.Windows.Forms.DataGridView();
@@ -864,7 +867,6 @@ namespace Enchante
             this.RecWalkInFooterStopperPanel = new System.Windows.Forms.Panel();
             this.RecWalkInFooterStopperLbl = new System.Windows.Forms.Label();
             this.RecCustomerCustomizationsTextBox = new System.Windows.Forms.TextBox();
-            this.RecCustomerCustomerAdditionalNotesTextBox = new System.Windows.Forms.TextBox();
             this.RecWalkinLNameText = new System.Windows.Forms.TextBox();
             this.RecWalkinLNameLbl = new System.Windows.Forms.Label();
             this.RecWalkinFNameText = new System.Windows.Forms.TextBox();
@@ -928,6 +930,16 @@ namespace Enchante
             this.RecTransactionCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.DateTimePickerTimer = new System.Windows.Forms.Timer(this.components);
             this.MngrInventoryCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.ProductTotalLbl = new Guna.UI2.WinForms.Guna2TextBox();
+            this.ProductTotalTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.ProductSelectedDataGridView = new System.Windows.Forms.DataGridView();
+            this.ProductItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductItemPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductReduceQuantityButton = new Guna.UI2.WinForms.Guna2Button();
+            this.ProductVoidButton = new Guna.UI2.WinForms.Guna2Button();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteMngrPage.SuspendLayout();
             this.MngrScrollPanel.SuspendLayout();
@@ -1089,6 +1101,8 @@ namespace Enchante
             ((System.ComponentModel.ISupportInitialize)(this.HomeServiceCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecTransactionCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrInventoryCard)).BeginInit();
+            this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductSelectedDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // EnchanteParentContainer
@@ -1103,7 +1117,7 @@ namespace Enchante
             this.EnchanteParentContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnchanteParentContainer.Location = new System.Drawing.Point(0, 0);
             this.EnchanteParentContainer.Name = "EnchanteParentContainer";
-            this.EnchanteParentContainer.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteParentContainer.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteParentContainer.TabIndex = 0;
             // 
             // EnchanteMngrPage
@@ -1115,7 +1129,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteMngrPage, new System.Drawing.Size(200, 100));
             this.EnchanteMngrPage.Name = "EnchanteMngrPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteMngrPage, new System.Drawing.Size(200, 100));
-            this.EnchanteMngrPage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteMngrPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteMngrPage.TabIndex = 6;
             // 
             // MngrScrollPanel
@@ -1128,7 +1142,7 @@ namespace Enchante
             this.MngrScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MngrScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.MngrScrollPanel.Name = "MngrScrollPanel";
-            this.MngrScrollPanel.Size = new System.Drawing.Size(1904, 891);
+            this.MngrScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.MngrScrollPanel.TabIndex = 4;
             // 
             // MngrFooterStopperPanel
@@ -1137,7 +1151,7 @@ namespace Enchante
             this.MngrFooterStopperPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.MngrFooterStopperPanel.Controls.Add(this.MngrFooterStopperLbl);
             this.MngrFooterStopperPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.MngrFooterStopperPanel.Location = new System.Drawing.Point(541, 846);
+            this.MngrFooterStopperPanel.Location = new System.Drawing.Point(541, 2628);
             this.MngrFooterStopperPanel.Name = "MngrFooterStopperPanel";
             this.MngrFooterStopperPanel.Size = new System.Drawing.Size(804, 33);
             this.MngrFooterStopperPanel.TabIndex = 27;
@@ -1164,7 +1178,7 @@ namespace Enchante
             this.MngrUserAccPanel.Controls.Add(this.MngrDateTimePicker);
             this.MngrUserAccPanel.Controls.Add(this.MngrNameLbl);
             this.MngrUserAccPanel.Controls.Add(this.MngrSignOutBtn);
-            this.MngrUserAccPanel.Location = new System.Drawing.Point(1580, 6);
+            this.MngrUserAccPanel.Location = new System.Drawing.Point(1580, 1788);
             this.MngrUserAccPanel.Name = "MngrUserAccPanel";
             this.MngrUserAccPanel.Size = new System.Drawing.Size(282, 187);
             this.MngrUserAccPanel.TabIndex = 26;
@@ -1236,7 +1250,7 @@ namespace Enchante
             this.MngrInventoryPanel.Controls.Add(this.MngrInventoryServicesPanel);
             this.MngrInventoryPanel.Controls.Add(this.MngrInventoryMembershipPanel);
             this.MngrInventoryPanel.Controls.Add(this.MngrInventoryProductsPanel);
-            this.MngrInventoryPanel.Location = new System.Drawing.Point(45, 72);
+            this.MngrInventoryPanel.Location = new System.Drawing.Point(45, 1854);
             this.MngrInventoryPanel.Name = "MngrInventoryPanel";
             this.MngrInventoryPanel.Size = new System.Drawing.Size(1797, 749);
             this.MngrInventoryPanel.TabIndex = 24;
@@ -1249,7 +1263,6 @@ namespace Enchante
             this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesViewBtn);
             this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesTransServiceHisDGV);
             this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesTransRepDGV);
-            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesExitBtn);
             this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesLbl);
             this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesGraph);
             this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesTransIDShow);
@@ -1267,6 +1280,7 @@ namespace Enchante
             this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesToDatePicker);
             this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesFromDatePicker);
             this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesPeriodCalendar);
+            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesExitBtn);
             this.MngrWalkinSalesPanel.Location = new System.Drawing.Point(0, 0);
             this.MngrWalkinSalesPanel.Margin = new System.Windows.Forms.Padding(2);
             this.MngrInventoryCard.SetMinimumSize(this.MngrWalkinSalesPanel, new System.Drawing.Size(1132, 505));
@@ -1375,23 +1389,6 @@ namespace Enchante
             this.MngrWalkinSalesTransRepDGV.Size = new System.Drawing.Size(594, 206);
             this.MngrWalkinSalesTransRepDGV.TabIndex = 86;
             this.MngrWalkinSalesTransRepDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TransNum_CellClick);
-            // 
-            // MngrWalkinSalesExitBtn
-            // 
-            this.MngrWalkinSalesExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.MngrWalkinSalesExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrWalkinSalesExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.MngrWalkinSalesExitBtn.FlatAppearance.BorderSize = 0;
-            this.MngrWalkinSalesExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrWalkinSalesExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.MngrWalkinSalesExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrWalkinSalesExitBtn.Location = new System.Drawing.Point(1716, 20);
-            this.MngrWalkinSalesExitBtn.Name = "MngrWalkinSalesExitBtn";
-            this.MngrWalkinSalesExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.MngrWalkinSalesExitBtn.TabIndex = 85;
-            this.MngrWalkinSalesExitBtn.UseVisualStyleBackColor = false;
-            this.MngrWalkinSalesExitBtn.Click += new System.EventHandler(this.MngrWalkinSalesExitBtn_Click);
             // 
             // MngrWalkinSalesLbl
             // 
@@ -1595,6 +1592,23 @@ namespace Enchante
             this.MngrWalkinSalesPeriodCalendar.TabIndex = 16;
             this.MngrWalkinSalesPeriodCalendar.Visible = false;
             this.MngrWalkinSalesPeriodCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.SalesPeriodCalendar_DateChanged);
+            // 
+            // MngrWalkinSalesExitBtn
+            // 
+            this.MngrWalkinSalesExitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.MngrWalkinSalesExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrWalkinSalesExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.MngrWalkinSalesExitBtn.FlatAppearance.BorderSize = 0;
+            this.MngrWalkinSalesExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrWalkinSalesExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.MngrWalkinSalesExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinSalesExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrWalkinSalesExitBtn.Location = new System.Drawing.Point(1716, 20);
+            this.MngrWalkinSalesExitBtn.Name = "MngrWalkinSalesExitBtn";
+            this.MngrWalkinSalesExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.MngrWalkinSalesExitBtn.TabIndex = 85;
+            this.MngrWalkinSalesExitBtn.UseVisualStyleBackColor = false;
+            this.MngrWalkinSalesExitBtn.Click += new System.EventHandler(this.MngrWalkinSalesExitBtn_Click);
             // 
             // MngrInventoryTypePanel
             // 
@@ -3315,7 +3329,7 @@ namespace Enchante
             this.MngrNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.MngrNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.MngrNavBarPanel.Name = "MngrNavBarPanel";
-            this.MngrNavBarPanel.Size = new System.Drawing.Size(1904, 150);
+            this.MngrNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.MngrNavBarPanel.TabIndex = 3;
             // 
             // iconButton6
@@ -3438,7 +3452,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteAdminPage, new System.Drawing.Size(200, 100));
             this.EnchanteAdminPage.Name = "EnchanteAdminPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteAdminPage, new System.Drawing.Size(200, 100));
-            this.EnchanteAdminPage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteAdminPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteAdminPage.TabIndex = 5;
             // 
             // AdminScrollPanel
@@ -3451,7 +3465,7 @@ namespace Enchante
             this.AdminScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AdminScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.AdminScrollPanel.Name = "AdminScrollPanel";
-            this.AdminScrollPanel.Size = new System.Drawing.Size(1904, 891);
+            this.AdminScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.AdminScrollPanel.TabIndex = 20;
             // 
             // AdminUserAccPanel
@@ -4273,7 +4287,7 @@ namespace Enchante
             this.AdminAccountTable.RowHeadersVisible = false;
             this.AdminAccountTable.RowHeadersWidth = 51;
             this.AdminAccountTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.AdminAccountTable.Size = new System.Drawing.Size(324, 590);
+            this.AdminAccountTable.Size = new System.Drawing.Size(188, 590);
             this.AdminAccountTable.TabIndex = 12;
             // 
             // panel27
@@ -4309,7 +4323,7 @@ namespace Enchante
             this.AdminNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.AdminNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.AdminNavBarPanel.Name = "AdminNavBarPanel";
-            this.AdminNavBarPanel.Size = new System.Drawing.Size(1904, 150);
+            this.AdminNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.AdminNavBarPanel.TabIndex = 4;
             // 
             // AdminAccUserBtn
@@ -4397,7 +4411,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteHomePage, new System.Drawing.Size(200, 100));
             this.EnchanteHomePage.Name = "EnchanteHomePage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteHomePage, new System.Drawing.Size(200, 100));
-            this.EnchanteHomePage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteHomePage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteHomePage.TabIndex = 4;
             // 
             // EnchanteHomeNavBar
@@ -4415,7 +4429,7 @@ namespace Enchante
             this.EnchanteHomeNavBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.EnchanteHomeNavBar.Location = new System.Drawing.Point(0, 0);
             this.EnchanteHomeNavBar.Name = "EnchanteHomeNavBar";
-            this.EnchanteHomeNavBar.Size = new System.Drawing.Size(1904, 170);
+            this.EnchanteHomeNavBar.Size = new System.Drawing.Size(1370, 170);
             this.EnchanteHomeNavBar.TabIndex = 0;
             // 
             // EnchanteHLoginBtn
@@ -4591,7 +4605,7 @@ namespace Enchante
             this.EnchanteHomeScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnchanteHomeScrollPanel.Location = new System.Drawing.Point(0, 0);
             this.EnchanteHomeScrollPanel.Name = "EnchanteHomeScrollPanel";
-            this.EnchanteHomeScrollPanel.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteHomeScrollPanel.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteHomeScrollPanel.TabIndex = 18;
             this.EnchanteHomeScrollPanel.Click += new System.EventHandler(this.EnchanteHomeScrollPanel_Click);
             // 
@@ -8609,7 +8623,7 @@ namespace Enchante
             this.EnchanteFooterBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.EnchanteFooterBar.Location = new System.Drawing.Point(0, 3100);
             this.EnchanteFooterBar.Name = "EnchanteFooterBar";
-            this.EnchanteFooterBar.Size = new System.Drawing.Size(1887, 166);
+            this.EnchanteFooterBar.Size = new System.Drawing.Size(1779, 166);
             this.EnchanteFooterBar.TabIndex = 20;
             // 
             // SM_GmailBtn
@@ -8757,7 +8771,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteMemberPage, new System.Drawing.Size(200, 100));
             this.EnchanteMemberPage.Name = "EnchanteMemberPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteMemberPage, new System.Drawing.Size(200, 100));
-            this.EnchanteMemberPage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteMemberPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteMemberPage.TabIndex = 3;
             // 
             // MemberScrollPanel
@@ -8770,7 +8784,7 @@ namespace Enchante
             this.MemberScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MemberScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.MemberScrollPanel.Name = "MemberScrollPanel";
-            this.MemberScrollPanel.Size = new System.Drawing.Size(1904, 891);
+            this.MemberScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.MemberScrollPanel.TabIndex = 19;
             // 
             // MemberUserAccPanel
@@ -8869,7 +8883,7 @@ namespace Enchante
             this.MemberFooter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.MemberFooter.Location = new System.Drawing.Point(0, 1132);
             this.MemberFooter.Name = "MemberFooter";
-            this.MemberFooter.Size = new System.Drawing.Size(1887, 166);
+            this.MemberFooter.Size = new System.Drawing.Size(1855, 166);
             this.MemberFooter.TabIndex = 20;
             // 
             // SM_EmailBtn1
@@ -8968,7 +8982,7 @@ namespace Enchante
             this.MemberNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.MemberNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.MemberNavBarPanel.Name = "MemberNavBarPanel";
-            this.MemberNavBarPanel.Size = new System.Drawing.Size(1904, 150);
+            this.MemberNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.MemberNavBarPanel.TabIndex = 1;
             // 
             // MemberAccUserBtn
@@ -9110,7 +9124,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteReceptionPage, new System.Drawing.Size(200, 100));
             this.EnchanteReceptionPage.Name = "EnchanteReceptionPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteReceptionPage, new System.Drawing.Size(200, 100));
-            this.EnchanteReceptionPage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteReceptionPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteReceptionPage.TabIndex = 2;
             // 
             // ReceptionScrollPanel
@@ -9123,7 +9137,7 @@ namespace Enchante
             this.ReceptionScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ReceptionScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.ReceptionScrollPanel.Name = "ReceptionScrollPanel";
-            this.ReceptionScrollPanel.Size = new System.Drawing.Size(1904, 891);
+            this.ReceptionScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.ReceptionScrollPanel.TabIndex = 20;
             // 
             // ReceptionUserAccPanel
@@ -9135,7 +9149,7 @@ namespace Enchante
             this.ReceptionUserAccPanel.Controls.Add(this.RecDateTimePicker);
             this.ReceptionUserAccPanel.Controls.Add(this.RecNameLbl);
             this.ReceptionUserAccPanel.Controls.Add(this.ReceptionLogoutBtn);
-            this.ReceptionUserAccPanel.Location = new System.Drawing.Point(1555, 19);
+            this.ReceptionUserAccPanel.Location = new System.Drawing.Point(1448, 6);
             this.ReceptionUserAccPanel.Name = "ReceptionUserAccPanel";
             this.ReceptionUserAccPanel.Size = new System.Drawing.Size(321, 217);
             this.ReceptionUserAccPanel.TabIndex = 2;
@@ -9205,7 +9219,7 @@ namespace Enchante
             this.ReceptionFooterStopperPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.ReceptionFooterStopperPanel.Controls.Add(this.ReceptionFooterStopperLbl);
             this.ReceptionFooterStopperPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.ReceptionFooterStopperPanel.Location = new System.Drawing.Point(541, 826);
+            this.ReceptionFooterStopperPanel.Location = new System.Drawing.Point(131, 2469);
             this.ReceptionFooterStopperPanel.Name = "ReceptionFooterStopperPanel";
             this.ReceptionFooterStopperPanel.Size = new System.Drawing.Size(804, 53);
             this.ReceptionFooterStopperPanel.TabIndex = 20;
@@ -9229,7 +9243,7 @@ namespace Enchante
             this.ReceptionCreateTransactPanel.Controls.Add(this.RecAppointmentPanel);
             this.ReceptionCreateTransactPanel.Controls.Add(this.RecWalkinPanel);
             this.ReceptionCreateTransactPanel.Controls.Add(this.RecTransactionPanel);
-            this.ReceptionCreateTransactPanel.Location = new System.Drawing.Point(136, 81);
+            this.ReceptionCreateTransactPanel.Location = new System.Drawing.Point(131, 424);
             this.ReceptionCreateTransactPanel.Name = "ReceptionCreateTransactPanel";
             this.ReceptionCreateTransactPanel.Size = new System.Drawing.Size(1633, 728);
             this.ReceptionCreateTransactPanel.TabIndex = 21;
@@ -9474,7 +9488,7 @@ namespace Enchante
             this.RecPayServiceClientNameLbl.AutoSize = true;
             this.RecPayServiceClientNameLbl.Font = new System.Drawing.Font("TechnicBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecPayServiceClientNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceClientNameLbl.Location = new System.Drawing.Point(834, 88);
+            this.RecPayServiceClientNameLbl.Location = new System.Drawing.Point(834, 479);
             this.RecPayServiceClientNameLbl.Name = "RecPayServiceClientNameLbl";
             this.RecPayServiceClientNameLbl.Size = new System.Drawing.Size(127, 20);
             this.RecPayServiceClientNameLbl.TabIndex = 139;
@@ -9485,7 +9499,7 @@ namespace Enchante
             this.RecPayServiceTransactNumLbl.AutoSize = true;
             this.RecPayServiceTransactNumLbl.Font = new System.Drawing.Font("TechnicBold", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecPayServiceTransactNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceTransactNumLbl.Location = new System.Drawing.Point(831, 39);
+            this.RecPayServiceTransactNumLbl.Location = new System.Drawing.Point(831, 430);
             this.RecPayServiceTransactNumLbl.Name = "RecPayServiceTransactNumLbl";
             this.RecPayServiceTransactNumLbl.Size = new System.Drawing.Size(381, 41);
             this.RecPayServiceTransactNumLbl.TabIndex = 138;
@@ -9496,7 +9510,7 @@ namespace Enchante
             this.MngrPayServiceFooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrPayServiceFooterPanel.Controls.Add(this.MngrPayServiceFooterLbl);
             this.MngrPayServiceFooterPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.MngrPayServiceFooterPanel.Location = new System.Drawing.Point(488, 1032);
+            this.MngrPayServiceFooterPanel.Location = new System.Drawing.Point(488, 1423);
             this.MngrPayServiceFooterPanel.Name = "MngrPayServiceFooterPanel";
             this.MngrPayServiceFooterPanel.Size = new System.Drawing.Size(804, 87);
             this.MngrPayServiceFooterPanel.TabIndex = 137;
@@ -9528,7 +9542,7 @@ namespace Enchante
             this.RecPayServiceMethodPanel.Controls.Add(this.RecPayServiceCCPaymentPanel);
             this.RecPayServiceMethodPanel.Controls.Add(this.RecPayServiceMethodLbl);
             this.RecPayServiceMethodPanel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.RecPayServiceMethodPanel.Location = new System.Drawing.Point(124, 474);
+            this.RecPayServiceMethodPanel.Location = new System.Drawing.Point(124, 865);
             this.RecPayServiceMethodPanel.Name = "RecPayServiceMethodPanel";
             this.RecPayServiceMethodPanel.Size = new System.Drawing.Size(1369, 492);
             this.RecPayServiceMethodPanel.TabIndex = 130;
@@ -10318,7 +10332,7 @@ namespace Enchante
             dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.RecPayServicesAcquiredDGV.DefaultCellStyle = dataGridViewCellStyle22;
             this.RecPayServicesAcquiredDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecPayServicesAcquiredDGV.Location = new System.Drawing.Point(838, 124);
+            this.RecPayServicesAcquiredDGV.Location = new System.Drawing.Point(838, 515);
             this.RecPayServicesAcquiredDGV.Name = "RecPayServicesAcquiredDGV";
             this.RecPayServicesAcquiredDGV.ReadOnly = true;
             this.RecPayServicesAcquiredDGV.RowHeadersVisible = false;
@@ -10355,7 +10369,7 @@ namespace Enchante
             dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.RecPayServiceCompleteTransDGV.DefaultCellStyle = dataGridViewCellStyle24;
             this.RecPayServiceCompleteTransDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecPayServiceCompleteTransDGV.Location = new System.Drawing.Point(124, 124);
+            this.RecPayServiceCompleteTransDGV.Location = new System.Drawing.Point(124, 515);
             this.RecPayServiceCompleteTransDGV.Name = "RecPayServiceCompleteTransDGV";
             this.RecPayServiceCompleteTransDGV.ReadOnly = true;
             this.RecPayServiceCompleteTransDGV.RowHeadersVisible = false;
@@ -10379,7 +10393,7 @@ namespace Enchante
             this.RecPayServiceEditBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.RecPayServiceEditBtn.IconSize = 32;
             this.RecPayServiceEditBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RecPayServiceEditBtn.Location = new System.Drawing.Point(114, 28);
+            this.RecPayServiceEditBtn.Location = new System.Drawing.Point(114, 419);
             this.RecPayServiceEditBtn.Name = "RecPayServiceEditBtn";
             this.RecPayServiceEditBtn.Size = new System.Drawing.Size(354, 71);
             this.RecPayServiceEditBtn.TabIndex = 101;
@@ -10398,7 +10412,7 @@ namespace Enchante
             this.RecPayServiceExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.RecPayServiceExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.RecPayServiceExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecPayServiceExitBtn.Location = new System.Drawing.Point(1546, 27);
+            this.RecPayServiceExitBtn.Location = new System.Drawing.Point(1546, 418);
             this.RecPayServiceExitBtn.Name = "RecPayServiceExitBtn";
             this.RecPayServiceExitBtn.Size = new System.Drawing.Size(48, 48);
             this.RecPayServiceExitBtn.TabIndex = 100;
@@ -10467,7 +10481,7 @@ namespace Enchante
             this.RecAppAvailableStaffBarPanel.Controls.Add(this.RecAppAvailStaffNameLbl);
             this.RecAppAvailableStaffBarPanel.Controls.Add(this.RecAppAvailableStaffEmployeeIDLbl);
             this.RecAppAvailableStaffBarPanel.Controls.Add(this.RecAppAvaialableStaffFlowLayout);
-            this.RecAppAvailableStaffBarPanel.Location = new System.Drawing.Point(99, 1106);
+            this.RecAppAvailableStaffBarPanel.Location = new System.Drawing.Point(99, 15698);
             this.RecAppAvailableStaffBarPanel.Name = "RecAppAvailableStaffBarPanel";
             this.RecAppAvailableStaffBarPanel.Size = new System.Drawing.Size(763, 510);
             this.RecAppAvailableStaffBarPanel.TabIndex = 152;
@@ -10568,7 +10582,7 @@ namespace Enchante
             "3:00",
             "4:00",
             "5:00"});
-            this.RecAppPrefferedTimePMComboBox.Location = new System.Drawing.Point(636, 439);
+            this.RecAppPrefferedTimePMComboBox.Location = new System.Drawing.Point(636, 15031);
             this.RecAppPrefferedTimePMComboBox.Name = "RecAppPrefferedTimePMComboBox";
             this.RecAppPrefferedTimePMComboBox.Size = new System.Drawing.Size(266, 31);
             this.RecAppPrefferedTimePMComboBox.TabIndex = 149;
@@ -10583,7 +10597,7 @@ namespace Enchante
             "10:00",
             "11:00",
             "12:00"});
-            this.RecAppPrefferedTimeAMComboBox.Location = new System.Drawing.Point(349, 439);
+            this.RecAppPrefferedTimeAMComboBox.Location = new System.Drawing.Point(349, 15031);
             this.RecAppPrefferedTimeAMComboBox.Name = "RecAppPrefferedTimeAMComboBox";
             this.RecAppPrefferedTimeAMComboBox.Size = new System.Drawing.Size(281, 31);
             this.RecAppPrefferedTimeAMComboBox.TabIndex = 148;
@@ -10593,7 +10607,7 @@ namespace Enchante
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.textBox1.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox1.Location = new System.Drawing.Point(925, 1712);
+            this.textBox1.Location = new System.Drawing.Point(925, 16304);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -10605,7 +10619,7 @@ namespace Enchante
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label2.Location = new System.Drawing.Point(920, 1669);
+            this.label2.Location = new System.Drawing.Point(920, 16261);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(230, 29);
             this.label2.TabIndex = 143;
@@ -10616,7 +10630,7 @@ namespace Enchante
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label12.Location = new System.Drawing.Point(344, 407);
+            this.label12.Location = new System.Drawing.Point(344, 14999);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(191, 29);
             this.label12.TabIndex = 141;
@@ -10627,7 +10641,7 @@ namespace Enchante
             this.RecAppSelectedDateText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecAppSelectedDateText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecAppSelectedDateText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecAppSelectedDateText.Location = new System.Drawing.Point(349, 356);
+            this.RecAppSelectedDateText.Location = new System.Drawing.Point(349, 14948);
             this.RecAppSelectedDateText.Name = "RecAppSelectedDateText";
             this.RecAppSelectedDateText.ReadOnly = true;
             this.RecAppSelectedDateText.Size = new System.Drawing.Size(553, 30);
@@ -10638,7 +10652,7 @@ namespace Enchante
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label13.Location = new System.Drawing.Point(344, 324);
+            this.label13.Location = new System.Drawing.Point(344, 14916);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(198, 29);
             this.label13.TabIndex = 138;
@@ -10649,7 +10663,7 @@ namespace Enchante
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label15.Location = new System.Drawing.Point(49, 260);
+            this.label15.Location = new System.Drawing.Point(49, 14852);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(227, 35);
             this.label15.TabIndex = 137;
@@ -10659,7 +10673,7 @@ namespace Enchante
             // 
             this.RecAppCalendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecAppCalendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecAppCalendar.Location = new System.Drawing.Point(94, 324);
+            this.RecAppCalendar.Location = new System.Drawing.Point(94, 14916);
             this.RecAppCalendar.MinimumSize = new System.Drawing.Size(100, 100);
             this.RecAppCalendar.Name = "RecAppCalendar";
             this.RecAppCalendar.TabIndex = 136;
@@ -10669,7 +10683,7 @@ namespace Enchante
             this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.textBox3.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox3.Location = new System.Drawing.Point(925, 1106);
+            this.textBox3.Location = new System.Drawing.Point(925, 15698);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(525, 37);
             this.textBox3.TabIndex = 132;
@@ -10714,7 +10728,7 @@ namespace Enchante
             this.panel3.Controls.Add(this.label32);
             this.panel3.Controls.Add(this.panel11);
             this.panel3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel3.Location = new System.Drawing.Point(50, 1893);
+            this.panel3.Location = new System.Drawing.Point(50, 16485);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1508, 808);
             this.panel3.TabIndex = 129;
@@ -11394,7 +11408,7 @@ namespace Enchante
             dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle28;
             this.dataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.dataGridView2.Location = new System.Drawing.Point(925, 1164);
+            this.dataGridView2.Location = new System.Drawing.Point(925, 15756);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
@@ -11408,7 +11422,7 @@ namespace Enchante
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label34.Location = new System.Drawing.Point(79, 1060);
+            this.label34.Location = new System.Drawing.Point(79, 15652);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(388, 35);
             this.label34.TabIndex = 124;
@@ -11418,7 +11432,7 @@ namespace Enchante
             // 
             this.panel12.Controls.Add(this.radioButton6);
             this.panel12.Controls.Add(this.iconButton9);
-            this.panel12.Location = new System.Drawing.Point(1186, 696);
+            this.panel12.Location = new System.Drawing.Point(1186, 15288);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(250, 250);
             this.panel12.TabIndex = 117;
@@ -11461,7 +11475,7 @@ namespace Enchante
             // 
             this.panel13.Controls.Add(this.radioButton7);
             this.panel13.Controls.Add(this.iconButton10);
-            this.panel13.Location = new System.Drawing.Point(912, 696);
+            this.panel13.Location = new System.Drawing.Point(912, 15288);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(250, 250);
             this.panel13.TabIndex = 116;
@@ -11504,7 +11518,7 @@ namespace Enchante
             // 
             this.panel15.Controls.Add(this.radioButton8);
             this.panel15.Controls.Add(this.iconButton11);
-            this.panel15.Location = new System.Drawing.Point(638, 696);
+            this.panel15.Location = new System.Drawing.Point(638, 15288);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(250, 250);
             this.panel15.TabIndex = 110;
@@ -11547,7 +11561,7 @@ namespace Enchante
             // 
             this.panel16.Controls.Add(this.radioButton9);
             this.panel16.Controls.Add(this.iconButton12);
-            this.panel16.Location = new System.Drawing.Point(364, 696);
+            this.panel16.Location = new System.Drawing.Point(364, 15288);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(250, 250);
             this.panel16.TabIndex = 109;
@@ -11588,7 +11602,7 @@ namespace Enchante
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1424, 1622);
+            this.button2.Location = new System.Drawing.Point(1424, 16214);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(81, 36);
             this.button2.TabIndex = 151;
@@ -11599,7 +11613,7 @@ namespace Enchante
             // 
             this.panel17.Controls.Add(this.radioButton10);
             this.panel17.Controls.Add(this.iconButton13);
-            this.panel17.Location = new System.Drawing.Point(90, 696);
+            this.panel17.Location = new System.Drawing.Point(90, 15288);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(250, 250);
             this.panel17.TabIndex = 108;
@@ -11643,7 +11657,7 @@ namespace Enchante
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label35.Location = new System.Drawing.Point(919, 260);
+            this.label35.Location = new System.Drawing.Point(919, 14852);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(313, 35);
             this.label35.TabIndex = 91;
@@ -11654,7 +11668,7 @@ namespace Enchante
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label36.Location = new System.Drawing.Point(1398, 414);
+            this.label36.Location = new System.Drawing.Point(1398, 15006);
             this.label36.Name = "label36";
             this.label36.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label36.Size = new System.Drawing.Size(82, 14);
@@ -11668,7 +11682,7 @@ namespace Enchante
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label37.Location = new System.Drawing.Point(1398, 331);
+            this.label37.Location = new System.Drawing.Point(1398, 14923);
             this.label37.Name = "label37";
             this.label37.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label37.Size = new System.Drawing.Size(82, 14);
@@ -11682,7 +11696,7 @@ namespace Enchante
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label38.Location = new System.Drawing.Point(1398, 492);
+            this.label38.Location = new System.Drawing.Point(1398, 15084);
             this.label38.Name = "label38";
             this.label38.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label38.Size = new System.Drawing.Size(82, 14);
@@ -11696,7 +11710,7 @@ namespace Enchante
             this.textBox19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.textBox19.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox19.Location = new System.Drawing.Point(111, 1712);
+            this.textBox19.Location = new System.Drawing.Point(111, 16304);
             this.textBox19.Multiline = true;
             this.textBox19.Name = "textBox19";
             this.textBox19.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -11708,7 +11722,7 @@ namespace Enchante
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label39.Location = new System.Drawing.Point(106, 1669);
+            this.label39.Location = new System.Drawing.Point(106, 16261);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(207, 29);
             this.label39.TabIndex = 60;
@@ -11719,7 +11733,7 @@ namespace Enchante
             this.textBox20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.textBox20.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox20.Location = new System.Drawing.Point(925, 517);
+            this.textBox20.Location = new System.Drawing.Point(925, 15109);
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(550, 30);
             this.textBox20.TabIndex = 58;
@@ -11729,7 +11743,7 @@ namespace Enchante
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label40.Location = new System.Drawing.Point(920, 485);
+            this.label40.Location = new System.Drawing.Point(920, 15077);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(196, 29);
             this.label40.TabIndex = 57;
@@ -11741,7 +11755,7 @@ namespace Enchante
             this.panel18.Controls.Add(this.label41);
             this.panel18.Controls.Add(this.tableLayoutPanel1);
             this.panel18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.panel18.Location = new System.Drawing.Point(405, 2801);
+            this.panel18.Location = new System.Drawing.Point(405, 17393);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(804, 77);
             this.panel18.TabIndex = 52;
@@ -11790,7 +11804,7 @@ namespace Enchante
             this.textBox21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.textBox21.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox21.Location = new System.Drawing.Point(925, 439);
+            this.textBox21.Location = new System.Drawing.Point(925, 15031);
             this.textBox21.Name = "textBox21";
             this.textBox21.Size = new System.Drawing.Size(550, 30);
             this.textBox21.TabIndex = 47;
@@ -11800,7 +11814,7 @@ namespace Enchante
             this.label42.AutoSize = true;
             this.label42.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label42.Location = new System.Drawing.Point(920, 407);
+            this.label42.Location = new System.Drawing.Point(920, 14999);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(152, 29);
             this.label42.TabIndex = 46;
@@ -11811,7 +11825,7 @@ namespace Enchante
             this.textBox22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.textBox22.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox22.Location = new System.Drawing.Point(925, 356);
+            this.textBox22.Location = new System.Drawing.Point(925, 14948);
             this.textBox22.Name = "textBox22";
             this.textBox22.Size = new System.Drawing.Size(553, 30);
             this.textBox22.TabIndex = 45;
@@ -11821,7 +11835,7 @@ namespace Enchante
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label43.Location = new System.Drawing.Point(920, 324);
+            this.label43.Location = new System.Drawing.Point(920, 14916);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(157, 29);
             this.label43.TabIndex = 44;
@@ -11832,7 +11846,7 @@ namespace Enchante
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label44.Location = new System.Drawing.Point(49, 603);
+            this.label44.Location = new System.Drawing.Point(49, 15195);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(455, 35);
             this.label44.TabIndex = 10;
@@ -11844,7 +11858,7 @@ namespace Enchante
             this.textBox23.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox23.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.textBox23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.textBox23.Location = new System.Drawing.Point(316, 161);
+            this.textBox23.Location = new System.Drawing.Point(316, 14753);
             this.textBox23.Name = "textBox23";
             this.textBox23.ReadOnly = true;
             this.textBox23.Size = new System.Drawing.Size(281, 27);
@@ -11856,7 +11870,7 @@ namespace Enchante
             this.label45.AutoSize = true;
             this.label45.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label45.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label45.Location = new System.Drawing.Point(71, 161);
+            this.label45.Location = new System.Drawing.Point(71, 14753);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(239, 26);
             this.label45.TabIndex = 8;
@@ -11867,7 +11881,7 @@ namespace Enchante
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label46.Location = new System.Drawing.Point(59, 89);
+            this.label46.Location = new System.Drawing.Point(59, 14681);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(442, 51);
             this.label46.TabIndex = 7;
@@ -11885,7 +11899,7 @@ namespace Enchante
             this.iconButton14.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconButton14.IconColor = System.Drawing.Color.Black;
             this.iconButton14.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton14.Location = new System.Drawing.Point(408, 2718);
+            this.iconButton14.Location = new System.Drawing.Point(408, 17310);
             this.iconButton14.Name = "iconButton14";
             this.iconButton14.Size = new System.Drawing.Size(268, 60);
             this.iconButton14.TabIndex = 145;
@@ -11905,7 +11919,7 @@ namespace Enchante
             this.iconButton15.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.iconButton15.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton15.IconSize = 40;
-            this.iconButton15.Location = new System.Drawing.Point(1458, 1097);
+            this.iconButton15.Location = new System.Drawing.Point(1458, 15689);
             this.iconButton15.Name = "iconButton15";
             this.iconButton15.Size = new System.Drawing.Size(46, 46);
             this.iconButton15.TabIndex = 133;
@@ -11923,7 +11937,7 @@ namespace Enchante
             this.iconButton16.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconButton16.IconColor = System.Drawing.Color.Black;
             this.iconButton16.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton16.Location = new System.Drawing.Point(687, 2718);
+            this.iconButton16.Location = new System.Drawing.Point(687, 17310);
             this.iconButton16.Name = "iconButton16";
             this.iconButton16.Size = new System.Drawing.Size(268, 60);
             this.iconButton16.TabIndex = 73;
@@ -11939,7 +11953,7 @@ namespace Enchante
             this.RecAppointmentExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.RecAppointmentExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.RecAppointmentExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecAppointmentExitBtn.Location = new System.Drawing.Point(1518, 23);
+            this.RecAppointmentExitBtn.Location = new System.Drawing.Point(1518, 14615);
             this.RecAppointmentExitBtn.Name = "RecAppointmentExitBtn";
             this.RecAppointmentExitBtn.Size = new System.Drawing.Size(48, 48);
             this.RecAppointmentExitBtn.TabIndex = 43;
@@ -11952,13 +11966,20 @@ namespace Enchante
             this.RecWalkinPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecWalkinPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RecTransactionCard.SetCardName(this.RecWalkinPanel, "WALK-IN");
+            this.RecWalkinPanel.Controls.Add(this.ProductVoidButton);
+            this.RecWalkinPanel.Controls.Add(this.ProductReduceQuantityButton);
+            this.RecWalkinPanel.Controls.Add(this.ProductSelectedDataGridView);
+            this.RecWalkinPanel.Controls.Add(this.guna2Panel1);
+            this.RecWalkinPanel.Controls.Add(this.ProductSelectedFlowLayoutPanel);
+            this.RecWalkinPanel.Controls.Add(this.ProductFlowLayoutPanel);
+            this.RecWalkinPanel.Controls.Add(this.RecCustomerCustomerAdditionalNotesTextBox);
             this.RecWalkinPanel.Controls.Add(this.label4);
             this.RecWalkinPanel.Controls.Add(this.RecSelectedServiceDataGrid1);
             this.RecWalkinPanel.Controls.Add(this.RecWalkinNoServiceCategoryChosenWarningLbl);
             this.RecWalkinPanel.Controls.Add(this.RecWalkinAttendingStaffSelectedComboBox);
             this.RecWalkinPanel.Controls.Add(this.RecWalkinAnyStaffLbl);
             this.RecWalkinPanel.Controls.Add(this.RecWalkinAnyStaffToggleSwitch);
-            this.RecWalkinPanel.Controls.Add(this.RecWalkinPrefferedStaffToggleSwitch);
+            this.RecWalkinPanel.Controls.Add(this.RecWalkinPreferredStaffToggleSwitch);
             this.RecWalkinPanel.Controls.Add(this.RecWalkinPreferredStaffLbl);
             this.RecWalkinPanel.Controls.Add(this.RecWalkinSearchServiceTypeText);
             this.RecWalkinPanel.Controls.Add(this.RecWalkInServiceTypeTable);
@@ -11996,6 +12017,36 @@ namespace Enchante
             this.RecTransactionCard.SetPreferredSize(this.RecWalkinPanel, new System.Drawing.Size(1371, 807));
             this.RecWalkinPanel.Size = new System.Drawing.Size(1633, 728);
             this.RecWalkinPanel.TabIndex = 7;
+            // 
+            // ProductSelectedFlowLayoutPanel
+            // 
+            this.ProductSelectedFlowLayoutPanel.AutoScroll = true;
+            this.ProductSelectedFlowLayoutPanel.Location = new System.Drawing.Point(308, 2227);
+            this.ProductSelectedFlowLayoutPanel.Name = "ProductSelectedFlowLayoutPanel";
+            this.ProductSelectedFlowLayoutPanel.Size = new System.Drawing.Size(514, 51);
+            this.ProductSelectedFlowLayoutPanel.TabIndex = 166;
+            this.ProductSelectedFlowLayoutPanel.Visible = false;
+            // 
+            // ProductFlowLayoutPanel
+            // 
+            this.ProductFlowLayoutPanel.AutoScroll = true;
+            this.ProductFlowLayoutPanel.Location = new System.Drawing.Point(116, 1846);
+            this.ProductFlowLayoutPanel.Name = "ProductFlowLayoutPanel";
+            this.ProductFlowLayoutPanel.Size = new System.Drawing.Size(729, 246);
+            this.ProductFlowLayoutPanel.TabIndex = 164;
+            // 
+            // RecCustomerCustomerAdditionalNotesTextBox
+            // 
+            this.RecCustomerCustomerAdditionalNotesTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecCustomerCustomerAdditionalNotesTextBox.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecCustomerCustomerAdditionalNotesTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecCustomerCustomerAdditionalNotesTextBox.Location = new System.Drawing.Point(472, -12);
+            this.RecCustomerCustomerAdditionalNotesTextBox.Multiline = true;
+            this.RecCustomerCustomerAdditionalNotesTextBox.Name = "RecCustomerCustomerAdditionalNotesTextBox";
+            this.RecCustomerCustomerAdditionalNotesTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.RecCustomerCustomerAdditionalNotesTextBox.Size = new System.Drawing.Size(630, 106);
+            this.RecCustomerCustomerAdditionalNotesTextBox.TabIndex = 144;
+            this.RecCustomerCustomerAdditionalNotesTextBox.Visible = false;
             // 
             // label4
             // 
@@ -12044,7 +12095,7 @@ namespace Enchante
             dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.RecSelectedServiceDataGrid1.DefaultCellStyle = dataGridViewCellStyle30;
             this.RecSelectedServiceDataGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecSelectedServiceDataGrid1.Location = new System.Drawing.Point(803, 1198);
+            this.RecSelectedServiceDataGrid1.Location = new System.Drawing.Point(838, 1209);
             this.RecSelectedServiceDataGrid1.Name = "RecSelectedServiceDataGrid1";
             this.RecSelectedServiceDataGrid1.ReadOnly = true;
             this.RecSelectedServiceDataGrid1.RowHeadersVisible = false;
@@ -12130,7 +12181,6 @@ namespace Enchante
             this.RecWalkinAttendingStaffSelectedComboBox.Name = "RecWalkinAttendingStaffSelectedComboBox";
             this.RecWalkinAttendingStaffSelectedComboBox.Size = new System.Drawing.Size(633, 36);
             this.RecWalkinAttendingStaffSelectedComboBox.TabIndex = 160;
-            this.RecWalkinAttendingStaffSelectedComboBox.Visible = false;
             this.RecWalkinAttendingStaffSelectedComboBox.SelectedIndexChanged += new System.EventHandler(this.RecWalkinAttendingStaffSelectedComboBox_SelectedIndexChanged);
             // 
             // RecWalkinAnyStaffLbl
@@ -12160,21 +12210,21 @@ namespace Enchante
             this.RecWalkinAnyStaffToggleSwitch.UncheckedState.InnerColor = System.Drawing.Color.White;
             this.RecWalkinAnyStaffToggleSwitch.CheckedChanged += new System.EventHandler(this.RecWalkinAnyStaffToggleSwitch_CheckedChanged);
             // 
-            // RecWalkinPrefferedStaffToggleSwitch
+            // RecWalkinPreferredStaffToggleSwitch
             // 
-            this.RecWalkinPrefferedStaffToggleSwitch.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.RecWalkinPrefferedStaffToggleSwitch.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.RecWalkinPrefferedStaffToggleSwitch.CheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.RecWalkinPrefferedStaffToggleSwitch.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.RecWalkinPrefferedStaffToggleSwitch.Location = new System.Drawing.Point(829, 917);
-            this.RecWalkinPrefferedStaffToggleSwitch.Name = "RecWalkinPrefferedStaffToggleSwitch";
-            this.RecWalkinPrefferedStaffToggleSwitch.Size = new System.Drawing.Size(52, 31);
-            this.RecWalkinPrefferedStaffToggleSwitch.TabIndex = 157;
-            this.RecWalkinPrefferedStaffToggleSwitch.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.RecWalkinPrefferedStaffToggleSwitch.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.RecWalkinPrefferedStaffToggleSwitch.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.RecWalkinPrefferedStaffToggleSwitch.UncheckedState.InnerColor = System.Drawing.Color.White;
-            this.RecWalkinPrefferedStaffToggleSwitch.CheckedChanged += new System.EventHandler(this.RecWalkinPrefferedStaffToggleSwitch_CheckedChanged);
+            this.RecWalkinPreferredStaffToggleSwitch.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.RecWalkinPreferredStaffToggleSwitch.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.RecWalkinPreferredStaffToggleSwitch.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.RecWalkinPreferredStaffToggleSwitch.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.RecWalkinPreferredStaffToggleSwitch.Location = new System.Drawing.Point(829, 917);
+            this.RecWalkinPreferredStaffToggleSwitch.Name = "RecWalkinPreferredStaffToggleSwitch";
+            this.RecWalkinPreferredStaffToggleSwitch.Size = new System.Drawing.Size(52, 31);
+            this.RecWalkinPreferredStaffToggleSwitch.TabIndex = 157;
+            this.RecWalkinPreferredStaffToggleSwitch.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.RecWalkinPreferredStaffToggleSwitch.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.RecWalkinPreferredStaffToggleSwitch.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.RecWalkinPreferredStaffToggleSwitch.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.RecWalkinPreferredStaffToggleSwitch.CheckedChanged += new System.EventHandler(this.RecWalkinPreferredStaffToggleSwitch_CheckedChanged);
             // 
             // RecWalkinPreferredStaffLbl
             // 
@@ -12192,7 +12242,7 @@ namespace Enchante
             this.RecWalkinSearchServiceTypeText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecWalkinSearchServiceTypeText.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecWalkinSearchServiceTypeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinSearchServiceTypeText.Location = new System.Drawing.Point(143, 1137);
+            this.RecWalkinSearchServiceTypeText.Location = new System.Drawing.Point(150, 1128);
             this.RecWalkinSearchServiceTypeText.Name = "RecWalkinSearchServiceTypeText";
             this.RecWalkinSearchServiceTypeText.Size = new System.Drawing.Size(571, 37);
             this.RecWalkinSearchServiceTypeText.TabIndex = 132;
@@ -12226,7 +12276,7 @@ namespace Enchante
             dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.RecWalkInServiceTypeTable.DefaultCellStyle = dataGridViewCellStyle32;
             this.RecWalkInServiceTypeTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecWalkInServiceTypeTable.Location = new System.Drawing.Point(143, 1198);
+            this.RecWalkInServiceTypeTable.Location = new System.Drawing.Point(134, 1209);
             this.RecWalkInServiceTypeTable.Name = "RecWalkInServiceTypeTable";
             this.RecWalkInServiceTypeTable.ReadOnly = true;
             this.RecWalkInServiceTypeTable.RowHeadersVisible = false;
@@ -12381,7 +12431,7 @@ namespace Enchante
             // 
             // RecDeleteSelectedServiceAndStaffBtn
             // 
-            this.RecDeleteSelectedServiceAndStaffBtn.Location = new System.Drawing.Point(1397, 1673);
+            this.RecDeleteSelectedServiceAndStaffBtn.Location = new System.Drawing.Point(1432, 1667);
             this.RecDeleteSelectedServiceAndStaffBtn.Name = "RecDeleteSelectedServiceAndStaffBtn";
             this.RecDeleteSelectedServiceAndStaffBtn.Size = new System.Drawing.Size(75, 36);
             this.RecDeleteSelectedServiceAndStaffBtn.TabIndex = 152;
@@ -12435,7 +12485,7 @@ namespace Enchante
             // 
             // RecSelectServiceAndStaffBtn
             // 
-            this.RecSelectServiceAndStaffBtn.Location = new System.Drawing.Point(692, 1673);
+            this.RecSelectServiceAndStaffBtn.Location = new System.Drawing.Point(683, 1667);
             this.RecSelectServiceAndStaffBtn.Name = "RecSelectServiceAndStaffBtn";
             this.RecSelectServiceAndStaffBtn.Size = new System.Drawing.Size(81, 36);
             this.RecSelectServiceAndStaffBtn.TabIndex = 151;
@@ -12550,7 +12600,6 @@ namespace Enchante
             this.RecWalkinAttendingStaffLbl.Size = new System.Drawing.Size(224, 29);
             this.RecWalkinAttendingStaffLbl.TabIndex = 60;
             this.RecWalkinAttendingStaffLbl.Text = "Attending Staff:";
-            this.RecWalkinAttendingStaffLbl.Visible = false;
             // 
             // RecWalkinCPNumText
             // 
@@ -12578,9 +12627,8 @@ namespace Enchante
             this.RecWalkInFooterStopperPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecWalkInFooterStopperPanel.Controls.Add(this.RecWalkInFooterStopperLbl);
             this.RecWalkInFooterStopperPanel.Controls.Add(this.RecCustomerCustomizationsTextBox);
-            this.RecWalkInFooterStopperPanel.Controls.Add(this.RecCustomerCustomerAdditionalNotesTextBox);
             this.RecWalkInFooterStopperPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.RecWalkInFooterStopperPanel.Location = new System.Drawing.Point(405, 1852);
+            this.RecWalkInFooterStopperPanel.Location = new System.Drawing.Point(405, 2361);
             this.RecWalkInFooterStopperPanel.Name = "RecWalkInFooterStopperPanel";
             this.RecWalkInFooterStopperPanel.Size = new System.Drawing.Size(804, 42);
             this.RecWalkInFooterStopperPanel.TabIndex = 52;
@@ -12609,19 +12657,6 @@ namespace Enchante
             this.RecCustomerCustomizationsTextBox.Size = new System.Drawing.Size(630, 106);
             this.RecCustomerCustomizationsTextBox.TabIndex = 61;
             this.RecCustomerCustomizationsTextBox.Visible = false;
-            // 
-            // RecCustomerCustomerAdditionalNotesTextBox
-            // 
-            this.RecCustomerCustomerAdditionalNotesTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecCustomerCustomerAdditionalNotesTextBox.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecCustomerCustomerAdditionalNotesTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecCustomerCustomerAdditionalNotesTextBox.Location = new System.Drawing.Point(390, -26);
-            this.RecCustomerCustomerAdditionalNotesTextBox.Multiline = true;
-            this.RecCustomerCustomerAdditionalNotesTextBox.Name = "RecCustomerCustomerAdditionalNotesTextBox";
-            this.RecCustomerCustomerAdditionalNotesTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.RecCustomerCustomerAdditionalNotesTextBox.Size = new System.Drawing.Size(630, 106);
-            this.RecCustomerCustomerAdditionalNotesTextBox.TabIndex = 144;
-            this.RecCustomerCustomerAdditionalNotesTextBox.Visible = false;
             // 
             // RecWalkinLNameText
             // 
@@ -12705,7 +12740,7 @@ namespace Enchante
             this.RecWalkinLbl.AutoSize = true;
             this.RecWalkinLbl.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinLbl.Location = new System.Drawing.Point(59, 89);
+            this.RecWalkinLbl.Location = new System.Drawing.Point(53, 89);
             this.RecWalkinLbl.Name = "RecWalkinLbl";
             this.RecWalkinLbl.Size = new System.Drawing.Size(349, 51);
             this.RecWalkinLbl.TabIndex = 7;
@@ -12759,7 +12794,7 @@ namespace Enchante
             this.RecWalkinBookTransactBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.RecWalkinBookTransactBtn.IconColor = System.Drawing.Color.Black;
             this.RecWalkinBookTransactBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecWalkinBookTransactBtn.Location = new System.Drawing.Point(673, 1751);
+            this.RecWalkinBookTransactBtn.Location = new System.Drawing.Point(682, 1741);
             this.RecWalkinBookTransactBtn.Name = "RecWalkinBookTransactBtn";
             this.RecWalkinBookTransactBtn.Size = new System.Drawing.Size(268, 60);
             this.RecWalkinBookTransactBtn.TabIndex = 73;
@@ -12878,7 +12913,7 @@ namespace Enchante
             this.ReceptionNavBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.ReceptionNavBar.Location = new System.Drawing.Point(0, 0);
             this.ReceptionNavBar.Name = "ReceptionNavBar";
-            this.ReceptionNavBar.Size = new System.Drawing.Size(1904, 150);
+            this.ReceptionNavBar.Size = new System.Drawing.Size(1370, 150);
             this.ReceptionNavBar.TabIndex = 2;
             // 
             // RecDateTimeText
@@ -12979,7 +13014,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteStaffPage, new System.Drawing.Size(200, 100));
             this.EnchanteStaffPage.Name = "EnchanteStaffPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteStaffPage, new System.Drawing.Size(200, 100));
-            this.EnchanteStaffPage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteStaffPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteStaffPage.TabIndex = 1;
             // 
             // StaffScrollPanel
@@ -12997,7 +13032,7 @@ namespace Enchante
             this.StaffScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StaffScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.StaffScrollPanel.Name = "StaffScrollPanel";
-            this.StaffScrollPanel.Size = new System.Drawing.Size(1904, 891);
+            this.StaffScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.StaffScrollPanel.TabIndex = 6;
             // 
             // StaffUserAccPanel
@@ -13420,7 +13455,7 @@ namespace Enchante
             this.StaffNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.StaffNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.StaffNavBarPanel.Name = "StaffNavBarPanel";
-            this.StaffNavBarPanel.Size = new System.Drawing.Size(1904, 150);
+            this.StaffNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.StaffNavBarPanel.TabIndex = 5;
             // 
             // StaffPastTransactionBtn
@@ -13517,19 +13552,19 @@ namespace Enchante
             // 
             this.EnchanteParentCard.ContainerControl = this.EnchanteParentContainer;
             this.EnchanteParentCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.EnchanteParentCard.SelectedCard = "Staff";
+            this.EnchanteParentCard.SelectedCard = "Reception";
             // 
             // HomeMembershipCard
             // 
             this.HomeMembershipCard.ContainerControl = this.MembershipPanel;
             this.HomeMembershipCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.HomeMembershipCard.SelectedCard = "TYPES";
+            this.HomeMembershipCard.SelectedCard = "SVIP";
             // 
             // HomeServiceCard
             // 
             this.HomeServiceCard.ContainerControl = this.ServicePanel;
             this.HomeServiceCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.HomeServiceCard.SelectedCard = "Nails";
+            this.HomeServiceCard.SelectedCard = "Massage";
             // 
             // RecTransactionCard
             // 
@@ -13545,14 +13580,134 @@ namespace Enchante
             // 
             this.MngrInventoryCard.ContainerControl = this.MngrInventoryPanel;
             this.MngrInventoryCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.MngrInventoryCard.SelectedCard = "TYPES";
+            this.MngrInventoryCard.SelectedCard = "WALKIN SALES";
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.Controls.Add(this.ProductTotalTextBox);
+            this.guna2Panel1.Controls.Add(this.ProductTotalLbl);
+            this.guna2Panel1.Location = new System.Drawing.Point(308, 2125);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(514, 88);
+            this.guna2Panel1.TabIndex = 167;
+            this.guna2Panel1.Visible = false;
+            // 
+            // ProductTotalLbl
+            // 
+            this.ProductTotalLbl.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ProductTotalLbl.DefaultText = "Total:";
+            this.ProductTotalLbl.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.ProductTotalLbl.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.ProductTotalLbl.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ProductTotalLbl.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ProductTotalLbl.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ProductTotalLbl.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ProductTotalLbl.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ProductTotalLbl.Location = new System.Drawing.Point(22, 42);
+            this.ProductTotalLbl.Name = "ProductTotalLbl";
+            this.ProductTotalLbl.PasswordChar = '\0';
+            this.ProductTotalLbl.PlaceholderText = "";
+            this.ProductTotalLbl.SelectedText = "";
+            this.ProductTotalLbl.Size = new System.Drawing.Size(58, 25);
+            this.ProductTotalLbl.TabIndex = 0;
+            // 
+            // ProductTotalTextBox
+            // 
+            this.ProductTotalTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ProductTotalTextBox.DefaultText = "";
+            this.ProductTotalTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.ProductTotalTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.ProductTotalTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ProductTotalTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ProductTotalTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ProductTotalTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ProductTotalTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ProductTotalTextBox.Location = new System.Drawing.Point(102, 42);
+            this.ProductTotalTextBox.Name = "ProductTotalTextBox";
+            this.ProductTotalTextBox.PasswordChar = '\0';
+            this.ProductTotalTextBox.PlaceholderText = "";
+            this.ProductTotalTextBox.SelectedText = "";
+            this.ProductTotalTextBox.Size = new System.Drawing.Size(121, 25);
+            this.ProductTotalTextBox.TabIndex = 1;
+            // 
+            // ProductSelectedDataGridView
+            // 
+            this.ProductSelectedDataGridView.AllowUserToAddRows = false;
+            this.ProductSelectedDataGridView.AllowUserToDeleteRows = false;
+            this.ProductSelectedDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ProductSelectedDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProductItemName,
+            this.ProductItemPrice,
+            this.ProductQuantity,
+            this.ProductItemID});
+            this.ProductSelectedDataGridView.Location = new System.Drawing.Point(914, 1846);
+            this.ProductSelectedDataGridView.Name = "ProductSelectedDataGridView";
+            this.ProductSelectedDataGridView.ReadOnly = true;
+            this.ProductSelectedDataGridView.Size = new System.Drawing.Size(566, 246);
+            this.ProductSelectedDataGridView.TabIndex = 2;
+            // 
+            // ProductItemName
+            // 
+            this.ProductItemName.HeaderText = "Product Name";
+            this.ProductItemName.Name = "ProductItemName";
+            this.ProductItemName.ReadOnly = true;
+            // 
+            // ProductItemPrice
+            // 
+            this.ProductItemPrice.HeaderText = "Product Price";
+            this.ProductItemPrice.Name = "ProductItemPrice";
+            this.ProductItemPrice.ReadOnly = true;
+            // 
+            // ProductQuantity
+            // 
+            this.ProductQuantity.HeaderText = "Product Quantity";
+            this.ProductQuantity.Name = "ProductQuantity";
+            this.ProductQuantity.ReadOnly = true;
+            // 
+            // ProductItemID
+            // 
+            this.ProductItemID.HeaderText = "ItemID";
+            this.ProductItemID.Name = "ProductItemID";
+            this.ProductItemID.ReadOnly = true;
+            // 
+            // ProductReduceQuantityButton
+            // 
+            this.ProductReduceQuantityButton.BorderRadius = 8;
+            this.ProductReduceQuantityButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ProductReduceQuantityButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ProductReduceQuantityButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ProductReduceQuantityButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ProductReduceQuantityButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ProductReduceQuantityButton.ForeColor = System.Drawing.Color.White;
+            this.ProductReduceQuantityButton.Location = new System.Drawing.Point(1410, 2098);
+            this.ProductReduceQuantityButton.Name = "ProductReduceQuantityButton";
+            this.ProductReduceQuantityButton.Size = new System.Drawing.Size(70, 22);
+            this.ProductReduceQuantityButton.TabIndex = 168;
+            this.ProductReduceQuantityButton.Text = "Minus";
+            this.ProductReduceQuantityButton.Click += new System.EventHandler(this.ProductReduceQuantityButton_Click);
+            // 
+            // ProductVoidButton
+            // 
+            this.ProductVoidButton.BorderRadius = 8;
+            this.ProductVoidButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ProductVoidButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ProductVoidButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ProductVoidButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ProductVoidButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ProductVoidButton.ForeColor = System.Drawing.Color.White;
+            this.ProductVoidButton.Location = new System.Drawing.Point(914, 2098);
+            this.ProductVoidButton.Name = "ProductVoidButton";
+            this.ProductVoidButton.Size = new System.Drawing.Size(78, 22);
+            this.ProductVoidButton.TabIndex = 169;
+            this.ProductVoidButton.Text = "Void";
+            this.ProductVoidButton.Click += new System.EventHandler(this.ProductVoidButton_Click);
             // 
             // Enchante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.EnchanteParentContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -13827,6 +13982,8 @@ namespace Enchante
             ((System.ComponentModel.ISupportInitialize)(this.HomeServiceCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecTransactionCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrInventoryCard)).EndInit();
+            this.guna2Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ProductSelectedDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -14615,7 +14772,7 @@ namespace Enchante
         private FontAwesome.Sharp.IconButton RecPayServiceBtn;
         private System.Windows.Forms.Label RecPayServiceClientNameLbl;
         private Guna.UI2.WinForms.Guna2ToggleSwitch RecWalkinAnyStaffToggleSwitch;
-        private Guna.UI2.WinForms.Guna2ToggleSwitch RecWalkinPrefferedStaffToggleSwitch;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch RecWalkinPreferredStaffToggleSwitch;
         private System.Windows.Forms.Label RecWalkinAnyStaffLbl;
         private Guna.UI2.WinForms.Guna2ComboBox RecWalkinAttendingStaffSelectedComboBox;
         private Guna.UI2.WinForms.Guna2TextBox StaffItemSelectedCountTextBox;
@@ -14690,6 +14847,18 @@ namespace Enchante
         private FontAwesome.Sharp.IconButton MngrInventoryServicesHistoryBtn;
         private Guna.UI2.WinForms.Guna2ComboBox RecQueWinStaffCatComboText;
         private Guna.UI2.WinForms.Guna2ComboBox RecQueWinGenCatComboText;
+        private System.Windows.Forms.FlowLayoutPanel ProductFlowLayoutPanel;
+        private System.Windows.Forms.FlowLayoutPanel ProductSelectedFlowLayoutPanel;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2TextBox ProductTotalTextBox;
+        private Guna.UI2.WinForms.Guna2TextBox ProductTotalLbl;
+        private System.Windows.Forms.DataGridView ProductSelectedDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductItemPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductItemID;
+        private Guna.UI2.WinForms.Guna2Button ProductReduceQuantityButton;
+        private Guna.UI2.WinForms.Guna2Button ProductVoidButton;
     }
 }
 
