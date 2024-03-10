@@ -153,6 +153,16 @@ namespace Enchante.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap outofstock {
+            get {
+                object obj = ResourceManager.GetObject("outofstock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Young_man_having_facial_mask_in_beauty_parlour {
             get {
                 object obj = ResourceManager.GetObject("Young man having facial mask in beauty parlour", resourceCulture);

@@ -145,6 +145,12 @@
       <DependentUpon>MemberPlanPeriod.cs</DependentUpon>
     </Compile>
     <Compile Include="ParentCard.cs" />
+    <Compile Include="ProductOrderUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProductOrderUserControl.Designer.cs">
+      <DependentUpon>ProductOrderUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MngrInventoryCard.cs" />
@@ -157,6 +163,12 @@
     <Compile Include="StaffCurrentServicesUserControl.Designer.cs">
       <DependentUpon>StaffCurrentServicesUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProductUserControl.Designer.cs">
+      <DependentUpon>ProductUserControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AvailableStaffUserControl.resx">
       <DependentUpon>AvailableStaffUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,6 +178,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MemberPlanPeriod.resx">
       <DependentUpon>MemberPlanPeriod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductOrderUserControl.resx">
+      <DependentUpon>ProductOrderUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductUserControl.resx">
+      <DependentUpon>ProductUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -223,6 +241,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Enchante Logo %28200 x 200 px%29 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\outofstock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
