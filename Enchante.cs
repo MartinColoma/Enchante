@@ -39,6 +39,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Drawing.Drawing2D;
 using static Guna.UI2.WinForms.Helpers.GraphicsHelper;
+using System.Collections;
 
 namespace Enchante
 {
@@ -4907,7 +4908,6 @@ namespace Enchante
             string ServiceDuration = selectedRow.Cells[5].Value.ToString();
             string ServicePrice = selectedRow.Cells[6].Value.ToString();
             string CustomerCustomizations = RecCustomerCustomizationsTextBox.Text;
-            string CustomerAdditionalNotes = RecCustomerCustomerAdditionalNotesTextBox.Text;
 
             //string EmployeeID = selectedStaff.EmployeeID;
             //string EmployeeName = selectedStaff.EmployeeName;
@@ -4992,7 +4992,6 @@ namespace Enchante
                 RecWalkinAttendingStaffSelectedComboBox.Items.Clear();
                 RecWalkInServiceTypeTable.ClearSelection();
                 RecCustomerCustomizationsTextBox.Clear();
-                RecCustomerCustomerAdditionalNotesTextBox.Clear();
 
 
                 //foreach (AvailableStaffUserControl availabelstaffusercontrol in RecAvaialableStaffFlowLayout.Controls)
@@ -5141,8 +5140,9 @@ namespace Enchante
             }
             else
             {
-                RecWalkinServiceHistoryDB(RecSelectedServiceDataGrid1);
-                ReceptionistWalk_in_AppointmentDB();
+                RecWalkinServiceHistoryDB(RecSelectedServiceDataGrid1); //service history db
+                ReceptionistWalk_in_AppointmentDB(); //walk-in transaction db
+                RecWalkinOrderProdHistoryDB(RecWalkinSelectedProdDGV);
                 RecWalkinTransactNumRefresh();
                 RecWalkinTransactionClear();
             }
@@ -5159,6 +5159,8 @@ namespace Enchante
             RecWalkinCatSpaRB.Checked = false;
             RecWalkinCatMassageRB.Checked = false;
             RecSelectedServiceDataGrid1.Rows.Clear();
+            RecWalkinSelectedProdDGV.Rows.Clear();
+
         }
         private void QueueNumReceiptGenerator()
         {
@@ -5361,6 +5363,79 @@ namespace Enchante
             }
         }
 
+        private void RecWalkinOrderProdHistoryDB(DataGridView RecWalkinOrderHistoryView)
+        {
+            DateTime currentDate = RecDateTimePicker.Value;
+            string transactionNum = RecWalkinTransNumText.Text;
+
+
+            //booked values
+            string bookedDate = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
+            string bookedTime = currentDate.ToString("hh:mm tt"); //bookedTime
+            string bookedBy = RecNameLbl.Text; //booked by
+
+            //basic info
+            string CustomerName = RecWalkinFNameText.Text + " " + RecWalkinLNameText.Text; //client name
+            string yes = "Yes";
+            string no = "No";
+            if (RecWalkinSelectedProdDGV.Rows.Count > 0)
+            {
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    {
+                        connection.Open();
+
+                        foreach (DataGridViewRow row in RecWalkinSelectedProdDGV.Rows)
+                        {
+                            if (row.Cells["Item Name"].Value != null)
+                            {
+                                string itemName = row.Cells["Item Name"].Value.ToString();
+                                int qty = Convert.ToInt32(row.Cells["Qty"].Value);
+                                decimal itemPrice = Convert.ToDecimal(row.Cells["Unit Price"].Value);
+                                decimal itemTotalPrice = Convert.ToDecimal(row.Cells["Total Price"].Value);
+
+
+                                string query = "INSERT INTO orderproducthistory (TransactionNumber, CheckedOutDate, CheckedOutTime, CheckedOutBy, ClientName, ItemName, Qty, ItemPrice, ItemTotalPrice, CheckedOut, Voided) " +
+                                               "VALUES (@Transact, @date, @time, @OrderedBy, @client, @ItemName, @Qty, @ItemPrice, @ItemTotalPrice, @Yes, @No)";
+
+                                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                                {
+                                    cmd.Parameters.AddWithValue("@Transact", transactionNum);
+                                    cmd.Parameters.AddWithValue("@date", bookedDate);
+                                    cmd.Parameters.AddWithValue("@time", bookedTime);
+                                    cmd.Parameters.AddWithValue("@OrderedBy", bookedBy);
+                                    cmd.Parameters.AddWithValue("@client", CustomerName);
+                                    cmd.Parameters.AddWithValue("@ItemName", itemName);
+                                    cmd.Parameters.AddWithValue("@Qty", qty);
+                                    cmd.Parameters.AddWithValue("@ItemPrice", itemPrice);
+                                    cmd.Parameters.AddWithValue("@ItemTotalPrice", itemTotalPrice);
+                                    cmd.Parameters.AddWithValue("@Yes", yes);
+                                    cmd.Parameters.AddWithValue("@No", no);
+
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message, "Manager booked service failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("No items to insert into the database.");
+            }
+
+        }
+
+
         private void ReceptionistWalk_in_AppointmentDB()
         {
             DateTime currentDate = RecDateTimePicker.Value;
@@ -5378,7 +5453,6 @@ namespace Enchante
 
             //customize & add notes
             string custom = RecCustomerCustomizationsTextBox.Text;
-            string notes = RecCustomerCustomerAdditionalNotesTextBox.Text;
 
             try
             {
@@ -5386,8 +5460,8 @@ namespace Enchante
                 {
                     connection.Open();
                     string insertQuery = "INSERT INTO walk_in_appointment (TransactionNumber, ServiceStatus, AppointmentDate, AppointmentTime, " +
-                                        "ClientName, CustomerCustomizations, AdditionalNotes, ClientCPNum, ServiceDuration, BookedBy, BookedDate, BookedTime)" +
-                                        "VALUES (@Transact, @status, @appointDate, @appointTime, @clientName, @custom, @addNotes, @clientCP, @duration, @bookedBy, @bookedDate, @bookedTime)";
+                                        "ClientName, CustomerCustomizations, ClientCPNum, ServiceDuration, BookedBy, BookedDate, BookedTime)" +
+                                        "VALUES (@Transact, @status, @appointDate, @appointTime, @clientName, @custom, @clientCP, @duration, @bookedBy, @bookedDate, @bookedTime)";
 
                     MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
                     cmd.Parameters.AddWithValue("@Transact", transactionNum);
@@ -5396,7 +5470,6 @@ namespace Enchante
                     cmd.Parameters.AddWithValue("@appointTime", bookedTime);
                     cmd.Parameters.AddWithValue("@clientName", CustomerName);
                     cmd.Parameters.AddWithValue("@custom", custom);
-                    cmd.Parameters.AddWithValue("@addNotes", notes);
                     cmd.Parameters.AddWithValue("@clientCP", CustomerMobileNumber);
                     cmd.Parameters.AddWithValue("@duration", "00:00:00");
                     cmd.Parameters.AddWithValue("@bookedBy", bookedBy);
@@ -5439,7 +5512,6 @@ namespace Enchante
 
             //customize & add notes
             string custom = RecCustomerCustomizationsTextBox.Text;
-            string notes = RecCustomerCustomerAdditionalNotesTextBox.Text;
             if (RecSelectedServiceDataGrid1.Rows.Count > 0)
             {
                 try
@@ -5461,10 +5533,10 @@ namespace Enchante
                                 string queType = row.Cells["QueType"].Value.ToString();
 
                                 string insertQuery = "INSERT INTO servicehistory (TransactionNumber, ServiceStatus, AppointmentDate, AppointmentTime, ClientName, " +
-                                                     "ServiceCategory, ServiceID, SelectedService, ServicePrice, Customization, AddNotes, PreferredStaff, QueNumber," +
+                                                     "ServiceCategory, ServiceID, SelectedService, ServicePrice, Customization, PreferredStaff, QueNumber," +
                                                      "QueType" +
                                                      ") VALUES (@Transact, @status, @appointDate, @appointTime, @name, @serviceCat, @ID, @serviceName, @servicePrice, " +
-                                                     "@custom, @notes, @preferredstaff, @quenumber, @quetype)";
+                                                     "@custom, @preferredstaff, @quenumber, @quetype)";
 
                                 MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
                                 cmd.Parameters.AddWithValue("@Transact", transactionNum);
@@ -5477,7 +5549,6 @@ namespace Enchante
                                 cmd.Parameters.AddWithValue("@serviceName", serviceName);
                                 cmd.Parameters.AddWithValue("@servicePrice", servicePrice);
                                 cmd.Parameters.AddWithValue("@custom", custom);
-                                cmd.Parameters.AddWithValue("@notes", notes);
                                 cmd.Parameters.AddWithValue("@preferredstaff", selectedStaff);
                                 cmd.Parameters.AddWithValue("@quenumber", queNumber);
                                 cmd.Parameters.AddWithValue("@quetype", queType);
