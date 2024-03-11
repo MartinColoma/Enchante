@@ -6152,10 +6152,9 @@ namespace Enchante
             Inventory.PanelShow(MngrInventoryTypePanel);
             MngrProductClearFields();
             PDImage.Visible = false;
-            ProductIMG.Visible = false;
+            ProductImagePictureBox.Visible = false;
             CancelEdit.Visible = false;
             SelectImage.Visible = false;
-            IMGChange.Visible = false;
             MngrInventoryProductsCatComboText.Enabled = true;
             MngrInventoryProductsTypeComboText.Enabled = true;
         }
@@ -6261,7 +6260,7 @@ namespace Enchante
 
             if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product")
             {
-                if (ProductIMG.Image == null)
+                if (ProductImagePictureBox.Image == null)
                 {
                     MessageBox.Show("Please select an image for the product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -6312,11 +6311,11 @@ namespace Enchante
                         command.Parameters.AddWithValue("@ItemStatus", MngrInventoryProductsStatusComboText.SelectedItem.ToString());
 
                         byte[] imageBytes = null;
-                        if (ProductIMG.Image != null)
+                        if (ProductImagePictureBox.Image != null)
                         {
                             using (MemoryStream ms = new MemoryStream())
                             {
-                                ProductIMG.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                                ProductImagePictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                                 imageBytes = ms.ToArray();
                             }
                         }
@@ -6327,9 +6326,8 @@ namespace Enchante
                     MessageBox.Show("Item added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     shouldGenerateItemID = false;
                     PDImage.Visible = false;
-                    ProductIMG.Visible = false;
+                    ProductImagePictureBox.Visible = false;
                     SelectImage.Visible = false;
-                    IMGChange.Visible = false;
                     MngrInventoryProductData();
                     MngrProductClearFields();
                 }
@@ -6384,17 +6382,17 @@ namespace Enchante
                                 {
                                     using (MemoryStream ms = new MemoryStream(imageData))
                                     {
-                                        ProductIMG.Image = System.Drawing.Image.FromStream(ms);
+                                        ProductImagePictureBox.Image = System.Drawing.Image.FromStream(ms);
                                     }
                                 }
                                 else
                                 {
-                                    ProductIMG.Image = null;
+                                    ProductImagePictureBox.Image = null;
                                 }
                             }
                             else
                             {
-                                ProductIMG.Image = null;
+                                ProductImagePictureBox.Image = null;
                             }
                         }
                         catch (Exception ex)
@@ -6428,7 +6426,7 @@ namespace Enchante
         private void MngrInventoryProductsUpdateBtn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(MngrInventoryProductsNameText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsPriceText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsStockText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsIDText.Text) ||
-               MngrInventoryProductsCatComboText.SelectedItem == null || MngrInventoryProductsTypeComboText.SelectedItem == null || MngrInventoryProductsStatusComboText.SelectedItem == null)
+               MngrInventoryProductsCatComboText.SelectedItem == null || MngrInventoryProductsTypeComboText.SelectedItem == null || MngrInventoryProductsStatusComboText.SelectedItem == null || ProductImagePictureBox == null)
             {
                 MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -6436,7 +6434,7 @@ namespace Enchante
 
             if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product")
             {
-                if (ProductIMG.Image == null)
+                if (ProductImagePictureBox.Image == null)
                 {
                     MessageBox.Show("Please select an image for the product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -6490,11 +6488,10 @@ WHERE ItemID = @ItemID";
                     command.Parameters.AddWithValue("@ProductType", MngrInventoryProductsTypeComboText.SelectedItem.ToString());
                     command.Parameters.AddWithValue("@ItemStatus", MngrInventoryProductsStatusComboText.SelectedItem.ToString());
 
-                    // Convert image to byte array only if it's a Retail Product
-                    if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product" && ProductIMG.Image != null)
+                    if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product" && ProductImagePictureBox.Image != null)
                     {
                         MemoryStream ms = new MemoryStream();
-                        ProductIMG.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        ProductImagePictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                         byte[] imageData = ms.ToArray();
                         command.Parameters.AddWithValue("@ProductPicture", imageData);
                     }
@@ -6530,7 +6527,7 @@ WHERE ItemID = @ItemID";
                                     }
 
                                     // Check if the ProductType is "Retail Product" and IMGCheck radio button is checked
-                                    if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product" && IMGChange.Checked)
+                                    if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product" )
                                     {
                                         fieldsChanged = true;
                                     }
@@ -6552,10 +6549,8 @@ WHERE ItemID = @ItemID";
                                 MngrInventoryProductsUpdateBtn.Visible = false;
                                 MngrInventoryProductsInsertBtn.Visible = true;
                                 PDImage.Visible = false;
-                                ProductIMG.Visible = false;
+                                ProductImagePictureBox.Visible = false;
                                 SelectImage.Visible = false;
-                                IMGChange.Checked = false;
-                                IMGChange.Visible = false;
                             }
                             else
                             {
@@ -6575,8 +6570,8 @@ WHERE ItemID = @ItemID";
             }
         }
 
-            private void MngrProductClearFields()
-            {
+        private void MngrProductClearFields()
+        {
             MngrInventoryProductsIDText.Text = "";
             MngrInventoryProductsNameText.Text = "";
             MngrInventoryProductsPriceText.Text = "";
@@ -6584,7 +6579,7 @@ WHERE ItemID = @ItemID";
             MngrInventoryProductsCatComboText.SelectedIndex = -1;
             MngrInventoryProductsTypeComboText.SelectedIndex = -1;
             MngrInventoryProductsStatusComboText.SelectedIndex = -1;
-            ProductIMG.Image = null;
+            ProductImagePictureBox.Image = null;
             shouldGenerateItemID = true;
         }
 
@@ -8894,16 +8889,14 @@ WHERE ItemID = @ItemID";
                 if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Service Product")
                 {
                     PDImage.Visible = false;
-                    ProductIMG.Visible = false;
+                    ProductImagePictureBox.Visible = false;
                     SelectImage.Visible = false;
-                    IMGChange.Visible = false;
                 }
                 else if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product")
                 {
                     PDImage.Visible = true;
-                    ProductIMG.Visible = true;
+                    ProductImagePictureBox.Visible = true;
                     SelectImage.Visible = true;
-                    IMGChange.Visible = true;
                 }
             }
         }
@@ -8915,9 +8908,8 @@ WHERE ItemID = @ItemID";
             MngrInventoryProductsUpdateBtn.Visible = false;       
             CancelEdit.Visible = false;
             PDImage.Visible = false;
-            ProductIMG.Visible = false;
+            ProductImagePictureBox.Visible = false;
             SelectImage.Visible = false;
-            IMGChange.Visible = false;
             MngrInventoryProductsCatComboText.Enabled = true;
             MngrInventoryProductsTypeComboText.Enabled = true;
 
@@ -8949,11 +8941,10 @@ WHERE ItemID = @ItemID";
                     // Load the selected image and display it in the PictureBox
                     using (System.Drawing.Image originalImage = System.Drawing.Image.FromFile(selectedImagePath))
                     {
-                        System.Drawing.Image resizedImage = ResizeImage(originalImage, ProductIMG.Width, ProductIMG.Height);
-                        ProductIMG.Image = resizedImage;
+                        System.Drawing.Image resizedImage = ResizeImage(originalImage, ProductImagePictureBox.Width, ProductImagePictureBox.Height);
+                        ProductImagePictureBox.Image = resizedImage;
 
-                        // Select the radio button named "IMGChange"
-                        IMGChange.Checked = true;
+
                     }
                 }
                 catch (Exception ex)
