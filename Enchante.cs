@@ -37,6 +37,7 @@ using System.Windows.Controls;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Data.SqlClient;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Drawing.Drawing2D;
 
 namespace Enchante
 {
@@ -5064,7 +5065,32 @@ namespace Enchante
 
         private void RecWalkinBookTransactBtn_Click(object sender, EventArgs e)
         {
-            if (RecSelectedServiceDataGrid1 != null && RecSelectedServiceDataGrid1.Rows.Count == 0)
+            
+            if (string.IsNullOrWhiteSpace(RecWalkinFNameText.Text))
+            {
+                MessageBox.Show("Please enter a first name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!IsCardNameValid(RecWalkinFNameText.Text))
+            {
+                MessageBox.Show("Invalid First Name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(RecWalkinLNameText.Text))
+            {
+                MessageBox.Show("Please enter a last name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!IsCardNameValid(RecWalkinLNameText.Text))
+            {
+                MessageBox.Show("Invalid Last Name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(RecWalkinCPNumText.Text))
+            {
+                MessageBox.Show("Please enter a contact number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!IsNumeric(RecWalkinCPNumText.Text))
+            {
+                MessageBox.Show("Invalid Contact Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (RecSelectedServiceDataGrid1 != null && RecSelectedServiceDataGrid1.Rows.Count == 0)
             {
                 MessageBox.Show("Select a service first to proceed on booking a transaction.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
@@ -5075,7 +5101,6 @@ namespace Enchante
                 RecWalkinTransactNumRefresh();
                 RecWalkinTransactionClear();
             }
-
         }
 
         private void RecWalkinTransactionClear()
@@ -5617,8 +5642,15 @@ namespace Enchante
                 RecPayServiceWalletPaymentPanel.Visible = false;
                 MngrPayServiceCashLbl.Visible = false;
                 MngrPayServiceCashBox.Visible = false;
-                MngrPayServiceCashBox.Text = "";
-                MngrPayServiceChangeBox.Text = "";
+                MngrPayServiceCashBox.Text = "0";
+                MngrPayServiceChangeBox.Text = "0.00";
+                MngrPayServiceCardNameText.Text = "";
+                MngrPayServiceCardNumText.Text = "";
+                MngrPayServiceCVCText.Text = "";
+                MngrPayServiceCardExpText.Text = "MM/YY";
+                MngrPayServiceWalletNumText.Text = "";
+                MngrPayServiceWalletPINText.Text = "";
+                MngrPayServiceWalletOTPText.Text = "";
                 MngrPayServiceChangeLbl.Visible = false;
                 MngrPayServiceChangeBox.Visible = false;
 
@@ -5653,8 +5685,15 @@ namespace Enchante
                 RecPayServiceWalletPaymentPanel.Visible = false;
                 MngrPayServiceCashLbl.Visible = false;
                 MngrPayServiceCashBox.Visible = false;
-                MngrPayServiceCashBox.Text = "";
-                MngrPayServiceChangeBox.Text = "";
+                MngrPayServiceCashBox.Text = "0";
+                MngrPayServiceChangeBox.Text = "0.00";
+                MngrPayServiceCardNameText.Text = "";
+                MngrPayServiceCardNumText.Text = "";
+                MngrPayServiceCVCText.Text = "";
+                MngrPayServiceCardExpText.Text = "MM/YY";
+                MngrPayServiceWalletNumText.Text = "";
+                MngrPayServiceWalletPINText.Text = "";
+                MngrPayServiceWalletOTPText.Text = "";
                 MngrPayServiceChangeLbl.Visible = false;
                 MngrPayServiceChangeBox.Visible = false;
 
@@ -5700,6 +5739,15 @@ namespace Enchante
                 RecPayServicePPPaymentRB.Checked = false;
                 RecPayServiceGCPaymentRB.Checked = false;
                 MngrPayServicePMPaymentRB.Checked = false;
+                MngrPayServiceCardNameText.Text = "";
+                MngrPayServiceCardNumText.Text = "";
+                MngrPayServiceCVCText.Text = "";
+                MngrPayServiceCardExpText.Text = "MM/YY";
+                MngrPayServiceWalletNumText.Text = "";
+                MngrPayServiceWalletPINText.Text = "";
+                MngrPayServiceWalletOTPText.Text = "";
+                MngrPayServiceCashBox.Text = "0";
+                MngrPayServiceChangeBox.Text = "0.00";
             }
             else
             {
@@ -5722,8 +5770,15 @@ namespace Enchante
                 RecPayServiceBankPaymentPanel.Visible = false;
                 MngrPayServiceCashLbl.Visible = false;
                 MngrPayServiceCashBox.Visible = false;
-                MngrPayServiceCashBox.Text = "";
-                MngrPayServiceChangeBox.Text = "";
+                MngrPayServiceCashBox.Text = "0";
+                MngrPayServiceChangeBox.Text = "0.00";
+                MngrPayServiceCardNameText.Text = "";
+                MngrPayServiceCardNumText.Text = "";
+                MngrPayServiceCVCText.Text = "";
+                MngrPayServiceCardExpText.Text = "MM/YY";
+                MngrPayServiceWalletNumText.Text = "";
+                MngrPayServiceWalletPINText.Text = "";
+                MngrPayServiceWalletOTPText.Text = "";
                 MngrPayServiceChangeLbl.Visible = false;
                 MngrPayServiceChangeBox.Visible = false;
 
@@ -5758,8 +5813,15 @@ namespace Enchante
                 RecPayServiceBankPaymentPanel.Visible = false;
                 MngrPayServiceCashLbl.Visible = false;
                 MngrPayServiceCashBox.Visible = false;
-                MngrPayServiceCashBox.Text = "";
-                MngrPayServiceChangeBox.Text = "";
+                MngrPayServiceCashBox.Text = "0";
+                MngrPayServiceChangeBox.Text = "0.00";
+                MngrPayServiceCardNameText.Text = "";
+                MngrPayServiceCardNumText.Text = "";
+                MngrPayServiceCVCText.Text = "";
+                MngrPayServiceCardExpText.Text = "MM/YY";
+                MngrPayServiceWalletNumText.Text = "";
+                MngrPayServiceWalletPINText.Text = "";
+                MngrPayServiceWalletOTPText.Text = "";
                 MngrPayServiceChangeLbl.Visible = false;
                 MngrPayServiceChangeBox.Visible = false;
 
@@ -6089,6 +6151,13 @@ namespace Enchante
         {
             Inventory.PanelShow(MngrInventoryTypePanel);
             MngrProductClearFields();
+            PDImage.Visible = false;
+            ProductIMG.Visible = false;
+            CancelEdit.Visible = false;
+            SelectImage.Visible = false;
+            IMGChange.Visible = false;
+            MngrInventoryProductsCatComboText.Enabled = true;
+            MngrInventoryProductsTypeComboText.Enabled = true;
         }
 
         private void StaffCurrentCustomerText_TextChanged(object sender, EventArgs e)
@@ -6131,6 +6200,7 @@ namespace Enchante
         {
             MngrHomePanelReset();
         }
+
         private bool shouldGenerateItemID = true;
 
         private void MngrInventoryProductsCatComboText_SelectedIndexChanged(object sender, EventArgs e)
@@ -6138,9 +6208,9 @@ namespace Enchante
             if (shouldGenerateItemID)
             {
                 ProductGenerateItemID();
-
             }
         }
+
         private void ProductGenerateItemID()
         {
             string empType = AdminEmplTypeComboText.SelectedItem?.ToString() ?? string.Empty;
@@ -6183,15 +6253,24 @@ namespace Enchante
         private void MngrInventoryProductsInsertBtn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(MngrInventoryProductsNameText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsPriceText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsStockText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsIDText.Text) ||
-    MngrInventoryProductsCatComboText.SelectedItem == null || MngrInventoryProductsTypeComboText.SelectedItem == null || MngrInventoryProductsStatusComboText.SelectedItem == null)
+            MngrInventoryProductsCatComboText.SelectedItem == null || MngrInventoryProductsTypeComboText.SelectedItem == null || MngrInventoryProductsStatusComboText.SelectedItem == null)
             {
                 MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product")
+            {
+                if (ProductIMG.Image == null)
+                {
+                    MessageBox.Show("Please select an image for the product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
             if (!IsNumeric(MngrInventoryProductsStockText.Text))
             {
-                MessageBox.Show("Invalid Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid Stock Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -6201,9 +6280,20 @@ namespace Enchante
                 return;
             }
 
+            if (Convert.ToInt32(MngrInventoryProductsStockText.Text) > 200)
+            {
+                MessageBox.Show("Stock cannot exceed 200.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            string query = "INSERT INTO inventory (ItemID, ProductCategory, ItemName, ItemStock, ItemPrice, ProductType, ItemStatus) " +
-                           "VALUES (@ItemID, @ProductCategory, @ItemName, @ItemStock, @ItemPrice, @ProductType, @ItemStatus)";
+            if (Convert.ToInt32(MngrInventoryProductsStockText.Text) < 40)
+            {
+                MessageBox.Show("Stock cannot be lower than 40.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string query = "INSERT INTO inventory (ItemID, ProductCategory, ItemName, ItemStock, ItemPrice, ProductType, ItemStatus, ProductPicture) " +
+               "VALUES (@ItemID, @ProductCategory, @ItemName, @ItemStock, @ItemPrice, @ProductType, @ItemStatus, @ProductPicture)";
 
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
             {
@@ -6221,11 +6311,25 @@ namespace Enchante
                         command.Parameters.AddWithValue("@ProductType", MngrInventoryProductsTypeComboText.SelectedItem.ToString());
                         command.Parameters.AddWithValue("@ItemStatus", MngrInventoryProductsStatusComboText.SelectedItem.ToString());
 
+                        byte[] imageBytes = null;
+                        if (ProductIMG.Image != null)
+                        {
+                            using (MemoryStream ms = new MemoryStream())
+                            {
+                                ProductIMG.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                                imageBytes = ms.ToArray();
+                            }
+                        }
+                        command.Parameters.AddWithValue("@ProductPicture", imageBytes);
                         command.ExecuteNonQuery();
 
                     }
                     MessageBox.Show("Item added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     shouldGenerateItemID = false;
+                    PDImage.Visible = false;
+                    ProductIMG.Visible = false;
+                    SelectImage.Visible = false;
+                    IMGChange.Visible = false;
                     MngrInventoryProductData();
                     MngrProductClearFields();
                 }
@@ -6233,7 +6337,6 @@ namespace Enchante
                 {
                     MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
             }
         }
 
@@ -6259,9 +6362,54 @@ namespace Enchante
                     return;
                 }
 
+                string connectionString = "server=localhost;user=root;database=enchante;password=";
+                string query = "SELECT ProductPicture FROM inventory WHERE ItemID = @ItemID";
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ItemID", selectedRow.Cells["ItemID"].Value.ToString());
+
+                        try
+                        {
+                            connection.Open();
+
+                            // ExecuteScalar returns DBNull if the value is null in the database
+                            object result = command.ExecuteScalar();
+
+                            if (result != DBNull.Value && result != null)
+                            {
+                                byte[] imageData = (byte[])result;
+                                if (imageData != null && imageData.Length > 0)
+                                {
+                                    using (MemoryStream ms = new MemoryStream(imageData))
+                                    {
+                                        ProductIMG.Image = System.Drawing.Image.FromStream(ms);
+                                    }
+                                }
+                                else
+                                {
+                                    ProductIMG.Image = null;
+                                }
+                            }
+                            else
+                            {
+                                ProductIMG.Image = null;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+
                 shouldGenerateItemID = false;
                 MngrInventoryProductsCatComboText.Enabled = false;
                 MngrInventoryProductsTypeComboText.Enabled = false;
+                MngrInventoryProductsInsertBtn.Visible = false;
+                MngrInventoryProductsUpdateBtn.Visible = true;
+                CancelEdit.Visible = true;
                 MngrInventoryProductsIDText.Text = selectedRow.Cells["ItemID"].Value.ToString();
                 MngrInventoryProductsNameText.Text = selectedRow.Cells["ItemName"].Value.ToString();
                 MngrInventoryProductsPriceText.Text = selectedRow.Cells["ItemPrice"].Value.ToString();
@@ -6270,8 +6418,6 @@ namespace Enchante
                 MngrInventoryProductsTypeComboText.SelectedItem = selectedRow.Cells["ProductType"].Value.ToString();
                 MngrInventoryProductsStatusComboText.SelectedItem = selectedRow.Cells["ItemStatus"].Value.ToString();
 
-                MngrInventoryProductsUpdateBtn.Visible = true;
-                MngrInventoryProductsInsertBtn.Visible = false;
             }
             else
             {
@@ -6288,9 +6434,18 @@ namespace Enchante
                 return;
             }
 
+            if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product")
+            {
+                if (ProductIMG.Image == null)
+                {
+                    MessageBox.Show("Please select an image for the product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
             if (!IsNumeric(MngrInventoryProductsStockText.Text))
             {
-                MessageBox.Show("Invalid Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid Stock.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -6314,13 +6469,14 @@ namespace Enchante
 
             string connectionString = "server=localhost;user=root;database=enchante;password=";
             string query = @"UPDATE inventory 
-             SET ItemName = @ItemName, 
-                 ItemPrice = @ItemPrice, 
-                 ItemStock = @ItemStock, 
-                 ProductCategory = @ProductCategory, 
-                 ProductType = @ProductType, 
-                 ItemStatus = @ItemStatus 
-             WHERE ItemID = @ItemID";
+SET ItemName = @ItemName, 
+    ItemPrice = @ItemPrice, 
+    ItemStock = @ItemStock, 
+    ProductCategory = @ProductCategory, 
+    ProductType = @ProductType, 
+    ItemStatus = @ItemStatus,
+    ProductPicture = @ProductPicture 
+WHERE ItemID = @ItemID";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -6333,6 +6489,20 @@ namespace Enchante
                     command.Parameters.AddWithValue("@ProductCategory", MngrInventoryProductsCatComboText.SelectedItem.ToString());
                     command.Parameters.AddWithValue("@ProductType", MngrInventoryProductsTypeComboText.SelectedItem.ToString());
                     command.Parameters.AddWithValue("@ItemStatus", MngrInventoryProductsStatusComboText.SelectedItem.ToString());
+
+                    // Convert image to byte array only if it's a Retail Product
+                    if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product" && ProductIMG.Image != null)
+                    {
+                        MemoryStream ms = new MemoryStream();
+                        ProductIMG.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        byte[] imageData = ms.ToArray();
+                        command.Parameters.AddWithValue("@ProductPicture", imageData);
+                    }
+                    else
+                    {
+                        // If it's a Service Product or no image is selected, set the parameter to null
+                        command.Parameters.AddWithValue("@ProductPicture", DBNull.Value);
+                    }
 
                     try
                     {
@@ -6348,12 +6518,19 @@ namespace Enchante
                             {
                                 if (reader.Read())
                                 {
+                                    // Check if any of the fields have changed
                                     if (reader["ItemName"].ToString() != MngrInventoryProductsNameText.Text ||
                                         reader["ItemPrice"].ToString() != MngrInventoryProductsPriceText.Text ||
                                         reader["ItemStock"].ToString() != MngrInventoryProductsStockText.Text ||
                                         reader["ProductCategory"].ToString() != MngrInventoryProductsCatComboText.SelectedItem.ToString() ||
                                         reader["ProductType"].ToString() != MngrInventoryProductsTypeComboText.SelectedItem.ToString() ||
                                         reader["ItemStatus"].ToString() != MngrInventoryProductsStatusComboText.SelectedItem.ToString())
+                                    {
+                                        fieldsChanged = true;
+                                    }
+
+                                    // Check if the ProductType is "Retail Product" and IMGCheck radio button is checked
+                                    if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product" && IMGChange.Checked)
                                     {
                                         fieldsChanged = true;
                                     }
@@ -6374,6 +6551,11 @@ namespace Enchante
                                 MngrInventoryProductsTypeComboText.Enabled = true;
                                 MngrInventoryProductsUpdateBtn.Visible = false;
                                 MngrInventoryProductsInsertBtn.Visible = true;
+                                PDImage.Visible = false;
+                                ProductIMG.Visible = false;
+                                SelectImage.Visible = false;
+                                IMGChange.Checked = false;
+                                IMGChange.Visible = false;
                             }
                             else
                             {
@@ -6393,8 +6575,8 @@ namespace Enchante
             }
         }
 
-        private void MngrProductClearFields()
-        {
+            private void MngrProductClearFields()
+            {
             MngrInventoryProductsIDText.Text = "";
             MngrInventoryProductsNameText.Text = "";
             MngrInventoryProductsPriceText.Text = "";
@@ -6402,8 +6584,8 @@ namespace Enchante
             MngrInventoryProductsCatComboText.SelectedIndex = -1;
             MngrInventoryProductsTypeComboText.SelectedIndex = -1;
             MngrInventoryProductsStatusComboText.SelectedIndex = -1;
+            ProductIMG.Image = null;
             shouldGenerateItemID = true;
-
         }
 
         private void MngrSchedExitBtn_Click(object sender, EventArgs e)
@@ -6753,21 +6935,21 @@ namespace Enchante
                 connection.Close();
             }
         }
-        private void UpdateWalk_in_AppointmentDB()
-        {
-            //cash values
-            string netAmount = MngrPayServiceNetAmountBox.Text; //net amount
-            string vat = MngrPayServiceVATBox.Text; //vat 
-            string discount = RecWalkinDiscountBox.Text;//discount
-            string grossAmount = MngrPayServiceGrossAmountBox.Text; //gross amount
-            string cash = MngrPayServiceCashBox.Text; //cashgiven
-            string change = MngrPayServiceChangeBox.Text; //due change
-            string paymentMethod = RecPayServiceTypeText.Text; //payment method
 
+        private bool UpdateWalk_in_AppointmentDB()
+        {
+            // cash values
+            string netAmount = MngrPayServiceNetAmountBox.Text; // net amount
+            string vat = MngrPayServiceVATBox.Text; // vat 
+            string discount = RecWalkinDiscountBox.Text; // discount
+            string grossAmount = MngrPayServiceGrossAmountBox.Text; // gross amount
+            string cash = MngrPayServiceCashBox.Text; // cash given
+            string change = MngrPayServiceChangeBox.Text; // due change
+            string paymentMethod = RecPayServiceTypeText.Text; // payment method
             string mngr = MngrNameLbl.Text;
             string transactNum = RecPayServiceTransactNumLbl.Text;
 
-            //bank & wallet details
+            // bank & wallet details
             string cardName = MngrPayServiceCardNameText.Text;
             string cardNum = MngrPayServiceCardNumText.Text;
             string CVC = MngrPayServiceCVCText.Text;
@@ -6782,6 +6964,119 @@ namespace Enchante
                 {
                     connection.Open();
 
+                    if (RecPayServiceCashPaymentRB.Checked)
+                    {
+                        if (grossAmount == "0.00")
+                        {
+                            MessageBox.Show("Please select a transaction to pay.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (string.IsNullOrWhiteSpace(cash))
+                        {
+                            MessageBox.Show("Please enter a cash amount.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (!IsNumeric(cash))
+                        {
+                            MessageBox.Show("Cash amount must be in numbers only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (Convert.ToDecimal(cash) < Convert.ToDecimal(grossAmount))
+                        {
+                            MessageBox.Show("Insufficient amount. Please provide enough cash to cover the transaction.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+
+                    }
+                    else if (RecPayServiceCCPaymentRB.Checked || RecPayServicePPPaymentRB.Checked)
+                    {
+                        if (grossAmount == "0.00")
+                        {
+                            MessageBox.Show("Please select a transaction to pay.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (string.IsNullOrWhiteSpace(MngrPayServiceCardNameText.Text))
+                        {
+                            MessageBox.Show("Please enter a cardholder name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (!IsCardNameValid(MngrPayServiceCardNameText.Text))
+                        {
+                            MessageBox.Show("Please enter a valid name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (string.IsNullOrWhiteSpace(cardNum))
+                        {
+                            MessageBox.Show("Please enter a card number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (cardNum.Length != 16 || !IsNumeric(cardNum))
+                        {
+                            MessageBox.Show("Please enter a valid 16-digit card number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (string.IsNullOrWhiteSpace(CVC))
+                        {
+                            MessageBox.Show("Please enter a CVC code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (CVC.Length != 3 || !IsNumeric(CVC))
+                        {
+                            MessageBox.Show("Please enter a valid 3-digit CVC code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (string.IsNullOrWhiteSpace(expire))
+                        {
+                            MessageBox.Show("Please enter an expiration date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        if (!Regex.IsMatch(expire, @"^(0[1-9]|1[0-2])\/\d{2}$"))
+                        {
+                            MessageBox.Show("Please enter the expiration date in MM/YY format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }                     
+                    }
+
+                    else if (RecPayServiceGCPaymentRB.Checked || MngrPayServicePMPaymentRB.Checked)
+                    {
+                        if (grossAmount == "0.00")
+                        {
+                            MessageBox.Show("Please select a transaction to pay.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (string.IsNullOrWhiteSpace(walletNum))
+                        {
+                            MessageBox.Show("Please enter your wallet number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (!IsNumeric(walletNum))
+                        {
+                            MessageBox.Show("Invalid wallet number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (string.IsNullOrWhiteSpace(walletPIN))
+                        {
+                            MessageBox.Show("Please enter your PIN.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (!IsNumeric(walletPIN) || walletPIN.Length != 6)
+                        {
+                            MessageBox.Show("Wallet PIN should be a 6-digit numeric code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (string.IsNullOrWhiteSpace(walletOTP))
+                        {
+                            MessageBox.Show("Please enter your OTP.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (!IsNumeric(walletOTP) || walletOTP.Length != 6)
+                        {
+                            MessageBox.Show("OTP should be a 6-digit numeric code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                    }
+
+
                     string cashPayment = "UPDATE walk_in_appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
                                         "GrossAmount = @gross, CashGiven = @cash, DueChange = @change, PaymentMethod = @payment, CheckedOutBy = @mngr " +
                                         "WHERE TransactionNumber = @transactNum"; // cash query
@@ -6791,7 +7086,7 @@ namespace Enchante
                                         "WHERE TransactionNumber = @transactNum"; // credit card and paypal query
                     string walletPayment = "UPDATE walk_in_appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
                                         "GrossAmount = @gross, PaymentMethod = @payment, WalletNumber = @walletNum, WalletPIN = @walletPin, WalletOTP = @walletOTP, CheckedOutBy = @mngr " +
-                                        "WHERE TransactionNumber = @transactNum"; //gcash and paymaya query
+                                        "WHERE TransactionNumber = @transactNum"; // gcash and paymaya query
 
                     if (RecPayServiceCashPaymentRB.Checked == true)
                     {
@@ -6859,12 +7154,14 @@ namespace Enchante
             {
                 // Handle MySQL database exception
                 MessageBox.Show("An error occurred: " + ex.Message, "Manager payment transaction failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false; // Return false in case of an exception
             }
             finally
             {
                 // Make sure to close the connection
                 connection.Close();
             }
+            return true;
         }
 
 
@@ -6928,9 +7225,13 @@ namespace Enchante
 
             //}
 
-            UpdateWalk_in_AppointmentDB();
-            MngrLoadCompletedTrans();
-            InvoiceReceiptGenerator();
+            if (UpdateWalk_in_AppointmentDB())
+            {
+                RecPayServicesAcquiredDGV.DataSource = null;
+                RecPayServiceClientNameLbl.Text = "";
+                MngrLoadCompletedTrans();
+                InvoiceReceiptGenerator();
+            }
         }
 
         private void RecPayServiceBtn_Click(object sender, EventArgs e)
@@ -6943,6 +7244,19 @@ namespace Enchante
         {
 
         }
+
+        private bool IsCardNameValid(string name)
+        {
+            foreach (char c in name)
+            {
+                if (!char.IsLetter(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         // Method to get image bytes from resource
         private byte[] GetImageBytesFromResource(string resourceName)
         {
@@ -8572,6 +8886,129 @@ namespace Enchante
             ProductSelectedDataGridView.Rows.Remove(selectedRow);
         }
 
+        private void MngrInventoryProductsTypeComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (MngrInventoryProductsTypeComboText.SelectedItem != null)
+            {
+                if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Service Product")
+                {
+                    PDImage.Visible = false;
+                    ProductIMG.Visible = false;
+                    SelectImage.Visible = false;
+                    IMGChange.Visible = false;
+                }
+                else if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product")
+                {
+                    PDImage.Visible = true;
+                    ProductIMG.Visible = true;
+                    SelectImage.Visible = true;
+                    IMGChange.Visible = true;
+                }
+            }
+        }
+
+        private void CancelEdit_Click(object sender, EventArgs e)
+        {
+            shouldGenerateItemID = true;
+            MngrInventoryProductsInsertBtn.Visible = true;
+            MngrInventoryProductsUpdateBtn.Visible = false;       
+            CancelEdit.Visible = false;
+            PDImage.Visible = false;
+            ProductIMG.Visible = false;
+            SelectImage.Visible = false;
+            IMGChange.Visible = false;
+            MngrInventoryProductsCatComboText.Enabled = true;
+            MngrInventoryProductsTypeComboText.Enabled = true;
+
+            MngrInventoryProductsCatComboText.SelectedIndex = -1;
+            MngrInventoryProductsTypeComboText.SelectedIndex = -1;
+            MngrInventoryProductsStatusComboText.SelectedIndex = -1;
+            MngrInventoryProductsIDText.Text = "";
+            MngrInventoryProductsNameText.Text = "";
+            MngrInventoryProductsPriceText.Text = "";
+            MngrInventoryProductsStockText.Text = "";
+        }
+
+        private void SelectImage_Click(object sender, EventArgs e)
+        {
+            // Open file dialog to select an image
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files (*.jpg; *.jpeg; *.png; *.gif; *.bmp)|*.jpg; *.jpeg; *.png; *.gif; *.bmp|All files (*.*)|*.*";
+            openFileDialog.Title = "Select Image";
+            openFileDialog.Multiselect = false;
+
+            DialogResult result = openFileDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                string selectedImagePath = openFileDialog.FileName;
+
+                try
+                {
+                    // Load the selected image and display it in the PictureBox
+                    using (System.Drawing.Image originalImage = System.Drawing.Image.FromFile(selectedImagePath))
+                    {
+                        System.Drawing.Image resizedImage = ResizeImage(originalImage, ProductIMG.Width, ProductIMG.Height);
+                        ProductIMG.Image = resizedImage;
+
+                        // Select the radio button named "IMGChange"
+                        IMGChange.Checked = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading image: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private System.Drawing.Image ResizeImage(System.Drawing.Image image, int width, int height)
+        {
+            float aspectRatio = (float)image.Width / image.Height;
+            int targetWidth = width;
+            int targetHeight = (int)(width / aspectRatio);
+
+            if (targetHeight > height)
+            {
+                targetHeight = height;
+                targetWidth = (int)(height * aspectRatio);
+            }
+
+            Bitmap resizedImage = new Bitmap(width, height);
+            int x = (width - targetWidth) / 2;
+            int y = (height - targetHeight) / 2;
+
+            using (Graphics graphics = Graphics.FromImage(resizedImage))
+            {
+                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                graphics.Clear(Color.Transparent);
+                graphics.DrawImage(image, new System.Drawing.Rectangle(x, y, targetWidth, targetHeight));
+            }
+            return resizedImage;
+        }
+
+        private void MngrInventoryProductsStockText_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(MngrInventoryProductsStockText.Text))
+            {
+                MngrInventoryProductsStatusComboText.SelectedItem = null;
+            }
+
+            if (int.TryParse(MngrInventoryProductsStockText.Text, out int inputValue))
+            {
+                if (inputValue >= 0 && inputValue <= 50)
+                {
+                    MngrInventoryProductsStatusComboText.SelectedItem = "Low Stock";
+                }
+                else if (inputValue >= 51)
+                {
+                    MngrInventoryProductsStatusComboText.SelectedItem = "High Stock";
+                }
+            }
+        }
+
+
         //private void ProductOrderUserControl_QuantityChanged(object sender, int newQuantity)
         //{
         //    ProductOrderUserControl control = sender as ProductOrderUserControl;
@@ -8604,9 +9041,5 @@ namespace Enchante
         //{
         //    UpdateProductTotal();
         //}
-
-
     }
-
-
 }
