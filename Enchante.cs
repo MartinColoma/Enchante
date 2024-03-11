@@ -40,6 +40,8 @@ using System.Windows.Forms.DataVisualization.Charting;
 using System.Drawing.Drawing2D;
 using static Guna.UI2.WinForms.Helpers.GraphicsHelper;
 using System.Collections;
+using Mysqlx.Expr;
+using System.Security.Policy;
 
 namespace Enchante
 {
@@ -5367,7 +5369,7 @@ namespace Enchante
         {
             DateTime currentDate = RecDateTimePicker.Value;
             string transactionNum = RecWalkinTransNumText.Text;
-
+            string status = "Not Paid";
 
             //booked values
             string bookedDate = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
@@ -5394,18 +5396,21 @@ namespace Enchante
                                 int qty = Convert.ToInt32(row.Cells["Qty"].Value);
                                 decimal itemPrice = Convert.ToDecimal(row.Cells["Unit Price"].Value);
                                 decimal itemTotalPrice = Convert.ToDecimal(row.Cells["Total Price"].Value);
+                                string itemID = row.Cells["OrderProdItemID"].Value.ToString();
 
 
-                                string query = "INSERT INTO orderproducthistory (TransactionNumber, CheckedOutDate, CheckedOutTime, CheckedOutBy, ClientName, ItemName, Qty, ItemPrice, ItemTotalPrice, CheckedOut, Voided) " +
-                                               "VALUES (@Transact, @date, @time, @OrderedBy, @client, @ItemName, @Qty, @ItemPrice, @ItemTotalPrice, @Yes, @No)";
+                                string query = "INSERT INTO orderproducthistory (TransactionNumber, ProductStatus, CheckedOutDate, CheckedOutTime, CheckedOutBy, ClientName, ItemID, ItemName, Qty, ItemPrice, ItemTotalPrice, CheckedOut, Voided) " +
+                                               "VALUES (@Transact, @status @date, @time, @OrderedBy, @client, @ID @ItemName, @Qty, @ItemPrice, @ItemTotalPrice, @Yes, @No)";
 
                                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
                                 {
                                     cmd.Parameters.AddWithValue("@Transact", transactionNum);
+                                    cmd.Parameters.AddWithValue("@status", status);
                                     cmd.Parameters.AddWithValue("@date", bookedDate);
                                     cmd.Parameters.AddWithValue("@time", bookedTime);
                                     cmd.Parameters.AddWithValue("@OrderedBy", bookedBy);
                                     cmd.Parameters.AddWithValue("@client", CustomerName);
+                                    cmd.Parameters.AddWithValue("@ID", itemID);
                                     cmd.Parameters.AddWithValue("@ItemName", itemName);
                                     cmd.Parameters.AddWithValue("@Qty", qty);
                                     cmd.Parameters.AddWithValue("@ItemPrice", itemPrice);
@@ -5576,25 +5581,45 @@ namespace Enchante
 
         private void ReceptionCalculateTotalPrice()
         {
-            decimal total = 0;
+            decimal total1 = 0;
+            decimal total2 = 0;
+            decimal total3 = 0;
 
-            // Assuming the "Price" column is of decimal type
-            int priceColumnIndex = RecPayServicesAcquiredDGV.Columns["ServicePrice"].Index;
+            // Assuming the "ServicePrice" column is of decimal type
+            int servicepriceColumnIndex = RecPayServicesAcquiredDGV.Columns["ServicePrice"].Index;
 
             foreach (DataGridViewRow row in RecPayServicesAcquiredDGV.Rows)
             {
-                if (row.Cells[priceColumnIndex].Value != null)
+                if (row.Cells[servicepriceColumnIndex].Value != null)
                 {
-                    decimal price = decimal.Parse(row.Cells[priceColumnIndex].Value.ToString());
-                    total += price;
+                    decimal price = decimal.Parse(row.Cells[servicepriceColumnIndex].Value.ToString());
+                    total1 += price;
                 }
             }
+            RecPayServicesAcquiredTotalText.Text = total1.ToString("F2");
+
+            // Assuming the "ItemTotalPrice" column is of decimal type
+            int productpriceColumnIndex = RecPayServiceCOProdDGV.Columns["ItemTotalPrice"].Index;
+
+            foreach (DataGridViewRow row in RecPayServiceCOProdDGV.Rows)
+            {
+                if (row.Cells[productpriceColumnIndex].Value != null)
+                {
+                    decimal price = decimal.Parse(row.Cells[productpriceColumnIndex].Value.ToString());
+                    total2 += price;
+                }
+            }
+            RecPayServicesCOProdTotalText.Text = total2.ToString("F2");
+
+
+            total3 = total1 + total2;
 
             // Display the total price in the GrossAmountBox TextBox
-            MngrPayServiceGrossAmountBox.Text = total.ToString("F2"); // Format to two decimal places
+            MngrPayServiceGrossAmountBox.Text = total3.ToString("F2"); // Format to two decimal places
 
             ReceptionCalculateVATAndNetAmount();
         }
+
 
         public void ReceptionCalculateVATAndNetAmount()
         {
@@ -6951,6 +6976,60 @@ WHERE ItemID = @ItemID";
                         RecPayServicesAcquiredDGV.Columns[12].Visible = false; //service duration
                         RecPayServicesAcquiredDGV.Columns[13].Visible = false; //customization
                         RecPayServicesAcquiredDGV.Columns[14].Visible = false; // add notes
+                        RecPayServicesAcquiredDGV.Columns[15].Visible = false; // preferred staff
+                        RecPayServicesAcquiredDGV.Columns[16].Visible = false; // que num
+                        RecPayServicesAcquiredDGV.Columns[17].Visible = false; // que type
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Manager Order History List");
+            }
+            finally
+            {
+                // Make sure to close the connection (if it's open)
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        public void MngrLoadOrderProdHistoryDB(string transactNumber)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    // Modify the SQL query to filter based on TransactNumber and OrderNumber
+                    string sql = "SELECT * FROM `orderproducthistory` WHERE TransactionNumber = @TransactionNumber";
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+
+                    // Add parameters to the query
+                    cmd.Parameters.AddWithValue("@TransactionNumber", transactNumber);
+
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+                        RecPayServiceCOProdDGV.DataSource = dataTable;
+
+                        RecPayServiceCOProdDGV.Columns[0].Visible = false; //transact number
+                        RecPayServiceCOProdDGV.Columns[1].Visible = false; //product stats
+                        RecPayServiceCOProdDGV.Columns[2].Visible = false; // date
+                        RecPayServiceCOProdDGV.Columns[3].Visible = false; // time 
+                        RecPayServiceCOProdDGV.Columns[4].Visible = false; // by
+                        RecPayServiceCOProdDGV.Columns[5].Visible = false; //client name
+                        RecPayServiceCOProdDGV.Columns[6].Visible = false; // item ID
+                        RecPayServiceCOProdDGV.Columns[11].Visible = false; //checkedout
+                        RecPayServiceCOProdDGV.Columns[12].Visible = false; //void
+
 
                     }
                 }
@@ -6979,8 +7058,9 @@ WHERE ItemID = @ItemID";
                 string clientName = RecPayServiceCompleteTransDGV.Rows[e.RowIndex].Cells["ClientName"].Value.ToString();
 
                 RecPayServiceTransactNumLbl.Text = transactNumber;
-                RecPayServiceClientNameLbl.Text = clientName;
+                RecPayServiceClientNameLbl.Text = $"Client Name: {clientName}";
                 MngrLoadServiceHistoryDB(transactNumber);
+                MngrLoadOrderProdHistoryDB(transactNumber);
                 ReceptionCalculateTotalPrice();
 
             }
@@ -7047,6 +7127,7 @@ WHERE ItemID = @ItemID";
             }
         }
 
+
         private bool UpdateWalk_in_AppointmentDB()
         {
             // cash values
@@ -7074,6 +7155,7 @@ WHERE ItemID = @ItemID";
                 using (MySqlConnection connection = new MySqlConnection(mysqlconn))
                 {
                     connection.Open();
+
 
                     if (RecPayServiceCashPaymentRB.Checked)
                     {
@@ -7145,7 +7227,7 @@ WHERE ItemID = @ItemID";
                         {
                             MessageBox.Show("Please enter the expiration date in MM/YY format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return false;
-                        }                     
+                        }
                     }
 
                     else if (RecPayServiceGCPaymentRB.Checked || MngrPayServicePMPaymentRB.Checked)
@@ -7186,8 +7268,6 @@ WHERE ItemID = @ItemID";
                             return false;
                         }
                     }
-
-
                     string cashPayment = "UPDATE walk_in_appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
                                         "GrossAmount = @gross, CashGiven = @cash, DueChange = @change, PaymentMethod = @payment, CheckedOutBy = @mngr " +
                                         "WHERE TransactionNumber = @transactNum"; // cash query
@@ -7198,10 +7278,11 @@ WHERE ItemID = @ItemID";
                     string walletPayment = "UPDATE walk_in_appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
                                         "GrossAmount = @gross, PaymentMethod = @payment, WalletNumber = @walletNum, WalletPIN = @walletPin, WalletOTP = @walletOTP, CheckedOutBy = @mngr " +
                                         "WHERE TransactionNumber = @transactNum"; // gcash and paymaya query
+                    string productPayment = "UPDATE orderproducthistory SET ProductStatus = @status WHERE TransactionNumber = @transactNum";
 
                     if (RecPayServiceCashPaymentRB.Checked == true)
                     {
-                        MySqlCommand cmd = new MySqlCommand(cashPayment, connection);
+                        MySqlCommand cmd = new MySqlCommand(cashPayment,  connection);
                         cmd.Parameters.AddWithValue("@status", "Paid");
                         cmd.Parameters.AddWithValue("@net", netAmount);
                         cmd.Parameters.AddWithValue("@vat", vat);
@@ -7252,6 +7333,41 @@ WHERE ItemID = @ItemID";
                         cmd.Parameters.AddWithValue("@walletPin", walletPIN);
                         cmd.Parameters.AddWithValue("@walletOTP", walletOTP);
                         cmd.Parameters.AddWithValue("@mngr", mngr);
+                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
+
+                        cmd.ExecuteNonQuery();
+                        // Successful update
+                        MessageBox.Show("Service successfully been paid through online wallet.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Inventory.PanelShow(MngrInventoryTypePanel);
+                    }
+
+                    if (RecPayServiceCashPaymentRB.Checked == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand(productPayment, connection);
+                        cmd.Parameters.AddWithValue("@status", "Paid");
+                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
+
+
+                        cmd.ExecuteNonQuery();
+                        // Successful update
+                        MessageBox.Show("Service successfully been paid through cash.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Inventory.PanelShow(MngrInventoryTypePanel);
+                    }
+                    else if (RecPayServiceCCPaymentRB.Checked == true || RecPayServicePPPaymentRB.Checked == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand(productPayment, connection);
+                        cmd.Parameters.AddWithValue("@status", "Paid");
+                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
+
+                        cmd.ExecuteNonQuery();
+                        // Successful update
+                        MessageBox.Show("Service successfully been paid through bank.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Inventory.PanelShow(MngrInventoryTypePanel);
+                    }
+                    else if (RecPayServiceGCPaymentRB.Checked == true || MngrPayServicePMPaymentRB.Checked == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand(productPayment, connection);
+                        cmd.Parameters.AddWithValue("@status", "Paid");
                         cmd.Parameters.AddWithValue("@transactNum", transactNum);
 
                         cmd.ExecuteNonQuery();
@@ -7338,7 +7454,6 @@ WHERE ItemID = @ItemID";
 
             if (UpdateWalk_in_AppointmentDB())
             {
-                RecPayServicesAcquiredDGV.DataSource = null;
                 RecPayServiceClientNameLbl.Text = "";
                 MngrLoadCompletedTrans();
                 InvoiceReceiptGenerator();
@@ -7480,23 +7595,32 @@ WHERE ItemID = @ItemID";
                     doc.Add(new Chunk("\n")); // New line
 
                     doc.Add(new LineSeparator()); // Dotted line
-                    PdfPTable itemTable = new PdfPTable(3); // 3 columns for the item table
-                    itemTable.SetWidths(new float[] { 5f, 10f, 5f }); // Column widths
+                    PdfPTable itemTable = new PdfPTable(4); 
+                    itemTable.SetWidths(new float[] { 10f, 10f, 5f, 5f }); // Column widths
                     itemTable.DefaultCell.Border = PdfPCell.NO_BORDER;
                     itemTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
                     itemTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
-                    itemTable.AddCell(new Phrase("Staff ID", boldfont));
-                    itemTable.AddCell(new Phrase("Service", boldfont));
-                    itemTable.AddCell(new Phrase("Price", boldfont));
+                    itemTable.AddCell(new Phrase("Staff or\nProduct ID", boldfont));
+                    itemTable.AddCell(new Phrase("Services or \nProducts", boldfont));
+                    itemTable.AddCell(new Phrase("Qty.", boldfont));
+                    itemTable.AddCell(new Phrase("Total Price", boldfont));
                     doc.Add(itemTable);
                     doc.Add(new LineSeparator()); // Dotted line
                     // Iterate through the rows of your 
+
+                    // Add cells to the item table
+                    PdfPTable serviceTable = new PdfPTable(4); 
+                    serviceTable.SetWidths(new float[] { 5f, 5f, 3f, 3f }); // Column widths
+                    serviceTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+                    serviceTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                    serviceTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
                     foreach (DataGridViewRow row in RecPayServicesAcquiredDGV.Rows)
                     {
                         try
                         {
-                            string itemName = row.Cells["SelectedService"].Value?.ToString();
-                            if (string.IsNullOrEmpty(itemName))
+                            string serviceName = row.Cells["SelectedService"].Value?.ToString();
+                            if (string.IsNullOrEmpty(serviceName))
                             {
                                 continue; // Skip empty rows
                             }
@@ -7504,18 +7628,13 @@ WHERE ItemID = @ItemID";
                             string staffID = row.Cells["AttendingStaff"].Value?.ToString();
                             string itemTotalcost = row.Cells["ServicePrice"].Value?.ToString();
 
-                            // Add cells to the item table
-                            PdfPTable serviceTable = new PdfPTable(3); // 4 columns for the item table
-                            serviceTable.SetWidths(new float[] { 3f, 5f, 3f }); // Column widths
-                            serviceTable.DefaultCell.Border = PdfPCell.NO_BORDER;
-                            serviceTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
-                            serviceTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
-                            serviceTable.AddCell(new Phrase(staffID, font));
-                            serviceTable.AddCell(new Phrase(itemName, font));
-                            serviceTable.AddCell(new Phrase(itemTotalcost, font));
 
-                            // Add the item table to the document
+                            serviceTable.AddCell(new Phrase(staffID, font));
+                            serviceTable.AddCell(new Phrase(serviceName, font));
+                            serviceTable.AddCell(new Phrase("1", font));
+                            serviceTable.AddCell(new Phrase(itemTotalcost, font));
                             doc.Add(serviceTable);
+
                         }
                         catch (Exception ex)
                         {
@@ -7523,6 +7642,42 @@ WHERE ItemID = @ItemID";
                             MessageBox.Show("An error occurred: " + ex.Message, "Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
+                    // Add cells to the item table
+                    PdfPTable service1Table = new PdfPTable(4);
+                    service1Table.SetWidths(new float[] { 5f, 5f, 3f, 3f }); // Column widths
+                    service1Table.DefaultCell.Border = PdfPCell.NO_BORDER;
+                    service1Table.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                    service1Table.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                    foreach (DataGridViewRow row in RecPayServiceCOProdDGV.Rows)
+                    {
+                        try
+                        {
+                            string itemName = row.Cells["ItemName"].Value?.ToString();
+                            if (string.IsNullOrEmpty(itemName))
+                            {
+                                continue; // Skip empty rows
+                            }
+                            string itemID = row.Cells["ItemID"].Value?.ToString();
+                            string qty = row.Cells["Qty"].Value?.ToString();
+                            string itemTotalcost = row.Cells["ItemTotalPrice"].Value?.ToString();
+
+                            service1Table.AddCell(new Phrase(itemID, font));
+                            service1Table.AddCell(new Phrase(itemName, font));
+                            service1Table.AddCell(new Phrase(qty, font));
+                            service1Table.AddCell(new Phrase(itemTotalcost, font));
+                            // Add the item table to the document
+                            doc.Add(service1Table);
+                        }
+                        catch (Exception ex)
+                        {
+                            // Handle or log any exceptions that occur while processing DataGridView data
+                            MessageBox.Show("An error occurred: " + ex.Message, "Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+
+
                     doc.Add(new Chunk("\n")); // New line
                     doc.Add(new LineSeparator()); // Dotted line
                     doc.Add(new Chunk("\n")); // New line
@@ -7540,13 +7695,17 @@ WHERE ItemID = @ItemID";
                     totalTable.SetWidths(new float[] { 5f, 3f }); // Column widths
                     totalTable.DefaultCell.Border = PdfPCell.NO_BORDER;
 
+                    // Get the total count of rows from both DataGridViews
+                    int totalRowCount = RecPayServicesAcquiredDGV.Rows.Count + RecPayServiceCOProdDGV.Rows.Count;
+
                     // Add cells to the "Total" table
-                    totalTable.AddCell(new Phrase($"Total # of Service ({RecPayServicesAcquiredDGV.Rows.Count})", font));
+                    totalTable.AddCell(new Phrase($"Total # of Service ({totalRowCount})", font));
                     totalTable.AddCell(new Phrase($"Php {grossAmount:F2}", font));
                     totalTable.AddCell(new Phrase($"Cash Given", font));
                     totalTable.AddCell(new Phrase($"Php {cash:F2}", font));
                     totalTable.AddCell(new Phrase($"Change", font));
                     totalTable.AddCell(new Phrase($"Php {change:F2}", font));
+
 
                     // Add the "Total" table to the document
                     doc.Add(totalTable);
@@ -8868,7 +9027,7 @@ WHERE ItemID = @ItemID";
                 }
                 else
                 {
-                    RecWalkinSelectedProdDGV.Rows.Add("x", itemName, "-", "1", "+", itemPrice, itemPrice);
+                    RecWalkinSelectedProdDGV.Rows.Add(itemID, "x", itemName, "-", "1", "+", itemPrice, itemPrice);
 
                 }
             }
