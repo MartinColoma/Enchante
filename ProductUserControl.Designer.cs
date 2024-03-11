@@ -46,16 +46,19 @@
             this.ProductNameTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ProductNameTextBox.DefaultText = "";
             this.ProductNameTextBox.DisabledState.BorderColor = System.Drawing.Color.White;
-            this.ProductNameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.ProductNameTextBox.DisabledState.ForeColor = System.Drawing.Color.Black;
-            this.ProductNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+            this.ProductNameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ProductNameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ProductNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.ProductNameTextBox.Enabled = false;
+            this.ProductNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.ProductNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ProductNameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ProductNameTextBox.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProductNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.ProductNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ProductNameTextBox.Location = new System.Drawing.Point(7, 5);
+            this.ProductNameTextBox.Location = new System.Drawing.Point(7, 130);
             this.ProductNameTextBox.Name = "ProductNameTextBox";
             this.ProductNameTextBox.PasswordChar = '\0';
+            this.ProductNameTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.ProductNameTextBox.PlaceholderText = "";
             this.ProductNameTextBox.ReadOnly = true;
             this.ProductNameTextBox.SelectedText = "";
@@ -105,25 +108,29 @@
             // 
             // ProductPriceTextBox
             // 
-            this.ProductPriceTextBox.BorderRadius = 8;
+            this.ProductPriceTextBox.BorderThickness = 0;
             this.ProductPriceTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ProductPriceTextBox.DefaultText = "";
-            this.ProductPriceTextBox.DisabledState.BorderColor = System.Drawing.Color.White;
-            this.ProductPriceTextBox.DisabledState.FillColor = System.Drawing.Color.White;
-            this.ProductPriceTextBox.DisabledState.ForeColor = System.Drawing.Color.Black;
-            this.ProductPriceTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.White;
+            this.ProductPriceTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ProductPriceTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ProductPriceTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ProductPriceTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.ProductPriceTextBox.Enabled = false;
+            this.ProductPriceTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.ProductPriceTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ProductPriceTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ProductPriceTextBox.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProductPriceTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.ProductPriceTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ProductPriceTextBox.Location = new System.Drawing.Point(39, 133);
+            this.ProductPriceTextBox.Location = new System.Drawing.Point(72, 3);
             this.ProductPriceTextBox.Name = "ProductPriceTextBox";
             this.ProductPriceTextBox.PasswordChar = '\0';
+            this.ProductPriceTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.ProductPriceTextBox.PlaceholderText = "";
             this.ProductPriceTextBox.ReadOnly = true;
             this.ProductPriceTextBox.SelectedText = "";
-            this.ProductPriceTextBox.Size = new System.Drawing.Size(90, 18);
+            this.ProductPriceTextBox.Size = new System.Drawing.Size(100, 26);
             this.ProductPriceTextBox.TabIndex = 3;
+            this.ProductPriceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // ProductStockTextBox
             // 
@@ -149,7 +156,7 @@
             // 
             this.ProductOutOfStockPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("ProductOutOfStockPictureBox.Image")));
             this.ProductOutOfStockPictureBox.ImageRotate = 0F;
-            this.ProductOutOfStockPictureBox.Location = new System.Drawing.Point(9, 35);
+            this.ProductOutOfStockPictureBox.Location = new System.Drawing.Point(9, 28);
             this.ProductOutOfStockPictureBox.Name = "ProductOutOfStockPictureBox";
             this.ProductOutOfStockPictureBox.Size = new System.Drawing.Size(156, 100);
             this.ProductOutOfStockPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -161,7 +168,7 @@
             // 
             this.ProductPicturePictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ProductPicturePictureBox.ImageRotate = 0F;
-            this.ProductPicturePictureBox.Location = new System.Drawing.Point(39, 35);
+            this.ProductPicturePictureBox.Location = new System.Drawing.Point(41, 32);
             this.ProductPicturePictureBox.Name = "ProductPicturePictureBox";
             this.ProductPicturePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.ProductPicturePictureBox.Size = new System.Drawing.Size(92, 92);

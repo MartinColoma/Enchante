@@ -38,6 +38,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Data.SqlClient;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Drawing.Drawing2D;
+using static Guna.UI2.WinForms.Helpers.GraphicsHelper;
 
 namespace Enchante
 {
@@ -97,7 +98,8 @@ namespace Enchante
             // Exit MessageBox 
             this.FormClosing += new FormClosingEventHandler(MainForm_FormClosing);
 
-
+            //Rec Walkin Buy Products
+            RecWalkinSelectedProdView();
 
             //Landing Pages Cardlayout Panel Manager
             ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteReceptionPage, EnchanteMemberPage, EnchanteAdminPage, EnchanteMngrPage);
@@ -328,6 +330,49 @@ namespace Enchante
             }
         }
 
+        private void RecWalkinSelectedProdView()
+        {
+            DataGridViewButtonColumn trashColumn = new DataGridViewButtonColumn();
+            trashColumn.Name = "Void";
+            trashColumn.Text = "x";
+            trashColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            trashColumn.Width = 10;
+            RecWalkinSelectedProdDGV.Columns.Add(trashColumn);
+
+            DataGridViewTextBoxColumn itemNameColumn = new DataGridViewTextBoxColumn();
+            itemNameColumn.Name = "Item Name";
+            //itemNameColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            RecWalkinSelectedProdDGV.Columns.Add(itemNameColumn);
+
+            DataGridViewButtonColumn minusColumn = new DataGridViewButtonColumn();
+            minusColumn.Name = "-";
+            minusColumn.Text = "-";
+            minusColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            minusColumn.Width = 10;
+            RecWalkinSelectedProdDGV.Columns.Add(minusColumn);
+
+            DataGridViewTextBoxColumn quantityColumn = new DataGridViewTextBoxColumn();
+            quantityColumn.Name = "Qty";
+            quantityColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            quantityColumn.Width = 15;
+            RecWalkinSelectedProdDGV.Columns.Add(quantityColumn);
+
+            DataGridViewButtonColumn plusColumn = new DataGridViewButtonColumn();
+            plusColumn.Name = "+";
+            plusColumn.Text = "+";
+            plusColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            plusColumn.Width = 10;
+            RecWalkinSelectedProdDGV.Columns.Add(plusColumn);
+
+            DataGridViewTextBoxColumn itemUnitCostColumn = new DataGridViewTextBoxColumn();
+            itemUnitCostColumn.Name = "Unit Price";
+            RecWalkinSelectedProdDGV.Columns.Add(itemUnitCostColumn);
+
+            DataGridViewTextBoxColumn itemCostColumn = new DataGridViewTextBoxColumn();
+            itemCostColumn.Name = "Total Price";
+            RecWalkinSelectedProdDGV.Columns.Add(itemCostColumn);
+
+        }
 
         private void ScrollToCoordinates(int x, int y)
         {
@@ -8707,61 +8752,55 @@ WHERE ItemID = @ItemID";
 
                 bool itemExists = false;
 
-                foreach (DataGridViewRow row in ProductSelectedDataGridView.Rows)
+
+
+                int existingRowIndex = 0;
+
+                // Check if the item already exists in the order
+                foreach (DataGridViewRow row in RecWalkinSelectedProdDGV.Rows)
                 {
-                    if (row.Cells["ProductItemID"].Value.ToString() == itemID)
+                    if (row.Cells["Item Name"].Value != null && row.Cells["Item Name"].Value.ToString() == itemName)
                     {
-                        int currentQuantity = Convert.ToInt32(row.Cells["ProductQuantity"].Value);
-                        row.Cells["ProductQuantity"].Value = currentQuantity + 1;
                         itemExists = true;
+                        existingRowIndex = row.Index;
                         break;
                     }
                 }
 
-                if (!itemExists)
+                if (itemExists)
                 {
-                    int rowIndex = ProductSelectedDataGridView.Rows.Add();
-                    ProductSelectedDataGridView.Rows[rowIndex].Cells["ProductItemID"].Value = itemID;
-                    ProductSelectedDataGridView.Rows[rowIndex].Cells["ProductItemName"].Value = itemName;
-                    ProductSelectedDataGridView.Rows[rowIndex].Cells["ProductQuantity"].Value = "1";
-                    ProductSelectedDataGridView.Rows[rowIndex].Cells["ProductItemPrice"].Value = itemPrice;
+                    // The item already exists, increment quantity and update price
+                    string quantityString = RecWalkinSelectedProdDGV.Rows[existingRowIndex].Cells["Qty"].Value?.ToString();
+                    if (!string.IsNullOrEmpty(quantityString) && int.TryParse(quantityString, out int quantity))
+                    {
+                        decimal itemCost = decimal.Parse(RecWalkinSelectedProdDGV.Rows[existingRowIndex].Cells["Total Price"].Value?.ToString());
+
+                        // Calculate the cost per item
+                        decimal costPerItem = itemCost / quantity;
+
+                        // Increase quantity
+                        quantity++;
+
+                        // Calculate updated item cost
+                        decimal updatedCost = costPerItem * quantity;
+
+                        // Update Qty and ItemCost in the DataGridView
+                        RecWalkinSelectedProdDGV.Rows[existingRowIndex].Cells["Qty"].Value = quantity.ToString();
+                        RecWalkinSelectedProdDGV.Rows[existingRowIndex].Cells["Total Price"].Value = updatedCost.ToString("F2"); // Format to two decimal places
+                    }
+
+                    else
+                    {
+                        // Handle the case where quantityString is empty or not a valid integer
+                        // For example, show an error message or set a default value
+                    }
+                }
+                else
+                {
+                    RecWalkinSelectedProdDGV.Rows.Add("x", itemName, "-", "1", "+", itemPrice, itemPrice);
+
                 }
             }
-
-            //if (sender is ProductUserControl clickedControl)
-            //{
-            //    string itemID = clickedControl.ProductItemIDTextBox.Text;
-            //    string itemName = clickedControl.ProductNameTextBox.Text;
-            //    string itemPrice = clickedControl.ProductPriceTextBox.Text;
-
-            //    bool itemExists = false;
-
-            //    foreach (System.Windows.Forms.Control control in ProductSelectedFlowLayoutPanel.Controls)
-            //    {
-            //        if (control is ProductOrderUserControl orderControl &&
-            //            orderControl.ProductOrderItemIDTextBox.Text == itemID)
-            //        {
-            //            int currentQuantity = Convert.ToInt32(orderControl.ProductOrderQuantityTextBox.Text);
-            //            orderControl.ProductOrderQuantityTextBox.Text = (currentQuantity + 1).ToString();
-            //            itemExists = true;
-            //            break;
-            //        }
-            //    }
-
-            //    if (!itemExists)
-            //    {
-            //        ProductOrderUserControl newOrderControl = new ProductOrderUserControl();
-            //        newOrderControl.ProductOrderItemIDTextBox.Text = itemID;
-            //        newOrderControl.ProductOrderItemNameTextBox.Text = itemName;
-            //        newOrderControl.ProductOrderItemPriceTextBox.Text = itemPrice;
-            //        newOrderControl.ProductOrderQuantityTextBox.Text = "1";
-
-            //        newOrderControl.QuantityChanged += ProductOrderUserControl_QuantityChanged;
-            //        newOrderControl.VoidClicked += ProductOrderUserControl_VoidClicked;
-
-            //        ProductSelectedFlowLayoutPanel.Controls.Add(newOrderControl);
-            //    }
-            //}
         }
 
         public void InitializeProducts()
@@ -8837,48 +8876,144 @@ WHERE ItemID = @ItemID";
         private void ProductUserControl_ProductClicked(object sender, EventArgs e)
         {
             // MAY GAMIT TO DONT DELETE UwU
+            // sigi 
         }
 
-        private void ProductReduceQuantityButton_Click(object sender, EventArgs e)
-        {
-            if (ProductSelectedDataGridView.Rows.Count == 0)
-            {
-                MessageBox.Show("The product list is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+        public string Position { get; set; }
 
-            if (ProductSelectedDataGridView.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Please select a product to reduce quantity.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            DataGridViewRow selectedRow = ProductSelectedDataGridView.SelectedRows[0];
-
-            int currentQuantity = Convert.ToInt32(selectedRow.Cells["ProductQuantity"].Value);
-
-            if (currentQuantity > 1)
-            {
-                selectedRow.Cells["ProductQuantity"].Value = currentQuantity - 1;
-            }
-        }
 
         private void ProductVoidButton_Click(object sender, EventArgs e)
         {
-            if (ProductSelectedDataGridView.Rows.Count == 0)
+            if (RecWalkinSelectedProdDGV.Rows.Count == 0)
             {
                 MessageBox.Show("The product list is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (ProductSelectedDataGridView.SelectedRows.Count == 0)
+            if (RecWalkinSelectedProdDGV.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Please select a product to void.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            //input dialog messagebox
+            string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Password Required");
 
-            DataGridViewRow selectedRow = ProductSelectedDataGridView.SelectedRows[0];
-            ProductSelectedDataGridView.Rows.Remove(selectedRow);
+            // Hash the entered password
+            string hashedEnteredPassword = HashHelper.HashString(enteredPassword);
+            DialogResult result;
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string query = "SELECT EmployeeType FROM systemusers WHERE HashedPass = @Password";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Password", hashedEnteredPassword);
+
+                    // Execute the query
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string position = reader["EmployeeType"].ToString();
+                            if (position == "Manager")
+                            {
+                                result = MessageBox.Show("Do you want to remove this item?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                                if (result == DialogResult.Yes)
+                                {
+                                    // Remove the selected row
+                                    RecWalkinSelectedProdDGV.Rows.Clear();
+                                    MessageBox.Show("Item removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            //MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            //return;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Function to get password with asterisks
+        private string GetPasswordWithAsterisks(string prompt, string title)
+        {
+            using (Form passwordForm = new Form())
+            {
+                System.Windows.Forms.Label label = new System.Windows.Forms.Label()
+                {
+                    Left = 20,
+                    Top = 50,
+                    Text = prompt,
+                    AutoSize = true,
+                    Font = new System.Drawing.Font("Arial Black", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
+                    ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))))
+                }; 
+
+                System.Windows.Forms.TextBox textBox = new System.Windows.Forms.TextBox() { 
+                    Left = 20, 
+                    Top = 100, 
+                    Width = 420,
+                    Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
+                    ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221))))),
+                    BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82))))),
+                    PasswordChar = '*' 
+                };
+                System.Windows.Forms.Button button = new System.Windows.Forms.Button() { 
+                    Text = "Void Items", 
+                    Left = 325, 
+                    Width = 120, 
+                    Height = 40, 
+                    Top = 150,
+                    Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
+                    ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221))))),
+                    BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))))
+                };
+                System.Windows.Forms.Button button1 = new System.Windows.Forms.Button() { 
+                    Text = "Show Password", 
+                    Left = 120, 
+                    Width = 200, 
+                    Height = 40, 
+                    Top = 150,
+                    Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
+                    ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221))))),
+                    BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))))
+                };
+
+                button.Click += (sender, e) => { passwordForm.DialogResult = DialogResult.OK; };
+                passwordForm.AcceptButton = button;
+
+                // Set the fixed size for the form
+                passwordForm.Size = new Size(500, 300);
+                passwordForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+                // Disable resizing of the form
+                passwordForm.FormBorderStyle = FormBorderStyle.FixedDialog;
+
+                passwordForm.Controls.Add(label);
+                passwordForm.Controls.Add(textBox);
+                passwordForm.Controls.Add(button);
+                passwordForm.Controls.Add(button1);
+
+                // Center the form on the screen
+                passwordForm.StartPosition = FormStartPosition.CenterScreen;
+                button1.Click += (sender, e) =>
+                {
+                    // Toggle between showing and hiding characters
+                    textBox.PasswordChar = (textBox.PasswordChar == '\0') ? '*' : '\0';
+                };
+                passwordForm.ShowDialog();
+
+                return textBox.Text;
+            }
         }
 
         private void MngrInventoryProductsTypeComboText_SelectedIndexChanged(object sender, EventArgs e)
@@ -8999,38 +9134,122 @@ WHERE ItemID = @ItemID";
             }
         }
 
+        private void RecWalkinSelectedProdDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && RecWalkinSelectedProdDGV.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            {
+                // Handle the Bin column
+                if (RecWalkinSelectedProdDGV.Columns[e.ColumnIndex].Name == "Void")
+                {
+                    //input dialog messagebox
+                    string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Password Required");
 
-        //private void ProductOrderUserControl_QuantityChanged(object sender, int newQuantity)
-        //{
-        //    ProductOrderUserControl control = sender as ProductOrderUserControl;
-        //    if (control != null)
-        //    {
-        //        decimal price = decimal.Parse(control.ProductOrderItemPriceTextBox.Text);
-        //        decimal itemTotal = price * newQuantity;
-        //        control.ProductOrderItemTotalTextBox.Text = itemTotal.ToString();
-        //        UpdateProductTotal();
-        //    }
-        //}
+                    // Hash the entered password
+                    string hashedEnteredPassword = HashHelper.HashString(enteredPassword);
+                    DialogResult result;
 
-        //private void UpdateProductTotal()
-        //{
-        //    decimal total = 0;
-        //    foreach (System.Windows.Forms.Control control in ProductSelectedFlowLayoutPanel.Controls)
-        //    {
-        //        if (control is ProductOrderUserControl orderControl)
-        //        {
-        //            if (decimal.TryParse(orderControl.ProductOrderItemTotalTextBox.Text, out decimal itemTotal))
-        //            {
-        //                total += itemTotal;
-        //            }
-        //        }
-        //    }
-        //    ProductTotalTextBox.Text = total.ToString();
-        //}
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    {
+                        connection.Open();
 
-        //private void ProductOrderUserControl_VoidClicked(object sender, EventArgs e)
-        //{
-        //    UpdateProductTotal();
-        //}
+                        string query = "SELECT EmployeeType FROM systemusers WHERE HashedPass = @Password";
+                        using (MySqlCommand command = new MySqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@Password", hashedEnteredPassword);
+
+                            // Execute the query
+                            using (MySqlDataReader reader = command.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    string position = reader["EmployeeType"].ToString();
+                                    if (position == "Manager")
+                                    {
+                                        result = MessageBox.Show("Do you want to remove this item?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                                        if (result == DialogResult.Yes)
+                                        {
+                                            // Remove the selected row
+                                            RecWalkinSelectedProdDGV.Rows.RemoveAt(e.RowIndex);
+                                            MessageBox.Show("Item removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                        return;
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                }
+                else if (RecWalkinSelectedProdDGV.Columns[e.ColumnIndex].Name == "-")
+                {
+                    string quantityString = RecWalkinSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value?.ToString();
+                    if (!string.IsNullOrEmpty(quantityString) && int.TryParse(quantityString, out int quantity))
+                    {
+                        decimal itemCost = decimal.Parse(RecWalkinSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value?.ToString());
+
+                        // Calculate the cost per item
+                        decimal costPerItem = itemCost / quantity;
+
+                        // Decrease quantity
+                        if (quantity > 1)
+                        {
+                            quantity--;
+
+                            // Calculate updated item cost (reset to original price)
+                            decimal updatedCost = costPerItem * quantity;
+
+                            // Update Qty and ItemCost in the DataGridView
+                            RecWalkinSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value = quantity.ToString();
+                            RecWalkinSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = updatedCost.ToString("F2"); // Format to two decimal places
+
+                        }
+                    }
+                    else
+                    {
+                        // Handle the case where quantityString is empty or not a valid integer
+                        // For example, show an error message or set a default value
+                    }
+                }
+                else if (RecWalkinSelectedProdDGV.Columns[e.ColumnIndex].Name == "+")
+                {
+                    string quantityString = RecWalkinSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value?.ToString();
+                    if (!string.IsNullOrEmpty(quantityString) && int.TryParse(quantityString, out int quantity))
+                    {
+                        decimal itemCost = decimal.Parse(RecWalkinSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value?.ToString());
+
+                        // Calculate the cost per item
+                        decimal costPerItem = itemCost / quantity;
+
+                        // Increase quantity
+                        quantity++;
+
+                        // Calculate updated item cost
+                        decimal updatedCost = costPerItem * quantity;
+
+                        // Update Qty and ItemCost in the DataGridView
+                        RecWalkinSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value = quantity.ToString();
+                        RecWalkinSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = updatedCost.ToString("F2"); // Format to two decimal places
+
+                    }
+                    else
+                    {
+                        // Handle the case where quantityString is empty or not a valid integer
+                        // For example, show an error message or set a default value
+                    }
+                }
+            }
+        }
+
+
+
     }
 }
