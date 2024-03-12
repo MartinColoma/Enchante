@@ -22,5 +22,10 @@ namespace Enchante
         {
             ProductClicked?.Invoke(this, EventArgs.Empty);
         }
+
+        private void ProductNameTextBox_MouseHover(object sender, EventArgs e)
+        {
+
+        }
     }
 }
