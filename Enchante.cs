@@ -2787,16 +2787,12 @@ namespace Enchante
             //Change color once clicked
             RecHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
 
-            //Change back to original
-            RecTransactBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-
         }
 
         private void RecTransactBtn_Click(object sender, EventArgs e)
         {
             //ScrollToCoordinates(0, 0);
             //Change color once clicked
-            RecTransactBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
 
             //Change back to original
             RecHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
@@ -2807,14 +2803,10 @@ namespace Enchante
             iconToolTip.SetToolTip(RecHomeBtn, "Home");
         }
 
-        private void RecTransactBtn_MouseHover(object sender, EventArgs e)
-        {
-            iconToolTip.SetToolTip(RecTransactBtn, "Transaction");
-        }
 
         private void ReceptionAccBtn_MouseHover(object sender, EventArgs e)
         {
-            iconToolTip.SetToolTip(ReceptionAccBtn, "Profile");
+            iconToolTip.SetToolTip(RecAccBtn, "Profile");
         }
 
         //Reception walk in transaction starts here
@@ -5114,7 +5106,17 @@ namespace Enchante
         {
             AddService();
         }
-
+        private bool IsCardNameValid(string name)
+        {
+            foreach (char c in name)
+            {
+                if (!char.IsLetter(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
         private void RecWalkinBookTransactBtn_Click(object sender, EventArgs e)
         {
             
@@ -6798,11 +6800,6 @@ namespace Enchante
             Inventory.PanelShow(MngrInventoryTypePanel);
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         public void InitializeStaffInventoryDataGrid()
         {
             StaffInventoryDataGrid.Rows.Clear();
@@ -7431,64 +7428,6 @@ namespace Enchante
 
         private void MngrPayServicePaymentButton_Click(object sender, EventArgs e)
         {
-            //if (MngrPayServiceCashPaymentRB.Checked == false && MngrPayServiceCCPaymentRB.Checked == false && MngrPayServicePMPaymentRB.Checked == false &&
-            //    MngrPayServiceGCPaymentRB.Checked == false && MngrPayServicePPPaymentRB.Checked == false)
-            //{
-            //    MessageBox.Show("Please select a payment method.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-            //else if (string.IsNullOrEmpty(MngrPayServiceGrossAmountBox.Text))
-            //{
-            //    MessageBox.Show("Please select a completed transaction.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-            //    return;
-
-            //}
-            //else if (MngrPayServiceCCPaymentRB.Checked == true || MngrPayServicePPPaymentRB.Checked == true)
-            //{
-            //    if (string.IsNullOrEmpty(MngrPayServiceCardNameText.Text) || string.IsNullOrEmpty(MngrPayServiceCardNumText.Text) ||
-            //                        string.IsNullOrEmpty(MngrPayServiceCVCText.Text) || string.IsNullOrEmpty(MngrPayServiceCardExpText.Text))
-            //    {
-            //        MessageBox.Show("Missing credit card details.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            //    }
-            //    return;
-
-            //}
-            //else if (MngrPayServiceGCPaymentRB.Checked == true || MngrPayServicePMPaymentRB.Checked == true)
-            //{
-            //    if (string.IsNullOrEmpty(MngrPayServiceWalletNumText.Text) || string.IsNullOrEmpty(MngrPayServiceWalletPINText.Text) ||
-            //                        string.IsNullOrEmpty(MngrPayServiceWalletOTPText.Text))
-            //    {
-            //        MessageBox.Show("Missing online wallet details.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
-            //    return;
-
-            //}
-            //else if (MngrPayServiceCashPaymentRB.Checked == true)
-            //{
-            //    if (string.IsNullOrEmpty(MngrPayServiceCashBox.Text))
-            //    {
-
-            //        MessageBox.Show("Please add a valid amount of cash. Cash Box", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
-            //    else if (decimal.TryParse(MngrPayServiceChangeBox.Text, out decimal cash) && cash < 0)
-            //    {
-            //        MessageBox.Show("Please add a valid amount of cash. Change Box", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
-            //    return;
-            //}
-            //else if (RecPayServicePrintReceiptChk.Checked)
-            //{
-            //    InvoiceReceiptGenerator();
-            //    return;
-            //}
-            //else
-            //{
-            //    UpdateWalk_in_AppointmentDB();
-            //    MngrLoadCompletedTrans();
-
-            //}
-
             if (UpdateWalk_in_AppointmentDB())
             {
                 RecPayServiceClientNameLbl.Text = "";
@@ -7506,18 +7445,6 @@ namespace Enchante
         private void RecWalkinAttendingStaffComboText_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private bool IsCardNameValid(string name)
-        {
-            foreach (char c in name)
-            {
-                if (!char.IsLetter(c))
-                {
-                    return false;
-                }
-            }
-            return true;
         }
 
         // Method to get image bytes from resource
@@ -7632,16 +7559,16 @@ namespace Enchante
                     doc.Add(new Chunk("\n")); // New line
 
                     doc.Add(new LineSeparator()); // Dotted line
-                    PdfPTable itemTable = new PdfPTable(4); 
-                    itemTable.SetWidths(new float[] { 10f, 10f, 5f, 5f }); // Column widths
-                    itemTable.DefaultCell.Border = PdfPCell.NO_BORDER;
-                    itemTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
-                    itemTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
-                    itemTable.AddCell(new Phrase("Staff or\nProduct ID", boldfont));
-                    itemTable.AddCell(new Phrase("Services or \nProducts", boldfont));
-                    itemTable.AddCell(new Phrase("Qty.", boldfont));
-                    itemTable.AddCell(new Phrase("Total Price", boldfont));
-                    doc.Add(itemTable);
+                    PdfPTable columnHeaderTable = new PdfPTable(4);
+                    columnHeaderTable.SetWidths(new float[] { 10f, 10f, 5f, 5f }); // Column widths
+                    columnHeaderTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+                    columnHeaderTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                    columnHeaderTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    columnHeaderTable.AddCell(new Phrase("Staff or\nProduct ID", boldfont));
+                    columnHeaderTable.AddCell(new Phrase("Services or \nProducts", boldfont));
+                    columnHeaderTable.AddCell(new Phrase("Qty.", boldfont));
+                    columnHeaderTable.AddCell(new Phrase("Total Price", boldfont));
+                    doc.Add(columnHeaderTable);
                     doc.Add(new LineSeparator()); // Dotted line
                     // Iterate through the rows of your 
 
@@ -7680,11 +7607,11 @@ namespace Enchante
                         }
                     }
                     // Add cells to the item table
-                    PdfPTable service1Table = new PdfPTable(4);
-                    service1Table.SetWidths(new float[] { 5f, 5f, 3f, 3f }); // Column widths
-                    service1Table.DefaultCell.Border = PdfPCell.NO_BORDER;
-                    service1Table.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
-                    service1Table.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    PdfPTable productTable = new PdfPTable(4);
+                    productTable.SetWidths(new float[] { 5f, 5f, 3f, 3f }); // Column widths
+                    productTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+                    productTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                    productTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
 
                     foreach (DataGridViewRow row in RecPayServiceCOProdDGV.Rows)
                     {
@@ -7699,12 +7626,12 @@ namespace Enchante
                             string qty = row.Cells["Qty"].Value?.ToString();
                             string itemTotalcost = row.Cells["ItemTotalPrice"].Value?.ToString();
 
-                            service1Table.AddCell(new Phrase(itemID, font));
-                            service1Table.AddCell(new Phrase(itemName, font));
-                            service1Table.AddCell(new Phrase(qty, font));
-                            service1Table.AddCell(new Phrase(itemTotalcost, font));
+                            productTable.AddCell(new Phrase(itemID, font));
+                            productTable.AddCell(new Phrase(itemName, font));
+                            productTable.AddCell(new Phrase(qty, font));
+                            productTable.AddCell(new Phrase(itemTotalcost, font));
                             // Add the item table to the document
-                            doc.Add(service1Table);
+                            doc.Add(productTable);
                         }
                         catch (Exception ex)
                         {
@@ -7732,11 +7659,10 @@ namespace Enchante
                     totalTable.SetWidths(new float[] { 5f, 3f }); // Column widths
                     totalTable.DefaultCell.Border = PdfPCell.NO_BORDER;
 
-                    // Get the total count of rows from both DataGridViews
                     int totalRowCount = RecPayServicesAcquiredDGV.Rows.Count + RecPayServiceCOProdDGV.Rows.Count;
 
                     // Add cells to the "Total" table
-                    totalTable.AddCell(new Phrase($"Total # of Service ({totalRowCount})", font));
+                    totalTable.AddCell(new Phrase($"Total # of Service/Products ({totalRowCount})", font));
                     totalTable.AddCell(new Phrase($"Php {grossAmount:F2}", font));
                     totalTable.AddCell(new Phrase($"Cash Given", font));
                     totalTable.AddCell(new Phrase($"Php {cash:F2}", font));

@@ -86,8 +86,6 @@ namespace Enchante
             this.EnchanteParentContainer = new System.Windows.Forms.Panel();
             this.EnchanteMngrPage = new System.Windows.Forms.Panel();
             this.MngrScrollPanel = new System.Windows.Forms.Panel();
-            this.MngrFooterStopperPanel = new System.Windows.Forms.Panel();
-            this.MngrFooterStopperLbl = new System.Windows.Forms.Label();
             this.MngrUserAccPanel = new System.Windows.Forms.Panel();
             this.MngrIDNumLbl = new System.Windows.Forms.Label();
             this.MngrDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -298,7 +296,6 @@ namespace Enchante
             this.label78 = new System.Windows.Forms.Label();
             this.AdminNavBarPanel = new System.Windows.Forms.Panel();
             this.AdminAccUserBtn = new FontAwesome.Sharp.IconButton();
-            this.AdminAccsBtn = new FontAwesome.Sharp.IconButton();
             this.AdminHomeBtn = new FontAwesome.Sharp.IconButton();
             this.AdminHeaderLogo = new System.Windows.Forms.PictureBox();
             this.EnchanteHomePage = new System.Windows.Forms.Panel();
@@ -833,7 +830,6 @@ namespace Enchante
             this.RecWalkinPanel = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.RecWalkinSelectedProdDGV = new System.Windows.Forms.DataGridView();
-            this.OrderProdItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecWalkinSelectedProdVoidButton = new Guna.UI2.WinForms.Guna2Button();
             this.ProductFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
@@ -899,8 +895,7 @@ namespace Enchante
             this.RecWalkInBtn = new FontAwesome.Sharp.IconButton();
             this.ReceptionNavBar = new System.Windows.Forms.Panel();
             this.RecDateTimeText = new System.Windows.Forms.TextBox();
-            this.ReceptionAccBtn = new FontAwesome.Sharp.IconButton();
-            this.RecTransactBtn = new FontAwesome.Sharp.IconButton();
+            this.RecAccBtn = new FontAwesome.Sharp.IconButton();
             this.RecHomeBtn = new FontAwesome.Sharp.IconButton();
             this.RecHeaderLogo = new System.Windows.Forms.PictureBox();
             this.EnchanteStaffPage = new System.Windows.Forms.Panel();
@@ -951,10 +946,10 @@ namespace Enchante
             this.MngrWalkinProdSalesExitBtn = new FontAwesome.Sharp.IconButton();
             this.MngrWalkinProdSalesBtn = new FontAwesome.Sharp.IconButton();
             this.MngrWalkinProdSalesLbl = new System.Windows.Forms.Label();
+            this.OrderProdItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteMngrPage.SuspendLayout();
             this.MngrScrollPanel.SuspendLayout();
-            this.MngrFooterStopperPanel.SuspendLayout();
             this.MngrUserAccPanel.SuspendLayout();
             this.MngrInventoryPanel.SuspendLayout();
             this.MngrWalkinSalesPanel.SuspendLayout();
@@ -1151,7 +1146,6 @@ namespace Enchante
             // 
             this.MngrScrollPanel.AutoScroll = true;
             this.MngrScrollPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrScrollPanel.Controls.Add(this.MngrFooterStopperPanel);
             this.MngrScrollPanel.Controls.Add(this.MngrUserAccPanel);
             this.MngrScrollPanel.Controls.Add(this.MngrInventoryPanel);
             this.MngrScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1159,30 +1153,6 @@ namespace Enchante
             this.MngrScrollPanel.Name = "MngrScrollPanel";
             this.MngrScrollPanel.Size = new System.Drawing.Size(1904, 891);
             this.MngrScrollPanel.TabIndex = 4;
-            // 
-            // MngrFooterStopperPanel
-            // 
-            this.MngrFooterStopperPanel.AutoScroll = true;
-            this.MngrFooterStopperPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrFooterStopperPanel.Controls.Add(this.MngrFooterStopperLbl);
-            this.MngrFooterStopperPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.MngrFooterStopperPanel.Location = new System.Drawing.Point(537, 847);
-            this.MngrFooterStopperPanel.Name = "MngrFooterStopperPanel";
-            this.MngrFooterStopperPanel.Size = new System.Drawing.Size(804, 33);
-            this.MngrFooterStopperPanel.TabIndex = 27;
-            this.MngrFooterStopperPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // MngrFooterStopperLbl
-            // 
-            this.MngrFooterStopperLbl.AutoSize = true;
-            this.MngrFooterStopperLbl.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrFooterStopperLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.MngrFooterStopperLbl.Location = new System.Drawing.Point(206, 29);
-            this.MngrFooterStopperLbl.Name = "MngrFooterStopperLbl";
-            this.MngrFooterStopperLbl.Size = new System.Drawing.Size(362, 51);
-            this.MngrFooterStopperLbl.TabIndex = 20;
-            this.MngrFooterStopperLbl.Text = "Footer Stopper";
-            this.MngrFooterStopperLbl.Visible = false;
             // 
             // MngrUserAccPanel
             // 
@@ -1195,7 +1165,7 @@ namespace Enchante
             this.MngrUserAccPanel.Controls.Add(this.MngrSignOutBtn);
             this.MngrUserAccPanel.Location = new System.Drawing.Point(1610, 17);
             this.MngrUserAccPanel.Name = "MngrUserAccPanel";
-            this.MngrUserAccPanel.Size = new System.Drawing.Size(282, 90);
+            this.MngrUserAccPanel.Size = new System.Drawing.Size(282, 188);
             this.MngrUserAccPanel.TabIndex = 26;
             this.MngrUserAccPanel.Visible = false;
             // 
@@ -4352,7 +4322,6 @@ namespace Enchante
             this.AdminNavBarPanel.AutoScroll = true;
             this.AdminNavBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.AdminNavBarPanel.Controls.Add(this.AdminAccUserBtn);
-            this.AdminNavBarPanel.Controls.Add(this.AdminAccsBtn);
             this.AdminNavBarPanel.Controls.Add(this.AdminHomeBtn);
             this.AdminNavBarPanel.Controls.Add(this.AdminHeaderLogo);
             this.AdminNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -4382,25 +4351,6 @@ namespace Enchante
             this.AdminAccUserBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.AdminAccUserBtn.UseVisualStyleBackColor = false;
             this.AdminAccUserBtn.Click += new System.EventHandler(this.AdminAccUserBtn_Click);
-            // 
-            // AdminAccsBtn
-            // 
-            this.AdminAccsBtn.AutoSize = true;
-            this.AdminAccsBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.AdminAccsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AdminAccsBtn.FlatAppearance.BorderSize = 0;
-            this.AdminAccsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AdminAccsBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.AdminAccsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.AdminAccsBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.AdminAccsBtn.IconColor = System.Drawing.Color.Black;
-            this.AdminAccsBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.AdminAccsBtn.Location = new System.Drawing.Point(312, 47);
-            this.AdminAccsBtn.Name = "AdminAccsBtn";
-            this.AdminAccsBtn.Size = new System.Drawing.Size(157, 54);
-            this.AdminAccsBtn.TabIndex = 2;
-            this.AdminAccsBtn.Text = "ACCOUNTS";
-            this.AdminAccsBtn.UseVisualStyleBackColor = true;
             // 
             // AdminHomeBtn
             // 
@@ -12198,12 +12148,6 @@ namespace Enchante
             this.RecWalkinSelectedProdDGV.TabIndex = 170;
             this.RecWalkinSelectedProdDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecWalkinSelectedProdDGV_CellContentClick);
             // 
-            // OrderProdItemID
-            // 
-            this.OrderProdItemID.HeaderText = "Item ID";
-            this.OrderProdItemID.Name = "OrderProdItemID";
-            this.OrderProdItemID.ReadOnly = true;
-            // 
             // RecWalkinSelectedProdVoidButton
             // 
             this.RecWalkinSelectedProdVoidButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
@@ -12669,7 +12613,7 @@ namespace Enchante
             // 
             // RecSelectServiceAndStaffBtn
             // 
-            this.RecSelectServiceAndStaffBtn.Location = new System.Drawing.Point(683, 1667);
+            this.RecSelectServiceAndStaffBtn.Location = new System.Drawing.Point(722, 1667);
             this.RecSelectServiceAndStaffBtn.Name = "RecSelectServiceAndStaffBtn";
             this.RecSelectServiceAndStaffBtn.Size = new System.Drawing.Size(81, 36);
             this.RecSelectServiceAndStaffBtn.TabIndex = 151;
@@ -13059,7 +13003,7 @@ namespace Enchante
             this.RecAppointmentBtn.Name = "RecAppointmentBtn";
             this.RecAppointmentBtn.Size = new System.Drawing.Size(300, 300);
             this.RecAppointmentBtn.TabIndex = 1;
-            this.RecAppointmentBtn.Text = "APPOINTMENT";
+            this.RecAppointmentBtn.Text = "APPOINTMENT\r\nTRANSACTION";
             this.RecAppointmentBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.RecAppointmentBtn.UseVisualStyleBackColor = false;
             this.RecAppointmentBtn.Click += new System.EventHandler(this.RecAppointmentBtn_Click);
@@ -13090,8 +13034,7 @@ namespace Enchante
             this.ReceptionNavBar.AutoScroll = true;
             this.ReceptionNavBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.ReceptionNavBar.Controls.Add(this.RecDateTimeText);
-            this.ReceptionNavBar.Controls.Add(this.ReceptionAccBtn);
-            this.ReceptionNavBar.Controls.Add(this.RecTransactBtn);
+            this.ReceptionNavBar.Controls.Add(this.RecAccBtn);
             this.ReceptionNavBar.Controls.Add(this.RecHomeBtn);
             this.ReceptionNavBar.Controls.Add(this.RecHeaderLogo);
             this.ReceptionNavBar.Dock = System.Windows.Forms.DockStyle.Top;
@@ -13112,49 +13055,28 @@ namespace Enchante
             this.RecDateTimeText.TabIndex = 59;
             this.RecDateTimeText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // ReceptionAccBtn
+            // RecAccBtn
             // 
-            this.ReceptionAccBtn.AutoSize = true;
-            this.ReceptionAccBtn.BackColor = System.Drawing.Color.Transparent;
-            this.ReceptionAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ReceptionAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.ReceptionAccBtn.FlatAppearance.BorderSize = 0;
-            this.ReceptionAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReceptionAccBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.ReceptionAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ReceptionAccBtn.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.ReceptionAccBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ReceptionAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ReceptionAccBtn.Location = new System.Drawing.Point(1808, 47);
-            this.ReceptionAccBtn.Name = "ReceptionAccBtn";
-            this.ReceptionAccBtn.Size = new System.Drawing.Size(54, 54);
-            this.ReceptionAccBtn.TabIndex = 8;
-            this.ReceptionAccBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ReceptionAccBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.ReceptionAccBtn.UseVisualStyleBackColor = false;
-            this.ReceptionAccBtn.Click += new System.EventHandler(this.ReceptionAccBtn_Click);
-            this.ReceptionAccBtn.MouseHover += new System.EventHandler(this.ReceptionAccBtn_MouseHover);
-            // 
-            // RecTransactBtn
-            // 
-            this.RecTransactBtn.AutoSize = true;
-            this.RecTransactBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.RecTransactBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecTransactBtn.FlatAppearance.BorderSize = 0;
-            this.RecTransactBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecTransactBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecTransactBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecTransactBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.RecTransactBtn.IconColor = System.Drawing.Color.Black;
-            this.RecTransactBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecTransactBtn.Location = new System.Drawing.Point(339, 45);
-            this.RecTransactBtn.Name = "RecTransactBtn";
-            this.RecTransactBtn.Size = new System.Drawing.Size(199, 54);
-            this.RecTransactBtn.TabIndex = 2;
-            this.RecTransactBtn.Text = "TRANSACTION";
-            this.RecTransactBtn.UseVisualStyleBackColor = true;
-            this.RecTransactBtn.Click += new System.EventHandler(this.RecTransactBtn_Click);
-            this.RecTransactBtn.MouseHover += new System.EventHandler(this.RecTransactBtn_MouseHover);
+            this.RecAccBtn.AutoSize = true;
+            this.RecAccBtn.BackColor = System.Drawing.Color.Transparent;
+            this.RecAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecAccBtn.FlatAppearance.BorderSize = 0;
+            this.RecAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecAccBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecAccBtn.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.RecAccBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecAccBtn.Location = new System.Drawing.Point(1808, 47);
+            this.RecAccBtn.Name = "RecAccBtn";
+            this.RecAccBtn.Size = new System.Drawing.Size(54, 54);
+            this.RecAccBtn.TabIndex = 8;
+            this.RecAccBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.RecAccBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.RecAccBtn.UseVisualStyleBackColor = false;
+            this.RecAccBtn.Click += new System.EventHandler(this.ReceptionAccBtn_Click);
+            this.RecAccBtn.MouseHover += new System.EventHandler(this.ReceptionAccBtn_MouseHover);
             // 
             // RecHomeBtn
             // 
@@ -13389,7 +13311,7 @@ namespace Enchante
             this.StaffItemSelectedCountTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.StaffItemSelectedCountTextBox.Font = new System.Drawing.Font("TechnicBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.StaffItemSelectedCountTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffItemSelectedCountTextBox.Location = new System.Drawing.Point(33, 251);
+            this.StaffItemSelectedCountTextBox.Location = new System.Drawing.Point(32, 251);
             this.StaffItemSelectedCountTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.StaffItemSelectedCountTextBox.Name = "StaffItemSelectedCountTextBox";
             this.StaffItemSelectedCountTextBox.PasswordChar = '\0';
@@ -13448,7 +13370,7 @@ namespace Enchante
             this.StaffAddToInventoryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.StaffAddToInventoryButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.StaffAddToInventoryButton.ForeColor = System.Drawing.Color.White;
-            this.StaffAddToInventoryButton.Location = new System.Drawing.Point(436, 251);
+            this.StaffAddToInventoryButton.Location = new System.Drawing.Point(247, 251);
             this.StaffAddToInventoryButton.Name = "StaffAddToInventoryButton";
             this.StaffAddToInventoryButton.Size = new System.Drawing.Size(119, 31);
             this.StaffAddToInventoryButton.TabIndex = 2;
@@ -13737,7 +13659,7 @@ namespace Enchante
             // 
             this.EnchanteParentCard.ContainerControl = this.EnchanteParentContainer;
             this.EnchanteParentCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.EnchanteParentCard.SelectedCard = "Mngr";
+            this.EnchanteParentCard.SelectedCard = "Reception";
             // 
             // HomeMembershipCard
             // 
@@ -13898,6 +13820,13 @@ namespace Enchante
             this.MngrWalkinProdSalesLbl.TabIndex = 99;
             this.MngrWalkinProdSalesLbl.Text = "Walk-in Product Sales\r\n";
             // 
+            // OrderProdItemID
+            // 
+            this.OrderProdItemID.HeaderText = "Item ID";
+            this.OrderProdItemID.Name = "OrderProdItemID";
+            this.OrderProdItemID.ReadOnly = true;
+            this.OrderProdItemID.Visible = false;
+            // 
             // Enchante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -13915,8 +13844,6 @@ namespace Enchante
             this.EnchanteParentContainer.ResumeLayout(false);
             this.EnchanteMngrPage.ResumeLayout(false);
             this.MngrScrollPanel.ResumeLayout(false);
-            this.MngrFooterStopperPanel.ResumeLayout(false);
-            this.MngrFooterStopperPanel.PerformLayout();
             this.MngrUserAccPanel.ResumeLayout(false);
             this.MngrUserAccPanel.PerformLayout();
             this.MngrInventoryPanel.ResumeLayout(false);
@@ -14538,8 +14465,7 @@ namespace Enchante
         private System.Windows.Forms.Panel ReceptionFooterStopperPanel;
         private System.Windows.Forms.Label ReceptionFooterStopperLbl;
         private System.Windows.Forms.Panel ReceptionNavBar;
-        private FontAwesome.Sharp.IconButton ReceptionAccBtn;
-        private FontAwesome.Sharp.IconButton RecTransactBtn;
+        private FontAwesome.Sharp.IconButton RecAccBtn;
         private FontAwesome.Sharp.IconButton RecHomeBtn;
         private System.Windows.Forms.PictureBox RecHeaderLogo;
         private System.Windows.Forms.Panel ReceptionCreateTransactPanel;
@@ -14588,7 +14514,6 @@ namespace Enchante
         private FontAwesome.Sharp.IconButton RecWalkinSearchServiceTypeBtn;
         private System.Windows.Forms.Panel AdminNavBarPanel;
         private FontAwesome.Sharp.IconButton AdminAccUserBtn;
-        private FontAwesome.Sharp.IconButton AdminAccsBtn;
         private FontAwesome.Sharp.IconButton AdminHomeBtn;
         private System.Windows.Forms.PictureBox AdminHeaderLogo;
         private System.Windows.Forms.Panel AdminScrollPanel;
@@ -14740,8 +14665,6 @@ namespace Enchante
         private System.Windows.Forms.Label MngrIDNumLbl;
         private System.Windows.Forms.Label MngrNameLbl;
         private FontAwesome.Sharp.IconButton MngrSignOutBtn;
-        private System.Windows.Forms.Panel MngrFooterStopperPanel;
-        private System.Windows.Forms.Label MngrFooterStopperLbl;
         private Syncfusion.Windows.Forms.Tools.CardLayout MngrInventoryCard;
         private System.Windows.Forms.Panel MngrInventoryProductsPanel;
         private System.Windows.Forms.Panel MngrInventoryMembershipPanel;
@@ -15057,7 +14980,6 @@ namespace Enchante
         private System.Windows.Forms.DataGridView RecPayServiceCOProdDGV;
         private System.Windows.Forms.TextBox RecPayServicesCOProdTotalText;
         private System.Windows.Forms.TextBox RecPayServicesAcquiredTotalText;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderProdItemID;
         private System.Windows.Forms.Panel MngrWalkinProdSalesPanel;
         private FontAwesome.Sharp.IconButton MngrWalkinProdSalesExitBtn;
         private System.Windows.Forms.Panel MngrServiceHistoryPanel;
@@ -15065,6 +14987,7 @@ namespace Enchante
         private FontAwesome.Sharp.IconButton MngrServiceHistoryExitBtn;
         private FontAwesome.Sharp.IconButton MngrWalkinProdSalesBtn;
         private System.Windows.Forms.Label MngrWalkinProdSalesLbl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderProdItemID;
     }
 }
 
