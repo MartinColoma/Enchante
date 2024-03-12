@@ -1124,7 +1124,12 @@ namespace Enchante
                 catch (Exception ex)
                 {
                     string errorMessage = "An error occurred: " + ex.Message + "\n\n" + ex.StackTrace;
-                    MessageBox.Show(errorMessage, "Login Verifier", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    // Copy the error message to the clipboard
+                    Clipboard.SetText(errorMessage);
+
+                    // Show a message box indicating the error and informing the user that the error message has been copied to the clipboard
+                    MessageBox.Show("An error occurred. The error message has been copied to the clipboard.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -5400,7 +5405,7 @@ namespace Enchante
 
 
                                 string query = "INSERT INTO orderproducthistory (TransactionNumber, ProductStatus, CheckedOutDate, CheckedOutTime, CheckedOutBy, ClientName, ItemID, ItemName, Qty, ItemPrice, ItemTotalPrice, CheckedOut, Voided) " +
-                                               "VALUES (@Transact, @status @date, @time, @OrderedBy, @client, @ID @ItemName, @Qty, @ItemPrice, @ItemTotalPrice, @Yes, @No)";
+                                                 "VALUES (@Transact, @status, @date, @time, @OrderedBy, @client, @ID, @ItemName, @Qty, @ItemPrice, @ItemTotalPrice, @Yes, @No)";
 
                                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
                                 {
@@ -5420,13 +5425,16 @@ namespace Enchante
 
                                     cmd.ExecuteNonQuery();
                                 }
+
                             }
                         }
+                        
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("An error occurred: " + ex.Message, "Manager booked service failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string errorMessage = "An error occurred: " + ex.Message + "\n\n" + ex.StackTrace;
+                    MessageBox.Show(errorMessage, "Login Verifier", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -5435,7 +5443,7 @@ namespace Enchante
             }
             else
             {
-                MessageBox.Show("No items to insert into the database.");
+                MessageBox.Show("No items to insert into the database.", "Product");
             }
 
         }
@@ -5565,7 +5573,7 @@ namespace Enchante
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("An error occurred: " + ex.Message, "Manager booked service failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("An error occurred: " + ex.Message, "Receptionist Service failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -5574,7 +5582,7 @@ namespace Enchante
             }
             else
             {
-                MessageBox.Show("No items to insert into the database.");
+                MessageBox.Show("No items to insert into the database.", "Service");
             }
 
         }
@@ -5999,6 +6007,15 @@ namespace Enchante
         {
             List<PendingCustomers> generalquependingcustomers = RetrieveGeneralQuePendingCustomersFromDB();
 
+            if (generalquependingcustomers.Count == 0)
+            {
+                // Perform actions for the case where there are no customers in the queue
+                // For example, you might want to display a message or perform other UI updates
+                // Then exit the method
+                MessageBox.Show("No customers in the general queue.", "Empty Queue", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             int smallestQueNumber = int.MaxValue;
 
             foreach (PendingCustomers customer in generalquependingcustomers)
@@ -6067,49 +6084,53 @@ namespace Enchante
 
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
             {
-                connection.Open();
-
-
-                string generalquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.Customization, sh.AddNotes, sh.QueNumber 
-                                                         FROM servicehistory sh 
-                                                         INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber 
-                                                         WHERE sh.ServiceStatus = 'Pending' 
-                                                         AND sh.ServiceCategory = @membercategory 
-                                                         AND sh.QueType = 'GeneralQue' 
-                                                         AND wa.ServiceStatus = 'Pending' 
-                                                         AND sh.AppointmentDate = @datetoday";
-
-                MySqlCommand command = new MySqlCommand(generalquependingcustomersquery, connection);
-                command.Parameters.AddWithValue("@membercategory", membercategory);
-                command.Parameters.AddWithValue("@datetoday", datetoday);
-
-                using (MySqlDataReader reader = command.ExecuteReader())
+                try
                 {
-                    if (reader.HasRows)
+                    connection.Open();
+
+                    string generalquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.Customization, sh.AddNotes, sh.QueNumber 
+                                                     FROM servicehistory sh 
+                                                     INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber 
+                                                     WHERE sh.ServiceStatus = 'Pending' 
+                                                     AND sh.ServiceCategory = @membercategory 
+                                                     AND sh.QueType = 'GeneralQue' 
+                                                     AND wa.ServiceStatus = 'Pending' 
+                                                     AND sh.AppointmentDate = @datetoday";
+
+                    MySqlCommand command = new MySqlCommand(generalquependingcustomersquery, connection);
+                    command.Parameters.AddWithValue("@membercategory", membercategory);
+                    command.Parameters.AddWithValue("@datetoday", datetoday);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             PendingCustomers generalquependingcustomers = new PendingCustomers
                             {
-                                TransactionNumber = reader.GetString("TransactionNumber"),
-                                ClientName = reader.GetString("ClientName"),
-                                ServiceStatus = reader.GetString("ServiceStatus"),
-                                ServiceName = reader.GetString("SelectedService"),
-                                CustomerCustomizations = reader.GetString("Customization"),
-                                AdditionalNotes = reader.GetString("AddNotes"),
-                                ServiceID = reader.GetString("ServiceID"),
-                                QueNumber = reader.GetString("QueNumber")
+                                TransactionNumber = reader["TransactionNumber"] as string,
+                                ClientName = reader["ClientName"] as string,
+                                ServiceStatus = reader["ServiceStatus"] as string,
+                                ServiceName = reader["SelectedService"] as string,
+                                CustomerCustomizations = reader["Customization"] as string,
+                                AdditionalNotes = reader["AddNotes"] as string,
+                                ServiceID = reader["ServiceID"] as string,
+                                QueNumber = reader["QueNumber"] as string
                             };
 
                             result.Add(generalquependingcustomers);
                         }
-
                     }
+                }
+                catch (Exception ex)
+                {
+                    // Handle exception, log, or notify user
+                    Console.WriteLine("An error occurred: " + ex.Message);
                 }
             }
 
             return result;
         }
+
 
 
 
@@ -6179,8 +6200,8 @@ namespace Enchante
                 connection.Open();
 
                 string preferredquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.Customization, sh.AddNotes, sh.QueNumber
-                           FROM servicehistory sh INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber
-                           WHERE sh.ServiceStatus = 'Pending' AND sh.ServiceCategory = @membercategory AND sh.PreferredStaff = @preferredstaff AND wa.ServiceStatus = 'Pending' AND sh.AppointmentDate = @datetoday";
+                   FROM servicehistory sh INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber
+                   WHERE sh.ServiceStatus = 'Pending' AND sh.ServiceCategory = @membercategory AND sh.PreferredStaff = @preferredstaff AND wa.ServiceStatus = 'Pending' AND sh.AppointmentDate = @datetoday";
 
                 MySqlCommand command = new MySqlCommand(preferredquependingcustomersquery, connection);
                 command.Parameters.AddWithValue("@membercategory", membercategory);
@@ -6189,25 +6210,21 @@ namespace Enchante
 
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
-                    if (reader.HasRows)
+                    while (reader.Read())
                     {
-                        while (reader.Read())
+                        PendingCustomers preferredquependingcustomers = new PendingCustomers
                         {
-                            PendingCustomers preferredquependingcustomers = new PendingCustomers
-                            {
-                                TransactionNumber = reader.GetString("TransactionNumber"),
-                                ClientName = reader.GetString("ClientName"),
-                                ServiceStatus = reader.GetString("ServiceStatus"),
-                                ServiceName = reader.GetString("SelectedService"),
-                                CustomerCustomizations = reader.GetString("Customization"),
-                                AdditionalNotes = reader.GetString("AddNotes"),
-                                ServiceID = reader.GetString("ServiceID"),
-                                QueNumber = reader.GetString("QueNumber")
-                            };
+                            TransactionNumber = reader.IsDBNull(reader.GetOrdinal("TransactionNumber")) ? string.Empty : reader.GetString("TransactionNumber"),
+                            ClientName = reader.IsDBNull(reader.GetOrdinal("ClientName")) ? string.Empty : reader.GetString("ClientName"),
+                            ServiceStatus = reader.IsDBNull(reader.GetOrdinal("ServiceStatus")) ? string.Empty : reader.GetString("ServiceStatus"),
+                            ServiceName = reader.IsDBNull(reader.GetOrdinal("SelectedService")) ? string.Empty : reader.GetString("SelectedService"),
+                            CustomerCustomizations = reader.IsDBNull(reader.GetOrdinal("Customization")) ? string.Empty : reader.GetString("Customization"),
+                            AdditionalNotes = reader.IsDBNull(reader.GetOrdinal("AddNotes")) ? string.Empty : reader.GetString("AddNotes"),
+                            ServiceID = reader.IsDBNull(reader.GetOrdinal("ServiceID")) ? string.Empty : reader.GetString("ServiceID"),
+                            QueNumber = reader.IsDBNull(reader.GetOrdinal("QueNumber")) ? string.Empty : reader.GetString("QueNumber")
+                        };
 
-                            result.Add(preferredquependingcustomers);
-                        }
-
+                        result.Add(preferredquependingcustomers);
                     }
                 }
             }
@@ -6215,48 +6232,66 @@ namespace Enchante
             return result;
         }
 
+
         protected void InitializePreferredCuePendingCustomersForStaff()
+{
+    List<PendingCustomers> preferredquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
+
+    int smallestQueNumber = int.MaxValue;
+
+    foreach (PendingCustomers customer in preferredquependingcustomers)
+    {
+        StaffCurrentAvailableCustomersUserControl availablecustomersusercontrol = new StaffCurrentAvailableCustomersUserControl(this);
+        availablecustomersusercontrol.AvailableCustomerSetData(customer);
+        availablecustomersusercontrol.ExpandUserControlButtonClicked += AvailableCustomersUserControl_ExpandCollapseButtonClicked;
+        availablecustomersusercontrol.StartServiceButtonClicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+        availablecustomersusercontrol.StaffEndServiceBtnClicked += AvailableCustomersUserControl_EndServiceButtonClicked;
+        StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(availablecustomersusercontrol);
+        availablecustomersusercontrol.CurrentStaffID = StaffIDNumLbl.Text;
+
+        string queNumberText = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
+        if (int.TryParse(queNumberText, out int queNumber))
         {
-            List<PendingCustomers> preferredquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
-
-            int smallestQueNumber = int.MaxValue;
-
-            foreach (PendingCustomers customer in preferredquependingcustomers)
+            if (queNumber < smallestQueNumber)
             {
-                StaffCurrentAvailableCustomersUserControl availablecustomersusercontrol = new StaffCurrentAvailableCustomersUserControl(this);
-                availablecustomersusercontrol.AvailableCustomerSetData(customer);
-                availablecustomersusercontrol.ExpandUserControlButtonClicked += AvailableCustomersUserControl_ExpandCollapseButtonClicked;
-                availablecustomersusercontrol.StartServiceButtonClicked += AvailableCustomersUserControl_StartServiceButtonClicked;
-                availablecustomersusercontrol.StaffEndServiceBtnClicked += AvailableCustomersUserControl_EndServiceButtonClicked;
-                StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(availablecustomersusercontrol);
-                availablecustomersusercontrol.CurrentStaffID = StaffIDNumLbl.Text;
-
-                string queNumberText = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
-                if (int.TryParse(queNumberText, out int queNumber))
-                {
-                    if (queNumber < smallestQueNumber)
-                    {
-                        smallestQueNumber = queNumber;
-                    }
-                }
+                smallestQueNumber = queNumber;
             }
+        }
+    }
 
-            foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls)
+    if (preferredquependingcustomers.Count > 0)
+    {
+        foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls)
+        {
+            string queNumberText = userControl.StaffQueNumberTextBox.Text;
+            if (int.TryParse(queNumberText, out int queNumber))
             {
-                string queNumberText = userControl.StaffQueNumberTextBox.Text;
-                if (int.TryParse(queNumberText, out int queNumber))
+                if (queNumber == smallestQueNumber)
                 {
-                    if (queNumber == smallestQueNumber)
-                    {
-                        userControl.StaffStartServiceBtn.Enabled = true;
-                    }
-                    else
-                    {
-                        userControl.StaffStartServiceBtn.Enabled = false;
-                    }
+                    userControl.StaffStartServiceBtn.Enabled = true;
+                }
+                else
+                {
+                    userControl.StaffStartServiceBtn.Enabled = false;
                 }
             }
         }
+    }
+    else
+    {
+        // Handle the case where no customers are retrieved
+        // For example, you can display a message or perform other actions
+        // Here, we'll enable or disable controls as needed
+        foreach (System.Windows.Forms.Control control in StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls)
+        {
+            if (control is StaffCurrentAvailableCustomersUserControl userControl)
+            {
+                userControl.StaffStartServiceBtn.Enabled = false;
+            }
+        }
+    }
+}
+
 
 
         private void StaffUserAccBtn_Click(object sender, EventArgs e)
@@ -6692,6 +6727,7 @@ WHERE ItemID = @ItemID";
                                 PDImage.Visible = false;
                                 ProductImagePictureBox.Visible = false;
                                 SelectImage.Visible = false;
+                                CancelEdit.Visible = false;
                             }
                             else
                             {
