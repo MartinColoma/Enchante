@@ -109,7 +109,8 @@ namespace Enchante
             Registration = new Registration(MembershipPlanPanel, RegularPlanPanel, PremiumPlanPanel, SVIPPlanPanel);
             Service = new ServiceCard(ServiceType, ServiceHairStyling, ServiceFaceSkin, ServiceNailCare, ServiceSpa, ServiceMassage);
             Transaction = new ReceptionTransactionCard(RecTransactionPanel, RecWalkinPanel, RecAppointmentPanel, RecPayServicePanel, RecQueWinPanel);
-            Inventory = new MngrInventoryCard(MngrInventoryTypePanel, MngrInventoryServicesPanel, MngrInventoryMembershipPanel, MngrInventoryProductsPanel, MngrInventoryProductHistoryPanel, MngrSchedPanel, MngrWalkinSalesPanel, MngrIndemandPanel);
+            Inventory = new MngrInventoryCard(MngrInventoryTypePanel, MngrServicesPanel, MngrServiceHistoryPanel, MngrInventoryMembershipPanel, 
+                                            MngrInventoryProductsPanel, MngrInventoryProductHistoryPanel, MngrSchedPanel, MngrWalkinSalesPanel, MngrIndemandPanel, MngrWalkinProdSalesPanel);
 
 
 
@@ -2838,7 +2839,7 @@ namespace Enchante
 
         private void RecInventoryServicesBtn_Click_1(object sender, EventArgs e)
         {
-            Inventory.PanelShow(MngrInventoryServicesPanel);
+            Inventory.PanelShow(MngrServicesPanel);
             ReceptionLoadServices();
 
         }
@@ -6643,14 +6644,14 @@ namespace Enchante
 
             string connectionString = "server=localhost;user=root;database=enchante;password=";
             string query = @"UPDATE inventory 
-SET ItemName = @ItemName, 
-    ItemPrice = @ItemPrice, 
-    ItemStock = @ItemStock, 
-    ProductCategory = @ProductCategory, 
-    ProductType = @ProductType, 
-    ItemStatus = @ItemStatus,
-    ProductPicture = @ProductPicture 
-WHERE ItemID = @ItemID";
+                            SET ItemName = @ItemName, 
+                                ItemPrice = @ItemPrice, 
+                                ItemStock = @ItemStock, 
+                                ProductCategory = @ProductCategory, 
+                                ProductType = @ProductType, 
+                                ItemStatus = @ItemStatus,
+                                ProductPicture = @ProductPicture 
+                            WHERE ItemID = @ItemID";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -9515,7 +9516,27 @@ WHERE ItemID = @ItemID";
             }
         }
 
+        private void MngrServicesHistoryBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrServiceHistoryPanel);
 
+        }
+        private void MngrServiceHistoryExitBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrInventoryTypePanel);
 
+        }
+
+        private void MngrWalkinProdSalesBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrWalkinProdSalesPanel);
+
+        }
+
+        private void MngrWalkinProdSalesExitBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrInventoryTypePanel);
+
+        }
     }
 }
