@@ -38,6 +38,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Data.SqlClient;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Drawing.Drawing2D;
+using static Guna.UI2.WinForms.Helpers.GraphicsHelper;
+using System.Collections;
+using Mysqlx.Expr;
+using System.Security.Policy;
 
 namespace Enchante
 {
@@ -97,14 +101,16 @@ namespace Enchante
             // Exit MessageBox 
             this.FormClosing += new FormClosingEventHandler(MainForm_FormClosing);
 
-
+            //Rec Walkin Buy Products
+            RecWalkinSelectedProdView();
 
             //Landing Pages Cardlayout Panel Manager
             ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteReceptionPage, EnchanteMemberPage, EnchanteAdminPage, EnchanteMngrPage);
             Registration = new Registration(MembershipPlanPanel, RegularPlanPanel, PremiumPlanPanel, SVIPPlanPanel);
             Service = new ServiceCard(ServiceType, ServiceHairStyling, ServiceFaceSkin, ServiceNailCare, ServiceSpa, ServiceMassage);
             Transaction = new ReceptionTransactionCard(RecTransactionPanel, RecWalkinPanel, RecAppointmentPanel, RecPayServicePanel, RecQueWinPanel);
-            Inventory = new MngrInventoryCard(MngrInventoryTypePanel, MngrInventoryServicesPanel, MngrInventoryMembershipPanel, MngrInventoryProductsPanel, MngrInventoryProductHistoryPanel, MngrSchedPanel, MngrWalkinSalesPanel, MngrIndemandPanel);
+            Inventory = new MngrInventoryCard(MngrInventoryTypePanel, MngrServicesPanel, MngrServiceHistoryPanel, MngrInventoryMembershipPanel, 
+                                            MngrInventoryProductsPanel, MngrInventoryProductHistoryPanel, MngrSchedPanel, MngrWalkinSalesPanel, MngrIndemandPanel, MngrWalkinProdSalesPanel);
 
 
 
@@ -328,6 +334,49 @@ namespace Enchante
             }
         }
 
+        private void RecWalkinSelectedProdView()
+        {
+            DataGridViewButtonColumn trashColumn = new DataGridViewButtonColumn();
+            trashColumn.Name = "Void";
+            trashColumn.Text = "x";
+            trashColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            trashColumn.Width = 10;
+            RecWalkinSelectedProdDGV.Columns.Add(trashColumn);
+
+            DataGridViewTextBoxColumn itemNameColumn = new DataGridViewTextBoxColumn();
+            itemNameColumn.Name = "Item Name";
+            //itemNameColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            RecWalkinSelectedProdDGV.Columns.Add(itemNameColumn);
+
+            DataGridViewButtonColumn minusColumn = new DataGridViewButtonColumn();
+            minusColumn.Name = "-";
+            minusColumn.Text = "-";
+            minusColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            minusColumn.Width = 10;
+            RecWalkinSelectedProdDGV.Columns.Add(minusColumn);
+
+            DataGridViewTextBoxColumn quantityColumn = new DataGridViewTextBoxColumn();
+            quantityColumn.Name = "Qty";
+            quantityColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            quantityColumn.Width = 15;
+            RecWalkinSelectedProdDGV.Columns.Add(quantityColumn);
+
+            DataGridViewButtonColumn plusColumn = new DataGridViewButtonColumn();
+            plusColumn.Name = "+";
+            plusColumn.Text = "+";
+            plusColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            plusColumn.Width = 10;
+            RecWalkinSelectedProdDGV.Columns.Add(plusColumn);
+
+            DataGridViewTextBoxColumn itemUnitCostColumn = new DataGridViewTextBoxColumn();
+            itemUnitCostColumn.Name = "Unit Price";
+            RecWalkinSelectedProdDGV.Columns.Add(itemUnitCostColumn);
+
+            DataGridViewTextBoxColumn itemCostColumn = new DataGridViewTextBoxColumn();
+            itemCostColumn.Name = "Total Price";
+            RecWalkinSelectedProdDGV.Columns.Add(itemCostColumn);
+
+        }
 
         private void ScrollToCoordinates(int x, int y)
         {
@@ -1076,7 +1125,12 @@ namespace Enchante
                 catch (Exception ex)
                 {
                     string errorMessage = "An error occurred: " + ex.Message + "\n\n" + ex.StackTrace;
-                    MessageBox.Show(errorMessage, "Login Verifier", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    // Copy the error message to the clipboard
+                    Clipboard.SetText(errorMessage);
+
+                    // Show a message box indicating the error and informing the user that the error message has been copied to the clipboard
+                    MessageBox.Show("An error occurred. The error message has been copied to the clipboard.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -2733,16 +2787,12 @@ namespace Enchante
             //Change color once clicked
             RecHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
 
-            //Change back to original
-            RecTransactBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-
         }
 
         private void RecTransactBtn_Click(object sender, EventArgs e)
         {
             //ScrollToCoordinates(0, 0);
             //Change color once clicked
-            RecTransactBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
 
             //Change back to original
             RecHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
@@ -2753,14 +2803,10 @@ namespace Enchante
             iconToolTip.SetToolTip(RecHomeBtn, "Home");
         }
 
-        private void RecTransactBtn_MouseHover(object sender, EventArgs e)
-        {
-            iconToolTip.SetToolTip(RecTransactBtn, "Transaction");
-        }
 
         private void ReceptionAccBtn_MouseHover(object sender, EventArgs e)
         {
-            iconToolTip.SetToolTip(ReceptionAccBtn, "Profile");
+            iconToolTip.SetToolTip(RecAccBtn, "Profile");
         }
 
         //Reception walk in transaction starts here
@@ -2785,7 +2831,7 @@ namespace Enchante
 
         private void RecInventoryServicesBtn_Click_1(object sender, EventArgs e)
         {
-            Inventory.PanelShow(MngrInventoryServicesPanel);
+            Inventory.PanelShow(MngrServicesPanel);
             ReceptionLoadServices();
 
         }
@@ -4862,7 +4908,6 @@ namespace Enchante
             string ServiceDuration = selectedRow.Cells[5].Value.ToString();
             string ServicePrice = selectedRow.Cells[6].Value.ToString();
             string CustomerCustomizations = RecCustomerCustomizationsTextBox.Text;
-            string CustomerAdditionalNotes = RecCustomerCustomerAdditionalNotesTextBox.Text;
 
             //string EmployeeID = selectedStaff.EmployeeID;
             //string EmployeeName = selectedStaff.EmployeeName;
@@ -4947,7 +4992,6 @@ namespace Enchante
                 RecWalkinAttendingStaffSelectedComboBox.Items.Clear();
                 RecWalkInServiceTypeTable.ClearSelection();
                 RecCustomerCustomizationsTextBox.Clear();
-                RecCustomerCustomerAdditionalNotesTextBox.Clear();
 
 
                 //foreach (AvailableStaffUserControl availabelstaffusercontrol in RecAvaialableStaffFlowLayout.Controls)
@@ -5062,7 +5106,17 @@ namespace Enchante
         {
             AddService();
         }
-
+        private bool IsCardNameValid(string name)
+        {
+            foreach (char c in name)
+            {
+                if (!char.IsLetter(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
         private void RecWalkinBookTransactBtn_Click(object sender, EventArgs e)
         {
             
@@ -5096,8 +5150,9 @@ namespace Enchante
             }
             else
             {
-                RecWalkinServiceHistoryDB(RecSelectedServiceDataGrid1);
-                ReceptionistWalk_in_AppointmentDB();
+                RecWalkinServiceHistoryDB(RecSelectedServiceDataGrid1); //service history db
+                ReceptionistWalk_in_AppointmentDB(); //walk-in transaction db
+                RecWalkinOrderProdHistoryDB(RecWalkinSelectedProdDGV);
                 RecWalkinTransactNumRefresh();
                 RecWalkinTransactionClear();
             }
@@ -5114,6 +5169,8 @@ namespace Enchante
             RecWalkinCatSpaRB.Checked = false;
             RecWalkinCatMassageRB.Checked = false;
             RecSelectedServiceDataGrid1.Rows.Clear();
+            RecWalkinSelectedProdDGV.Rows.Clear();
+
         }
         private void QueueNumReceiptGenerator()
         {
@@ -5316,6 +5373,85 @@ namespace Enchante
             }
         }
 
+        private void RecWalkinOrderProdHistoryDB(DataGridView RecWalkinOrderHistoryView)
+        {
+            DateTime currentDate = RecDateTimePicker.Value;
+            string transactionNum = RecWalkinTransNumText.Text;
+            string status = "Not Paid";
+
+            //booked values
+            string bookedDate = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
+            string bookedTime = currentDate.ToString("hh:mm tt"); //bookedTime
+            string bookedBy = RecNameLbl.Text; //booked by
+
+            //basic info
+            string CustomerName = RecWalkinFNameText.Text + " " + RecWalkinLNameText.Text; //client name
+            string yes = "Yes";
+            string no = "No";
+            if (RecWalkinSelectedProdDGV.Rows.Count > 0)
+            {
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    {
+                        connection.Open();
+
+                        foreach (DataGridViewRow row in RecWalkinSelectedProdDGV.Rows)
+                        {
+                            if (row.Cells["Item Name"].Value != null)
+                            {
+                                string itemName = row.Cells["Item Name"].Value.ToString();
+                                int qty = Convert.ToInt32(row.Cells["Qty"].Value);
+                                decimal itemPrice = Convert.ToDecimal(row.Cells["Unit Price"].Value);
+                                decimal itemTotalPrice = Convert.ToDecimal(row.Cells["Total Price"].Value);
+                                string itemID = row.Cells["OrderProdItemID"].Value.ToString();
+
+
+                                string query = "INSERT INTO orderproducthistory (TransactionNumber, ProductStatus, CheckedOutDate, CheckedOutTime, CheckedOutBy, ClientName, ItemID, ItemName, Qty, ItemPrice, ItemTotalPrice, CheckedOut, Voided) " +
+                                                 "VALUES (@Transact, @status, @date, @time, @OrderedBy, @client, @ID, @ItemName, @Qty, @ItemPrice, @ItemTotalPrice, @Yes, @No)";
+
+                                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                                {
+                                    cmd.Parameters.AddWithValue("@Transact", transactionNum);
+                                    cmd.Parameters.AddWithValue("@status", status);
+                                    cmd.Parameters.AddWithValue("@date", bookedDate);
+                                    cmd.Parameters.AddWithValue("@time", bookedTime);
+                                    cmd.Parameters.AddWithValue("@OrderedBy", bookedBy);
+                                    cmd.Parameters.AddWithValue("@client", CustomerName);
+                                    cmd.Parameters.AddWithValue("@ID", itemID);
+                                    cmd.Parameters.AddWithValue("@ItemName", itemName);
+                                    cmd.Parameters.AddWithValue("@Qty", qty);
+                                    cmd.Parameters.AddWithValue("@ItemPrice", itemPrice);
+                                    cmd.Parameters.AddWithValue("@ItemTotalPrice", itemTotalPrice);
+                                    cmd.Parameters.AddWithValue("@Yes", yes);
+                                    cmd.Parameters.AddWithValue("@No", no);
+
+                                    cmd.ExecuteNonQuery();
+                                }
+
+                            }
+                        }
+                        
+                    }
+                }
+                catch (Exception ex)
+                {
+                    string errorMessage = "An error occurred: " + ex.Message + "\n\n" + ex.StackTrace;
+                    MessageBox.Show(errorMessage, "Login Verifier", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("No items to insert into the database.", "Product");
+            }
+
+        }
+
+
         private void ReceptionistWalk_in_AppointmentDB()
         {
             DateTime currentDate = RecDateTimePicker.Value;
@@ -5333,7 +5469,6 @@ namespace Enchante
 
             //customize & add notes
             string custom = RecCustomerCustomizationsTextBox.Text;
-            string notes = RecCustomerCustomerAdditionalNotesTextBox.Text;
 
             try
             {
@@ -5341,8 +5476,8 @@ namespace Enchante
                 {
                     connection.Open();
                     string insertQuery = "INSERT INTO walk_in_appointment (TransactionNumber, ServiceStatus, AppointmentDate, AppointmentTime, " +
-                                        "ClientName, CustomerCustomizations, AdditionalNotes, ClientCPNum, ServiceDuration, BookedBy, BookedDate, BookedTime)" +
-                                        "VALUES (@Transact, @status, @appointDate, @appointTime, @clientName, @custom, @addNotes, @clientCP, @duration, @bookedBy, @bookedDate, @bookedTime)";
+                                        "ClientName, CustomerCustomizations, ClientCPNum, ServiceDuration, BookedBy, BookedDate, BookedTime)" +
+                                        "VALUES (@Transact, @status, @appointDate, @appointTime, @clientName, @custom, @clientCP, @duration, @bookedBy, @bookedDate, @bookedTime)";
 
                     MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
                     cmd.Parameters.AddWithValue("@Transact", transactionNum);
@@ -5351,7 +5486,6 @@ namespace Enchante
                     cmd.Parameters.AddWithValue("@appointTime", bookedTime);
                     cmd.Parameters.AddWithValue("@clientName", CustomerName);
                     cmd.Parameters.AddWithValue("@custom", custom);
-                    cmd.Parameters.AddWithValue("@addNotes", notes);
                     cmd.Parameters.AddWithValue("@clientCP", CustomerMobileNumber);
                     cmd.Parameters.AddWithValue("@duration", "00:00:00");
                     cmd.Parameters.AddWithValue("@bookedBy", bookedBy);
@@ -5394,7 +5528,6 @@ namespace Enchante
 
             //customize & add notes
             string custom = RecCustomerCustomizationsTextBox.Text;
-            string notes = RecCustomerCustomerAdditionalNotesTextBox.Text;
             if (RecSelectedServiceDataGrid1.Rows.Count > 0)
             {
                 try
@@ -5416,10 +5549,10 @@ namespace Enchante
                                 string queType = row.Cells["QueType"].Value.ToString();
 
                                 string insertQuery = "INSERT INTO servicehistory (TransactionNumber, ServiceStatus, AppointmentDate, AppointmentTime, ClientName, " +
-                                                     "ServiceCategory, ServiceID, SelectedService, ServicePrice, Customization, AddNotes, PreferredStaff, QueNumber," +
+                                                     "ServiceCategory, ServiceID, SelectedService, ServicePrice, Customization, PreferredStaff, QueNumber," +
                                                      "QueType" +
                                                      ") VALUES (@Transact, @status, @appointDate, @appointTime, @name, @serviceCat, @ID, @serviceName, @servicePrice, " +
-                                                     "@custom, @notes, @preferredstaff, @quenumber, @quetype)";
+                                                     "@custom, @preferredstaff, @quenumber, @quetype)";
 
                                 MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
                                 cmd.Parameters.AddWithValue("@Transact", transactionNum);
@@ -5432,7 +5565,6 @@ namespace Enchante
                                 cmd.Parameters.AddWithValue("@serviceName", serviceName);
                                 cmd.Parameters.AddWithValue("@servicePrice", servicePrice);
                                 cmd.Parameters.AddWithValue("@custom", custom);
-                                cmd.Parameters.AddWithValue("@notes", notes);
                                 cmd.Parameters.AddWithValue("@preferredstaff", selectedStaff);
                                 cmd.Parameters.AddWithValue("@quenumber", queNumber);
                                 cmd.Parameters.AddWithValue("@quetype", queType);
@@ -5444,7 +5576,7 @@ namespace Enchante
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("An error occurred: " + ex.Message, "Manager booked service failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("An error occurred: " + ex.Message, "Receptionist Service failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -5453,32 +5585,52 @@ namespace Enchante
             }
             else
             {
-                MessageBox.Show("No items to insert into the database.");
+                MessageBox.Show("No items to insert into the database.", "Service");
             }
 
         }
 
         private void ReceptionCalculateTotalPrice()
         {
-            decimal total = 0;
+            decimal total1 = 0;
+            decimal total2 = 0;
+            decimal total3 = 0;
 
-            // Assuming the "Price" column is of decimal type
-            int priceColumnIndex = RecPayServicesAcquiredDGV.Columns["ServicePrice"].Index;
+            // Assuming the "ServicePrice" column is of decimal type
+            int servicepriceColumnIndex = RecPayServicesAcquiredDGV.Columns["ServicePrice"].Index;
 
             foreach (DataGridViewRow row in RecPayServicesAcquiredDGV.Rows)
             {
-                if (row.Cells[priceColumnIndex].Value != null)
+                if (row.Cells[servicepriceColumnIndex].Value != null)
                 {
-                    decimal price = decimal.Parse(row.Cells[priceColumnIndex].Value.ToString());
-                    total += price;
+                    decimal price = decimal.Parse(row.Cells[servicepriceColumnIndex].Value.ToString());
+                    total1 += price;
                 }
             }
+            RecPayServicesAcquiredTotalText.Text = total1.ToString("F2");
+
+            // Assuming the "ItemTotalPrice" column is of decimal type
+            int productpriceColumnIndex = RecPayServiceCOProdDGV.Columns["ItemTotalPrice"].Index;
+
+            foreach (DataGridViewRow row in RecPayServiceCOProdDGV.Rows)
+            {
+                if (row.Cells[productpriceColumnIndex].Value != null)
+                {
+                    decimal price = decimal.Parse(row.Cells[productpriceColumnIndex].Value.ToString());
+                    total2 += price;
+                }
+            }
+            RecPayServicesCOProdTotalText.Text = total2.ToString("F2");
+
+
+            total3 = total1 + total2;
 
             // Display the total price in the GrossAmountBox TextBox
-            MngrPayServiceGrossAmountBox.Text = total.ToString("F2"); // Format to two decimal places
+            MngrPayServiceGrossAmountBox.Text = total3.ToString("F2"); // Format to two decimal places
 
             ReceptionCalculateVATAndNetAmount();
         }
+
 
         public void ReceptionCalculateVATAndNetAmount()
         {
@@ -5858,6 +6010,15 @@ namespace Enchante
         {
             List<PendingCustomers> generalquependingcustomers = RetrieveGeneralQuePendingCustomersFromDB();
 
+            if (generalquependingcustomers.Count == 0)
+            {
+                // Perform actions for the case where there are no customers in the queue
+                // For example, you might want to display a message or perform other UI updates
+                // Then exit the method
+                MessageBox.Show("No customers in the general queue.", "Empty Queue", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             int smallestQueNumber = int.MaxValue;
 
             foreach (PendingCustomers customer in generalquependingcustomers)
@@ -5926,49 +6087,53 @@ namespace Enchante
 
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
             {
-                connection.Open();
-
-
-                string generalquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.Customization, sh.AddNotes, sh.QueNumber 
-                                                         FROM servicehistory sh 
-                                                         INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber 
-                                                         WHERE sh.ServiceStatus = 'Pending' 
-                                                         AND sh.ServiceCategory = @membercategory 
-                                                         AND sh.QueType = 'GeneralQue' 
-                                                         AND wa.ServiceStatus = 'Pending' 
-                                                         AND sh.AppointmentDate = @datetoday";
-
-                MySqlCommand command = new MySqlCommand(generalquependingcustomersquery, connection);
-                command.Parameters.AddWithValue("@membercategory", membercategory);
-                command.Parameters.AddWithValue("@datetoday", datetoday);
-
-                using (MySqlDataReader reader = command.ExecuteReader())
+                try
                 {
-                    if (reader.HasRows)
+                    connection.Open();
+
+                    string generalquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.Customization, sh.AddNotes, sh.QueNumber 
+                                                     FROM servicehistory sh 
+                                                     INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber 
+                                                     WHERE sh.ServiceStatus = 'Pending' 
+                                                     AND sh.ServiceCategory = @membercategory 
+                                                     AND sh.QueType = 'GeneralQue' 
+                                                     AND wa.ServiceStatus = 'Pending' 
+                                                     AND sh.AppointmentDate = @datetoday";
+
+                    MySqlCommand command = new MySqlCommand(generalquependingcustomersquery, connection);
+                    command.Parameters.AddWithValue("@membercategory", membercategory);
+                    command.Parameters.AddWithValue("@datetoday", datetoday);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             PendingCustomers generalquependingcustomers = new PendingCustomers
                             {
-                                TransactionNumber = reader.GetString("TransactionNumber"),
-                                ClientName = reader.GetString("ClientName"),
-                                ServiceStatus = reader.GetString("ServiceStatus"),
-                                ServiceName = reader.GetString("SelectedService"),
-                                CustomerCustomizations = reader.GetString("Customization"),
-                                AdditionalNotes = reader.GetString("AddNotes"),
-                                ServiceID = reader.GetString("ServiceID"),
-                                QueNumber = reader.GetString("QueNumber")
+                                TransactionNumber = reader["TransactionNumber"] as string,
+                                ClientName = reader["ClientName"] as string,
+                                ServiceStatus = reader["ServiceStatus"] as string,
+                                ServiceName = reader["SelectedService"] as string,
+                                CustomerCustomizations = reader["Customization"] as string,
+                                AdditionalNotes = reader["AddNotes"] as string,
+                                ServiceID = reader["ServiceID"] as string,
+                                QueNumber = reader["QueNumber"] as string
                             };
 
                             result.Add(generalquependingcustomers);
                         }
-
                     }
+                }
+                catch (Exception ex)
+                {
+                    // Handle exception, log, or notify user
+                    Console.WriteLine("An error occurred: " + ex.Message);
                 }
             }
 
             return result;
         }
+
 
 
 
@@ -6038,8 +6203,8 @@ namespace Enchante
                 connection.Open();
 
                 string preferredquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.Customization, sh.AddNotes, sh.QueNumber
-                           FROM servicehistory sh INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber
-                           WHERE sh.ServiceStatus = 'Pending' AND sh.ServiceCategory = @membercategory AND sh.PreferredStaff = @preferredstaff AND wa.ServiceStatus = 'Pending' AND sh.AppointmentDate = @datetoday";
+                   FROM servicehistory sh INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber
+                   WHERE sh.ServiceStatus = 'Pending' AND sh.ServiceCategory = @membercategory AND sh.PreferredStaff = @preferredstaff AND wa.ServiceStatus = 'Pending' AND sh.AppointmentDate = @datetoday";
 
                 MySqlCommand command = new MySqlCommand(preferredquependingcustomersquery, connection);
                 command.Parameters.AddWithValue("@membercategory", membercategory);
@@ -6048,25 +6213,21 @@ namespace Enchante
 
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
-                    if (reader.HasRows)
+                    while (reader.Read())
                     {
-                        while (reader.Read())
+                        PendingCustomers preferredquependingcustomers = new PendingCustomers
                         {
-                            PendingCustomers preferredquependingcustomers = new PendingCustomers
-                            {
-                                TransactionNumber = reader.GetString("TransactionNumber"),
-                                ClientName = reader.GetString("ClientName"),
-                                ServiceStatus = reader.GetString("ServiceStatus"),
-                                ServiceName = reader.GetString("SelectedService"),
-                                CustomerCustomizations = reader.GetString("Customization"),
-                                AdditionalNotes = reader.GetString("AddNotes"),
-                                ServiceID = reader.GetString("ServiceID"),
-                                QueNumber = reader.GetString("QueNumber")
-                            };
+                            TransactionNumber = reader.IsDBNull(reader.GetOrdinal("TransactionNumber")) ? string.Empty : reader.GetString("TransactionNumber"),
+                            ClientName = reader.IsDBNull(reader.GetOrdinal("ClientName")) ? string.Empty : reader.GetString("ClientName"),
+                            ServiceStatus = reader.IsDBNull(reader.GetOrdinal("ServiceStatus")) ? string.Empty : reader.GetString("ServiceStatus"),
+                            ServiceName = reader.IsDBNull(reader.GetOrdinal("SelectedService")) ? string.Empty : reader.GetString("SelectedService"),
+                            CustomerCustomizations = reader.IsDBNull(reader.GetOrdinal("Customization")) ? string.Empty : reader.GetString("Customization"),
+                            AdditionalNotes = reader.IsDBNull(reader.GetOrdinal("AddNotes")) ? string.Empty : reader.GetString("AddNotes"),
+                            ServiceID = reader.IsDBNull(reader.GetOrdinal("ServiceID")) ? string.Empty : reader.GetString("ServiceID"),
+                            QueNumber = reader.IsDBNull(reader.GetOrdinal("QueNumber")) ? string.Empty : reader.GetString("QueNumber")
+                        };
 
-                            result.Add(preferredquependingcustomers);
-                        }
-
+                        result.Add(preferredquependingcustomers);
                     }
                 }
             }
@@ -6074,48 +6235,66 @@ namespace Enchante
             return result;
         }
 
+
         protected void InitializePreferredCuePendingCustomersForStaff()
+{
+    List<PendingCustomers> preferredquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
+
+    int smallestQueNumber = int.MaxValue;
+
+    foreach (PendingCustomers customer in preferredquependingcustomers)
+    {
+        StaffCurrentAvailableCustomersUserControl availablecustomersusercontrol = new StaffCurrentAvailableCustomersUserControl(this);
+        availablecustomersusercontrol.AvailableCustomerSetData(customer);
+        availablecustomersusercontrol.ExpandUserControlButtonClicked += AvailableCustomersUserControl_ExpandCollapseButtonClicked;
+        availablecustomersusercontrol.StartServiceButtonClicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+        availablecustomersusercontrol.StaffEndServiceBtnClicked += AvailableCustomersUserControl_EndServiceButtonClicked;
+        StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(availablecustomersusercontrol);
+        availablecustomersusercontrol.CurrentStaffID = StaffIDNumLbl.Text;
+
+        string queNumberText = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
+        if (int.TryParse(queNumberText, out int queNumber))
         {
-            List<PendingCustomers> preferredquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
-
-            int smallestQueNumber = int.MaxValue;
-
-            foreach (PendingCustomers customer in preferredquependingcustomers)
+            if (queNumber < smallestQueNumber)
             {
-                StaffCurrentAvailableCustomersUserControl availablecustomersusercontrol = new StaffCurrentAvailableCustomersUserControl(this);
-                availablecustomersusercontrol.AvailableCustomerSetData(customer);
-                availablecustomersusercontrol.ExpandUserControlButtonClicked += AvailableCustomersUserControl_ExpandCollapseButtonClicked;
-                availablecustomersusercontrol.StartServiceButtonClicked += AvailableCustomersUserControl_StartServiceButtonClicked;
-                availablecustomersusercontrol.StaffEndServiceBtnClicked += AvailableCustomersUserControl_EndServiceButtonClicked;
-                StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(availablecustomersusercontrol);
-                availablecustomersusercontrol.CurrentStaffID = StaffIDNumLbl.Text;
-
-                string queNumberText = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
-                if (int.TryParse(queNumberText, out int queNumber))
-                {
-                    if (queNumber < smallestQueNumber)
-                    {
-                        smallestQueNumber = queNumber;
-                    }
-                }
+                smallestQueNumber = queNumber;
             }
+        }
+    }
 
-            foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls)
+    if (preferredquependingcustomers.Count > 0)
+    {
+        foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls)
+        {
+            string queNumberText = userControl.StaffQueNumberTextBox.Text;
+            if (int.TryParse(queNumberText, out int queNumber))
             {
-                string queNumberText = userControl.StaffQueNumberTextBox.Text;
-                if (int.TryParse(queNumberText, out int queNumber))
+                if (queNumber == smallestQueNumber)
                 {
-                    if (queNumber == smallestQueNumber)
-                    {
-                        userControl.StaffStartServiceBtn.Enabled = true;
-                    }
-                    else
-                    {
-                        userControl.StaffStartServiceBtn.Enabled = false;
-                    }
+                    userControl.StaffStartServiceBtn.Enabled = true;
+                }
+                else
+                {
+                    userControl.StaffStartServiceBtn.Enabled = false;
                 }
             }
         }
+    }
+    else
+    {
+        // Handle the case where no customers are retrieved
+        // For example, you can display a message or perform other actions
+        // Here, we'll enable or disable controls as needed
+        foreach (System.Windows.Forms.Control control in StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls)
+        {
+            if (control is StaffCurrentAvailableCustomersUserControl userControl)
+            {
+                userControl.StaffStartServiceBtn.Enabled = false;
+            }
+        }
+    }
+}
+
 
 
         private void StaffUserAccBtn_Click(object sender, EventArgs e)
@@ -6467,14 +6646,14 @@ namespace Enchante
 
             string connectionString = "server=localhost;user=root;database=enchante;password=";
             string query = @"UPDATE inventory 
-SET ItemName = @ItemName, 
-    ItemPrice = @ItemPrice, 
-    ItemStock = @ItemStock, 
-    ProductCategory = @ProductCategory, 
-    ProductType = @ProductType, 
-    ItemStatus = @ItemStatus,
-    ProductPicture = @ProductPicture 
-WHERE ItemID = @ItemID";
+                            SET ItemName = @ItemName, 
+                                ItemPrice = @ItemPrice, 
+                                ItemStock = @ItemStock, 
+                                ProductCategory = @ProductCategory, 
+                                ProductType = @ProductType, 
+                                ItemStatus = @ItemStatus,
+                                ProductPicture = @ProductPicture 
+                            WHERE ItemID = @ItemID";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -6551,6 +6730,7 @@ WHERE ItemID = @ItemID";
                                 PDImage.Visible = false;
                                 ProductImagePictureBox.Visible = false;
                                 SelectImage.Visible = false;
+                                CancelEdit.Visible = false;
                             }
                             else
                             {
@@ -6618,11 +6798,6 @@ WHERE ItemID = @ItemID";
         private void MngrInventoryMembershipExitBtn_Click(object sender, EventArgs e)
         {
             Inventory.PanelShow(MngrInventoryTypePanel);
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         public void InitializeStaffInventoryDataGrid()
@@ -6835,6 +7010,60 @@ WHERE ItemID = @ItemID";
                         RecPayServicesAcquiredDGV.Columns[12].Visible = false; //service duration
                         RecPayServicesAcquiredDGV.Columns[13].Visible = false; //customization
                         RecPayServicesAcquiredDGV.Columns[14].Visible = false; // add notes
+                        RecPayServicesAcquiredDGV.Columns[15].Visible = false; // preferred staff
+                        RecPayServicesAcquiredDGV.Columns[16].Visible = false; // que num
+                        RecPayServicesAcquiredDGV.Columns[17].Visible = false; // que type
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Manager Order History List");
+            }
+            finally
+            {
+                // Make sure to close the connection (if it's open)
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        public void MngrLoadOrderProdHistoryDB(string transactNumber)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    // Modify the SQL query to filter based on TransactNumber and OrderNumber
+                    string sql = "SELECT * FROM `orderproducthistory` WHERE TransactionNumber = @TransactionNumber";
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+
+                    // Add parameters to the query
+                    cmd.Parameters.AddWithValue("@TransactionNumber", transactNumber);
+
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+                        RecPayServiceCOProdDGV.DataSource = dataTable;
+
+                        RecPayServiceCOProdDGV.Columns[0].Visible = false; //transact number
+                        RecPayServiceCOProdDGV.Columns[1].Visible = false; //product stats
+                        RecPayServiceCOProdDGV.Columns[2].Visible = false; // date
+                        RecPayServiceCOProdDGV.Columns[3].Visible = false; // time 
+                        RecPayServiceCOProdDGV.Columns[4].Visible = false; // by
+                        RecPayServiceCOProdDGV.Columns[5].Visible = false; //client name
+                        RecPayServiceCOProdDGV.Columns[6].Visible = false; // item ID
+                        RecPayServiceCOProdDGV.Columns[11].Visible = false; //checkedout
+                        RecPayServiceCOProdDGV.Columns[12].Visible = false; //void
+
 
                     }
                 }
@@ -6863,8 +7092,9 @@ WHERE ItemID = @ItemID";
                 string clientName = RecPayServiceCompleteTransDGV.Rows[e.RowIndex].Cells["ClientName"].Value.ToString();
 
                 RecPayServiceTransactNumLbl.Text = transactNumber;
-                RecPayServiceClientNameLbl.Text = clientName;
+                RecPayServiceClientNameLbl.Text = $"Client Name: {clientName}";
                 MngrLoadServiceHistoryDB(transactNumber);
+                MngrLoadOrderProdHistoryDB(transactNumber);
                 ReceptionCalculateTotalPrice();
 
             }
@@ -6931,6 +7161,7 @@ WHERE ItemID = @ItemID";
             }
         }
 
+
         private bool UpdateWalk_in_AppointmentDB()
         {
             // cash values
@@ -6958,6 +7189,7 @@ WHERE ItemID = @ItemID";
                 using (MySqlConnection connection = new MySqlConnection(mysqlconn))
                 {
                     connection.Open();
+
 
                     if (RecPayServiceCashPaymentRB.Checked)
                     {
@@ -7029,7 +7261,7 @@ WHERE ItemID = @ItemID";
                         {
                             MessageBox.Show("Please enter the expiration date in MM/YY format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return false;
-                        }                     
+                        }
                     }
 
                     else if (RecPayServiceGCPaymentRB.Checked || MngrPayServicePMPaymentRB.Checked)
@@ -7070,8 +7302,6 @@ WHERE ItemID = @ItemID";
                             return false;
                         }
                     }
-
-
                     string cashPayment = "UPDATE walk_in_appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
                                         "GrossAmount = @gross, CashGiven = @cash, DueChange = @change, PaymentMethod = @payment, CheckedOutBy = @mngr " +
                                         "WHERE TransactionNumber = @transactNum"; // cash query
@@ -7082,10 +7312,11 @@ WHERE ItemID = @ItemID";
                     string walletPayment = "UPDATE walk_in_appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
                                         "GrossAmount = @gross, PaymentMethod = @payment, WalletNumber = @walletNum, WalletPIN = @walletPin, WalletOTP = @walletOTP, CheckedOutBy = @mngr " +
                                         "WHERE TransactionNumber = @transactNum"; // gcash and paymaya query
+                    string productPayment = "UPDATE orderproducthistory SET ProductStatus = @status WHERE TransactionNumber = @transactNum";
 
                     if (RecPayServiceCashPaymentRB.Checked == true)
                     {
-                        MySqlCommand cmd = new MySqlCommand(cashPayment, connection);
+                        MySqlCommand cmd = new MySqlCommand(cashPayment,  connection);
                         cmd.Parameters.AddWithValue("@status", "Paid");
                         cmd.Parameters.AddWithValue("@net", netAmount);
                         cmd.Parameters.AddWithValue("@vat", vat);
@@ -7143,6 +7374,41 @@ WHERE ItemID = @ItemID";
                         MessageBox.Show("Service successfully been paid through online wallet.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Inventory.PanelShow(MngrInventoryTypePanel);
                     }
+
+                    if (RecPayServiceCashPaymentRB.Checked == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand(productPayment, connection);
+                        cmd.Parameters.AddWithValue("@status", "Paid");
+                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
+
+
+                        cmd.ExecuteNonQuery();
+                        // Successful update
+                        MessageBox.Show("Service successfully been paid through cash.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Inventory.PanelShow(MngrInventoryTypePanel);
+                    }
+                    else if (RecPayServiceCCPaymentRB.Checked == true || RecPayServicePPPaymentRB.Checked == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand(productPayment, connection);
+                        cmd.Parameters.AddWithValue("@status", "Paid");
+                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
+
+                        cmd.ExecuteNonQuery();
+                        // Successful update
+                        MessageBox.Show("Service successfully been paid through bank.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Inventory.PanelShow(MngrInventoryTypePanel);
+                    }
+                    else if (RecPayServiceGCPaymentRB.Checked == true || MngrPayServicePMPaymentRB.Checked == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand(productPayment, connection);
+                        cmd.Parameters.AddWithValue("@status", "Paid");
+                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
+
+                        cmd.ExecuteNonQuery();
+                        // Successful update
+                        MessageBox.Show("Service successfully been paid through online wallet.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Inventory.PanelShow(MngrInventoryTypePanel);
+                    }
                 }
             }
             catch (MySqlException ex)
@@ -7162,67 +7428,8 @@ WHERE ItemID = @ItemID";
 
         private void MngrPayServicePaymentButton_Click(object sender, EventArgs e)
         {
-            //if (MngrPayServiceCashPaymentRB.Checked == false && MngrPayServiceCCPaymentRB.Checked == false && MngrPayServicePMPaymentRB.Checked == false &&
-            //    MngrPayServiceGCPaymentRB.Checked == false && MngrPayServicePPPaymentRB.Checked == false)
-            //{
-            //    MessageBox.Show("Please select a payment method.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-            //else if (string.IsNullOrEmpty(MngrPayServiceGrossAmountBox.Text))
-            //{
-            //    MessageBox.Show("Please select a completed transaction.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-            //    return;
-
-            //}
-            //else if (MngrPayServiceCCPaymentRB.Checked == true || MngrPayServicePPPaymentRB.Checked == true)
-            //{
-            //    if (string.IsNullOrEmpty(MngrPayServiceCardNameText.Text) || string.IsNullOrEmpty(MngrPayServiceCardNumText.Text) ||
-            //                        string.IsNullOrEmpty(MngrPayServiceCVCText.Text) || string.IsNullOrEmpty(MngrPayServiceCardExpText.Text))
-            //    {
-            //        MessageBox.Show("Missing credit card details.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            //    }
-            //    return;
-
-            //}
-            //else if (MngrPayServiceGCPaymentRB.Checked == true || MngrPayServicePMPaymentRB.Checked == true)
-            //{
-            //    if (string.IsNullOrEmpty(MngrPayServiceWalletNumText.Text) || string.IsNullOrEmpty(MngrPayServiceWalletPINText.Text) ||
-            //                        string.IsNullOrEmpty(MngrPayServiceWalletOTPText.Text))
-            //    {
-            //        MessageBox.Show("Missing online wallet details.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
-            //    return;
-
-            //}
-            //else if (MngrPayServiceCashPaymentRB.Checked == true)
-            //{
-            //    if (string.IsNullOrEmpty(MngrPayServiceCashBox.Text))
-            //    {
-
-            //        MessageBox.Show("Please add a valid amount of cash. Cash Box", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
-            //    else if (decimal.TryParse(MngrPayServiceChangeBox.Text, out decimal cash) && cash < 0)
-            //    {
-            //        MessageBox.Show("Please add a valid amount of cash. Change Box", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
-            //    return;
-            //}
-            //else if (RecPayServicePrintReceiptChk.Checked)
-            //{
-            //    InvoiceReceiptGenerator();
-            //    return;
-            //}
-            //else
-            //{
-            //    UpdateWalk_in_AppointmentDB();
-            //    MngrLoadCompletedTrans();
-
-            //}
-
             if (UpdateWalk_in_AppointmentDB())
             {
-                RecPayServicesAcquiredDGV.DataSource = null;
                 RecPayServiceClientNameLbl.Text = "";
                 MngrLoadCompletedTrans();
                 InvoiceReceiptGenerator();
@@ -7238,18 +7445,6 @@ WHERE ItemID = @ItemID";
         private void RecWalkinAttendingStaffComboText_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private bool IsCardNameValid(string name)
-        {
-            foreach (char c in name)
-            {
-                if (!char.IsLetter(c))
-                {
-                    return false;
-                }
-            }
-            return true;
         }
 
         // Method to get image bytes from resource
@@ -7364,23 +7559,32 @@ WHERE ItemID = @ItemID";
                     doc.Add(new Chunk("\n")); // New line
 
                     doc.Add(new LineSeparator()); // Dotted line
-                    PdfPTable itemTable = new PdfPTable(3); // 3 columns for the item table
-                    itemTable.SetWidths(new float[] { 5f, 10f, 5f }); // Column widths
-                    itemTable.DefaultCell.Border = PdfPCell.NO_BORDER;
-                    itemTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
-                    itemTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
-                    itemTable.AddCell(new Phrase("Staff ID", boldfont));
-                    itemTable.AddCell(new Phrase("Service", boldfont));
-                    itemTable.AddCell(new Phrase("Price", boldfont));
-                    doc.Add(itemTable);
+                    PdfPTable columnHeaderTable = new PdfPTable(4);
+                    columnHeaderTable.SetWidths(new float[] { 10f, 10f, 5f, 5f }); // Column widths
+                    columnHeaderTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+                    columnHeaderTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                    columnHeaderTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    columnHeaderTable.AddCell(new Phrase("Staff or\nProduct ID", boldfont));
+                    columnHeaderTable.AddCell(new Phrase("Services or \nProducts", boldfont));
+                    columnHeaderTable.AddCell(new Phrase("Qty.", boldfont));
+                    columnHeaderTable.AddCell(new Phrase("Total Price", boldfont));
+                    doc.Add(columnHeaderTable);
                     doc.Add(new LineSeparator()); // Dotted line
                     // Iterate through the rows of your 
+
+                    // Add cells to the item table
+                    PdfPTable serviceTable = new PdfPTable(4); 
+                    serviceTable.SetWidths(new float[] { 5f, 5f, 3f, 3f }); // Column widths
+                    serviceTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+                    serviceTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                    serviceTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
                     foreach (DataGridViewRow row in RecPayServicesAcquiredDGV.Rows)
                     {
                         try
                         {
-                            string itemName = row.Cells["SelectedService"].Value?.ToString();
-                            if (string.IsNullOrEmpty(itemName))
+                            string serviceName = row.Cells["SelectedService"].Value?.ToString();
+                            if (string.IsNullOrEmpty(serviceName))
                             {
                                 continue; // Skip empty rows
                             }
@@ -7388,18 +7592,13 @@ WHERE ItemID = @ItemID";
                             string staffID = row.Cells["AttendingStaff"].Value?.ToString();
                             string itemTotalcost = row.Cells["ServicePrice"].Value?.ToString();
 
-                            // Add cells to the item table
-                            PdfPTable serviceTable = new PdfPTable(3); // 4 columns for the item table
-                            serviceTable.SetWidths(new float[] { 3f, 5f, 3f }); // Column widths
-                            serviceTable.DefaultCell.Border = PdfPCell.NO_BORDER;
-                            serviceTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
-                            serviceTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
-                            serviceTable.AddCell(new Phrase(staffID, font));
-                            serviceTable.AddCell(new Phrase(itemName, font));
-                            serviceTable.AddCell(new Phrase(itemTotalcost, font));
 
-                            // Add the item table to the document
+                            serviceTable.AddCell(new Phrase(staffID, font));
+                            serviceTable.AddCell(new Phrase(serviceName, font));
+                            serviceTable.AddCell(new Phrase("1", font));
+                            serviceTable.AddCell(new Phrase(itemTotalcost, font));
                             doc.Add(serviceTable);
+
                         }
                         catch (Exception ex)
                         {
@@ -7407,6 +7606,42 @@ WHERE ItemID = @ItemID";
                             MessageBox.Show("An error occurred: " + ex.Message, "Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
+                    // Add cells to the item table
+                    PdfPTable productTable = new PdfPTable(4);
+                    productTable.SetWidths(new float[] { 5f, 5f, 3f, 3f }); // Column widths
+                    productTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+                    productTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                    productTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                    foreach (DataGridViewRow row in RecPayServiceCOProdDGV.Rows)
+                    {
+                        try
+                        {
+                            string itemName = row.Cells["ItemName"].Value?.ToString();
+                            if (string.IsNullOrEmpty(itemName))
+                            {
+                                continue; // Skip empty rows
+                            }
+                            string itemID = row.Cells["ItemID"].Value?.ToString();
+                            string qty = row.Cells["Qty"].Value?.ToString();
+                            string itemTotalcost = row.Cells["ItemTotalPrice"].Value?.ToString();
+
+                            productTable.AddCell(new Phrase(itemID, font));
+                            productTable.AddCell(new Phrase(itemName, font));
+                            productTable.AddCell(new Phrase(qty, font));
+                            productTable.AddCell(new Phrase(itemTotalcost, font));
+                            // Add the item table to the document
+                            doc.Add(productTable);
+                        }
+                        catch (Exception ex)
+                        {
+                            // Handle or log any exceptions that occur while processing DataGridView data
+                            MessageBox.Show("An error occurred: " + ex.Message, "Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+
+
                     doc.Add(new Chunk("\n")); // New line
                     doc.Add(new LineSeparator()); // Dotted line
                     doc.Add(new Chunk("\n")); // New line
@@ -7424,13 +7659,16 @@ WHERE ItemID = @ItemID";
                     totalTable.SetWidths(new float[] { 5f, 3f }); // Column widths
                     totalTable.DefaultCell.Border = PdfPCell.NO_BORDER;
 
+                    int totalRowCount = RecPayServicesAcquiredDGV.Rows.Count + RecPayServiceCOProdDGV.Rows.Count;
+
                     // Add cells to the "Total" table
-                    totalTable.AddCell(new Phrase($"Total # of Service ({RecPayServicesAcquiredDGV.Rows.Count})", font));
+                    totalTable.AddCell(new Phrase($"Total # of Service/Products ({totalRowCount})", font));
                     totalTable.AddCell(new Phrase($"Php {grossAmount:F2}", font));
                     totalTable.AddCell(new Phrase($"Cash Given", font));
                     totalTable.AddCell(new Phrase($"Php {cash:F2}", font));
                     totalTable.AddCell(new Phrase($"Change", font));
                     totalTable.AddCell(new Phrase($"Php {change:F2}", font));
+
 
                     // Add the "Total" table to the document
                     doc.Add(totalTable);
@@ -8707,61 +8945,55 @@ WHERE ItemID = @ItemID";
 
                 bool itemExists = false;
 
-                foreach (DataGridViewRow row in ProductSelectedDataGridView.Rows)
+
+
+                int existingRowIndex = 0;
+
+                // Check if the item already exists in the order
+                foreach (DataGridViewRow row in RecWalkinSelectedProdDGV.Rows)
                 {
-                    if (row.Cells["ProductItemID"].Value.ToString() == itemID)
+                    if (row.Cells["Item Name"].Value != null && row.Cells["Item Name"].Value.ToString() == itemName)
                     {
-                        int currentQuantity = Convert.ToInt32(row.Cells["ProductQuantity"].Value);
-                        row.Cells["ProductQuantity"].Value = currentQuantity + 1;
                         itemExists = true;
+                        existingRowIndex = row.Index;
                         break;
                     }
                 }
 
-                if (!itemExists)
+                if (itemExists)
                 {
-                    int rowIndex = ProductSelectedDataGridView.Rows.Add();
-                    ProductSelectedDataGridView.Rows[rowIndex].Cells["ProductItemID"].Value = itemID;
-                    ProductSelectedDataGridView.Rows[rowIndex].Cells["ProductItemName"].Value = itemName;
-                    ProductSelectedDataGridView.Rows[rowIndex].Cells["ProductQuantity"].Value = "1";
-                    ProductSelectedDataGridView.Rows[rowIndex].Cells["ProductItemPrice"].Value = itemPrice;
+                    // The item already exists, increment quantity and update price
+                    string quantityString = RecWalkinSelectedProdDGV.Rows[existingRowIndex].Cells["Qty"].Value?.ToString();
+                    if (!string.IsNullOrEmpty(quantityString) && int.TryParse(quantityString, out int quantity))
+                    {
+                        decimal itemCost = decimal.Parse(RecWalkinSelectedProdDGV.Rows[existingRowIndex].Cells["Total Price"].Value?.ToString());
+
+                        // Calculate the cost per item
+                        decimal costPerItem = itemCost / quantity;
+
+                        // Increase quantity
+                        quantity++;
+
+                        // Calculate updated item cost
+                        decimal updatedCost = costPerItem * quantity;
+
+                        // Update Qty and ItemCost in the DataGridView
+                        RecWalkinSelectedProdDGV.Rows[existingRowIndex].Cells["Qty"].Value = quantity.ToString();
+                        RecWalkinSelectedProdDGV.Rows[existingRowIndex].Cells["Total Price"].Value = updatedCost.ToString("F2"); // Format to two decimal places
+                    }
+
+                    else
+                    {
+                        // Handle the case where quantityString is empty or not a valid integer
+                        // For example, show an error message or set a default value
+                    }
+                }
+                else
+                {
+                    RecWalkinSelectedProdDGV.Rows.Add(itemID, "x", itemName, "-", "1", "+", itemPrice, itemPrice);
+
                 }
             }
-
-            //if (sender is ProductUserControl clickedControl)
-            //{
-            //    string itemID = clickedControl.ProductItemIDTextBox.Text;
-            //    string itemName = clickedControl.ProductNameTextBox.Text;
-            //    string itemPrice = clickedControl.ProductPriceTextBox.Text;
-
-            //    bool itemExists = false;
-
-            //    foreach (System.Windows.Forms.Control control in ProductSelectedFlowLayoutPanel.Controls)
-            //    {
-            //        if (control is ProductOrderUserControl orderControl &&
-            //            orderControl.ProductOrderItemIDTextBox.Text == itemID)
-            //        {
-            //            int currentQuantity = Convert.ToInt32(orderControl.ProductOrderQuantityTextBox.Text);
-            //            orderControl.ProductOrderQuantityTextBox.Text = (currentQuantity + 1).ToString();
-            //            itemExists = true;
-            //            break;
-            //        }
-            //    }
-
-            //    if (!itemExists)
-            //    {
-            //        ProductOrderUserControl newOrderControl = new ProductOrderUserControl();
-            //        newOrderControl.ProductOrderItemIDTextBox.Text = itemID;
-            //        newOrderControl.ProductOrderItemNameTextBox.Text = itemName;
-            //        newOrderControl.ProductOrderItemPriceTextBox.Text = itemPrice;
-            //        newOrderControl.ProductOrderQuantityTextBox.Text = "1";
-
-            //        newOrderControl.QuantityChanged += ProductOrderUserControl_QuantityChanged;
-            //        newOrderControl.VoidClicked += ProductOrderUserControl_VoidClicked;
-
-            //        ProductSelectedFlowLayoutPanel.Controls.Add(newOrderControl);
-            //    }
-            //}
         }
 
         public void InitializeProducts()
@@ -8837,48 +9069,144 @@ WHERE ItemID = @ItemID";
         private void ProductUserControl_ProductClicked(object sender, EventArgs e)
         {
             // MAY GAMIT TO DONT DELETE UwU
+            // sigi 
         }
 
-        private void ProductReduceQuantityButton_Click(object sender, EventArgs e)
-        {
-            if (ProductSelectedDataGridView.Rows.Count == 0)
-            {
-                MessageBox.Show("The product list is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+        public string Position { get; set; }
 
-            if (ProductSelectedDataGridView.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Please select a product to reduce quantity.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            DataGridViewRow selectedRow = ProductSelectedDataGridView.SelectedRows[0];
-
-            int currentQuantity = Convert.ToInt32(selectedRow.Cells["ProductQuantity"].Value);
-
-            if (currentQuantity > 1)
-            {
-                selectedRow.Cells["ProductQuantity"].Value = currentQuantity - 1;
-            }
-        }
 
         private void ProductVoidButton_Click(object sender, EventArgs e)
         {
-            if (ProductSelectedDataGridView.Rows.Count == 0)
+            if (RecWalkinSelectedProdDGV.Rows.Count == 0)
             {
                 MessageBox.Show("The product list is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (ProductSelectedDataGridView.SelectedRows.Count == 0)
+            if (RecWalkinSelectedProdDGV.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Please select a product to void.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            //input dialog messagebox
+            string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Password Required");
 
-            DataGridViewRow selectedRow = ProductSelectedDataGridView.SelectedRows[0];
-            ProductSelectedDataGridView.Rows.Remove(selectedRow);
+            // Hash the entered password
+            string hashedEnteredPassword = HashHelper.HashString(enteredPassword);
+            DialogResult result;
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string query = "SELECT EmployeeType FROM systemusers WHERE HashedPass = @Password";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Password", hashedEnteredPassword);
+
+                    // Execute the query
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string position = reader["EmployeeType"].ToString();
+                            if (position == "Manager")
+                            {
+                                result = MessageBox.Show("Do you want to remove this item?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                                if (result == DialogResult.Yes)
+                                {
+                                    // Remove the selected row
+                                    RecWalkinSelectedProdDGV.Rows.Clear();
+                                    MessageBox.Show("Item removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            //MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            //return;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Function to get password with asterisks
+        private string GetPasswordWithAsterisks(string prompt, string title)
+        {
+            using (Form passwordForm = new Form())
+            {
+                System.Windows.Forms.Label label = new System.Windows.Forms.Label()
+                {
+                    Left = 20,
+                    Top = 50,
+                    Text = prompt,
+                    AutoSize = true,
+                    Font = new System.Drawing.Font("Arial Black", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
+                    ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))))
+                }; 
+
+                System.Windows.Forms.TextBox textBox = new System.Windows.Forms.TextBox() { 
+                    Left = 20, 
+                    Top = 100, 
+                    Width = 420,
+                    Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
+                    ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221))))),
+                    BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82))))),
+                    PasswordChar = '*' 
+                };
+                System.Windows.Forms.Button button = new System.Windows.Forms.Button() { 
+                    Text = "Void Items", 
+                    Left = 325, 
+                    Width = 120, 
+                    Height = 40, 
+                    Top = 150,
+                    Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
+                    ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221))))),
+                    BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))))
+                };
+                System.Windows.Forms.Button button1 = new System.Windows.Forms.Button() { 
+                    Text = "Show Password", 
+                    Left = 120, 
+                    Width = 200, 
+                    Height = 40, 
+                    Top = 150,
+                    Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
+                    ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221))))),
+                    BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))))
+                };
+
+                button.Click += (sender, e) => { passwordForm.DialogResult = DialogResult.OK; };
+                passwordForm.AcceptButton = button;
+
+                // Set the fixed size for the form
+                passwordForm.Size = new Size(500, 300);
+                passwordForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+                // Disable resizing of the form
+                passwordForm.FormBorderStyle = FormBorderStyle.FixedDialog;
+
+                passwordForm.Controls.Add(label);
+                passwordForm.Controls.Add(textBox);
+                passwordForm.Controls.Add(button);
+                passwordForm.Controls.Add(button1);
+
+                // Center the form on the screen
+                passwordForm.StartPosition = FormStartPosition.CenterScreen;
+                button1.Click += (sender, e) =>
+                {
+                    // Toggle between showing and hiding characters
+                    textBox.PasswordChar = (textBox.PasswordChar == '\0') ? '*' : '\0';
+                };
+                passwordForm.ShowDialog();
+
+                return textBox.Text;
+            }
         }
 
         private void MngrInventoryProductsTypeComboText_SelectedIndexChanged(object sender, EventArgs e)
@@ -8999,38 +9327,142 @@ WHERE ItemID = @ItemID";
             }
         }
 
+        private void RecWalkinSelectedProdDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && RecWalkinSelectedProdDGV.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            {
+                // Handle the Bin column
+                if (RecWalkinSelectedProdDGV.Columns[e.ColumnIndex].Name == "Void")
+                {
+                    //input dialog messagebox
+                    string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Password Required");
 
-        //private void ProductOrderUserControl_QuantityChanged(object sender, int newQuantity)
-        //{
-        //    ProductOrderUserControl control = sender as ProductOrderUserControl;
-        //    if (control != null)
-        //    {
-        //        decimal price = decimal.Parse(control.ProductOrderItemPriceTextBox.Text);
-        //        decimal itemTotal = price * newQuantity;
-        //        control.ProductOrderItemTotalTextBox.Text = itemTotal.ToString();
-        //        UpdateProductTotal();
-        //    }
-        //}
+                    // Hash the entered password
+                    string hashedEnteredPassword = HashHelper.HashString(enteredPassword);
+                    DialogResult result;
 
-        //private void UpdateProductTotal()
-        //{
-        //    decimal total = 0;
-        //    foreach (System.Windows.Forms.Control control in ProductSelectedFlowLayoutPanel.Controls)
-        //    {
-        //        if (control is ProductOrderUserControl orderControl)
-        //        {
-        //            if (decimal.TryParse(orderControl.ProductOrderItemTotalTextBox.Text, out decimal itemTotal))
-        //            {
-        //                total += itemTotal;
-        //            }
-        //        }
-        //    }
-        //    ProductTotalTextBox.Text = total.ToString();
-        //}
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    {
+                        connection.Open();
 
-        //private void ProductOrderUserControl_VoidClicked(object sender, EventArgs e)
-        //{
-        //    UpdateProductTotal();
-        //}
+                        string query = "SELECT EmployeeType FROM systemusers WHERE HashedPass = @Password";
+                        using (MySqlCommand command = new MySqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@Password", hashedEnteredPassword);
+
+                            // Execute the query
+                            using (MySqlDataReader reader = command.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    string position = reader["EmployeeType"].ToString();
+                                    if (position == "Manager")
+                                    {
+                                        result = MessageBox.Show("Do you want to remove this item?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                                        if (result == DialogResult.Yes)
+                                        {
+                                            // Remove the selected row
+                                            RecWalkinSelectedProdDGV.Rows.RemoveAt(e.RowIndex);
+                                            MessageBox.Show("Item removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                        return;
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                }
+                else if (RecWalkinSelectedProdDGV.Columns[e.ColumnIndex].Name == "-")
+                {
+                    string quantityString = RecWalkinSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value?.ToString();
+                    if (!string.IsNullOrEmpty(quantityString) && int.TryParse(quantityString, out int quantity))
+                    {
+                        decimal itemCost = decimal.Parse(RecWalkinSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value?.ToString());
+
+                        // Calculate the cost per item
+                        decimal costPerItem = itemCost / quantity;
+
+                        // Decrease quantity
+                        if (quantity > 1)
+                        {
+                            quantity--;
+
+                            // Calculate updated item cost (reset to original price)
+                            decimal updatedCost = costPerItem * quantity;
+
+                            // Update Qty and ItemCost in the DataGridView
+                            RecWalkinSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value = quantity.ToString();
+                            RecWalkinSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = updatedCost.ToString("F2"); // Format to two decimal places
+
+                        }
+                    }
+                    else
+                    {
+                        // Handle the case where quantityString is empty or not a valid integer
+                        // For example, show an error message or set a default value
+                    }
+                }
+                else if (RecWalkinSelectedProdDGV.Columns[e.ColumnIndex].Name == "+")
+                {
+                    string quantityString = RecWalkinSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value?.ToString();
+                    if (!string.IsNullOrEmpty(quantityString) && int.TryParse(quantityString, out int quantity))
+                    {
+                        decimal itemCost = decimal.Parse(RecWalkinSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value?.ToString());
+
+                        // Calculate the cost per item
+                        decimal costPerItem = itemCost / quantity;
+
+                        // Increase quantity
+                        quantity++;
+
+                        // Calculate updated item cost
+                        decimal updatedCost = costPerItem * quantity;
+
+                        // Update Qty and ItemCost in the DataGridView
+                        RecWalkinSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value = quantity.ToString();
+                        RecWalkinSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = updatedCost.ToString("F2"); // Format to two decimal places
+
+                    }
+                    else
+                    {
+                        // Handle the case where quantityString is empty or not a valid integer
+                        // For example, show an error message or set a default value
+                    }
+                }
+            }
+        }
+
+        private void MngrServicesHistoryBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrServiceHistoryPanel);
+
+        }
+        private void MngrServiceHistoryExitBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrInventoryTypePanel);
+
+        }
+
+        private void MngrWalkinProdSalesBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrWalkinProdSalesPanel);
+
+        }
+
+        private void MngrWalkinProdSalesExitBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrInventoryTypePanel);
+
+        }
     }
 }
