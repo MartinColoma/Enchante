@@ -145,12 +145,6 @@
       <DependentUpon>MemberPlanPeriod.cs</DependentUpon>
     </Compile>
     <Compile Include="ParentCard.cs" />
-    <Compile Include="ProductOrderUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ProductOrderUserControl.Designer.cs">
-      <DependentUpon>ProductOrderUserControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MngrInventoryCard.cs" />
@@ -178,9 +172,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MemberPlanPeriod.resx">
       <DependentUpon>MemberPlanPeriod.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProductOrderUserControl.resx">
-      <DependentUpon>ProductOrderUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUserControl.resx">
       <DependentUpon>ProductUserControl.cs</DependentUpon>

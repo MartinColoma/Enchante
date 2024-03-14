@@ -88,6 +88,7 @@ namespace Enchante
 
         public string filterstaffbyservicecategory;
         public bool haschosenacategory = false;
+        public bool servicecategorychanged;
         public string selectedStaffID;
         //private bool IsPrefferredTimeSchedComboBoxModified = false;
         public string membercategory;
@@ -3259,6 +3260,7 @@ namespace Enchante
             {
                 RecWalkinAttendingStaffSelectedComboBox.Items.Clear();
                 LoadPreferredStaffComboBox();
+                
             }
             Face();
 
@@ -4937,10 +4939,15 @@ namespace Enchante
                 return;
             }
 
-            // Check if the service is already in the RecSelectedServiceDataGrid
+            if (RecWalkinAttendingStaffSelectedComboBox.SelectedItem?.ToString() == "Select a Preferred Staff") // 4942
+            {
+                MessageBox.Show("Please select a preferred staff or toggle anyone.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             foreach (DataGridViewRow row in RecSelectedServiceDataGrid1.Rows)
             {
-                string existingServiceID = row.Cells["ServiceCategory"]?.Value?.ToString(); // Use null-conditional operator
+                string existingServiceID = row.Cells["ServiceID"]?.Value?.ToString(); // Use null-conditional operator
 
                 if (serviceID == existingServiceID)
                 {
@@ -4986,10 +4993,10 @@ namespace Enchante
                 NewSelectedServiceRow.Cells["StaffSelected"].Value = selectedStaffID;
                 QueTypeIdentifier(NewSelectedServiceRow.Cells["QueType"]);
 
-                RecWalkinPreferredStaffToggleSwitch.Checked = false;
-                RecWalkinAnyStaffToggleSwitch.Checked = false;
-                selectedStaffID = string.Empty;
-                RecWalkinAttendingStaffSelectedComboBox.Items.Clear();
+                //RecWalkinPreferredStaffToggleSwitch.Checked = false;
+                //RecWalkinAnyStaffToggleSwitch.Checked = false;
+                //selectedStaffID = string.Empty;
+                //RecWalkinAttendingStaffSelectedComboBox.Items.Clear();
                 RecWalkInServiceTypeTable.ClearSelection();
                 RecCustomerCustomizationsTextBox.Clear();
 
@@ -7732,6 +7739,9 @@ namespace Enchante
 
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
+                    RecWalkinAttendingStaffSelectedComboBox.Items.Clear();
+                    RecWalkinAttendingStaffSelectedComboBox.Items.Add("Select a Preferred Staff"); // Kung babaguhin to babaguhin yung line 4942 messagebox
+
                     while (reader.Read())
                     {
                         string employeeID = reader.GetString("EmployeeID");
@@ -7745,6 +7755,7 @@ namespace Enchante
                     }
                 }
             }
+            RecWalkinAttendingStaffSelectedComboBox.SelectedIndex = 0;
         }
 
         private void RecWalkinAnyStaffToggleSwitch_CheckedChanged(object sender, EventArgs e)
@@ -7787,7 +7798,7 @@ namespace Enchante
             }
             else
             {
-                if (RecWalkinPreferredStaffToggleSwitch.Checked)
+                if (RecWalkinPreferredStaffToggleSwitch.Checked && RecWalkinAttendingStaffSelectedComboBox.SelectedText != "Select a Preferred Staff")
                 {
                     RecWalkinAnyStaffToggleSwitch.Checked = false;
                     RecWalkinAttendingStaffSelectedComboBox.Enabled = true;

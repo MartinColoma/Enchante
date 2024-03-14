@@ -32,6 +32,8 @@ namespace Enchante
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -81,8 +83,6 @@ namespace Enchante
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.EnchanteParentContainer = new System.Windows.Forms.Panel();
             this.EnchanteMngrPage = new System.Windows.Forms.Panel();
             this.MngrScrollPanel = new System.Windows.Forms.Panel();
@@ -92,6 +92,12 @@ namespace Enchante
             this.MngrNameLbl = new System.Windows.Forms.Label();
             this.MngrSignOutBtn = new FontAwesome.Sharp.IconButton();
             this.MngrInventoryPanel = new System.Windows.Forms.Panel();
+            this.MngrWalkinProdSalesPanel = new System.Windows.Forms.Panel();
+            this.MngrWalkinProdSalesLbl = new System.Windows.Forms.Label();
+            this.MngrWalkinProdSalesExitBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrServiceHistoryPanel = new System.Windows.Forms.Panel();
+            this.MngrServiceHistoryDGV = new System.Windows.Forms.DataGridView();
+            this.MngrServiceHistoryExitBtn = new FontAwesome.Sharp.IconButton();
             this.MngrWalkinSalesPanel = new System.Windows.Forms.Panel();
             this.MngrWalkinSalesGraphLbl = new System.Windows.Forms.Label();
             this.MngrWalkinSalesViewBtn = new System.Windows.Forms.Button();
@@ -116,6 +122,8 @@ namespace Enchante
             this.MngrWalkinSalesPeriodCalendar = new System.Windows.Forms.MonthCalendar();
             this.MngrWalkinSalesExitBtn = new FontAwesome.Sharp.IconButton();
             this.MngrInventoryTypePanel = new System.Windows.Forms.Panel();
+            this.MngrWalkinProdSalesBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrInventoryMembershipBtn = new FontAwesome.Sharp.IconButton();
             this.MngrServicesHistoryBtn = new FontAwesome.Sharp.IconButton();
             this.MngrInDemandBtn = new FontAwesome.Sharp.IconButton();
             this.MngrStaffSchedBtn = new FontAwesome.Sharp.IconButton();
@@ -123,7 +131,6 @@ namespace Enchante
             this.MngrWalkinServiceSalesBtn = new FontAwesome.Sharp.IconButton();
             this.MngrServicesDataBtn = new FontAwesome.Sharp.IconButton();
             this.MngrProductsDataBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrInventoryMembershipBtn = new FontAwesome.Sharp.IconButton();
             this.MngrIndemandPanel = new System.Windows.Forms.Panel();
             this.MngrIndemandServiceGraphLbl = new System.Windows.Forms.Label();
             this.MngrIndemandLbl = new System.Windows.Forms.Label();
@@ -830,6 +837,7 @@ namespace Enchante
             this.RecWalkinPanel = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.RecWalkinSelectedProdDGV = new System.Windows.Forms.DataGridView();
+            this.OrderProdItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecWalkinSelectedProdVoidButton = new Guna.UI2.WinForms.Guna2Button();
             this.ProductFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
@@ -939,19 +947,14 @@ namespace Enchante
             this.RecTransactionCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.DateTimePickerTimer = new System.Windows.Forms.Timer(this.components);
             this.MngrInventoryCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
-            this.MngrServiceHistoryPanel = new System.Windows.Forms.Panel();
-            this.MngrServiceHistoryDGV = new System.Windows.Forms.DataGridView();
-            this.MngrServiceHistoryExitBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrWalkinProdSalesPanel = new System.Windows.Forms.Panel();
-            this.MngrWalkinProdSalesExitBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrWalkinProdSalesBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrWalkinProdSalesLbl = new System.Windows.Forms.Label();
-            this.OrderProdItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteMngrPage.SuspendLayout();
             this.MngrScrollPanel.SuspendLayout();
             this.MngrUserAccPanel.SuspendLayout();
             this.MngrInventoryPanel.SuspendLayout();
+            this.MngrWalkinProdSalesPanel.SuspendLayout();
+            this.MngrServiceHistoryPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrServiceHistoryDGV)).BeginInit();
             this.MngrWalkinSalesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrWalkinSalesTransServiceHisDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrWalkinSalesTransRepDGV)).BeginInit();
@@ -1110,9 +1113,6 @@ namespace Enchante
             ((System.ComponentModel.ISupportInitialize)(this.HomeServiceCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecTransactionCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrInventoryCard)).BeginInit();
-            this.MngrServiceHistoryPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MngrServiceHistoryDGV)).BeginInit();
-            this.MngrWalkinProdSalesPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // EnchanteParentContainer
@@ -1127,7 +1127,7 @@ namespace Enchante
             this.EnchanteParentContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnchanteParentContainer.Location = new System.Drawing.Point(0, 0);
             this.EnchanteParentContainer.Name = "EnchanteParentContainer";
-            this.EnchanteParentContainer.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteParentContainer.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteParentContainer.TabIndex = 0;
             // 
             // EnchanteMngrPage
@@ -1139,7 +1139,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteMngrPage, new System.Drawing.Size(200, 100));
             this.EnchanteMngrPage.Name = "EnchanteMngrPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteMngrPage, new System.Drawing.Size(200, 100));
-            this.EnchanteMngrPage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteMngrPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteMngrPage.TabIndex = 6;
             // 
             // MngrScrollPanel
@@ -1151,7 +1151,7 @@ namespace Enchante
             this.MngrScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MngrScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.MngrScrollPanel.Name = "MngrScrollPanel";
-            this.MngrScrollPanel.Size = new System.Drawing.Size(1904, 891);
+            this.MngrScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.MngrScrollPanel.TabIndex = 4;
             // 
             // MngrUserAccPanel
@@ -1241,6 +1241,114 @@ namespace Enchante
             this.MngrInventoryPanel.Name = "MngrInventoryPanel";
             this.MngrInventoryPanel.Size = new System.Drawing.Size(1797, 749);
             this.MngrInventoryPanel.TabIndex = 24;
+            // 
+            // MngrWalkinProdSalesPanel
+            // 
+            this.MngrWalkinProdSalesPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrInventoryCard.SetCardName(this.MngrWalkinProdSalesPanel, "ProductSales");
+            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrWalkinProdSalesLbl);
+            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrWalkinProdSalesExitBtn);
+            this.MngrWalkinProdSalesPanel.Location = new System.Drawing.Point(0, 0);
+            this.MngrInventoryCard.SetMinimumSize(this.MngrWalkinProdSalesPanel, new System.Drawing.Size(200, 100));
+            this.MngrWalkinProdSalesPanel.Name = "MngrWalkinProdSalesPanel";
+            this.MngrInventoryCard.SetPreferredSize(this.MngrWalkinProdSalesPanel, new System.Drawing.Size(200, 100));
+            this.MngrWalkinProdSalesPanel.Size = new System.Drawing.Size(1797, 749);
+            this.MngrWalkinProdSalesPanel.TabIndex = 99;
+            // 
+            // MngrWalkinProdSalesLbl
+            // 
+            this.MngrWalkinProdSalesLbl.AutoSize = true;
+            this.MngrWalkinProdSalesLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrWalkinProdSalesLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinProdSalesLbl.Location = new System.Drawing.Point(76, 60);
+            this.MngrWalkinProdSalesLbl.Name = "MngrWalkinProdSalesLbl";
+            this.MngrWalkinProdSalesLbl.Size = new System.Drawing.Size(371, 35);
+            this.MngrWalkinProdSalesLbl.TabIndex = 99;
+            this.MngrWalkinProdSalesLbl.Text = "Walk-in Product Sales\r\n";
+            // 
+            // MngrWalkinProdSalesExitBtn
+            // 
+            this.MngrWalkinProdSalesExitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.MngrWalkinProdSalesExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrWalkinProdSalesExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.MngrWalkinProdSalesExitBtn.FlatAppearance.BorderSize = 0;
+            this.MngrWalkinProdSalesExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrWalkinProdSalesExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.MngrWalkinProdSalesExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinProdSalesExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrWalkinProdSalesExitBtn.Location = new System.Drawing.Point(1717, 29);
+            this.MngrWalkinProdSalesExitBtn.Name = "MngrWalkinProdSalesExitBtn";
+            this.MngrWalkinProdSalesExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.MngrWalkinProdSalesExitBtn.TabIndex = 84;
+            this.MngrWalkinProdSalesExitBtn.UseVisualStyleBackColor = false;
+            this.MngrWalkinProdSalesExitBtn.Click += new System.EventHandler(this.MngrWalkinProdSalesExitBtn_Click);
+            // 
+            // MngrServiceHistoryPanel
+            // 
+            this.MngrServiceHistoryPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrInventoryCard.SetCardName(this.MngrServiceHistoryPanel, "ServiceHistory");
+            this.MngrServiceHistoryPanel.Controls.Add(this.MngrServiceHistoryDGV);
+            this.MngrServiceHistoryPanel.Controls.Add(this.MngrServiceHistoryExitBtn);
+            this.MngrServiceHistoryPanel.Location = new System.Drawing.Point(0, 0);
+            this.MngrInventoryCard.SetMinimumSize(this.MngrServiceHistoryPanel, new System.Drawing.Size(200, 100));
+            this.MngrServiceHistoryPanel.Name = "MngrServiceHistoryPanel";
+            this.MngrInventoryCard.SetPreferredSize(this.MngrServiceHistoryPanel, new System.Drawing.Size(200, 100));
+            this.MngrServiceHistoryPanel.Size = new System.Drawing.Size(1797, 749);
+            this.MngrServiceHistoryPanel.TabIndex = 30;
+            // 
+            // MngrServiceHistoryDGV
+            // 
+            this.MngrServiceHistoryDGV.AllowUserToAddRows = false;
+            this.MngrServiceHistoryDGV.AllowUserToDeleteRows = false;
+            this.MngrServiceHistoryDGV.AllowUserToResizeColumns = false;
+            this.MngrServiceHistoryDGV.AllowUserToResizeRows = false;
+            this.MngrServiceHistoryDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MngrServiceHistoryDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.MngrServiceHistoryDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrServiceHistoryDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.MngrServiceHistoryDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MngrServiceHistoryDGV.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrServiceHistoryDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            this.MngrServiceHistoryDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrServiceHistoryDGV.Location = new System.Drawing.Point(514, 152);
+            this.MngrServiceHistoryDGV.Name = "MngrServiceHistoryDGV";
+            this.MngrServiceHistoryDGV.ReadOnly = true;
+            this.MngrServiceHistoryDGV.RowHeadersVisible = false;
+            this.MngrServiceHistoryDGV.RowHeadersWidth = 51;
+            this.MngrServiceHistoryDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MngrServiceHistoryDGV.Size = new System.Drawing.Size(764, 336);
+            this.MngrServiceHistoryDGV.TabIndex = 83;
+            // 
+            // MngrServiceHistoryExitBtn
+            // 
+            this.MngrServiceHistoryExitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.MngrServiceHistoryExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrServiceHistoryExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.MngrServiceHistoryExitBtn.FlatAppearance.BorderSize = 0;
+            this.MngrServiceHistoryExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrServiceHistoryExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.MngrServiceHistoryExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServiceHistoryExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrServiceHistoryExitBtn.Location = new System.Drawing.Point(1717, 29);
+            this.MngrServiceHistoryExitBtn.Name = "MngrServiceHistoryExitBtn";
+            this.MngrServiceHistoryExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.MngrServiceHistoryExitBtn.TabIndex = 84;
+            this.MngrServiceHistoryExitBtn.UseVisualStyleBackColor = false;
+            this.MngrServiceHistoryExitBtn.Click += new System.EventHandler(this.MngrServiceHistoryExitBtn_Click);
             // 
             // MngrWalkinSalesPanel
             // 
@@ -1616,6 +1724,53 @@ namespace Enchante
             this.MngrInventoryTypePanel.Size = new System.Drawing.Size(1797, 749);
             this.MngrInventoryTypePanel.TabIndex = 1;
             // 
+            // MngrWalkinProdSalesBtn
+            // 
+            this.MngrWalkinProdSalesBtn.AutoSize = true;
+            this.MngrWalkinProdSalesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrWalkinProdSalesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrWalkinProdSalesBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrWalkinProdSalesBtn.FlatAppearance.BorderSize = 3;
+            this.MngrWalkinProdSalesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrWalkinProdSalesBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrWalkinProdSalesBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinProdSalesBtn.IconChar = FontAwesome.Sharp.IconChar.ChartColumn;
+            this.MngrWalkinProdSalesBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrWalkinProdSalesBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrWalkinProdSalesBtn.Location = new System.Drawing.Point(772, 399);
+            this.MngrWalkinProdSalesBtn.Name = "MngrWalkinProdSalesBtn";
+            this.MngrWalkinProdSalesBtn.Size = new System.Drawing.Size(250, 250);
+            this.MngrWalkinProdSalesBtn.TabIndex = 96;
+            this.MngrWalkinProdSalesBtn.Text = "WALK-IN\r\nPRODUCT\r\nSALES";
+            this.MngrWalkinProdSalesBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.MngrWalkinProdSalesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MngrWalkinProdSalesBtn.UseVisualStyleBackColor = false;
+            this.MngrWalkinProdSalesBtn.Click += new System.EventHandler(this.MngrWalkinProdSalesBtn_Click);
+            // 
+            // MngrInventoryMembershipBtn
+            // 
+            this.MngrInventoryMembershipBtn.AutoSize = true;
+            this.MngrInventoryMembershipBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrInventoryMembershipBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrInventoryMembershipBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrInventoryMembershipBtn.FlatAppearance.BorderSize = 3;
+            this.MngrInventoryMembershipBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrInventoryMembershipBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrInventoryMembershipBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryMembershipBtn.IconChar = FontAwesome.Sharp.IconChar.UserGroup;
+            this.MngrInventoryMembershipBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrInventoryMembershipBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrInventoryMembershipBtn.Location = new System.Drawing.Point(114, 243);
+            this.MngrInventoryMembershipBtn.Name = "MngrInventoryMembershipBtn";
+            this.MngrInventoryMembershipBtn.Size = new System.Drawing.Size(250, 250);
+            this.MngrInventoryMembershipBtn.TabIndex = 88;
+            this.MngrInventoryMembershipBtn.Text = "MEMBER\r\nACCOUNTS";
+            this.MngrInventoryMembershipBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.MngrInventoryMembershipBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MngrInventoryMembershipBtn.UseVisualStyleBackColor = false;
+            this.MngrInventoryMembershipBtn.Visible = false;
+            this.MngrInventoryMembershipBtn.Click += new System.EventHandler(this.RecInventoryMembershipBtn_Click);
+            // 
             // MngrServicesHistoryBtn
             // 
             this.MngrServicesHistoryBtn.AutoSize = true;
@@ -1778,30 +1933,6 @@ namespace Enchante
             this.MngrProductsDataBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.MngrProductsDataBtn.UseVisualStyleBackColor = false;
             this.MngrProductsDataBtn.Click += new System.EventHandler(this.RecInventoryProductsBtn_Click);
-            // 
-            // MngrInventoryMembershipBtn
-            // 
-            this.MngrInventoryMembershipBtn.AutoSize = true;
-            this.MngrInventoryMembershipBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrInventoryMembershipBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrInventoryMembershipBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrInventoryMembershipBtn.FlatAppearance.BorderSize = 3;
-            this.MngrInventoryMembershipBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrInventoryMembershipBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrInventoryMembershipBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryMembershipBtn.IconChar = FontAwesome.Sharp.IconChar.UserGroup;
-            this.MngrInventoryMembershipBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrInventoryMembershipBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrInventoryMembershipBtn.Location = new System.Drawing.Point(114, 243);
-            this.MngrInventoryMembershipBtn.Name = "MngrInventoryMembershipBtn";
-            this.MngrInventoryMembershipBtn.Size = new System.Drawing.Size(250, 250);
-            this.MngrInventoryMembershipBtn.TabIndex = 88;
-            this.MngrInventoryMembershipBtn.Text = "MEMBER\r\nACCOUNTS";
-            this.MngrInventoryMembershipBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.MngrInventoryMembershipBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.MngrInventoryMembershipBtn.UseVisualStyleBackColor = false;
-            this.MngrInventoryMembershipBtn.Visible = false;
-            this.MngrInventoryMembershipBtn.Click += new System.EventHandler(this.RecInventoryMembershipBtn_Click);
             // 
             // MngrIndemandPanel
             // 
@@ -3391,7 +3522,7 @@ namespace Enchante
             this.MngrNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.MngrNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.MngrNavBarPanel.Name = "MngrNavBarPanel";
-            this.MngrNavBarPanel.Size = new System.Drawing.Size(1904, 150);
+            this.MngrNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.MngrNavBarPanel.TabIndex = 3;
             // 
             // MngrUserAccBtn
@@ -3457,7 +3588,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteAdminPage, new System.Drawing.Size(200, 100));
             this.EnchanteAdminPage.Name = "EnchanteAdminPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteAdminPage, new System.Drawing.Size(200, 100));
-            this.EnchanteAdminPage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteAdminPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteAdminPage.TabIndex = 5;
             // 
             // AdminScrollPanel
@@ -3470,7 +3601,7 @@ namespace Enchante
             this.AdminScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AdminScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.AdminScrollPanel.Name = "AdminScrollPanel";
-            this.AdminScrollPanel.Size = new System.Drawing.Size(1904, 891);
+            this.AdminScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.AdminScrollPanel.TabIndex = 20;
             // 
             // AdminUserAccPanel
@@ -4327,7 +4458,7 @@ namespace Enchante
             this.AdminNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.AdminNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.AdminNavBarPanel.Name = "AdminNavBarPanel";
-            this.AdminNavBarPanel.Size = new System.Drawing.Size(1904, 150);
+            this.AdminNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.AdminNavBarPanel.TabIndex = 4;
             // 
             // AdminAccUserBtn
@@ -4396,7 +4527,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteHomePage, new System.Drawing.Size(200, 100));
             this.EnchanteHomePage.Name = "EnchanteHomePage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteHomePage, new System.Drawing.Size(200, 100));
-            this.EnchanteHomePage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteHomePage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteHomePage.TabIndex = 4;
             // 
             // EnchanteHomeNavBar
@@ -4414,7 +4545,7 @@ namespace Enchante
             this.EnchanteHomeNavBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.EnchanteHomeNavBar.Location = new System.Drawing.Point(0, 0);
             this.EnchanteHomeNavBar.Name = "EnchanteHomeNavBar";
-            this.EnchanteHomeNavBar.Size = new System.Drawing.Size(1904, 170);
+            this.EnchanteHomeNavBar.Size = new System.Drawing.Size(1370, 170);
             this.EnchanteHomeNavBar.TabIndex = 0;
             // 
             // EnchanteHLoginBtn
@@ -4590,7 +4721,7 @@ namespace Enchante
             this.EnchanteHomeScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnchanteHomeScrollPanel.Location = new System.Drawing.Point(0, 0);
             this.EnchanteHomeScrollPanel.Name = "EnchanteHomeScrollPanel";
-            this.EnchanteHomeScrollPanel.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteHomeScrollPanel.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteHomeScrollPanel.TabIndex = 18;
             this.EnchanteHomeScrollPanel.Click += new System.EventHandler(this.EnchanteHomeScrollPanel_Click);
             // 
@@ -8608,7 +8739,7 @@ namespace Enchante
             this.EnchanteFooterBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.EnchanteFooterBar.Location = new System.Drawing.Point(0, 3100);
             this.EnchanteFooterBar.Name = "EnchanteFooterBar";
-            this.EnchanteFooterBar.Size = new System.Drawing.Size(1887, 166);
+            this.EnchanteFooterBar.Size = new System.Drawing.Size(1779, 166);
             this.EnchanteFooterBar.TabIndex = 20;
             // 
             // SM_GmailBtn
@@ -8756,7 +8887,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteMemberPage, new System.Drawing.Size(200, 100));
             this.EnchanteMemberPage.Name = "EnchanteMemberPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteMemberPage, new System.Drawing.Size(200, 100));
-            this.EnchanteMemberPage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteMemberPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteMemberPage.TabIndex = 3;
             // 
             // MemberScrollPanel
@@ -8769,7 +8900,7 @@ namespace Enchante
             this.MemberScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MemberScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.MemberScrollPanel.Name = "MemberScrollPanel";
-            this.MemberScrollPanel.Size = new System.Drawing.Size(1904, 891);
+            this.MemberScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.MemberScrollPanel.TabIndex = 19;
             // 
             // MemberUserAccPanel
@@ -8967,7 +9098,7 @@ namespace Enchante
             this.MemberNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.MemberNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.MemberNavBarPanel.Name = "MemberNavBarPanel";
-            this.MemberNavBarPanel.Size = new System.Drawing.Size(1904, 150);
+            this.MemberNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.MemberNavBarPanel.TabIndex = 1;
             // 
             // MemberAccUserBtn
@@ -9109,7 +9240,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteReceptionPage, new System.Drawing.Size(200, 100));
             this.EnchanteReceptionPage.Name = "EnchanteReceptionPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteReceptionPage, new System.Drawing.Size(200, 100));
-            this.EnchanteReceptionPage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteReceptionPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteReceptionPage.TabIndex = 2;
             // 
             // ReceptionScrollPanel
@@ -9122,7 +9253,7 @@ namespace Enchante
             this.ReceptionScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ReceptionScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.ReceptionScrollPanel.Name = "ReceptionScrollPanel";
-            this.ReceptionScrollPanel.Size = new System.Drawing.Size(1904, 891);
+            this.ReceptionScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.ReceptionScrollPanel.TabIndex = 20;
             // 
             // ReceptionUserAccPanel
@@ -12148,6 +12279,13 @@ namespace Enchante
             this.RecWalkinSelectedProdDGV.TabIndex = 170;
             this.RecWalkinSelectedProdDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecWalkinSelectedProdDGV_CellContentClick);
             // 
+            // OrderProdItemID
+            // 
+            this.OrderProdItemID.HeaderText = "Item ID";
+            this.OrderProdItemID.Name = "OrderProdItemID";
+            this.OrderProdItemID.ReadOnly = true;
+            this.OrderProdItemID.Visible = false;
+            // 
             // RecWalkinSelectedProdVoidButton
             // 
             this.RecWalkinSelectedProdVoidButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
@@ -12309,6 +12447,7 @@ namespace Enchante
             this.RecWalkinAttendingStaffSelectedComboBox.Name = "RecWalkinAttendingStaffSelectedComboBox";
             this.RecWalkinAttendingStaffSelectedComboBox.Size = new System.Drawing.Size(633, 36);
             this.RecWalkinAttendingStaffSelectedComboBox.TabIndex = 160;
+            this.RecWalkinAttendingStaffSelectedComboBox.Visible = false;
             this.RecWalkinAttendingStaffSelectedComboBox.SelectedIndexChanged += new System.EventHandler(this.RecWalkinAttendingStaffSelectedComboBox_SelectedIndexChanged);
             // 
             // RecWalkinAnyStaffLbl
@@ -13040,7 +13179,7 @@ namespace Enchante
             this.ReceptionNavBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.ReceptionNavBar.Location = new System.Drawing.Point(0, 0);
             this.ReceptionNavBar.Name = "ReceptionNavBar";
-            this.ReceptionNavBar.Size = new System.Drawing.Size(1904, 150);
+            this.ReceptionNavBar.Size = new System.Drawing.Size(1370, 150);
             this.ReceptionNavBar.TabIndex = 2;
             // 
             // RecDateTimeText
@@ -13120,7 +13259,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteStaffPage, new System.Drawing.Size(200, 100));
             this.EnchanteStaffPage.Name = "EnchanteStaffPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteStaffPage, new System.Drawing.Size(200, 100));
-            this.EnchanteStaffPage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteStaffPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteStaffPage.TabIndex = 1;
             // 
             // StaffScrollPanel
@@ -13138,7 +13277,7 @@ namespace Enchante
             this.StaffScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StaffScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.StaffScrollPanel.Name = "StaffScrollPanel";
-            this.StaffScrollPanel.Size = new System.Drawing.Size(1904, 891);
+            this.StaffScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.StaffScrollPanel.TabIndex = 6;
             // 
             // StaffUserAccPanel
@@ -13562,7 +13701,7 @@ namespace Enchante
             this.StaffNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.StaffNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.StaffNavBarPanel.Name = "StaffNavBarPanel";
-            this.StaffNavBarPanel.Size = new System.Drawing.Size(1904, 150);
+            this.StaffNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.StaffNavBarPanel.TabIndex = 5;
             // 
             // StaffPastTransactionBtn
@@ -13689,150 +13828,12 @@ namespace Enchante
             this.MngrInventoryCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
             this.MngrInventoryCard.SelectedCard = "TYPES";
             // 
-            // MngrServiceHistoryPanel
-            // 
-            this.MngrServiceHistoryPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrInventoryCard.SetCardName(this.MngrServiceHistoryPanel, "ServiceHistory");
-            this.MngrServiceHistoryPanel.Controls.Add(this.MngrServiceHistoryDGV);
-            this.MngrServiceHistoryPanel.Controls.Add(this.MngrServiceHistoryExitBtn);
-            this.MngrServiceHistoryPanel.Location = new System.Drawing.Point(0, 0);
-            this.MngrInventoryCard.SetMinimumSize(this.MngrServiceHistoryPanel, new System.Drawing.Size(200, 100));
-            this.MngrServiceHistoryPanel.Name = "MngrServiceHistoryPanel";
-            this.MngrInventoryCard.SetPreferredSize(this.MngrServiceHistoryPanel, new System.Drawing.Size(200, 100));
-            this.MngrServiceHistoryPanel.Size = new System.Drawing.Size(1797, 749);
-            this.MngrServiceHistoryPanel.TabIndex = 30;
-            // 
-            // MngrServiceHistoryDGV
-            // 
-            this.MngrServiceHistoryDGV.AllowUserToAddRows = false;
-            this.MngrServiceHistoryDGV.AllowUserToDeleteRows = false;
-            this.MngrServiceHistoryDGV.AllowUserToResizeColumns = false;
-            this.MngrServiceHistoryDGV.AllowUserToResizeRows = false;
-            this.MngrServiceHistoryDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.MngrServiceHistoryDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.MngrServiceHistoryDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrServiceHistoryDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.MngrServiceHistoryDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MngrServiceHistoryDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrServiceHistoryDGV.DefaultCellStyle = dataGridViewCellStyle2;
-            this.MngrServiceHistoryDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrServiceHistoryDGV.Location = new System.Drawing.Point(514, 152);
-            this.MngrServiceHistoryDGV.Name = "MngrServiceHistoryDGV";
-            this.MngrServiceHistoryDGV.ReadOnly = true;
-            this.MngrServiceHistoryDGV.RowHeadersVisible = false;
-            this.MngrServiceHistoryDGV.RowHeadersWidth = 51;
-            this.MngrServiceHistoryDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MngrServiceHistoryDGV.Size = new System.Drawing.Size(764, 336);
-            this.MngrServiceHistoryDGV.TabIndex = 83;
-            // 
-            // MngrServiceHistoryExitBtn
-            // 
-            this.MngrServiceHistoryExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.MngrServiceHistoryExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrServiceHistoryExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.MngrServiceHistoryExitBtn.FlatAppearance.BorderSize = 0;
-            this.MngrServiceHistoryExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrServiceHistoryExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.MngrServiceHistoryExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServiceHistoryExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrServiceHistoryExitBtn.Location = new System.Drawing.Point(1717, 29);
-            this.MngrServiceHistoryExitBtn.Name = "MngrServiceHistoryExitBtn";
-            this.MngrServiceHistoryExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.MngrServiceHistoryExitBtn.TabIndex = 84;
-            this.MngrServiceHistoryExitBtn.UseVisualStyleBackColor = false;
-            this.MngrServiceHistoryExitBtn.Click += new System.EventHandler(this.MngrServiceHistoryExitBtn_Click);
-            // 
-            // MngrWalkinProdSalesPanel
-            // 
-            this.MngrWalkinProdSalesPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrInventoryCard.SetCardName(this.MngrWalkinProdSalesPanel, "ProductSales");
-            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrWalkinProdSalesLbl);
-            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrWalkinProdSalesExitBtn);
-            this.MngrWalkinProdSalesPanel.Location = new System.Drawing.Point(0, 0);
-            this.MngrInventoryCard.SetMinimumSize(this.MngrWalkinProdSalesPanel, new System.Drawing.Size(200, 100));
-            this.MngrWalkinProdSalesPanel.Name = "MngrWalkinProdSalesPanel";
-            this.MngrInventoryCard.SetPreferredSize(this.MngrWalkinProdSalesPanel, new System.Drawing.Size(200, 100));
-            this.MngrWalkinProdSalesPanel.Size = new System.Drawing.Size(1797, 749);
-            this.MngrWalkinProdSalesPanel.TabIndex = 99;
-            // 
-            // MngrWalkinProdSalesExitBtn
-            // 
-            this.MngrWalkinProdSalesExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.MngrWalkinProdSalesExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrWalkinProdSalesExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.MngrWalkinProdSalesExitBtn.FlatAppearance.BorderSize = 0;
-            this.MngrWalkinProdSalesExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrWalkinProdSalesExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.MngrWalkinProdSalesExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinProdSalesExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrWalkinProdSalesExitBtn.Location = new System.Drawing.Point(1717, 29);
-            this.MngrWalkinProdSalesExitBtn.Name = "MngrWalkinProdSalesExitBtn";
-            this.MngrWalkinProdSalesExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.MngrWalkinProdSalesExitBtn.TabIndex = 84;
-            this.MngrWalkinProdSalesExitBtn.UseVisualStyleBackColor = false;
-            this.MngrWalkinProdSalesExitBtn.Click += new System.EventHandler(this.MngrWalkinProdSalesExitBtn_Click);
-            // 
-            // MngrWalkinProdSalesBtn
-            // 
-            this.MngrWalkinProdSalesBtn.AutoSize = true;
-            this.MngrWalkinProdSalesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrWalkinProdSalesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrWalkinProdSalesBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrWalkinProdSalesBtn.FlatAppearance.BorderSize = 3;
-            this.MngrWalkinProdSalesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrWalkinProdSalesBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrWalkinProdSalesBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinProdSalesBtn.IconChar = FontAwesome.Sharp.IconChar.ChartColumn;
-            this.MngrWalkinProdSalesBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrWalkinProdSalesBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrWalkinProdSalesBtn.Location = new System.Drawing.Point(772, 399);
-            this.MngrWalkinProdSalesBtn.Name = "MngrWalkinProdSalesBtn";
-            this.MngrWalkinProdSalesBtn.Size = new System.Drawing.Size(250, 250);
-            this.MngrWalkinProdSalesBtn.TabIndex = 96;
-            this.MngrWalkinProdSalesBtn.Text = "WALK-IN\r\nPRODUCT\r\nSALES";
-            this.MngrWalkinProdSalesBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.MngrWalkinProdSalesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.MngrWalkinProdSalesBtn.UseVisualStyleBackColor = false;
-            this.MngrWalkinProdSalesBtn.Click += new System.EventHandler(this.MngrWalkinProdSalesBtn_Click);
-            // 
-            // MngrWalkinProdSalesLbl
-            // 
-            this.MngrWalkinProdSalesLbl.AutoSize = true;
-            this.MngrWalkinProdSalesLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrWalkinProdSalesLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinProdSalesLbl.Location = new System.Drawing.Point(76, 60);
-            this.MngrWalkinProdSalesLbl.Name = "MngrWalkinProdSalesLbl";
-            this.MngrWalkinProdSalesLbl.Size = new System.Drawing.Size(371, 35);
-            this.MngrWalkinProdSalesLbl.TabIndex = 99;
-            this.MngrWalkinProdSalesLbl.Text = "Walk-in Product Sales\r\n";
-            // 
-            // OrderProdItemID
-            // 
-            this.OrderProdItemID.HeaderText = "Item ID";
-            this.OrderProdItemID.Name = "OrderProdItemID";
-            this.OrderProdItemID.ReadOnly = true;
-            this.OrderProdItemID.Visible = false;
-            // 
             // Enchante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.EnchanteParentContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -13847,6 +13848,10 @@ namespace Enchante
             this.MngrUserAccPanel.ResumeLayout(false);
             this.MngrUserAccPanel.PerformLayout();
             this.MngrInventoryPanel.ResumeLayout(false);
+            this.MngrWalkinProdSalesPanel.ResumeLayout(false);
+            this.MngrWalkinProdSalesPanel.PerformLayout();
+            this.MngrServiceHistoryPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.MngrServiceHistoryDGV)).EndInit();
             this.MngrWalkinSalesPanel.ResumeLayout(false);
             this.MngrWalkinSalesPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrWalkinSalesTransServiceHisDGV)).EndInit();
@@ -14108,10 +14113,6 @@ namespace Enchante
             ((System.ComponentModel.ISupportInitialize)(this.HomeServiceCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecTransactionCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrInventoryCard)).EndInit();
-            this.MngrServiceHistoryPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.MngrServiceHistoryDGV)).EndInit();
-            this.MngrWalkinProdSalesPanel.ResumeLayout(false);
-            this.MngrWalkinProdSalesPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
