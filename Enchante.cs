@@ -9268,29 +9268,10 @@ namespace Enchante
 
 
 
-
-
-
-
-
-
         private void RecAppointmentExitBtn_Click(object sender, EventArgs e)
         {
 
         }
-
-
-
-      
-
-
-
-        
-
-
-
-
-
         private void RecSelectedServiceDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //di ko alam kung ituloy ko pa
