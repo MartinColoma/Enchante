@@ -35,11 +35,6 @@
             this.StaffElapsedTimeTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.StaffStartServiceBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.StaffEndServiceBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.StaffCustomerCustomizationsTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.StaffAdditionalNotesTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.StaffCustomizationsLbl = new System.Windows.Forms.Label();
-            this.StaffAdditionalNotesLbl = new System.Windows.Forms.Label();
-            this.StaffCurrentServicesDropDownBtn = new FontAwesome.Sharp.IconButton();
             this.StaffServiceIDTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.StaffQueNumberTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.SuspendLayout();
@@ -217,95 +212,6 @@
             this.StaffEndServiceBtn.Text = "End";
             this.StaffEndServiceBtn.Click += new System.EventHandler(this.StaffEndServiceBtn_Click);
             // 
-            // StaffCustomerCustomizationsTextBox
-            // 
-            this.StaffCustomerCustomizationsTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.StaffCustomerCustomizationsTextBox.BorderRadius = 5;
-            this.StaffCustomerCustomizationsTextBox.BorderThickness = 3;
-            this.StaffCustomerCustomizationsTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.StaffCustomerCustomizationsTextBox.DefaultText = "";
-            this.StaffCustomerCustomizationsTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.StaffCustomerCustomizationsTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.StaffCustomerCustomizationsTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.StaffCustomerCustomizationsTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.StaffCustomerCustomizationsTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.StaffCustomerCustomizationsTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffCustomerCustomizationsTextBox.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffCustomerCustomizationsTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.StaffCustomerCustomizationsTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffCustomerCustomizationsTextBox.Location = new System.Drawing.Point(59, 227);
-            this.StaffCustomerCustomizationsTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.StaffCustomerCustomizationsTextBox.Name = "StaffCustomerCustomizationsTextBox";
-            this.StaffCustomerCustomizationsTextBox.PasswordChar = '\0';
-            this.StaffCustomerCustomizationsTextBox.PlaceholderText = "";
-            this.StaffCustomerCustomizationsTextBox.ReadOnly = true;
-            this.StaffCustomerCustomizationsTextBox.SelectedText = "";
-            this.StaffCustomerCustomizationsTextBox.Size = new System.Drawing.Size(380, 89);
-            this.StaffCustomerCustomizationsTextBox.TabIndex = 12;
-            // 
-            // StaffAdditionalNotesTextBox
-            // 
-            this.StaffAdditionalNotesTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.StaffAdditionalNotesTextBox.BorderRadius = 5;
-            this.StaffAdditionalNotesTextBox.BorderThickness = 3;
-            this.StaffAdditionalNotesTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.StaffAdditionalNotesTextBox.DefaultText = "";
-            this.StaffAdditionalNotesTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.StaffAdditionalNotesTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.StaffAdditionalNotesTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.StaffAdditionalNotesTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.StaffAdditionalNotesTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.StaffAdditionalNotesTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffAdditionalNotesTextBox.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffAdditionalNotesTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.StaffAdditionalNotesTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffAdditionalNotesTextBox.Location = new System.Drawing.Point(445, 227);
-            this.StaffAdditionalNotesTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.StaffAdditionalNotesTextBox.Name = "StaffAdditionalNotesTextBox";
-            this.StaffAdditionalNotesTextBox.PasswordChar = '\0';
-            this.StaffAdditionalNotesTextBox.PlaceholderText = "";
-            this.StaffAdditionalNotesTextBox.ReadOnly = true;
-            this.StaffAdditionalNotesTextBox.SelectedText = "";
-            this.StaffAdditionalNotesTextBox.Size = new System.Drawing.Size(396, 89);
-            this.StaffAdditionalNotesTextBox.TabIndex = 13;
-            // 
-            // StaffCustomizationsLbl
-            // 
-            this.StaffCustomizationsLbl.AutoSize = true;
-            this.StaffCustomizationsLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffCustomizationsLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.StaffCustomizationsLbl.Location = new System.Drawing.Point(56, 200);
-            this.StaffCustomizationsLbl.Name = "StaffCustomizationsLbl";
-            this.StaffCustomizationsLbl.Size = new System.Drawing.Size(167, 16);
-            this.StaffCustomizationsLbl.TabIndex = 14;
-            this.StaffCustomizationsLbl.Text = "Customer Customizations";
-            // 
-            // StaffAdditionalNotesLbl
-            // 
-            this.StaffAdditionalNotesLbl.AutoSize = true;
-            this.StaffAdditionalNotesLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffAdditionalNotesLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.StaffAdditionalNotesLbl.Location = new System.Drawing.Point(442, 200);
-            this.StaffAdditionalNotesLbl.Name = "StaffAdditionalNotesLbl";
-            this.StaffAdditionalNotesLbl.Size = new System.Drawing.Size(111, 16);
-            this.StaffAdditionalNotesLbl.TabIndex = 15;
-            this.StaffAdditionalNotesLbl.Text = "Additional Notes";
-            // 
-            // StaffCurrentServicesDropDownBtn
-            // 
-            this.StaffCurrentServicesDropDownBtn.BackColor = System.Drawing.Color.Transparent;
-            this.StaffCurrentServicesDropDownBtn.FlatAppearance.BorderSize = 0;
-            this.StaffCurrentServicesDropDownBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.StaffCurrentServicesDropDownBtn.IconChar = FontAwesome.Sharp.IconChar.SquareCaretDown;
-            this.StaffCurrentServicesDropDownBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.StaffCurrentServicesDropDownBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.StaffCurrentServicesDropDownBtn.Location = new System.Drawing.Point(800, 12);
-            this.StaffCurrentServicesDropDownBtn.Name = "StaffCurrentServicesDropDownBtn";
-            this.StaffCurrentServicesDropDownBtn.Size = new System.Drawing.Size(48, 48);
-            this.StaffCurrentServicesDropDownBtn.TabIndex = 16;
-            this.StaffCurrentServicesDropDownBtn.UseVisualStyleBackColor = false;
-            this.StaffCurrentServicesDropDownBtn.Click += new System.EventHandler(this.StaffCurrentServicesDropDownBtn_Click);
-            // 
             // StaffServiceIDTextBox
             // 
             this.StaffServiceIDTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -342,7 +248,7 @@
             this.StaffQueNumberTextBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StaffQueNumberTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.StaffQueNumberTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffQueNumberTextBox.Location = new System.Drawing.Point(812, 141);
+            this.StaffQueNumberTextBox.Location = new System.Drawing.Point(812, 4);
             this.StaffQueNumberTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.StaffQueNumberTextBox.Name = "StaffQueNumberTextBox";
             this.StaffQueNumberTextBox.PasswordChar = '\0';
@@ -361,11 +267,6 @@
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.StaffQueNumberTextBox);
             this.Controls.Add(this.StaffServiceIDTextBox);
-            this.Controls.Add(this.StaffCurrentServicesDropDownBtn);
-            this.Controls.Add(this.StaffAdditionalNotesLbl);
-            this.Controls.Add(this.StaffCustomizationsLbl);
-            this.Controls.Add(this.StaffAdditionalNotesTextBox);
-            this.Controls.Add(this.StaffCustomerCustomizationsTextBox);
             this.Controls.Add(this.StaffEndServiceBtn);
             this.Controls.Add(this.StaffStartServiceBtn);
             this.Controls.Add(this.StaffCustomerNameTextBox);
@@ -376,7 +277,6 @@
             this.Name = "StaffCurrentAvailableCustomersUserControl";
             this.Size = new System.Drawing.Size(875, 200);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -389,11 +289,6 @@
         private Guna.UI2.WinForms.Guna2TextBox StaffElapsedTimeTextBox;
         public Guna.UI2.WinForms.Guna2GradientButton StaffStartServiceBtn;
         public Guna.UI2.WinForms.Guna2Button StaffEndServiceBtn;
-        private Guna.UI2.WinForms.Guna2TextBox StaffCustomerCustomizationsTextBox;
-        private Guna.UI2.WinForms.Guna2TextBox StaffAdditionalNotesTextBox;
-        private System.Windows.Forms.Label StaffCustomizationsLbl;
-        private System.Windows.Forms.Label StaffAdditionalNotesLbl;
-        private FontAwesome.Sharp.IconButton StaffCurrentServicesDropDownBtn;
         private Guna.UI2.WinForms.Guna2TextBox StaffServiceIDTextBox;
         public Guna.UI2.WinForms.Guna2TextBox StaffQueNumberTextBox;
     }
