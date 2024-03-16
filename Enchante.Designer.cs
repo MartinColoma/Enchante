@@ -642,18 +642,32 @@ namespace Enchante
             this.ReceptionFooterStopperLbl = new System.Windows.Forms.Label();
             this.ReceptionCreateTransactPanel = new System.Windows.Forms.Panel();
             this.RecApptPanel = new System.Windows.Forms.Panel();
+            this.RecApptSearchServiceTypeText = new Guna.UI2.WinForms.Guna2TextBox();
+            this.RecApptClientAgeErrorLbl = new System.Windows.Forms.Label();
+            this.RecApptBookingTimeComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.RecApptBookingTimeLbl = new System.Windows.Forms.Label();
+            this.RecApptBookingDateLbl = new System.Windows.Forms.Label();
+            this.RecApptBookingDatePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.RecApptPrefDateTime = new System.Windows.Forms.Label();
             this.RecApptClientAgeText = new Guna.UI2.WinForms.Guna2TextBox();
             this.RecApptClientAgeLbl = new System.Windows.Forms.Label();
             this.RecApptClientBdayLbl = new System.Windows.Forms.Label();
             this.RecApptClientBdayPicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.RecApptCPNumText = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox4 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.RecApptLNameText = new Guna.UI2.WinForms.Guna2TextBox();
             this.RecApptFNameText = new Guna.UI2.WinForms.Guna2TextBox();
             this.RecApptBookTransactBtn = new Guna.UI2.WinForms.Guna2Button();
             this.RecApptSelectServiceAndStaffBtn = new Guna.UI2.WinForms.Guna2Button();
             this.RecApptDeleteSelectedServiceAndStaffBtn = new Guna.UI2.WinForms.Guna2Button();
             this.RecApptStaffSelectLbl = new System.Windows.Forms.Label();
             this.RecApptSelectedServiceDGV = new System.Windows.Forms.DataGridView();
+            this.RecApptSelectedService = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecApptServicePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecApptServiceCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecApptServiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecApptStaffSelected = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecApptQueNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecApptQueType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecApptNoServiceCategoryChosenWarningLbl = new System.Windows.Forms.Label();
             this.RecApptAttendingStaffSelectedComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.RecApptAnyStaffLbl = new System.Windows.Forms.Label();
@@ -664,14 +678,19 @@ namespace Enchante
             this.RecApptServiceTypeLbl = new System.Windows.Forms.Label();
             this.RecApptCatMassagePanel = new System.Windows.Forms.Panel();
             this.RecApptCatMassRB = new System.Windows.Forms.RadioButton();
+            this.RecApptCatMassBtn = new Guna.UI2.WinForms.Guna2Button();
             this.RecApptCatSpaPanel = new System.Windows.Forms.Panel();
             this.RecApptCatSpaRB = new System.Windows.Forms.RadioButton();
+            this.RecApptCatSpaBtn = new Guna.UI2.WinForms.Guna2Button();
             this.RecApptCatNCPanel = new System.Windows.Forms.Panel();
             this.RecApptCatNCRB = new System.Windows.Forms.RadioButton();
+            this.RecApptCatNCBtn = new Guna.UI2.WinForms.Guna2Button();
             this.RecApptCatFSPanel = new System.Windows.Forms.Panel();
             this.RecApptCatFSRB = new System.Windows.Forms.RadioButton();
+            this.RecApptCatFSBtn = new Guna.UI2.WinForms.Guna2Button();
             this.RecApptCatHSPanel = new System.Windows.Forms.Panel();
             this.RecApptCatHSRB = new System.Windows.Forms.RadioButton();
+            this.RecApptCatHSBtn = new Guna.UI2.WinForms.Guna2Button();
             this.RecApptBasicInfoLbl = new System.Windows.Forms.Label();
             this.RecApptLNameErrorLbl = new System.Windows.Forms.Label();
             this.RecApptFNameErrorLbl = new System.Windows.Forms.Label();
@@ -883,25 +902,6 @@ namespace Enchante
             this.RecTransactionCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.DateTimePickerTimer = new System.Windows.Forms.Timer(this.components);
             this.MngrInventoryCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
-            this.RecApptPrefDateTime = new System.Windows.Forms.Label();
-            this.RecApptBookingTimeLbl = new System.Windows.Forms.Label();
-            this.RecApptBookingDateLbl = new System.Windows.Forms.Label();
-            this.RecApptBookingDatePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.RecApptBookingTimeComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.RecApptCatMassBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.RecApptCatSpaBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.RecApptCatNCBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.RecApptCatHSBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.RecApptCatFSBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.RecApptClientAgeErrorLbl = new System.Windows.Forms.Label();
-            this.RecApptSearchServiceTypeText = new Guna.UI2.WinForms.Guna2TextBox();
-            this.RecApptSelectedService = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecApptServicePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecApptServiceCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecApptServiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecApptStaffSelected = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecApptQueNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecApptQueType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteMngrPage.SuspendLayout();
             this.MngrScrollPanel.SuspendLayout();
@@ -1073,7 +1073,7 @@ namespace Enchante
             this.EnchanteParentContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnchanteParentContainer.Location = new System.Drawing.Point(0, 0);
             this.EnchanteParentContainer.Name = "EnchanteParentContainer";
-            this.EnchanteParentContainer.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteParentContainer.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteParentContainer.TabIndex = 0;
             // 
             // EnchanteMngrPage
@@ -1085,7 +1085,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteMngrPage, new System.Drawing.Size(200, 100));
             this.EnchanteMngrPage.Name = "EnchanteMngrPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteMngrPage, new System.Drawing.Size(200, 100));
-            this.EnchanteMngrPage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteMngrPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteMngrPage.TabIndex = 6;
             // 
             // MngrScrollPanel
@@ -1097,7 +1097,7 @@ namespace Enchante
             this.MngrScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MngrScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.MngrScrollPanel.Name = "MngrScrollPanel";
-            this.MngrScrollPanel.Size = new System.Drawing.Size(1904, 891);
+            this.MngrScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.MngrScrollPanel.TabIndex = 4;
             // 
             // MngrUserAccPanel
@@ -3468,7 +3468,7 @@ namespace Enchante
             this.MngrNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.MngrNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.MngrNavBarPanel.Name = "MngrNavBarPanel";
-            this.MngrNavBarPanel.Size = new System.Drawing.Size(1904, 150);
+            this.MngrNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.MngrNavBarPanel.TabIndex = 3;
             // 
             // MngrUserAccBtn
@@ -3534,7 +3534,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteAdminPage, new System.Drawing.Size(200, 100));
             this.EnchanteAdminPage.Name = "EnchanteAdminPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteAdminPage, new System.Drawing.Size(200, 100));
-            this.EnchanteAdminPage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteAdminPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteAdminPage.TabIndex = 5;
             // 
             // AdminScrollPanel
@@ -3547,7 +3547,7 @@ namespace Enchante
             this.AdminScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AdminScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.AdminScrollPanel.Name = "AdminScrollPanel";
-            this.AdminScrollPanel.Size = new System.Drawing.Size(1904, 891);
+            this.AdminScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.AdminScrollPanel.TabIndex = 20;
             // 
             // AdminUserAccPanel
@@ -4404,7 +4404,7 @@ namespace Enchante
             this.AdminNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.AdminNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.AdminNavBarPanel.Name = "AdminNavBarPanel";
-            this.AdminNavBarPanel.Size = new System.Drawing.Size(1904, 150);
+            this.AdminNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.AdminNavBarPanel.TabIndex = 4;
             // 
             // AdminAccUserBtn
@@ -4473,7 +4473,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteHomePage, new System.Drawing.Size(200, 100));
             this.EnchanteHomePage.Name = "EnchanteHomePage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteHomePage, new System.Drawing.Size(200, 100));
-            this.EnchanteHomePage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteHomePage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteHomePage.TabIndex = 4;
             // 
             // EnchanteHomeNavBar
@@ -4491,7 +4491,7 @@ namespace Enchante
             this.EnchanteHomeNavBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.EnchanteHomeNavBar.Location = new System.Drawing.Point(0, 0);
             this.EnchanteHomeNavBar.Name = "EnchanteHomeNavBar";
-            this.EnchanteHomeNavBar.Size = new System.Drawing.Size(1904, 170);
+            this.EnchanteHomeNavBar.Size = new System.Drawing.Size(1370, 170);
             this.EnchanteHomeNavBar.TabIndex = 0;
             // 
             // EnchanteHLoginBtn
@@ -4667,7 +4667,7 @@ namespace Enchante
             this.EnchanteHomeScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnchanteHomeScrollPanel.Location = new System.Drawing.Point(0, 0);
             this.EnchanteHomeScrollPanel.Name = "EnchanteHomeScrollPanel";
-            this.EnchanteHomeScrollPanel.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteHomeScrollPanel.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteHomeScrollPanel.TabIndex = 18;
             this.EnchanteHomeScrollPanel.Click += new System.EventHandler(this.EnchanteHomeScrollPanel_Click);
             // 
@@ -8685,7 +8685,7 @@ namespace Enchante
             this.EnchanteFooterBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.EnchanteFooterBar.Location = new System.Drawing.Point(0, 3100);
             this.EnchanteFooterBar.Name = "EnchanteFooterBar";
-            this.EnchanteFooterBar.Size = new System.Drawing.Size(1887, 166);
+            this.EnchanteFooterBar.Size = new System.Drawing.Size(1779, 166);
             this.EnchanteFooterBar.TabIndex = 20;
             // 
             // SM_GmailBtn
@@ -8833,7 +8833,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteMemberPage, new System.Drawing.Size(200, 100));
             this.EnchanteMemberPage.Name = "EnchanteMemberPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteMemberPage, new System.Drawing.Size(200, 100));
-            this.EnchanteMemberPage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteMemberPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteMemberPage.TabIndex = 3;
             // 
             // MemberScrollPanel
@@ -8846,7 +8846,7 @@ namespace Enchante
             this.MemberScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MemberScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.MemberScrollPanel.Name = "MemberScrollPanel";
-            this.MemberScrollPanel.Size = new System.Drawing.Size(1904, 891);
+            this.MemberScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.MemberScrollPanel.TabIndex = 19;
             // 
             // MemberUserAccPanel
@@ -9044,7 +9044,7 @@ namespace Enchante
             this.MemberNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.MemberNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.MemberNavBarPanel.Name = "MemberNavBarPanel";
-            this.MemberNavBarPanel.Size = new System.Drawing.Size(1904, 150);
+            this.MemberNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.MemberNavBarPanel.TabIndex = 1;
             // 
             // MemberAccUserBtn
@@ -9186,7 +9186,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteReceptionPage, new System.Drawing.Size(200, 100));
             this.EnchanteReceptionPage.Name = "EnchanteReceptionPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteReceptionPage, new System.Drawing.Size(200, 100));
-            this.EnchanteReceptionPage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteReceptionPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteReceptionPage.TabIndex = 2;
             // 
             // ReceptionScrollPanel
@@ -9199,7 +9199,7 @@ namespace Enchante
             this.ReceptionScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ReceptionScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.ReceptionScrollPanel.Name = "ReceptionScrollPanel";
-            this.ReceptionScrollPanel.Size = new System.Drawing.Size(1904, 891);
+            this.ReceptionScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.ReceptionScrollPanel.TabIndex = 20;
             // 
             // ReceptionUserAccPanel
@@ -9328,7 +9328,7 @@ namespace Enchante
             this.RecApptPanel.Controls.Add(this.RecApptClientBdayLbl);
             this.RecApptPanel.Controls.Add(this.RecApptClientBdayPicker);
             this.RecApptPanel.Controls.Add(this.RecApptCPNumText);
-            this.RecApptPanel.Controls.Add(this.guna2TextBox4);
+            this.RecApptPanel.Controls.Add(this.RecApptLNameText);
             this.RecApptPanel.Controls.Add(this.RecApptFNameText);
             this.RecApptPanel.Controls.Add(this.RecApptBookTransactBtn);
             this.RecApptPanel.Controls.Add(this.RecApptSelectServiceAndStaffBtn);
@@ -9370,6 +9370,115 @@ namespace Enchante
             this.RecTransactionCard.SetPreferredSize(this.RecApptPanel, new System.Drawing.Size(1371, 807));
             this.RecApptPanel.Size = new System.Drawing.Size(1633, 728);
             this.RecApptPanel.TabIndex = 29;
+            // 
+            // RecApptSearchServiceTypeText
+            // 
+            this.RecApptSearchServiceTypeText.AutoRoundedCorners = true;
+            this.RecApptSearchServiceTypeText.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecApptSearchServiceTypeText.BorderRadius = 14;
+            this.RecApptSearchServiceTypeText.BorderThickness = 2;
+            this.RecApptSearchServiceTypeText.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.RecApptSearchServiceTypeText.DefaultText = "";
+            this.RecApptSearchServiceTypeText.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecApptSearchServiceTypeText.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecApptSearchServiceTypeText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecApptSearchServiceTypeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecApptSearchServiceTypeText.Location = new System.Drawing.Point(110, 1348);
+            this.RecApptSearchServiceTypeText.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.RecApptSearchServiceTypeText.Name = "RecApptSearchServiceTypeText";
+            this.RecApptSearchServiceTypeText.PasswordChar = '\0';
+            this.RecApptSearchServiceTypeText.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecApptSearchServiceTypeText.PlaceholderText = "Search Services Here";
+            this.RecApptSearchServiceTypeText.SelectedText = "";
+            this.RecApptSearchServiceTypeText.Size = new System.Drawing.Size(666, 30);
+            this.RecApptSearchServiceTypeText.TabIndex = 190;
+            // 
+            // RecApptClientAgeErrorLbl
+            // 
+            this.RecApptClientAgeErrorLbl.AutoSize = true;
+            this.RecApptClientAgeErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecApptClientAgeErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecApptClientAgeErrorLbl.Location = new System.Drawing.Point(937, 396);
+            this.RecApptClientAgeErrorLbl.Name = "RecApptClientAgeErrorLbl";
+            this.RecApptClientAgeErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.RecApptClientAgeErrorLbl.Size = new System.Drawing.Size(112, 28);
+            this.RecApptClientAgeErrorLbl.TabIndex = 189;
+            this.RecApptClientAgeErrorLbl.Text = "Must be 18yrs old\r\nand above\r\n";
+            this.RecApptClientAgeErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.RecApptClientAgeErrorLbl.Visible = false;
+            // 
+            // RecApptBookingTimeComboBox
+            // 
+            this.RecApptBookingTimeComboBox.AutoRoundedCorners = true;
+            this.RecApptBookingTimeComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.RecApptBookingTimeComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecApptBookingTimeComboBox.BorderRadius = 17;
+            this.RecApptBookingTimeComboBox.BorderThickness = 2;
+            this.RecApptBookingTimeComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.RecApptBookingTimeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RecApptBookingTimeComboBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecApptBookingTimeComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecApptBookingTimeComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecApptBookingTimeComboBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecApptBookingTimeComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecApptBookingTimeComboBox.ItemHeight = 30;
+            this.RecApptBookingTimeComboBox.Location = new System.Drawing.Point(874, 977);
+            this.RecApptBookingTimeComboBox.Name = "RecApptBookingTimeComboBox";
+            this.RecApptBookingTimeComboBox.Size = new System.Drawing.Size(247, 36);
+            this.RecApptBookingTimeComboBox.TabIndex = 188;
+            // 
+            // RecApptBookingTimeLbl
+            // 
+            this.RecApptBookingTimeLbl.AutoSize = true;
+            this.RecApptBookingTimeLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecApptBookingTimeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecApptBookingTimeLbl.Location = new System.Drawing.Point(869, 948);
+            this.RecApptBookingTimeLbl.Name = "RecApptBookingTimeLbl";
+            this.RecApptBookingTimeLbl.Size = new System.Drawing.Size(177, 29);
+            this.RecApptBookingTimeLbl.TabIndex = 186;
+            this.RecApptBookingTimeLbl.Text = "Booking Time:";
+            // 
+            // RecApptBookingDateLbl
+            // 
+            this.RecApptBookingDateLbl.AutoSize = true;
+            this.RecApptBookingDateLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecApptBookingDateLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecApptBookingDateLbl.Location = new System.Drawing.Point(488, 948);
+            this.RecApptBookingDateLbl.Name = "RecApptBookingDateLbl";
+            this.RecApptBookingDateLbl.Size = new System.Drawing.Size(183, 29);
+            this.RecApptBookingDateLbl.TabIndex = 185;
+            this.RecApptBookingDateLbl.Text = "Booking Date:";
+            // 
+            // RecApptBookingDatePicker
+            // 
+            this.RecApptBookingDatePicker.AutoRoundedCorners = true;
+            this.RecApptBookingDatePicker.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecApptBookingDatePicker.BorderRadius = 14;
+            this.RecApptBookingDatePicker.BorderThickness = 2;
+            this.RecApptBookingDatePicker.Checked = true;
+            this.RecApptBookingDatePicker.CustomFormat = "MMMM dd, yyyy dddd";
+            this.RecApptBookingDatePicker.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecApptBookingDatePicker.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecApptBookingDatePicker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecApptBookingDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.RecApptBookingDatePicker.Location = new System.Drawing.Point(487, 980);
+            this.RecApptBookingDatePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.RecApptBookingDatePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.RecApptBookingDatePicker.Name = "RecApptBookingDatePicker";
+            this.RecApptBookingDatePicker.Size = new System.Drawing.Size(362, 30);
+            this.RecApptBookingDatePicker.TabIndex = 184;
+            this.RecApptBookingDatePicker.Value = new System.DateTime(2024, 3, 15, 23, 11, 54, 37);
+            // 
+            // RecApptPrefDateTime
+            // 
+            this.RecApptPrefDateTime.AutoSize = true;
+            this.RecApptPrefDateTime.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecApptPrefDateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecApptPrefDateTime.Location = new System.Drawing.Point(107, 877);
+            this.RecApptPrefDateTime.Name = "RecApptPrefDateTime";
+            this.RecApptPrefDateTime.Size = new System.Drawing.Size(394, 35);
+            this.RecApptPrefDateTime.TabIndex = 183;
+            this.RecApptPrefDateTime.Text = "3. Preferred Date && Time";
             // 
             // RecApptClientAgeText
             // 
@@ -9459,27 +9568,27 @@ namespace Enchante
             this.RecApptCPNumText.Size = new System.Drawing.Size(376, 30);
             this.RecApptCPNumText.TabIndex = 178;
             // 
-            // guna2TextBox4
+            // RecApptLNameText
             // 
-            this.guna2TextBox4.AutoRoundedCorners = true;
-            this.guna2TextBox4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.guna2TextBox4.BorderRadius = 14;
-            this.guna2TextBox4.BorderThickness = 2;
-            this.guna2TextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox4.DefaultText = "";
-            this.guna2TextBox4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.guna2TextBox4.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.guna2TextBox4.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.guna2TextBox4.Location = new System.Drawing.Point(624, 342);
-            this.guna2TextBox4.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.guna2TextBox4.Name = "guna2TextBox4";
-            this.guna2TextBox4.PasswordChar = '\0';
-            this.guna2TextBox4.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.guna2TextBox4.PlaceholderText = "Last Name";
-            this.guna2TextBox4.SelectedText = "";
-            this.guna2TextBox4.Size = new System.Drawing.Size(376, 30);
-            this.guna2TextBox4.TabIndex = 177;
+            this.RecApptLNameText.AutoRoundedCorners = true;
+            this.RecApptLNameText.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecApptLNameText.BorderRadius = 14;
+            this.RecApptLNameText.BorderThickness = 2;
+            this.RecApptLNameText.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.RecApptLNameText.DefaultText = "";
+            this.RecApptLNameText.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecApptLNameText.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecApptLNameText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecApptLNameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecApptLNameText.Location = new System.Drawing.Point(624, 342);
+            this.RecApptLNameText.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.RecApptLNameText.Name = "RecApptLNameText";
+            this.RecApptLNameText.PasswordChar = '\0';
+            this.RecApptLNameText.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecApptLNameText.PlaceholderText = "Last Name";
+            this.RecApptLNameText.SelectedText = "";
+            this.RecApptLNameText.Size = new System.Drawing.Size(376, 30);
+            this.RecApptLNameText.TabIndex = 177;
             // 
             // RecApptFNameText
             // 
@@ -9524,6 +9633,7 @@ namespace Enchante
             this.RecApptBookTransactBtn.Size = new System.Drawing.Size(309, 65);
             this.RecApptBookTransactBtn.TabIndex = 175;
             this.RecApptBookTransactBtn.Text = "Book Appointment Services";
+            this.RecApptBookTransactBtn.Click += new System.EventHandler(this.RecApptBookTransactBtn_Click);
             // 
             // RecApptSelectServiceAndStaffBtn
             // 
@@ -9618,6 +9728,53 @@ namespace Enchante
             this.RecApptSelectedServiceDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.RecApptSelectedServiceDGV.Size = new System.Drawing.Size(669, 452);
             this.RecApptSelectedServiceDGV.TabIndex = 162;
+            // 
+            // RecApptSelectedService
+            // 
+            this.RecApptSelectedService.HeaderText = "Selected Service";
+            this.RecApptSelectedService.Name = "RecApptSelectedService";
+            this.RecApptSelectedService.ReadOnly = true;
+            // 
+            // RecApptServicePrice
+            // 
+            this.RecApptServicePrice.HeaderText = "Service Price";
+            this.RecApptServicePrice.Name = "RecApptServicePrice";
+            this.RecApptServicePrice.ReadOnly = true;
+            // 
+            // RecApptServiceCategory
+            // 
+            this.RecApptServiceCategory.HeaderText = "Service Category";
+            this.RecApptServiceCategory.Name = "RecApptServiceCategory";
+            this.RecApptServiceCategory.ReadOnly = true;
+            this.RecApptServiceCategory.Visible = false;
+            // 
+            // RecApptServiceID
+            // 
+            this.RecApptServiceID.HeaderText = "Service ID";
+            this.RecApptServiceID.Name = "RecApptServiceID";
+            this.RecApptServiceID.ReadOnly = true;
+            this.RecApptServiceID.Visible = false;
+            // 
+            // RecApptStaffSelected
+            // 
+            this.RecApptStaffSelected.HeaderText = "Staff Selected";
+            this.RecApptStaffSelected.Name = "RecApptStaffSelected";
+            this.RecApptStaffSelected.ReadOnly = true;
+            this.RecApptStaffSelected.Visible = false;
+            // 
+            // RecApptQueNumber
+            // 
+            this.RecApptQueNumber.HeaderText = "QueNumber";
+            this.RecApptQueNumber.Name = "RecApptQueNumber";
+            this.RecApptQueNumber.ReadOnly = true;
+            this.RecApptQueNumber.Visible = false;
+            // 
+            // RecApptQueType
+            // 
+            this.RecApptQueType.HeaderText = "Que Type";
+            this.RecApptQueType.Name = "RecApptQueType";
+            this.RecApptQueType.ReadOnly = true;
+            this.RecApptQueType.Visible = false;
             // 
             // RecApptNoServiceCategoryChosenWarningLbl
             // 
@@ -9779,6 +9936,22 @@ namespace Enchante
             this.RecApptCatMassRB.UseVisualStyleBackColor = true;
             this.RecApptCatMassRB.Visible = false;
             // 
+            // RecApptCatMassBtn
+            // 
+            this.RecApptCatMassBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecApptCatMassBtn.BorderRadius = 50;
+            this.RecApptCatMassBtn.BorderThickness = 2;
+            this.RecApptCatMassBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RecApptCatMassBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecApptCatMassBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecApptCatMassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecApptCatMassBtn.Location = new System.Drawing.Point(0, 0);
+            this.RecApptCatMassBtn.Name = "RecApptCatMassBtn";
+            this.RecApptCatMassBtn.Size = new System.Drawing.Size(250, 250);
+            this.RecApptCatMassBtn.TabIndex = 189;
+            this.RecApptCatMassBtn.Text = "MASSAGE";
+            this.RecApptCatMassBtn.Click += new System.EventHandler(this.RecApptCatMassBtn_Click);
+            // 
             // RecApptCatSpaPanel
             // 
             this.RecApptCatSpaPanel.Controls.Add(this.RecApptCatSpaRB);
@@ -9801,6 +9974,22 @@ namespace Enchante
             this.RecApptCatSpaRB.TabIndex = 114;
             this.RecApptCatSpaRB.UseVisualStyleBackColor = true;
             this.RecApptCatSpaRB.Visible = false;
+            // 
+            // RecApptCatSpaBtn
+            // 
+            this.RecApptCatSpaBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecApptCatSpaBtn.BorderRadius = 50;
+            this.RecApptCatSpaBtn.BorderThickness = 2;
+            this.RecApptCatSpaBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RecApptCatSpaBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecApptCatSpaBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecApptCatSpaBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecApptCatSpaBtn.Location = new System.Drawing.Point(0, 0);
+            this.RecApptCatSpaBtn.Name = "RecApptCatSpaBtn";
+            this.RecApptCatSpaBtn.Size = new System.Drawing.Size(250, 250);
+            this.RecApptCatSpaBtn.TabIndex = 190;
+            this.RecApptCatSpaBtn.Text = "SPA";
+            this.RecApptCatSpaBtn.Click += new System.EventHandler(this.RecApptCatSpaBtn_Click);
             // 
             // RecApptCatNCPanel
             // 
@@ -9825,6 +10014,22 @@ namespace Enchante
             this.RecApptCatNCRB.UseVisualStyleBackColor = true;
             this.RecApptCatNCRB.Visible = false;
             // 
+            // RecApptCatNCBtn
+            // 
+            this.RecApptCatNCBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecApptCatNCBtn.BorderRadius = 50;
+            this.RecApptCatNCBtn.BorderThickness = 2;
+            this.RecApptCatNCBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RecApptCatNCBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecApptCatNCBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecApptCatNCBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecApptCatNCBtn.Location = new System.Drawing.Point(0, 0);
+            this.RecApptCatNCBtn.Name = "RecApptCatNCBtn";
+            this.RecApptCatNCBtn.Size = new System.Drawing.Size(250, 250);
+            this.RecApptCatNCBtn.TabIndex = 191;
+            this.RecApptCatNCBtn.Text = "NAIL CARE";
+            this.RecApptCatNCBtn.Click += new System.EventHandler(this.RecApptCatNCBtn_Click);
+            // 
             // RecApptCatFSPanel
             // 
             this.RecApptCatFSPanel.Controls.Add(this.RecApptCatFSRB);
@@ -9848,6 +10053,22 @@ namespace Enchante
             this.RecApptCatFSRB.UseVisualStyleBackColor = true;
             this.RecApptCatFSRB.Visible = false;
             // 
+            // RecApptCatFSBtn
+            // 
+            this.RecApptCatFSBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecApptCatFSBtn.BorderRadius = 50;
+            this.RecApptCatFSBtn.BorderThickness = 2;
+            this.RecApptCatFSBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RecApptCatFSBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecApptCatFSBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecApptCatFSBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecApptCatFSBtn.Location = new System.Drawing.Point(0, 0);
+            this.RecApptCatFSBtn.Name = "RecApptCatFSBtn";
+            this.RecApptCatFSBtn.Size = new System.Drawing.Size(250, 250);
+            this.RecApptCatFSBtn.TabIndex = 193;
+            this.RecApptCatFSBtn.Text = "FACE && SKIN";
+            this.RecApptCatFSBtn.Click += new System.EventHandler(this.RecApptCatFSBtn_Click);
+            // 
             // RecApptCatHSPanel
             // 
             this.RecApptCatHSPanel.Controls.Add(this.RecApptCatHSRB);
@@ -9870,6 +10091,22 @@ namespace Enchante
             this.RecApptCatHSRB.TabIndex = 113;
             this.RecApptCatHSRB.UseVisualStyleBackColor = true;
             this.RecApptCatHSRB.Visible = false;
+            // 
+            // RecApptCatHSBtn
+            // 
+            this.RecApptCatHSBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecApptCatHSBtn.BorderRadius = 50;
+            this.RecApptCatHSBtn.BorderThickness = 2;
+            this.RecApptCatHSBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RecApptCatHSBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecApptCatHSBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecApptCatHSBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecApptCatHSBtn.Location = new System.Drawing.Point(0, 0);
+            this.RecApptCatHSBtn.Name = "RecApptCatHSBtn";
+            this.RecApptCatHSBtn.Size = new System.Drawing.Size(250, 250);
+            this.RecApptCatHSBtn.TabIndex = 192;
+            this.RecApptCatHSBtn.Text = "HAIR STYLING";
+            this.RecApptCatHSBtn.Click += new System.EventHandler(this.RecApptCatHSBtn_Click);
             // 
             // RecApptBasicInfoLbl
             // 
@@ -12355,7 +12592,7 @@ namespace Enchante
             this.ReceptionNavBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.ReceptionNavBar.Location = new System.Drawing.Point(0, 0);
             this.ReceptionNavBar.Name = "ReceptionNavBar";
-            this.ReceptionNavBar.Size = new System.Drawing.Size(1904, 150);
+            this.ReceptionNavBar.Size = new System.Drawing.Size(1370, 150);
             this.ReceptionNavBar.TabIndex = 2;
             // 
             // RecDateTimeText
@@ -12435,7 +12672,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteStaffPage, new System.Drawing.Size(200, 100));
             this.EnchanteStaffPage.Name = "EnchanteStaffPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteStaffPage, new System.Drawing.Size(200, 100));
-            this.EnchanteStaffPage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteStaffPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteStaffPage.TabIndex = 1;
             // 
             // StaffScrollPanel
@@ -12453,7 +12690,7 @@ namespace Enchante
             this.StaffScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StaffScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.StaffScrollPanel.Name = "StaffScrollPanel";
-            this.StaffScrollPanel.Size = new System.Drawing.Size(1904, 891);
+            this.StaffScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.StaffScrollPanel.TabIndex = 6;
             // 
             // StaffUserAccPanel
@@ -12877,7 +13114,7 @@ namespace Enchante
             this.StaffNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.StaffNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.StaffNavBarPanel.Name = "StaffNavBarPanel";
-            this.StaffNavBarPanel.Size = new System.Drawing.Size(1904, 150);
+            this.StaffNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.StaffNavBarPanel.TabIndex = 5;
             // 
             // StaffPastTransactionBtn
@@ -13004,248 +13241,12 @@ namespace Enchante
             this.MngrInventoryCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
             this.MngrInventoryCard.SelectedCard = "MEMBERSHIP";
             // 
-            // RecApptPrefDateTime
-            // 
-            this.RecApptPrefDateTime.AutoSize = true;
-            this.RecApptPrefDateTime.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecApptPrefDateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecApptPrefDateTime.Location = new System.Drawing.Point(107, 877);
-            this.RecApptPrefDateTime.Name = "RecApptPrefDateTime";
-            this.RecApptPrefDateTime.Size = new System.Drawing.Size(394, 35);
-            this.RecApptPrefDateTime.TabIndex = 183;
-            this.RecApptPrefDateTime.Text = "3. Preferred Date && Time";
-            // 
-            // RecApptBookingTimeLbl
-            // 
-            this.RecApptBookingTimeLbl.AutoSize = true;
-            this.RecApptBookingTimeLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecApptBookingTimeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecApptBookingTimeLbl.Location = new System.Drawing.Point(869, 948);
-            this.RecApptBookingTimeLbl.Name = "RecApptBookingTimeLbl";
-            this.RecApptBookingTimeLbl.Size = new System.Drawing.Size(177, 29);
-            this.RecApptBookingTimeLbl.TabIndex = 186;
-            this.RecApptBookingTimeLbl.Text = "Booking Time:";
-            // 
-            // RecApptBookingDateLbl
-            // 
-            this.RecApptBookingDateLbl.AutoSize = true;
-            this.RecApptBookingDateLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecApptBookingDateLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecApptBookingDateLbl.Location = new System.Drawing.Point(488, 948);
-            this.RecApptBookingDateLbl.Name = "RecApptBookingDateLbl";
-            this.RecApptBookingDateLbl.Size = new System.Drawing.Size(183, 29);
-            this.RecApptBookingDateLbl.TabIndex = 185;
-            this.RecApptBookingDateLbl.Text = "Booking Date:";
-            // 
-            // RecApptBookingDatePicker
-            // 
-            this.RecApptBookingDatePicker.AutoRoundedCorners = true;
-            this.RecApptBookingDatePicker.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecApptBookingDatePicker.BorderRadius = 14;
-            this.RecApptBookingDatePicker.BorderThickness = 2;
-            this.RecApptBookingDatePicker.Checked = true;
-            this.RecApptBookingDatePicker.CustomFormat = "MMMM dd, yyyy dddd";
-            this.RecApptBookingDatePicker.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecApptBookingDatePicker.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecApptBookingDatePicker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecApptBookingDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.RecApptBookingDatePicker.Location = new System.Drawing.Point(487, 980);
-            this.RecApptBookingDatePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.RecApptBookingDatePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.RecApptBookingDatePicker.Name = "RecApptBookingDatePicker";
-            this.RecApptBookingDatePicker.Size = new System.Drawing.Size(362, 30);
-            this.RecApptBookingDatePicker.TabIndex = 184;
-            this.RecApptBookingDatePicker.Value = new System.DateTime(2024, 3, 15, 23, 11, 54, 37);
-            // 
-            // RecApptBookingTimeComboBox
-            // 
-            this.RecApptBookingTimeComboBox.AutoRoundedCorners = true;
-            this.RecApptBookingTimeComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.RecApptBookingTimeComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecApptBookingTimeComboBox.BorderRadius = 17;
-            this.RecApptBookingTimeComboBox.BorderThickness = 2;
-            this.RecApptBookingTimeComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.RecApptBookingTimeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.RecApptBookingTimeComboBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecApptBookingTimeComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecApptBookingTimeComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecApptBookingTimeComboBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecApptBookingTimeComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecApptBookingTimeComboBox.ItemHeight = 30;
-            this.RecApptBookingTimeComboBox.Location = new System.Drawing.Point(874, 977);
-            this.RecApptBookingTimeComboBox.Name = "RecApptBookingTimeComboBox";
-            this.RecApptBookingTimeComboBox.Size = new System.Drawing.Size(247, 36);
-            this.RecApptBookingTimeComboBox.TabIndex = 188;
-            // 
-            // RecApptCatMassBtn
-            // 
-            this.RecApptCatMassBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecApptCatMassBtn.BorderRadius = 50;
-            this.RecApptCatMassBtn.BorderThickness = 2;
-            this.RecApptCatMassBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RecApptCatMassBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecApptCatMassBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecApptCatMassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecApptCatMassBtn.Location = new System.Drawing.Point(0, 0);
-            this.RecApptCatMassBtn.Name = "RecApptCatMassBtn";
-            this.RecApptCatMassBtn.Size = new System.Drawing.Size(250, 250);
-            this.RecApptCatMassBtn.TabIndex = 189;
-            this.RecApptCatMassBtn.Text = "MASSAGE";
-            this.RecApptCatMassBtn.Click += new System.EventHandler(this.RecApptCatMassBtn_Click);
-            // 
-            // RecApptCatSpaBtn
-            // 
-            this.RecApptCatSpaBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecApptCatSpaBtn.BorderRadius = 50;
-            this.RecApptCatSpaBtn.BorderThickness = 2;
-            this.RecApptCatSpaBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RecApptCatSpaBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecApptCatSpaBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecApptCatSpaBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecApptCatSpaBtn.Location = new System.Drawing.Point(0, 0);
-            this.RecApptCatSpaBtn.Name = "RecApptCatSpaBtn";
-            this.RecApptCatSpaBtn.Size = new System.Drawing.Size(250, 250);
-            this.RecApptCatSpaBtn.TabIndex = 190;
-            this.RecApptCatSpaBtn.Text = "SPA";
-            this.RecApptCatSpaBtn.Click += new System.EventHandler(this.RecApptCatSpaBtn_Click);
-            // 
-            // RecApptCatNCBtn
-            // 
-            this.RecApptCatNCBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecApptCatNCBtn.BorderRadius = 50;
-            this.RecApptCatNCBtn.BorderThickness = 2;
-            this.RecApptCatNCBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RecApptCatNCBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecApptCatNCBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecApptCatNCBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecApptCatNCBtn.Location = new System.Drawing.Point(0, 0);
-            this.RecApptCatNCBtn.Name = "RecApptCatNCBtn";
-            this.RecApptCatNCBtn.Size = new System.Drawing.Size(250, 250);
-            this.RecApptCatNCBtn.TabIndex = 191;
-            this.RecApptCatNCBtn.Text = "NAIL CARE";
-            this.RecApptCatNCBtn.Click += new System.EventHandler(this.RecApptCatNCBtn_Click);
-            // 
-            // RecApptCatHSBtn
-            // 
-            this.RecApptCatHSBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecApptCatHSBtn.BorderRadius = 50;
-            this.RecApptCatHSBtn.BorderThickness = 2;
-            this.RecApptCatHSBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RecApptCatHSBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecApptCatHSBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecApptCatHSBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecApptCatHSBtn.Location = new System.Drawing.Point(0, 0);
-            this.RecApptCatHSBtn.Name = "RecApptCatHSBtn";
-            this.RecApptCatHSBtn.Size = new System.Drawing.Size(250, 250);
-            this.RecApptCatHSBtn.TabIndex = 192;
-            this.RecApptCatHSBtn.Text = "HAIR STYLING";
-            this.RecApptCatHSBtn.Click += new System.EventHandler(this.RecApptCatHSBtn_Click);
-            // 
-            // RecApptCatFSBtn
-            // 
-            this.RecApptCatFSBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecApptCatFSBtn.BorderRadius = 50;
-            this.RecApptCatFSBtn.BorderThickness = 2;
-            this.RecApptCatFSBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RecApptCatFSBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecApptCatFSBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecApptCatFSBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecApptCatFSBtn.Location = new System.Drawing.Point(0, 0);
-            this.RecApptCatFSBtn.Name = "RecApptCatFSBtn";
-            this.RecApptCatFSBtn.Size = new System.Drawing.Size(250, 250);
-            this.RecApptCatFSBtn.TabIndex = 193;
-            this.RecApptCatFSBtn.Text = "FACE && SKIN";
-            this.RecApptCatFSBtn.Click += new System.EventHandler(this.RecApptCatFSBtn_Click);
-            // 
-            // RecApptClientAgeErrorLbl
-            // 
-            this.RecApptClientAgeErrorLbl.AutoSize = true;
-            this.RecApptClientAgeErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecApptClientAgeErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecApptClientAgeErrorLbl.Location = new System.Drawing.Point(937, 396);
-            this.RecApptClientAgeErrorLbl.Name = "RecApptClientAgeErrorLbl";
-            this.RecApptClientAgeErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.RecApptClientAgeErrorLbl.Size = new System.Drawing.Size(112, 28);
-            this.RecApptClientAgeErrorLbl.TabIndex = 189;
-            this.RecApptClientAgeErrorLbl.Text = "Must be 18yrs old\r\nand above\r\n";
-            this.RecApptClientAgeErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RecApptClientAgeErrorLbl.Visible = false;
-            // 
-            // RecApptSearchServiceTypeText
-            // 
-            this.RecApptSearchServiceTypeText.AutoRoundedCorners = true;
-            this.RecApptSearchServiceTypeText.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecApptSearchServiceTypeText.BorderRadius = 14;
-            this.RecApptSearchServiceTypeText.BorderThickness = 2;
-            this.RecApptSearchServiceTypeText.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.RecApptSearchServiceTypeText.DefaultText = "";
-            this.RecApptSearchServiceTypeText.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecApptSearchServiceTypeText.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecApptSearchServiceTypeText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecApptSearchServiceTypeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecApptSearchServiceTypeText.Location = new System.Drawing.Point(110, 1348);
-            this.RecApptSearchServiceTypeText.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.RecApptSearchServiceTypeText.Name = "RecApptSearchServiceTypeText";
-            this.RecApptSearchServiceTypeText.PasswordChar = '\0';
-            this.RecApptSearchServiceTypeText.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecApptSearchServiceTypeText.PlaceholderText = "Search Services Here";
-            this.RecApptSearchServiceTypeText.SelectedText = "";
-            this.RecApptSearchServiceTypeText.Size = new System.Drawing.Size(666, 30);
-            this.RecApptSearchServiceTypeText.TabIndex = 190;
-            // 
-            // RecApptSelectedService
-            // 
-            this.RecApptSelectedService.HeaderText = "Selected Service";
-            this.RecApptSelectedService.Name = "RecApptSelectedService";
-            this.RecApptSelectedService.ReadOnly = true;
-            // 
-            // RecApptServicePrice
-            // 
-            this.RecApptServicePrice.HeaderText = "Service Price";
-            this.RecApptServicePrice.Name = "RecApptServicePrice";
-            this.RecApptServicePrice.ReadOnly = true;
-            // 
-            // RecApptServiceCategory
-            // 
-            this.RecApptServiceCategory.HeaderText = "Service Category";
-            this.RecApptServiceCategory.Name = "RecApptServiceCategory";
-            this.RecApptServiceCategory.ReadOnly = true;
-            this.RecApptServiceCategory.Visible = false;
-            // 
-            // RecApptServiceID
-            // 
-            this.RecApptServiceID.HeaderText = "Service ID";
-            this.RecApptServiceID.Name = "RecApptServiceID";
-            this.RecApptServiceID.ReadOnly = true;
-            this.RecApptServiceID.Visible = false;
-            // 
-            // RecApptStaffSelected
-            // 
-            this.RecApptStaffSelected.HeaderText = "Staff Selected";
-            this.RecApptStaffSelected.Name = "RecApptStaffSelected";
-            this.RecApptStaffSelected.ReadOnly = true;
-            this.RecApptStaffSelected.Visible = false;
-            // 
-            // RecApptQueNumber
-            // 
-            this.RecApptQueNumber.HeaderText = "QueNumber";
-            this.RecApptQueNumber.Name = "RecApptQueNumber";
-            this.RecApptQueNumber.ReadOnly = true;
-            this.RecApptQueNumber.Visible = false;
-            // 
-            // RecApptQueType
-            // 
-            this.RecApptQueType.HeaderText = "Que Type";
-            this.RecApptQueType.Name = "RecApptQueType";
-            this.RecApptQueType.ReadOnly = true;
-            this.RecApptQueType.Visible = false;
-            // 
             // Enchante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.EnchanteParentContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -14317,7 +14318,7 @@ namespace Enchante
         private Guna.UI2.WinForms.Guna2TextBox RecApptFNameText;
         private Guna.UI2.WinForms.Guna2DateTimePicker RecApptClientBdayPicker;
         private Guna.UI2.WinForms.Guna2TextBox RecApptCPNumText;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox4;
+        private Guna.UI2.WinForms.Guna2TextBox RecApptLNameText;
         private Guna.UI2.WinForms.Guna2TextBox RecApptClientAgeText;
         private System.Windows.Forms.Label RecApptClientAgeLbl;
         private System.Windows.Forms.Label RecApptClientBdayLbl;

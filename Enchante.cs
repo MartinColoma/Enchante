@@ -81,8 +81,8 @@ namespace Enchante
         private string[] SalesDatePeriod = { "Day", "Week", "Month", "Specific Date Range" };
         private string[] SalesCategories = { "Hair Styling", "Face & Skin", "Nail Care", "Massage", "Spa", "All Categories" };
         private string[] BestCategories = { "Hair Styling", "Face & Skin", "Nail Care", "Massage", "Spa", "Top Service Category" };
-        private string[] TimeSelection = { "08:00 AM", "08:30 AM", "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", 
-                                            "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM", 
+        private string[] TimeSelection = { "08:00 AM", "08:30 AM", "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM",
+                                            "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM",
                                             "05:00 PM", "05:30 PM", "06:00 PM", };
 
 
@@ -113,7 +113,7 @@ namespace Enchante
             Registration = new Registration(MembershipPlanPanel, RegularPlanPanel, PremiumPlanPanel, SVIPPlanPanel);
             Service = new ServiceCard(ServiceType, ServiceHairStyling, ServiceFaceSkin, ServiceNailCare, ServiceSpa, ServiceMassage);
             Transaction = new ReceptionTransactionCard(RecTransactionPanel, RecWalkinPanel, RecApptPanel, RecPayServicePanel, RecQueWinPanel);
-            Inventory = new MngrInventoryCard(MngrInventoryTypePanel, MngrServicesPanel, MngrServiceHistoryPanel, MngrInventoryMembershipPanel, 
+            Inventory = new MngrInventoryCard(MngrInventoryTypePanel, MngrServicesPanel, MngrServiceHistoryPanel, MngrInventoryMembershipPanel,
                                             MngrInventoryProductsPanel, MngrInventoryProductHistoryPanel, MngrSchedPanel, MngrWalkinSalesPanel, MngrIndemandPanel, MngrWalkinProdSalesPanel);
 
 
@@ -2788,7 +2788,7 @@ namespace Enchante
             RecApptTransNumText.Text = TransactionNumberGenerator.AppointGenerateTransNumberDefault();
             RecApptBookingDatePicker.MinDate = DateTime.Today;
             RecApptClientBdayPicker.MaxDate = DateTime.Today;
-
+            isappointment = true;
         }
         public class TransactionNumberGenerator
         {
@@ -3520,7 +3520,16 @@ namespace Enchante
 
                 string appointmentDate = DateTime.Now.ToString("MM-dd-yyyy dddd");
                 string serviceCategory = SelectedCategory;
-                int latestquenumber = GetLargestQueNum(appointmentDate, serviceCategory);
+                int latestquenumber = 0;
+
+                if (isappointment == true)
+                {
+                    latestquenumber = GetLargestQueNum(appointmentDate, serviceCategory);
+                }
+                else
+                {
+                    latestquenumber = GetLargestQueNum(appointmentDate, serviceCategory);
+                }
 
                 NewSelectedServiceRow.Cells["ServicePrice"].Value = ServicePrice;
                 NewSelectedServiceRow.Cells["ServiceCategory"].Value = SelectedCategory;
@@ -3566,11 +3575,18 @@ namespace Enchante
                 }
             }
         }
-        private void QueTypeIdentifier(DataGridViewCell QueType)
+
+        public bool isappointment;
+        public void QueTypeIdentifier(DataGridViewCell QueType)
         {
+
             if (selectedStaffID == "Anyone")
             {
                 QueType.Value = "GeneralQue";
+            }
+            else if (isappointment == true)
+            {
+                QueType.Value = "Priority";
             }
             else
             {
@@ -9937,6 +9953,138 @@ namespace Enchante
                     RecApptSelectedServiceDGV.Rows.Remove(selectedRow);
                 }
             }
+        }
+
+        private void RecApptBookTransactBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(RecApptFNameText.Text) || RecApptFNameText.Text == "First Name")
+            {
+                MessageBox.Show("Please enter a first name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!IsCardNameValid(RecApptFNameText.Text))
+            {
+                MessageBox.Show("Invalid First Name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(RecApptLNameText.Text) || RecApptLNameText.Text == "Last Name")
+            {
+                MessageBox.Show("Please enter a last name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!IsCardNameValid(RecApptLNameText.Text))
+            {
+                MessageBox.Show("Invalid Last Name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(RecApptCPNumText.Text) || RecApptCPNumText.Text == "Mobile Number")
+            {
+                MessageBox.Show("Please enter a contact number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!IsNumeric(RecApptCPNumText.Text))
+            {
+                MessageBox.Show("Invalid Contact Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (RecApptSelectedServiceDGV != null && RecApptSelectedServiceDGV.Rows.Count == 0)
+            {
+                MessageBox.Show("Select a service first to proceed on booking a transaction.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+            else
+            {
+                RecWalkinServiceHistoryDB(RecApptSelectedServiceDGV); //service history db
+                ReceptionistWalk_in_AppointmentDB(); //walk-in transaction db
+                RecApptTransactNumRefresh();
+                RecApptTransactionClear();
+            }
+        }
+
+        private void RecApptServiceHistoryDB(DataGridView RecApptSelectedServiceDGV)
+        {
+            DateTime currentDate = RecDateTimePicker.Value;
+            string transactionNum = RecApptTransNumText.Text;
+            string serviceStatus = "Pending";
+
+            //booked values
+            string bookedDate = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
+            string bookedTime = currentDate.ToString("hh:mm tt"); //bookedTime
+
+            //basic info
+            string CustomerName = RecApptFNameText.Text + " " + RecApptLNameText.Text; //client name
+
+            if (RecApptSelectedServiceDGV.Rows.Count > 0)
+            {
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    {
+                        connection.Open();
+
+                        foreach (DataGridViewRow row in RecApptSelectedServiceDGV.Rows)
+                        {
+                            if (row.Cells["SelectedService"].Value != null)
+                            {
+                                string serviceName = row.Cells["SelectedService"].Value.ToString();
+                                string serviceCat = row.Cells["ServiceCategory"].Value.ToString();
+                                string serviceID = row.Cells["ServiceID"].Value.ToString();
+                                decimal servicePrice = Convert.ToDecimal(row.Cells["ServicePrice"].Value);
+                                string selectedStaff = row.Cells["StaffSelected"].Value.ToString();
+                                string queNumber = row.Cells["QueNumber"].Value.ToString();
+                                string queType = row.Cells["QueType"].Value.ToString();
+
+                                string insertQuery = "INSERT INTO servicehistory (TransactionNumber, ServiceStatus, AppointmentDate, AppointmentTime, ClientName, " +
+                                                     "ServiceCategory, ServiceID, SelectedService, ServicePrice, PreferredStaff, QueNumber," +
+                                                     "QueType" +
+                                                     ") VALUES (@Transact, @status, @appointDate, @appointTime, @name, @serviceCat, @ID, @serviceName, @servicePrice, " +
+                                                     "@preferredstaff, @quenumber, @quetype)";
+
+                                MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
+                                cmd.Parameters.AddWithValue("@Transact", transactionNum);
+                                cmd.Parameters.AddWithValue("@status", serviceStatus);
+                                cmd.Parameters.AddWithValue("@appointDate", bookedDate);
+                                cmd.Parameters.AddWithValue("@appointTime", bookedTime);
+                                cmd.Parameters.AddWithValue("@name", CustomerName);
+                                cmd.Parameters.AddWithValue("@serviceCat", serviceCat);
+                                cmd.Parameters.AddWithValue("@ID", serviceID);
+                                cmd.Parameters.AddWithValue("@serviceName", serviceName);
+                                cmd.Parameters.AddWithValue("@servicePrice", servicePrice);
+                                cmd.Parameters.AddWithValue("@preferredstaff", selectedStaff);
+                                cmd.Parameters.AddWithValue("@quenumber", queNumber);
+                                cmd.Parameters.AddWithValue("@quetype", queType);
+
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message, "Receptionist Service failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("No items to insert into the database.", "Service");
+            }
+
+        }
+
+        private void RecApptTransactNumRefresh()
+        {
+            RecApptTransNumText.Text = TransactionNumberGenerator.AppointGenerateTransNumberInc();
+        }
+
+        private void RecApptTransactionClear()
+        {
+            RecApptFNameText.Text = "";
+            RecApptLNameText.Text = "";
+            RecApptCPNumText.Text = "";
+            RecApptCatHSRB.Checked = false;
+            RecApptCatFSRB.Checked = false;
+            RecApptCatNCRB.Checked = false;
+            RecApptCatSpaRB.Checked = false;
+            RecApptCatMassRB.Checked = false;
+            RecApptSelectedServiceDGV.Rows.Clear();
+            isappointment = false;
         }
     }
 }
