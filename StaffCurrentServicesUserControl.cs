@@ -43,28 +43,13 @@ namespace Enchante
             return elapsedTime;
         }
 
-        private void StaffCurrentServicesDropDownBtn_Click(object sender, EventArgs e)
-        {
-            viewing = !viewing;
-
-            if (ExpandUserControlButtonClicked != null)
-            {
-                ExpandUserControlButtonClicked(this, EventArgs.Empty);
-            }
-            else
-            {
-                StaffCurrentServicesDropDownBtn.IconChar = FontAwesome.Sharp.IconChar.SquareCaretUp;
-            }
-        }
-
         public void AvailableCustomerSetData(Enchante.PendingCustomers customer)
         {
             StaffTransactionIDTextBox.Text = customer.TransactionNumber;
             StaffCustomerServiceNameSelectedTextBox.Text = customer.ServiceName;
             StaffCustomerServiceStatusTextBox.Text = customer.ServiceStatus;
             StaffCustomerNameTextBox.Text = "Client Name: " + customer.ClientName;
-            StaffCustomerCustomizationsTextBox.Text = customer.CustomerCustomizations;
-            StaffAdditionalNotesTextBox.Text = customer.AdditionalNotes;
+
             StaffServiceIDTextBox.Text = customer.ServiceID;
             StaffQueNumberTextBox.Text = customer.QueNumber;
         }

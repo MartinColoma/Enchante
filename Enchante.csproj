@@ -126,12 +126,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AvailableStaffUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="AvailableStaffUserControl.Designer.cs">
-      <DependentUpon>AvailableStaffUserControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Enchante.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,12 +139,6 @@
       <DependentUpon>MemberPlanPeriod.cs</DependentUpon>
     </Compile>
     <Compile Include="ParentCard.cs" />
-    <Compile Include="ProductOrderUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ProductOrderUserControl.Designer.cs">
-      <DependentUpon>ProductOrderUserControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MngrInventoryCard.cs" />
@@ -169,18 +157,18 @@
     <Compile Include="ProductUserControl.Designer.cs">
       <DependentUpon>ProductUserControl.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AvailableStaffUserControl.resx">
-      <DependentUpon>AvailableStaffUserControl.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="NoCustomerInQueueUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NoCustomerInQueueUserControl.Designer.cs">
+      <DependentUpon>NoCustomerInQueueUserControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Enchante.resx">
       <DependentUpon>Enchante.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="MemberPlanPeriod.resx">
       <DependentUpon>MemberPlanPeriod.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProductOrderUserControl.resx">
-      <DependentUpon>ProductOrderUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUserControl.resx">
       <DependentUpon>ProductUserControl.cs</DependentUpon>
@@ -197,6 +185,9 @@
     </Compile>
     <EmbeddedResource Include="StaffCurrentServicesUserControl.resx">
       <DependentUpon>StaffCurrentServicesUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NoCustomerInQueueUserControl.resx">
+      <DependentUpon>NoCustomerInQueueUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
