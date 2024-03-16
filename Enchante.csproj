@@ -126,12 +126,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AvailableStaffUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="AvailableStaffUserControl.Designer.cs">
-      <DependentUpon>AvailableStaffUserControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Enchante.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,9 +163,6 @@
     <Compile Include="NoCustomerInQueueUserControl.Designer.cs">
       <DependentUpon>NoCustomerInQueueUserControl.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AvailableStaffUserControl.resx">
-      <DependentUpon>AvailableStaffUserControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Enchante.resx">
       <DependentUpon>Enchante.cs</DependentUpon>
       <SubType>Designer</SubType>
