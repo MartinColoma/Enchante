@@ -3520,16 +3520,7 @@ namespace Enchante
 
                 string appointmentDate = DateTime.Now.ToString("MM-dd-yyyy dddd");
                 string serviceCategory = SelectedCategory;
-                int latestquenumber = 0;
-
-                if (isappointment == true)
-                {
-                    latestquenumber = GetLargestQueNum(appointmentDate, serviceCategory);
-                }
-                else
-                {
-                    latestquenumber = GetLargestQueNum(appointmentDate, serviceCategory);
-                }
+                int latestquenumber = GetLargestQueNum(appointmentDate, serviceCategory);
 
                 NewSelectedServiceRow.Cells["ServicePrice"].Value = ServicePrice;
                 NewSelectedServiceRow.Cells["ServiceCategory"].Value = SelectedCategory;
@@ -3580,13 +3571,18 @@ namespace Enchante
         public void QueTypeIdentifier(DataGridViewCell QueType)
         {
 
-            if (selectedStaffID == "Anyone")
+
+            if (isappointment == true && RecApptAnyStaffToggleSwitch.Checked)
+            {
+                QueType.Value = "AnyonePriority";
+            }
+            else if (isappointment == true && RecApptPreferredStaffToggleSwitch.Checked)
+            {
+                QueType.Value = "PreferredPriority";
+            }
+            else if (selectedStaffID == "Anyone")
             {
                 QueType.Value = "GeneralQue";
-            }
-            else if (isappointment == true)
-            {
-                QueType.Value = "Priority";
             }
             else
             {
