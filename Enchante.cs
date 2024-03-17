@@ -81,9 +81,6 @@ namespace Enchante
         private string[] SalesDatePeriod = { "Day", "Week", "Month", "Specific Date Range" };
         private string[] SalesCategories = { "Hair Styling", "Face & Skin", "Nail Care", "Massage", "Spa", "All Categories" };
         private string[] BestCategories = { "Hair Styling", "Face & Skin", "Nail Care", "Massage", "Spa", "Top Service Category" };
-        private string[] TimeSelection = { "08:00 AM", "08:30 AM", "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM",
-                                            "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM",
-                                            "05:00 PM", "05:30 PM", "06:00 PM", };
 
 
         // public List<AvailableStaff> filteredbyschedstaff;
@@ -169,7 +166,6 @@ namespace Enchante
             RecQueWinStaffCatComboText.DropDownStyle = ComboBoxStyle.DropDownList;
             RecQueWinGenCatComboText.Items.AddRange(SalesCategories);
             RecQueWinGenCatComboText.DropDownStyle = ComboBoxStyle.DropDownList;
-            RecApptBookingTimeComboBox.Items.AddRange(TimeSelection);
             RecApptBookingTimeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
             RecEditSchedBtn.Click += RecEditSchedBtn_Click;
@@ -186,6 +182,8 @@ namespace Enchante
             MngrProductSalesSelectCatBox.Items.Add("Massage");
             MngrProductSalesSelectCatBox.Items.Add("Spa");
             MngrProductSalesSelectCatBox.Items.Add("All Categories");
+
+            RecApptChosenBookingTimeComboBox.SelectedIndex = 0;
 
             //InitializeAvailableStaffFlowLayout();
 
@@ -6366,8 +6364,8 @@ namespace Enchante
             MngrProductSalesToDatePicker.Visible = false;
             MngrProductSalesPeriodCalendar.Visible = false;
             MngrProductSalesPeriod.SelectedItem = null;
-            MngrProductSalesSelectCatBox.SelectedItem = null; 
-            MngrProductSalesSelectedPeriodText.Text = "";          
+            MngrProductSalesSelectCatBox.SelectedItem = null;
+            MngrProductSalesSelectedPeriodText.Text = "";
             MngrProductSalesLineGraph.Series.Clear();
             MngrProductSalesGraph.Series.Clear();
             Inventory.PanelShow(MngrInventoryTypePanel);
@@ -7499,7 +7497,7 @@ namespace Enchante
                 default:
                     MessageBox.Show("Invalid SalePeriod selection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
-            }        
+            }
 
             if (string.IsNullOrEmpty(selectedCategory))
             {
@@ -8184,7 +8182,7 @@ namespace Enchante
             MngrIndemandDatePickerFrom.Visible = false;
             MngrIndemandToLbl.Visible = false;
             MngrIndemandDatePickerTo.Visible = false;
-            MngrIndemandServicePeriodCalendar.Visible = false;         
+            MngrIndemandServicePeriodCalendar.Visible = false;
             MngrIndemandServiceHistoryPeriod.SelectedItem = null;
             MngrIndemandSelectCatBox.SelectedItem = null;
             MngrIndemandSelectPeriod.Text = "";
@@ -8770,7 +8768,7 @@ namespace Enchante
                 AdminAgeErrorLbl.Visible = true;
                 AdminAgeErrorLbl.Text = "Must be 18 years old and above";
                 return;
-            }            
+            }
             else
             {
                 AdminAgeErrorLbl.Visible = false;
@@ -9083,9 +9081,9 @@ namespace Enchante
         private void AdminClearFields()
         {
             AdminFirstNameText.Text = "";
-            AdminLastNameText.Text = "";          
-            AdminAgeText.Text = "";           
-            AdminCPNumText.Text = "";            
+            AdminLastNameText.Text = "";
+            AdminAgeText.Text = "";
+            AdminCPNumText.Text = "";
             AdminEmplIDText.Text = "";
             AdminEmailText.Text = "";
             AdminPassText.Text = "";
@@ -10036,6 +10034,23 @@ namespace Enchante
             }
         }
 
+        string[] bookingTimes = new string[]
+        {
+            "Select a booking time",
+            "08:00 am",
+            "08:30 am",
+            "09:00 am",
+            "09:30 am",
+            "10:00 am",
+            "10:30 am",
+            "11:00 am",
+            "11:30 am",
+            "01:00 pm",
+            "01:30 pm",
+            "02:00 pm",
+            "02:30 pm",
+            "03:00 pm",
+        };
         private void RecApptCatHSBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Hair Styling";
@@ -10045,6 +10060,11 @@ namespace Enchante
                 RecApptAttendingStaffSelectedComboBox.Items.Clear();
                 LoadPreferredStaffComboBox();
             }
+            RecApptBookingTimeComboBox.Items.Clear();
+            RecApptBookingTimeComboBox.Items.AddRange(bookingTimes);
+            RecApptBookingTimeComboBox.SelectedIndex = 0;
+            RecApptBookingDatePicker_ValueChanged(sender, e);
+            RecApptChosenBookingTimeComboBox_SelectedIndexChanged(sender, e);
             RecApptHairStyle();
         }
 
@@ -10057,6 +10077,11 @@ namespace Enchante
                 RecApptAttendingStaffSelectedComboBox.Items.Clear();
                 LoadPreferredStaffComboBox();
             }
+            RecApptBookingTimeComboBox.Items.Clear();
+            RecApptBookingTimeComboBox.Items.AddRange(bookingTimes);
+            RecApptBookingTimeComboBox.SelectedIndex = 0;
+            RecApptBookingDatePicker_ValueChanged(sender, e);
+            RecApptChosenBookingTimeComboBox_SelectedIndexChanged(sender, e);
             RecApptFace();
         }
 
@@ -10069,6 +10094,11 @@ namespace Enchante
                 RecApptAttendingStaffSelectedComboBox.Items.Clear();
                 LoadPreferredStaffComboBox();
             }
+            RecApptBookingTimeComboBox.Items.Clear();
+            RecApptBookingTimeComboBox.Items.AddRange(bookingTimes);
+            RecApptBookingTimeComboBox.SelectedIndex = 0;
+            RecApptBookingDatePicker_ValueChanged(sender, e);
+            RecApptChosenBookingTimeComboBox_SelectedIndexChanged(sender, e);
             RecApptNail();
         }
 
@@ -10081,6 +10111,11 @@ namespace Enchante
                 RecApptAttendingStaffSelectedComboBox.Items.Clear();
                 LoadPreferredStaffComboBox();
             }
+            RecApptBookingTimeComboBox.Items.Clear();
+            RecApptBookingTimeComboBox.Items.AddRange(bookingTimes);
+            RecApptBookingTimeComboBox.SelectedIndex = 0;
+            RecApptBookingDatePicker_ValueChanged(sender, e);
+            RecApptChosenBookingTimeComboBox_SelectedIndexChanged(sender, e);
             RecApptSpa();
         }
 
@@ -10093,6 +10128,11 @@ namespace Enchante
                 RecApptAttendingStaffSelectedComboBox.Items.Clear();
                 LoadPreferredStaffComboBox();
             }
+            RecApptBookingTimeComboBox.Items.Clear();
+            RecApptBookingTimeComboBox.Items.AddRange(bookingTimes);
+            RecApptBookingTimeComboBox.SelectedIndex = 0;
+            RecApptBookingDatePicker_ValueChanged(sender, e);
+            RecApptChosenBookingTimeComboBox_SelectedIndexChanged(sender, e);
             RecApptMassage();
         }
         private void RecApptHairStyle()
@@ -10516,15 +10556,16 @@ namespace Enchante
 
                 string appointmentDate = DateTime.Now.ToString("MM-dd-yyyy dddd");
                 string serviceCategory = SelectedCategory;
-                int latestquenumber = GetLargestQueNum(appointmentDate, serviceCategory);
+                int latestprioritynumber = GetLargestPriorityNum(appointmentDate, serviceCategory);
 
                 NewSelectedServiceRow.Cells["RecApptServicePrice"].Value = ServicePrice;
                 NewSelectedServiceRow.Cells["RecApptServiceCategory"].Value = SelectedCategory;
                 NewSelectedServiceRow.Cells["RecApptSelectedService"].Value = ServiceName;
                 NewSelectedServiceRow.Cells["RecApptServiceID"].Value = ServiceID;
-                NewSelectedServiceRow.Cells["RecApptQueNumber"].Value = latestquenumber;
+                NewSelectedServiceRow.Cells["RecApptPriorityNumber"].Value = latestprioritynumber;
                 NewSelectedServiceRow.Cells["RecApptStaffSelected"].Value = selectedStaffID;
                 QueTypeIdentifier(NewSelectedServiceRow.Cells["RecApptQueType"]);
+                RecApptChosenBookingTimeComboBox.Enabled = false;
 
 
                 RecApptServiceTypeDGV.ClearSelection();
@@ -10626,6 +10667,8 @@ namespace Enchante
 
         private void RecApptBookTransactBtn_Click(object sender, EventArgs e)
         {
+            DateTime selectedDate = RecApptBookingDatePicker.Value.Date;
+            DateTime currentDate = DateTime.Today;
             if (string.IsNullOrWhiteSpace(RecApptFNameText.Text) || RecApptFNameText.Text == "First Name")
             {
                 MessageBox.Show("Please enter a first name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -10650,14 +10693,34 @@ namespace Enchante
             {
                 MessageBox.Show("Invalid Contact Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else if (string.IsNullOrWhiteSpace(RecApptClientAgeText.Text) || RecApptClientAgeText.Text == "Age")
+            {
+                MessageBox.Show("Please enter birth date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!IsNumeric(RecApptClientAgeText.Text))
+            {
+                MessageBox.Show("Invalid Age.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (int.TryParse(RecApptClientAgeText.Text, out int age) && age < 18)
+            {
+                MessageBox.Show("The client's age must be at least 18.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (selectedDate == currentDate)
+            {
+                MessageBox.Show("The selected date cannot be today.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (RecApptBookingTimeComboBox.SelectedItem == null || RecApptBookingTimeComboBox.SelectedIndex == 0)
+            {
+                MessageBox.Show("Please select a booking time.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else if (RecApptSelectedServiceDGV != null && RecApptSelectedServiceDGV.Rows.Count == 0)
             {
                 MessageBox.Show("Select a service first to proceed on booking a transaction.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
             else
             {
-                RecWalkinServiceHistoryDB(RecApptSelectedServiceDGV); //service history db
-                ReceptionistWalk_in_AppointmentDB(); //walk-in transaction db
+                RecApptServiceHistoryDB(RecApptSelectedServiceDGV); //service history db
+                ReceptionistAppointmentDB(); //appointment transaction db
                 RecApptTransactNumRefresh();
                 RecApptTransactionClear();
             }
@@ -10665,13 +10728,14 @@ namespace Enchante
 
         private void RecApptServiceHistoryDB(DataGridView RecApptSelectedServiceDGV)
         {
-            DateTime currentDate = RecDateTimePicker.Value;
+            DateTime currentDate = RecApptBookingDatePicker.Value;
             string transactionNum = RecApptTransNumText.Text;
+            string transactionType = "Walk-in Appointment";
             string serviceStatus = "Pending";
 
             //booked values
             string bookedDate = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
-            string bookedTime = currentDate.ToString("hh:mm tt"); //bookedTime
+            string bookedTime = RecApptBookingTimeComboBox.SelectedItem?.ToString();//appointmenttime
 
             //basic info
             string CustomerName = RecApptFNameText.Text + " " + RecApptLNameText.Text; //client name
@@ -10686,24 +10750,25 @@ namespace Enchante
 
                         foreach (DataGridViewRow row in RecApptSelectedServiceDGV.Rows)
                         {
-                            if (row.Cells["SelectedService"].Value != null)
+                            if (row.Cells["RecApptSelectedService"].Value != null)
                             {
-                                string serviceName = row.Cells["SelectedService"].Value.ToString();
-                                string serviceCat = row.Cells["ServiceCategory"].Value.ToString();
-                                string serviceID = row.Cells["ServiceID"].Value.ToString();
-                                decimal servicePrice = Convert.ToDecimal(row.Cells["ServicePrice"].Value);
-                                string selectedStaff = row.Cells["StaffSelected"].Value.ToString();
-                                string queNumber = row.Cells["QueNumber"].Value.ToString();
-                                string queType = row.Cells["QueType"].Value.ToString();
+                                string serviceName = row.Cells["RecApptSelectedService"].Value.ToString();
+                                string serviceCat = row.Cells["RecApptServiceCategory"].Value.ToString();
+                                string serviceID = row.Cells["RecApptServiceID"].Value.ToString();
+                                decimal servicePrice = Convert.ToDecimal(row.Cells["RecApptServicePrice"].Value);
+                                string selectedStaff = row.Cells["RecApptStaffSelected"].Value.ToString();
+                                string quepriorityNumber = row.Cells["RecApptPriorityNumber"].Value.ToString();
+                                string queType = row.Cells["RecApptQueType"].Value.ToString();
 
-                                string insertQuery = "INSERT INTO servicehistory (TransactionNumber, ServiceStatus, AppointmentDate, AppointmentTime, ClientName, " +
-                                                     "ServiceCategory, ServiceID, SelectedService, ServicePrice, PreferredStaff, QueNumber," +
+                                string insertQuery = "INSERT INTO servicehistory (TransactionNumber, TransactionType, ServiceStatus, AppointmentDate, AppointmentTime, ClientName, " +
+                                                     "ServiceCategory, ServiceID, SelectedService, ServicePrice, PreferredStaff, PriorityNumber," +
                                                      "QueType" +
-                                                     ") VALUES (@Transact, @status, @appointDate, @appointTime, @name, @serviceCat, @ID, @serviceName, @servicePrice, " +
-                                                     "@preferredstaff, @quenumber, @quetype)";
+                                                     ") VALUES (@Transact, @TransactType, @status, @appointDate, @appointTime, @name, @serviceCat, @ID, @serviceName, @servicePrice, " +
+                                                     "@preferredstaff, @queprioritynumber, @quetype)";
 
                                 MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
                                 cmd.Parameters.AddWithValue("@Transact", transactionNum);
+                                cmd.Parameters.AddWithValue("@TransactType", transactionType);
                                 cmd.Parameters.AddWithValue("@status", serviceStatus);
                                 cmd.Parameters.AddWithValue("@appointDate", bookedDate);
                                 cmd.Parameters.AddWithValue("@appointTime", bookedTime);
@@ -10713,7 +10778,7 @@ namespace Enchante
                                 cmd.Parameters.AddWithValue("@serviceName", serviceName);
                                 cmd.Parameters.AddWithValue("@servicePrice", servicePrice);
                                 cmd.Parameters.AddWithValue("@preferredstaff", selectedStaff);
-                                cmd.Parameters.AddWithValue("@quenumber", queNumber);
+                                cmd.Parameters.AddWithValue("@queprioritynumber", quepriorityNumber);
                                 cmd.Parameters.AddWithValue("@quetype", queType);
 
                                 cmd.ExecuteNonQuery();
@@ -10737,6 +10802,99 @@ namespace Enchante
 
         }
 
+        private void ReceptionistAppointmentDB()
+        {
+            DateTime appointmentdate = RecApptBookingDatePicker.Value;
+            string transactionNum = RecApptTransNumText.Text;
+            DateTime currentDate = DateTime.Today;
+            string serviceStatus = "Pending";
+            string transactType = "Walk-in Appointment";
+
+            //basic info
+            string CustomerName = RecApptFNameText.Text + " " + RecApptLNameText.Text; //client name
+            string CustomerMobileNumber = RecApptCPNumText.Text; //client cp num
+
+            //booked values
+            string appointmentbookedDate = appointmentdate.ToString("MM-dd-yyyy dddd"); //bookedDate
+            string appointmentbookedTime = RecApptBookingTimeComboBox.SelectedItem?.ToString(); //bookedTime
+            string bookedDate = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
+            string bookedTime = currentDate.ToString("hh:mm tt"); //bookedTime
+            string bookedBy = RecNameLbl.Text; //booked by
+
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+                    string insertQuery = "INSERT INTO appointment (TransactionNumber, TransactionType, ServiceStatus, AppointmentDate, AppointmentTime, " +
+                                        "ClientName, ClientCPNum, ServiceDuration, BookedBy, BookedDate, BookedTime)" +
+                                        "VALUES (@Transact, @TransactType, @status, @appointDate, @appointTime, @clientName, @clientCP, @duration, @bookedBy, @bookedDate, @bookedTime)";
+
+                    MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
+                    cmd.Parameters.AddWithValue("@Transact", transactionNum);
+                    cmd.Parameters.AddWithValue("@TransactType", transactType);
+                    cmd.Parameters.AddWithValue("@status", serviceStatus);
+                    cmd.Parameters.AddWithValue("@appointDate", appointmentbookedDate);
+                    cmd.Parameters.AddWithValue("@appointTime", appointmentbookedTime);
+                    cmd.Parameters.AddWithValue("@clientName", CustomerName);
+                    cmd.Parameters.AddWithValue("@clientCP", CustomerMobileNumber);
+                    cmd.Parameters.AddWithValue("@duration", "00:00:00");
+                    cmd.Parameters.AddWithValue("@bookedBy", bookedBy);
+                    cmd.Parameters.AddWithValue("@bookedDate", bookedDate);
+                    cmd.Parameters.AddWithValue("@bookedTime", bookedTime);
+
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Service successfully booked.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Transaction.PanelShow(RecTransactionPanel);
+                //RecWalkinServiceHistoryDB();
+            }
+            catch (MySqlException ex)
+            {
+                // Handle MySQL database exception
+                MessageBox.Show("An error occurred: " + ex.Message, "Manager booked transaction failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Make sure to close the connection
+                connection.Close();
+            }
+        }
+
+        private int GetLargestPriorityNum(string appointmentDate, string serviceCategory)
+        {
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    string query = "SELECT MAX(CAST(PriorityNumber AS UNSIGNED)) FROM servicehistory WHERE AppointmentDate = @AppointmentDate AND ServiceCategory = @ServiceCategory AND (QueType = 'AnyonePriority' OR QueType = 'PreferredPriority')";
+                    command.CommandText = query;
+
+                    command.Parameters.AddWithValue("@AppointmentDate", appointmentDate);
+                    command.Parameters.AddWithValue("@ServiceCategory", serviceCategory);
+
+                    object result = command.ExecuteScalar();
+                    int latestprioritynumber = result != DBNull.Value ? Convert.ToInt32(result) : 0;
+
+                    if (latestprioritynumber > 0)
+                    {
+                        latestprioritynumber++;
+                    }
+                    else
+                    {
+                        latestprioritynumber = 1;
+                    }
+
+                    return latestprioritynumber;
+                }
+            }
+        }
+
         private void RecApptTransactNumRefresh()
         {
             RecApptTransNumText.Text = TransactionNumberGenerator.AppointGenerateTransNumberInc();
@@ -10753,7 +10911,80 @@ namespace Enchante
             RecApptCatSpaRB.Checked = false;
             RecApptCatMassRB.Checked = false;
             RecApptSelectedServiceDGV.Rows.Clear();
+            RecApptBookingTimeComboBox.Items.Clear();
             isappointment = false;
-        }        
+        }
+
+        private void RecApptBookingDatePicker_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime initialselectedDate = RecApptBookingDatePicker.Value.Date;
+            string selectedDate = initialselectedDate.ToString("MM-dd-yyyy dddd");
+            string serviceCategory = filterstaffbyservicecategory;
+
+            List<string> matchingTimes = RetrieveMatchingAppointmentTimes(selectedDate, serviceCategory);
+
+            if (matchingTimes.Count == 5) // LIMIT OF TIME SLOT
+            {
+                foreach (string time in matchingTimes)
+                {
+                    RecApptBookingTimeComboBox.Items.Remove(time);
+                }
+            }
+        }
+
+        private List<string> RetrieveMatchingAppointmentTimes(string selectedDate, string serviceCategory)
+        {
+            List<string> matchingTimes = new List<string>();
+
+            string query = "SELECT AppointmentTime FROM servicehistory WHERE AppointmentDate = @SelectedDate AND ServiceCategory = @ServiceCategory AND (QueType = 'AnyonePriority' OR QueType = 'PreferredPriority')";
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@SelectedDate", selectedDate);
+                    command.Parameters.AddWithValue("@ServiceCategory", serviceCategory);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string appointmentTime = reader.GetString("AppointmentTime");
+                            matchingTimes.Add(appointmentTime);
+                        }
+                    }
+                }
+            }
+            return matchingTimes;
+        }
+
+        private void RecApptChosenBookingTimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedValue = RecApptChosenBookingTimeComboBox.SelectedItem?.ToString();
+
+            if (selectedValue == null)
+            {
+                return;
+            }
+            if (RecApptBookingTimeComboBox.Items.Contains(selectedValue))
+            {
+                int selectedIndex = RecApptBookingTimeComboBox.Items.IndexOf(selectedValue);
+                RecApptBookingTimeComboBox.SelectedIndex = selectedIndex;
+            }
+            else
+            {
+                RecApptChosenBookingTimeComboBox.SelectedIndex = 0;
+                MessageBox.Show("Unavailable time slot", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
+
+        private void RecApptBookingTimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndex = RecApptChosenBookingTimeComboBox.SelectedIndex;
+            RecApptBookingTimeComboBox.SelectedIndex = selectedIndex;
+        }
     }
 }
