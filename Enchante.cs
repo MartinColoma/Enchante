@@ -183,7 +183,6 @@ namespace Enchante
             MngrProductSalesSelectCatBox.Items.Add("Spa");
             MngrProductSalesSelectCatBox.Items.Add("All Categories");
 
-            RecApptChosenBookingTimeComboBox.SelectedIndex = 0;
 
             //InitializeAvailableStaffFlowLayout();
 
@@ -897,6 +896,7 @@ namespace Enchante
                 RecIDNumLbl.Text = "RT-0000-0000";
                 InitializeProducts();
                 logincredclear();
+                InitializeAppointmentDataGrid();
                 return;
             }
             else if (LoginEmailAddText.Text != "Recept" && LoginPassText.Text == "Recept123")
@@ -1204,6 +1204,7 @@ namespace Enchante
                                         InitializeProducts();
                                         ReceptionHomePanelReset();
                                         logincredclear();
+                                        InitializeAppointmentDataGrid();
 
                                     }
                                     else
@@ -10064,7 +10065,6 @@ namespace Enchante
             RecApptBookingTimeComboBox.Items.AddRange(bookingTimes);
             RecApptBookingTimeComboBox.SelectedIndex = 0;
             RecApptBookingDatePicker_ValueChanged(sender, e);
-            RecApptChosenBookingTimeComboBox_SelectedIndexChanged(sender, e);
             RecApptHairStyle();
         }
 
@@ -10081,7 +10081,6 @@ namespace Enchante
             RecApptBookingTimeComboBox.Items.AddRange(bookingTimes);
             RecApptBookingTimeComboBox.SelectedIndex = 0;
             RecApptBookingDatePicker_ValueChanged(sender, e);
-            RecApptChosenBookingTimeComboBox_SelectedIndexChanged(sender, e);
             RecApptFace();
         }
 
@@ -10098,7 +10097,6 @@ namespace Enchante
             RecApptBookingTimeComboBox.Items.AddRange(bookingTimes);
             RecApptBookingTimeComboBox.SelectedIndex = 0;
             RecApptBookingDatePicker_ValueChanged(sender, e);
-            RecApptChosenBookingTimeComboBox_SelectedIndexChanged(sender, e);
             RecApptNail();
         }
 
@@ -10115,7 +10113,6 @@ namespace Enchante
             RecApptBookingTimeComboBox.Items.AddRange(bookingTimes);
             RecApptBookingTimeComboBox.SelectedIndex = 0;
             RecApptBookingDatePicker_ValueChanged(sender, e);
-            RecApptChosenBookingTimeComboBox_SelectedIndexChanged(sender, e);
             RecApptSpa();
         }
 
@@ -10132,7 +10129,6 @@ namespace Enchante
             RecApptBookingTimeComboBox.Items.AddRange(bookingTimes);
             RecApptBookingTimeComboBox.SelectedIndex = 0;
             RecApptBookingDatePicker_ValueChanged(sender, e);
-            RecApptChosenBookingTimeComboBox_SelectedIndexChanged(sender, e);
             RecApptMassage();
         }
         private void RecApptHairStyle()
@@ -10554,7 +10550,7 @@ namespace Enchante
                 // Add the row
                 DataGridViewRow NewSelectedServiceRow = RecApptSelectedServiceDGV.Rows[RecApptSelectedServiceDGV.Rows.Add()];
 
-                string appointmentDate = DateTime.Now.ToString("MM-dd-yyyy dddd");
+                string appointmentDate = RecApptBookingDatePicker.Value.ToString("MM-dd-yyyy dddd");
                 string serviceCategory = SelectedCategory;
                 int latestprioritynumber = GetLargestPriorityNum(appointmentDate, serviceCategory);
 
@@ -10565,8 +10561,6 @@ namespace Enchante
                 NewSelectedServiceRow.Cells["RecApptPriorityNumber"].Value = latestprioritynumber;
                 NewSelectedServiceRow.Cells["RecApptStaffSelected"].Value = selectedStaffID;
                 QueTypeIdentifier(NewSelectedServiceRow.Cells["RecApptQueType"]);
-                RecApptChosenBookingTimeComboBox.Enabled = false;
-
 
                 RecApptServiceTypeDGV.ClearSelection();
 
@@ -10809,6 +10803,7 @@ namespace Enchante
             DateTime currentDate = DateTime.Today;
             string serviceStatus = "Pending";
             string transactType = "Walk-in Appointment";
+            string appointmentStatus = "Unconfirmed";
 
             //basic info
             string CustomerName = RecApptFNameText.Text + " " + RecApptLNameText.Text; //client name
@@ -10827,9 +10822,9 @@ namespace Enchante
                 using (MySqlConnection connection = new MySqlConnection(mysqlconn))
                 {
                     connection.Open();
-                    string insertQuery = "INSERT INTO appointment (TransactionNumber, TransactionType, ServiceStatus, AppointmentDate, AppointmentTime, " +
+                    string insertQuery = "INSERT INTO appointment (TransactionNumber, TransactionType, ServiceStatus, AppointmentDate, AppointmentTime, AppointmentStatus, " +
                                         "ClientName, ClientCPNum, ServiceDuration, BookedBy, BookedDate, BookedTime)" +
-                                        "VALUES (@Transact, @TransactType, @status, @appointDate, @appointTime, @clientName, @clientCP, @duration, @bookedBy, @bookedDate, @bookedTime)";
+                                        "VALUES (@Transact, @TransactType, @status, @appointDate, @appointTime, @appointStatus, @clientName, @clientCP, @duration, @bookedBy, @bookedDate, @bookedTime)";
 
                     MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
                     cmd.Parameters.AddWithValue("@Transact", transactionNum);
@@ -10837,6 +10832,7 @@ namespace Enchante
                     cmd.Parameters.AddWithValue("@status", serviceStatus);
                     cmd.Parameters.AddWithValue("@appointDate", appointmentbookedDate);
                     cmd.Parameters.AddWithValue("@appointTime", appointmentbookedTime);
+                    cmd.Parameters.AddWithValue("@appointStatus", appointmentStatus);
                     cmd.Parameters.AddWithValue("@clientName", CustomerName);
                     cmd.Parameters.AddWithValue("@clientCP", CustomerMobileNumber);
                     cmd.Parameters.AddWithValue("@duration", "00:00:00");
@@ -10847,7 +10843,6 @@ namespace Enchante
 
                     cmd.ExecuteNonQuery();
                 }
-
                 MessageBox.Show("Service successfully booked.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Transaction.PanelShow(RecTransactionPanel);
                 //RecWalkinServiceHistoryDB();
@@ -10872,7 +10867,7 @@ namespace Enchante
 
                 using (MySqlCommand command = connection.CreateCommand())
                 {
-                    string query = "SELECT MAX(CAST(PriorityNumber AS UNSIGNED)) FROM servicehistory WHERE AppointmentDate = @AppointmentDate AND ServiceCategory = @ServiceCategory AND (QueType = 'AnyonePriority' OR QueType = 'PreferredPriority')";
+                    string query = "SELECT MAX(CAST(PriorityNumber AS UNSIGNED)) FROM servicehistory WHERE AppointmentDate = @AppointmentDate AND ServiceCategory = @ServiceCategory";
                     command.CommandText = query;
 
                     command.Parameters.AddWithValue("@AppointmentDate", appointmentDate);
@@ -10894,6 +10889,8 @@ namespace Enchante
                 }
             }
         }
+
+
 
         private void RecApptTransactNumRefresh()
         {
@@ -10960,31 +10957,144 @@ namespace Enchante
             return matchingTimes;
         }
 
-        private void RecApptChosenBookingTimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selectedValue = RecApptChosenBookingTimeComboBox.SelectedItem?.ToString();
+        
 
-            if (selectedValue == null)
+        public void InitializeAppointmentDataGrid()
+        {
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
             {
-                return;
+                connection.Open();
+
+                string query = "SELECT TransactionNumber AS TransactionID FROM appointment WHERE ServiceStatus = 'Pending' AND AppointmentStatus = 'Unconfirmed'";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count > 0)
+                {
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        RecApptAcceptLateDeclineDGV.Rows.Add(row["TransactionID"]);
+                    }
+                }
             }
-            if (RecApptBookingTimeComboBox.Items.Contains(selectedValue))
+        }
+
+        private void RecAcceptApptTransactionBtn_Click(object sender, EventArgs e)
+        {
+            if (RecApptAcceptLateDeclineDGV.SelectedRows.Count > 0)
             {
-                int selectedIndex = RecApptBookingTimeComboBox.Items.IndexOf(selectedValue);
-                RecApptBookingTimeComboBox.SelectedIndex = selectedIndex;
+                string transactionID = RecApptAcceptLateDeclineDGV.SelectedRows[0].Cells["TransactionID"].Value.ToString();
+
+                DateTime currentDate = DateTime.Now;
+
+                string appointmentTime = string.Empty;
+                string serviceCategory = string.Empty;
+                string queType = string.Empty;
+
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    string query = $"SELECT AppointmentTime, ServiceCategory, QueType FROM servicehistory WHERE TransactionNumber = '{transactionID}' AND ServiceStatus = 'Pending'";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        appointmentTime = reader["AppointmentTime"].ToString();
+                        serviceCategory = reader["ServiceCategory"].ToString();
+                        queType = reader["QueType"].ToString();
+                    }
+
+                    reader.Close();
+
+                    if (!string.IsNullOrEmpty(appointmentTime))
+                    {
+                        DateTime appointmentDateTime;
+
+                        if (DateTime.TryParse(appointmentTime, out appointmentDateTime))
+                        {
+                            if (appointmentDateTime < currentDate)
+                            {
+                                if (queType == "AnyonePriority")
+                                {
+                                    string updateQuery = $"UPDATE servicehistory SET QueType = 'Anyone' WHERE TransactionNumber = '{transactionID}' AND ServiceStatus = 'Pending'";
+                                    ExecuteQuery(updateQuery);
+                                }
+                                else if (queType == "PreferredPriority")
+                                {
+                                    string updateQuery = $"UPDATE servicehistory SET QueType = 'Preferred' WHERE TransactionNumber= '{transactionID}' AND ServiceStatus = 'Pending'";
+                                    ExecuteQuery(updateQuery);
+                                }
+
+                                int queNumber = GetLargestQueNumberFromDatabase(serviceCategory);
+                                queNumber++;
+                                string updateQueNumberQuery = $"UPDATE servicehistory SET QueNumber = {queNumber} WHERE TransactionNumber = '{transactionID}' AND ServiceStatus = 'Pending' AND ServiceCategory = '{serviceCategory}'";
+                                ExecuteQuery(updateQueNumberQuery);
+                                MessageBox.Show("Appointment Accepted");
+
+                                string updateAppointmentStatusQuery = $"UPDATE appointment SET AppointmentStatus = 'Confirmed' WHERE TransactionNumber = '{transactionID}'";
+                                ExecuteQuery(updateAppointmentStatusQuery);
+
+                                RecApptAcceptLateDeclineDGV.Rows.Clear();
+                                InitializeAppointmentDataGrid();
+                            }
+                            else
+                            {
+                                int queNumber = GetLargestQueNumberFromDatabase(serviceCategory);
+                                queNumber++;
+                                string updateQueNumberQuery = $"UPDATE servicehistory SET QueNumber = {queNumber} WHERE TransactionNumber = '{transactionID}' AND ServiceStatus = 'Pending' AND ServiceCategory = '{serviceCategory}'";
+                                ExecuteQuery(updateQueNumberQuery);
+                                MessageBox.Show("Appointment Accepted");
+
+                                string updateAppointmentStatusQuery = $"UPDATE appointment SET AppointmentStatus = 'Confirmed' WHERE TransactionNumber = '{transactionID}'";
+                                ExecuteQuery(updateAppointmentStatusQuery);
+
+                                RecApptAcceptLateDeclineDGV.Rows.Clear();
+                                InitializeAppointmentDataGrid();
+                            }
+                        }
+                    }
+                }
             }
             else
             {
-                RecApptChosenBookingTimeComboBox.SelectedIndex = 0;
-                MessageBox.Show("Unavailable time slot", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select a transaction number.");
             }
-            
         }
 
-        private void RecApptBookingTimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private int GetLargestQueNumberFromDatabase(string serviceCategory)
         {
-            int selectedIndex = RecApptChosenBookingTimeComboBox.SelectedIndex;
-            RecApptBookingTimeComboBox.SelectedIndex = selectedIndex;
+            int largestQueNumber = 0;
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string query = $"SELECT MAX(QueNumber) FROM servicehistory WHERE ServiceCategory = '{serviceCategory}'";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                object result = command.ExecuteScalar();
+
+                if (result != null && !DBNull.Value.Equals(result))
+                {
+                    int.TryParse(result.ToString(), out largestQueNumber);
+                }
+            }
+
+            return largestQueNumber;
+        }
+
+        private void ExecuteQuery(string query)
+        {
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.ExecuteNonQuery();
+            }
         }
     }
 }
