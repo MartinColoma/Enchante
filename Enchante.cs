@@ -104,15 +104,16 @@ namespace Enchante
 
             //Rec Walkin Buy Products
             RecWalkinSelectedProdView();
+            RecShopProdSelectedProdView();
 
             //Landing Pages Cardlayout Panel Manager
             ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteReceptionPage, EnchanteMemberPage, EnchanteAdminPage, EnchanteMngrPage);
             Registration = new Registration(MembershipPlanPanel, RegularPlanPanel, PremiumPlanPanel, SVIPPlanPanel);
             Service = new ServiceCard(ServiceType, ServiceHairStyling, ServiceFaceSkin, ServiceNailCare, ServiceSpa, ServiceMassage);
-            Transaction = new ReceptionTransactionCard(RecTransactionPanel, RecWalkinPanel, RecApptPanel, RecPayServicePanel, RecQueWinPanel);
+            Transaction = new ReceptionTransactionCard(RecTransactionPanel, RecWalkinPanel, RecApptPanel, RecPayServicePanel, RecQueWinPanel, RecShopProdPanel, RecApptConfirmPanel);
             Inventory = new MngrInventoryCard(MngrInventoryTypePanel, MngrServicesPanel, MngrServiceHistoryPanel, MngrInventoryMembershipPanel,
                                             MngrInventoryProductsPanel, MngrInventoryProductHistoryPanel, MngrSchedPanel, MngrWalkinSalesPanel, MngrIndemandPanel, MngrWalkinProdSalesPanel);
-
+            
 
 
             //icon tool tip
@@ -447,6 +448,50 @@ namespace Enchante
             DataGridViewTextBoxColumn itemCostColumn = new DataGridViewTextBoxColumn();
             itemCostColumn.Name = "Total Price";
             RecWalkinSelectedProdDGV.Columns.Add(itemCostColumn);
+
+        }
+
+        private void RecShopProdSelectedProdView()
+        {
+            DataGridViewButtonColumn trashColumn = new DataGridViewButtonColumn();
+            trashColumn.Name = "Void";
+            trashColumn.Text = "x";
+            trashColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            trashColumn.Width = 10;
+            RecShopProdSelectedProdDGV.Columns.Add(trashColumn);
+
+            DataGridViewTextBoxColumn itemNameColumn = new DataGridViewTextBoxColumn();
+            itemNameColumn.Name = "Item Name";
+            //itemNameColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            RecShopProdSelectedProdDGV.Columns.Add(itemNameColumn);
+
+            DataGridViewButtonColumn minusColumn = new DataGridViewButtonColumn();
+            minusColumn.Name = "-";
+            minusColumn.Text = "-";
+            minusColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            minusColumn.Width = 10;
+            RecShopProdSelectedProdDGV.Columns.Add(minusColumn);
+
+            DataGridViewTextBoxColumn quantityColumn = new DataGridViewTextBoxColumn();
+            quantityColumn.Name = "Qty";
+            quantityColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            quantityColumn.Width = 15;
+            RecShopProdSelectedProdDGV.Columns.Add(quantityColumn);
+
+            DataGridViewButtonColumn plusColumn = new DataGridViewButtonColumn();
+            plusColumn.Name = "+";
+            plusColumn.Text = "+";
+            plusColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            plusColumn.Width = 10;
+            RecShopProdSelectedProdDGV.Columns.Add(plusColumn);
+
+            DataGridViewTextBoxColumn itemUnitCostColumn = new DataGridViewTextBoxColumn();
+            itemUnitCostColumn.Name = "Unit Price";
+            RecShopProdSelectedProdDGV.Columns.Add(itemUnitCostColumn);
+
+            DataGridViewTextBoxColumn itemCostColumn = new DataGridViewTextBoxColumn();
+            itemCostColumn.Name = "Total Price";
+            RecShopProdSelectedProdDGV.Columns.Add(itemCostColumn);
 
         }
         #endregion
@@ -2847,6 +2892,29 @@ namespace Enchante
 
                 return ordersessionNumber;
             }
+            public static string ShopProdGenerateTransNumberDefault()
+            {
+                string datePart = DateTime.Now.ToString("MMddhhmm");
+
+                string orderPart = transactNumber.ToString("D3");
+
+                string ordersessionNumber = $"RP-{datePart}-{orderPart}";
+
+                return ordersessionNumber;
+            }
+            public static string ShopProdGenerateTransNumberInc()
+            {
+                string datePart = DateTime.Now.ToString("MMddhhmm");
+
+                // Use only the order number
+                string orderPart = transactNumber.ToString("D3");
+
+                // Increment the order number for the next order
+                transactNumber++;
+                string ordersessionNumber = $"RP-{datePart}-{orderPart}";
+
+                return ordersessionNumber;
+            }
         }
 
         private void RecWalkinTransactNumRefresh()
@@ -2886,18 +2954,6 @@ namespace Enchante
         }
         private void RecWalkInCatHSBtn_Click(object sender, EventArgs e)
         {
-            //if (!IsPrefferredTimeSchedComboBoxModified && RecAppPrefferedTimePMComboBox.SelectedIndex == 0 && RecAppPrefferedTimeAMComboBox.SelectedIndex == 0)
-            //{
-            //    return;
-            //}
-            //if (RecAppPrefferedTimePMComboBox.SelectedIndex == 0 && RecAppPrefferedTimeAMComboBox.SelectedIndex == 0)
-            //{
-            //    MessageBox.Show("Please Select a prefferred time first");
-            //}
-            //else
-            //{
-            //    FilterAvailableStaffInRecFlowLayoutPanelByHairStyling();
-            //}
             filterstaffbyservicecategory = "Hair Styling";
             haschosenacategory = true;
             if (RecWalkinPreferredStaffToggleSwitch.Checked == true)
@@ -2911,18 +2967,6 @@ namespace Enchante
 
         private void RecWalkInCatFSBtn_Click(object sender, EventArgs e)
         {
-            //if (!IsPrefferredTimeSchedComboBoxModified && RecAppPrefferedTimePMComboBox.SelectedIndex == 0 && RecAppPrefferedTimeAMComboBox.SelectedIndex == 0)
-            //{
-            //    return;
-            //}
-            //if (RecAppPrefferedTimePMComboBox.SelectedIndex == 0 && RecAppPrefferedTimeAMComboBox.SelectedIndex == 0)
-            //{
-            //    MessageBox.Show("Please Select a prefferred time first");
-            //}
-            //else
-            //{
-            //    FilterAvailableStaffInRecFlowLayoutPanelByFaceandSkin();
-            //}
             filterstaffbyservicecategory = "Face & Skin";
             haschosenacategory = true;
             if (RecWalkinPreferredStaffToggleSwitch.Checked == true)
@@ -2937,18 +2981,6 @@ namespace Enchante
 
         private void RecWalkInCatNCBtn_Click(object sender, EventArgs e)
         {
-            //if (!IsPrefferredTimeSchedComboBoxModified && RecAppPrefferedTimePMComboBox.SelectedIndex == 0 && RecAppPrefferedTimeAMComboBox.SelectedIndex == 0)
-            //{
-            //    return;
-            //}
-            //if (RecAppPrefferedTimePMComboBox.SelectedIndex == 0 && RecAppPrefferedTimeAMComboBox.SelectedIndex == 0)
-            //{
-            //    MessageBox.Show("Please Select a prefferred time first");
-            //}
-            //else
-            //{
-            //    FilterAvailableStaffInRecFlowLayoutPanelByNailCare();
-            //}
             filterstaffbyservicecategory = "Nail Care";
             haschosenacategory = true;
             if (RecWalkinPreferredStaffToggleSwitch.Checked == true)
@@ -2962,18 +2994,6 @@ namespace Enchante
 
         private void RecWalkInCatSpaBtn_Click(object sender, EventArgs e)
         {
-            //if (!IsPrefferredTimeSchedComboBoxModified && RecAppPrefferedTimePMComboBox.SelectedIndex == 0 && RecAppPrefferedTimeAMComboBox.SelectedIndex == 0)
-            //{
-            //    return;
-            //}
-            //if (RecAppPrefferedTimePMComboBox.SelectedIndex == 0 && RecAppPrefferedTimeAMComboBox.SelectedIndex == 0)
-            //{
-            //    MessageBox.Show("Please Select a prefferred time first");
-            //}
-            //else
-            //{
-            //    FilterAvailableStaffInRecFlowLayoutPanelBySpa();
-            //}
             filterstaffbyservicecategory = "Spa";
             haschosenacategory = true;
             if (RecWalkinPreferredStaffToggleSwitch.Checked == true)
@@ -2987,18 +3007,6 @@ namespace Enchante
 
         private void RecWalkInCatMassageBtn_Click(object sender, EventArgs e)
         {
-            //if (!IsPrefferredTimeSchedComboBoxModified && RecAppPrefferedTimePMComboBox.SelectedIndex == 0 && RecAppPrefferedTimeAMComboBox.SelectedIndex == 0)
-            //{
-            //    return;
-            //}
-            //if (RecAppPrefferedTimePMComboBox.SelectedIndex == 0 && RecAppPrefferedTimeAMComboBox.SelectedIndex == 0)
-            //{
-            //    MessageBox.Show("Please Select a prefferred time first");
-            //}
-            //else
-            //{
-            //    FilterAvailableStaffInRecFlowLayoutPanelByMassage();
-            //}
             filterstaffbyservicecategory = "Massage";
             haschosenacategory = true;
             if (RecWalkinPreferredStaffToggleSwitch.Checked == true)
@@ -4133,7 +4141,7 @@ namespace Enchante
         // Receptionist Buy Products
         #region
 
-        private void ProductUserControl_Click(object sender, EventArgs e)
+        private void RecWalkinProductUserControl_Click(object sender, EventArgs e)
         {
             ProductUserControl clickedControl = sender as ProductUserControl;
             if (clickedControl != null)
@@ -4194,6 +4202,67 @@ namespace Enchante
                 }
             }
         }
+        private void RecShopProdProductUserControl_Click(object sender, EventArgs e)
+        {
+            ProductUserControl clickedControl = sender as ProductUserControl;
+            if (clickedControl != null)
+            {
+                string itemID = clickedControl.ProductItemIDTextBox.Text;
+                string itemName = clickedControl.ProductNameTextBox.Text;
+                string itemPrice = clickedControl.ProductPriceTextBox.Text;
+
+                bool itemExists = false;
+
+
+
+                int existingRowIndex = 0;
+
+                // Check if the item already exists in the order
+                foreach (DataGridViewRow row in RecShopProdSelectedProdDGV.Rows)
+                {
+                    if (row.Cells["Item Name"].Value != null && row.Cells["Item Name"].Value.ToString() == itemName)
+                    {
+                        itemExists = true;
+                        existingRowIndex = row.Index;
+                        break;
+                    }
+                }
+
+                if (itemExists)
+                {
+                    // The item already exists, increment quantity and update price
+                    string quantityString = RecShopProdSelectedProdDGV.Rows[existingRowIndex].Cells["Qty"].Value?.ToString();
+                    if (!string.IsNullOrEmpty(quantityString) && int.TryParse(quantityString, out int quantity))
+                    {
+                        decimal itemCost = decimal.Parse(RecShopProdSelectedProdDGV.Rows[existingRowIndex].Cells["Total Price"].Value?.ToString());
+
+                        // Calculate the cost per item
+                        decimal costPerItem = itemCost / quantity;
+
+                        // Increase quantity
+                        quantity++;
+
+                        // Calculate updated item cost
+                        decimal updatedCost = costPerItem * quantity;
+
+                        // Update Qty and ItemCost in the DataGridView
+                        RecShopProdSelectedProdDGV.Rows[existingRowIndex].Cells["Qty"].Value = quantity.ToString();
+                        RecShopProdSelectedProdDGV.Rows[existingRowIndex].Cells["Total Price"].Value = updatedCost.ToString("F2"); // Format to two decimal places
+                    }
+
+                    else
+                    {
+                        // Handle the case where quantityString is empty or not a valid integer
+                        // For example, show an error message or set a default value
+                    }
+                }
+                else
+                {
+                    RecShopProdSelectedProdDGV.Rows.Add(itemID, "x", itemName, "-", "1", "+", itemPrice, itemPrice);
+
+                }
+            }
+        }
 
         public void InitializeProducts()
         {
@@ -4214,23 +4283,35 @@ namespace Enchante
                     string itemStatus = reader["ItemStatus"].ToString();
                     byte[] productPicture = (byte[])reader["ProductPicture"];
 
-                    ProductUserControl productusercontrol = new ProductUserControl();
+                    ProductUserControl recwalkinproductusercontrol = new ProductUserControl();
+                    ProductUserControl recshopproductusercontrol = new ProductUserControl();
 
-                    productusercontrol.ProductItemIDTextBox.Text = itemID;
-                    productusercontrol.ProductNameTextBox.Text = itemName;
-                    productusercontrol.ProductStockTextBox.Text = itemStock;
-                    productusercontrol.ProductPriceTextBox.Text = itemPrice;
-                    productusercontrol.ProductStatusTextBox.Text = itemStatus;
+                    //recwalkin product
+                    recwalkinproductusercontrol.ProductItemIDTextBox.Text = itemID;
+                    recwalkinproductusercontrol.ProductNameTextBox.Text = itemName;
+                    recwalkinproductusercontrol.ProductStockTextBox.Text = itemStock;
+                    recwalkinproductusercontrol.ProductPriceTextBox.Text = itemPrice;
+                    recwalkinproductusercontrol.ProductStatusTextBox.Text = itemStatus;
+                    //recshop product
+                    recshopproductusercontrol.ProductItemIDTextBox.Text = itemID;
+                    recshopproductusercontrol.ProductNameTextBox.Text = itemName;
+                    recshopproductusercontrol.ProductStockTextBox.Text = itemStock;
+                    recshopproductusercontrol.ProductPriceTextBox.Text = itemPrice;
+                    recshopproductusercontrol.ProductStatusTextBox.Text = itemStatus;
 
                     if (itemStatus == "Low Stock")
                     {
-                        productusercontrol.ProductOutOfStockPictureBox.Visible = true;
-                        productusercontrol.Enabled = false;
+                        recwalkinproductusercontrol.ProductOutOfStockPictureBox.Visible = true;
+                        recwalkinproductusercontrol.Enabled = false;
+                        recshopproductusercontrol.ProductOutOfStockPictureBox.Visible = true;
+                        recshopproductusercontrol.Enabled = false;
                     }
                     else
                     {
-                        productusercontrol.ProductOutOfStockPictureBox.Visible = false;
-                        productusercontrol.Enabled = true;
+                        recwalkinproductusercontrol.ProductOutOfStockPictureBox.Visible = false;
+                        recwalkinproductusercontrol.Enabled = true;
+                        recshopproductusercontrol.ProductOutOfStockPictureBox.Visible = false;
+                        recshopproductusercontrol.Enabled = true;
                     }
 
                     if (productPicture != null && productPicture.Length > 0)
@@ -4238,31 +4319,45 @@ namespace Enchante
                         using (MemoryStream ms = new MemoryStream(productPicture))
                         {
                             System.Drawing.Image image = System.Drawing.Image.FromStream(ms);
-                            productusercontrol.ProductPicturePictureBox.Image = image;
+                            recwalkinproductusercontrol.ProductPicturePictureBox.Image = image;
+                            System.Drawing.Image image1 = System.Drawing.Image.FromStream(ms);
+                            recshopproductusercontrol.ProductPicturePictureBox.Image = image1;
                         }
                     }
                     else
                     {
-                        productusercontrol.ProductPicturePictureBox.Image = null;
+                        recwalkinproductusercontrol.ProductPicturePictureBox.Image = null;
+                        recshopproductusercontrol.ProductPicturePictureBox.Image = null;
+
                     }
 
-                    foreach (System.Windows.Forms.Control control in productusercontrol.Controls)
+                    foreach (System.Windows.Forms.Control control in recwalkinproductusercontrol.Controls)
                     {
-                        control.Click += ProductControlElement_Click;
+                        control.Click += RecWalkinProductControlElement_Click;
+                    }
+                    foreach (System.Windows.Forms.Control control1 in recshopproductusercontrol.Controls)
+                    {
+                        control1.Click += RecShopProductControlElement_Click;
                     }
 
-                    productusercontrol.Click += ProductUserControl_Click;
+                    recwalkinproductusercontrol.Click += RecWalkinProductUserControl_Click;
+                    recshopproductusercontrol.Click += RecShopProdProductUserControl_Click;
 
-                    ProductFlowLayoutPanel.Controls.Add(productusercontrol);
+                    RecWalkinProductFlowLayoutPanel.Controls.Add(recwalkinproductusercontrol);
+                    RecShopProdProductFlowLayoutPanel.Controls.Add(recshopproductusercontrol);
                 }
                 reader.Close();
             }
 
         }
 
-        private void ProductControlElement_Click(object sender, EventArgs e)
+        private void RecWalkinProductControlElement_Click(object sender, EventArgs e)
         {
-            ProductUserControl_Click((ProductUserControl)((System.Windows.Forms.Control)sender).Parent, e);
+            RecWalkinProductUserControl_Click((ProductUserControl)((System.Windows.Forms.Control)sender).Parent, e);
+        }
+        private void RecShopProductControlElement_Click(object sender, EventArgs e)
+        {
+            RecShopProdProductUserControl_Click((ProductUserControl)((System.Windows.Forms.Control)sender).Parent, e);
         }
 
         private void ProductUserControl_ProductClicked(object sender, EventArgs e)
@@ -4599,40 +4694,40 @@ namespace Enchante
             string Cashiertoday = cashierrcurrentDate.ToString("MM-dd-yyyy dddd hh:mm tt");
             RecDateTimeText.Text = Cashiertoday;
         }
-        private bool discountApplied = false; // Flag to track if the discount has been applied
         private decimal originalGrossAmount; // Store the original value
 
         private void RecWalkinDiscountSenior_CheckedChanged(object sender, EventArgs e)
         {
             if (decimal.TryParse(RecPayServiceGrossAmountBox.Text, out decimal grossAmount))
             {
-                if (RecPayServiceDiscountSenior.Checked && !discountApplied)
+                if (RecPayServiceDiscountSenior.Checked)
                 {
                     // Apply the 20% discount if the checkbox is checked and the discount hasn't been applied before
                     originalGrossAmount = grossAmount; // Store the original value
                     decimal discountPercentage = 20m;
                     decimal discountAmount = grossAmount * (discountPercentage / 100); // Calculate the discount amount
                     decimal discountedAmount = grossAmount - discountAmount; // Subtract the discount amount
+                    decimal vatAmount = 0;
                     RecPayServiceGrossAmountBox.Text = discountedAmount.ToString("0.00"); // Format to display as currency
-                    discountApplied = true; // Set the flag to indicate that the discount has been applied
+                    RecPayServiceNetAmountBox.Text = discountedAmount.ToString("0.00"); // Format to display as currency
                     RecWalkinDiscountBox.Text = discountAmount.ToString("0.00"); // Display the discount amount
-                    ReceptionCalculateVATExemption();
-
-                }
-                else if (!RecPayServiceDiscountSenior.Checked && discountApplied)
-                {
-                    // Unchecked, set MngrGrossAmount to the original value if the discount has been applied before
-                    RecPayServiceGrossAmountBox.Text = originalGrossAmount.ToString("0.00");
-                    discountApplied = false; // Reset the flag
-                    RecWalkinDiscountBox.Text = "0.00"; // Reset the discount amount display
+                    RecPayServiceVATBox.Text = vatAmount.ToString("0.00");
+                    RecPayServiceDiscountPWD.Checked = false;
+                    RecPayServiceVATExemptChk.Checked = true;
+                    RecPayServiceVATExemptChk.Enabled = false;
+                    return;
                 }
                 else
                 {
-                    // If the checkbox is checked but the discount has already been applied, update the discount amount display
-                    decimal discountPercentage = 20m;
-                    decimal discountAmount = originalGrossAmount * (discountPercentage / 100);
-                    RecWalkinDiscountBox.Text = discountAmount.ToString("0.00");
+                    // Unchecked, set MngrGrossAmount to the original value if the discount has been applied before
+                    RecPayServiceGrossAmountBox.Text = originalGrossAmount.ToString("0.00");
+                    RecWalkinDiscountBox.Text = "0.00"; // Reset the discount amount display
+                    ReceptionCalculateVATAndNetAmount();
+                    RecPayServiceVATExemptChk.Checked = false;
+                    RecPayServiceVATExemptChk.Enabled = true;
+                    return;
                 }
+
             }
         }
 
@@ -4640,33 +4735,34 @@ namespace Enchante
         {
             if (decimal.TryParse(RecPayServiceGrossAmountBox.Text, out decimal grossAmount))
             {
-                if (RecPayServiceDiscountPWD.Checked && !discountApplied)
+                if (RecPayServiceDiscountPWD.Checked)
                 {
                     // Apply the 20% discount if the checkbox is checked and the discount hasn't been applied before
                     originalGrossAmount = grossAmount; // Store the original value
                     decimal discountPercentage = 20m;
                     decimal discountAmount = grossAmount * (discountPercentage / 100); // Calculate the discount amount
                     decimal discountedAmount = grossAmount - discountAmount; // Subtract the discount amount
+                    decimal vatAmount = 0;
                     RecPayServiceGrossAmountBox.Text = discountedAmount.ToString("0.00"); // Format to display as currency
-                    discountApplied = true; // Set the flag to indicate that the discount has been applied
+                    RecPayServiceNetAmountBox.Text = discountedAmount.ToString("0.00"); // Format to display as currency
                     RecWalkinDiscountBox.Text = discountAmount.ToString("0.00"); // Display the discount amount
-                    ReceptionCalculateVATExemption();
-
+                    RecPayServiceVATBox.Text = vatAmount.ToString("0.00");
+                    RecPayServiceDiscountSenior.Checked = false;
+                    RecPayServiceVATExemptChk.Checked = true;
+                    RecPayServiceVATExemptChk.Enabled = false; 
+                    return;
                 }
-                else if (!RecPayServiceDiscountPWD.Checked && discountApplied)
+                else 
                 {
                     // Unchecked, set MngrGrossAmount to the original value if the discount has been applied before
                     RecPayServiceGrossAmountBox.Text = originalGrossAmount.ToString("0.00");
-                    discountApplied = false; // Reset the flag
                     RecWalkinDiscountBox.Text = "0.00"; // Reset the discount amount display
+                    ReceptionCalculateVATAndNetAmount();
+                    RecPayServiceVATExemptChk.Checked = false;
+                    RecPayServiceVATExemptChk.Enabled = true;
+                    return;
                 }
-                else
-                {
-                    // If the checkbox is checked but the discount has already been applied, update the discount amount display
-                    decimal discountPercentage = 20m;
-                    decimal discountAmount = originalGrossAmount * (discountPercentage / 100);
-                    RecWalkinDiscountBox.Text = discountAmount.ToString("0.00");
-                }
+
             }
         }
 
@@ -5870,7 +5966,8 @@ namespace Enchante
 
                 // Display the calculated values in TextBoxes
                 RecPayServiceVATBox.Text = vatAmount.ToString("0.00");
-                RecPayServiceGrossAmountBox.Text = grossAmount.ToString("0.00");
+                RecPayServiceVATBox.Text = vatAmount.ToString("0.00");
+
             }
         }
         #endregion
@@ -6251,11 +6348,7 @@ namespace Enchante
 
         //Receptionsit Appointment
         #region
-        private void RecAppTransactNumRefresh()
-        {
-            RecApptTransNumText.Text = TransactionNumberGenerator.AppointGenerateTransNumberInc();
 
-        }
         private void RecApptPanelExitBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecTransactionPanel);
@@ -7372,6 +7465,11 @@ namespace Enchante
 
         #endregion
 
+
+        //Receptionist Shop Product 
+        #region
+
+        #endregion
 
         #endregion
         //Manager dashboard starts here
@@ -11109,12 +11207,156 @@ namespace Enchante
         {
 
         }
-        private void RecSelectedServiceDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void RecWalkinSelectedServiceDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //di ko alam kung ituloy ko pa
             //selected discount per service itey
+            //walkin itey pang discount ng selected service
+        }
+        private void RecApptConfirmBtn_Click(object sender, EventArgs e)
+        {
+            Transaction.PanelShow(RecApptConfirmPanel);
+        }
+        private void RecApptConfirmExitBtn_Click(object sender, EventArgs e)
+        {
+            Transaction.PanelShow(RecTransactionPanel);
+
+        }
+        private void RecShopProdBtn_Click(object sender, EventArgs e)
+        {
+            Transaction.PanelShow(RecShopProdPanel);
+            RecShopProdTransNumText.Text = TransactionNumberGenerator.ShopProdGenerateTransNumberDefault();
+
         }
 
+        private void RecShopProdExitBtn_Click(object sender, EventArgs e)
+        {
+            Transaction.PanelShow(RecTransactionPanel);
 
+        }
+        private void RecShopProdTransactNumRefresh()
+        {
+            RecShopProdTransNumText.Text = TransactionNumberGenerator.ShopProdGenerateTransNumberInc();
+        }
+
+        private void RecShopProdSelectedProdDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && RecShopProdSelectedProdDGV.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            {
+                // Handle the Bin column
+                if (RecShopProdSelectedProdDGV.Columns[e.ColumnIndex].Name == "Void")
+                {
+                    //input dialog messagebox
+                    string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Password Required");
+
+                    // Hash the entered password
+                    string hashedEnteredPassword = HashHelper.HashString(enteredPassword);
+                    DialogResult result;
+
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    {
+                        connection.Open();
+
+                        string query = "SELECT EmployeeType FROM systemusers WHERE HashedPass = @Password";
+                        using (MySqlCommand command = new MySqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@Password", hashedEnteredPassword);
+
+                            // Execute the query
+                            using (MySqlDataReader reader = command.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    string position = reader["EmployeeType"].ToString();
+                                    if (position == "Manager")
+                                    {
+                                        result = MessageBox.Show("Do you want to remove this item?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                                        if (result == DialogResult.Yes)
+                                        {
+                                            // Remove the selected row
+                                            RecShopProdSelectedProdDGV.Rows.RemoveAt(e.RowIndex);
+                                            MessageBox.Show("Item removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                        return;
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                }
+                else if (RecShopProdSelectedProdDGV.Columns[e.ColumnIndex].Name == "-")
+                {
+                    string quantityString = RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value?.ToString();
+                    if (!string.IsNullOrEmpty(quantityString) && int.TryParse(quantityString, out int quantity))
+                    {
+                        decimal itemCost = decimal.Parse(RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value?.ToString());
+
+                        // Calculate the cost per item
+                        decimal costPerItem = itemCost / quantity;
+
+                        // Decrease quantity
+                        if (quantity > 1)
+                        {
+                            quantity--;
+
+                            // Calculate updated item cost (reset to original price)
+                            decimal updatedCost = costPerItem * quantity;
+
+                            // Update Qty and ItemCost in the DataGridView
+                            RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value = quantity.ToString();
+                            RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = updatedCost.ToString("F2"); // Format to two decimal places
+
+                        }
+                    }
+                    else
+                    {
+                        // Handle the case where quantityString is empty or not a valid integer
+                        // For example, show an error message or set a default value
+                    }
+                }
+                else if (RecShopProdSelectedProdDGV.Columns[e.ColumnIndex].Name == "+")
+                {
+                    string quantityString = RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value?.ToString();
+                    if (!string.IsNullOrEmpty(quantityString) && int.TryParse(quantityString, out int quantity))
+                    {
+                        decimal itemCost = decimal.Parse(RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value?.ToString());
+
+                        // Calculate the cost per item
+                        decimal costPerItem = itemCost / quantity;
+
+                        // Increase quantity
+                        quantity++;
+
+                        // Calculate updated item cost
+                        decimal updatedCost = costPerItem * quantity;
+
+                        // Update Qty and ItemCost in the DataGridView
+                        RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value = quantity.ToString();
+                        RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = updatedCost.ToString("F2"); // Format to two decimal places
+
+                    }
+                    else
+                    {
+                        // Handle the case where quantityString is empty or not a valid integer
+                        // For example, show an error message or set a default value
+                    }
+                }
+            }
+        }
+
+        private void RecPayServiceDiscountSenior_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
