@@ -104,7 +104,7 @@ namespace Enchante
 
             //Rec Walkin Buy Products
             RecWalkinSelectedProdView();
-            RecShopProdSelectedProdView();
+            RecShopProdSelectedProdView();  
 
             //Landing Pages Cardlayout Panel Manager
             ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteReceptionPage, EnchanteMemberPage, EnchanteAdminPage, EnchanteMngrPage);
@@ -449,6 +449,7 @@ namespace Enchante
             itemCostColumn.Name = "Total Price";
             RecWalkinSelectedProdDGV.Columns.Add(itemCostColumn);
 
+
         }
 
         private void RecShopProdSelectedProdView()
@@ -462,7 +463,7 @@ namespace Enchante
 
             DataGridViewTextBoxColumn itemNameColumn = new DataGridViewTextBoxColumn();
             itemNameColumn.Name = "Item Name";
-            //itemNameColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            itemNameColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             RecShopProdSelectedProdDGV.Columns.Add(itemNameColumn);
 
             DataGridViewButtonColumn minusColumn = new DataGridViewButtonColumn();
@@ -492,6 +493,18 @@ namespace Enchante
             DataGridViewTextBoxColumn itemCostColumn = new DataGridViewTextBoxColumn();
             itemCostColumn.Name = "Total Price";
             RecShopProdSelectedProdDGV.Columns.Add(itemCostColumn);
+
+            //DataGridViewCheckBoxColumn itemDiscountBox = new DataGridViewCheckBoxColumn();
+            //itemDiscountBox.Name = "Selected Discount";
+            //itemDiscountBox.Width = 10;
+            //RecShopProdSelectedProdDGV.Columns.Add(itemDiscountBox);
+
+            DataGridViewCheckBoxColumn checkboxColumn = new DataGridViewCheckBoxColumn();
+            checkboxColumn.HeaderText = "Select";
+            checkboxColumn.Name = "CheckBoxColumn";
+            checkboxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            checkboxColumn.Width = 15;
+            RecShopProdSelectedProdDGV.Columns.Add(checkboxColumn);
 
         }
         #endregion
@@ -4197,7 +4210,7 @@ namespace Enchante
                 }
                 else
                 {
-                    RecWalkinSelectedProdDGV.Rows.Add(itemID, "x", itemName, "-", "1", "+", itemPrice, itemPrice);
+                    RecWalkinSelectedProdDGV.Rows.Add(itemID, "x", itemName, "-", "1", "+", itemPrice, itemPrice, false);
 
                 }
             }
@@ -4212,9 +4225,6 @@ namespace Enchante
                 string itemPrice = clickedControl.ProductPriceTextBox.Text;
 
                 bool itemExists = false;
-
-
-
                 int existingRowIndex = 0;
 
                 // Check if the item already exists in the order
@@ -4258,7 +4268,7 @@ namespace Enchante
                 }
                 else
                 {
-                    RecShopProdSelectedProdDGV.Rows.Add(itemID, "x", itemName, "-", "1", "+", itemPrice, itemPrice);
+                    RecShopProdSelectedProdDGV.Rows.Add(itemID, "x", itemName, "-", "1", "+", itemPrice, itemPrice, false);
 
                 }
             }
@@ -5052,18 +5062,21 @@ namespace Enchante
                         RecPayServiceAcquiredDGV.DataSource = dataTable;
 
                         RecPayServiceAcquiredDGV.Columns[0].Visible = false; //transact number
-                        RecPayServiceAcquiredDGV.Columns[2].Visible = false; //appointment date
-                        RecPayServiceAcquiredDGV.Columns[3].Visible = false; //appointment time
-                        RecPayServiceAcquiredDGV.Columns[4].Visible = false; //client name
-                        RecPayServiceAcquiredDGV.Columns[5].Visible = false; //service category
-                        RecPayServiceAcquiredDGV.Columns[7].Visible = false; //service ID
-                        RecPayServiceAcquiredDGV.Columns[10].Visible = false; //service start
-                        RecPayServiceAcquiredDGV.Columns[11].Visible = false; //service end
-                        RecPayServiceAcquiredDGV.Columns[12].Visible = false; //service duration
-                        RecPayServiceAcquiredDGV.Columns[13].Visible = false; //customization
-                        RecPayServiceAcquiredDGV.Columns[14].Visible = false; // add notes
-                        RecPayServiceAcquiredDGV.Columns[15].Visible = false; // preferred staff
-                        RecPayServiceAcquiredDGV.Columns[16].Visible = false; // preferred staff
+                        RecPayServiceAcquiredDGV.Columns[1].Visible = false; //transact type
+                        RecPayServiceAcquiredDGV.Columns[2].Visible = false; //service status
+                        RecPayServiceAcquiredDGV.Columns[3].Visible = false; //appointment date
+                        RecPayServiceAcquiredDGV.Columns[4].Visible = false; //appointment time
+                        RecPayServiceAcquiredDGV.Columns[5].Visible = false; //client name
+                        RecPayServiceAcquiredDGV.Columns[6].Visible = false; //service category
+                        RecPayServiceAcquiredDGV.Columns[7].Visible = false; // attending staff
+                        RecPayServiceAcquiredDGV.Columns[8].Visible = false; //service ID
+                        RecPayServiceAcquiredDGV.Columns[11].Visible = false; //service start
+                        RecPayServiceAcquiredDGV.Columns[12].Visible = false; //service end 
+                        RecPayServiceAcquiredDGV.Columns[13].Visible = false; //service duration
+                        RecPayServiceAcquiredDGV.Columns[14].Visible = false; // preferred staff
+                        RecPayServiceAcquiredDGV.Columns[15].Visible = false; // que number
+                        RecPayServiceAcquiredDGV.Columns[16].Visible = false; // que type
+                        RecPayServiceAcquiredDGV.Columns[17].Visible = false; // prio number
 
                     }
                 }
@@ -7819,7 +7832,7 @@ namespace Enchante
                         catch (Exception ex)
                         {
                             // Handle any database-related errors here
-                            MessageBox.Show("Error: " + ex.Message);
+                            MessageBox.Show("Error: " + ex.Message, "Service Info Edit Failed");
                         }
                     }
 
@@ -8151,7 +8164,7 @@ namespace Enchante
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error: " + ex.Message, "Product Creation Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -8215,7 +8228,7 @@ namespace Enchante
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Error: " + ex.Message, "Product Information Retrieve Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -8383,7 +8396,7 @@ namespace Enchante
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error: " + ex.Message, "Product Information Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -8651,7 +8664,7 @@ namespace Enchante
         {
             if (string.IsNullOrEmpty(MngrWalkinSalesPeriod.Text))
             {
-                MessageBox.Show("Please select a sale period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select a sale period.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -8665,7 +8678,7 @@ namespace Enchante
                 case "Day":
                     if (!DateTime.TryParseExact(MngrWalkinSalesSelectedPeriodText.Text, "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDate))
                     {
-                        MessageBox.Show("Please choose a day in the calendar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Please choose a day in the calendar.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     toDate = fromDate;
@@ -8675,14 +8688,14 @@ namespace Enchante
                         !DateTime.TryParseExact(MngrWalkinSalesSelectedPeriodText.Text.Substring(0, 10), "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDate) ||
                         !DateTime.TryParseExact(MngrWalkinSalesSelectedPeriodText.Text.Substring(14), "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out toDate))
                     {
-                        MessageBox.Show("Please choose a week in the calendar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Please choose a week in the calendar.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     break;
                 case "Month":
                     if (!DateTime.TryParseExact(MngrWalkinSalesSelectedPeriodText.Text, "MMMM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDate))
                     {
-                        MessageBox.Show("Please choose a month in the calendar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Please choose a month in the calendar.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     toDate = fromDate.AddMonths(1).AddDays(-1);
@@ -8690,25 +8703,25 @@ namespace Enchante
                 case "Specific Date Range":
                     if (MngrWalkinSalesFromDatePicker.Value > MngrWalkinSalesToDatePicker.Value)
                     {
-                        MessageBox.Show("From Date cannot be ahead of To Date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("From Date cannot be ahead of To Date.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     if (MngrWalkinSalesFromDatePicker.Value.Date == MngrWalkinSalesToDatePicker.Value.Date)
                     {
-                        MessageBox.Show("From date and to date cannot be the same.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("From date and to date cannot be the same.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     fromDate = MngrWalkinSalesFromDatePicker.Value;
                     toDate = MngrWalkinSalesToDatePicker.Value;
                     break;
                 default:
-                    MessageBox.Show("Invalid SalePeriod selection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Invalid Sale Period selection.", "Walk-in Services Error Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
             }
 
             if (string.IsNullOrEmpty(selectedCategory))
             {
-                MessageBox.Show("Please select a category.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select a category.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -8855,7 +8868,7 @@ namespace Enchante
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message);
+                    MessageBox.Show("Error: " + ex.Message, "Walk-in Service Sales Graph Failed");
                 }
             }
         }
@@ -9321,7 +9334,7 @@ namespace Enchante
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: " + ex.Message, "In Demand Services Graph Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -9426,7 +9439,7 @@ namespace Enchante
                 case "Day":
                     if (string.IsNullOrEmpty(MngrProductSalesSelectedPeriodText.Text))
                     {
-                        MessageBox.Show("Please select a valid date for the day period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Please select a valid date for the day period.", "Walk-in Products Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     string inputValue = MngrProductSalesSelectedPeriodText.Text;
@@ -9438,7 +9451,7 @@ namespace Enchante
                 case "Week":
                     if (string.IsNullOrEmpty(MngrProductSalesSelectedPeriodText.Text))
                     {
-                        MessageBox.Show("Please select a date range for the week period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Please select a date range for the week period.", "Walk-in Products Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
@@ -9451,7 +9464,7 @@ namespace Enchante
                 case "Month":
                     if (string.IsNullOrEmpty(MngrProductSalesSelectedPeriodText.Text))
                     {
-                        MessageBox.Show("Please select a month for the month period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Please select a month for the month period.", "Walk-in Products Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
@@ -9466,13 +9479,13 @@ namespace Enchante
                 case "Specific Date Range":
                     if (MngrProductSalesFromDatePicker.Value > MngrProductSalesToDatePicker.Value)
                     {
-                        MessageBox.Show("Invalid date range. Please make sure the From date is before the To date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Invalid date range. Please make sure the From date is before the To date.", "Walk-in Products Invalid Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
                     if (MngrProductSalesFromDatePicker.Value.Date == MngrProductSalesToDatePicker.Value.Date)
                     {
-                        MessageBox.Show("From date and to date cannot be the same.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("From date and to date cannot be the same.", "Walk-in Products Invalid Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
@@ -9481,7 +9494,7 @@ namespace Enchante
                     break;
 
                 default:
-                    MessageBox.Show("Invalid selection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Invalid selection.", "Walk-in Products Invalid Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
             }
 
@@ -9506,7 +9519,7 @@ namespace Enchante
                     categoryPrefix = "";
                     break;
                 default:
-                    MessageBox.Show("Please select a category.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please select a category.", "Walk-in Products Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
             }
 
@@ -9546,7 +9559,7 @@ namespace Enchante
 
                 if (filteredData.Rows.Count == 0)
                 {
-                    MessageBox.Show("No data available for the selected date range.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No data available for the selected date range.", "Walk-in Products Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MngrProductSalesGraph.Series["Sales"].Points.Clear();
                     MngrProductSalesLineGraph.Series.Clear();
                     MngrProductSalesLineGraph.Legends.Clear();
@@ -9558,7 +9571,7 @@ namespace Enchante
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: " + ex.Message, "Walk-in Products Graph Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -10893,7 +10906,7 @@ namespace Enchante
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("An error occurred: " + ex.Message);
+                    MessageBox.Show("An error occurred: " + ex.Message);
                 }
             }
 
@@ -11241,122 +11254,179 @@ namespace Enchante
 
         private void RecShopProdSelectedProdDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && RecShopProdSelectedProdDGV.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            try
             {
-                // Handle the Bin column
-                if (RecShopProdSelectedProdDGV.Columns[e.ColumnIndex].Name == "Void")
+                if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && RecShopProdSelectedProdDGV.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
                 {
-                    //input dialog messagebox
-                    string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Password Required");
+                    DataGridView dgv = (DataGridView)sender;
 
-                    // Hash the entered password
-                    string hashedEnteredPassword = HashHelper.HashString(enteredPassword);
-                    DialogResult result;
-
-                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    if (dgv.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
                     {
-                        connection.Open();
-
-                        string query = "SELECT EmployeeType FROM systemusers WHERE HashedPass = @Password";
-                        using (MySqlCommand command = new MySqlCommand(query, connection))
+                        if (RecShopProdSelectedProdDGV.Columns[e.ColumnIndex].Name == "Void")
                         {
-                            command.Parameters.AddWithValue("@Password", hashedEnteredPassword);
+                            //input dialog messagebox
+                            string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Password Required");
 
-                            // Execute the query
-                            using (MySqlDataReader reader = command.ExecuteReader())
+                            // Hash the entered password
+                            string hashedEnteredPassword = HashHelper.HashString(enteredPassword);
+                            DialogResult result;
+
+                            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
                             {
-                                if (reader.Read())
-                                {
-                                    string position = reader["EmployeeType"].ToString();
-                                    if (position == "Manager")
-                                    {
-                                        result = MessageBox.Show("Do you want to remove this item?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                connection.Open();
 
-                                        if (result == DialogResult.Yes)
+                                string query = "SELECT EmployeeType FROM systemusers WHERE HashedPass = @Password";
+                                using (MySqlCommand command = new MySqlCommand(query, connection))
+                                {
+                                    command.Parameters.AddWithValue("@Password", hashedEnteredPassword);
+
+                                    // Execute the query
+                                    using (MySqlDataReader reader = command.ExecuteReader())
+                                    {
+                                        if (reader.Read())
                                         {
-                                            // Remove the selected row
-                                            RecShopProdSelectedProdDGV.Rows.RemoveAt(e.RowIndex);
-                                            MessageBox.Show("Item removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            string position = reader["EmployeeType"].ToString();
+                                            if (position == "Manager")
+                                            {
+                                                result = MessageBox.Show("Do you want to remove this item?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                                                if (result == DialogResult.Yes)
+                                                {
+                                                    // Remove the selected row
+                                                    RecShopProdSelectedProdDGV.Rows.RemoveAt(e.RowIndex);
+                                                    MessageBox.Show("Item removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                                return;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                            return;
                                         }
                                     }
-                                    else
-                                    {
-                                        MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                        return;
-                                    }
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                    return;
                                 }
                             }
                         }
-                    }
-                }
-                else if (RecShopProdSelectedProdDGV.Columns[e.ColumnIndex].Name == "-")
-                {
-                    string quantityString = RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value?.ToString();
-                    if (!string.IsNullOrEmpty(quantityString) && int.TryParse(quantityString, out int quantity))
-                    {
-                        decimal itemCost = decimal.Parse(RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value?.ToString());
-
-                        // Calculate the cost per item
-                        decimal costPerItem = itemCost / quantity;
-
-                        // Decrease quantity
-                        if (quantity > 1)
+                        else if (RecShopProdSelectedProdDGV.Columns[e.ColumnIndex].Name == "-")
                         {
-                            quantity--;
+                            string quantityString = RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value?.ToString();
+                            if (!string.IsNullOrEmpty(quantityString) && int.TryParse(quantityString, out int quantity))
+                            {
+                                decimal itemCost = decimal.Parse(RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value?.ToString());
 
-                            // Calculate updated item cost (reset to original price)
-                            decimal updatedCost = costPerItem * quantity;
+                                // Calculate the cost per item
+                                decimal costPerItem = itemCost / quantity;
 
-                            // Update Qty and ItemCost in the DataGridView
-                            RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value = quantity.ToString();
-                            RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = updatedCost.ToString("F2"); // Format to two decimal places
+                                // Decrease quantity
+                                if (quantity > 1)
+                                {
+                                    quantity--;
 
+                                    // Calculate updated item cost (reset to original price)
+                                    decimal updatedCost = costPerItem * quantity;
+
+                                    // Update Qty and ItemCost in the DataGridView
+                                    RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value = quantity.ToString();
+                                    RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = updatedCost.ToString("F2"); // Format to two decimal places
+
+                                }
+                            }
+                            else
+                            {
+                                // Handle the case where quantityString is empty or not a valid integer
+                                // For example, show an error message or set a default value
+                            }
+                        }
+                        else if (RecShopProdSelectedProdDGV.Columns[e.ColumnIndex].Name == "+")
+                        {
+                            string quantityString = RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value?.ToString();
+                            if (!string.IsNullOrEmpty(quantityString) && int.TryParse(quantityString, out int quantity))
+                            {
+                                decimal itemCost = decimal.Parse(RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value?.ToString());
+
+                                // Calculate the cost per item
+                                decimal costPerItem = itemCost / quantity;
+
+                                // Increase quantity
+                                quantity++;
+
+                                // Calculate updated item cost
+                                decimal updatedCost = costPerItem * quantity;
+
+                                // Update Qty and ItemCost in the DataGridView
+                                RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value = quantity.ToString();
+                                RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = updatedCost.ToString("F2"); // Format to two decimal places
+
+                            }
+                            else
+                            {
+                                // Handle the case where quantityString is empty or not a valid integer
+                                // For example, show an error message or set a default value
+                            }
                         }
                     }
+
                     else
                     {
-                        // Handle the case where quantityString is empty or not a valid integer
-                        // For example, show an error message or set a default value
+
                     }
                 }
-                else if (RecShopProdSelectedProdDGV.Columns[e.ColumnIndex].Name == "+")
+                else if (RecShopProdSelectedProdDGV.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn &&
+                        RecShopProdSelectedProdDGV.Columns[e.ColumnIndex].Name == "CheckBoxColumn")
                 {
-                    string quantityString = RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value?.ToString();
-                    if (!string.IsNullOrEmpty(quantityString) && int.TryParse(quantityString, out int quantity))
+                    // Get the checkbox cell value
+                    DataGridViewCheckBoxCell cell = RecShopProdSelectedProdDGV[e.ColumnIndex, e.RowIndex] as DataGridViewCheckBoxCell;
+                    RecShopProdSelectedProdDGV.CurrentCell = null;
+                    // Check if the checkbox is checked
+                    bool isChecked = (bool)cell.Value;
+
+                    // Dictionary to store the discounted amounts for each row
+                    Dictionary<int, decimal> discountedAmounts = new Dictionary<int, decimal>();
+
+                    // Calculate total amount and apply discount based on checkbox state
+                    if (isChecked)
                     {
-                        decimal itemCost = decimal.Parse(RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value?.ToString());
+                        
 
-                        // Calculate the cost per item
-                        decimal costPerItem = itemCost / quantity;
+                        // Get the quantity and amount from the corresponding cells
+                        int quantity = Convert.ToInt32(RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value);
+                        decimal amount = Convert.ToDecimal(RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Unit Price"].Value);
 
-                        // Increase quantity
-                        quantity++;
+                        // Calculate the total amount
+                        decimal total = quantity * amount;
 
-                        // Calculate updated item cost
-                        decimal updatedCost = costPerItem * quantity;
+                        // Apply discount (for example, 20% discount)
+                        decimal discount = 0.2m; // 20% discount
+                        decimal discountedTotal = total * (1 - discount);
 
-                        // Update Qty and ItemCost in the DataGridView
-                        RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value = quantity.ToString();
-                        RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = updatedCost.ToString("F2"); // Format to two decimal places
+                        // Add or update the discounted amount in the dictionary
+                        discountedAmounts[e.RowIndex] = discountedTotal;
 
+                        // Update the total cell with the discounted total
+                        RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = discountedTotal.ToString(); // Format as currency
                     }
                     else
                     {
-                        // Handle the case where quantityString is empty or not a valid integer
-                        // For example, show an error message or set a default value
+                        // Clear the discounted amount and update the amount cell with the original value
+                        RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = (Convert.ToDecimal(RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Unit Price"].Value) * Convert.ToInt32(RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value)).ToString();
+
+
                     }
                 }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "ShopProdSelectedDGV Cell Content Click Error");
             }
         }
 
-        private void RecPayServiceDiscountSenior_CheckedChanged(object sender, EventArgs e)
-        {
 
-        }
+
     }
 }
