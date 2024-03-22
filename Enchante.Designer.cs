@@ -679,6 +679,15 @@ namespace Enchante
             this.RecShopProdPanel = new System.Windows.Forms.Panel();
             this.RecShopProdSelectedProdVoidBtn = new Guna.UI2.WinForms.Guna2Button();
             this.RecShopProdPayMethodPanel = new System.Windows.Forms.Panel();
+            this.RecShopProdClientCPNumText = new System.Windows.Forms.TextBox();
+            this.RecShopProdClientNameText = new System.Windows.Forms.TextBox();
+            this.RecShopProdClientCPNumLbl = new System.Windows.Forms.Label();
+            this.RecShopProdClientNameLbl = new System.Windows.Forms.Label();
+            this.RecShopProdPMPaymentChk = new System.Windows.Forms.CheckBox();
+            this.RecShopProdGCPaymentChk = new System.Windows.Forms.CheckBox();
+            this.RecShopProdPPPaymentChk = new System.Windows.Forms.CheckBox();
+            this.RecShopProdCCPaymentChk = new System.Windows.Forms.CheckBox();
+            this.RecShopProdCashPaymentChk = new System.Windows.Forms.CheckBox();
             this.RecShopProdWalletPaymentPanel = new System.Windows.Forms.Panel();
             this.RecShopProdWalletNumLbl = new System.Windows.Forms.Label();
             this.RecShopProdWalletNumText = new System.Windows.Forms.TextBox();
@@ -696,8 +705,7 @@ namespace Enchante
             this.RecShopProdDiscountBox = new System.Windows.Forms.TextBox();
             this.RecShopProdCashLbl = new System.Windows.Forms.Label();
             this.RecShopProdChangeLbl = new System.Windows.Forms.Label();
-            this.RecShopProdDiscountPWD = new System.Windows.Forms.CheckBox();
-            this.RecShopProdDiscountSenior = new System.Windows.Forms.CheckBox();
+            this.RecShopProdDiscountSeniorPWD = new System.Windows.Forms.CheckBox();
             this.RecShopProdDiscountLbl = new System.Windows.Forms.Label();
             this.RecShopProdNetAmountLbl = new System.Windows.Forms.Label();
             this.RecShopProdVATLbl = new System.Windows.Forms.Label();
@@ -713,11 +721,11 @@ namespace Enchante
             this.RecShopProdCardExpText = new System.Windows.Forms.TextBox();
             this.RecShopProdTypeText = new System.Windows.Forms.TextBox();
             this.RecShopProdPayMethodLbl = new System.Windows.Forms.Label();
+            this.RecShopProdDiscountSenior = new System.Windows.Forms.CheckBox();
             this.RecShopProdFooterStopperPanel = new System.Windows.Forms.Panel();
             this.RecShopProdFooterStopperLbl = new System.Windows.Forms.Label();
             this.RecShopProdPaymentButton = new Guna.UI2.WinForms.Guna2Button();
             this.RecShopProdSelectedProdDGV = new System.Windows.Forms.DataGridView();
-            this.RecShopProdItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.RecShopProdProductFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.RecShopProdTransNumText = new System.Windows.Forms.TextBox();
@@ -987,11 +995,8 @@ namespace Enchante
             this.RecTransactionCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.DateTimePickerTimer = new System.Windows.Forms.Timer(this.components);
             this.MngrInventoryCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
-            this.RecShopProdCashPaymentChk = new System.Windows.Forms.CheckBox();
-            this.RecShopProdCCPaymentChk = new System.Windows.Forms.CheckBox();
-            this.RecShopProdGCPaymentChk = new System.Windows.Forms.CheckBox();
-            this.RecShopProdPPPaymentChk = new System.Windows.Forms.CheckBox();
-            this.RecShopProdPMPaymentChk = new System.Windows.Forms.CheckBox();
+            this.RecShopProdItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecShopProdDiscountAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteMngrPage.SuspendLayout();
             this.MngrScrollPanel.SuspendLayout();
@@ -9500,7 +9505,7 @@ namespace Enchante
             this.ReceptionUserAccPanel.Controls.Add(this.ReceptionLogoutBtn);
             this.ReceptionUserAccPanel.Location = new System.Drawing.Point(1541, 15);
             this.ReceptionUserAccPanel.Name = "ReceptionUserAccPanel";
-            this.ReceptionUserAccPanel.Size = new System.Drawing.Size(321, 72);
+            this.ReceptionUserAccPanel.Size = new System.Drawing.Size(321, 244);
             this.ReceptionUserAccPanel.TabIndex = 2;
             this.ReceptionUserAccPanel.Visible = false;
             // 
@@ -9824,10 +9829,15 @@ namespace Enchante
             this.RecShopProdSelectedProdVoidBtn.Size = new System.Drawing.Size(182, 47);
             this.RecShopProdSelectedProdVoidBtn.TabIndex = 181;
             this.RecShopProdSelectedProdVoidBtn.Text = "Void All Products";
+            this.RecShopProdSelectedProdVoidBtn.Click += new System.EventHandler(this.RecShopProdSelectedProdVoidBtn_Click);
             // 
             // RecShopProdPayMethodPanel
             // 
             this.RecShopProdPayMethodPanel.AutoScroll = true;
+            this.RecShopProdPayMethodPanel.Controls.Add(this.RecShopProdClientCPNumText);
+            this.RecShopProdPayMethodPanel.Controls.Add(this.RecShopProdClientNameText);
+            this.RecShopProdPayMethodPanel.Controls.Add(this.RecShopProdClientCPNumLbl);
+            this.RecShopProdPayMethodPanel.Controls.Add(this.RecShopProdClientNameLbl);
             this.RecShopProdPayMethodPanel.Controls.Add(this.RecShopProdPMPaymentChk);
             this.RecShopProdPayMethodPanel.Controls.Add(this.RecShopProdGCPaymentChk);
             this.RecShopProdPayMethodPanel.Controls.Add(this.RecShopProdPPPaymentChk);
@@ -9840,10 +9850,153 @@ namespace Enchante
             this.RecShopProdPayMethodPanel.Controls.Add(this.RecShopProdPayMethodLbl);
             this.RecShopProdPayMethodPanel.Controls.Add(this.RecShopProdDiscountSenior);
             this.RecShopProdPayMethodPanel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.RecShopProdPayMethodPanel.Location = new System.Drawing.Point(114, 736);
+            this.RecShopProdPayMethodPanel.Location = new System.Drawing.Point(114, 708);
             this.RecShopProdPayMethodPanel.Name = "RecShopProdPayMethodPanel";
-            this.RecShopProdPayMethodPanel.Size = new System.Drawing.Size(1407, 410);
+            this.RecShopProdPayMethodPanel.Size = new System.Drawing.Size(1407, 525);
             this.RecShopProdPayMethodPanel.TabIndex = 180;
+            // 
+            // RecShopProdClientCPNumText
+            // 
+            this.RecShopProdClientCPNumText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecShopProdClientCPNumText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecShopProdClientCPNumText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecShopProdClientCPNumText.Location = new System.Drawing.Point(1016, 74);
+            this.RecShopProdClientCPNumText.Name = "RecShopProdClientCPNumText";
+            this.RecShopProdClientCPNumText.Size = new System.Drawing.Size(214, 30);
+            this.RecShopProdClientCPNumText.TabIndex = 154;
+            // 
+            // RecShopProdClientNameText
+            // 
+            this.RecShopProdClientNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecShopProdClientNameText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecShopProdClientNameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecShopProdClientNameText.Location = new System.Drawing.Point(486, 74);
+            this.RecShopProdClientNameText.Name = "RecShopProdClientNameText";
+            this.RecShopProdClientNameText.Size = new System.Drawing.Size(214, 30);
+            this.RecShopProdClientNameText.TabIndex = 154;
+            // 
+            // RecShopProdClientCPNumLbl
+            // 
+            this.RecShopProdClientCPNumLbl.AutoSize = true;
+            this.RecShopProdClientCPNumLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecShopProdClientCPNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecShopProdClientCPNumLbl.Location = new System.Drawing.Point(706, 75);
+            this.RecShopProdClientCPNumLbl.Name = "RecShopProdClientCPNumLbl";
+            this.RecShopProdClientCPNumLbl.Size = new System.Drawing.Size(313, 29);
+            this.RecShopProdClientCPNumLbl.TabIndex = 153;
+            this.RecShopProdClientCPNumLbl.Text = "Client CP. # (optional):";
+            // 
+            // RecShopProdClientNameLbl
+            // 
+            this.RecShopProdClientNameLbl.AutoSize = true;
+            this.RecShopProdClientNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecShopProdClientNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecShopProdClientNameLbl.Location = new System.Drawing.Point(176, 75);
+            this.RecShopProdClientNameLbl.Name = "RecShopProdClientNameLbl";
+            this.RecShopProdClientNameLbl.Size = new System.Drawing.Size(304, 29);
+            this.RecShopProdClientNameLbl.TabIndex = 153;
+            this.RecShopProdClientNameLbl.Text = "Client Name (optional):";
+            // 
+            // RecShopProdPMPaymentChk
+            // 
+            this.RecShopProdPMPaymentChk.Appearance = System.Windows.Forms.Appearance.Button;
+            this.RecShopProdPMPaymentChk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecShopProdPMPaymentChk.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecShopProdPMPaymentChk.FlatAppearance.BorderSize = 2;
+            this.RecShopProdPMPaymentChk.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.RecShopProdPMPaymentChk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecShopProdPMPaymentChk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecShopProdPMPaymentChk.Font = new System.Drawing.Font("TechnicBold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecShopProdPMPaymentChk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecShopProdPMPaymentChk.Location = new System.Drawing.Point(81, 395);
+            this.RecShopProdPMPaymentChk.Name = "RecShopProdPMPaymentChk";
+            this.RecShopProdPMPaymentChk.Size = new System.Drawing.Size(223, 50);
+            this.RecShopProdPMPaymentChk.TabIndex = 152;
+            this.RecShopProdPMPaymentChk.Text = "PAYMAYA";
+            this.RecShopProdPMPaymentChk.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.RecShopProdPMPaymentChk.UseVisualStyleBackColor = true;
+            this.RecShopProdPMPaymentChk.CheckedChanged += new System.EventHandler(this.RecShopProdPMPaymentChk_CheckedChanged);
+            // 
+            // RecShopProdGCPaymentChk
+            // 
+            this.RecShopProdGCPaymentChk.Appearance = System.Windows.Forms.Appearance.Button;
+            this.RecShopProdGCPaymentChk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecShopProdGCPaymentChk.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecShopProdGCPaymentChk.FlatAppearance.BorderSize = 2;
+            this.RecShopProdGCPaymentChk.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.RecShopProdGCPaymentChk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecShopProdGCPaymentChk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecShopProdGCPaymentChk.Font = new System.Drawing.Font("TechnicBold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecShopProdGCPaymentChk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecShopProdGCPaymentChk.Location = new System.Drawing.Point(81, 329);
+            this.RecShopProdGCPaymentChk.Name = "RecShopProdGCPaymentChk";
+            this.RecShopProdGCPaymentChk.Size = new System.Drawing.Size(223, 50);
+            this.RecShopProdGCPaymentChk.TabIndex = 151;
+            this.RecShopProdGCPaymentChk.Text = "GCASH";
+            this.RecShopProdGCPaymentChk.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.RecShopProdGCPaymentChk.UseVisualStyleBackColor = true;
+            this.RecShopProdGCPaymentChk.CheckedChanged += new System.EventHandler(this.RecShopProdGCPaymentChk_CheckedChanged);
+            // 
+            // RecShopProdPPPaymentChk
+            // 
+            this.RecShopProdPPPaymentChk.Appearance = System.Windows.Forms.Appearance.Button;
+            this.RecShopProdPPPaymentChk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecShopProdPPPaymentChk.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecShopProdPPPaymentChk.FlatAppearance.BorderSize = 2;
+            this.RecShopProdPPPaymentChk.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.RecShopProdPPPaymentChk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecShopProdPPPaymentChk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecShopProdPPPaymentChk.Font = new System.Drawing.Font("TechnicBold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecShopProdPPPaymentChk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecShopProdPPPaymentChk.Location = new System.Drawing.Point(81, 263);
+            this.RecShopProdPPPaymentChk.Name = "RecShopProdPPPaymentChk";
+            this.RecShopProdPPPaymentChk.Size = new System.Drawing.Size(223, 50);
+            this.RecShopProdPPPaymentChk.TabIndex = 150;
+            this.RecShopProdPPPaymentChk.Text = "PAYPAL";
+            this.RecShopProdPPPaymentChk.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.RecShopProdPPPaymentChk.UseVisualStyleBackColor = true;
+            this.RecShopProdPPPaymentChk.CheckedChanged += new System.EventHandler(this.RecShopProdPPPaymentChk_CheckedChanged);
+            // 
+            // RecShopProdCCPaymentChk
+            // 
+            this.RecShopProdCCPaymentChk.Appearance = System.Windows.Forms.Appearance.Button;
+            this.RecShopProdCCPaymentChk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecShopProdCCPaymentChk.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecShopProdCCPaymentChk.FlatAppearance.BorderSize = 2;
+            this.RecShopProdCCPaymentChk.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.RecShopProdCCPaymentChk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecShopProdCCPaymentChk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecShopProdCCPaymentChk.Font = new System.Drawing.Font("TechnicBold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecShopProdCCPaymentChk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecShopProdCCPaymentChk.Location = new System.Drawing.Point(81, 197);
+            this.RecShopProdCCPaymentChk.Name = "RecShopProdCCPaymentChk";
+            this.RecShopProdCCPaymentChk.Size = new System.Drawing.Size(223, 50);
+            this.RecShopProdCCPaymentChk.TabIndex = 149;
+            this.RecShopProdCCPaymentChk.Text = "CREDIT CARD";
+            this.RecShopProdCCPaymentChk.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.RecShopProdCCPaymentChk.UseVisualStyleBackColor = true;
+            this.RecShopProdCCPaymentChk.CheckedChanged += new System.EventHandler(this.RecShopProdCCPaymentChk_CheckedChanged);
+            // 
+            // RecShopProdCashPaymentChk
+            // 
+            this.RecShopProdCashPaymentChk.Appearance = System.Windows.Forms.Appearance.Button;
+            this.RecShopProdCashPaymentChk.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.RecShopProdCashPaymentChk.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecShopProdCashPaymentChk.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecShopProdCashPaymentChk.FlatAppearance.BorderSize = 2;
+            this.RecShopProdCashPaymentChk.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.RecShopProdCashPaymentChk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecShopProdCashPaymentChk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecShopProdCashPaymentChk.Font = new System.Drawing.Font("TechnicBold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecShopProdCashPaymentChk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecShopProdCashPaymentChk.Location = new System.Drawing.Point(81, 131);
+            this.RecShopProdCashPaymentChk.Name = "RecShopProdCashPaymentChk";
+            this.RecShopProdCashPaymentChk.Size = new System.Drawing.Size(223, 50);
+            this.RecShopProdCashPaymentChk.TabIndex = 147;
+            this.RecShopProdCashPaymentChk.Text = "CASH";
+            this.RecShopProdCashPaymentChk.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.RecShopProdCashPaymentChk.UseVisualStyleBackColor = true;
+            this.RecShopProdCashPaymentChk.CheckedChanged += new System.EventHandler(this.RecShopProdCashPaymentChk_CheckedChanged);
             // 
             // RecShopProdWalletPaymentPanel
             // 
@@ -9853,7 +10006,7 @@ namespace Enchante
             this.RecShopProdWalletPaymentPanel.Controls.Add(this.RecShopProdWalletPINText);
             this.RecShopProdWalletPaymentPanel.Controls.Add(this.RecShopProdWalletOTPLbl);
             this.RecShopProdWalletPaymentPanel.Controls.Add(this.RecShopProdWalletOTPText);
-            this.RecShopProdWalletPaymentPanel.Location = new System.Drawing.Point(796, 77);
+            this.RecShopProdWalletPaymentPanel.Location = new System.Drawing.Point(796, 135);
             this.RecShopProdWalletPaymentPanel.Name = "RecShopProdWalletPaymentPanel";
             this.RecShopProdWalletPaymentPanel.Size = new System.Drawing.Size(491, 304);
             this.RecShopProdWalletPaymentPanel.TabIndex = 148;
@@ -9933,12 +10086,12 @@ namespace Enchante
             this.RecShopProdCash1PaymentPanel.Controls.Add(this.RecShopProdDiscountBox);
             this.RecShopProdCash1PaymentPanel.Controls.Add(this.RecShopProdCashLbl);
             this.RecShopProdCash1PaymentPanel.Controls.Add(this.RecShopProdChangeLbl);
-            this.RecShopProdCash1PaymentPanel.Controls.Add(this.RecShopProdDiscountPWD);
+            this.RecShopProdCash1PaymentPanel.Controls.Add(this.RecShopProdDiscountSeniorPWD);
             this.RecShopProdCash1PaymentPanel.Controls.Add(this.RecShopProdDiscountLbl);
             this.RecShopProdCash1PaymentPanel.Controls.Add(this.RecShopProdNetAmountLbl);
             this.RecShopProdCash1PaymentPanel.Controls.Add(this.RecShopProdVATLbl);
             this.RecShopProdCash1PaymentPanel.Controls.Add(this.RecShopProdGrossAmountLbl);
-            this.RecShopProdCash1PaymentPanel.Location = new System.Drawing.Point(316, 77);
+            this.RecShopProdCash1PaymentPanel.Location = new System.Drawing.Point(316, 135);
             this.RecShopProdCash1PaymentPanel.Name = "RecShopProdCash1PaymentPanel";
             this.RecShopProdCash1PaymentPanel.Size = new System.Drawing.Size(476, 303);
             this.RecShopProdCash1PaymentPanel.TabIndex = 148;
@@ -9968,6 +10121,7 @@ namespace Enchante
             this.RecShopProdCashBox.TabIndex = 8;
             this.RecShopProdCashBox.Text = "0";
             this.RecShopProdCashBox.Visible = false;
+            this.RecShopProdCashBox.TextChanged += new System.EventHandler(this.RecShopProdCashBox_TextChanged);
             // 
             // RecShopProdVATExemptChk
             // 
@@ -9996,6 +10150,7 @@ namespace Enchante
             this.RecShopProdGrossAmountBox.Size = new System.Drawing.Size(213, 30);
             this.RecShopProdGrossAmountBox.TabIndex = 8;
             this.RecShopProdGrossAmountBox.Text = "0.00";
+            this.RecShopProdGrossAmountBox.TextChanged += new System.EventHandler(this.RecShopProdGrossAmountBox_TextChanged);
             // 
             // RecShopProdVATBox
             // 
@@ -10057,35 +10212,20 @@ namespace Enchante
             this.RecShopProdChangeLbl.Text = "Change Due:";
             this.RecShopProdChangeLbl.Visible = false;
             // 
-            // RecShopProdDiscountPWD
+            // RecShopProdDiscountSeniorPWD
             // 
-            this.RecShopProdDiscountPWD.AutoSize = true;
-            this.RecShopProdDiscountPWD.FlatAppearance.BorderSize = 2;
-            this.RecShopProdDiscountPWD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecShopProdDiscountPWD.Font = new System.Drawing.Font("TechnicBold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecShopProdDiscountPWD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecShopProdDiscountPWD.Location = new System.Drawing.Point(143, 9);
-            this.RecShopProdDiscountPWD.Name = "RecShopProdDiscountPWD";
-            this.RecShopProdDiscountPWD.Size = new System.Drawing.Size(85, 40);
-            this.RecShopProdDiscountPWD.TabIndex = 33;
-            this.RecShopProdDiscountPWD.Text = "SENIOR/\r\nPWD";
-            this.RecShopProdDiscountPWD.UseVisualStyleBackColor = true;
-            this.RecShopProdDiscountPWD.CheckedChanged += new System.EventHandler(this.RecShopProdDiscountPWD_CheckedChanged);
-            // 
-            // RecShopProdDiscountSenior
-            // 
-            this.RecShopProdDiscountSenior.Appearance = System.Windows.Forms.Appearance.Button;
-            this.RecShopProdDiscountSenior.AutoSize = true;
-            this.RecShopProdDiscountSenior.FlatAppearance.BorderSize = 2;
-            this.RecShopProdDiscountSenior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecShopProdDiscountSenior.Font = new System.Drawing.Font("TechnicBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecShopProdDiscountSenior.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecShopProdDiscountSenior.Location = new System.Drawing.Point(521, 12);
-            this.RecShopProdDiscountSenior.Name = "RecShopProdDiscountSenior";
-            this.RecShopProdDiscountSenior.Size = new System.Drawing.Size(140, 30);
-            this.RecShopProdDiscountSenior.TabIndex = 32;
-            this.RecShopProdDiscountSenior.Text = "Senior Citizen";
-            this.RecShopProdDiscountSenior.UseVisualStyleBackColor = true;
+            this.RecShopProdDiscountSeniorPWD.AutoSize = true;
+            this.RecShopProdDiscountSeniorPWD.FlatAppearance.BorderSize = 2;
+            this.RecShopProdDiscountSeniorPWD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecShopProdDiscountSeniorPWD.Font = new System.Drawing.Font("TechnicBold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecShopProdDiscountSeniorPWD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecShopProdDiscountSeniorPWD.Location = new System.Drawing.Point(143, 9);
+            this.RecShopProdDiscountSeniorPWD.Name = "RecShopProdDiscountSeniorPWD";
+            this.RecShopProdDiscountSeniorPWD.Size = new System.Drawing.Size(85, 40);
+            this.RecShopProdDiscountSeniorPWD.TabIndex = 33;
+            this.RecShopProdDiscountSeniorPWD.Text = "SENIOR/\r\nPWD";
+            this.RecShopProdDiscountSeniorPWD.UseVisualStyleBackColor = true;
+            this.RecShopProdDiscountSeniorPWD.CheckedChanged += new System.EventHandler(this.RecShopProdDiscountPWD_CheckedChanged);
             // 
             // RecShopProdDiscountLbl
             // 
@@ -10141,7 +10281,7 @@ namespace Enchante
             this.RecShopProdBankPaymentPanel.Controls.Add(this.RecShopProdCVCText);
             this.RecShopProdBankPaymentPanel.Controls.Add(this.RecShopProdCardExpLbl);
             this.RecShopProdBankPaymentPanel.Controls.Add(this.RecShopProdCardExpText);
-            this.RecShopProdBankPaymentPanel.Location = new System.Drawing.Point(798, 77);
+            this.RecShopProdBankPaymentPanel.Location = new System.Drawing.Point(798, 135);
             this.RecShopProdBankPaymentPanel.Name = "RecShopProdBankPaymentPanel";
             this.RecShopProdBankPaymentPanel.Size = new System.Drawing.Size(487, 304);
             this.RecShopProdBankPaymentPanel.TabIndex = 147;
@@ -10237,7 +10377,7 @@ namespace Enchante
             this.RecShopProdTypeText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecShopProdTypeText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecShopProdTypeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecShopProdTypeText.Location = new System.Drawing.Point(292, 12);
+            this.RecShopProdTypeText.Location = new System.Drawing.Point(81, 451);
             this.RecShopProdTypeText.Name = "RecShopProdTypeText";
             this.RecShopProdTypeText.Size = new System.Drawing.Size(223, 37);
             this.RecShopProdTypeText.TabIndex = 115;
@@ -10254,14 +10394,30 @@ namespace Enchante
             this.RecShopProdPayMethodLbl.TabIndex = 126;
             this.RecShopProdPayMethodLbl.Text = "| Payment Method";
             // 
+            // RecShopProdDiscountSenior
+            // 
+            this.RecShopProdDiscountSenior.Appearance = System.Windows.Forms.Appearance.Button;
+            this.RecShopProdDiscountSenior.AutoSize = true;
+            this.RecShopProdDiscountSenior.FlatAppearance.BorderSize = 2;
+            this.RecShopProdDiscountSenior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecShopProdDiscountSenior.Font = new System.Drawing.Font("TechnicBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecShopProdDiscountSenior.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecShopProdDiscountSenior.Location = new System.Drawing.Point(316, 451);
+            this.RecShopProdDiscountSenior.Name = "RecShopProdDiscountSenior";
+            this.RecShopProdDiscountSenior.Size = new System.Drawing.Size(140, 30);
+            this.RecShopProdDiscountSenior.TabIndex = 32;
+            this.RecShopProdDiscountSenior.Text = "Senior Citizen";
+            this.RecShopProdDiscountSenior.UseVisualStyleBackColor = true;
+            this.RecShopProdDiscountSenior.Visible = false;
+            // 
             // RecShopProdFooterStopperPanel
             // 
             this.RecShopProdFooterStopperPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecShopProdFooterStopperPanel.Controls.Add(this.RecShopProdFooterStopperLbl);
             this.RecShopProdFooterStopperPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.RecShopProdFooterStopperPanel.Location = new System.Drawing.Point(406, 1262);
+            this.RecShopProdFooterStopperPanel.Location = new System.Drawing.Point(406, 1342);
             this.RecShopProdFooterStopperPanel.Name = "RecShopProdFooterStopperPanel";
-            this.RecShopProdFooterStopperPanel.Size = new System.Drawing.Size(804, 43);
+            this.RecShopProdFooterStopperPanel.Size = new System.Drawing.Size(804, 30);
             this.RecShopProdFooterStopperPanel.TabIndex = 179;
             // 
             // RecShopProdFooterStopperLbl
@@ -10291,7 +10447,7 @@ namespace Enchante
             this.RecShopProdPaymentButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecShopProdPaymentButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecShopProdPaymentButton.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecShopProdPaymentButton.Location = new System.Drawing.Point(665, 1169);
+            this.RecShopProdPaymentButton.Location = new System.Drawing.Point(665, 1251);
             this.RecShopProdPaymentButton.Name = "RecShopProdPaymentButton";
             this.RecShopProdPaymentButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.RecShopProdPaymentButton.Size = new System.Drawing.Size(309, 65);
@@ -10318,7 +10474,8 @@ namespace Enchante
             this.RecShopProdSelectedProdDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.RecShopProdSelectedProdDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecShopProdSelectedProdDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.RecShopProdItemID});
+            this.RecShopProdItemID,
+            this.RecShopProdDiscountAmount});
             this.RecShopProdSelectedProdDGV.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
@@ -10337,12 +10494,6 @@ namespace Enchante
             this.RecShopProdSelectedProdDGV.Size = new System.Drawing.Size(669, 452);
             this.RecShopProdSelectedProdDGV.TabIndex = 177;
             this.RecShopProdSelectedProdDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecShopProdSelectedProdDGV_CellContentClick);
-            // 
-            // RecShopProdItemID
-            // 
-            this.RecShopProdItemID.HeaderText = "Item ID";
-            this.RecShopProdItemID.Name = "RecShopProdItemID";
-            this.RecShopProdItemID.Visible = false;
             // 
             // guna2Button2
             // 
@@ -14401,7 +14552,7 @@ namespace Enchante
             // 
             this.RecTransactionCard.ContainerControl = this.ReceptionCreateTransactPanel;
             this.RecTransactionCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.RecTransactionCard.SelectedCard = "PAYMENT";
+            this.RecTransactionCard.SelectedCard = "Products";
             // 
             // DateTimePickerTimer
             // 
@@ -14413,106 +14564,17 @@ namespace Enchante
             this.MngrInventoryCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
             this.MngrInventoryCard.SelectedCard = "TYPES";
             // 
-            // RecShopProdCashPaymentChk
+            // RecShopProdItemID
             // 
-            this.RecShopProdCashPaymentChk.Appearance = System.Windows.Forms.Appearance.Button;
-            this.RecShopProdCashPaymentChk.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RecShopProdCashPaymentChk.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecShopProdCashPaymentChk.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecShopProdCashPaymentChk.FlatAppearance.BorderSize = 2;
-            this.RecShopProdCashPaymentChk.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.RecShopProdCashPaymentChk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecShopProdCashPaymentChk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecShopProdCashPaymentChk.Font = new System.Drawing.Font("TechnicBold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecShopProdCashPaymentChk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecShopProdCashPaymentChk.Location = new System.Drawing.Point(81, 73);
-            this.RecShopProdCashPaymentChk.Name = "RecShopProdCashPaymentChk";
-            this.RecShopProdCashPaymentChk.Size = new System.Drawing.Size(223, 50);
-            this.RecShopProdCashPaymentChk.TabIndex = 147;
-            this.RecShopProdCashPaymentChk.Text = "CASH";
-            this.RecShopProdCashPaymentChk.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.RecShopProdCashPaymentChk.UseVisualStyleBackColor = true;
-            this.RecShopProdCashPaymentChk.CheckedChanged += new System.EventHandler(this.RecShopProdCashPaymentChk_CheckedChanged);
+            this.RecShopProdItemID.HeaderText = "Item ID";
+            this.RecShopProdItemID.Name = "RecShopProdItemID";
+            this.RecShopProdItemID.Visible = false;
             // 
-            // RecShopProdCCPaymentChk
+            // RecShopProdDiscountAmount
             // 
-            this.RecShopProdCCPaymentChk.Appearance = System.Windows.Forms.Appearance.Button;
-            this.RecShopProdCCPaymentChk.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecShopProdCCPaymentChk.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecShopProdCCPaymentChk.FlatAppearance.BorderSize = 2;
-            this.RecShopProdCCPaymentChk.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.RecShopProdCCPaymentChk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecShopProdCCPaymentChk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecShopProdCCPaymentChk.Font = new System.Drawing.Font("TechnicBold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecShopProdCCPaymentChk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecShopProdCCPaymentChk.Location = new System.Drawing.Point(81, 139);
-            this.RecShopProdCCPaymentChk.Name = "RecShopProdCCPaymentChk";
-            this.RecShopProdCCPaymentChk.Size = new System.Drawing.Size(223, 50);
-            this.RecShopProdCCPaymentChk.TabIndex = 149;
-            this.RecShopProdCCPaymentChk.Text = "CREDIT CARD";
-            this.RecShopProdCCPaymentChk.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.RecShopProdCCPaymentChk.UseVisualStyleBackColor = true;
-            this.RecShopProdCCPaymentChk.CheckedChanged += new System.EventHandler(this.RecShopProdCCPaymentChk_CheckedChanged);
-            // 
-            // RecShopProdGCPaymentChk
-            // 
-            this.RecShopProdGCPaymentChk.Appearance = System.Windows.Forms.Appearance.Button;
-            this.RecShopProdGCPaymentChk.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecShopProdGCPaymentChk.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecShopProdGCPaymentChk.FlatAppearance.BorderSize = 2;
-            this.RecShopProdGCPaymentChk.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.RecShopProdGCPaymentChk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecShopProdGCPaymentChk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecShopProdGCPaymentChk.Font = new System.Drawing.Font("TechnicBold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecShopProdGCPaymentChk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecShopProdGCPaymentChk.Location = new System.Drawing.Point(81, 271);
-            this.RecShopProdGCPaymentChk.Name = "RecShopProdGCPaymentChk";
-            this.RecShopProdGCPaymentChk.Size = new System.Drawing.Size(223, 50);
-            this.RecShopProdGCPaymentChk.TabIndex = 151;
-            this.RecShopProdGCPaymentChk.Text = "GCASH";
-            this.RecShopProdGCPaymentChk.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.RecShopProdGCPaymentChk.UseVisualStyleBackColor = true;
-            this.RecShopProdGCPaymentChk.CheckedChanged += new System.EventHandler(this.RecShopProdGCPaymentChk_CheckedChanged);
-            // 
-            // RecShopProdPPPaymentChk
-            // 
-            this.RecShopProdPPPaymentChk.Appearance = System.Windows.Forms.Appearance.Button;
-            this.RecShopProdPPPaymentChk.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecShopProdPPPaymentChk.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecShopProdPPPaymentChk.FlatAppearance.BorderSize = 2;
-            this.RecShopProdPPPaymentChk.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.RecShopProdPPPaymentChk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecShopProdPPPaymentChk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecShopProdPPPaymentChk.Font = new System.Drawing.Font("TechnicBold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecShopProdPPPaymentChk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecShopProdPPPaymentChk.Location = new System.Drawing.Point(81, 205);
-            this.RecShopProdPPPaymentChk.Name = "RecShopProdPPPaymentChk";
-            this.RecShopProdPPPaymentChk.Size = new System.Drawing.Size(223, 50);
-            this.RecShopProdPPPaymentChk.TabIndex = 150;
-            this.RecShopProdPPPaymentChk.Text = "PAYPAL";
-            this.RecShopProdPPPaymentChk.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.RecShopProdPPPaymentChk.UseVisualStyleBackColor = true;
-            this.RecShopProdPPPaymentChk.CheckedChanged += new System.EventHandler(this.RecShopProdPPPaymentChk_CheckedChanged);
-            // 
-            // RecShopProdPMPaymentChk
-            // 
-            this.RecShopProdPMPaymentChk.Appearance = System.Windows.Forms.Appearance.Button;
-            this.RecShopProdPMPaymentChk.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecShopProdPMPaymentChk.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecShopProdPMPaymentChk.FlatAppearance.BorderSize = 2;
-            this.RecShopProdPMPaymentChk.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.RecShopProdPMPaymentChk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecShopProdPMPaymentChk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecShopProdPMPaymentChk.Font = new System.Drawing.Font("TechnicBold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecShopProdPMPaymentChk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecShopProdPMPaymentChk.Location = new System.Drawing.Point(81, 337);
-            this.RecShopProdPMPaymentChk.Name = "RecShopProdPMPaymentChk";
-            this.RecShopProdPMPaymentChk.Size = new System.Drawing.Size(223, 50);
-            this.RecShopProdPMPaymentChk.TabIndex = 152;
-            this.RecShopProdPMPaymentChk.Text = "PAYMAYA";
-            this.RecShopProdPMPaymentChk.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.RecShopProdPMPaymentChk.UseVisualStyleBackColor = true;
-            this.RecShopProdPMPaymentChk.CheckedChanged += new System.EventHandler(this.RecShopProdPMPaymentChk_CheckedChanged);
+            this.RecShopProdDiscountAmount.HeaderText = "DiscountAmount";
+            this.RecShopProdDiscountAmount.Name = "RecShopProdDiscountAmount";
+            this.RecShopProdDiscountAmount.Visible = false;
             // 
             // Enchante
             // 
@@ -15682,7 +15744,7 @@ namespace Enchante
         private System.Windows.Forms.TextBox RecShopProdDiscountBox;
         private System.Windows.Forms.Label RecShopProdCashLbl;
         private System.Windows.Forms.Label RecShopProdChangeLbl;
-        private System.Windows.Forms.CheckBox RecShopProdDiscountPWD;
+        private System.Windows.Forms.CheckBox RecShopProdDiscountSeniorPWD;
         private System.Windows.Forms.CheckBox RecShopProdDiscountSenior;
         private System.Windows.Forms.Label RecShopProdDiscountLbl;
         private System.Windows.Forms.Label RecShopProdNetAmountLbl;
@@ -15707,12 +15769,17 @@ namespace Enchante
         private System.Windows.Forms.Label RecApptConfirmClientNameLbl;
         private FontAwesome.Sharp.IconButton RecApptConfirmExitBtn;
         private Guna.UI2.WinForms.Guna2Button RecShopProdSelectedProdVoidBtn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RecShopProdItemID;
         private System.Windows.Forms.CheckBox RecShopProdCashPaymentChk;
         private System.Windows.Forms.CheckBox RecShopProdPMPaymentChk;
         private System.Windows.Forms.CheckBox RecShopProdGCPaymentChk;
         private System.Windows.Forms.CheckBox RecShopProdPPPaymentChk;
         private System.Windows.Forms.CheckBox RecShopProdCCPaymentChk;
+        private System.Windows.Forms.TextBox RecShopProdClientNameText;
+        private System.Windows.Forms.Label RecShopProdClientNameLbl;
+        private System.Windows.Forms.TextBox RecShopProdClientCPNumText;
+        private System.Windows.Forms.Label RecShopProdClientCPNumLbl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RecShopProdItemID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RecShopProdDiscountAmount;
     }
 }
 
