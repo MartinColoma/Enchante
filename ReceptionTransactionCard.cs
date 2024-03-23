@@ -10,14 +10,19 @@ namespace Enchante
         private Panel Appointment;
         private Panel Payment;
         private Panel Que;
+        private Panel Shop;
+        private Panel ApptCon;
 
-        public ReceptionTransactionCard(Panel transact, Panel walk, Panel appoint, Panel pay, Panel que)
+        public ReceptionTransactionCard(Panel transact, Panel walk, Panel appoint, Panel pay, Panel que, Panel shop, Panel confirm)
         {
             Transaction = transact;
             WalkIn = walk;
             Appointment = appoint;
             Payment = pay;
             Que = que;
+            Shop = shop;
+            ApptCon = confirm;
+
         }
 
         public void PanelShow(Panel panelToShow)
@@ -27,6 +32,8 @@ namespace Enchante
             Appointment.Hide();
             Payment.Hide();
             Que.Hide();
+            Shop.Hide();
+            ApptCon.Hide();
 
             panelToShow.Show(); // do not delete
         }
