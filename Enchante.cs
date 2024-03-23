@@ -105,7 +105,7 @@ namespace Enchante
 
             //Rec Walkin Buy Products
             RecWalkinSelectedProdView();
-            RecShopProdSelectedProdView();  
+            RecShopProdSelectedProdView();
 
             //Landing Pages Cardlayout Panel Manager
             ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteReceptionPage, EnchanteMemberPage, EnchanteAdminPage, EnchanteMngrPage);
@@ -114,7 +114,7 @@ namespace Enchante
             Transaction = new ReceptionTransactionCard(RecTransactionPanel, RecWalkinPanel, RecApptPanel, RecPayServicePanel, RecQueWinPanel, RecShopProdPanel, RecApptConfirmPanel);
             Inventory = new MngrInventoryCard(MngrInventoryTypePanel, MngrServicesPanel, MngrServiceHistoryPanel, MngrInventoryMembershipPanel,
                                             MngrInventoryProductsPanel, MngrInventoryProductHistoryPanel, MngrSchedPanel, MngrWalkinSalesPanel, MngrIndemandPanel, MngrWalkinProdSalesPanel);
-            
+
 
 
             //icon tool tip
@@ -1297,8 +1297,10 @@ namespace Enchante
                                         InitializeStaffPersonalInventoryDataGrid();
                                         StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
                                         StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+                                        StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
                                         InitializePreferredCuePendingCustomersForStaff();
                                         InitializeGeneralCuePendingCustomersForStaff();
+                                        InitializePriorityPendingCustomersForStaff();
                                         RefreshFlowLayoutPanel();
                                         StaffHomePanelReset();
                                         logincredclear();
@@ -1385,6 +1387,9 @@ namespace Enchante
                 EnchanteLoginForm.Visible = false;
                 ParentPanelShow.PanelShow(EnchanteHomePage);
                 StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+                StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+                StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+                RecApptAcceptLateDeclineDGV.Rows.Clear();
                 membercategory = "";
                 StaffIDNumLbl.Text = string.Empty;
                 StaffMemeberCategoryLbl.Text = string.Empty;
@@ -2945,6 +2950,7 @@ namespace Enchante
             // Scroll to the Home position (0, 0)
             ScrollToCoordinates(0, 0);
             ReceptionHomePanelReset();
+            RecApptAcceptLateDeclineDGV.Rows.Clear();
 
             //Change color once clicked
             RecHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
@@ -4765,10 +4771,10 @@ namespace Enchante
                     RecPayServiceVATBox.Text = vatAmount.ToString("0.00");
                     RecPayServiceDiscountSenior.Checked = false;
                     RecPayServiceVATExemptChk.Checked = true;
-                    RecPayServiceVATExemptChk.Enabled = false; 
+                    RecPayServiceVATExemptChk.Enabled = false;
                     return;
                 }
-                else 
+                else
                 {
                     // Unchecked, set MngrGrossAmount to the original value if the discount has been applied before
                     RecPayServiceGrossAmountBox.Text = originalGrossAmount.ToString("0.00");
@@ -5710,7 +5716,7 @@ namespace Enchante
                             MessageBox.Show("An error occurred: " + ex.Message, "Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                    
+
                     foreach (DataGridViewRow row in RecPayServiceCOProdDGV.Rows)
                     {
                         try
@@ -6399,7 +6405,7 @@ namespace Enchante
         string[] bookingTimes = new string[]
         {
             "Select a booking time", "08:00 am", "08:30 am", "09:00 am",
-            "09:30 am", "10:00 am", "10:30 am", "11:00 am", "11:30 am", 
+            "09:30 am", "10:00 am", "10:30 am", "11:00 am", "11:30 am",
             "01:00 pm", "01:30 pm", "02:00 pm", "02:30 pm", "03:00 pm",
         };
         private void RecApptCatHSBtn_Click(object sender, EventArgs e)
@@ -6976,9 +6982,9 @@ namespace Enchante
 
         private void RecApptAttendingStaffSelectedComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (RecWalkinAttendingStaffSelectedComboBox.SelectedItem != null)
+            if (RecApptAttendingStaffSelectedComboBox.SelectedItem != null)
             {
-                string selectedValue = RecWalkinAttendingStaffSelectedComboBox.SelectedItem.ToString();
+                string selectedValue = RecApptAttendingStaffSelectedComboBox.SelectedItem.ToString();
                 selectedStaffID = selectedValue.Substring(0, 11);
             }
         }
@@ -7346,8 +7352,17 @@ namespace Enchante
             {
                 connection.Open();
 
-                string query = "SELECT TransactionNumber AS TransactionID FROM appointment WHERE ServiceStatus = 'Pending' AND AppointmentStatus = 'Unconfirmed'";
+                string currentDate = DateTime.Now.ToString("MM-dd-yyyy");
+
+                string query = "SELECT a.TransactionNumber AS TransactionID, a.AppointmentDate, GROUP_CONCAT(DISTINCT sh.AppointmentTime SEPARATOR ', ') AS AppointmentTime " +
+                               "FROM appointment a " +
+                               "LEFT JOIN servicehistory sh ON a.TransactionNumber = sh.TransactionNumber " +
+                               "WHERE a.ServiceStatus = 'Pending' AND a.AppointmentStatus = 'Unconfirmed' AND " +
+                               "STR_TO_DATE(a.AppointmentDate, '%m-%d-%Y') >= STR_TO_DATE(@currentDate, '%m-%d-%Y') " +
+                               "GROUP BY a.TransactionNumber, a.AppointmentDate";
+
                 MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@currentDate", currentDate);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
@@ -7356,7 +7371,7 @@ namespace Enchante
                 {
                     foreach (DataRow row in dataTable.Rows)
                     {
-                        RecApptAcceptLateDeclineDGV.Rows.Add(row["TransactionID"]);
+                        RecApptAcceptLateDeclineDGV.Rows.Add(row["TransactionID"], row["AppointmentDate"], row["AppointmentTime"]);
                     }
                 }
             }
@@ -10587,7 +10602,6 @@ namespace Enchante
             public string ServiceID { get; set; }
             public string ServiceName { get; set; }
             public string ServiceStatus { get; set; }
-
             public string QueNumber { get; set; }
         }
         public int generalsmallestquenumber;
@@ -10628,6 +10642,7 @@ namespace Enchante
                 availablecustomersusercontrol.ExpandUserControlButtonClicked += AvailableCustomersUserControl_ExpandCollapseButtonClicked;
                 availablecustomersusercontrol.StartServiceButtonClicked += AvailableCustomersUserControl_StartServiceButtonClicked;
                 availablecustomersusercontrol.StaffEndServiceBtnClicked += AvailableCustomersUserControl_EndServiceButtonClicked;
+                availablecustomersusercontrol.StaffQueTypeTextBox.Visible = false;
                 StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(availablecustomersusercontrol);
                 availablecustomersusercontrol.CurrentStaffID = StaffIDNumLbl.Text;
 
@@ -10957,6 +10972,7 @@ namespace Enchante
                 availablecustomersusercontrol.ExpandUserControlButtonClicked += AvailableCustomersUserControl_ExpandCollapseButtonClicked;
                 availablecustomersusercontrol.StartServiceButtonClicked += AvailableCustomersUserControl_StartServiceButtonClicked;
                 availablecustomersusercontrol.StaffEndServiceBtnClicked += AvailableCustomersUserControl_EndServiceButtonClicked;
+                availablecustomersusercontrol.StaffQueTypeTextBox.Visible = false;
                 StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(availablecustomersusercontrol);
                 availablecustomersusercontrol.CurrentStaffID = StaffIDNumLbl.Text;
 
@@ -11235,6 +11251,8 @@ namespace Enchante
         private void RecApptConfirmBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecApptConfirmPanel);
+            RecApptAcceptLateDeclineDGV.Rows.Clear();
+            InitializeAppointmentDataGrid();
         }
         private void RecApptConfirmExitBtn_Click(object sender, EventArgs e)
         {
@@ -11384,7 +11402,7 @@ namespace Enchante
                 }
                 else if (RecShopProdSelectedProdDGV.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn &&
                 RecShopProdSelectedProdDGV.Columns[e.ColumnIndex].Name == "CheckBoxColumn")
-                {                    
+                {
                     // Dictionary to store the discounted amounts for each row
                     Dictionary<int, decimal> discountedAmounts = new Dictionary<int, decimal>();
                     // Get the checkbox cell value
@@ -11445,7 +11463,7 @@ namespace Enchante
 
         private void RecShopProdSelectedDiscount()
         {
-            decimal totalDiscountedAmount = 0; 
+            decimal totalDiscountedAmount = 0;
             decimal total2 = 0;
 
             decimal price1;
@@ -11555,7 +11573,7 @@ namespace Enchante
             {
                 RecShopProdCashPaymentChk.Checked = true;
                 RecShopProdTypeText.Text = "Cash";
-                
+
                 RecShopProdCashLbl.Visible = true;
                 RecShopProdCashBox.Visible = true;
                 RecShopProdChangeLbl.Visible = true;
@@ -11569,7 +11587,7 @@ namespace Enchante
                 RecShopProdPPPaymentChk.Checked = false;
                 RecShopProdGCPaymentChk.Checked = false;
                 RecShopProdPMPaymentChk.Checked = false;
-                
+
                 RecShopProdCardNameText.Text = "";
                 RecShopProdCardNumText.Text = "";
                 RecShopProdCVCText.Text = "";
@@ -11582,7 +11600,7 @@ namespace Enchante
             }
             else
             {
-                RecShopProdCashPaymentChk.Checked = false; 
+                RecShopProdCashPaymentChk.Checked = false;
                 RecShopProdCashLbl.Visible = false;
                 RecShopProdCashBox.Visible = false;
                 RecShopProdChangeLbl.Visible = false;
@@ -11596,7 +11614,7 @@ namespace Enchante
             {
                 RecShopProdCCPaymentChk.Checked = true;
                 RecShopProdTypeText.Text = "Credit Card";
-                
+
                 RecShopProdCashLbl.Visible = false;
                 RecShopProdCashBox.Visible = false;
                 RecShopProdChangeLbl.Visible = false;
@@ -11610,7 +11628,7 @@ namespace Enchante
                 RecShopProdPPPaymentChk.Checked = false;
                 RecShopProdGCPaymentChk.Checked = false;
                 RecShopProdPMPaymentChk.Checked = false;
-                
+
                 RecShopProdCardNameText.Text = "";
                 RecShopProdCardNumText.Text = "";
                 RecShopProdCVCText.Text = "";
@@ -11621,7 +11639,7 @@ namespace Enchante
                 RecShopProdCashBox.Text = "0";
                 RecShopProdChangeBox.Text = "0.00";
             }
-            else if(RecShopProdCCPaymentChk.Checked || RecShopProdPPPaymentChk.Checked)
+            else if (RecShopProdCCPaymentChk.Checked || RecShopProdPPPaymentChk.Checked)
             {
                 RecShopProdBankPaymentPanel.Visible = true;
                 RecShopProdWalletPaymentPanel.Visible = false;
@@ -11645,7 +11663,7 @@ namespace Enchante
             {
                 RecShopProdPPPaymentChk.Checked = true;
                 RecShopProdTypeText.Text = "Paypal";
-                
+
                 RecShopProdCashLbl.Visible = false;
                 RecShopProdCashBox.Visible = false;
                 RecShopProdChangeLbl.Visible = false;
@@ -11988,12 +12006,12 @@ namespace Enchante
                     }
                     string cashPayment = "INSERT INTO orders (TransactionNumber, TransactionType, ProductStatus, Date, Time, CheckedOutBy, ClientName, ClientCPNum, NetPrice, VatAmount, DiscountAmount, GrossAmount, CashGiven, DueChange, PaymentMethod) " +
                                         "VALUES (@transactNum, @transactType, @status, @date, @time, @rec, @name, @cpNum, @net, @vat, @discount, @gross, @cash, @change, @payment)";
-                    
-                    
+
+
                     string bankPayment = "INSERT INTO orders (TransactionNumber, TransactionType, ProductStatus, Date, Time, CheckedOutBy, ClientName, ClientCPNum, NetPrice, VatAmount, DiscountAmount, GrossAmount, PaymentMethod, CardName, CardNumber, CVC, CardExpiration) " +
                                         "VALUES (@transactNum, @transactType, @status, @date, @time, @rec, @name, @cpNum, @net, @vat, @discount, @gross, @payment, @cardname, @cardNum, @cvc, @expiration)";
-                    
-                    
+
+
                     string walletPayment = "INSERT INTO orders (TransactionNumber, TransactionType, ProductStatus, Date, Time, CheckedOutBy, ClientName, ClientCPNum, NetPrice, VatAmount, DiscountAmount, GrossAmount, PaymentMethod, WalletNumber, WalletPIN, WalletOTP) " +
                                         "VALUES (@transactNum, @transactType, @status, @date, @time, @rec, @name, @cpNum, @net, @vat, @discount, @gross, @payment, @walletNum, @walletPin, @walletOTP)";
 
@@ -12001,7 +12019,7 @@ namespace Enchante
                     {
                         MySqlCommand cmd = new MySqlCommand(cashPayment, connection);
                         cmd.Parameters.AddWithValue("@transactNum", transactNum);
-                        cmd.Parameters.AddWithValue("@transactType", "Walk-in Checked Out"); 
+                        cmd.Parameters.AddWithValue("@transactType", "Walk-in Checked Out");
                         cmd.Parameters.AddWithValue("@status", "Paid");
                         cmd.Parameters.AddWithValue("@date", Date);
                         cmd.Parameters.AddWithValue("@time", Time);
@@ -12474,9 +12492,9 @@ namespace Enchante
 
                                 if (result == DialogResult.Yes)
                                 {
-                                    
-                                        RecShopProdSelectedProdDGV.Rows.Clear();
-                                    
+
+                                    RecShopProdSelectedProdDGV.Rows.Clear();
+
 
                                     MessageBox.Show("Item removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
@@ -12493,6 +12511,125 @@ namespace Enchante
                             //return;
                         }
                     }
+                }
+            }
+        }
+
+        public class PriorityPendingCustomers
+        {
+            public string TransactionNumber { get; set; }
+            public string ClientName { get; set; }
+            public string ServiceID { get; set; }
+            public string ServiceName { get; set; }
+            public string ServiceStatus { get; set; }
+            public string QueType { get; set; }
+            public string QueNumber { get; set; }
+        }
+
+        private List<PriorityPendingCustomers> RetrievePriorityGeneralAndPreferredQuePendingCustomersFromDB()
+        {
+            string staffID = StaffIDNumLbl.Text;
+            DateTime currentDate = DateTime.Today;
+            string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
+            List<PriorityPendingCustomers> result = new List<PriorityPendingCustomers>();
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string priorityquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber, sh.QueType 
+                                 FROM servicehistory sh 
+                                 INNER JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber 
+                                 WHERE sh.ServiceStatus = 'Pending' 
+                                 AND sh.ServiceCategory = @membercategory 
+                                 AND (sh.QueType = 'AnyonePriority' OR sh.PreferredStaff = @preferredstaff)
+                                 AND app.ServiceStatus = 'Pending' 
+                                 AND app.AppointmentStatus = 'Confirmed'
+                                 AND sh.AppointmentDate = @datetoday";
+
+                    MySqlCommand command = new MySqlCommand(priorityquependingcustomersquery, connection);
+                    command.Parameters.AddWithValue("@membercategory", membercategory);
+                    command.Parameters.AddWithValue("@preferredstaff", staffID);
+                    command.Parameters.AddWithValue("@datetoday", datetoday);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            PriorityPendingCustomers priorityquependingcustomers = new PriorityPendingCustomers
+                            {
+                                TransactionNumber = reader["TransactionNumber"] as string,
+                                ClientName = reader["ClientName"] as string,
+                                ServiceStatus = reader["ServiceStatus"] as string,
+                                ServiceName = reader["SelectedService"] as string,
+                                ServiceID = reader["ServiceID"] as string,
+                                QueType = reader["QueType"] as string,
+                                QueNumber = reader["QueNumber"] as string
+                            };
+
+                            result.Add(priorityquependingcustomers);
+                        }
+                    }
+                    if (result.Count == 0)
+                    {
+                        //MessageBox.Show("No customers in the queue.", "Empty Queue", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred: " + ex.Message);
+                }
+            }
+
+            return result;
+        }
+
+        protected void InitializePriorityPendingCustomersForStaff()
+        {
+            List<PriorityPendingCustomers> priorityqueuependingcustomers = RetrievePriorityGeneralAndPreferredQuePendingCustomersFromDB();
+
+            if (priorityqueuependingcustomers.Count == 0)
+            {
+                NoCustomerInQueueUserControl nocustomerusercontrol = new NoCustomerInQueueUserControl();
+                StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(nocustomerusercontrol);
+
+            }
+
+            int smallestQueNumber2 = int.MaxValue;
+
+            foreach (PriorityPendingCustomers customer in priorityqueuependingcustomers)
+            {
+                StaffCurrentAvailableCustomersUserControl availablecustomersusercontrol = new StaffCurrentAvailableCustomersUserControl(this);
+                availablecustomersusercontrol.AvailablePriorityCustomerSetData(customer);
+                availablecustomersusercontrol.ExpandUserControlButtonClicked += AvailableCustomersUserControl_ExpandCollapseButtonClicked;
+                availablecustomersusercontrol.StartServiceButtonClicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+                availablecustomersusercontrol.StaffEndServiceBtnClicked += AvailableCustomersUserControl_EndServiceButtonClicked;
+                StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(availablecustomersusercontrol);
+                availablecustomersusercontrol.CurrentStaffID = StaffIDNumLbl.Text;
+
+                string queNumberText = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
+                if (int.TryParse(queNumberText, out int queNumber))
+                {
+                    if (queNumber < smallestQueNumber2)
+                    {
+                        smallestQueNumber2 = queNumber;
+                    }
+                }
+            }
+
+            UpdateStartServiceButtonStatusPriority(priorityqueuependingcustomers, smallestQueNumber2);
+        }
+        
+        private void UpdateStartServiceButtonStatusPriority(List<PriorityPendingCustomers> priorityqueuependingcustomers, int smallestQueNumber)
+        {
+            foreach (System.Windows.Forms.Control control in StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls)
+            {
+                if (control is StaffCurrentAvailableCustomersUserControl userControl)
+                {
+                    int queNumber = int.Parse(userControl.StaffQueNumberTextBox.Text);
+                    userControl.StaffStartServiceBtn.Enabled = (queNumber == smallestQueNumber);
                 }
             }
         }

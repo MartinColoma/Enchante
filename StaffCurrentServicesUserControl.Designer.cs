@@ -37,6 +37,7 @@
             this.StaffEndServiceBtn = new Guna.UI2.WinForms.Guna2Button();
             this.StaffServiceIDTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.StaffQueNumberTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.StaffQueTypeTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.SuspendLayout();
             // 
             // StaffCustomerServiceNameSelectedTextBox
@@ -259,6 +260,33 @@
             this.StaffQueNumberTextBox.TabIndex = 18;
             this.StaffQueNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // StaffQueTypeTextBox
+            // 
+            this.StaffQueTypeTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.StaffQueTypeTextBox.BorderRadius = 5;
+            this.StaffQueTypeTextBox.BorderThickness = 0;
+            this.StaffQueTypeTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.StaffQueTypeTextBox.DefaultText = "";
+            this.StaffQueTypeTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.StaffQueTypeTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.StaffQueTypeTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.StaffQueTypeTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.StaffQueTypeTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.StaffQueTypeTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.StaffQueTypeTextBox.Font = new System.Drawing.Font("Arial Black", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StaffQueTypeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.StaffQueTypeTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.StaffQueTypeTextBox.Location = new System.Drawing.Point(456, 73);
+            this.StaffQueTypeTextBox.Margin = new System.Windows.Forms.Padding(5);
+            this.StaffQueTypeTextBox.Name = "StaffQueTypeTextBox";
+            this.StaffQueTypeTextBox.PasswordChar = '\0';
+            this.StaffQueTypeTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.StaffQueTypeTextBox.PlaceholderText = "[QueType]";
+            this.StaffQueTypeTextBox.ReadOnly = true;
+            this.StaffQueTypeTextBox.SelectedText = "";
+            this.StaffQueTypeTextBox.Size = new System.Drawing.Size(177, 25);
+            this.StaffQueTypeTextBox.TabIndex = 29;
+            // 
             // StaffCurrentAvailableCustomersUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -274,6 +302,7 @@
             this.Controls.Add(this.StaffCustomerServiceNameSelectedTextBox);
             this.Controls.Add(this.StaffCustomerServiceStatusTextBox);
             this.Controls.Add(this.StaffElapsedTimeTextBox);
+            this.Controls.Add(this.StaffQueTypeTextBox);
             this.Name = "StaffCurrentAvailableCustomersUserControl";
             this.Size = new System.Drawing.Size(875, 200);
             this.ResumeLayout(false);
@@ -291,5 +320,6 @@
         public Guna.UI2.WinForms.Guna2Button StaffEndServiceBtn;
         private Guna.UI2.WinForms.Guna2TextBox StaffServiceIDTextBox;
         public Guna.UI2.WinForms.Guna2TextBox StaffQueNumberTextBox;
+        public Guna.UI2.WinForms.Guna2TextBox StaffQueTypeTextBox;
     }
 }

@@ -54,6 +54,17 @@ namespace Enchante
             StaffQueNumberTextBox.Text = customer.QueNumber;
         }
 
+        public void AvailablePriorityCustomerSetData(Enchante.PriorityPendingCustomers customer)
+        {
+            StaffTransactionIDTextBox.Text = customer.TransactionNumber;
+            StaffCustomerServiceNameSelectedTextBox.Text = customer.ServiceName;
+            StaffCustomerServiceStatusTextBox.Text = customer.ServiceStatus;
+            StaffCustomerNameTextBox.Text = "Client Name: " + customer.ClientName;
+            StaffQueTypeTextBox.Text = customer.QueType;
+            StaffServiceIDTextBox.Text = customer.ServiceID;
+            StaffQueNumberTextBox.Text = customer.QueNumber;
+        }
+
         public string CurrentStaffID { get; set; }
 
         public void StartTimer()
