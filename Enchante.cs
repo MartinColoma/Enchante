@@ -5833,6 +5833,7 @@ namespace Enchante
 
         public void LoadPreferredStaffComboBox()
         {
+
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
             {
                 connection.Open();
@@ -5845,8 +5846,6 @@ namespace Enchante
                 {
                     RecWalkinAttendingStaffSelectedComboBox.Items.Clear();
                     RecWalkinAttendingStaffSelectedComboBox.Items.Add("Select a Preferred Staff"); // Kung babaguhin to babaguhin yung line 4942 messagebox
-                    RecApptAttendingStaffSelectedComboBox.Items.Clear();
-                    RecApptAttendingStaffSelectedComboBox.Items.Add("Select a Preferred Staff"); // Kung babaguhin to babaguhin yung line 4942 messagebox
                     while (reader.Read())
                     {
                         string employeeID = reader.GetString("EmployeeID");
@@ -5857,13 +5856,73 @@ namespace Enchante
                         string comboBoxItem = $"{employeeID}-{gender}-{lastName}, {firstName}";
 
                         RecWalkinAttendingStaffSelectedComboBox.Items.Add(comboBoxItem);
-                        RecApptAttendingStaffSelectedComboBox.Items.Add(comboBoxItem);
-
                     }
                 }
             }
             RecWalkinAttendingStaffSelectedComboBox.SelectedIndex = 0;
-            RecApptAttendingStaffSelectedComboBox.SelectedIndex = 0;
+        }
+
+        public void LoadAppointmentPreferredStaffComboBox()
+        {
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                string bookedtime = RecApptBookingTimeComboBox.SelectedItem.ToString();
+                string appointmentDate = RecApptBookingDatePicker.Value.ToString("MM-dd-yyyy dddd");
+
+                connection.Open();
+
+                string query = "SELECT EmployeeID, Gender, LastName, FirstName FROM systemusers WHERE EmployeeCategory = @FilterValue";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@FilterValue", filterstaffbyservicecategory);
+
+                List<string> employeeIDs = new List<string>();
+                List<string> genders = new List<string>();
+                List<string> lastNames = new List<string>();
+                List<string> firstNames = new List<string>();
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string employeeID = reader.GetString("EmployeeID");
+                        string gender = reader.GetString("Gender");
+                        string lastName = reader.GetString("LastName");
+                        string firstName = reader.GetString("FirstName");
+
+                        employeeIDs.Add(employeeID);
+                        genders.Add(gender);
+                        lastNames.Add(lastName);
+                        firstNames.Add(firstName);
+                    }
+                }
+
+                RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
+                RecApptAvailableAttendingStaffSelectedComboBox.Items.Add("Select a Preferred Staff");
+
+                for (int i = 0; i < employeeIDs.Count; i++)
+                {
+                    string employeeID = employeeIDs[i];
+                    string gender = genders[i];
+                    string lastName = lastNames[i];
+                    string firstName = firstNames[i];
+
+                    string comboBoxItem = $"{employeeID}-{gender}-{lastName}, {firstName}";
+
+                    string scheduleQuery = "SELECT 1 FROM staffappointmentschedule WHERE EmployeeID = @EmployeeID AND AppointmentDate = @AppointmentDate AND AppointmentTime = @AppointmentTime LIMIT 1";
+                    MySqlCommand scheduleCommand = new MySqlCommand(scheduleQuery, connection);
+                    scheduleCommand.Parameters.AddWithValue("@EmployeeID", employeeID);
+                    scheduleCommand.Parameters.AddWithValue("@AppointmentDate", appointmentDate);
+                    scheduleCommand.Parameters.AddWithValue("@AppointmentTime", bookedtime);
+                    object result = scheduleCommand.ExecuteScalar();
+
+                    if (result == null)
+                    {
+                        RecApptAvailableAttendingStaffSelectedComboBox.Items.Add(comboBoxItem);
+                    }
+                }
+            }
+
+            RecApptAvailableAttendingStaffSelectedComboBox.SelectedIndex = 0;
         }
 
         private void RecWalkinAnyStaffToggleSwitch_CheckedChanged(object sender, EventArgs e)
@@ -5967,7 +6026,16 @@ namespace Enchante
                 selectedStaffID = selectedValue.Substring(0, 11);
             }
         }
-        private void RecPayServiceVATExemptChk_CheckedChanged(object sender, EventArgs e)
+
+        private void RecApptAvailableAttendingStaffSelectedComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (RecApptAvailableAttendingStaffSelectedComboBox.SelectedItem != null)
+            {
+                string selectedValue = RecApptAvailableAttendingStaffSelectedComboBox.SelectedItem.ToString();
+                selectedStaffID = selectedValue.Substring(0, 11);
+            }
+        }
+            private void RecPayServiceVATExemptChk_CheckedChanged(object sender, EventArgs e)
         {
             if (RecPayServiceVATExemptChk.Checked)
             {
@@ -6414,8 +6482,8 @@ namespace Enchante
             haschosenacategory = true;
             if (RecApptPreferredStaffToggleSwitch.Checked == true)
             {
-                RecApptAttendingStaffSelectedComboBox.Items.Clear();
-                LoadPreferredStaffComboBox();
+                RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
+                LoadAppointmentPreferredStaffComboBox();
             }
             LoadBookingTimes();
             RecApptHairStyle();
@@ -6427,8 +6495,8 @@ namespace Enchante
             haschosenacategory = true;
             if (RecApptPreferredStaffToggleSwitch.Checked == true)
             {
-                RecApptAttendingStaffSelectedComboBox.Items.Clear();
-                LoadPreferredStaffComboBox();
+                RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
+                LoadAppointmentPreferredStaffComboBox();
             }
             LoadBookingTimes();
             RecApptFace();
@@ -6440,8 +6508,8 @@ namespace Enchante
             haschosenacategory = true;
             if (RecApptPreferredStaffToggleSwitch.Checked == true)
             {
-                RecApptAttendingStaffSelectedComboBox.Items.Clear();
-                LoadPreferredStaffComboBox();
+                RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
+                LoadAppointmentPreferredStaffComboBox();
             }
             LoadBookingTimes();
 
@@ -6454,8 +6522,8 @@ namespace Enchante
             haschosenacategory = true;
             if (RecApptPreferredStaffToggleSwitch.Checked == true)
             {
-                RecApptAttendingStaffSelectedComboBox.Items.Clear();
-                LoadPreferredStaffComboBox();
+                RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
+                LoadAppointmentPreferredStaffComboBox();
             }
             LoadBookingTimes();
 
@@ -6468,8 +6536,8 @@ namespace Enchante
             haschosenacategory = true;
             if (RecApptPreferredStaffToggleSwitch.Checked == true)
             {
-                RecApptAttendingStaffSelectedComboBox.Items.Clear();
-                LoadPreferredStaffComboBox();
+                RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
+                LoadAppointmentPreferredStaffComboBox();
             }
             LoadBookingTimes();
 
@@ -6873,7 +6941,7 @@ namespace Enchante
                 return;
             }
 
-            if (RecApptAttendingStaffSelectedComboBox.SelectedItem?.ToString() == "Select a Preferred Staff") // 4942
+            if (RecApptAvailableAttendingStaffSelectedComboBox.SelectedItem?.ToString() == "Select a Preferred Staff") // 4942
             {
                 MessageBox.Show("Please select a preferred staff or toggle anyone.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -6935,7 +7003,7 @@ namespace Enchante
                 RecApptAnyStaffToggleSwitch.CheckedChanged -= RecApptAnyStaffToggleSwitch_CheckedChanged;
                 RecApptAnyStaffToggleSwitch.Checked = false;
                 RecApptAttendingStaffLbl.Visible = false;
-                RecApptAttendingStaffSelectedComboBox.Visible = false;
+                RecApptAvailableAttendingStaffSelectedComboBox.Visible = false;
                 RecApptAnyStaffToggleSwitch.CheckedChanged += RecApptAnyStaffToggleSwitch_CheckedChanged;
                 return;
             }
@@ -6944,11 +7012,11 @@ namespace Enchante
                 if (RecApptAnyStaffToggleSwitch.Checked)
                 {
                     RecApptPreferredStaffToggleSwitch.Checked = false;
-                    RecApptAttendingStaffSelectedComboBox.Enabled = false;
+                    RecApptAvailableAttendingStaffSelectedComboBox.Enabled = false;
                     RecApptAttendingStaffLbl.Visible = false;
-                    RecApptAttendingStaffSelectedComboBox.Visible = false;
+                    RecApptAvailableAttendingStaffSelectedComboBox.Visible = false;
                     selectedStaffID = "Anyone";
-                    RecApptAttendingStaffSelectedComboBox.Items.Clear();
+                    RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
                 }
             }
         }
@@ -6961,38 +7029,34 @@ namespace Enchante
                 RecApptPreferredStaffToggleSwitch.CheckedChanged -= RecApptPreferredStaffToggleSwitch_CheckedChanged;
                 RecApptPreferredStaffToggleSwitch.Checked = false;
                 RecApptAttendingStaffLbl.Visible = false;
-                RecApptAttendingStaffSelectedComboBox.Visible = false;
+                RecApptAvailableAttendingStaffSelectedComboBox.Visible = false;
                 RecApptPreferredStaffToggleSwitch.CheckedChanged += RecApptPreferredStaffToggleSwitch_CheckedChanged;
                 return;
             }
             else
             {
-                if (RecApptPreferredStaffToggleSwitch.Checked && RecApptAttendingStaffSelectedComboBox.SelectedText != "Select a Preferred Staff")
+                if (RecApptPreferredStaffToggleSwitch.Checked && RecApptAvailableAttendingStaffSelectedComboBox.SelectedText != "Select a Preferred Staff")
                 {
                     RecApptAnyStaffToggleSwitch.Checked = false;
-                    RecApptAttendingStaffSelectedComboBox.Enabled = true;
+                    RecApptAvailableAttendingStaffSelectedComboBox.Enabled = true;
                     RecApptAttendingStaffLbl.Visible = true;
-                    RecApptAttendingStaffSelectedComboBox.Visible = true;
-                    LoadPreferredStaffComboBox();
+                    RecApptAvailableAttendingStaffSelectedComboBox.Visible = true;
+                    LoadAppointmentPreferredStaffComboBox();
                 }
                 else
                 {
                     selectedStaffID = "Anyone";
-                    RecApptAttendingStaffSelectedComboBox.Enabled = false;
+                    RecApptAvailableAttendingStaffSelectedComboBox.Enabled = false;
                     RecApptAttendingStaffLbl.Visible = false;
-                    RecApptAttendingStaffSelectedComboBox.Visible = false;
-                    RecApptAttendingStaffSelectedComboBox.Items.Clear();
+                    RecApptAvailableAttendingStaffSelectedComboBox.Visible = false;
+                    RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
                 }
             }
         }
 
         private void RecApptAttendingStaffSelectedComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (RecApptAttendingStaffSelectedComboBox.SelectedItem != null)
-            {
-                string selectedValue = RecApptAttendingStaffSelectedComboBox.SelectedItem.ToString();
-                selectedStaffID = selectedValue.Substring(0, 11);
-            }
+           
         }
 
         private void RecApptDeleteSelectedServiceAndStaffBtn_Click(object sender, EventArgs e)
@@ -7072,13 +7136,13 @@ namespace Enchante
 
         private void RecApptServiceHistoryDB(DataGridView RecApptSelectedServiceDGV)
         {
-            DateTime currentDate = RecApptBookingDatePicker.Value;
+            DateTime pickedDate = RecApptBookingDatePicker.Value;
             string transactionNum = RecApptTransNumText.Text;
-            string transactionType = "Walk-in Appointment";
+            string transactionType = "Walk-in Appointment Transaction";
             string serviceStatus = "Pending";
 
             //booked values
-            string bookedDate = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
+            string bookedDate = pickedDate.ToString("MM-dd-yyyy dddd"); //bookedDate
 
             //basic info
             string CustomerName = RecApptFNameText.Text + " " + RecApptLNameText.Text; //client name
@@ -7126,6 +7190,17 @@ namespace Enchante
                                 cmd.Parameters.AddWithValue("@quetype", queType);
 
                                 cmd.ExecuteNonQuery();
+
+                                if (selectedStaff != "Anyone")
+                                {
+                                    string insertScheduleQuery = "INSERT INTO staffappointmentschedule (EmployeeID, AppointmentDate, AppointmentTime) VALUES (@EmployeeID, @AppointmentDate, @AppointmentTime)";
+                                    MySqlCommand insertScheduleCommand = new MySqlCommand(insertScheduleQuery, connection);
+                                    insertScheduleCommand.Parameters.AddWithValue("@EmployeeID", selectedStaff);
+                                    insertScheduleCommand.Parameters.AddWithValue("@AppointmentDate", bookedDate);
+                                    insertScheduleCommand.Parameters.AddWithValue("@AppointmentTime", bookedTime);
+
+                                    insertScheduleCommand.ExecuteNonQuery();
+                                }
                             }
                         }
                     }
@@ -12671,5 +12746,8 @@ namespace Enchante
                 }
             }
         }
+
+        
+        
     }
 }

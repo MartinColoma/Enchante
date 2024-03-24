@@ -32,68 +32,68 @@ namespace Enchante
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle67 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle68 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle69 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle70 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Enchante));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle73 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle74 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle75 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle76 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle77 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle78 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle79 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle80 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle81 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle82 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle83 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle84 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle85 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle86 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle87 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle88 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle89 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle90 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle91 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle92 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle93 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle94 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle95 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle96 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle97 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle98 = new System.Windows.Forms.DataGridViewCellStyle();
             this.EnchanteParentContainer = new System.Windows.Forms.Panel();
             this.EnchanteMngrPage = new System.Windows.Forms.Panel();
             this.MngrScrollPanel = new System.Windows.Forms.Panel();
@@ -101,6 +101,7 @@ namespace Enchante
             this.MngrIDNumLbl = new System.Windows.Forms.Label();
             this.MngrDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.MngrNameLbl = new System.Windows.Forms.Label();
+            this.MngrSignOutBtn = new FontAwesome.Sharp.IconButton();
             this.MngrInventoryPanel = new System.Windows.Forms.Panel();
             this.MngrWalkinProdSalesPanel = new System.Windows.Forms.Panel();
             this.trydata = new System.Windows.Forms.DataGridView();
@@ -121,8 +122,10 @@ namespace Enchante
             this.MngrProductSalesSelectCatBox = new System.Windows.Forms.ComboBox();
             this.MngrProductSalesIncomeBtn = new System.Windows.Forms.Button();
             this.MngrProductSalesCatLbl = new System.Windows.Forms.Label();
+            this.MngrWalkinProdSalesExitBtn = new FontAwesome.Sharp.IconButton();
             this.MngrServiceHistoryPanel = new System.Windows.Forms.Panel();
             this.MngrServiceHistoryDGV = new System.Windows.Forms.DataGridView();
+            this.MngrServiceHistoryExitBtn = new FontAwesome.Sharp.IconButton();
             this.MngrWalkinSalesPanel = new System.Windows.Forms.Panel();
             this.MngrWalkinSalesGraphLbl = new System.Windows.Forms.Label();
             this.MngrWalkinSalesTransServiceHisDGV = new System.Windows.Forms.DataGridView();
@@ -144,12 +147,23 @@ namespace Enchante
             this.MngrWalkinSalesToDatePicker = new System.Windows.Forms.DateTimePicker();
             this.MngrWalkinSalesFromDatePicker = new System.Windows.Forms.DateTimePicker();
             this.MngrWalkinSalesPeriodCalendar = new System.Windows.Forms.MonthCalendar();
+            this.MngrWalkinSalesExitBtn = new FontAwesome.Sharp.IconButton();
             this.MngrInventoryTypePanel = new System.Windows.Forms.Panel();
+            this.MngrWalkinProdSalesBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrInventoryMembershipBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrServicesHistoryBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrInDemandBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrStaffSchedBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrProductsHistoryBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrWalkinServiceSalesBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrServicesDataBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrProductsDataBtn = new FontAwesome.Sharp.IconButton();
             this.MngrIndemandPanel = new System.Windows.Forms.Panel();
             this.MngrIndemandServiceGraphLbl = new System.Windows.Forms.Label();
             this.MngrIndemandLbl = new System.Windows.Forms.Label();
             this.MngrIndemandBestEmployee = new System.Windows.Forms.DataGridView();
             this.MngrIndemandServiceSelection = new System.Windows.Forms.DataGridView();
+            this.MngrIndemandExitBtn = new FontAwesome.Sharp.IconButton();
             this.MngrIndemandServiceGraph = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.MngrIndemandSelectPeriod = new System.Windows.Forms.TextBox();
             this.MngrIndemandSelectPeriodLbl = new System.Windows.Forms.Label();
@@ -167,7 +181,10 @@ namespace Enchante
             this.MngrIndemandServicePeriodCalendar = new System.Windows.Forms.MonthCalendar();
             this.MngrInventoryProductHistoryPanel = new System.Windows.Forms.Panel();
             this.MngrInventoryProductHistoryDGV = new System.Windows.Forms.DataGridView();
+            this.MngrInventoryProductHistoryEditBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrInventoryProductHistoryExitBtn = new FontAwesome.Sharp.IconButton();
             this.MngrSchedPanel = new System.Windows.Forms.Panel();
+            this.MngrSchedExitBtn = new FontAwesome.Sharp.IconButton();
             this.MngrEditSchedPanel = new System.Windows.Forms.Panel();
             this.MngrCurrentSchedLbl = new System.Windows.Forms.Label();
             this.MngrCurrentAvailabilityLbl = new System.Windows.Forms.Label();
@@ -202,6 +219,7 @@ namespace Enchante
             this.Schedule = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Availability = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MngrServicesPanel = new System.Windows.Forms.Panel();
+            this.MngrServicesUpdateBtn = new FontAwesome.Sharp.IconButton();
             this.MngrServicesIDNumLbl = new System.Windows.Forms.Label();
             this.MngrServicesIDNumText = new System.Windows.Forms.TextBox();
             this.MngrServicesTypeComboText = new System.Windows.Forms.ComboBox();
@@ -217,11 +235,18 @@ namespace Enchante
             this.MngrServicesTypeLbl = new System.Windows.Forms.Label();
             this.MngrServicesCategoryLbl = new System.Windows.Forms.Label();
             this.MngrInventoryServicesTable = new System.Windows.Forms.DataGridView();
+            this.MngrServicesUpdateInfoBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrServicesCreateBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrServicesExitBtn = new FontAwesome.Sharp.IconButton();
             this.MngrInventoryMembershipPanel = new System.Windows.Forms.Panel();
+            this.MngrInventoryMembershipExitBtn = new FontAwesome.Sharp.IconButton();
             this.MngrInventoryProductsPanel = new System.Windows.Forms.Panel();
             this.SelectImage = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.CancelEdit = new FontAwesome.Sharp.IconButton();
             this.PDImage = new System.Windows.Forms.Label();
+            this.ProductImagePictureBox = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.MngrInventoryProductsStatusComboText = new System.Windows.Forms.ComboBox();
+            this.MngrInventoryProductsUpdateBtn = new FontAwesome.Sharp.IconButton();
             this.MngrInventoryProductsIDLbl = new System.Windows.Forms.Label();
             this.MngrInventoryProductsIDText = new System.Windows.Forms.TextBox();
             this.MngrInventoryProductsTypeComboText = new System.Windows.Forms.ComboBox();
@@ -236,15 +261,23 @@ namespace Enchante
             this.MngrInventoryProductsTypeLbl = new System.Windows.Forms.Label();
             this.MngrInventoryProductsCatLbl = new System.Windows.Forms.Label();
             this.MngrInventoryProductsTable = new System.Windows.Forms.DataGridView();
+            this.MngrInventoryProductsInfoEditBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrInventoryProductsInsertBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrInventoryProductsExitBtn = new FontAwesome.Sharp.IconButton();
             this.MngrNavBarPanel = new System.Windows.Forms.Panel();
+            this.MngrUserAccBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrHomeBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrHeaderLogo = new System.Windows.Forms.PictureBox();
             this.EnchanteAdminPage = new System.Windows.Forms.Panel();
             this.AdminScrollPanel = new System.Windows.Forms.Panel();
             this.AdminUserAccPanel = new System.Windows.Forms.Panel();
             this.AdminIDNumLbl = new System.Windows.Forms.Label();
             this.AdminNameLbl = new System.Windows.Forms.Label();
+            this.AdminSignOutBtn = new FontAwesome.Sharp.IconButton();
             this.AdminFooterStopperPanel = new System.Windows.Forms.Panel();
             this.AdminFooterStopperLbl = new System.Windows.Forms.Label();
             this.AdminRegiformPanel = new System.Windows.Forms.Panel();
+            this.AdminCancelEditBtn = new FontAwesome.Sharp.IconButton();
             this.AdminPassLbl = new System.Windows.Forms.Label();
             this.AdminGenderLbl = new System.Windows.Forms.Label();
             this.AdminEmplIDErrorLbl = new System.Windows.Forms.Label();
@@ -257,12 +290,15 @@ namespace Enchante
             this.AdminEmailText = new System.Windows.Forms.TextBox();
             this.AdminEmailLbl = new System.Windows.Forms.Label();
             this.AdminConfirmPassPanel = new System.Windows.Forms.Panel();
+            this.AdminShowHideConfirmPassBtn = new FontAwesome.Sharp.IconButton();
             this.AdminConfirmPassText = new System.Windows.Forms.TextBox();
             this.AdminConfirmPassErrorLbl = new System.Windows.Forms.Label();
             this.AdminConfirmPassLbl = new System.Windows.Forms.Label();
             this.AdminPassPanel = new System.Windows.Forms.Panel();
+            this.AdminShowHidePassBtn = new FontAwesome.Sharp.IconButton();
             this.AdminPassText = new System.Windows.Forms.TextBox();
             this.AdminPassErrorLbl = new System.Windows.Forms.Label();
+            this.iconButton31 = new FontAwesome.Sharp.IconButton();
             this.AdminEmplCatErrorLbl = new System.Windows.Forms.Label();
             this.AdminEmplCatComboText = new System.Windows.Forms.ComboBox();
             this.AdminEmplCatLbl = new System.Windows.Forms.Label();
@@ -285,10 +321,24 @@ namespace Enchante
             this.AdminLastNameLbl = new System.Windows.Forms.Label();
             this.AdminFirstNameText = new System.Windows.Forms.TextBox();
             this.AdminFirstNameLbl = new System.Windows.Forms.Label();
+            this.AdminUpdateAccBtn = new FontAwesome.Sharp.IconButton();
+            this.AdminEditAccBtn = new FontAwesome.Sharp.IconButton();
+            this.AdminCreateAccBtn = new FontAwesome.Sharp.IconButton();
             this.AdminAccountTable = new System.Windows.Forms.DataGridView();
             this.AdminNavBarPanel = new System.Windows.Forms.Panel();
+            this.AdminAccUserBtn = new FontAwesome.Sharp.IconButton();
+            this.AdminHomeBtn = new FontAwesome.Sharp.IconButton();
+            this.AdminHeaderLogo = new System.Windows.Forms.PictureBox();
             this.EnchanteHomePage = new System.Windows.Forms.Panel();
             this.EnchanteHomeNavBar = new System.Windows.Forms.Panel();
+            this.EnchanteHLoginBtn = new FontAwesome.Sharp.IconButton();
+            this.EnchanteAbtUsBtn = new FontAwesome.Sharp.IconButton();
+            this.EnchanteTeamBtn = new FontAwesome.Sharp.IconButton();
+            this.EnchanteReviewBtn = new FontAwesome.Sharp.IconButton();
+            this.EnchanteMemberBtn = new FontAwesome.Sharp.IconButton();
+            this.EnchanteServiceBtn = new FontAwesome.Sharp.IconButton();
+            this.EnchanteHomeBtn = new FontAwesome.Sharp.IconButton();
+            this.EnchanteHeaderLogo = new System.Windows.Forms.PictureBox();
             this.EnchanteHomeScrollPanel = new System.Windows.Forms.Panel();
             this.ServicePanel = new System.Windows.Forms.Panel();
             this.ServiceMassage = new System.Windows.Forms.Panel();
@@ -302,7 +352,12 @@ namespace Enchante
             this.ServiceHairStyling = new System.Windows.Forms.Panel();
             this.ServiceHairLbl = new System.Windows.Forms.Label();
             this.ServiceType = new System.Windows.Forms.Panel();
+            this.ServiceHSBtn = new FontAwesome.Sharp.IconButton();
             this.ServiceTagline = new System.Windows.Forms.Label();
+            this.ServiceFSBtn = new FontAwesome.Sharp.IconButton();
+            this.ServiceNCBtn = new FontAwesome.Sharp.IconButton();
+            this.ServiceSpaBtn = new FontAwesome.Sharp.IconButton();
+            this.ServiceMBtn = new FontAwesome.Sharp.IconButton();
             this.MembershipPanel = new System.Windows.Forms.Panel();
             this.PremiumPlanPanel = new System.Windows.Forms.Panel();
             this.PremPlanExpirationText = new System.Windows.Forms.TextBox();
@@ -319,15 +374,19 @@ namespace Enchante
             this.PremCardNumErrorLbl = new System.Windows.Forms.Label();
             this.PremPayPPaymentPanel = new System.Windows.Forms.Panel();
             this.PremPayPPaymentRB = new System.Windows.Forms.RadioButton();
+            this.PremPayPPaymentBtn = new FontAwesome.Sharp.IconButton();
             this.PremCardCVCLbl = new System.Windows.Forms.Label();
             this.PremPayMPaymentPanel = new System.Windows.Forms.Panel();
             this.PremPayMPaymentRB = new System.Windows.Forms.RadioButton();
+            this.PremPayMPaymentBtn = new FontAwesome.Sharp.IconButton();
             this.PremCardCVCText = new System.Windows.Forms.TextBox();
             this.PremGCPaymentPanel = new System.Windows.Forms.Panel();
             this.PremGCPaymentRB = new System.Windows.Forms.RadioButton();
+            this.PremGCPaymentBtn = new FontAwesome.Sharp.IconButton();
             this.PremCardCVCErrorLbl = new System.Windows.Forms.Label();
             this.PremCCPaymentPanel = new System.Windows.Forms.Panel();
             this.PremCCPaymentRB = new System.Windows.Forms.RadioButton();
+            this.PremCCPaymentBtn = new FontAwesome.Sharp.IconButton();
             this.PremCardExpireLbl = new System.Windows.Forms.Label();
             this.PremCardExpireErrorLbl = new System.Windows.Forms.Label();
             this.PremCardExpireText = new System.Windows.Forms.TextBox();
@@ -337,19 +396,23 @@ namespace Enchante
             this.PremBiyearlyPlanLbl = new System.Windows.Forms.Label();
             this.PremBiyearlyPlanRenewText = new System.Windows.Forms.TextBox();
             this.PremBiyearlyPlanDiscLbl = new System.Windows.Forms.Label();
+            this.PremBiyearlyPlanBtn = new FontAwesome.Sharp.IconButton();
             this.PremYearlyPlanPanel = new System.Windows.Forms.Panel();
             this.PremYearlyPlanRB = new System.Windows.Forms.RadioButton();
             this.PremYearlyPlanLbl = new System.Windows.Forms.Label();
             this.PremYearlyPlanRenewText = new System.Windows.Forms.TextBox();
             this.PremYearlyPlanDiscLbl = new System.Windows.Forms.Label();
+            this.PremYearlyPlanBtn = new FontAwesome.Sharp.IconButton();
             this.PremMonthlyPlanPanel = new System.Windows.Forms.Panel();
             this.PremMonthlyPlanRB = new System.Windows.Forms.RadioButton();
             this.PremMonthlyPlanLbl = new System.Windows.Forms.Label();
             this.PremMonthlyPlanRenewText = new System.Windows.Forms.TextBox();
+            this.PremMonthlyPlanBtn = new FontAwesome.Sharp.IconButton();
             this.PremSelectPaymentLbl = new System.Windows.Forms.Label();
             this.PremBasicInfoLbl = new System.Windows.Forms.Label();
             this.PremMemberIDLbl = new System.Windows.Forms.Label();
             this.PremConfirmPassPanel = new System.Windows.Forms.Panel();
+            this.PremShowHideConfirmPassBtn = new FontAwesome.Sharp.IconButton();
             this.PremConfirmPassText = new System.Windows.Forms.TextBox();
             this.PremConfirmPassErrorLbl = new System.Windows.Forms.Label();
             this.PremMemberIDText = new System.Windows.Forms.TextBox();
@@ -361,6 +424,7 @@ namespace Enchante
             this.PremAgeErrorLbl = new System.Windows.Forms.Label();
             this.PremEmailErrorLbl = new System.Windows.Forms.Label();
             this.PremPassPanel = new System.Windows.Forms.Panel();
+            this.PremShowHidePassBtn = new FontAwesome.Sharp.IconButton();
             this.PremPassText = new System.Windows.Forms.TextBox();
             this.PremPassErrorLbl = new System.Windows.Forms.Label();
             this.PremPassLbl = new System.Windows.Forms.Label();
@@ -385,6 +449,10 @@ namespace Enchante
             this.PremSelectedPlanText = new System.Windows.Forms.TextBox();
             this.PremSelectedLbl = new System.Windows.Forms.Label();
             this.PremAccLbl = new System.Windows.Forms.Label();
+            this.PremMemberIDCopyBtn = new FontAwesome.Sharp.IconButton();
+            this.PremPassReqBtn = new FontAwesome.Sharp.IconButton();
+            this.PremCreateAccBtn = new FontAwesome.Sharp.IconButton();
+            this.PremiumExitBtn = new FontAwesome.Sharp.IconButton();
             this.SVIPPlanPanel = new System.Windows.Forms.Panel();
             this.SVIPPlanExpirationText = new System.Windows.Forms.TextBox();
             this.SVIPMemberIDCopyLbl = new System.Windows.Forms.Label();
@@ -400,15 +468,19 @@ namespace Enchante
             this.SVIPCardNumErrorLbl = new System.Windows.Forms.Label();
             this.SVIPPayPPaymentPanel = new System.Windows.Forms.Panel();
             this.SVIPPayPPaymentRB = new System.Windows.Forms.RadioButton();
+            this.SVIPPayPPaymentBtn = new FontAwesome.Sharp.IconButton();
             this.SVIPCardCVCLbl = new System.Windows.Forms.Label();
             this.SVIPPayMPaymentPanel = new System.Windows.Forms.Panel();
             this.SVIPPayMPaymentRB = new System.Windows.Forms.RadioButton();
+            this.SVIPPayMPaymentBtn = new FontAwesome.Sharp.IconButton();
             this.SVIPCardCVCText = new System.Windows.Forms.TextBox();
             this.SVIPGCPaymentPanel = new System.Windows.Forms.Panel();
             this.SVIPGCPaymentRB = new System.Windows.Forms.RadioButton();
+            this.SVIPGCPaymentBtn = new FontAwesome.Sharp.IconButton();
             this.SVIPCardCVCErrorLbl = new System.Windows.Forms.Label();
             this.SVIPCCPaymentPanel = new System.Windows.Forms.Panel();
             this.SVIPCCPaymentRB = new System.Windows.Forms.RadioButton();
+            this.SVIPCCPaymentBtn = new FontAwesome.Sharp.IconButton();
             this.SVIPCardExpireLbl = new System.Windows.Forms.Label();
             this.SVIPCardExpireErrorLbl = new System.Windows.Forms.Label();
             this.SVIPCardExpireText = new System.Windows.Forms.TextBox();
@@ -418,19 +490,23 @@ namespace Enchante
             this.SVIPBiyearlyPlanLbl = new System.Windows.Forms.Label();
             this.SVIPBiyearlyPlanRenewText = new System.Windows.Forms.TextBox();
             this.SVIPBiyearlyPlanDiscLbl = new System.Windows.Forms.Label();
+            this.SVIPBiyearlyPlanBtn = new FontAwesome.Sharp.IconButton();
             this.SVIPYearlyPlanPanel = new System.Windows.Forms.Panel();
             this.SVIPYearlyPlanRB = new System.Windows.Forms.RadioButton();
             this.SVIPYearlyPlanLbl = new System.Windows.Forms.Label();
             this.SVIPYearlyPlanRenewText = new System.Windows.Forms.TextBox();
             this.SVIPYearlyPlanDiscLbl = new System.Windows.Forms.Label();
+            this.SVIPYearlyPlanBtn = new FontAwesome.Sharp.IconButton();
             this.SVIPMonthlyPlanPanel = new System.Windows.Forms.Panel();
             this.SVIPMonthlyPlanRB = new System.Windows.Forms.RadioButton();
             this.SVIPMonthlyPlanLbl = new System.Windows.Forms.Label();
             this.SVIPMonthlyPlanRenewText = new System.Windows.Forms.TextBox();
+            this.SVIPMonthlyPlanBtn = new FontAwesome.Sharp.IconButton();
             this.SVIPSelectPaymentLbl = new System.Windows.Forms.Label();
             this.SVIPBasicInfoLbl = new System.Windows.Forms.Label();
             this.SVIPMemberIDLbl = new System.Windows.Forms.Label();
             this.SVIPConfirmPassPanel = new System.Windows.Forms.Panel();
+            this.SVIPShowHideConfirmPassBtn = new FontAwesome.Sharp.IconButton();
             this.SVIPConfirmPassText = new System.Windows.Forms.TextBox();
             this.SVIPConfirmPassErrorLbl = new System.Windows.Forms.Label();
             this.SVIPMemberIDText = new System.Windows.Forms.TextBox();
@@ -442,6 +518,7 @@ namespace Enchante
             this.SVIPAgeErrorLbl = new System.Windows.Forms.Label();
             this.SVIPEmailErrorLbl = new System.Windows.Forms.Label();
             this.SVIPPassPanel = new System.Windows.Forms.Panel();
+            this.SVIPShowHidePassBtn = new FontAwesome.Sharp.IconButton();
             this.SVIPPassText = new System.Windows.Forms.TextBox();
             this.SVIPPassErrorLbl = new System.Windows.Forms.Label();
             this.SVIPPassLbl = new System.Windows.Forms.Label();
@@ -466,10 +543,15 @@ namespace Enchante
             this.SVIPSelectedPlanText = new System.Windows.Forms.TextBox();
             this.SVIPSelectedLbl = new System.Windows.Forms.Label();
             this.SVIPAccLbl = new System.Windows.Forms.Label();
+            this.SVIPMemberIDCopyBtn = new FontAwesome.Sharp.IconButton();
+            this.SVIPPassReqBtn = new FontAwesome.Sharp.IconButton();
+            this.SVIPCreateAccBtn = new FontAwesome.Sharp.IconButton();
+            this.SVIPExitBtn = new FontAwesome.Sharp.IconButton();
             this.RegularPlanPanel = new System.Windows.Forms.Panel();
             this.RegularMemberIDCopyLbl = new System.Windows.Forms.Label();
             this.RegularMemberIDLbl = new System.Windows.Forms.Label();
             this.RegularConfirmPassPanel = new System.Windows.Forms.Panel();
+            this.RegularConfirmShowHidePassBtn = new FontAwesome.Sharp.IconButton();
             this.RegularConfirmPassText = new System.Windows.Forms.TextBox();
             this.RegularConfirmPassErrorLbl = new System.Windows.Forms.Label();
             this.RegularMemberIDText = new System.Windows.Forms.TextBox();
@@ -481,6 +563,7 @@ namespace Enchante
             this.RegularAgeErrorLbl = new System.Windows.Forms.Label();
             this.RegularEmailErrorLbl = new System.Windows.Forms.Label();
             this.RegularPassPanel = new System.Windows.Forms.Panel();
+            this.RegularShowHidePassBtn = new FontAwesome.Sharp.IconButton();
             this.RegularPassText = new System.Windows.Forms.TextBox();
             this.RegularPassErrorLbl = new System.Windows.Forms.Label();
             this.RegularPassLbl = new System.Windows.Forms.Label();
@@ -505,24 +588,34 @@ namespace Enchante
             this.RegularSelectedPlanLbl = new System.Windows.Forms.TextBox();
             this.RegularSelectedLbl = new System.Windows.Forms.Label();
             this.RegularAccLbl = new System.Windows.Forms.Label();
+            this.RegularMemberIDCopyBtn = new FontAwesome.Sharp.IconButton();
+            this.RegularPassReqBtn = new FontAwesome.Sharp.IconButton();
+            this.RegularCreateAccBtn = new FontAwesome.Sharp.IconButton();
+            this.RegularExitBtn = new FontAwesome.Sharp.IconButton();
             this.MembershipPlanPanel = new System.Windows.Forms.Panel();
             this.SVIPMemberPanel = new System.Windows.Forms.Panel();
+            this.SVIPMemberCreateAccBtn = new FontAwesome.Sharp.IconButton();
             this.SVIPMemberAccLbl = new System.Windows.Forms.Label();
             this.SVIPPMemberPriceText = new System.Windows.Forms.TextBox();
             this.SVIPMemberText = new System.Windows.Forms.TextBox();
             this.PMemberPanel = new System.Windows.Forms.Panel();
+            this.PMemberCreateAccBtn = new FontAwesome.Sharp.IconButton();
             this.PMemberAccLbl = new System.Windows.Forms.Label();
             this.PMemberPriceText = new System.Windows.Forms.TextBox();
             this.PMemberText = new System.Windows.Forms.TextBox();
             this.RMemberPanel = new System.Windows.Forms.Panel();
+            this.RMemberCreateAccBtn = new FontAwesome.Sharp.IconButton();
             this.RMemberAccLbl = new System.Windows.Forms.Label();
             this.RMemberPriceText = new System.Windows.Forms.TextBox();
             this.RMemberText = new System.Windows.Forms.TextBox();
             this.MemberTagline = new System.Windows.Forms.Label();
             this.EnchanteLoginForm = new System.Windows.Forms.Panel();
+            this.LoginPassReqBtn = new FontAwesome.Sharp.IconButton();
             this.LoginRegisterHereLbl = new System.Windows.Forms.Label();
             this.LoginPassPanel = new System.Windows.Forms.Panel();
+            this.ShowHidePassBtn = new FontAwesome.Sharp.IconButton();
             this.LoginPassText = new System.Windows.Forms.TextBox();
+            this.LoginBtn = new FontAwesome.Sharp.IconButton();
             this.LoginPassErrorLbl = new System.Windows.Forms.Label();
             this.LoginEmailAddErrorLbl = new System.Windows.Forms.Label();
             this.LoginPassLbl = new System.Windows.Forms.Label();
@@ -532,22 +625,43 @@ namespace Enchante
             this.HomeFooterStopper = new System.Windows.Forms.Panel();
             this.HomeFooterStopperLbl = new System.Windows.Forms.Label();
             this.EnchanteFooterBar = new System.Windows.Forms.Panel();
+            this.SM_GmailBtn = new FontAwesome.Sharp.IconButton();
+            this.SM_IGBtn = new FontAwesome.Sharp.IconButton();
+            this.SM_TwitterBtn = new FontAwesome.Sharp.IconButton();
+            this.EnchanteFooterLogo = new System.Windows.Forms.PictureBox();
+            this.SM_FBBtn = new FontAwesome.Sharp.IconButton();
             this.EnchanteTagline = new System.Windows.Forms.Label();
+            this.EnchanteAppointBtn = new FontAwesome.Sharp.IconButton();
+            this.EDP1 = new System.Windows.Forms.PictureBox();
             this.EnchanteMemberPage = new System.Windows.Forms.Panel();
             this.MemberScrollPanel = new System.Windows.Forms.Panel();
             this.MemberUserAccPanel = new System.Windows.Forms.Panel();
             this.MemberIDNumLbl = new System.Windows.Forms.Label();
             this.MemberNameLbl = new System.Windows.Forms.Label();
+            this.MemberSignOut = new FontAwesome.Sharp.IconButton();
             this.MemberScrollFooterStopperPanel = new System.Windows.Forms.Panel();
             this.MemberScrollFooterStopperLbl = new System.Windows.Forms.Label();
             this.MemberFooter = new System.Windows.Forms.Panel();
+            this.SM_EmailBtn1 = new FontAwesome.Sharp.IconButton();
+            this.SM_IGBtn1 = new FontAwesome.Sharp.IconButton();
+            this.SM_TwitterBtn1 = new FontAwesome.Sharp.IconButton();
+            this.MemberFooterLogo = new System.Windows.Forms.PictureBox();
+            this.SM_FBBtn1 = new FontAwesome.Sharp.IconButton();
             this.MemberNavBarPanel = new System.Windows.Forms.Panel();
+            this.MemberAccUserBtn = new FontAwesome.Sharp.IconButton();
+            this.MemberSubAccUserBtn = new FontAwesome.Sharp.IconButton();
+            this.MemberReviewBtn = new FontAwesome.Sharp.IconButton();
+            this.MemberBillBtn = new FontAwesome.Sharp.IconButton();
+            this.MemberAppointBtn = new FontAwesome.Sharp.IconButton();
+            this.MemberHomeBtn = new FontAwesome.Sharp.IconButton();
+            this.EnchanteMemberHeaderLogo = new System.Windows.Forms.PictureBox();
             this.EnchanteReceptionPage = new System.Windows.Forms.Panel();
             this.ReceptionScrollPanel = new System.Windows.Forms.Panel();
             this.ReceptionUserAccPanel = new System.Windows.Forms.Panel();
             this.RecIDNumLbl = new System.Windows.Forms.Label();
             this.RecDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.RecNameLbl = new System.Windows.Forms.Label();
+            this.ReceptionLogoutBtn = new FontAwesome.Sharp.IconButton();
             this.ReceptionFooterStopperPanel = new System.Windows.Forms.Panel();
             this.ReceptionFooterStopperLbl = new System.Windows.Forms.Label();
             this.ReceptionCreateTransactPanel = new System.Windows.Forms.Panel();
@@ -559,7 +673,11 @@ namespace Enchante
             this.RecApptConfirmTransNumText = new System.Windows.Forms.TextBox();
             this.RecApptConfirmTransNumLbl = new System.Windows.Forms.Label();
             this.RecApptAcceptLateDeclineDGV = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.TransactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AppointmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AppointmentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecApptConfirmClientNameLbl = new System.Windows.Forms.Label();
+            this.RecApptConfirmExitBtn = new FontAwesome.Sharp.IconButton();
             this.RecShopProdPanel = new System.Windows.Forms.Panel();
             this.RecShopProdSelectedProdVoidBtn = new Guna.UI2.WinForms.Guna2Button();
             this.RecShopProdPayMethodPanel = new System.Windows.Forms.Panel();
@@ -617,7 +735,9 @@ namespace Enchante
             this.RecShopProdTransNumText = new System.Windows.Forms.TextBox();
             this.RecShopProdTransNumLbl = new System.Windows.Forms.Label();
             this.RecShopProdLbl = new System.Windows.Forms.Label();
+            this.RecShopProdExitBtn = new FontAwesome.Sharp.IconButton();
             this.RecApptPanel = new System.Windows.Forms.Panel();
+            this.RecApptAvailableAttendingStaffSelectedComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.RecApptSearchServiceTypeText = new Guna.UI2.WinForms.Guna2TextBox();
             this.RecApptClientAgeErrorLbl = new System.Windows.Forms.Label();
@@ -637,8 +757,15 @@ namespace Enchante
             this.RecApptDeleteSelectedServiceAndStaffBtn = new Guna.UI2.WinForms.Guna2Button();
             this.RecApptStaffSelectLbl = new System.Windows.Forms.Label();
             this.RecApptSelectedServiceDGV = new System.Windows.Forms.DataGridView();
+            this.RecApptSelectedService = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecApptServicePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecApptServiceCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecApptServiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecApptStaffSelected = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecApptPriorityNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecApptTimeSelected = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecApptQueType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecApptNoServiceCategoryChosenWarningLbl = new System.Windows.Forms.Label();
-            this.RecApptAttendingStaffSelectedComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.RecApptAnyStaffLbl = new System.Windows.Forms.Label();
             this.RecApptAnyStaffToggleSwitch = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.RecApptPreferredStaffToggleSwitch = new Guna.UI2.WinForms.Guna2ToggleSwitch();
@@ -674,6 +801,8 @@ namespace Enchante
             this.RecApptTransNumText = new System.Windows.Forms.TextBox();
             this.RecApptTransNumLbl = new System.Windows.Forms.Label();
             this.RecApptLbl = new System.Windows.Forms.Label();
+            this.RecApptSearchServiceTypeBtn = new FontAwesome.Sharp.IconButton();
+            this.RecApptPanelExitBtn = new FontAwesome.Sharp.IconButton();
             this.RecQueWinPanel = new System.Windows.Forms.Panel();
             this.RecQueWinGenCatComboText = new Guna.UI2.WinForms.Guna2ComboBox();
             this.RecQueWinStaffCatComboText = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -684,6 +813,7 @@ namespace Enchante
             this.RecQueWinLbl = new System.Windows.Forms.Label();
             this.RecQueWinNextCustomerDGV = new System.Windows.Forms.DataGridView();
             this.RecQueWinStaffListDGV = new System.Windows.Forms.DataGridView();
+            this.RecQueWinExitBtn = new FontAwesome.Sharp.IconButton();
             this.RecPayServicePanel = new System.Windows.Forms.Panel();
             this.RecPayServiceCOProdTotalText = new System.Windows.Forms.TextBox();
             this.RecPayServiceAcquiredTotalText = new System.Windows.Forms.TextBox();
@@ -736,18 +866,26 @@ namespace Enchante
             this.RecPayServiceCardExpText = new System.Windows.Forms.TextBox();
             this.RecPayServiceGCPaymentPanel = new System.Windows.Forms.Panel();
             this.RecPayServiceGCPaymentRB = new System.Windows.Forms.RadioButton();
+            this.RecPayServiceGCPaymentBtn = new FontAwesome.Sharp.IconButton();
             this.RecPayServiceCashPaymentPanel = new System.Windows.Forms.Panel();
             this.RecPayServiceCashPaymentRB = new System.Windows.Forms.RadioButton();
+            this.RecPayServiceCashPaymentBtn = new FontAwesome.Sharp.IconButton();
             this.RecPayServiceTypeText = new System.Windows.Forms.TextBox();
             this.RecPayServicePPPaymentPanel = new System.Windows.Forms.Panel();
             this.RecPayServicePPPaymentRB = new System.Windows.Forms.RadioButton();
+            this.RecPayServicePPPaymentBtn = new FontAwesome.Sharp.IconButton();
             this.RecPayServicePMPaymentPanel = new System.Windows.Forms.Panel();
             this.RecPayServicePMPaymentRB = new System.Windows.Forms.RadioButton();
+            this.RecPayServicePMPaymentBtn = new FontAwesome.Sharp.IconButton();
+            this.RecPayServicePaymentButton = new FontAwesome.Sharp.IconButton();
             this.RecPayServiceCCPaymentPanel = new System.Windows.Forms.Panel();
             this.RecPayServiceCCPaymentRB = new System.Windows.Forms.RadioButton();
+            this.RecPayServiceCCPaymentBtn = new FontAwesome.Sharp.IconButton();
             this.RecPayServiceMethodLbl = new System.Windows.Forms.Label();
             this.RecPayServiceAcquiredDGV = new System.Windows.Forms.DataGridView();
             this.RecPayServiceCompleteTransDGV = new System.Windows.Forms.DataGridView();
+            this.RecPayServiceEditBtn = new FontAwesome.Sharp.IconButton();
+            this.RecPayServiceExitBtn = new FontAwesome.Sharp.IconButton();
             this.RecWalkinPanel = new System.Windows.Forms.Panel();
             this.RecWalkinBookTransactBtn = new Guna.UI2.WinForms.Guna2Button();
             this.RecWalkinSelectServiceAndStaffBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -777,14 +915,19 @@ namespace Enchante
             this.RecWalkInServiceTypeLbl = new System.Windows.Forms.Label();
             this.RecWalkinCatMassagePanel = new System.Windows.Forms.Panel();
             this.RecWalkinCatMassageRB = new System.Windows.Forms.RadioButton();
+            this.RecWalkinCatMassageBtn = new FontAwesome.Sharp.IconButton();
             this.RecWalkinCatSpaPanel = new System.Windows.Forms.Panel();
             this.RecWalkinCatSpaRB = new System.Windows.Forms.RadioButton();
+            this.RecWalkinCatSpaBtn = new FontAwesome.Sharp.IconButton();
             this.RecWalkinCatNCPanel = new System.Windows.Forms.Panel();
             this.RecWalkinCatNCRB = new System.Windows.Forms.RadioButton();
+            this.RecWalkinCatNCBtn = new FontAwesome.Sharp.IconButton();
             this.RecWalkinCatFSPanel = new System.Windows.Forms.Panel();
             this.RecWalkinCatFSRB = new System.Windows.Forms.RadioButton();
+            this.RecWalkinCatFSBtn = new FontAwesome.Sharp.IconButton();
             this.RecWalkinCatHSPanel = new System.Windows.Forms.Panel();
             this.RecWalkinCatHSRB = new System.Windows.Forms.RadioButton();
+            this.RecWalkinCatHSBtn = new FontAwesome.Sharp.IconButton();
             this.RecWalkinBasicInfoLbl = new System.Windows.Forms.Label();
             this.RecWalkinLNameErrorLbl = new System.Windows.Forms.Label();
             this.RecWalkinFNameErrorLbl = new System.Windows.Forms.Label();
@@ -802,15 +945,29 @@ namespace Enchante
             this.RecWalkinTransNumText = new System.Windows.Forms.TextBox();
             this.RecWalkinTransNumLbl = new System.Windows.Forms.Label();
             this.RecWalkinLbl = new System.Windows.Forms.Label();
+            this.RecWalkinSearchServiceTypeBtn = new FontAwesome.Sharp.IconButton();
+            this.RecWalkInExitBtn = new FontAwesome.Sharp.IconButton();
             this.RecTransactionPanel = new System.Windows.Forms.Panel();
+            this.RecApptConfirmBtn = new FontAwesome.Sharp.IconButton();
+            this.RecShopProdBtn = new FontAwesome.Sharp.IconButton();
+            this.RecQueWinBtn = new FontAwesome.Sharp.IconButton();
+            this.RecPayServiceBtn = new FontAwesome.Sharp.IconButton();
+            this.RecAppointmentBtn = new FontAwesome.Sharp.IconButton();
+            this.RecWalkInBtn = new FontAwesome.Sharp.IconButton();
             this.ReceptionNavBar = new System.Windows.Forms.Panel();
             this.RecDateTimeText = new System.Windows.Forms.TextBox();
+            this.RecAccBtn = new FontAwesome.Sharp.IconButton();
+            this.RecHomeBtn = new FontAwesome.Sharp.IconButton();
+            this.RecHeaderLogo = new System.Windows.Forms.PictureBox();
             this.EnchanteStaffPage = new System.Windows.Forms.Panel();
             this.StaffScrollPanel = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.StaffUserAccPanel = new System.Windows.Forms.Panel();
             this.StaffMemeberCategoryLbl = new System.Windows.Forms.Label();
             this.StaffIDNumLbl = new System.Windows.Forms.Label();
             this.StaffNameLbl = new System.Windows.Forms.Label();
+            this.StaffSignOutBtn = new FontAwesome.Sharp.IconButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -834,174 +991,17 @@ namespace Enchante
             this.ItemStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.StaffNavBarPanel = new System.Windows.Forms.Panel();
+            this.StaffPastTransactionBtn = new FontAwesome.Sharp.IconButton();
+            this.StaffUserAccBtn = new FontAwesome.Sharp.IconButton();
+            this.StaffCurrentTransactionBtn = new FontAwesome.Sharp.IconButton();
+            this.StaffHomeBtn = new FontAwesome.Sharp.IconButton();
+            this.StaffHeaderLogo = new System.Windows.Forms.PictureBox();
             this.EnchanteParentCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.HomeMembershipCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.HomeServiceCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.RecTransactionCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.DateTimePickerTimer = new System.Windows.Forms.Timer(this.components);
             this.MngrInventoryCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
-            this.StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.MngrSignOutBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrWalkinProdSalesExitBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrServiceHistoryExitBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrWalkinSalesExitBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrWalkinProdSalesBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrInventoryMembershipBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrServicesHistoryBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrInDemandBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrStaffSchedBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrProductsHistoryBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrWalkinServiceSalesBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrServicesDataBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrProductsDataBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrIndemandExitBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrInventoryProductHistoryEditBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrInventoryProductHistoryExitBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrSchedExitBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrServicesUpdateBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrServicesUpdateInfoBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrServicesCreateBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrServicesExitBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrInventoryMembershipExitBtn = new FontAwesome.Sharp.IconButton();
-            this.CancelEdit = new FontAwesome.Sharp.IconButton();
-            this.ProductImagePictureBox = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.MngrInventoryProductsUpdateBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrInventoryProductsInfoEditBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrInventoryProductsInsertBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrInventoryProductsExitBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrUserAccBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrHomeBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrHeaderLogo = new System.Windows.Forms.PictureBox();
-            this.AdminSignOutBtn = new FontAwesome.Sharp.IconButton();
-            this.AdminCancelEditBtn = new FontAwesome.Sharp.IconButton();
-            this.AdminShowHideConfirmPassBtn = new FontAwesome.Sharp.IconButton();
-            this.AdminShowHidePassBtn = new FontAwesome.Sharp.IconButton();
-            this.iconButton31 = new FontAwesome.Sharp.IconButton();
-            this.AdminUpdateAccBtn = new FontAwesome.Sharp.IconButton();
-            this.AdminEditAccBtn = new FontAwesome.Sharp.IconButton();
-            this.AdminCreateAccBtn = new FontAwesome.Sharp.IconButton();
-            this.AdminAccUserBtn = new FontAwesome.Sharp.IconButton();
-            this.AdminHomeBtn = new FontAwesome.Sharp.IconButton();
-            this.AdminHeaderLogo = new System.Windows.Forms.PictureBox();
-            this.EnchanteHLoginBtn = new FontAwesome.Sharp.IconButton();
-            this.EnchanteAbtUsBtn = new FontAwesome.Sharp.IconButton();
-            this.EnchanteTeamBtn = new FontAwesome.Sharp.IconButton();
-            this.EnchanteReviewBtn = new FontAwesome.Sharp.IconButton();
-            this.EnchanteMemberBtn = new FontAwesome.Sharp.IconButton();
-            this.EnchanteServiceBtn = new FontAwesome.Sharp.IconButton();
-            this.EnchanteHomeBtn = new FontAwesome.Sharp.IconButton();
-            this.EnchanteHeaderLogo = new System.Windows.Forms.PictureBox();
-            this.ServiceHSBtn = new FontAwesome.Sharp.IconButton();
-            this.ServiceFSBtn = new FontAwesome.Sharp.IconButton();
-            this.ServiceNCBtn = new FontAwesome.Sharp.IconButton();
-            this.ServiceSpaBtn = new FontAwesome.Sharp.IconButton();
-            this.ServiceMBtn = new FontAwesome.Sharp.IconButton();
-            this.PremPayPPaymentBtn = new FontAwesome.Sharp.IconButton();
-            this.PremPayMPaymentBtn = new FontAwesome.Sharp.IconButton();
-            this.PremGCPaymentBtn = new FontAwesome.Sharp.IconButton();
-            this.PremCCPaymentBtn = new FontAwesome.Sharp.IconButton();
-            this.PremBiyearlyPlanBtn = new FontAwesome.Sharp.IconButton();
-            this.PremYearlyPlanBtn = new FontAwesome.Sharp.IconButton();
-            this.PremMonthlyPlanBtn = new FontAwesome.Sharp.IconButton();
-            this.PremShowHideConfirmPassBtn = new FontAwesome.Sharp.IconButton();
-            this.PremShowHidePassBtn = new FontAwesome.Sharp.IconButton();
-            this.PremMemberIDCopyBtn = new FontAwesome.Sharp.IconButton();
-            this.PremPassReqBtn = new FontAwesome.Sharp.IconButton();
-            this.PremCreateAccBtn = new FontAwesome.Sharp.IconButton();
-            this.PremiumExitBtn = new FontAwesome.Sharp.IconButton();
-            this.SVIPPayPPaymentBtn = new FontAwesome.Sharp.IconButton();
-            this.SVIPPayMPaymentBtn = new FontAwesome.Sharp.IconButton();
-            this.SVIPGCPaymentBtn = new FontAwesome.Sharp.IconButton();
-            this.SVIPCCPaymentBtn = new FontAwesome.Sharp.IconButton();
-            this.SVIPBiyearlyPlanBtn = new FontAwesome.Sharp.IconButton();
-            this.SVIPYearlyPlanBtn = new FontAwesome.Sharp.IconButton();
-            this.SVIPMonthlyPlanBtn = new FontAwesome.Sharp.IconButton();
-            this.SVIPShowHideConfirmPassBtn = new FontAwesome.Sharp.IconButton();
-            this.SVIPShowHidePassBtn = new FontAwesome.Sharp.IconButton();
-            this.SVIPMemberIDCopyBtn = new FontAwesome.Sharp.IconButton();
-            this.SVIPPassReqBtn = new FontAwesome.Sharp.IconButton();
-            this.SVIPCreateAccBtn = new FontAwesome.Sharp.IconButton();
-            this.SVIPExitBtn = new FontAwesome.Sharp.IconButton();
-            this.RegularConfirmShowHidePassBtn = new FontAwesome.Sharp.IconButton();
-            this.RegularShowHidePassBtn = new FontAwesome.Sharp.IconButton();
-            this.RegularMemberIDCopyBtn = new FontAwesome.Sharp.IconButton();
-            this.RegularPassReqBtn = new FontAwesome.Sharp.IconButton();
-            this.RegularCreateAccBtn = new FontAwesome.Sharp.IconButton();
-            this.RegularExitBtn = new FontAwesome.Sharp.IconButton();
-            this.SVIPMemberCreateAccBtn = new FontAwesome.Sharp.IconButton();
-            this.PMemberCreateAccBtn = new FontAwesome.Sharp.IconButton();
-            this.RMemberCreateAccBtn = new FontAwesome.Sharp.IconButton();
-            this.LoginPassReqBtn = new FontAwesome.Sharp.IconButton();
-            this.ShowHidePassBtn = new FontAwesome.Sharp.IconButton();
-            this.LoginBtn = new FontAwesome.Sharp.IconButton();
-            this.SM_GmailBtn = new FontAwesome.Sharp.IconButton();
-            this.SM_IGBtn = new FontAwesome.Sharp.IconButton();
-            this.SM_TwitterBtn = new FontAwesome.Sharp.IconButton();
-            this.EnchanteFooterLogo = new System.Windows.Forms.PictureBox();
-            this.SM_FBBtn = new FontAwesome.Sharp.IconButton();
-            this.EnchanteAppointBtn = new FontAwesome.Sharp.IconButton();
-            this.EDP1 = new System.Windows.Forms.PictureBox();
-            this.MemberSignOut = new FontAwesome.Sharp.IconButton();
-            this.SM_EmailBtn1 = new FontAwesome.Sharp.IconButton();
-            this.SM_IGBtn1 = new FontAwesome.Sharp.IconButton();
-            this.SM_TwitterBtn1 = new FontAwesome.Sharp.IconButton();
-            this.MemberFooterLogo = new System.Windows.Forms.PictureBox();
-            this.SM_FBBtn1 = new FontAwesome.Sharp.IconButton();
-            this.MemberAccUserBtn = new FontAwesome.Sharp.IconButton();
-            this.MemberSubAccUserBtn = new FontAwesome.Sharp.IconButton();
-            this.MemberReviewBtn = new FontAwesome.Sharp.IconButton();
-            this.MemberBillBtn = new FontAwesome.Sharp.IconButton();
-            this.MemberAppointBtn = new FontAwesome.Sharp.IconButton();
-            this.MemberHomeBtn = new FontAwesome.Sharp.IconButton();
-            this.EnchanteMemberHeaderLogo = new System.Windows.Forms.PictureBox();
-            this.ReceptionLogoutBtn = new FontAwesome.Sharp.IconButton();
-            this.RecApptConfirmExitBtn = new FontAwesome.Sharp.IconButton();
-            this.RecShopProdExitBtn = new FontAwesome.Sharp.IconButton();
-            this.RecApptSearchServiceTypeBtn = new FontAwesome.Sharp.IconButton();
-            this.RecApptPanelExitBtn = new FontAwesome.Sharp.IconButton();
-            this.RecQueWinExitBtn = new FontAwesome.Sharp.IconButton();
-            this.RecPayServiceGCPaymentBtn = new FontAwesome.Sharp.IconButton();
-            this.RecPayServiceCashPaymentBtn = new FontAwesome.Sharp.IconButton();
-            this.RecPayServicePPPaymentBtn = new FontAwesome.Sharp.IconButton();
-            this.RecPayServicePMPaymentBtn = new FontAwesome.Sharp.IconButton();
-            this.RecPayServicePaymentButton = new FontAwesome.Sharp.IconButton();
-            this.RecPayServiceCCPaymentBtn = new FontAwesome.Sharp.IconButton();
-            this.RecPayServiceEditBtn = new FontAwesome.Sharp.IconButton();
-            this.RecPayServiceExitBtn = new FontAwesome.Sharp.IconButton();
-            this.RecWalkinCatMassageBtn = new FontAwesome.Sharp.IconButton();
-            this.RecWalkinCatSpaBtn = new FontAwesome.Sharp.IconButton();
-            this.RecWalkinCatNCBtn = new FontAwesome.Sharp.IconButton();
-            this.RecWalkinCatFSBtn = new FontAwesome.Sharp.IconButton();
-            this.RecWalkinCatHSBtn = new FontAwesome.Sharp.IconButton();
-            this.RecWalkinSearchServiceTypeBtn = new FontAwesome.Sharp.IconButton();
-            this.RecWalkInExitBtn = new FontAwesome.Sharp.IconButton();
-            this.RecApptConfirmBtn = new FontAwesome.Sharp.IconButton();
-            this.RecShopProdBtn = new FontAwesome.Sharp.IconButton();
-            this.RecQueWinBtn = new FontAwesome.Sharp.IconButton();
-            this.RecPayServiceBtn = new FontAwesome.Sharp.IconButton();
-            this.RecAppointmentBtn = new FontAwesome.Sharp.IconButton();
-            this.RecWalkInBtn = new FontAwesome.Sharp.IconButton();
-            this.RecAccBtn = new FontAwesome.Sharp.IconButton();
-            this.RecHomeBtn = new FontAwesome.Sharp.IconButton();
-            this.RecHeaderLogo = new System.Windows.Forms.PictureBox();
-            this.StaffSignOutBtn = new FontAwesome.Sharp.IconButton();
-            this.StaffPastTransactionBtn = new FontAwesome.Sharp.IconButton();
-            this.StaffUserAccBtn = new FontAwesome.Sharp.IconButton();
-            this.StaffCurrentTransactionBtn = new FontAwesome.Sharp.IconButton();
-            this.StaffHomeBtn = new FontAwesome.Sharp.IconButton();
-            this.StaffHeaderLogo = new System.Windows.Forms.PictureBox();
-            this.TransactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AppointmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AppointmentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecApptSelectedService = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecApptServicePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecApptServiceCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecApptServiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecApptStaffSelected = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecApptPriorityNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecApptTimeSelected = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecApptQueType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteMngrPage.SuspendLayout();
             this.MngrScrollPanel.SuspendLayout();
@@ -1032,8 +1032,10 @@ namespace Enchante
             ((System.ComponentModel.ISupportInitialize)(this.MngrInventoryServicesTable)).BeginInit();
             this.MngrInventoryMembershipPanel.SuspendLayout();
             this.MngrInventoryProductsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductImagePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrInventoryProductsTable)).BeginInit();
             this.MngrNavBarPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrHeaderLogo)).BeginInit();
             this.EnchanteAdminPage.SuspendLayout();
             this.AdminScrollPanel.SuspendLayout();
             this.AdminUserAccPanel.SuspendLayout();
@@ -1043,8 +1045,10 @@ namespace Enchante
             this.AdminPassPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AdminAccountTable)).BeginInit();
             this.AdminNavBarPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AdminHeaderLogo)).BeginInit();
             this.EnchanteHomePage.SuspendLayout();
             this.EnchanteHomeNavBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EnchanteHeaderLogo)).BeginInit();
             this.EnchanteHomeScrollPanel.SuspendLayout();
             this.ServicePanel.SuspendLayout();
             this.ServiceMassage.SuspendLayout();
@@ -1090,12 +1094,16 @@ namespace Enchante
             this.LoginPassPanel.SuspendLayout();
             this.HomeFooterStopper.SuspendLayout();
             this.EnchanteFooterBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EnchanteFooterLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EDP1)).BeginInit();
             this.EnchanteMemberPage.SuspendLayout();
             this.MemberScrollPanel.SuspendLayout();
             this.MemberUserAccPanel.SuspendLayout();
             this.MemberScrollFooterStopperPanel.SuspendLayout();
             this.MemberFooter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MemberFooterLogo)).BeginInit();
             this.MemberNavBarPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EnchanteMemberHeaderLogo)).BeginInit();
             this.EnchanteReceptionPage.SuspendLayout();
             this.ReceptionScrollPanel.SuspendLayout();
             this.ReceptionUserAccPanel.SuspendLayout();
@@ -1149,6 +1157,7 @@ namespace Enchante
             this.RecWalkInFooterStopperPanel.SuspendLayout();
             this.RecTransactionPanel.SuspendLayout();
             this.ReceptionNavBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RecHeaderLogo)).BeginInit();
             this.EnchanteStaffPage.SuspendLayout();
             this.StaffScrollPanel.SuspendLayout();
             this.StaffUserAccPanel.SuspendLayout();
@@ -1157,21 +1166,12 @@ namespace Enchante
             ((System.ComponentModel.ISupportInitialize)(this.StaffPersonalInventoryDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StaffInventoryDataGrid)).BeginInit();
             this.StaffNavBarPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.StaffHeaderLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnchanteParentCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HomeMembershipCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HomeServiceCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecTransactionCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrInventoryCard)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ProductImagePictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MngrHeaderLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AdminHeaderLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EnchanteHeaderLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EnchanteFooterLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EDP1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MemberFooterLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EnchanteMemberHeaderLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RecHeaderLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StaffHeaderLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // EnchanteParentContainer
@@ -1259,6 +1259,30 @@ namespace Enchante
             this.MngrNameLbl.Size = new System.Drawing.Size(146, 29);
             this.MngrNameLbl.TabIndex = 8;
             this.MngrNameLbl.Text = "Mngr Name";
+            // 
+            // MngrSignOutBtn
+            // 
+            this.MngrSignOutBtn.AutoSize = true;
+            this.MngrSignOutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrSignOutBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrSignOutBtn.FlatAppearance.BorderSize = 0;
+            this.MngrSignOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrSignOutBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrSignOutBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrSignOutBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.MngrSignOutBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrSignOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrSignOutBtn.IconSize = 32;
+            this.MngrSignOutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrSignOutBtn.Location = new System.Drawing.Point(82, 114);
+            this.MngrSignOutBtn.Name = "MngrSignOutBtn";
+            this.MngrSignOutBtn.Size = new System.Drawing.Size(176, 60);
+            this.MngrSignOutBtn.TabIndex = 7;
+            this.MngrSignOutBtn.Text = "LOGOUT";
+            this.MngrSignOutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrSignOutBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.MngrSignOutBtn.UseVisualStyleBackColor = true;
+            this.MngrSignOutBtn.Click += new System.EventHandler(this.MngrSignOutBtn_Click_1);
             // 
             // MngrInventoryPanel
             // 
@@ -1362,35 +1386,35 @@ namespace Enchante
             // 
             // MngrProductSalesLineGraph
             // 
-            chartArea1.Name = "ChartArea1";
-            this.MngrProductSalesLineGraph.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.MngrProductSalesLineGraph.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.MngrProductSalesLineGraph.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.MngrProductSalesLineGraph.Legends.Add(legend5);
             this.MngrProductSalesLineGraph.Location = new System.Drawing.Point(918, 381);
             this.MngrProductSalesLineGraph.Margin = new System.Windows.Forms.Padding(2);
             this.MngrProductSalesLineGraph.Name = "MngrProductSalesLineGraph";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.MngrProductSalesLineGraph.Series.Add(series1);
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.MngrProductSalesLineGraph.Series.Add(series5);
             this.MngrProductSalesLineGraph.Size = new System.Drawing.Size(541, 313);
             this.MngrProductSalesLineGraph.TabIndex = 25;
             this.MngrProductSalesLineGraph.Text = "chart1";
             // 
             // MngrProductSalesGraph
             // 
-            chartArea2.Name = "ChartArea1";
-            this.MngrProductSalesGraph.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.MngrProductSalesGraph.Legends.Add(legend2);
+            chartArea6.Name = "ChartArea1";
+            this.MngrProductSalesGraph.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.MngrProductSalesGraph.Legends.Add(legend6);
             this.MngrProductSalesGraph.Location = new System.Drawing.Point(329, 381);
             this.MngrProductSalesGraph.Name = "MngrProductSalesGraph";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.MngrProductSalesGraph.Series.Add(series2);
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.MngrProductSalesGraph.Series.Add(series6);
             this.MngrProductSalesGraph.Size = new System.Drawing.Size(528, 313);
             this.MngrProductSalesGraph.TabIndex = 23;
             this.MngrProductSalesGraph.Text = "chart1";
@@ -1520,6 +1544,23 @@ namespace Enchante
             this.MngrProductSalesCatLbl.TabIndex = 6;
             this.MngrProductSalesCatLbl.Text = "Select Category:";
             // 
+            // MngrWalkinProdSalesExitBtn
+            // 
+            this.MngrWalkinProdSalesExitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.MngrWalkinProdSalesExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrWalkinProdSalesExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.MngrWalkinProdSalesExitBtn.FlatAppearance.BorderSize = 0;
+            this.MngrWalkinProdSalesExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrWalkinProdSalesExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.MngrWalkinProdSalesExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinProdSalesExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrWalkinProdSalesExitBtn.Location = new System.Drawing.Point(1717, 29);
+            this.MngrWalkinProdSalesExitBtn.Name = "MngrWalkinProdSalesExitBtn";
+            this.MngrWalkinProdSalesExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.MngrWalkinProdSalesExitBtn.TabIndex = 84;
+            this.MngrWalkinProdSalesExitBtn.UseVisualStyleBackColor = false;
+            this.MngrWalkinProdSalesExitBtn.Click += new System.EventHandler(this.MngrWalkinProdSalesExitBtn_Click);
+            // 
             // MngrServiceHistoryPanel
             // 
             this.MngrServiceHistoryPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
@@ -1542,24 +1583,24 @@ namespace Enchante
             this.MngrServiceHistoryDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MngrServiceHistoryDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.MngrServiceHistoryDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrServiceHistoryDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle54.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle54.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle54.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle54.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle54.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle54.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrServiceHistoryDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle54;
             this.MngrServiceHistoryDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MngrServiceHistoryDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrServiceHistoryDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle55.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle55.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle55.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle55.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle55.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle55.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrServiceHistoryDGV.DefaultCellStyle = dataGridViewCellStyle55;
             this.MngrServiceHistoryDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.MngrServiceHistoryDGV.Location = new System.Drawing.Point(514, 152);
             this.MngrServiceHistoryDGV.Name = "MngrServiceHistoryDGV";
@@ -1569,6 +1610,23 @@ namespace Enchante
             this.MngrServiceHistoryDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.MngrServiceHistoryDGV.Size = new System.Drawing.Size(764, 336);
             this.MngrServiceHistoryDGV.TabIndex = 83;
+            // 
+            // MngrServiceHistoryExitBtn
+            // 
+            this.MngrServiceHistoryExitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.MngrServiceHistoryExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrServiceHistoryExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.MngrServiceHistoryExitBtn.FlatAppearance.BorderSize = 0;
+            this.MngrServiceHistoryExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrServiceHistoryExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.MngrServiceHistoryExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServiceHistoryExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrServiceHistoryExitBtn.Location = new System.Drawing.Point(1717, 29);
+            this.MngrServiceHistoryExitBtn.Name = "MngrServiceHistoryExitBtn";
+            this.MngrServiceHistoryExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.MngrServiceHistoryExitBtn.TabIndex = 84;
+            this.MngrServiceHistoryExitBtn.UseVisualStyleBackColor = false;
+            this.MngrServiceHistoryExitBtn.Click += new System.EventHandler(this.MngrServiceHistoryExitBtn_Click);
             // 
             // MngrWalkinSalesPanel
             // 
@@ -1625,24 +1683,24 @@ namespace Enchante
             this.MngrWalkinSalesTransServiceHisDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MngrWalkinSalesTransServiceHisDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.MngrWalkinSalesTransServiceHisDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrWalkinSalesTransServiceHisDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle56.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle56.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle56.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle56.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle56.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrWalkinSalesTransServiceHisDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle56;
             this.MngrWalkinSalesTransServiceHisDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MngrWalkinSalesTransServiceHisDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrWalkinSalesTransServiceHisDGV.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle57.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle57.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle57.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle57.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle57.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrWalkinSalesTransServiceHisDGV.DefaultCellStyle = dataGridViewCellStyle57;
             this.MngrWalkinSalesTransServiceHisDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.MngrWalkinSalesTransServiceHisDGV.Location = new System.Drawing.Point(924, 444);
             this.MngrWalkinSalesTransServiceHisDGV.Name = "MngrWalkinSalesTransServiceHisDGV";
@@ -1662,24 +1720,24 @@ namespace Enchante
             this.MngrWalkinSalesTransRepDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MngrWalkinSalesTransRepDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.MngrWalkinSalesTransRepDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrWalkinSalesTransRepDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle58.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle58.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle58.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle58.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle58.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrWalkinSalesTransRepDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle58;
             this.MngrWalkinSalesTransRepDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MngrWalkinSalesTransRepDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrWalkinSalesTransRepDGV.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle59.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle59.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle59.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle59.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle59.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrWalkinSalesTransRepDGV.DefaultCellStyle = dataGridViewCellStyle59;
             this.MngrWalkinSalesTransRepDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.MngrWalkinSalesTransRepDGV.Location = new System.Drawing.Point(283, 444);
             this.MngrWalkinSalesTransRepDGV.Name = "MngrWalkinSalesTransRepDGV";
@@ -1704,21 +1762,21 @@ namespace Enchante
             // 
             // MngrWalkinSalesGraph
             // 
-            chartArea3.BorderColor = System.Drawing.Color.White;
-            chartArea3.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea3.BorderWidth = 3;
-            chartArea3.Name = "ChartArea1";
-            this.MngrWalkinSalesGraph.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.MngrWalkinSalesGraph.Legends.Add(legend3);
+            chartArea7.BorderColor = System.Drawing.Color.White;
+            chartArea7.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea7.BorderWidth = 3;
+            chartArea7.Name = "ChartArea1";
+            this.MngrWalkinSalesGraph.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.MngrWalkinSalesGraph.Legends.Add(legend7);
             this.MngrWalkinSalesGraph.Location = new System.Drawing.Point(924, 135);
             this.MngrWalkinSalesGraph.Margin = new System.Windows.Forms.Padding(2);
             this.MngrWalkinSalesGraph.Name = "MngrWalkinSalesGraph";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.MngrWalkinSalesGraph.Series.Add(series3);
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Legend = "Legend1";
+            series7.Name = "Series1";
+            this.MngrWalkinSalesGraph.Series.Add(series7);
             this.MngrWalkinSalesGraph.Size = new System.Drawing.Size(594, 238);
             this.MngrWalkinSalesGraph.TabIndex = 23;
             this.MngrWalkinSalesGraph.Text = "Walk-in Sales";
@@ -1894,6 +1952,23 @@ namespace Enchante
             this.MngrWalkinSalesPeriodCalendar.Visible = false;
             this.MngrWalkinSalesPeriodCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.SalesPeriodCalendar_DateChanged);
             // 
+            // MngrWalkinSalesExitBtn
+            // 
+            this.MngrWalkinSalesExitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.MngrWalkinSalesExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrWalkinSalesExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.MngrWalkinSalesExitBtn.FlatAppearance.BorderSize = 0;
+            this.MngrWalkinSalesExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrWalkinSalesExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.MngrWalkinSalesExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinSalesExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrWalkinSalesExitBtn.Location = new System.Drawing.Point(1716, 20);
+            this.MngrWalkinSalesExitBtn.Name = "MngrWalkinSalesExitBtn";
+            this.MngrWalkinSalesExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.MngrWalkinSalesExitBtn.TabIndex = 85;
+            this.MngrWalkinSalesExitBtn.UseVisualStyleBackColor = false;
+            this.MngrWalkinSalesExitBtn.Click += new System.EventHandler(this.MngrWalkinSalesExitBtn_Click);
+            // 
             // MngrInventoryTypePanel
             // 
             this.MngrInventoryCard.SetCardName(this.MngrInventoryTypePanel, "TYPES");
@@ -1912,6 +1987,216 @@ namespace Enchante
             this.MngrInventoryCard.SetPreferredSize(this.MngrInventoryTypePanel, new System.Drawing.Size(1797, 749));
             this.MngrInventoryTypePanel.Size = new System.Drawing.Size(1797, 749);
             this.MngrInventoryTypePanel.TabIndex = 1;
+            // 
+            // MngrWalkinProdSalesBtn
+            // 
+            this.MngrWalkinProdSalesBtn.AutoSize = true;
+            this.MngrWalkinProdSalesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrWalkinProdSalesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrWalkinProdSalesBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrWalkinProdSalesBtn.FlatAppearance.BorderSize = 3;
+            this.MngrWalkinProdSalesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrWalkinProdSalesBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrWalkinProdSalesBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinProdSalesBtn.IconChar = FontAwesome.Sharp.IconChar.ChartColumn;
+            this.MngrWalkinProdSalesBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrWalkinProdSalesBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrWalkinProdSalesBtn.Location = new System.Drawing.Point(772, 399);
+            this.MngrWalkinProdSalesBtn.Name = "MngrWalkinProdSalesBtn";
+            this.MngrWalkinProdSalesBtn.Size = new System.Drawing.Size(250, 250);
+            this.MngrWalkinProdSalesBtn.TabIndex = 96;
+            this.MngrWalkinProdSalesBtn.Text = "WALK-IN\r\nPRODUCT\r\nSALES";
+            this.MngrWalkinProdSalesBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.MngrWalkinProdSalesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MngrWalkinProdSalesBtn.UseVisualStyleBackColor = false;
+            this.MngrWalkinProdSalesBtn.Click += new System.EventHandler(this.MngrWalkinProdSalesBtn_Click);
+            // 
+            // MngrInventoryMembershipBtn
+            // 
+            this.MngrInventoryMembershipBtn.AutoSize = true;
+            this.MngrInventoryMembershipBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrInventoryMembershipBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrInventoryMembershipBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrInventoryMembershipBtn.FlatAppearance.BorderSize = 3;
+            this.MngrInventoryMembershipBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrInventoryMembershipBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrInventoryMembershipBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryMembershipBtn.IconChar = FontAwesome.Sharp.IconChar.UserGroup;
+            this.MngrInventoryMembershipBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrInventoryMembershipBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrInventoryMembershipBtn.Location = new System.Drawing.Point(114, 243);
+            this.MngrInventoryMembershipBtn.Name = "MngrInventoryMembershipBtn";
+            this.MngrInventoryMembershipBtn.Size = new System.Drawing.Size(250, 250);
+            this.MngrInventoryMembershipBtn.TabIndex = 88;
+            this.MngrInventoryMembershipBtn.Text = "MEMBER\r\nACCOUNTS";
+            this.MngrInventoryMembershipBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.MngrInventoryMembershipBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MngrInventoryMembershipBtn.UseVisualStyleBackColor = false;
+            this.MngrInventoryMembershipBtn.Visible = false;
+            this.MngrInventoryMembershipBtn.Click += new System.EventHandler(this.RecInventoryMembershipBtn_Click);
+            // 
+            // MngrServicesHistoryBtn
+            // 
+            this.MngrServicesHistoryBtn.AutoSize = true;
+            this.MngrServicesHistoryBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrServicesHistoryBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrServicesHistoryBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrServicesHistoryBtn.FlatAppearance.BorderSize = 3;
+            this.MngrServicesHistoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrServicesHistoryBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrServicesHistoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesHistoryBtn.IconChar = FontAwesome.Sharp.IconChar.ClockRotateLeft;
+            this.MngrServicesHistoryBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrServicesHistoryBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrServicesHistoryBtn.Location = new System.Drawing.Point(114, 511);
+            this.MngrServicesHistoryBtn.Name = "MngrServicesHistoryBtn";
+            this.MngrServicesHistoryBtn.Size = new System.Drawing.Size(250, 250);
+            this.MngrServicesHistoryBtn.TabIndex = 95;
+            this.MngrServicesHistoryBtn.Text = "SERVICE\r\nHISTORY";
+            this.MngrServicesHistoryBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.MngrServicesHistoryBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MngrServicesHistoryBtn.UseVisualStyleBackColor = false;
+            this.MngrServicesHistoryBtn.Visible = false;
+            this.MngrServicesHistoryBtn.Click += new System.EventHandler(this.MngrServicesHistoryBtn_Click);
+            // 
+            // MngrInDemandBtn
+            // 
+            this.MngrInDemandBtn.AutoSize = true;
+            this.MngrInDemandBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrInDemandBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrInDemandBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrInDemandBtn.FlatAppearance.BorderSize = 3;
+            this.MngrInDemandBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrInDemandBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrInDemandBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInDemandBtn.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
+            this.MngrInDemandBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrInDemandBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrInDemandBtn.Location = new System.Drawing.Point(1068, 399);
+            this.MngrInDemandBtn.Name = "MngrInDemandBtn";
+            this.MngrInDemandBtn.Size = new System.Drawing.Size(250, 250);
+            this.MngrInDemandBtn.TabIndex = 94;
+            this.MngrInDemandBtn.Text = "IN DEMAND\r\nSERVICES";
+            this.MngrInDemandBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.MngrInDemandBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MngrInDemandBtn.UseVisualStyleBackColor = false;
+            this.MngrInDemandBtn.Click += new System.EventHandler(this.MngrInventoryInDemandBtn_Click);
+            // 
+            // MngrStaffSchedBtn
+            // 
+            this.MngrStaffSchedBtn.AutoSize = true;
+            this.MngrStaffSchedBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrStaffSchedBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrStaffSchedBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrStaffSchedBtn.FlatAppearance.BorderSize = 3;
+            this.MngrStaffSchedBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrStaffSchedBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrStaffSchedBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrStaffSchedBtn.IconChar = FontAwesome.Sharp.IconChar.Calendar;
+            this.MngrStaffSchedBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrStaffSchedBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrStaffSchedBtn.Location = new System.Drawing.Point(1068, 100);
+            this.MngrStaffSchedBtn.Name = "MngrStaffSchedBtn";
+            this.MngrStaffSchedBtn.Size = new System.Drawing.Size(250, 250);
+            this.MngrStaffSchedBtn.TabIndex = 93;
+            this.MngrStaffSchedBtn.Text = "STAFF\r\nSCHEDULE";
+            this.MngrStaffSchedBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.MngrStaffSchedBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MngrStaffSchedBtn.UseVisualStyleBackColor = false;
+            this.MngrStaffSchedBtn.Click += new System.EventHandler(this.MngrInventoryStaffSchedBtn_Click);
+            // 
+            // MngrProductsHistoryBtn
+            // 
+            this.MngrProductsHistoryBtn.AutoSize = true;
+            this.MngrProductsHistoryBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrProductsHistoryBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrProductsHistoryBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrProductsHistoryBtn.FlatAppearance.BorderSize = 3;
+            this.MngrProductsHistoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrProductsHistoryBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrProductsHistoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrProductsHistoryBtn.IconChar = FontAwesome.Sharp.IconChar.ClockRotateLeft;
+            this.MngrProductsHistoryBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrProductsHistoryBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrProductsHistoryBtn.Location = new System.Drawing.Point(114, -13);
+            this.MngrProductsHistoryBtn.Name = "MngrProductsHistoryBtn";
+            this.MngrProductsHistoryBtn.Size = new System.Drawing.Size(250, 250);
+            this.MngrProductsHistoryBtn.TabIndex = 92;
+            this.MngrProductsHistoryBtn.Text = "PRODUCT\r\nHISTORY";
+            this.MngrProductsHistoryBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.MngrProductsHistoryBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MngrProductsHistoryBtn.UseVisualStyleBackColor = false;
+            this.MngrProductsHistoryBtn.Visible = false;
+            this.MngrProductsHistoryBtn.Click += new System.EventHandler(this.MngrInventoryProductsHistoryBtn_Click);
+            // 
+            // MngrWalkinServiceSalesBtn
+            // 
+            this.MngrWalkinServiceSalesBtn.AutoSize = true;
+            this.MngrWalkinServiceSalesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrWalkinServiceSalesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrWalkinServiceSalesBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrWalkinServiceSalesBtn.FlatAppearance.BorderSize = 3;
+            this.MngrWalkinServiceSalesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrWalkinServiceSalesBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrWalkinServiceSalesBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinServiceSalesBtn.IconChar = FontAwesome.Sharp.IconChar.ChartColumn;
+            this.MngrWalkinServiceSalesBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrWalkinServiceSalesBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrWalkinServiceSalesBtn.Location = new System.Drawing.Point(481, 399);
+            this.MngrWalkinServiceSalesBtn.Name = "MngrWalkinServiceSalesBtn";
+            this.MngrWalkinServiceSalesBtn.Size = new System.Drawing.Size(250, 250);
+            this.MngrWalkinServiceSalesBtn.TabIndex = 91;
+            this.MngrWalkinServiceSalesBtn.Text = "WALK-IN\r\nSALES";
+            this.MngrWalkinServiceSalesBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.MngrWalkinServiceSalesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MngrWalkinServiceSalesBtn.UseVisualStyleBackColor = false;
+            this.MngrWalkinServiceSalesBtn.Click += new System.EventHandler(this.MngrInventoryWalkinSalesBtn_Click);
+            // 
+            // MngrServicesDataBtn
+            // 
+            this.MngrServicesDataBtn.AutoSize = true;
+            this.MngrServicesDataBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrServicesDataBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrServicesDataBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrServicesDataBtn.FlatAppearance.BorderSize = 3;
+            this.MngrServicesDataBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrServicesDataBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrServicesDataBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesDataBtn.IconChar = FontAwesome.Sharp.IconChar.Database;
+            this.MngrServicesDataBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrServicesDataBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrServicesDataBtn.Location = new System.Drawing.Point(479, 100);
+            this.MngrServicesDataBtn.Name = "MngrServicesDataBtn";
+            this.MngrServicesDataBtn.Size = new System.Drawing.Size(250, 250);
+            this.MngrServicesDataBtn.TabIndex = 90;
+            this.MngrServicesDataBtn.Text = "SERVICE\r\nDATA\r\n";
+            this.MngrServicesDataBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.MngrServicesDataBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MngrServicesDataBtn.UseVisualStyleBackColor = false;
+            this.MngrServicesDataBtn.Click += new System.EventHandler(this.RecInventoryServicesBtn_Click_1);
+            // 
+            // MngrProductsDataBtn
+            // 
+            this.MngrProductsDataBtn.AutoSize = true;
+            this.MngrProductsDataBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrProductsDataBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrProductsDataBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrProductsDataBtn.FlatAppearance.BorderSize = 3;
+            this.MngrProductsDataBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrProductsDataBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrProductsDataBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrProductsDataBtn.IconChar = FontAwesome.Sharp.IconChar.Database;
+            this.MngrProductsDataBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrProductsDataBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrProductsDataBtn.Location = new System.Drawing.Point(772, 100);
+            this.MngrProductsDataBtn.Name = "MngrProductsDataBtn";
+            this.MngrProductsDataBtn.Size = new System.Drawing.Size(250, 250);
+            this.MngrProductsDataBtn.TabIndex = 89;
+            this.MngrProductsDataBtn.Text = "PRODUCT\r\nDATA\r\n";
+            this.MngrProductsDataBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.MngrProductsDataBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MngrProductsDataBtn.UseVisualStyleBackColor = false;
+            this.MngrProductsDataBtn.Click += new System.EventHandler(this.RecInventoryProductsBtn_Click);
             // 
             // MngrIndemandPanel
             // 
@@ -1978,24 +2263,24 @@ namespace Enchante
             this.MngrIndemandBestEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MngrIndemandBestEmployee.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.MngrIndemandBestEmployee.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrIndemandBestEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle60.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle60.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle60.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle60.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle60.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle60.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrIndemandBestEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle60;
             this.MngrIndemandBestEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MngrIndemandBestEmployee.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrIndemandBestEmployee.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle61.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle61.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle61.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle61.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle61.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle61.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle61.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrIndemandBestEmployee.DefaultCellStyle = dataGridViewCellStyle61;
             this.MngrIndemandBestEmployee.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.MngrIndemandBestEmployee.Location = new System.Drawing.Point(915, 457);
             this.MngrIndemandBestEmployee.Name = "MngrIndemandBestEmployee";
@@ -2015,24 +2300,24 @@ namespace Enchante
             this.MngrIndemandServiceSelection.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MngrIndemandServiceSelection.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.MngrIndemandServiceSelection.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrIndemandServiceSelection.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle62.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle62.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle62.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle62.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle62.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle62.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrIndemandServiceSelection.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle62;
             this.MngrIndemandServiceSelection.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MngrIndemandServiceSelection.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrIndemandServiceSelection.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle63.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle63.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle63.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle63.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle63.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle63.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle63.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrIndemandServiceSelection.DefaultCellStyle = dataGridViewCellStyle63;
             this.MngrIndemandServiceSelection.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.MngrIndemandServiceSelection.Location = new System.Drawing.Point(291, 457);
             this.MngrIndemandServiceSelection.Name = "MngrIndemandServiceSelection";
@@ -2043,21 +2328,38 @@ namespace Enchante
             this.MngrIndemandServiceSelection.Size = new System.Drawing.Size(594, 252);
             this.MngrIndemandServiceSelection.TabIndex = 88;
             // 
+            // MngrIndemandExitBtn
+            // 
+            this.MngrIndemandExitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.MngrIndemandExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrIndemandExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.MngrIndemandExitBtn.FlatAppearance.BorderSize = 0;
+            this.MngrIndemandExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrIndemandExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.MngrIndemandExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrIndemandExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrIndemandExitBtn.Location = new System.Drawing.Point(1732, 15);
+            this.MngrIndemandExitBtn.Name = "MngrIndemandExitBtn";
+            this.MngrIndemandExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.MngrIndemandExitBtn.TabIndex = 85;
+            this.MngrIndemandExitBtn.UseVisualStyleBackColor = false;
+            this.MngrIndemandExitBtn.Click += new System.EventHandler(this.MngrIndemandExitBtn_Click);
+            // 
             // MngrIndemandServiceGraph
             // 
-            chartArea4.Name = "ChartArea1";
-            this.MngrIndemandServiceGraph.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.MngrIndemandServiceGraph.Legends.Add(legend4);
+            chartArea8.Name = "ChartArea1";
+            this.MngrIndemandServiceGraph.ChartAreas.Add(chartArea8);
+            legend8.Name = "Legend1";
+            this.MngrIndemandServiceGraph.Legends.Add(legend8);
             this.MngrIndemandServiceGraph.Location = new System.Drawing.Point(915, 156);
             this.MngrIndemandServiceGraph.Margin = new System.Windows.Forms.Padding(2);
             this.MngrIndemandServiceGraph.Name = "MngrIndemandServiceGraph";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series4.LabelBorderWidth = 2;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.MngrIndemandServiceGraph.Series.Add(series4);
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series8.LabelBorderWidth = 2;
+            series8.Legend = "Legend1";
+            series8.Name = "Series1";
+            this.MngrIndemandServiceGraph.Series.Add(series8);
             this.MngrIndemandServiceGraph.Size = new System.Drawing.Size(594, 239);
             this.MngrIndemandServiceGraph.TabIndex = 20;
             this.MngrIndemandServiceGraph.Text = "chart1";
@@ -2243,24 +2545,24 @@ namespace Enchante
             this.MngrInventoryProductHistoryDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MngrInventoryProductHistoryDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.MngrInventoryProductHistoryDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrInventoryProductHistoryDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle64.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle64.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle64.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle64.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle64.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle64.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle64.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrInventoryProductHistoryDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle64;
             this.MngrInventoryProductHistoryDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MngrInventoryProductHistoryDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrInventoryProductHistoryDGV.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle65.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle65.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle65.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle65.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle65.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle65.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle65.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrInventoryProductHistoryDGV.DefaultCellStyle = dataGridViewCellStyle65;
             this.MngrInventoryProductHistoryDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.MngrInventoryProductHistoryDGV.Location = new System.Drawing.Point(514, 152);
             this.MngrInventoryProductHistoryDGV.Name = "MngrInventoryProductHistoryDGV";
@@ -2270,6 +2572,46 @@ namespace Enchante
             this.MngrInventoryProductHistoryDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.MngrInventoryProductHistoryDGV.Size = new System.Drawing.Size(764, 336);
             this.MngrInventoryProductHistoryDGV.TabIndex = 83;
+            // 
+            // MngrInventoryProductHistoryEditBtn
+            // 
+            this.MngrInventoryProductHistoryEditBtn.AutoSize = true;
+            this.MngrInventoryProductHistoryEditBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrInventoryProductHistoryEditBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrInventoryProductHistoryEditBtn.FlatAppearance.BorderSize = 3;
+            this.MngrInventoryProductHistoryEditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrInventoryProductHistoryEditBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrInventoryProductHistoryEditBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductHistoryEditBtn.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.MngrInventoryProductHistoryEditBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductHistoryEditBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrInventoryProductHistoryEditBtn.IconSize = 32;
+            this.MngrInventoryProductHistoryEditBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrInventoryProductHistoryEditBtn.Location = new System.Drawing.Point(1172, 537);
+            this.MngrInventoryProductHistoryEditBtn.Name = "MngrInventoryProductHistoryEditBtn";
+            this.MngrInventoryProductHistoryEditBtn.Size = new System.Drawing.Size(111, 60);
+            this.MngrInventoryProductHistoryEditBtn.TabIndex = 98;
+            this.MngrInventoryProductHistoryEditBtn.Text = "Edit";
+            this.MngrInventoryProductHistoryEditBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrInventoryProductHistoryEditBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.MngrInventoryProductHistoryEditBtn.UseVisualStyleBackColor = true;
+            // 
+            // MngrInventoryProductHistoryExitBtn
+            // 
+            this.MngrInventoryProductHistoryExitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.MngrInventoryProductHistoryExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrInventoryProductHistoryExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.MngrInventoryProductHistoryExitBtn.FlatAppearance.BorderSize = 0;
+            this.MngrInventoryProductHistoryExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrInventoryProductHistoryExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.MngrInventoryProductHistoryExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductHistoryExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrInventoryProductHistoryExitBtn.Location = new System.Drawing.Point(1717, 29);
+            this.MngrInventoryProductHistoryExitBtn.Name = "MngrInventoryProductHistoryExitBtn";
+            this.MngrInventoryProductHistoryExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.MngrInventoryProductHistoryExitBtn.TabIndex = 84;
+            this.MngrInventoryProductHistoryExitBtn.UseVisualStyleBackColor = false;
+            this.MngrInventoryProductHistoryExitBtn.Click += new System.EventHandler(this.MngrInventoryProductHistoryExitBtn_Click);
             // 
             // MngrSchedPanel
             // 
@@ -2286,6 +2628,23 @@ namespace Enchante
             this.MngrInventoryCard.SetPreferredSize(this.MngrSchedPanel, new System.Drawing.Size(1697, 557));
             this.MngrSchedPanel.Size = new System.Drawing.Size(1797, 749);
             this.MngrSchedPanel.TabIndex = 25;
+            // 
+            // MngrSchedExitBtn
+            // 
+            this.MngrSchedExitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.MngrSchedExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrSchedExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.MngrSchedExitBtn.FlatAppearance.BorderSize = 0;
+            this.MngrSchedExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrSchedExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.MngrSchedExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrSchedExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrSchedExitBtn.Location = new System.Drawing.Point(1707, 29);
+            this.MngrSchedExitBtn.Name = "MngrSchedExitBtn";
+            this.MngrSchedExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.MngrSchedExitBtn.TabIndex = 85;
+            this.MngrSchedExitBtn.UseVisualStyleBackColor = false;
+            this.MngrSchedExitBtn.Click += new System.EventHandler(this.MngrSchedExitBtn_Click);
             // 
             // MngrEditSchedPanel
             // 
@@ -2719,6 +3078,31 @@ namespace Enchante
             this.MngrServicesPanel.Size = new System.Drawing.Size(1797, 749);
             this.MngrServicesPanel.TabIndex = 0;
             // 
+            // MngrServicesUpdateBtn
+            // 
+            this.MngrServicesUpdateBtn.AutoSize = true;
+            this.MngrServicesUpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrServicesUpdateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrServicesUpdateBtn.FlatAppearance.BorderSize = 3;
+            this.MngrServicesUpdateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrServicesUpdateBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrServicesUpdateBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesUpdateBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.MngrServicesUpdateBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesUpdateBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrServicesUpdateBtn.IconSize = 32;
+            this.MngrServicesUpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrServicesUpdateBtn.Location = new System.Drawing.Point(1195, 567);
+            this.MngrServicesUpdateBtn.Name = "MngrServicesUpdateBtn";
+            this.MngrServicesUpdateBtn.Size = new System.Drawing.Size(244, 60);
+            this.MngrServicesUpdateBtn.TabIndex = 82;
+            this.MngrServicesUpdateBtn.Text = "Update Service";
+            this.MngrServicesUpdateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrServicesUpdateBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.MngrServicesUpdateBtn.UseVisualStyleBackColor = true;
+            this.MngrServicesUpdateBtn.Visible = false;
+            this.MngrServicesUpdateBtn.Click += new System.EventHandler(this.RecServicesUpdateBtn_Click);
+            // 
             // MngrServicesIDNumLbl
             // 
             this.MngrServicesIDNumLbl.AutoSize = true;
@@ -2884,24 +3268,24 @@ namespace Enchante
             this.MngrInventoryServicesTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MngrInventoryServicesTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.MngrInventoryServicesTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrInventoryServicesTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle66.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle66.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle66.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle66.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle66.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle66.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle66.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrInventoryServicesTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle66;
             this.MngrInventoryServicesTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MngrInventoryServicesTable.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrInventoryServicesTable.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle67.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle67.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle67.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle67.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle67.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle67.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle67.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrInventoryServicesTable.DefaultCellStyle = dataGridViewCellStyle67;
             this.MngrInventoryServicesTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.MngrInventoryServicesTable.Location = new System.Drawing.Point(82, 76);
             this.MngrInventoryServicesTable.Name = "MngrInventoryServicesTable";
@@ -2911,6 +3295,71 @@ namespace Enchante
             this.MngrInventoryServicesTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.MngrInventoryServicesTable.Size = new System.Drawing.Size(760, 482);
             this.MngrInventoryServicesTable.TabIndex = 12;
+            // 
+            // MngrServicesUpdateInfoBtn
+            // 
+            this.MngrServicesUpdateInfoBtn.AutoSize = true;
+            this.MngrServicesUpdateInfoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrServicesUpdateInfoBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrServicesUpdateInfoBtn.FlatAppearance.BorderSize = 3;
+            this.MngrServicesUpdateInfoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrServicesUpdateInfoBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrServicesUpdateInfoBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesUpdateInfoBtn.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.MngrServicesUpdateInfoBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesUpdateInfoBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrServicesUpdateInfoBtn.IconSize = 32;
+            this.MngrServicesUpdateInfoBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrServicesUpdateInfoBtn.Location = new System.Drawing.Point(731, 597);
+            this.MngrServicesUpdateInfoBtn.Name = "MngrServicesUpdateInfoBtn";
+            this.MngrServicesUpdateInfoBtn.Size = new System.Drawing.Size(111, 60);
+            this.MngrServicesUpdateInfoBtn.TabIndex = 79;
+            this.MngrServicesUpdateInfoBtn.Text = "Edit";
+            this.MngrServicesUpdateInfoBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrServicesUpdateInfoBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.MngrServicesUpdateInfoBtn.UseVisualStyleBackColor = true;
+            this.MngrServicesUpdateInfoBtn.Click += new System.EventHandler(this.RecServicesUpdateInfoBtn_Click);
+            // 
+            // MngrServicesCreateBtn
+            // 
+            this.MngrServicesCreateBtn.AutoSize = true;
+            this.MngrServicesCreateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrServicesCreateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrServicesCreateBtn.FlatAppearance.BorderSize = 3;
+            this.MngrServicesCreateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrServicesCreateBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrServicesCreateBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesCreateBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.MngrServicesCreateBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesCreateBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrServicesCreateBtn.IconSize = 32;
+            this.MngrServicesCreateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrServicesCreateBtn.Location = new System.Drawing.Point(1194, 567);
+            this.MngrServicesCreateBtn.Name = "MngrServicesCreateBtn";
+            this.MngrServicesCreateBtn.Size = new System.Drawing.Size(246, 60);
+            this.MngrServicesCreateBtn.TabIndex = 78;
+            this.MngrServicesCreateBtn.Text = "Create Service";
+            this.MngrServicesCreateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrServicesCreateBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.MngrServicesCreateBtn.UseVisualStyleBackColor = true;
+            this.MngrServicesCreateBtn.Click += new System.EventHandler(this.RecServicesCreateBtn_Click);
+            // 
+            // MngrServicesExitBtn
+            // 
+            this.MngrServicesExitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.MngrServicesExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrServicesExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.MngrServicesExitBtn.FlatAppearance.BorderSize = 0;
+            this.MngrServicesExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrServicesExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.MngrServicesExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrServicesExitBtn.Location = new System.Drawing.Point(1715, 30);
+            this.MngrServicesExitBtn.Name = "MngrServicesExitBtn";
+            this.MngrServicesExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.MngrServicesExitBtn.TabIndex = 46;
+            this.MngrServicesExitBtn.UseVisualStyleBackColor = false;
+            this.MngrServicesExitBtn.Click += new System.EventHandler(this.RecInventoryServicesExitBtn_Click);
             // 
             // MngrInventoryMembershipPanel
             // 
@@ -2923,6 +3372,23 @@ namespace Enchante
             this.MngrInventoryCard.SetPreferredSize(this.MngrInventoryMembershipPanel, new System.Drawing.Size(1857, 839));
             this.MngrInventoryMembershipPanel.Size = new System.Drawing.Size(1797, 749);
             this.MngrInventoryMembershipPanel.TabIndex = 3;
+            // 
+            // MngrInventoryMembershipExitBtn
+            // 
+            this.MngrInventoryMembershipExitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.MngrInventoryMembershipExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrInventoryMembershipExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.MngrInventoryMembershipExitBtn.FlatAppearance.BorderSize = 0;
+            this.MngrInventoryMembershipExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrInventoryMembershipExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.MngrInventoryMembershipExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryMembershipExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrInventoryMembershipExitBtn.Location = new System.Drawing.Point(1737, 17);
+            this.MngrInventoryMembershipExitBtn.Name = "MngrInventoryMembershipExitBtn";
+            this.MngrInventoryMembershipExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.MngrInventoryMembershipExitBtn.TabIndex = 47;
+            this.MngrInventoryMembershipExitBtn.UseVisualStyleBackColor = false;
+            this.MngrInventoryMembershipExitBtn.Click += new System.EventHandler(this.MngrInventoryMembershipExitBtn_Click);
             // 
             // MngrInventoryProductsPanel
             // 
@@ -2978,6 +3444,31 @@ namespace Enchante
             this.SelectImage.Visible = false;
             this.SelectImage.Click += new System.EventHandler(this.SelectImage_Click);
             // 
+            // CancelEdit
+            // 
+            this.CancelEdit.AutoSize = true;
+            this.CancelEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CancelEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.CancelEdit.FlatAppearance.BorderSize = 3;
+            this.CancelEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelEdit.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.CancelEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.CancelEdit.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.CancelEdit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.CancelEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.CancelEdit.IconSize = 32;
+            this.CancelEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CancelEdit.Location = new System.Drawing.Point(1052, 604);
+            this.CancelEdit.Name = "CancelEdit";
+            this.CancelEdit.Size = new System.Drawing.Size(296, 60);
+            this.CancelEdit.TabIndex = 105;
+            this.CancelEdit.Text = "CANCEL";
+            this.CancelEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CancelEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.CancelEdit.UseVisualStyleBackColor = true;
+            this.CancelEdit.Visible = false;
+            this.CancelEdit.Click += new System.EventHandler(this.CancelEdit_Click);
+            // 
             // PDImage
             // 
             this.PDImage.AutoSize = true;
@@ -2990,6 +3481,17 @@ namespace Enchante
             this.PDImage.Text = "Product Image:";
             this.PDImage.Visible = false;
             // 
+            // ProductImagePictureBox
+            // 
+            this.ProductImagePictureBox.ImageRotate = 0F;
+            this.ProductImagePictureBox.Location = new System.Drawing.Point(1558, 172);
+            this.ProductImagePictureBox.Name = "ProductImagePictureBox";
+            this.ProductImagePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.ProductImagePictureBox.Size = new System.Drawing.Size(168, 168);
+            this.ProductImagePictureBox.TabIndex = 103;
+            this.ProductImagePictureBox.TabStop = false;
+            this.ProductImagePictureBox.Visible = false;
+            // 
             // MngrInventoryProductsStatusComboText
             // 
             this.MngrInventoryProductsStatusComboText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
@@ -3001,6 +3503,31 @@ namespace Enchante
             this.MngrInventoryProductsStatusComboText.Name = "MngrInventoryProductsStatusComboText";
             this.MngrInventoryProductsStatusComboText.Size = new System.Drawing.Size(296, 31);
             this.MngrInventoryProductsStatusComboText.TabIndex = 102;
+            // 
+            // MngrInventoryProductsUpdateBtn
+            // 
+            this.MngrInventoryProductsUpdateBtn.AutoSize = true;
+            this.MngrInventoryProductsUpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrInventoryProductsUpdateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrInventoryProductsUpdateBtn.FlatAppearance.BorderSize = 3;
+            this.MngrInventoryProductsUpdateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrInventoryProductsUpdateBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrInventoryProductsUpdateBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsUpdateBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.MngrInventoryProductsUpdateBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsUpdateBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrInventoryProductsUpdateBtn.IconSize = 32;
+            this.MngrInventoryProductsUpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrInventoryProductsUpdateBtn.Location = new System.Drawing.Point(1052, 531);
+            this.MngrInventoryProductsUpdateBtn.Name = "MngrInventoryProductsUpdateBtn";
+            this.MngrInventoryProductsUpdateBtn.Size = new System.Drawing.Size(296, 60);
+            this.MngrInventoryProductsUpdateBtn.TabIndex = 101;
+            this.MngrInventoryProductsUpdateBtn.Text = "UPDATE PRODUCT";
+            this.MngrInventoryProductsUpdateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrInventoryProductsUpdateBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.MngrInventoryProductsUpdateBtn.UseVisualStyleBackColor = true;
+            this.MngrInventoryProductsUpdateBtn.Visible = false;
+            this.MngrInventoryProductsUpdateBtn.Click += new System.EventHandler(this.MngrInventoryProductsUpdateBtn_Click);
             // 
             // MngrInventoryProductsIDLbl
             // 
@@ -3156,24 +3683,24 @@ namespace Enchante
             this.MngrInventoryProductsTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MngrInventoryProductsTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.MngrInventoryProductsTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrInventoryProductsTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle68.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle68.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle68.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle68.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle68.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle68.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle68.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrInventoryProductsTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle68;
             this.MngrInventoryProductsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MngrInventoryProductsTable.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrInventoryProductsTable.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle69.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle69.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle69.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle69.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle69.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle69.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle69.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrInventoryProductsTable.DefaultCellStyle = dataGridViewCellStyle69;
             this.MngrInventoryProductsTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.MngrInventoryProductsTable.Location = new System.Drawing.Point(74, 129);
             this.MngrInventoryProductsTable.Name = "MngrInventoryProductsTable";
@@ -3183,6 +3710,71 @@ namespace Enchante
             this.MngrInventoryProductsTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.MngrInventoryProductsTable.Size = new System.Drawing.Size(764, 443);
             this.MngrInventoryProductsTable.TabIndex = 83;
+            // 
+            // MngrInventoryProductsInfoEditBtn
+            // 
+            this.MngrInventoryProductsInfoEditBtn.AutoSize = true;
+            this.MngrInventoryProductsInfoEditBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrInventoryProductsInfoEditBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrInventoryProductsInfoEditBtn.FlatAppearance.BorderSize = 3;
+            this.MngrInventoryProductsInfoEditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrInventoryProductsInfoEditBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrInventoryProductsInfoEditBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsInfoEditBtn.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.MngrInventoryProductsInfoEditBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsInfoEditBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrInventoryProductsInfoEditBtn.IconSize = 32;
+            this.MngrInventoryProductsInfoEditBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrInventoryProductsInfoEditBtn.Location = new System.Drawing.Point(727, 604);
+            this.MngrInventoryProductsInfoEditBtn.Name = "MngrInventoryProductsInfoEditBtn";
+            this.MngrInventoryProductsInfoEditBtn.Size = new System.Drawing.Size(111, 60);
+            this.MngrInventoryProductsInfoEditBtn.TabIndex = 98;
+            this.MngrInventoryProductsInfoEditBtn.Text = "Edit";
+            this.MngrInventoryProductsInfoEditBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrInventoryProductsInfoEditBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.MngrInventoryProductsInfoEditBtn.UseVisualStyleBackColor = true;
+            this.MngrInventoryProductsInfoEditBtn.Click += new System.EventHandler(this.MngrInventoryProductsInfoEditBtn_Click);
+            // 
+            // MngrInventoryProductsInsertBtn
+            // 
+            this.MngrInventoryProductsInsertBtn.AutoSize = true;
+            this.MngrInventoryProductsInsertBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrInventoryProductsInsertBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrInventoryProductsInsertBtn.FlatAppearance.BorderSize = 3;
+            this.MngrInventoryProductsInsertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrInventoryProductsInsertBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrInventoryProductsInsertBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsInsertBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.MngrInventoryProductsInsertBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsInsertBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrInventoryProductsInsertBtn.IconSize = 32;
+            this.MngrInventoryProductsInsertBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrInventoryProductsInsertBtn.Location = new System.Drawing.Point(1052, 531);
+            this.MngrInventoryProductsInsertBtn.Name = "MngrInventoryProductsInsertBtn";
+            this.MngrInventoryProductsInsertBtn.Size = new System.Drawing.Size(296, 60);
+            this.MngrInventoryProductsInsertBtn.TabIndex = 97;
+            this.MngrInventoryProductsInsertBtn.Text = "INSERT PRODUCT";
+            this.MngrInventoryProductsInsertBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrInventoryProductsInsertBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.MngrInventoryProductsInsertBtn.UseVisualStyleBackColor = true;
+            this.MngrInventoryProductsInsertBtn.Click += new System.EventHandler(this.MngrInventoryProductsInsertBtn_Click);
+            // 
+            // MngrInventoryProductsExitBtn
+            // 
+            this.MngrInventoryProductsExitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.MngrInventoryProductsExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrInventoryProductsExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.MngrInventoryProductsExitBtn.FlatAppearance.BorderSize = 0;
+            this.MngrInventoryProductsExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrInventoryProductsExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.MngrInventoryProductsExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrInventoryProductsExitBtn.Location = new System.Drawing.Point(1717, 29);
+            this.MngrInventoryProductsExitBtn.Name = "MngrInventoryProductsExitBtn";
+            this.MngrInventoryProductsExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.MngrInventoryProductsExitBtn.TabIndex = 84;
+            this.MngrInventoryProductsExitBtn.UseVisualStyleBackColor = false;
+            this.MngrInventoryProductsExitBtn.Click += new System.EventHandler(this.MngrInventoryProductsExitBtn_Click);
             // 
             // MngrNavBarPanel
             // 
@@ -3196,6 +3788,59 @@ namespace Enchante
             this.MngrNavBarPanel.Name = "MngrNavBarPanel";
             this.MngrNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.MngrNavBarPanel.TabIndex = 3;
+            // 
+            // MngrUserAccBtn
+            // 
+            this.MngrUserAccBtn.AutoSize = true;
+            this.MngrUserAccBtn.BackColor = System.Drawing.Color.Transparent;
+            this.MngrUserAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrUserAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrUserAccBtn.FlatAppearance.BorderSize = 0;
+            this.MngrUserAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrUserAccBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrUserAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrUserAccBtn.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.MngrUserAccBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrUserAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrUserAccBtn.Location = new System.Drawing.Point(1808, 47);
+            this.MngrUserAccBtn.Name = "MngrUserAccBtn";
+            this.MngrUserAccBtn.Size = new System.Drawing.Size(54, 54);
+            this.MngrUserAccBtn.TabIndex = 8;
+            this.MngrUserAccBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrUserAccBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.MngrUserAccBtn.UseVisualStyleBackColor = false;
+            this.MngrUserAccBtn.Click += new System.EventHandler(this.MngrUserAccBtn_Click);
+            // 
+            // MngrHomeBtn
+            // 
+            this.MngrHomeBtn.AutoSize = true;
+            this.MngrHomeBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.MngrHomeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrHomeBtn.FlatAppearance.BorderSize = 0;
+            this.MngrHomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrHomeBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrHomeBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.MngrHomeBtn.IconColor = System.Drawing.Color.Black;
+            this.MngrHomeBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrHomeBtn.Location = new System.Drawing.Point(241, 45);
+            this.MngrHomeBtn.Name = "MngrHomeBtn";
+            this.MngrHomeBtn.Size = new System.Drawing.Size(92, 54);
+            this.MngrHomeBtn.TabIndex = 1;
+            this.MngrHomeBtn.Text = "HOME";
+            this.MngrHomeBtn.UseVisualStyleBackColor = true;
+            this.MngrHomeBtn.Click += new System.EventHandler(this.MngrHomeBtn_Click);
+            // 
+            // MngrHeaderLogo
+            // 
+            this.MngrHeaderLogo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrHeaderLogo.Image = global::Enchante.Properties.Resources.Enchante_Logo__200_x_200_px___1_;
+            this.MngrHeaderLogo.Location = new System.Drawing.Point(127, 27);
+            this.MngrHeaderLogo.Name = "MngrHeaderLogo";
+            this.MngrHeaderLogo.Size = new System.Drawing.Size(100, 100);
+            this.MngrHeaderLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.MngrHeaderLogo.TabIndex = 0;
+            this.MngrHeaderLogo.TabStop = false;
             // 
             // EnchanteAdminPage
             // 
@@ -3259,6 +3904,30 @@ namespace Enchante
             this.AdminNameLbl.Size = new System.Drawing.Size(153, 29);
             this.AdminNameLbl.TabIndex = 8;
             this.AdminNameLbl.Text = "Admin Name";
+            // 
+            // AdminSignOutBtn
+            // 
+            this.AdminSignOutBtn.AutoSize = true;
+            this.AdminSignOutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AdminSignOutBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.AdminSignOutBtn.FlatAppearance.BorderSize = 0;
+            this.AdminSignOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminSignOutBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.AdminSignOutBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminSignOutBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.AdminSignOutBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminSignOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.AdminSignOutBtn.IconSize = 32;
+            this.AdminSignOutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AdminSignOutBtn.Location = new System.Drawing.Point(16, 122);
+            this.AdminSignOutBtn.Name = "AdminSignOutBtn";
+            this.AdminSignOutBtn.Size = new System.Drawing.Size(231, 60);
+            this.AdminSignOutBtn.TabIndex = 7;
+            this.AdminSignOutBtn.Text = "LOGOUT";
+            this.AdminSignOutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AdminSignOutBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.AdminSignOutBtn.UseVisualStyleBackColor = true;
+            this.AdminSignOutBtn.Click += new System.EventHandler(this.AdminSignOutBtn_Click_1);
             // 
             // AdminFooterStopperPanel
             // 
@@ -3335,6 +4004,31 @@ namespace Enchante
             this.AdminRegiformPanel.Name = "AdminRegiformPanel";
             this.AdminRegiformPanel.Size = new System.Drawing.Size(1752, 796);
             this.AdminRegiformPanel.TabIndex = 5;
+            // 
+            // AdminCancelEditBtn
+            // 
+            this.AdminCancelEditBtn.AutoSize = true;
+            this.AdminCancelEditBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AdminCancelEditBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.AdminCancelEditBtn.FlatAppearance.BorderSize = 3;
+            this.AdminCancelEditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminCancelEditBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.AdminCancelEditBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminCancelEditBtn.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.AdminCancelEditBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminCancelEditBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.AdminCancelEditBtn.IconSize = 32;
+            this.AdminCancelEditBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AdminCancelEditBtn.Location = new System.Drawing.Point(465, 687);
+            this.AdminCancelEditBtn.Name = "AdminCancelEditBtn";
+            this.AdminCancelEditBtn.Size = new System.Drawing.Size(255, 60);
+            this.AdminCancelEditBtn.TabIndex = 126;
+            this.AdminCancelEditBtn.Text = "Cancel Editing";
+            this.AdminCancelEditBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AdminCancelEditBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.AdminCancelEditBtn.UseVisualStyleBackColor = true;
+            this.AdminCancelEditBtn.Visible = false;
+            this.AdminCancelEditBtn.Click += new System.EventHandler(this.AdminCancelEditBtn_Click);
             // 
             // AdminPassLbl
             // 
@@ -3475,6 +4169,28 @@ namespace Enchante
             this.AdminConfirmPassPanel.Size = new System.Drawing.Size(407, 37);
             this.AdminConfirmPassPanel.TabIndex = 112;
             // 
+            // AdminShowHideConfirmPassBtn
+            // 
+            this.AdminShowHideConfirmPassBtn.AutoSize = true;
+            this.AdminShowHideConfirmPassBtn.BackColor = System.Drawing.Color.Transparent;
+            this.AdminShowHideConfirmPassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AdminShowHideConfirmPassBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.AdminShowHideConfirmPassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.AdminShowHideConfirmPassBtn.FlatAppearance.BorderSize = 0;
+            this.AdminShowHideConfirmPassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminShowHideConfirmPassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.AdminShowHideConfirmPassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.AdminShowHideConfirmPassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.AdminShowHideConfirmPassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminShowHideConfirmPassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.AdminShowHideConfirmPassBtn.IconSize = 30;
+            this.AdminShowHideConfirmPassBtn.Location = new System.Drawing.Point(371, 0);
+            this.AdminShowHideConfirmPassBtn.Name = "AdminShowHideConfirmPassBtn";
+            this.AdminShowHideConfirmPassBtn.Size = new System.Drawing.Size(36, 37);
+            this.AdminShowHideConfirmPassBtn.TabIndex = 31;
+            this.AdminShowHideConfirmPassBtn.UseVisualStyleBackColor = false;
+            this.AdminShowHideConfirmPassBtn.Click += new System.EventHandler(this.AdminShowHideConfirmPassBtn_Click);
+            // 
             // AdminConfirmPassText
             // 
             this.AdminConfirmPassText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
@@ -3523,6 +4239,28 @@ namespace Enchante
             this.AdminPassPanel.Size = new System.Drawing.Size(401, 37);
             this.AdminPassPanel.TabIndex = 109;
             // 
+            // AdminShowHidePassBtn
+            // 
+            this.AdminShowHidePassBtn.AutoSize = true;
+            this.AdminShowHidePassBtn.BackColor = System.Drawing.Color.Transparent;
+            this.AdminShowHidePassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AdminShowHidePassBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.AdminShowHidePassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.AdminShowHidePassBtn.FlatAppearance.BorderSize = 0;
+            this.AdminShowHidePassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminShowHidePassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.AdminShowHidePassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.AdminShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.AdminShowHidePassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminShowHidePassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.AdminShowHidePassBtn.IconSize = 30;
+            this.AdminShowHidePassBtn.Location = new System.Drawing.Point(365, 0);
+            this.AdminShowHidePassBtn.Name = "AdminShowHidePassBtn";
+            this.AdminShowHidePassBtn.Size = new System.Drawing.Size(36, 37);
+            this.AdminShowHidePassBtn.TabIndex = 31;
+            this.AdminShowHidePassBtn.UseVisualStyleBackColor = false;
+            this.AdminShowHidePassBtn.Click += new System.EventHandler(this.AdminShowHidePassBtn_Click);
+            // 
             // AdminPassText
             // 
             this.AdminPassText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
@@ -3549,6 +4287,26 @@ namespace Enchante
             this.AdminPassErrorLbl.Text = "INCORRECT PASSWORD";
             this.AdminPassErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.AdminPassErrorLbl.Visible = false;
+            // 
+            // iconButton31
+            // 
+            this.iconButton31.AutoSize = true;
+            this.iconButton31.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton31.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.iconButton31.FlatAppearance.BorderSize = 0;
+            this.iconButton31.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton31.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.iconButton31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.iconButton31.IconChar = FontAwesome.Sharp.IconChar.Question;
+            this.iconButton31.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.iconButton31.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton31.IconSize = 20;
+            this.iconButton31.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton31.Location = new System.Drawing.Point(213, 630);
+            this.iconButton31.Name = "iconButton31";
+            this.iconButton31.Size = new System.Drawing.Size(26, 26);
+            this.iconButton31.TabIndex = 113;
+            this.iconButton31.UseVisualStyleBackColor = false;
             // 
             // AdminEmplCatErrorLbl
             // 
@@ -3821,6 +4579,79 @@ namespace Enchante
             this.AdminFirstNameLbl.TabIndex = 83;
             this.AdminFirstNameLbl.Text = "First Name:";
             // 
+            // AdminUpdateAccBtn
+            // 
+            this.AdminUpdateAccBtn.AutoSize = true;
+            this.AdminUpdateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AdminUpdateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.AdminUpdateAccBtn.FlatAppearance.BorderSize = 3;
+            this.AdminUpdateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminUpdateAccBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.AdminUpdateAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminUpdateAccBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.AdminUpdateAccBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminUpdateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.AdminUpdateAccBtn.IconSize = 32;
+            this.AdminUpdateAccBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AdminUpdateAccBtn.Location = new System.Drawing.Point(189, 687);
+            this.AdminUpdateAccBtn.Name = "AdminUpdateAccBtn";
+            this.AdminUpdateAccBtn.Size = new System.Drawing.Size(255, 60);
+            this.AdminUpdateAccBtn.TabIndex = 82;
+            this.AdminUpdateAccBtn.Text = "Update Account";
+            this.AdminUpdateAccBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AdminUpdateAccBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.AdminUpdateAccBtn.UseVisualStyleBackColor = true;
+            this.AdminUpdateAccBtn.Visible = false;
+            this.AdminUpdateAccBtn.Click += new System.EventHandler(this.AdminUpdateAccBtn_Click);
+            // 
+            // AdminEditAccBtn
+            // 
+            this.AdminEditAccBtn.AutoSize = true;
+            this.AdminEditAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AdminEditAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.AdminEditAccBtn.FlatAppearance.BorderSize = 3;
+            this.AdminEditAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminEditAccBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.AdminEditAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminEditAccBtn.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.AdminEditAccBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminEditAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.AdminEditAccBtn.IconSize = 32;
+            this.AdminEditAccBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AdminEditAccBtn.Location = new System.Drawing.Point(1574, 687);
+            this.AdminEditAccBtn.Name = "AdminEditAccBtn";
+            this.AdminEditAccBtn.Size = new System.Drawing.Size(111, 60);
+            this.AdminEditAccBtn.TabIndex = 79;
+            this.AdminEditAccBtn.Text = "Edit";
+            this.AdminEditAccBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AdminEditAccBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.AdminEditAccBtn.UseVisualStyleBackColor = true;
+            this.AdminEditAccBtn.Click += new System.EventHandler(this.AdminEditAccBtn_Click);
+            // 
+            // AdminCreateAccBtn
+            // 
+            this.AdminCreateAccBtn.AutoSize = true;
+            this.AdminCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AdminCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.AdminCreateAccBtn.FlatAppearance.BorderSize = 3;
+            this.AdminCreateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminCreateAccBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.AdminCreateAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.AdminCreateAccBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.AdminCreateAccBtn.IconSize = 32;
+            this.AdminCreateAccBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AdminCreateAccBtn.Location = new System.Drawing.Point(327, 687);
+            this.AdminCreateAccBtn.Name = "AdminCreateAccBtn";
+            this.AdminCreateAccBtn.Size = new System.Drawing.Size(257, 60);
+            this.AdminCreateAccBtn.TabIndex = 78;
+            this.AdminCreateAccBtn.Text = "Create Account";
+            this.AdminCreateAccBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AdminCreateAccBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.AdminCreateAccBtn.UseVisualStyleBackColor = true;
+            this.AdminCreateAccBtn.Click += new System.EventHandler(this.AdminCreateAccBtn_Click);
+            // 
             // AdminAccountTable
             // 
             this.AdminAccountTable.AllowUserToAddRows = false;
@@ -3832,24 +4663,24 @@ namespace Enchante
             this.AdminAccountTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.AdminAccountTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.AdminAccountTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AdminAccountTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle70.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle70.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle70.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle70.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle70.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle70.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle70.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AdminAccountTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle70;
             this.AdminAccountTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AdminAccountTable.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.AdminAccountTable.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle71.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle71.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle71.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle71.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle71.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle71.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle71.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.AdminAccountTable.DefaultCellStyle = dataGridViewCellStyle71;
             this.AdminAccountTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.AdminAccountTable.Location = new System.Drawing.Point(955, 81);
             this.AdminAccountTable.Name = "AdminAccountTable";
@@ -3872,6 +4703,58 @@ namespace Enchante
             this.AdminNavBarPanel.Name = "AdminNavBarPanel";
             this.AdminNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.AdminNavBarPanel.TabIndex = 4;
+            // 
+            // AdminAccUserBtn
+            // 
+            this.AdminAccUserBtn.AutoSize = true;
+            this.AdminAccUserBtn.BackColor = System.Drawing.Color.Transparent;
+            this.AdminAccUserBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AdminAccUserBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.AdminAccUserBtn.FlatAppearance.BorderSize = 0;
+            this.AdminAccUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminAccUserBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.AdminAccUserBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminAccUserBtn.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.AdminAccUserBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminAccUserBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.AdminAccUserBtn.Location = new System.Drawing.Point(1801, 48);
+            this.AdminAccUserBtn.Name = "AdminAccUserBtn";
+            this.AdminAccUserBtn.Size = new System.Drawing.Size(54, 54);
+            this.AdminAccUserBtn.TabIndex = 8;
+            this.AdminAccUserBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AdminAccUserBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.AdminAccUserBtn.UseVisualStyleBackColor = false;
+            this.AdminAccUserBtn.Click += new System.EventHandler(this.AdminAccUserBtn_Click);
+            // 
+            // AdminHomeBtn
+            // 
+            this.AdminHomeBtn.AutoSize = true;
+            this.AdminHomeBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AdminHomeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AdminHomeBtn.FlatAppearance.BorderSize = 0;
+            this.AdminHomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminHomeBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.AdminHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.AdminHomeBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.AdminHomeBtn.IconColor = System.Drawing.Color.Black;
+            this.AdminHomeBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.AdminHomeBtn.Location = new System.Drawing.Point(214, 47);
+            this.AdminHomeBtn.Name = "AdminHomeBtn";
+            this.AdminHomeBtn.Size = new System.Drawing.Size(92, 54);
+            this.AdminHomeBtn.TabIndex = 1;
+            this.AdminHomeBtn.Text = "HOME";
+            this.AdminHomeBtn.UseVisualStyleBackColor = true;
+            // 
+            // AdminHeaderLogo
+            // 
+            this.AdminHeaderLogo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AdminHeaderLogo.Image = global::Enchante.Properties.Resources.Enchante_Logo__200_x_200_px___1_;
+            this.AdminHeaderLogo.Location = new System.Drawing.Point(81, 25);
+            this.AdminHeaderLogo.Name = "AdminHeaderLogo";
+            this.AdminHeaderLogo.Size = new System.Drawing.Size(100, 100);
+            this.AdminHeaderLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.AdminHeaderLogo.TabIndex = 0;
+            this.AdminHeaderLogo.TabStop = false;
             // 
             // EnchanteHomePage
             // 
@@ -3907,6 +4790,164 @@ namespace Enchante
             this.EnchanteHomeNavBar.Name = "EnchanteHomeNavBar";
             this.EnchanteHomeNavBar.Size = new System.Drawing.Size(1370, 170);
             this.EnchanteHomeNavBar.TabIndex = 0;
+            // 
+            // EnchanteHLoginBtn
+            // 
+            this.EnchanteHLoginBtn.AutoSize = true;
+            this.EnchanteHLoginBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EnchanteHLoginBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.EnchanteHLoginBtn.FlatAppearance.BorderSize = 3;
+            this.EnchanteHLoginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EnchanteHLoginBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.EnchanteHLoginBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.EnchanteHLoginBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.EnchanteHLoginBtn.IconColor = System.Drawing.Color.Black;
+            this.EnchanteHLoginBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.EnchanteHLoginBtn.Location = new System.Drawing.Point(1599, 47);
+            this.EnchanteHLoginBtn.Name = "EnchanteHLoginBtn";
+            this.EnchanteHLoginBtn.Size = new System.Drawing.Size(180, 77);
+            this.EnchanteHLoginBtn.TabIndex = 7;
+            this.EnchanteHLoginBtn.Text = "LOGIN";
+            this.EnchanteHLoginBtn.UseVisualStyleBackColor = true;
+            this.EnchanteHLoginBtn.Click += new System.EventHandler(this.EnchanteHLoginBtn_Click);
+            this.EnchanteHLoginBtn.MouseHover += new System.EventHandler(this.EnchanteHLoginBtn_MouseHover);
+            // 
+            // EnchanteAbtUsBtn
+            // 
+            this.EnchanteAbtUsBtn.AutoSize = true;
+            this.EnchanteAbtUsBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EnchanteAbtUsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EnchanteAbtUsBtn.FlatAppearance.BorderSize = 0;
+            this.EnchanteAbtUsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EnchanteAbtUsBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.EnchanteAbtUsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.EnchanteAbtUsBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.EnchanteAbtUsBtn.IconColor = System.Drawing.Color.Black;
+            this.EnchanteAbtUsBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.EnchanteAbtUsBtn.Location = new System.Drawing.Point(1408, 58);
+            this.EnchanteAbtUsBtn.Name = "EnchanteAbtUsBtn";
+            this.EnchanteAbtUsBtn.Size = new System.Drawing.Size(149, 54);
+            this.EnchanteAbtUsBtn.TabIndex = 6;
+            this.EnchanteAbtUsBtn.Text = "ABOUT US";
+            this.EnchanteAbtUsBtn.UseVisualStyleBackColor = true;
+            this.EnchanteAbtUsBtn.Click += new System.EventHandler(this.EnchanteAbtUsBtn_Click);
+            this.EnchanteAbtUsBtn.MouseHover += new System.EventHandler(this.EnchanteAbtUsBtn_MouseHover);
+            // 
+            // EnchanteTeamBtn
+            // 
+            this.EnchanteTeamBtn.AutoSize = true;
+            this.EnchanteTeamBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EnchanteTeamBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EnchanteTeamBtn.FlatAppearance.BorderSize = 0;
+            this.EnchanteTeamBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EnchanteTeamBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.EnchanteTeamBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.EnchanteTeamBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.EnchanteTeamBtn.IconColor = System.Drawing.Color.Black;
+            this.EnchanteTeamBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.EnchanteTeamBtn.Location = new System.Drawing.Point(1234, 58);
+            this.EnchanteTeamBtn.Name = "EnchanteTeamBtn";
+            this.EnchanteTeamBtn.Size = new System.Drawing.Size(168, 54);
+            this.EnchanteTeamBtn.TabIndex = 5;
+            this.EnchanteTeamBtn.Text = "OUR TEAMS";
+            this.EnchanteTeamBtn.UseVisualStyleBackColor = true;
+            this.EnchanteTeamBtn.Click += new System.EventHandler(this.EnchanteTeamBtn_Click);
+            this.EnchanteTeamBtn.MouseHover += new System.EventHandler(this.EnchanteTeamBtn_MouseHover);
+            // 
+            // EnchanteReviewBtn
+            // 
+            this.EnchanteReviewBtn.AutoSize = true;
+            this.EnchanteReviewBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EnchanteReviewBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EnchanteReviewBtn.FlatAppearance.BorderSize = 0;
+            this.EnchanteReviewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EnchanteReviewBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.EnchanteReviewBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.EnchanteReviewBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.EnchanteReviewBtn.IconColor = System.Drawing.Color.Black;
+            this.EnchanteReviewBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.EnchanteReviewBtn.Location = new System.Drawing.Point(1096, 58);
+            this.EnchanteReviewBtn.Name = "EnchanteReviewBtn";
+            this.EnchanteReviewBtn.Size = new System.Drawing.Size(132, 54);
+            this.EnchanteReviewBtn.TabIndex = 4;
+            this.EnchanteReviewBtn.Text = "REVIEWS";
+            this.EnchanteReviewBtn.UseVisualStyleBackColor = true;
+            this.EnchanteReviewBtn.Click += new System.EventHandler(this.EnchanteReviewBtn_Click);
+            this.EnchanteReviewBtn.MouseHover += new System.EventHandler(this.EnchanteReviewBtn_MouseHover);
+            // 
+            // EnchanteMemberBtn
+            // 
+            this.EnchanteMemberBtn.AutoSize = true;
+            this.EnchanteMemberBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EnchanteMemberBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EnchanteMemberBtn.FlatAppearance.BorderSize = 0;
+            this.EnchanteMemberBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EnchanteMemberBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.EnchanteMemberBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.EnchanteMemberBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.EnchanteMemberBtn.IconColor = System.Drawing.Color.Black;
+            this.EnchanteMemberBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.EnchanteMemberBtn.Location = new System.Drawing.Point(909, 58);
+            this.EnchanteMemberBtn.Name = "EnchanteMemberBtn";
+            this.EnchanteMemberBtn.Size = new System.Drawing.Size(181, 54);
+            this.EnchanteMemberBtn.TabIndex = 3;
+            this.EnchanteMemberBtn.Text = "MEMBERSHIP";
+            this.EnchanteMemberBtn.UseVisualStyleBackColor = true;
+            this.EnchanteMemberBtn.Click += new System.EventHandler(this.EnchanteMemberBtn_Click);
+            this.EnchanteMemberBtn.MouseHover += new System.EventHandler(this.EnchanteMemberBtn_MouseHover);
+            // 
+            // EnchanteServiceBtn
+            // 
+            this.EnchanteServiceBtn.AutoSize = true;
+            this.EnchanteServiceBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EnchanteServiceBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EnchanteServiceBtn.FlatAppearance.BorderSize = 0;
+            this.EnchanteServiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EnchanteServiceBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.EnchanteServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.EnchanteServiceBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.EnchanteServiceBtn.IconColor = System.Drawing.Color.Black;
+            this.EnchanteServiceBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.EnchanteServiceBtn.Location = new System.Drawing.Point(775, 58);
+            this.EnchanteServiceBtn.Name = "EnchanteServiceBtn";
+            this.EnchanteServiceBtn.Size = new System.Drawing.Size(128, 54);
+            this.EnchanteServiceBtn.TabIndex = 2;
+            this.EnchanteServiceBtn.Text = "SERVICE";
+            this.EnchanteServiceBtn.UseVisualStyleBackColor = true;
+            this.EnchanteServiceBtn.Click += new System.EventHandler(this.EnchanteServiceBtn_Click);
+            this.EnchanteServiceBtn.MouseHover += new System.EventHandler(this.EnchanteServiceBtn_MouseHover);
+            // 
+            // EnchanteHomeBtn
+            // 
+            this.EnchanteHomeBtn.AutoSize = true;
+            this.EnchanteHomeBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EnchanteHomeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EnchanteHomeBtn.FlatAppearance.BorderSize = 0;
+            this.EnchanteHomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EnchanteHomeBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.EnchanteHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.EnchanteHomeBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.EnchanteHomeBtn.IconColor = System.Drawing.Color.Black;
+            this.EnchanteHomeBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.EnchanteHomeBtn.Location = new System.Drawing.Point(677, 58);
+            this.EnchanteHomeBtn.Name = "EnchanteHomeBtn";
+            this.EnchanteHomeBtn.Size = new System.Drawing.Size(92, 54);
+            this.EnchanteHomeBtn.TabIndex = 1;
+            this.EnchanteHomeBtn.Text = "HOME";
+            this.EnchanteHomeBtn.UseVisualStyleBackColor = true;
+            this.EnchanteHomeBtn.Click += new System.EventHandler(this.EnchanteHomeBtn_Click);
+            this.EnchanteHomeBtn.MouseHover += new System.EventHandler(this.EnchanteHomeBtn_MouseHover);
+            // 
+            // EnchanteHeaderLogo
+            // 
+            this.EnchanteHeaderLogo.Image = global::Enchante.Properties.Resources.Enchante_Logo_275x100;
+            this.EnchanteHeaderLogo.Location = new System.Drawing.Point(104, 35);
+            this.EnchanteHeaderLogo.Name = "EnchanteHeaderLogo";
+            this.EnchanteHeaderLogo.Size = new System.Drawing.Size(275, 100);
+            this.EnchanteHeaderLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.EnchanteHeaderLogo.TabIndex = 0;
+            this.EnchanteHeaderLogo.TabStop = false;
+            this.EnchanteHeaderLogo.Click += new System.EventHandler(this.EnchanteHeaderLogo_Click);
             // 
             // EnchanteHomeScrollPanel
             // 
@@ -4086,6 +5127,27 @@ namespace Enchante
             this.ServiceType.Size = new System.Drawing.Size(1444, 751);
             this.ServiceType.TabIndex = 0;
             // 
+            // ServiceHSBtn
+            // 
+            this.ServiceHSBtn.BackgroundImage = global::Enchante.Properties.Resources._30_People_Are_Sharing_Seemingly_Innocent_Questions_That_Broke_Their_Heart_A_;
+            this.ServiceHSBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ServiceHSBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ServiceHSBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(101)))), ((int)(((byte)(42)))));
+            this.ServiceHSBtn.FlatAppearance.BorderSize = 2;
+            this.ServiceHSBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ServiceHSBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.ServiceHSBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ServiceHSBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.ServiceHSBtn.IconColor = System.Drawing.Color.Black;
+            this.ServiceHSBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ServiceHSBtn.Location = new System.Drawing.Point(51, 250);
+            this.ServiceHSBtn.Name = "ServiceHSBtn";
+            this.ServiceHSBtn.Size = new System.Drawing.Size(250, 250);
+            this.ServiceHSBtn.TabIndex = 10;
+            this.ServiceHSBtn.Text = "Hair Styling";
+            this.ServiceHSBtn.UseVisualStyleBackColor = true;
+            this.ServiceHSBtn.Click += new System.EventHandler(this.ServiceHSBtn_Click);
+            // 
             // ServiceTagline
             // 
             this.ServiceTagline.AutoSize = true;
@@ -4096,6 +5158,90 @@ namespace Enchante
             this.ServiceTagline.Size = new System.Drawing.Size(1170, 69);
             this.ServiceTagline.TabIndex = 9;
             this.ServiceTagline.Text = "CHECK OUT OUR AVAILABLE SERVICES\r\n";
+            // 
+            // ServiceFSBtn
+            // 
+            this.ServiceFSBtn.BackgroundImage = global::Enchante.Properties.Resources.cabernetqween;
+            this.ServiceFSBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ServiceFSBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ServiceFSBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(101)))), ((int)(((byte)(42)))));
+            this.ServiceFSBtn.FlatAppearance.BorderSize = 2;
+            this.ServiceFSBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ServiceFSBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.ServiceFSBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ServiceFSBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.ServiceFSBtn.IconColor = System.Drawing.Color.Black;
+            this.ServiceFSBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ServiceFSBtn.Location = new System.Drawing.Point(328, 250);
+            this.ServiceFSBtn.Name = "ServiceFSBtn";
+            this.ServiceFSBtn.Size = new System.Drawing.Size(250, 250);
+            this.ServiceFSBtn.TabIndex = 12;
+            this.ServiceFSBtn.Text = "FACE && SKIN";
+            this.ServiceFSBtn.UseVisualStyleBackColor = true;
+            this.ServiceFSBtn.Click += new System.EventHandler(this.ServiceFSBtn_Click);
+            // 
+            // ServiceNCBtn
+            // 
+            this.ServiceNCBtn.BackgroundImage = global::Enchante.Properties.Resources.Nail_Tech_Career;
+            this.ServiceNCBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ServiceNCBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ServiceNCBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(101)))), ((int)(((byte)(42)))));
+            this.ServiceNCBtn.FlatAppearance.BorderSize = 2;
+            this.ServiceNCBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ServiceNCBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.ServiceNCBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ServiceNCBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.ServiceNCBtn.IconColor = System.Drawing.Color.Black;
+            this.ServiceNCBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ServiceNCBtn.Location = new System.Drawing.Point(603, 250);
+            this.ServiceNCBtn.Name = "ServiceNCBtn";
+            this.ServiceNCBtn.Size = new System.Drawing.Size(250, 250);
+            this.ServiceNCBtn.TabIndex = 13;
+            this.ServiceNCBtn.Text = "NAIL CARE";
+            this.ServiceNCBtn.UseVisualStyleBackColor = true;
+            this.ServiceNCBtn.Click += new System.EventHandler(this.ServiceNCBtn_Click);
+            // 
+            // ServiceSpaBtn
+            // 
+            this.ServiceSpaBtn.BackgroundImage = global::Enchante.Properties.Resources.download__1_;
+            this.ServiceSpaBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ServiceSpaBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ServiceSpaBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(101)))), ((int)(((byte)(42)))));
+            this.ServiceSpaBtn.FlatAppearance.BorderSize = 2;
+            this.ServiceSpaBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ServiceSpaBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.ServiceSpaBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ServiceSpaBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.ServiceSpaBtn.IconColor = System.Drawing.Color.Black;
+            this.ServiceSpaBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ServiceSpaBtn.Location = new System.Drawing.Point(875, 250);
+            this.ServiceSpaBtn.Name = "ServiceSpaBtn";
+            this.ServiceSpaBtn.Size = new System.Drawing.Size(250, 250);
+            this.ServiceSpaBtn.TabIndex = 14;
+            this.ServiceSpaBtn.Text = "SPA";
+            this.ServiceSpaBtn.UseVisualStyleBackColor = true;
+            this.ServiceSpaBtn.Click += new System.EventHandler(this.ServiceSpaBtn_Click);
+            // 
+            // ServiceMBtn
+            // 
+            this.ServiceMBtn.BackgroundImage = global::Enchante.Properties.Resources.guia_para_personalizar_tu_masaje;
+            this.ServiceMBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ServiceMBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ServiceMBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(101)))), ((int)(((byte)(42)))));
+            this.ServiceMBtn.FlatAppearance.BorderSize = 2;
+            this.ServiceMBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ServiceMBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.ServiceMBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ServiceMBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.ServiceMBtn.IconColor = System.Drawing.Color.Black;
+            this.ServiceMBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ServiceMBtn.Location = new System.Drawing.Point(1151, 250);
+            this.ServiceMBtn.Name = "ServiceMBtn";
+            this.ServiceMBtn.Size = new System.Drawing.Size(250, 250);
+            this.ServiceMBtn.TabIndex = 15;
+            this.ServiceMBtn.Text = "MASSAGE";
+            this.ServiceMBtn.UseVisualStyleBackColor = true;
+            this.ServiceMBtn.Click += new System.EventHandler(this.ServiceMBtn_Click);
             // 
             // MembershipPanel
             // 
@@ -4354,6 +5500,27 @@ namespace Enchante
             this.PremPayPPaymentRB.UseVisualStyleBackColor = true;
             this.PremPayPPaymentRB.Visible = false;
             // 
+            // PremPayPPaymentBtn
+            // 
+            this.PremPayPPaymentBtn.AutoSize = true;
+            this.PremPayPPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremPayPPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PremPayPPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
+            this.PremPayPPaymentBtn.FlatAppearance.BorderSize = 3;
+            this.PremPayPPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremPayPPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremPayPPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.PremPayPPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremPayPPaymentBtn.IconColor = System.Drawing.Color.Black;
+            this.PremPayPPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremPayPPaymentBtn.Location = new System.Drawing.Point(0, 0);
+            this.PremPayPPaymentBtn.Name = "PremPayPPaymentBtn";
+            this.PremPayPPaymentBtn.Size = new System.Drawing.Size(223, 50);
+            this.PremPayPPaymentBtn.TabIndex = 106;
+            this.PremPayPPaymentBtn.Text = "Paypal";
+            this.PremPayPPaymentBtn.UseVisualStyleBackColor = true;
+            this.PremPayPPaymentBtn.Click += new System.EventHandler(this.PremPayPPaymentBtn_Click);
+            // 
             // PremCardCVCLbl
             // 
             this.PremCardCVCLbl.AutoSize = true;
@@ -4389,6 +5556,27 @@ namespace Enchante
             this.PremPayMPaymentRB.UseVisualStyleBackColor = true;
             this.PremPayMPaymentRB.Visible = false;
             // 
+            // PremPayMPaymentBtn
+            // 
+            this.PremPayMPaymentBtn.AutoSize = true;
+            this.PremPayMPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremPayMPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PremPayMPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
+            this.PremPayMPaymentBtn.FlatAppearance.BorderSize = 3;
+            this.PremPayMPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremPayMPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremPayMPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.PremPayMPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremPayMPaymentBtn.IconColor = System.Drawing.Color.Black;
+            this.PremPayMPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremPayMPaymentBtn.Location = new System.Drawing.Point(0, 0);
+            this.PremPayMPaymentBtn.Name = "PremPayMPaymentBtn";
+            this.PremPayMPaymentBtn.Size = new System.Drawing.Size(223, 50);
+            this.PremPayMPaymentBtn.TabIndex = 106;
+            this.PremPayMPaymentBtn.Text = "Paymaya";
+            this.PremPayMPaymentBtn.UseVisualStyleBackColor = true;
+            this.PremPayMPaymentBtn.Click += new System.EventHandler(this.PremPayMPaymentBtn_Click);
+            // 
             // PremCardCVCText
             // 
             this.PremCardCVCText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
@@ -4422,6 +5610,27 @@ namespace Enchante
             this.PremGCPaymentRB.TabIndex = 117;
             this.PremGCPaymentRB.UseVisualStyleBackColor = true;
             this.PremGCPaymentRB.Visible = false;
+            // 
+            // PremGCPaymentBtn
+            // 
+            this.PremGCPaymentBtn.AutoSize = true;
+            this.PremGCPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremGCPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PremGCPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
+            this.PremGCPaymentBtn.FlatAppearance.BorderSize = 3;
+            this.PremGCPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremGCPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremGCPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.PremGCPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremGCPaymentBtn.IconColor = System.Drawing.Color.Black;
+            this.PremGCPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremGCPaymentBtn.Location = new System.Drawing.Point(0, 0);
+            this.PremGCPaymentBtn.Name = "PremGCPaymentBtn";
+            this.PremGCPaymentBtn.Size = new System.Drawing.Size(223, 50);
+            this.PremGCPaymentBtn.TabIndex = 106;
+            this.PremGCPaymentBtn.Text = "Gcash";
+            this.PremGCPaymentBtn.UseVisualStyleBackColor = true;
+            this.PremGCPaymentBtn.Click += new System.EventHandler(this.PremGCPaymentBtn_Click);
             // 
             // PremCardCVCErrorLbl
             // 
@@ -4460,6 +5669,27 @@ namespace Enchante
             this.PremCCPaymentRB.TabIndex = 116;
             this.PremCCPaymentRB.UseVisualStyleBackColor = true;
             this.PremCCPaymentRB.Visible = false;
+            // 
+            // PremCCPaymentBtn
+            // 
+            this.PremCCPaymentBtn.AutoSize = true;
+            this.PremCCPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremCCPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PremCCPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
+            this.PremCCPaymentBtn.FlatAppearance.BorderSize = 3;
+            this.PremCCPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremCCPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCCPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.PremCCPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremCCPaymentBtn.IconColor = System.Drawing.Color.Black;
+            this.PremCCPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremCCPaymentBtn.Location = new System.Drawing.Point(0, 0);
+            this.PremCCPaymentBtn.Name = "PremCCPaymentBtn";
+            this.PremCCPaymentBtn.Size = new System.Drawing.Size(223, 50);
+            this.PremCCPaymentBtn.TabIndex = 106;
+            this.PremCCPaymentBtn.Text = "Credit Card";
+            this.PremCCPaymentBtn.UseVisualStyleBackColor = true;
+            this.PremCCPaymentBtn.Click += new System.EventHandler(this.PremCCPaymentBtn_Click);
             // 
             // PremCardExpireLbl
             // 
@@ -4573,6 +5803,27 @@ namespace Enchante
             this.PremBiyearlyPlanDiscLbl.TabIndex = 90;
             this.PremBiyearlyPlanDiscLbl.Text = "Save. Php. 4k\r\n";
             // 
+            // PremBiyearlyPlanBtn
+            // 
+            this.PremBiyearlyPlanBtn.AutoSize = true;
+            this.PremBiyearlyPlanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremBiyearlyPlanBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PremBiyearlyPlanBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremBiyearlyPlanBtn.FlatAppearance.BorderSize = 3;
+            this.PremBiyearlyPlanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremBiyearlyPlanBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremBiyearlyPlanBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.PremBiyearlyPlanBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremBiyearlyPlanBtn.IconColor = System.Drawing.Color.Black;
+            this.PremBiyearlyPlanBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremBiyearlyPlanBtn.Location = new System.Drawing.Point(0, 0);
+            this.PremBiyearlyPlanBtn.Name = "PremBiyearlyPlanBtn";
+            this.PremBiyearlyPlanBtn.Size = new System.Drawing.Size(250, 250);
+            this.PremBiyearlyPlanBtn.TabIndex = 86;
+            this.PremBiyearlyPlanBtn.Text = "Php.\r\n999.00";
+            this.PremBiyearlyPlanBtn.UseVisualStyleBackColor = true;
+            this.PremBiyearlyPlanBtn.Click += new System.EventHandler(this.PremBiyearlyPlanBtn_Click);
+            // 
             // PremYearlyPlanPanel
             // 
             this.PremYearlyPlanPanel.Controls.Add(this.PremYearlyPlanRB);
@@ -4637,6 +5888,27 @@ namespace Enchante
             this.PremYearlyPlanDiscLbl.TabIndex = 85;
             this.PremYearlyPlanDiscLbl.Text = "Save. Php. 2.4k\r\n";
             // 
+            // PremYearlyPlanBtn
+            // 
+            this.PremYearlyPlanBtn.AutoSize = true;
+            this.PremYearlyPlanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremYearlyPlanBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PremYearlyPlanBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremYearlyPlanBtn.FlatAppearance.BorderSize = 3;
+            this.PremYearlyPlanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremYearlyPlanBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremYearlyPlanBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.PremYearlyPlanBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremYearlyPlanBtn.IconColor = System.Drawing.Color.Black;
+            this.PremYearlyPlanBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremYearlyPlanBtn.Location = new System.Drawing.Point(0, 0);
+            this.PremYearlyPlanBtn.Name = "PremYearlyPlanBtn";
+            this.PremYearlyPlanBtn.Size = new System.Drawing.Size(250, 250);
+            this.PremYearlyPlanBtn.TabIndex = 81;
+            this.PremYearlyPlanBtn.Text = "Php.\r\n1299.00";
+            this.PremYearlyPlanBtn.UseVisualStyleBackColor = true;
+            this.PremYearlyPlanBtn.Click += new System.EventHandler(this.PremYearlyPlanBtn_Click);
+            // 
             // PremMonthlyPlanPanel
             // 
             this.PremMonthlyPlanPanel.Controls.Add(this.PremMonthlyPlanRB);
@@ -4688,6 +5960,27 @@ namespace Enchante
             this.PremMonthlyPlanRenewText.Text = "Plan Renews at\r\nPhp. 4999.00 on \r\n[After 1 month]\r\n";
             this.PremMonthlyPlanRenewText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // PremMonthlyPlanBtn
+            // 
+            this.PremMonthlyPlanBtn.AutoSize = true;
+            this.PremMonthlyPlanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremMonthlyPlanBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PremMonthlyPlanBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremMonthlyPlanBtn.FlatAppearance.BorderSize = 3;
+            this.PremMonthlyPlanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremMonthlyPlanBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremMonthlyPlanBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.PremMonthlyPlanBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremMonthlyPlanBtn.IconColor = System.Drawing.Color.Black;
+            this.PremMonthlyPlanBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremMonthlyPlanBtn.Location = new System.Drawing.Point(0, 0);
+            this.PremMonthlyPlanBtn.Name = "PremMonthlyPlanBtn";
+            this.PremMonthlyPlanBtn.Size = new System.Drawing.Size(250, 250);
+            this.PremMonthlyPlanBtn.TabIndex = 77;
+            this.PremMonthlyPlanBtn.Text = "Php.\r\n1499.00";
+            this.PremMonthlyPlanBtn.UseVisualStyleBackColor = true;
+            this.PremMonthlyPlanBtn.Click += new System.EventHandler(this.PremMonthlyPlanBtn_Click);
+            // 
             // PremSelectPaymentLbl
             // 
             this.PremSelectPaymentLbl.AutoSize = true;
@@ -4729,6 +6022,29 @@ namespace Enchante
             this.PremConfirmPassPanel.Name = "PremConfirmPassPanel";
             this.PremConfirmPassPanel.Size = new System.Drawing.Size(548, 37);
             this.PremConfirmPassPanel.TabIndex = 69;
+            // 
+            // PremShowHideConfirmPassBtn
+            // 
+            this.PremShowHideConfirmPassBtn.AutoSize = true;
+            this.PremShowHideConfirmPassBtn.BackColor = System.Drawing.Color.Transparent;
+            this.PremShowHideConfirmPassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremShowHideConfirmPassBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PremShowHideConfirmPassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremShowHideConfirmPassBtn.FlatAppearance.BorderSize = 0;
+            this.PremShowHideConfirmPassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremShowHideConfirmPassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremShowHideConfirmPassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremShowHideConfirmPassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.PremShowHideConfirmPassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremShowHideConfirmPassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremShowHideConfirmPassBtn.IconSize = 30;
+            this.PremShowHideConfirmPassBtn.Location = new System.Drawing.Point(512, 0);
+            this.PremShowHideConfirmPassBtn.Name = "PremShowHideConfirmPassBtn";
+            this.PremShowHideConfirmPassBtn.Size = new System.Drawing.Size(36, 37);
+            this.PremShowHideConfirmPassBtn.TabIndex = 31;
+            this.PremShowHideConfirmPassBtn.UseVisualStyleBackColor = false;
+            this.PremShowHideConfirmPassBtn.Click += new System.EventHandler(this.PremShowHideConfirmPassBtn_Click);
+            this.PremShowHideConfirmPassBtn.MouseHover += new System.EventHandler(this.PremShowHideConfirmPassBtn_MouseHover);
             // 
             // PremConfirmPassText
             // 
@@ -4872,6 +6188,29 @@ namespace Enchante
             this.PremPassPanel.Name = "PremPassPanel";
             this.PremPassPanel.Size = new System.Drawing.Size(548, 37);
             this.PremPassPanel.TabIndex = 66;
+            // 
+            // PremShowHidePassBtn
+            // 
+            this.PremShowHidePassBtn.AutoSize = true;
+            this.PremShowHidePassBtn.BackColor = System.Drawing.Color.Transparent;
+            this.PremShowHidePassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremShowHidePassBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PremShowHidePassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremShowHidePassBtn.FlatAppearance.BorderSize = 0;
+            this.PremShowHidePassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremShowHidePassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremShowHidePassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.PremShowHidePassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremShowHidePassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremShowHidePassBtn.IconSize = 30;
+            this.PremShowHidePassBtn.Location = new System.Drawing.Point(512, 0);
+            this.PremShowHidePassBtn.Name = "PremShowHidePassBtn";
+            this.PremShowHidePassBtn.Size = new System.Drawing.Size(36, 37);
+            this.PremShowHidePassBtn.TabIndex = 31;
+            this.PremShowHidePassBtn.UseVisualStyleBackColor = false;
+            this.PremShowHidePassBtn.Click += new System.EventHandler(this.PremShowHidePassBtn_Click);
+            this.PremShowHidePassBtn.MouseHover += new System.EventHandler(this.PremShowHidePassBtn_MouseHover);
             // 
             // PremPassText
             // 
@@ -5149,6 +6488,85 @@ namespace Enchante
             this.PremAccLbl.TabIndex = 7;
             this.PremAccLbl.Text = "You\'re almost there! Complete your account.";
             // 
+            // PremMemberIDCopyBtn
+            // 
+            this.PremMemberIDCopyBtn.AutoSize = true;
+            this.PremMemberIDCopyBtn.BackColor = System.Drawing.Color.Transparent;
+            this.PremMemberIDCopyBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremMemberIDCopyBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremMemberIDCopyBtn.FlatAppearance.BorderSize = 0;
+            this.PremMemberIDCopyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremMemberIDCopyBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremMemberIDCopyBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremMemberIDCopyBtn.IconChar = FontAwesome.Sharp.IconChar.Copy;
+            this.PremMemberIDCopyBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremMemberIDCopyBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremMemberIDCopyBtn.IconSize = 30;
+            this.PremMemberIDCopyBtn.Location = new System.Drawing.Point(633, 758);
+            this.PremMemberIDCopyBtn.Name = "PremMemberIDCopyBtn";
+            this.PremMemberIDCopyBtn.Size = new System.Drawing.Size(36, 36);
+            this.PremMemberIDCopyBtn.TabIndex = 120;
+            this.PremMemberIDCopyBtn.UseVisualStyleBackColor = false;
+            this.PremMemberIDCopyBtn.Click += new System.EventHandler(this.PremMemberIDCopyBtn_Click);
+            // 
+            // PremPassReqBtn
+            // 
+            this.PremPassReqBtn.AutoSize = true;
+            this.PremPassReqBtn.BackColor = System.Drawing.Color.Transparent;
+            this.PremPassReqBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremPassReqBtn.FlatAppearance.BorderSize = 0;
+            this.PremPassReqBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremPassReqBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremPassReqBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremPassReqBtn.IconChar = FontAwesome.Sharp.IconChar.Question;
+            this.PremPassReqBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremPassReqBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremPassReqBtn.IconSize = 20;
+            this.PremPassReqBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PremPassReqBtn.Location = new System.Drawing.Point(836, 679);
+            this.PremPassReqBtn.Name = "PremPassReqBtn";
+            this.PremPassReqBtn.Size = new System.Drawing.Size(26, 26);
+            this.PremPassReqBtn.TabIndex = 76;
+            this.PremPassReqBtn.UseVisualStyleBackColor = false;
+            this.PremPassReqBtn.MouseHover += new System.EventHandler(this.PremPassReqBtn_MouseHover);
+            // 
+            // PremCreateAccBtn
+            // 
+            this.PremCreateAccBtn.AutoSize = true;
+            this.PremCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PremCreateAccBtn.FlatAppearance.BorderSize = 3;
+            this.PremCreateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremCreateAccBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PremCreateAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PremCreateAccBtn.IconColor = System.Drawing.Color.Black;
+            this.PremCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremCreateAccBtn.Location = new System.Drawing.Point(542, 1693);
+            this.PremCreateAccBtn.Name = "PremCreateAccBtn";
+            this.PremCreateAccBtn.Size = new System.Drawing.Size(268, 60);
+            this.PremCreateAccBtn.TabIndex = 73;
+            this.PremCreateAccBtn.Text = "CREATE ACCOUNT NOW";
+            this.PremCreateAccBtn.UseVisualStyleBackColor = true;
+            this.PremCreateAccBtn.Click += new System.EventHandler(this.PremCreateAccBtn_Click);
+            // 
+            // PremiumExitBtn
+            // 
+            this.PremiumExitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.PremiumExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PremiumExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.PremiumExitBtn.FlatAppearance.BorderSize = 0;
+            this.PremiumExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PremiumExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.PremiumExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PremiumExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PremiumExitBtn.Location = new System.Drawing.Point(1289, 16);
+            this.PremiumExitBtn.Name = "PremiumExitBtn";
+            this.PremiumExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.PremiumExitBtn.TabIndex = 43;
+            this.PremiumExitBtn.UseVisualStyleBackColor = false;
+            this.PremiumExitBtn.Click += new System.EventHandler(this.PremiumExitBtn_Click);
+            // 
             // SVIPPlanPanel
             // 
             this.SVIPPlanPanel.AutoScroll = true;
@@ -5394,6 +6812,27 @@ namespace Enchante
             this.SVIPPayPPaymentRB.UseVisualStyleBackColor = true;
             this.SVIPPayPPaymentRB.Visible = false;
             // 
+            // SVIPPayPPaymentBtn
+            // 
+            this.SVIPPayPPaymentBtn.AutoSize = true;
+            this.SVIPPayPPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SVIPPayPPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SVIPPayPPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
+            this.SVIPPayPPaymentBtn.FlatAppearance.BorderSize = 3;
+            this.SVIPPayPPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SVIPPayPPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SVIPPayPPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.SVIPPayPPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.SVIPPayPPaymentBtn.IconColor = System.Drawing.Color.Black;
+            this.SVIPPayPPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SVIPPayPPaymentBtn.Location = new System.Drawing.Point(0, 0);
+            this.SVIPPayPPaymentBtn.Name = "SVIPPayPPaymentBtn";
+            this.SVIPPayPPaymentBtn.Size = new System.Drawing.Size(223, 50);
+            this.SVIPPayPPaymentBtn.TabIndex = 106;
+            this.SVIPPayPPaymentBtn.Text = "Paypal";
+            this.SVIPPayPPaymentBtn.UseVisualStyleBackColor = true;
+            this.SVIPPayPPaymentBtn.Click += new System.EventHandler(this.SVIPPayPPaymentBtn_Click);
+            // 
             // SVIPCardCVCLbl
             // 
             this.SVIPCardCVCLbl.AutoSize = true;
@@ -5429,6 +6868,27 @@ namespace Enchante
             this.SVIPPayMPaymentRB.UseVisualStyleBackColor = true;
             this.SVIPPayMPaymentRB.Visible = false;
             // 
+            // SVIPPayMPaymentBtn
+            // 
+            this.SVIPPayMPaymentBtn.AutoSize = true;
+            this.SVIPPayMPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SVIPPayMPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SVIPPayMPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
+            this.SVIPPayMPaymentBtn.FlatAppearance.BorderSize = 3;
+            this.SVIPPayMPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SVIPPayMPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SVIPPayMPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.SVIPPayMPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.SVIPPayMPaymentBtn.IconColor = System.Drawing.Color.Black;
+            this.SVIPPayMPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SVIPPayMPaymentBtn.Location = new System.Drawing.Point(0, 0);
+            this.SVIPPayMPaymentBtn.Name = "SVIPPayMPaymentBtn";
+            this.SVIPPayMPaymentBtn.Size = new System.Drawing.Size(223, 50);
+            this.SVIPPayMPaymentBtn.TabIndex = 106;
+            this.SVIPPayMPaymentBtn.Text = "Paymaya";
+            this.SVIPPayMPaymentBtn.UseVisualStyleBackColor = true;
+            this.SVIPPayMPaymentBtn.Click += new System.EventHandler(this.SVIPPayMPaymentBtn_Click);
+            // 
             // SVIPCardCVCText
             // 
             this.SVIPCardCVCText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
@@ -5462,6 +6922,27 @@ namespace Enchante
             this.SVIPGCPaymentRB.TabIndex = 117;
             this.SVIPGCPaymentRB.UseVisualStyleBackColor = true;
             this.SVIPGCPaymentRB.Visible = false;
+            // 
+            // SVIPGCPaymentBtn
+            // 
+            this.SVIPGCPaymentBtn.AutoSize = true;
+            this.SVIPGCPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SVIPGCPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SVIPGCPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
+            this.SVIPGCPaymentBtn.FlatAppearance.BorderSize = 3;
+            this.SVIPGCPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SVIPGCPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SVIPGCPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.SVIPGCPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.SVIPGCPaymentBtn.IconColor = System.Drawing.Color.Black;
+            this.SVIPGCPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SVIPGCPaymentBtn.Location = new System.Drawing.Point(0, 0);
+            this.SVIPGCPaymentBtn.Name = "SVIPGCPaymentBtn";
+            this.SVIPGCPaymentBtn.Size = new System.Drawing.Size(223, 50);
+            this.SVIPGCPaymentBtn.TabIndex = 106;
+            this.SVIPGCPaymentBtn.Text = "Gcash";
+            this.SVIPGCPaymentBtn.UseVisualStyleBackColor = true;
+            this.SVIPGCPaymentBtn.Click += new System.EventHandler(this.SVIPGCPaymentBtn_Click);
             // 
             // SVIPCardCVCErrorLbl
             // 
@@ -5500,6 +6981,27 @@ namespace Enchante
             this.SVIPCCPaymentRB.TabIndex = 116;
             this.SVIPCCPaymentRB.UseVisualStyleBackColor = true;
             this.SVIPCCPaymentRB.Visible = false;
+            // 
+            // SVIPCCPaymentBtn
+            // 
+            this.SVIPCCPaymentBtn.AutoSize = true;
+            this.SVIPCCPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SVIPCCPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SVIPCCPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
+            this.SVIPCCPaymentBtn.FlatAppearance.BorderSize = 3;
+            this.SVIPCCPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SVIPCCPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SVIPCCPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.SVIPCCPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.SVIPCCPaymentBtn.IconColor = System.Drawing.Color.Black;
+            this.SVIPCCPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SVIPCCPaymentBtn.Location = new System.Drawing.Point(0, 0);
+            this.SVIPCCPaymentBtn.Name = "SVIPCCPaymentBtn";
+            this.SVIPCCPaymentBtn.Size = new System.Drawing.Size(223, 50);
+            this.SVIPCCPaymentBtn.TabIndex = 106;
+            this.SVIPCCPaymentBtn.Text = "Credit Card";
+            this.SVIPCCPaymentBtn.UseVisualStyleBackColor = true;
+            this.SVIPCCPaymentBtn.Click += new System.EventHandler(this.SVIPCCPaymentBtn_Click);
             // 
             // SVIPCardExpireLbl
             // 
@@ -5614,6 +7116,27 @@ namespace Enchante
             this.SVIPBiyearlyPlanDiscLbl.TabIndex = 90;
             this.SVIPBiyearlyPlanDiscLbl.Text = "Save. Php. 24k\r\n";
             // 
+            // SVIPBiyearlyPlanBtn
+            // 
+            this.SVIPBiyearlyPlanBtn.AutoSize = true;
+            this.SVIPBiyearlyPlanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SVIPBiyearlyPlanBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SVIPBiyearlyPlanBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SVIPBiyearlyPlanBtn.FlatAppearance.BorderSize = 3;
+            this.SVIPBiyearlyPlanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SVIPBiyearlyPlanBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SVIPBiyearlyPlanBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.SVIPBiyearlyPlanBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.SVIPBiyearlyPlanBtn.IconColor = System.Drawing.Color.Black;
+            this.SVIPBiyearlyPlanBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SVIPBiyearlyPlanBtn.Location = new System.Drawing.Point(0, 0);
+            this.SVIPBiyearlyPlanBtn.Name = "SVIPBiyearlyPlanBtn";
+            this.SVIPBiyearlyPlanBtn.Size = new System.Drawing.Size(250, 250);
+            this.SVIPBiyearlyPlanBtn.TabIndex = 86;
+            this.SVIPBiyearlyPlanBtn.Text = "Php.\r\n2999.00";
+            this.SVIPBiyearlyPlanBtn.UseVisualStyleBackColor = true;
+            this.SVIPBiyearlyPlanBtn.Click += new System.EventHandler(this.SVIPBiyearlyPlanBtn_Click);
+            // 
             // SVIPYearlyPlanPanel
             // 
             this.SVIPYearlyPlanPanel.Controls.Add(this.SVIPYearlyPlanRB);
@@ -5679,6 +7202,27 @@ namespace Enchante
             this.SVIPYearlyPlanDiscLbl.TabIndex = 85;
             this.SVIPYearlyPlanDiscLbl.Text = "Save. Php. 18k\r\n";
             // 
+            // SVIPYearlyPlanBtn
+            // 
+            this.SVIPYearlyPlanBtn.AutoSize = true;
+            this.SVIPYearlyPlanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SVIPYearlyPlanBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SVIPYearlyPlanBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SVIPYearlyPlanBtn.FlatAppearance.BorderSize = 3;
+            this.SVIPYearlyPlanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SVIPYearlyPlanBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SVIPYearlyPlanBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.SVIPYearlyPlanBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.SVIPYearlyPlanBtn.IconColor = System.Drawing.Color.Black;
+            this.SVIPYearlyPlanBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SVIPYearlyPlanBtn.Location = new System.Drawing.Point(0, 0);
+            this.SVIPYearlyPlanBtn.Name = "SVIPYearlyPlanBtn";
+            this.SVIPYearlyPlanBtn.Size = new System.Drawing.Size(250, 250);
+            this.SVIPYearlyPlanBtn.TabIndex = 81;
+            this.SVIPYearlyPlanBtn.Text = "Php.\r\n3499.00";
+            this.SVIPYearlyPlanBtn.UseVisualStyleBackColor = true;
+            this.SVIPYearlyPlanBtn.Click += new System.EventHandler(this.SVIPYearlyPlanBtn_Click);
+            // 
             // SVIPMonthlyPlanPanel
             // 
             this.SVIPMonthlyPlanPanel.Controls.Add(this.SVIPMonthlyPlanRB);
@@ -5731,6 +7275,27 @@ namespace Enchante
             this.SVIPMonthlyPlanRenewText.Text = "Plan Renews at\r\nPhp. 4999.00 on \r\n[After 1 month]\r\n";
             this.SVIPMonthlyPlanRenewText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // SVIPMonthlyPlanBtn
+            // 
+            this.SVIPMonthlyPlanBtn.AutoSize = true;
+            this.SVIPMonthlyPlanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SVIPMonthlyPlanBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SVIPMonthlyPlanBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SVIPMonthlyPlanBtn.FlatAppearance.BorderSize = 3;
+            this.SVIPMonthlyPlanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SVIPMonthlyPlanBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SVIPMonthlyPlanBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.SVIPMonthlyPlanBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.SVIPMonthlyPlanBtn.IconColor = System.Drawing.Color.Black;
+            this.SVIPMonthlyPlanBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SVIPMonthlyPlanBtn.Location = new System.Drawing.Point(0, 0);
+            this.SVIPMonthlyPlanBtn.Name = "SVIPMonthlyPlanBtn";
+            this.SVIPMonthlyPlanBtn.Size = new System.Drawing.Size(250, 250);
+            this.SVIPMonthlyPlanBtn.TabIndex = 77;
+            this.SVIPMonthlyPlanBtn.Text = "Php.\r\n4999.00";
+            this.SVIPMonthlyPlanBtn.UseVisualStyleBackColor = true;
+            this.SVIPMonthlyPlanBtn.Click += new System.EventHandler(this.SVIPMonthlyPlanBtn_Click);
+            // 
             // SVIPSelectPaymentLbl
             // 
             this.SVIPSelectPaymentLbl.AutoSize = true;
@@ -5772,6 +7337,28 @@ namespace Enchante
             this.SVIPConfirmPassPanel.Name = "SVIPConfirmPassPanel";
             this.SVIPConfirmPassPanel.Size = new System.Drawing.Size(548, 37);
             this.SVIPConfirmPassPanel.TabIndex = 69;
+            // 
+            // SVIPShowHideConfirmPassBtn
+            // 
+            this.SVIPShowHideConfirmPassBtn.AutoSize = true;
+            this.SVIPShowHideConfirmPassBtn.BackColor = System.Drawing.Color.Transparent;
+            this.SVIPShowHideConfirmPassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SVIPShowHideConfirmPassBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SVIPShowHideConfirmPassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SVIPShowHideConfirmPassBtn.FlatAppearance.BorderSize = 0;
+            this.SVIPShowHideConfirmPassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SVIPShowHideConfirmPassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SVIPShowHideConfirmPassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SVIPShowHideConfirmPassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.SVIPShowHideConfirmPassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SVIPShowHideConfirmPassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SVIPShowHideConfirmPassBtn.IconSize = 30;
+            this.SVIPShowHideConfirmPassBtn.Location = new System.Drawing.Point(512, 0);
+            this.SVIPShowHideConfirmPassBtn.Name = "SVIPShowHideConfirmPassBtn";
+            this.SVIPShowHideConfirmPassBtn.Size = new System.Drawing.Size(36, 37);
+            this.SVIPShowHideConfirmPassBtn.TabIndex = 31;
+            this.SVIPShowHideConfirmPassBtn.UseVisualStyleBackColor = false;
+            this.SVIPShowHideConfirmPassBtn.Click += new System.EventHandler(this.SVIPShowHideConfirmPassBtn_Click);
             // 
             // SVIPConfirmPassText
             // 
@@ -5915,6 +7502,28 @@ namespace Enchante
             this.SVIPPassPanel.Name = "SVIPPassPanel";
             this.SVIPPassPanel.Size = new System.Drawing.Size(548, 37);
             this.SVIPPassPanel.TabIndex = 66;
+            // 
+            // SVIPShowHidePassBtn
+            // 
+            this.SVIPShowHidePassBtn.AutoSize = true;
+            this.SVIPShowHidePassBtn.BackColor = System.Drawing.Color.Transparent;
+            this.SVIPShowHidePassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SVIPShowHidePassBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SVIPShowHidePassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SVIPShowHidePassBtn.FlatAppearance.BorderSize = 0;
+            this.SVIPShowHidePassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SVIPShowHidePassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SVIPShowHidePassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SVIPShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.SVIPShowHidePassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SVIPShowHidePassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SVIPShowHidePassBtn.IconSize = 30;
+            this.SVIPShowHidePassBtn.Location = new System.Drawing.Point(512, 0);
+            this.SVIPShowHidePassBtn.Name = "SVIPShowHidePassBtn";
+            this.SVIPShowHidePassBtn.Size = new System.Drawing.Size(36, 37);
+            this.SVIPShowHidePassBtn.TabIndex = 31;
+            this.SVIPShowHidePassBtn.UseVisualStyleBackColor = false;
+            this.SVIPShowHidePassBtn.Click += new System.EventHandler(this.SVIPShowHidePassBtn_Click);
             // 
             // SVIPPassText
             // 
@@ -6192,6 +7801,85 @@ namespace Enchante
             this.SVIPAccLbl.TabIndex = 7;
             this.SVIPAccLbl.Text = "You\'re almost there! Complete your account.";
             // 
+            // SVIPMemberIDCopyBtn
+            // 
+            this.SVIPMemberIDCopyBtn.AutoSize = true;
+            this.SVIPMemberIDCopyBtn.BackColor = System.Drawing.Color.Transparent;
+            this.SVIPMemberIDCopyBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SVIPMemberIDCopyBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SVIPMemberIDCopyBtn.FlatAppearance.BorderSize = 0;
+            this.SVIPMemberIDCopyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SVIPMemberIDCopyBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SVIPMemberIDCopyBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SVIPMemberIDCopyBtn.IconChar = FontAwesome.Sharp.IconChar.Copy;
+            this.SVIPMemberIDCopyBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SVIPMemberIDCopyBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SVIPMemberIDCopyBtn.IconSize = 30;
+            this.SVIPMemberIDCopyBtn.Location = new System.Drawing.Point(633, 758);
+            this.SVIPMemberIDCopyBtn.Name = "SVIPMemberIDCopyBtn";
+            this.SVIPMemberIDCopyBtn.Size = new System.Drawing.Size(36, 36);
+            this.SVIPMemberIDCopyBtn.TabIndex = 120;
+            this.SVIPMemberIDCopyBtn.UseVisualStyleBackColor = false;
+            this.SVIPMemberIDCopyBtn.Click += new System.EventHandler(this.SVIPMemberCopyBtn_Click);
+            // 
+            // SVIPPassReqBtn
+            // 
+            this.SVIPPassReqBtn.AutoSize = true;
+            this.SVIPPassReqBtn.BackColor = System.Drawing.Color.Transparent;
+            this.SVIPPassReqBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SVIPPassReqBtn.FlatAppearance.BorderSize = 0;
+            this.SVIPPassReqBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SVIPPassReqBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SVIPPassReqBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SVIPPassReqBtn.IconChar = FontAwesome.Sharp.IconChar.Question;
+            this.SVIPPassReqBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SVIPPassReqBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SVIPPassReqBtn.IconSize = 20;
+            this.SVIPPassReqBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SVIPPassReqBtn.Location = new System.Drawing.Point(836, 679);
+            this.SVIPPassReqBtn.Name = "SVIPPassReqBtn";
+            this.SVIPPassReqBtn.Size = new System.Drawing.Size(26, 26);
+            this.SVIPPassReqBtn.TabIndex = 76;
+            this.SVIPPassReqBtn.UseVisualStyleBackColor = false;
+            this.SVIPPassReqBtn.MouseHover += new System.EventHandler(this.SVIPPassReqBtn_MouseHover);
+            // 
+            // SVIPCreateAccBtn
+            // 
+            this.SVIPCreateAccBtn.AutoSize = true;
+            this.SVIPCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SVIPCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SVIPCreateAccBtn.FlatAppearance.BorderSize = 3;
+            this.SVIPCreateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SVIPCreateAccBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SVIPCreateAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SVIPCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.SVIPCreateAccBtn.IconColor = System.Drawing.Color.Black;
+            this.SVIPCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SVIPCreateAccBtn.Location = new System.Drawing.Point(542, 1693);
+            this.SVIPCreateAccBtn.Name = "SVIPCreateAccBtn";
+            this.SVIPCreateAccBtn.Size = new System.Drawing.Size(268, 60);
+            this.SVIPCreateAccBtn.TabIndex = 73;
+            this.SVIPCreateAccBtn.Text = "CREATE ACCOUNT NOW";
+            this.SVIPCreateAccBtn.UseVisualStyleBackColor = true;
+            this.SVIPCreateAccBtn.Click += new System.EventHandler(this.SVIPCreateAccBtn_Click);
+            // 
+            // SVIPExitBtn
+            // 
+            this.SVIPExitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.SVIPExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SVIPExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.SVIPExitBtn.FlatAppearance.BorderSize = 0;
+            this.SVIPExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SVIPExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.SVIPExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SVIPExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SVIPExitBtn.Location = new System.Drawing.Point(1289, 16);
+            this.SVIPExitBtn.Name = "SVIPExitBtn";
+            this.SVIPExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.SVIPExitBtn.TabIndex = 43;
+            this.SVIPExitBtn.UseVisualStyleBackColor = false;
+            this.SVIPExitBtn.Click += new System.EventHandler(this.SVIPExitBtn_Click);
+            // 
             // RegularPlanPanel
             // 
             this.RegularPlanPanel.AutoScroll = true;
@@ -6277,6 +7965,28 @@ namespace Enchante
             this.RegularConfirmPassPanel.Name = "RegularConfirmPassPanel";
             this.RegularConfirmPassPanel.Size = new System.Drawing.Size(565, 37);
             this.RegularConfirmPassPanel.TabIndex = 69;
+            // 
+            // RegularConfirmShowHidePassBtn
+            // 
+            this.RegularConfirmShowHidePassBtn.AutoSize = true;
+            this.RegularConfirmShowHidePassBtn.BackColor = System.Drawing.Color.Transparent;
+            this.RegularConfirmShowHidePassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RegularConfirmShowHidePassBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.RegularConfirmShowHidePassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RegularConfirmShowHidePassBtn.FlatAppearance.BorderSize = 0;
+            this.RegularConfirmShowHidePassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RegularConfirmShowHidePassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RegularConfirmShowHidePassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RegularConfirmShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.RegularConfirmShowHidePassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RegularConfirmShowHidePassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RegularConfirmShowHidePassBtn.IconSize = 30;
+            this.RegularConfirmShowHidePassBtn.Location = new System.Drawing.Point(529, 0);
+            this.RegularConfirmShowHidePassBtn.Name = "RegularConfirmShowHidePassBtn";
+            this.RegularConfirmShowHidePassBtn.Size = new System.Drawing.Size(36, 37);
+            this.RegularConfirmShowHidePassBtn.TabIndex = 31;
+            this.RegularConfirmShowHidePassBtn.UseVisualStyleBackColor = false;
+            this.RegularConfirmShowHidePassBtn.Click += new System.EventHandler(this.RegularConfirmShowHidePassBtn_Click);
             // 
             // RegularConfirmPassText
             // 
@@ -6420,6 +8130,28 @@ namespace Enchante
             this.RegularPassPanel.Name = "RegularPassPanel";
             this.RegularPassPanel.Size = new System.Drawing.Size(565, 37);
             this.RegularPassPanel.TabIndex = 66;
+            // 
+            // RegularShowHidePassBtn
+            // 
+            this.RegularShowHidePassBtn.AutoSize = true;
+            this.RegularShowHidePassBtn.BackColor = System.Drawing.Color.Transparent;
+            this.RegularShowHidePassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RegularShowHidePassBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.RegularShowHidePassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RegularShowHidePassBtn.FlatAppearance.BorderSize = 0;
+            this.RegularShowHidePassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RegularShowHidePassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RegularShowHidePassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RegularShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.RegularShowHidePassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RegularShowHidePassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RegularShowHidePassBtn.IconSize = 30;
+            this.RegularShowHidePassBtn.Location = new System.Drawing.Point(529, 0);
+            this.RegularShowHidePassBtn.Name = "RegularShowHidePassBtn";
+            this.RegularShowHidePassBtn.Size = new System.Drawing.Size(36, 37);
+            this.RegularShowHidePassBtn.TabIndex = 31;
+            this.RegularShowHidePassBtn.UseVisualStyleBackColor = false;
+            this.RegularShowHidePassBtn.Click += new System.EventHandler(this.RegularShowHidePassBtn_Click);
             // 
             // RegularPassText
             // 
@@ -6697,6 +8429,84 @@ namespace Enchante
             this.RegularAccLbl.TabIndex = 7;
             this.RegularAccLbl.Text = "You\'re almost there! Complete your account.";
             // 
+            // RegularMemberIDCopyBtn
+            // 
+            this.RegularMemberIDCopyBtn.AutoSize = true;
+            this.RegularMemberIDCopyBtn.BackColor = System.Drawing.Color.Transparent;
+            this.RegularMemberIDCopyBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RegularMemberIDCopyBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RegularMemberIDCopyBtn.FlatAppearance.BorderSize = 0;
+            this.RegularMemberIDCopyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RegularMemberIDCopyBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RegularMemberIDCopyBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RegularMemberIDCopyBtn.IconChar = FontAwesome.Sharp.IconChar.Copy;
+            this.RegularMemberIDCopyBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RegularMemberIDCopyBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RegularMemberIDCopyBtn.IconSize = 30;
+            this.RegularMemberIDCopyBtn.Location = new System.Drawing.Point(633, 609);
+            this.RegularMemberIDCopyBtn.Name = "RegularMemberIDCopyBtn";
+            this.RegularMemberIDCopyBtn.Size = new System.Drawing.Size(36, 36);
+            this.RegularMemberIDCopyBtn.TabIndex = 121;
+            this.RegularMemberIDCopyBtn.UseVisualStyleBackColor = false;
+            this.RegularMemberIDCopyBtn.Click += new System.EventHandler(this.RegularMemberIDCopyBtn_Click);
+            // 
+            // RegularPassReqBtn
+            // 
+            this.RegularPassReqBtn.AutoSize = true;
+            this.RegularPassReqBtn.BackColor = System.Drawing.Color.Transparent;
+            this.RegularPassReqBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RegularPassReqBtn.FlatAppearance.BorderSize = 0;
+            this.RegularPassReqBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RegularPassReqBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RegularPassReqBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RegularPassReqBtn.IconChar = FontAwesome.Sharp.IconChar.Question;
+            this.RegularPassReqBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RegularPassReqBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RegularPassReqBtn.IconSize = 20;
+            this.RegularPassReqBtn.Location = new System.Drawing.Point(837, 523);
+            this.RegularPassReqBtn.Name = "RegularPassReqBtn";
+            this.RegularPassReqBtn.Size = new System.Drawing.Size(36, 36);
+            this.RegularPassReqBtn.TabIndex = 76;
+            this.RegularPassReqBtn.UseVisualStyleBackColor = false;
+            this.RegularPassReqBtn.MouseHover += new System.EventHandler(this.RegularPassReqBtn_MouseHover);
+            // 
+            // RegularCreateAccBtn
+            // 
+            this.RegularCreateAccBtn.AutoSize = true;
+            this.RegularCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RegularCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RegularCreateAccBtn.FlatAppearance.BorderSize = 3;
+            this.RegularCreateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RegularCreateAccBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RegularCreateAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RegularCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.RegularCreateAccBtn.IconColor = System.Drawing.Color.Black;
+            this.RegularCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RegularCreateAccBtn.Location = new System.Drawing.Point(511, 713);
+            this.RegularCreateAccBtn.Name = "RegularCreateAccBtn";
+            this.RegularCreateAccBtn.Size = new System.Drawing.Size(346, 60);
+            this.RegularCreateAccBtn.TabIndex = 73;
+            this.RegularCreateAccBtn.Text = "CREATE ACCOUNT NOW";
+            this.RegularCreateAccBtn.UseVisualStyleBackColor = true;
+            this.RegularCreateAccBtn.Click += new System.EventHandler(this.RegularCreateAccBtn_Click);
+            // 
+            // RegularExitBtn
+            // 
+            this.RegularExitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.RegularExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RegularExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.RegularExitBtn.FlatAppearance.BorderSize = 0;
+            this.RegularExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RegularExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.RegularExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RegularExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RegularExitBtn.Location = new System.Drawing.Point(1257, 28);
+            this.RegularExitBtn.Name = "RegularExitBtn";
+            this.RegularExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.RegularExitBtn.TabIndex = 43;
+            this.RegularExitBtn.UseVisualStyleBackColor = false;
+            this.RegularExitBtn.Click += new System.EventHandler(this.RegularExitBtn_Click);
+            // 
             // MembershipPlanPanel
             // 
             this.MembershipPlanPanel.AutoScroll = true;
@@ -6726,6 +8536,26 @@ namespace Enchante
             this.SVIPMemberPanel.Name = "SVIPMemberPanel";
             this.SVIPMemberPanel.Size = new System.Drawing.Size(410, 594);
             this.SVIPMemberPanel.TabIndex = 18;
+            // 
+            // SVIPMemberCreateAccBtn
+            // 
+            this.SVIPMemberCreateAccBtn.AutoSize = true;
+            this.SVIPMemberCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SVIPMemberCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SVIPMemberCreateAccBtn.FlatAppearance.BorderSize = 3;
+            this.SVIPMemberCreateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SVIPMemberCreateAccBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SVIPMemberCreateAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SVIPMemberCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.SVIPMemberCreateAccBtn.IconColor = System.Drawing.Color.Black;
+            this.SVIPMemberCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SVIPMemberCreateAccBtn.Location = new System.Drawing.Point(54, 471);
+            this.SVIPMemberCreateAccBtn.Name = "SVIPMemberCreateAccBtn";
+            this.SVIPMemberCreateAccBtn.Size = new System.Drawing.Size(285, 60);
+            this.SVIPMemberCreateAccBtn.TabIndex = 8;
+            this.SVIPMemberCreateAccBtn.Text = "GET SUPER VIP PLAN NOW";
+            this.SVIPMemberCreateAccBtn.UseVisualStyleBackColor = true;
+            this.SVIPMemberCreateAccBtn.Click += new System.EventHandler(this.SVIPMemberCreateAccBtn_Click);
             // 
             // SVIPMemberAccLbl
             // 
@@ -6778,6 +8608,26 @@ namespace Enchante
             this.PMemberPanel.Name = "PMemberPanel";
             this.PMemberPanel.Size = new System.Drawing.Size(410, 594);
             this.PMemberPanel.TabIndex = 18;
+            // 
+            // PMemberCreateAccBtn
+            // 
+            this.PMemberCreateAccBtn.AutoSize = true;
+            this.PMemberCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PMemberCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PMemberCreateAccBtn.FlatAppearance.BorderSize = 3;
+            this.PMemberCreateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PMemberCreateAccBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PMemberCreateAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PMemberCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.PMemberCreateAccBtn.IconColor = System.Drawing.Color.Black;
+            this.PMemberCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PMemberCreateAccBtn.Location = new System.Drawing.Point(55, 471);
+            this.PMemberCreateAccBtn.Name = "PMemberCreateAccBtn";
+            this.PMemberCreateAccBtn.Size = new System.Drawing.Size(285, 60);
+            this.PMemberCreateAccBtn.TabIndex = 8;
+            this.PMemberCreateAccBtn.Text = "GET PREMIUM PLAN NOW";
+            this.PMemberCreateAccBtn.UseVisualStyleBackColor = true;
+            this.PMemberCreateAccBtn.Click += new System.EventHandler(this.PMemberCreateAccBtn_Click);
             // 
             // PMemberAccLbl
             // 
@@ -6832,6 +8682,26 @@ namespace Enchante
             this.RMemberPanel.Name = "RMemberPanel";
             this.RMemberPanel.Size = new System.Drawing.Size(410, 594);
             this.RMemberPanel.TabIndex = 17;
+            // 
+            // RMemberCreateAccBtn
+            // 
+            this.RMemberCreateAccBtn.AutoSize = true;
+            this.RMemberCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RMemberCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RMemberCreateAccBtn.FlatAppearance.BorderSize = 3;
+            this.RMemberCreateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RMemberCreateAccBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RMemberCreateAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RMemberCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.RMemberCreateAccBtn.IconColor = System.Drawing.Color.Black;
+            this.RMemberCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RMemberCreateAccBtn.Location = new System.Drawing.Point(48, 471);
+            this.RMemberCreateAccBtn.Name = "RMemberCreateAccBtn";
+            this.RMemberCreateAccBtn.Size = new System.Drawing.Size(312, 60);
+            this.RMemberCreateAccBtn.TabIndex = 8;
+            this.RMemberCreateAccBtn.Text = "CREATE FREE ACCOUNT NOW";
+            this.RMemberCreateAccBtn.UseVisualStyleBackColor = true;
+            this.RMemberCreateAccBtn.Click += new System.EventHandler(this.RMemberCreateAccBtn_Click);
             // 
             // RMemberAccLbl
             // 
@@ -6904,6 +8774,26 @@ namespace Enchante
             this.EnchanteLoginForm.TabIndex = 21;
             this.EnchanteLoginForm.Visible = false;
             // 
+            // LoginPassReqBtn
+            // 
+            this.LoginPassReqBtn.AutoSize = true;
+            this.LoginPassReqBtn.BackColor = System.Drawing.Color.Transparent;
+            this.LoginPassReqBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.LoginPassReqBtn.FlatAppearance.BorderSize = 0;
+            this.LoginPassReqBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoginPassReqBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.LoginPassReqBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.LoginPassReqBtn.IconChar = FontAwesome.Sharp.IconChar.Question;
+            this.LoginPassReqBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.LoginPassReqBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.LoginPassReqBtn.IconSize = 20;
+            this.LoginPassReqBtn.Location = new System.Drawing.Point(239, 313);
+            this.LoginPassReqBtn.Name = "LoginPassReqBtn";
+            this.LoginPassReqBtn.Size = new System.Drawing.Size(36, 36);
+            this.LoginPassReqBtn.TabIndex = 77;
+            this.LoginPassReqBtn.UseVisualStyleBackColor = false;
+            this.LoginPassReqBtn.MouseHover += new System.EventHandler(this.LoginPassReqBtn_MouseHover);
+            // 
             // LoginRegisterHereLbl
             // 
             this.LoginRegisterHereLbl.AutoSize = true;
@@ -6926,6 +8816,29 @@ namespace Enchante
             this.LoginPassPanel.Size = new System.Drawing.Size(497, 49);
             this.LoginPassPanel.TabIndex = 32;
             // 
+            // ShowHidePassBtn
+            // 
+            this.ShowHidePassBtn.AutoSize = true;
+            this.ShowHidePassBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ShowHidePassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ShowHidePassBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ShowHidePassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.ShowHidePassBtn.FlatAppearance.BorderSize = 0;
+            this.ShowHidePassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ShowHidePassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.ShowHidePassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.ShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.ShowHidePassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ShowHidePassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ShowHidePassBtn.IconSize = 30;
+            this.ShowHidePassBtn.Location = new System.Drawing.Point(461, 0);
+            this.ShowHidePassBtn.Name = "ShowHidePassBtn";
+            this.ShowHidePassBtn.Size = new System.Drawing.Size(36, 49);
+            this.ShowHidePassBtn.TabIndex = 31;
+            this.ShowHidePassBtn.UseVisualStyleBackColor = false;
+            this.ShowHidePassBtn.Click += new System.EventHandler(this.ShowHidePassBtn_Click);
+            this.ShowHidePassBtn.MouseHover += new System.EventHandler(this.ShowHidePassBtn_MouseHover);
+            // 
             // LoginPassText
             // 
             this.LoginPassText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
@@ -6939,6 +8852,27 @@ namespace Enchante
             this.LoginPassText.TabIndex = 25;
             this.LoginPassText.UseSystemPasswordChar = true;
             this.LoginPassText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginPassText_KeyDown);
+            // 
+            // LoginBtn
+            // 
+            this.LoginBtn.AutoSize = true;
+            this.LoginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(98)))), ((int)(((byte)(60)))));
+            this.LoginBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LoginBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.LoginBtn.FlatAppearance.BorderSize = 3;
+            this.LoginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoginBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.LoginBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.LoginBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.LoginBtn.IconColor = System.Drawing.Color.Black;
+            this.LoginBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.LoginBtn.Location = new System.Drawing.Point(212, 429);
+            this.LoginBtn.Name = "LoginBtn";
+            this.LoginBtn.Size = new System.Drawing.Size(200, 63);
+            this.LoginBtn.TabIndex = 30;
+            this.LoginBtn.Text = "LOGIN";
+            this.LoginBtn.UseVisualStyleBackColor = false;
+            this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
             // 
             // LoginPassErrorLbl
             // 
@@ -7051,6 +8985,96 @@ namespace Enchante
             this.EnchanteFooterBar.Size = new System.Drawing.Size(1779, 166);
             this.EnchanteFooterBar.TabIndex = 20;
             // 
+            // SM_GmailBtn
+            // 
+            this.SM_GmailBtn.AutoSize = true;
+            this.SM_GmailBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SM_GmailBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_GmailBtn.FlatAppearance.BorderSize = 3;
+            this.SM_GmailBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SM_GmailBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SM_GmailBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SM_GmailBtn.IconChar = FontAwesome.Sharp.IconChar.Envelope;
+            this.SM_GmailBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_GmailBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SM_GmailBtn.Location = new System.Drawing.Point(548, 51);
+            this.SM_GmailBtn.Name = "SM_GmailBtn";
+            this.SM_GmailBtn.Size = new System.Drawing.Size(60, 60);
+            this.SM_GmailBtn.TabIndex = 12;
+            this.SM_GmailBtn.UseVisualStyleBackColor = true;
+            this.SM_GmailBtn.Click += new System.EventHandler(this.SM_GmailBtn_Click);
+            this.SM_GmailBtn.MouseHover += new System.EventHandler(this.SM_GmailBtn_MouseHover);
+            // 
+            // SM_IGBtn
+            // 
+            this.SM_IGBtn.AutoSize = true;
+            this.SM_IGBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SM_IGBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_IGBtn.FlatAppearance.BorderSize = 3;
+            this.SM_IGBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SM_IGBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SM_IGBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SM_IGBtn.IconChar = FontAwesome.Sharp.IconChar.Instagram;
+            this.SM_IGBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_IGBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SM_IGBtn.Location = new System.Drawing.Point(482, 51);
+            this.SM_IGBtn.Name = "SM_IGBtn";
+            this.SM_IGBtn.Size = new System.Drawing.Size(60, 60);
+            this.SM_IGBtn.TabIndex = 11;
+            this.SM_IGBtn.UseVisualStyleBackColor = true;
+            this.SM_IGBtn.Click += new System.EventHandler(this.SM_IGBtn_Click);
+            this.SM_IGBtn.MouseHover += new System.EventHandler(this.SM_IGBtn_MouseHover);
+            // 
+            // SM_TwitterBtn
+            // 
+            this.SM_TwitterBtn.AutoSize = true;
+            this.SM_TwitterBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SM_TwitterBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_TwitterBtn.FlatAppearance.BorderSize = 3;
+            this.SM_TwitterBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SM_TwitterBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SM_TwitterBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SM_TwitterBtn.IconChar = FontAwesome.Sharp.IconChar.Twitter;
+            this.SM_TwitterBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_TwitterBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SM_TwitterBtn.Location = new System.Drawing.Point(416, 51);
+            this.SM_TwitterBtn.Name = "SM_TwitterBtn";
+            this.SM_TwitterBtn.Size = new System.Drawing.Size(60, 60);
+            this.SM_TwitterBtn.TabIndex = 10;
+            this.SM_TwitterBtn.UseVisualStyleBackColor = true;
+            this.SM_TwitterBtn.Click += new System.EventHandler(this.SM_TwitterBtn_Click);
+            this.SM_TwitterBtn.MouseHover += new System.EventHandler(this.SM_TwitterBtn_MouseHover);
+            // 
+            // EnchanteFooterLogo
+            // 
+            this.EnchanteFooterLogo.Image = global::Enchante.Properties.Resources.Enchante_Logo_275x100;
+            this.EnchanteFooterLogo.Location = new System.Drawing.Point(58, 29);
+            this.EnchanteFooterLogo.Name = "EnchanteFooterLogo";
+            this.EnchanteFooterLogo.Size = new System.Drawing.Size(275, 100);
+            this.EnchanteFooterLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.EnchanteFooterLogo.TabIndex = 9;
+            this.EnchanteFooterLogo.TabStop = false;
+            // 
+            // SM_FBBtn
+            // 
+            this.SM_FBBtn.AutoSize = true;
+            this.SM_FBBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SM_FBBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_FBBtn.FlatAppearance.BorderSize = 3;
+            this.SM_FBBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SM_FBBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SM_FBBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SM_FBBtn.IconChar = FontAwesome.Sharp.IconChar.Facebook;
+            this.SM_FBBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_FBBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SM_FBBtn.Location = new System.Drawing.Point(350, 51);
+            this.SM_FBBtn.Name = "SM_FBBtn";
+            this.SM_FBBtn.Size = new System.Drawing.Size(60, 60);
+            this.SM_FBBtn.TabIndex = 8;
+            this.SM_FBBtn.UseVisualStyleBackColor = true;
+            this.SM_FBBtn.Click += new System.EventHandler(this.SM_FBBtn_Click);
+            this.SM_FBBtn.MouseHover += new System.EventHandler(this.SM_FBBtn_MouseHover);
+            // 
             // EnchanteTagline
             // 
             this.EnchanteTagline.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -7064,6 +9088,37 @@ namespace Enchante
             this.EnchanteTagline.Size = new System.Drawing.Size(820, 232);
             this.EnchanteTagline.TabIndex = 3;
             this.EnchanteTagline.Text = "ILABAS MO\r\nANG GANDA MO";
+            // 
+            // EnchanteAppointBtn
+            // 
+            this.EnchanteAppointBtn.AutoSize = true;
+            this.EnchanteAppointBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(98)))), ((int)(((byte)(60)))));
+            this.EnchanteAppointBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EnchanteAppointBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.EnchanteAppointBtn.FlatAppearance.BorderSize = 3;
+            this.EnchanteAppointBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EnchanteAppointBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.EnchanteAppointBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.EnchanteAppointBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.EnchanteAppointBtn.IconColor = System.Drawing.Color.Black;
+            this.EnchanteAppointBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.EnchanteAppointBtn.Location = new System.Drawing.Point(461, 696);
+            this.EnchanteAppointBtn.Name = "EnchanteAppointBtn";
+            this.EnchanteAppointBtn.Size = new System.Drawing.Size(442, 77);
+            this.EnchanteAppointBtn.TabIndex = 0;
+            this.EnchanteAppointBtn.Text = "BOOK YOUR APPOINTMENT";
+            this.EnchanteAppointBtn.UseVisualStyleBackColor = false;
+            this.EnchanteAppointBtn.Click += new System.EventHandler(this.EnchanteAppointBtn_Click);
+            // 
+            // EDP1
+            // 
+            this.EDP1.Image = global::Enchante.Properties.Resources.Lobby;
+            this.EDP1.Location = new System.Drawing.Point(1154, 303);
+            this.EDP1.Name = "EDP1";
+            this.EDP1.Size = new System.Drawing.Size(625, 625);
+            this.EDP1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.EDP1.TabIndex = 24;
+            this.EDP1.TabStop = false;
             // 
             // EnchanteMemberPage
             // 
@@ -7128,6 +9183,30 @@ namespace Enchante
             this.MemberNameLbl.TabIndex = 8;
             this.MemberNameLbl.Text = "Member Name";
             // 
+            // MemberSignOut
+            // 
+            this.MemberSignOut.AutoSize = true;
+            this.MemberSignOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MemberSignOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MemberSignOut.FlatAppearance.BorderSize = 0;
+            this.MemberSignOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MemberSignOut.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MemberSignOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MemberSignOut.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.MemberSignOut.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MemberSignOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MemberSignOut.IconSize = 32;
+            this.MemberSignOut.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MemberSignOut.Location = new System.Drawing.Point(27, 311);
+            this.MemberSignOut.Name = "MemberSignOut";
+            this.MemberSignOut.Size = new System.Drawing.Size(401, 60);
+            this.MemberSignOut.TabIndex = 7;
+            this.MemberSignOut.Text = "LOGOUT";
+            this.MemberSignOut.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MemberSignOut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.MemberSignOut.UseVisualStyleBackColor = true;
+            this.MemberSignOut.Click += new System.EventHandler(this.MemberSignOut_Click);
+            // 
             // MemberScrollFooterStopperPanel
             // 
             this.MemberScrollFooterStopperPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
@@ -7166,6 +9245,88 @@ namespace Enchante
             this.MemberFooter.Size = new System.Drawing.Size(1890, 166);
             this.MemberFooter.TabIndex = 20;
             // 
+            // SM_EmailBtn1
+            // 
+            this.SM_EmailBtn1.AutoSize = true;
+            this.SM_EmailBtn1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SM_EmailBtn1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_EmailBtn1.FlatAppearance.BorderSize = 3;
+            this.SM_EmailBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SM_EmailBtn1.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SM_EmailBtn1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SM_EmailBtn1.IconChar = FontAwesome.Sharp.IconChar.Envelope;
+            this.SM_EmailBtn1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_EmailBtn1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SM_EmailBtn1.Location = new System.Drawing.Point(548, 51);
+            this.SM_EmailBtn1.Name = "SM_EmailBtn1";
+            this.SM_EmailBtn1.Size = new System.Drawing.Size(60, 60);
+            this.SM_EmailBtn1.TabIndex = 12;
+            this.SM_EmailBtn1.UseVisualStyleBackColor = true;
+            // 
+            // SM_IGBtn1
+            // 
+            this.SM_IGBtn1.AutoSize = true;
+            this.SM_IGBtn1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SM_IGBtn1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_IGBtn1.FlatAppearance.BorderSize = 3;
+            this.SM_IGBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SM_IGBtn1.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SM_IGBtn1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SM_IGBtn1.IconChar = FontAwesome.Sharp.IconChar.Instagram;
+            this.SM_IGBtn1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_IGBtn1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SM_IGBtn1.Location = new System.Drawing.Point(482, 51);
+            this.SM_IGBtn1.Name = "SM_IGBtn1";
+            this.SM_IGBtn1.Size = new System.Drawing.Size(60, 60);
+            this.SM_IGBtn1.TabIndex = 11;
+            this.SM_IGBtn1.UseVisualStyleBackColor = true;
+            // 
+            // SM_TwitterBtn1
+            // 
+            this.SM_TwitterBtn1.AutoSize = true;
+            this.SM_TwitterBtn1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SM_TwitterBtn1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_TwitterBtn1.FlatAppearance.BorderSize = 3;
+            this.SM_TwitterBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SM_TwitterBtn1.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SM_TwitterBtn1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SM_TwitterBtn1.IconChar = FontAwesome.Sharp.IconChar.Twitter;
+            this.SM_TwitterBtn1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_TwitterBtn1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SM_TwitterBtn1.Location = new System.Drawing.Point(416, 51);
+            this.SM_TwitterBtn1.Name = "SM_TwitterBtn1";
+            this.SM_TwitterBtn1.Size = new System.Drawing.Size(60, 60);
+            this.SM_TwitterBtn1.TabIndex = 10;
+            this.SM_TwitterBtn1.UseVisualStyleBackColor = true;
+            // 
+            // MemberFooterLogo
+            // 
+            this.MemberFooterLogo.Image = global::Enchante.Properties.Resources.Enchante_Logo_275x100;
+            this.MemberFooterLogo.Location = new System.Drawing.Point(58, 29);
+            this.MemberFooterLogo.Name = "MemberFooterLogo";
+            this.MemberFooterLogo.Size = new System.Drawing.Size(275, 100);
+            this.MemberFooterLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.MemberFooterLogo.TabIndex = 9;
+            this.MemberFooterLogo.TabStop = false;
+            // 
+            // SM_FBBtn1
+            // 
+            this.SM_FBBtn1.AutoSize = true;
+            this.SM_FBBtn1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SM_FBBtn1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_FBBtn1.FlatAppearance.BorderSize = 3;
+            this.SM_FBBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SM_FBBtn1.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SM_FBBtn1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SM_FBBtn1.IconChar = FontAwesome.Sharp.IconChar.Facebook;
+            this.SM_FBBtn1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.SM_FBBtn1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SM_FBBtn1.Location = new System.Drawing.Point(350, 51);
+            this.SM_FBBtn1.Name = "SM_FBBtn1";
+            this.SM_FBBtn1.Size = new System.Drawing.Size(60, 60);
+            this.SM_FBBtn1.TabIndex = 8;
+            this.SM_FBBtn1.UseVisualStyleBackColor = true;
+            // 
             // MemberNavBarPanel
             // 
             this.MemberNavBarPanel.AutoScroll = true;
@@ -7182,6 +9343,135 @@ namespace Enchante
             this.MemberNavBarPanel.Name = "MemberNavBarPanel";
             this.MemberNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.MemberNavBarPanel.TabIndex = 1;
+            // 
+            // MemberAccUserBtn
+            // 
+            this.MemberAccUserBtn.AutoSize = true;
+            this.MemberAccUserBtn.BackColor = System.Drawing.Color.Transparent;
+            this.MemberAccUserBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MemberAccUserBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MemberAccUserBtn.FlatAppearance.BorderSize = 0;
+            this.MemberAccUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MemberAccUserBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MemberAccUserBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MemberAccUserBtn.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.MemberAccUserBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MemberAccUserBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MemberAccUserBtn.Location = new System.Drawing.Point(1801, 48);
+            this.MemberAccUserBtn.Name = "MemberAccUserBtn";
+            this.MemberAccUserBtn.Size = new System.Drawing.Size(54, 54);
+            this.MemberAccUserBtn.TabIndex = 8;
+            this.MemberAccUserBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MemberAccUserBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.MemberAccUserBtn.UseVisualStyleBackColor = false;
+            this.MemberAccUserBtn.Click += new System.EventHandler(this.MemberAccUserBtn_Click);
+            // 
+            // MemberSubAccUserBtn
+            // 
+            this.MemberSubAccUserBtn.AutoSize = true;
+            this.MemberSubAccUserBtn.BackColor = System.Drawing.Color.Transparent;
+            this.MemberSubAccUserBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MemberSubAccUserBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MemberSubAccUserBtn.FlatAppearance.BorderSize = 0;
+            this.MemberSubAccUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MemberSubAccUserBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MemberSubAccUserBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MemberSubAccUserBtn.IconChar = FontAwesome.Sharp.IconChar.Crown;
+            this.MemberSubAccUserBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MemberSubAccUserBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MemberSubAccUserBtn.Location = new System.Drawing.Point(1741, 48);
+            this.MemberSubAccUserBtn.Name = "MemberSubAccUserBtn";
+            this.MemberSubAccUserBtn.Size = new System.Drawing.Size(54, 54);
+            this.MemberSubAccUserBtn.TabIndex = 9;
+            this.MemberSubAccUserBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MemberSubAccUserBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.MemberSubAccUserBtn.UseVisualStyleBackColor = false;
+            // 
+            // MemberReviewBtn
+            // 
+            this.MemberReviewBtn.AutoSize = true;
+            this.MemberReviewBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.MemberReviewBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MemberReviewBtn.FlatAppearance.BorderSize = 0;
+            this.MemberReviewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MemberReviewBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MemberReviewBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MemberReviewBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.MemberReviewBtn.IconColor = System.Drawing.Color.Black;
+            this.MemberReviewBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MemberReviewBtn.Location = new System.Drawing.Point(642, 48);
+            this.MemberReviewBtn.Name = "MemberReviewBtn";
+            this.MemberReviewBtn.Size = new System.Drawing.Size(132, 54);
+            this.MemberReviewBtn.TabIndex = 4;
+            this.MemberReviewBtn.Text = "REVIEWS";
+            this.MemberReviewBtn.UseVisualStyleBackColor = true;
+            // 
+            // MemberBillBtn
+            // 
+            this.MemberBillBtn.AutoSize = true;
+            this.MemberBillBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.MemberBillBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MemberBillBtn.FlatAppearance.BorderSize = 0;
+            this.MemberBillBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MemberBillBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MemberBillBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MemberBillBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.MemberBillBtn.IconColor = System.Drawing.Color.Black;
+            this.MemberBillBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MemberBillBtn.Location = new System.Drawing.Point(516, 47);
+            this.MemberBillBtn.Name = "MemberBillBtn";
+            this.MemberBillBtn.Size = new System.Drawing.Size(120, 54);
+            this.MemberBillBtn.TabIndex = 3;
+            this.MemberBillBtn.Text = "BILLING";
+            this.MemberBillBtn.UseVisualStyleBackColor = true;
+            // 
+            // MemberAppointBtn
+            // 
+            this.MemberAppointBtn.AutoSize = true;
+            this.MemberAppointBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.MemberAppointBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MemberAppointBtn.FlatAppearance.BorderSize = 0;
+            this.MemberAppointBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MemberAppointBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MemberAppointBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MemberAppointBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.MemberAppointBtn.IconColor = System.Drawing.Color.Black;
+            this.MemberAppointBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MemberAppointBtn.Location = new System.Drawing.Point(312, 47);
+            this.MemberAppointBtn.Name = "MemberAppointBtn";
+            this.MemberAppointBtn.Size = new System.Drawing.Size(198, 54);
+            this.MemberAppointBtn.TabIndex = 2;
+            this.MemberAppointBtn.Text = "APPOINTMENT";
+            this.MemberAppointBtn.UseVisualStyleBackColor = true;
+            // 
+            // MemberHomeBtn
+            // 
+            this.MemberHomeBtn.AutoSize = true;
+            this.MemberHomeBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.MemberHomeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MemberHomeBtn.FlatAppearance.BorderSize = 0;
+            this.MemberHomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MemberHomeBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MemberHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MemberHomeBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.MemberHomeBtn.IconColor = System.Drawing.Color.Black;
+            this.MemberHomeBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MemberHomeBtn.Location = new System.Drawing.Point(214, 47);
+            this.MemberHomeBtn.Name = "MemberHomeBtn";
+            this.MemberHomeBtn.Size = new System.Drawing.Size(92, 54);
+            this.MemberHomeBtn.TabIndex = 1;
+            this.MemberHomeBtn.Text = "HOME";
+            this.MemberHomeBtn.UseVisualStyleBackColor = true;
+            // 
+            // EnchanteMemberHeaderLogo
+            // 
+            this.EnchanteMemberHeaderLogo.Image = global::Enchante.Properties.Resources.Enchante_Logo__200_x_200_px___1_;
+            this.EnchanteMemberHeaderLogo.Location = new System.Drawing.Point(81, 25);
+            this.EnchanteMemberHeaderLogo.Name = "EnchanteMemberHeaderLogo";
+            this.EnchanteMemberHeaderLogo.Size = new System.Drawing.Size(100, 100);
+            this.EnchanteMemberHeaderLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.EnchanteMemberHeaderLogo.TabIndex = 0;
+            this.EnchanteMemberHeaderLogo.TabStop = false;
             // 
             // EnchanteReceptionPage
             // 
@@ -7258,6 +9548,30 @@ namespace Enchante
             this.RecNameLbl.Size = new System.Drawing.Size(202, 29);
             this.RecNameLbl.TabIndex = 8;
             this.RecNameLbl.Text = "Reception Name";
+            // 
+            // ReceptionLogoutBtn
+            // 
+            this.ReceptionLogoutBtn.AutoSize = true;
+            this.ReceptionLogoutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ReceptionLogoutBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.ReceptionLogoutBtn.FlatAppearance.BorderSize = 0;
+            this.ReceptionLogoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReceptionLogoutBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.ReceptionLogoutBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ReceptionLogoutBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.ReceptionLogoutBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ReceptionLogoutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ReceptionLogoutBtn.IconSize = 32;
+            this.ReceptionLogoutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ReceptionLogoutBtn.Location = new System.Drawing.Point(129, 137);
+            this.ReceptionLogoutBtn.Name = "ReceptionLogoutBtn";
+            this.ReceptionLogoutBtn.Size = new System.Drawing.Size(176, 60);
+            this.ReceptionLogoutBtn.TabIndex = 7;
+            this.ReceptionLogoutBtn.Text = "LOGOUT";
+            this.ReceptionLogoutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ReceptionLogoutBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.ReceptionLogoutBtn.UseVisualStyleBackColor = true;
+            this.ReceptionLogoutBtn.Click += new System.EventHandler(this.ReceptionLogoutBtn_Click);
             // 
             // ReceptionFooterStopperPanel
             // 
@@ -7396,30 +9710,30 @@ namespace Enchante
             // 
             this.RecApptAcceptLateDeclineDGV.AllowUserToAddRows = false;
             this.RecApptAcceptLateDeclineDGV.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
-            this.RecApptAcceptLateDeclineDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecApptAcceptLateDeclineDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle72.BackColor = System.Drawing.Color.White;
+            this.RecApptAcceptLateDeclineDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle72;
+            dataGridViewCellStyle73.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle73.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle73.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle73.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle73.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle73.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle73.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecApptAcceptLateDeclineDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle73;
             this.RecApptAcceptLateDeclineDGV.ColumnHeadersHeight = 20;
             this.RecApptAcceptLateDeclineDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.RecApptAcceptLateDeclineDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TransactionID,
             this.AppointmentDate,
             this.AppointmentTime});
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecApptAcceptLateDeclineDGV.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle74.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle74.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle74.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle74.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle74.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle74.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle74.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecApptAcceptLateDeclineDGV.DefaultCellStyle = dataGridViewCellStyle74;
             this.RecApptAcceptLateDeclineDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.RecApptAcceptLateDeclineDGV.Location = new System.Drawing.Point(126, 197);
             this.RecApptAcceptLateDeclineDGV.Name = "RecApptAcceptLateDeclineDGV";
@@ -7449,6 +9763,24 @@ namespace Enchante
             this.RecApptAcceptLateDeclineDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.RecApptAcceptLateDeclineDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // TransactionID
+            // 
+            this.TransactionID.HeaderText = "Transaction ID";
+            this.TransactionID.Name = "TransactionID";
+            this.TransactionID.ReadOnly = true;
+            // 
+            // AppointmentDate
+            // 
+            this.AppointmentDate.HeaderText = "Appointment Date";
+            this.AppointmentDate.Name = "AppointmentDate";
+            this.AppointmentDate.ReadOnly = true;
+            // 
+            // AppointmentTime
+            // 
+            this.AppointmentTime.HeaderText = "Appointment Time";
+            this.AppointmentTime.Name = "AppointmentTime";
+            this.AppointmentTime.ReadOnly = true;
+            // 
             // RecApptConfirmClientNameLbl
             // 
             this.RecApptConfirmClientNameLbl.AutoSize = true;
@@ -7459,6 +9791,22 @@ namespace Enchante
             this.RecApptConfirmClientNameLbl.Size = new System.Drawing.Size(290, 51);
             this.RecApptConfirmClientNameLbl.TabIndex = 45;
             this.RecApptConfirmClientNameLbl.Text = "Client Name";
+            // 
+            // RecApptConfirmExitBtn
+            // 
+            this.RecApptConfirmExitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.RecApptConfirmExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.RecApptConfirmExitBtn.FlatAppearance.BorderSize = 0;
+            this.RecApptConfirmExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecApptConfirmExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.RecApptConfirmExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecApptConfirmExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecApptConfirmExitBtn.Location = new System.Drawing.Point(1558, 20);
+            this.RecApptConfirmExitBtn.Name = "RecApptConfirmExitBtn";
+            this.RecApptConfirmExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.RecApptConfirmExitBtn.TabIndex = 44;
+            this.RecApptConfirmExitBtn.UseVisualStyleBackColor = false;
+            this.RecApptConfirmExitBtn.Click += new System.EventHandler(this.RecApptConfirmExitBtn_Click);
             // 
             // RecShopProdPanel
             // 
@@ -8135,27 +10483,27 @@ namespace Enchante
             this.RecShopProdSelectedProdDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecShopProdSelectedProdDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecShopProdSelectedProdDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecShopProdSelectedProdDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle75.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle75.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle75.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle75.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle75.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle75.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle75.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecShopProdSelectedProdDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle75;
             this.RecShopProdSelectedProdDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecShopProdSelectedProdDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RecShopProdItemID,
             this.RecShopProdDiscountAmount});
             this.RecShopProdSelectedProdDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecShopProdSelectedProdDGV.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle76.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle76.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle76.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle76.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle76.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle76.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle76.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecShopProdSelectedProdDGV.DefaultCellStyle = dataGridViewCellStyle76;
             this.RecShopProdSelectedProdDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecShopProdSelectedProdDGV.Location = new System.Drawing.Point(850, 171);
             this.RecShopProdSelectedProdDGV.Name = "RecShopProdSelectedProdDGV";
@@ -8240,12 +10588,29 @@ namespace Enchante
             this.RecShopProdLbl.TabIndex = 45;
             this.RecShopProdLbl.Text = "Shop Product ";
             // 
+            // RecShopProdExitBtn
+            // 
+            this.RecShopProdExitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.RecShopProdExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.RecShopProdExitBtn.FlatAppearance.BorderSize = 0;
+            this.RecShopProdExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecShopProdExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.RecShopProdExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecShopProdExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecShopProdExitBtn.Location = new System.Drawing.Point(1558, 20);
+            this.RecShopProdExitBtn.Name = "RecShopProdExitBtn";
+            this.RecShopProdExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.RecShopProdExitBtn.TabIndex = 44;
+            this.RecShopProdExitBtn.UseVisualStyleBackColor = false;
+            this.RecShopProdExitBtn.Click += new System.EventHandler(this.RecShopProdExitBtn_Click);
+            // 
             // RecApptPanel
             // 
             this.RecApptPanel.AutoScroll = true;
             this.RecApptPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecApptPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RecTransactionCard.SetCardName(this.RecApptPanel, "Appointment");
+            this.RecApptPanel.Controls.Add(this.RecApptAvailableAttendingStaffSelectedComboBox);
             this.RecApptPanel.Controls.Add(this.label2);
             this.RecApptPanel.Controls.Add(this.RecApptSearchServiceTypeText);
             this.RecApptPanel.Controls.Add(this.RecApptClientAgeErrorLbl);
@@ -8266,7 +10631,6 @@ namespace Enchante
             this.RecApptPanel.Controls.Add(this.RecApptStaffSelectLbl);
             this.RecApptPanel.Controls.Add(this.RecApptSelectedServiceDGV);
             this.RecApptPanel.Controls.Add(this.RecApptNoServiceCategoryChosenWarningLbl);
-            this.RecApptPanel.Controls.Add(this.RecApptAttendingStaffSelectedComboBox);
             this.RecApptPanel.Controls.Add(this.RecApptAnyStaffLbl);
             this.RecApptPanel.Controls.Add(this.RecApptAnyStaffToggleSwitch);
             this.RecApptPanel.Controls.Add(this.RecApptPreferredStaffToggleSwitch);
@@ -8300,6 +10664,28 @@ namespace Enchante
             this.RecTransactionCard.SetPreferredSize(this.RecApptPanel, new System.Drawing.Size(1371, 807));
             this.RecApptPanel.Size = new System.Drawing.Size(1633, 728);
             this.RecApptPanel.TabIndex = 29;
+            // 
+            // RecApptAvailableAttendingStaffSelectedComboBox
+            // 
+            this.RecApptAvailableAttendingStaffSelectedComboBox.AutoRoundedCorners = true;
+            this.RecApptAvailableAttendingStaffSelectedComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.RecApptAvailableAttendingStaffSelectedComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecApptAvailableAttendingStaffSelectedComboBox.BorderRadius = 17;
+            this.RecApptAvailableAttendingStaffSelectedComboBox.BorderThickness = 2;
+            this.RecApptAvailableAttendingStaffSelectedComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.RecApptAvailableAttendingStaffSelectedComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RecApptAvailableAttendingStaffSelectedComboBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecApptAvailableAttendingStaffSelectedComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecApptAvailableAttendingStaffSelectedComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecApptAvailableAttendingStaffSelectedComboBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecApptAvailableAttendingStaffSelectedComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecApptAvailableAttendingStaffSelectedComboBox.ItemHeight = 30;
+            this.RecApptAvailableAttendingStaffSelectedComboBox.Location = new System.Drawing.Point(615, 1206);
+            this.RecApptAvailableAttendingStaffSelectedComboBox.Name = "RecApptAvailableAttendingStaffSelectedComboBox";
+            this.RecApptAvailableAttendingStaffSelectedComboBox.Size = new System.Drawing.Size(633, 36);
+            this.RecApptAvailableAttendingStaffSelectedComboBox.TabIndex = 193;
+            this.RecApptAvailableAttendingStaffSelectedComboBox.Visible = false;
+            this.RecApptAvailableAttendingStaffSelectedComboBox.SelectedIndexChanged += new System.EventHandler(this.RecApptAvailableAttendingStaffSelectedComboBox_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -8639,14 +11025,14 @@ namespace Enchante
             this.RecApptSelectedServiceDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecApptSelectedServiceDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecApptSelectedServiceDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecApptSelectedServiceDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle50.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle50.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle50.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle50.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle50.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle50.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecApptSelectedServiceDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle50;
             this.RecApptSelectedServiceDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecApptSelectedServiceDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RecApptSelectedService,
@@ -8658,14 +11044,14 @@ namespace Enchante
             this.RecApptTimeSelected,
             this.RecApptQueType});
             this.RecApptSelectedServiceDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecApptSelectedServiceDGV.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle51.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle51.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle51.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle51.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecApptSelectedServiceDGV.DefaultCellStyle = dataGridViewCellStyle51;
             this.RecApptSelectedServiceDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecApptSelectedServiceDGV.Location = new System.Drawing.Point(840, 1403);
             this.RecApptSelectedServiceDGV.Name = "RecApptSelectedServiceDGV";
@@ -8675,6 +11061,60 @@ namespace Enchante
             this.RecApptSelectedServiceDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.RecApptSelectedServiceDGV.Size = new System.Drawing.Size(669, 452);
             this.RecApptSelectedServiceDGV.TabIndex = 162;
+            // 
+            // RecApptSelectedService
+            // 
+            this.RecApptSelectedService.HeaderText = "Selected Service";
+            this.RecApptSelectedService.Name = "RecApptSelectedService";
+            this.RecApptSelectedService.ReadOnly = true;
+            // 
+            // RecApptServicePrice
+            // 
+            this.RecApptServicePrice.HeaderText = "Service Price";
+            this.RecApptServicePrice.Name = "RecApptServicePrice";
+            this.RecApptServicePrice.ReadOnly = true;
+            // 
+            // RecApptServiceCategory
+            // 
+            this.RecApptServiceCategory.HeaderText = "Service Category";
+            this.RecApptServiceCategory.Name = "RecApptServiceCategory";
+            this.RecApptServiceCategory.ReadOnly = true;
+            this.RecApptServiceCategory.Visible = false;
+            // 
+            // RecApptServiceID
+            // 
+            this.RecApptServiceID.HeaderText = "Service ID";
+            this.RecApptServiceID.Name = "RecApptServiceID";
+            this.RecApptServiceID.ReadOnly = true;
+            this.RecApptServiceID.Visible = false;
+            // 
+            // RecApptStaffSelected
+            // 
+            this.RecApptStaffSelected.HeaderText = "Staff Selected";
+            this.RecApptStaffSelected.Name = "RecApptStaffSelected";
+            this.RecApptStaffSelected.ReadOnly = true;
+            this.RecApptStaffSelected.Visible = false;
+            // 
+            // RecApptPriorityNumber
+            // 
+            this.RecApptPriorityNumber.HeaderText = "Priority Number";
+            this.RecApptPriorityNumber.Name = "RecApptPriorityNumber";
+            this.RecApptPriorityNumber.ReadOnly = true;
+            this.RecApptPriorityNumber.Visible = false;
+            // 
+            // RecApptTimeSelected
+            // 
+            this.RecApptTimeSelected.HeaderText = "Time Selected";
+            this.RecApptTimeSelected.Name = "RecApptTimeSelected";
+            this.RecApptTimeSelected.ReadOnly = true;
+            this.RecApptTimeSelected.Visible = false;
+            // 
+            // RecApptQueType
+            // 
+            this.RecApptQueType.HeaderText = "Que Type";
+            this.RecApptQueType.Name = "RecApptQueType";
+            this.RecApptQueType.ReadOnly = true;
+            this.RecApptQueType.Visible = false;
             // 
             // RecApptNoServiceCategoryChosenWarningLbl
             // 
@@ -8687,28 +11127,6 @@ namespace Enchante
             this.RecApptNoServiceCategoryChosenWarningLbl.TabIndex = 161;
             this.RecApptNoServiceCategoryChosenWarningLbl.Text = "No Service Category Chosen";
             this.RecApptNoServiceCategoryChosenWarningLbl.Visible = false;
-            // 
-            // RecApptAttendingStaffSelectedComboBox
-            // 
-            this.RecApptAttendingStaffSelectedComboBox.AutoRoundedCorners = true;
-            this.RecApptAttendingStaffSelectedComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.RecApptAttendingStaffSelectedComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecApptAttendingStaffSelectedComboBox.BorderRadius = 17;
-            this.RecApptAttendingStaffSelectedComboBox.BorderThickness = 2;
-            this.RecApptAttendingStaffSelectedComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.RecApptAttendingStaffSelectedComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.RecApptAttendingStaffSelectedComboBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecApptAttendingStaffSelectedComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecApptAttendingStaffSelectedComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecApptAttendingStaffSelectedComboBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecApptAttendingStaffSelectedComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecApptAttendingStaffSelectedComboBox.ItemHeight = 30;
-            this.RecApptAttendingStaffSelectedComboBox.Location = new System.Drawing.Point(615, 1202);
-            this.RecApptAttendingStaffSelectedComboBox.Name = "RecApptAttendingStaffSelectedComboBox";
-            this.RecApptAttendingStaffSelectedComboBox.Size = new System.Drawing.Size(633, 36);
-            this.RecApptAttendingStaffSelectedComboBox.TabIndex = 160;
-            this.RecApptAttendingStaffSelectedComboBox.Visible = false;
-            this.RecApptAttendingStaffSelectedComboBox.SelectedIndexChanged += new System.EventHandler(this.RecApptAttendingStaffSelectedComboBox_SelectedIndexChanged);
             // 
             // RecApptAnyStaffLbl
             // 
@@ -8773,24 +11191,24 @@ namespace Enchante
             this.RecApptServiceTypeDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecApptServiceTypeDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecApptServiceTypeDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecApptServiceTypeDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle52.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle52.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle52.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle52.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecApptServiceTypeDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle52;
             this.RecApptServiceTypeDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecApptServiceTypeDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecApptServiceTypeDGV.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle53.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle53.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle53.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle53.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle53.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecApptServiceTypeDGV.DefaultCellStyle = dataGridViewCellStyle53;
             this.RecApptServiceTypeDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecApptServiceTypeDGV.Location = new System.Drawing.Point(106, 1403);
             this.RecApptServiceTypeDGV.Name = "RecApptServiceTypeDGV";
@@ -9174,6 +11592,41 @@ namespace Enchante
             this.RecApptLbl.TabIndex = 7;
             this.RecApptLbl.Text = "Appointment Client";
             // 
+            // RecApptSearchServiceTypeBtn
+            // 
+            this.RecApptSearchServiceTypeBtn.AutoSize = true;
+            this.RecApptSearchServiceTypeBtn.BackColor = System.Drawing.Color.Transparent;
+            this.RecApptSearchServiceTypeBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecApptSearchServiceTypeBtn.FlatAppearance.BorderSize = 0;
+            this.RecApptSearchServiceTypeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecApptSearchServiceTypeBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecApptSearchServiceTypeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecApptSearchServiceTypeBtn.IconChar = FontAwesome.Sharp.IconChar.Searchengin;
+            this.RecApptSearchServiceTypeBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecApptSearchServiceTypeBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecApptSearchServiceTypeBtn.IconSize = 40;
+            this.RecApptSearchServiceTypeBtn.Location = new System.Drawing.Point(772, 1340);
+            this.RecApptSearchServiceTypeBtn.Name = "RecApptSearchServiceTypeBtn";
+            this.RecApptSearchServiceTypeBtn.Size = new System.Drawing.Size(46, 46);
+            this.RecApptSearchServiceTypeBtn.TabIndex = 133;
+            this.RecApptSearchServiceTypeBtn.UseVisualStyleBackColor = false;
+            // 
+            // RecApptPanelExitBtn
+            // 
+            this.RecApptPanelExitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.RecApptPanelExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.RecApptPanelExitBtn.FlatAppearance.BorderSize = 0;
+            this.RecApptPanelExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecApptPanelExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.RecApptPanelExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecApptPanelExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecApptPanelExitBtn.Location = new System.Drawing.Point(1553, 15);
+            this.RecApptPanelExitBtn.Name = "RecApptPanelExitBtn";
+            this.RecApptPanelExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.RecApptPanelExitBtn.TabIndex = 43;
+            this.RecApptPanelExitBtn.UseVisualStyleBackColor = false;
+            this.RecApptPanelExitBtn.Click += new System.EventHandler(this.RecApptPanelExitBtn_Click);
+            // 
             // RecQueWinPanel
             // 
             this.RecQueWinPanel.AutoScroll = true;
@@ -9306,24 +11759,24 @@ namespace Enchante
             this.RecQueWinNextCustomerDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecQueWinNextCustomerDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecQueWinNextCustomerDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecQueWinNextCustomerDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle77.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle77.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle77.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle77.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle77.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle77.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle77.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecQueWinNextCustomerDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle77;
             this.RecQueWinNextCustomerDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecQueWinNextCustomerDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecQueWinNextCustomerDGV.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle78.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle78.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle78.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle78.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle78.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle78.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle78.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecQueWinNextCustomerDGV.DefaultCellStyle = dataGridViewCellStyle78;
             this.RecQueWinNextCustomerDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecQueWinNextCustomerDGV.Location = new System.Drawing.Point(832, 177);
             this.RecQueWinNextCustomerDGV.Name = "RecQueWinNextCustomerDGV";
@@ -9343,24 +11796,24 @@ namespace Enchante
             this.RecQueWinStaffListDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecQueWinStaffListDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecQueWinStaffListDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecQueWinStaffListDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle79.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle79.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle79.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle79.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle79.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle79.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle79.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecQueWinStaffListDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle79;
             this.RecQueWinStaffListDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecQueWinStaffListDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecQueWinStaffListDGV.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle80.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle80.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle80.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle80.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle80.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle80.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle80.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecQueWinStaffListDGV.DefaultCellStyle = dataGridViewCellStyle80;
             this.RecQueWinStaffListDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecQueWinStaffListDGV.Location = new System.Drawing.Point(94, 177);
             this.RecQueWinStaffListDGV.Name = "RecQueWinStaffListDGV";
@@ -9371,6 +11824,23 @@ namespace Enchante
             this.RecQueWinStaffListDGV.Size = new System.Drawing.Size(707, 475);
             this.RecQueWinStaffListDGV.TabIndex = 99;
             this.RecQueWinStaffListDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecQueWinStaffListDGV_CellClick);
+            // 
+            // RecQueWinExitBtn
+            // 
+            this.RecQueWinExitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.RecQueWinExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecQueWinExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.RecQueWinExitBtn.FlatAppearance.BorderSize = 0;
+            this.RecQueWinExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecQueWinExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.RecQueWinExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecQueWinExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecQueWinExitBtn.Location = new System.Drawing.Point(1546, 27);
+            this.RecQueWinExitBtn.Name = "RecQueWinExitBtn";
+            this.RecQueWinExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.RecQueWinExitBtn.TabIndex = 100;
+            this.RecQueWinExitBtn.UseVisualStyleBackColor = false;
+            this.RecQueWinExitBtn.Click += new System.EventHandler(this.RecQueWinExitBtn_Click);
             // 
             // RecPayServicePanel
             // 
@@ -9454,24 +11924,24 @@ namespace Enchante
             this.RecPayServiceCOProdDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecPayServiceCOProdDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecPayServiceCOProdDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecPayServiceCOProdDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle81.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle81.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle81.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle81.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle81.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle81.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle81.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecPayServiceCOProdDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle81;
             this.RecPayServiceCOProdDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecPayServiceCOProdDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecPayServiceCOProdDGV.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle82.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle82.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle82.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle82.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle82.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle82.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle82.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecPayServiceCOProdDGV.DefaultCellStyle = dataGridViewCellStyle82;
             this.RecPayServiceCOProdDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecPayServiceCOProdDGV.Location = new System.Drawing.Point(828, 644);
             this.RecPayServiceCOProdDGV.Name = "RecPayServiceCOProdDGV";
@@ -10065,6 +12535,27 @@ namespace Enchante
             this.RecPayServiceGCPaymentRB.UseVisualStyleBackColor = true;
             this.RecPayServiceGCPaymentRB.Visible = false;
             // 
+            // RecPayServiceGCPaymentBtn
+            // 
+            this.RecPayServiceGCPaymentBtn.AutoSize = true;
+            this.RecPayServiceGCPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecPayServiceGCPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RecPayServiceGCPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
+            this.RecPayServiceGCPaymentBtn.FlatAppearance.BorderSize = 3;
+            this.RecPayServiceGCPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecPayServiceGCPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecPayServiceGCPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecPayServiceGCPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.RecPayServiceGCPaymentBtn.IconColor = System.Drawing.Color.Black;
+            this.RecPayServiceGCPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecPayServiceGCPaymentBtn.Location = new System.Drawing.Point(0, 0);
+            this.RecPayServiceGCPaymentBtn.Name = "RecPayServiceGCPaymentBtn";
+            this.RecPayServiceGCPaymentBtn.Size = new System.Drawing.Size(223, 50);
+            this.RecPayServiceGCPaymentBtn.TabIndex = 106;
+            this.RecPayServiceGCPaymentBtn.Text = "GCash";
+            this.RecPayServiceGCPaymentBtn.UseVisualStyleBackColor = true;
+            this.RecPayServiceGCPaymentBtn.Click += new System.EventHandler(this.RecWalkinGCPaymentBtn_Click);
+            // 
             // RecPayServiceCashPaymentPanel
             // 
             this.RecPayServiceCashPaymentPanel.Controls.Add(this.RecPayServiceCashPaymentRB);
@@ -10088,6 +12579,27 @@ namespace Enchante
             this.RecPayServiceCashPaymentRB.TabIndex = 119;
             this.RecPayServiceCashPaymentRB.UseVisualStyleBackColor = true;
             this.RecPayServiceCashPaymentRB.Visible = false;
+            // 
+            // RecPayServiceCashPaymentBtn
+            // 
+            this.RecPayServiceCashPaymentBtn.AutoSize = true;
+            this.RecPayServiceCashPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecPayServiceCashPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RecPayServiceCashPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
+            this.RecPayServiceCashPaymentBtn.FlatAppearance.BorderSize = 3;
+            this.RecPayServiceCashPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecPayServiceCashPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecPayServiceCashPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecPayServiceCashPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.RecPayServiceCashPaymentBtn.IconColor = System.Drawing.Color.Black;
+            this.RecPayServiceCashPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecPayServiceCashPaymentBtn.Location = new System.Drawing.Point(0, 0);
+            this.RecPayServiceCashPaymentBtn.Name = "RecPayServiceCashPaymentBtn";
+            this.RecPayServiceCashPaymentBtn.Size = new System.Drawing.Size(223, 50);
+            this.RecPayServiceCashPaymentBtn.TabIndex = 106;
+            this.RecPayServiceCashPaymentBtn.Text = "Cash";
+            this.RecPayServiceCashPaymentBtn.UseVisualStyleBackColor = true;
+            this.RecPayServiceCashPaymentBtn.Click += new System.EventHandler(this.RecWalkinCashPaymentBtn_Click);
             // 
             // RecPayServiceTypeText
             // 
@@ -10124,6 +12636,27 @@ namespace Enchante
             this.RecPayServicePPPaymentRB.UseVisualStyleBackColor = true;
             this.RecPayServicePPPaymentRB.Visible = false;
             // 
+            // RecPayServicePPPaymentBtn
+            // 
+            this.RecPayServicePPPaymentBtn.AutoSize = true;
+            this.RecPayServicePPPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecPayServicePPPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RecPayServicePPPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
+            this.RecPayServicePPPaymentBtn.FlatAppearance.BorderSize = 3;
+            this.RecPayServicePPPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecPayServicePPPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecPayServicePPPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecPayServicePPPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.RecPayServicePPPaymentBtn.IconColor = System.Drawing.Color.Black;
+            this.RecPayServicePPPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecPayServicePPPaymentBtn.Location = new System.Drawing.Point(0, 0);
+            this.RecPayServicePPPaymentBtn.Name = "RecPayServicePPPaymentBtn";
+            this.RecPayServicePPPaymentBtn.Size = new System.Drawing.Size(223, 50);
+            this.RecPayServicePPPaymentBtn.TabIndex = 106;
+            this.RecPayServicePPPaymentBtn.Text = "Paypal";
+            this.RecPayServicePPPaymentBtn.UseVisualStyleBackColor = true;
+            this.RecPayServicePPPaymentBtn.Click += new System.EventHandler(this.RecWalkinPPPaymentBtn_Click);
+            // 
             // RecPayServicePMPaymentPanel
             // 
             this.RecPayServicePMPaymentPanel.Controls.Add(this.RecPayServicePMPaymentRB);
@@ -10147,6 +12680,49 @@ namespace Enchante
             this.RecPayServicePMPaymentRB.TabIndex = 118;
             this.RecPayServicePMPaymentRB.UseVisualStyleBackColor = true;
             this.RecPayServicePMPaymentRB.Visible = false;
+            // 
+            // RecPayServicePMPaymentBtn
+            // 
+            this.RecPayServicePMPaymentBtn.AutoSize = true;
+            this.RecPayServicePMPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecPayServicePMPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RecPayServicePMPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
+            this.RecPayServicePMPaymentBtn.FlatAppearance.BorderSize = 3;
+            this.RecPayServicePMPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecPayServicePMPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecPayServicePMPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecPayServicePMPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.RecPayServicePMPaymentBtn.IconColor = System.Drawing.Color.Black;
+            this.RecPayServicePMPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecPayServicePMPaymentBtn.Location = new System.Drawing.Point(0, 0);
+            this.RecPayServicePMPaymentBtn.Name = "RecPayServicePMPaymentBtn";
+            this.RecPayServicePMPaymentBtn.Size = new System.Drawing.Size(223, 50);
+            this.RecPayServicePMPaymentBtn.TabIndex = 106;
+            this.RecPayServicePMPaymentBtn.Text = "Paymaya";
+            this.RecPayServicePMPaymentBtn.UseVisualStyleBackColor = true;
+            this.RecPayServicePMPaymentBtn.Click += new System.EventHandler(this.RecWalkinPMPaymentBtn_Click);
+            // 
+            // RecPayServicePaymentButton
+            // 
+            this.RecPayServicePaymentButton.AutoSize = true;
+            this.RecPayServicePaymentButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecPayServicePaymentButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecPayServicePaymentButton.FlatAppearance.BorderSize = 3;
+            this.RecPayServicePaymentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecPayServicePaymentButton.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecPayServicePaymentButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServicePaymentButton.IconChar = FontAwesome.Sharp.IconChar.MoneyCheck;
+            this.RecPayServicePaymentButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServicePaymentButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecPayServicePaymentButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.RecPayServicePaymentButton.Location = new System.Drawing.Point(542, 414);
+            this.RecPayServicePaymentButton.Name = "RecPayServicePaymentButton";
+            this.RecPayServicePaymentButton.Size = new System.Drawing.Size(284, 60);
+            this.RecPayServicePaymentButton.TabIndex = 145;
+            this.RecPayServicePaymentButton.Text = "Pay Service / Product";
+            this.RecPayServicePaymentButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.RecPayServicePaymentButton.UseVisualStyleBackColor = true;
+            this.RecPayServicePaymentButton.Click += new System.EventHandler(this.MngrPayServicePaymentButton_Click);
             // 
             // RecPayServiceCCPaymentPanel
             // 
@@ -10172,6 +12748,27 @@ namespace Enchante
             this.RecPayServiceCCPaymentRB.UseVisualStyleBackColor = true;
             this.RecPayServiceCCPaymentRB.Visible = false;
             // 
+            // RecPayServiceCCPaymentBtn
+            // 
+            this.RecPayServiceCCPaymentBtn.AutoSize = true;
+            this.RecPayServiceCCPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecPayServiceCCPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RecPayServiceCCPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
+            this.RecPayServiceCCPaymentBtn.FlatAppearance.BorderSize = 3;
+            this.RecPayServiceCCPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecPayServiceCCPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecPayServiceCCPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecPayServiceCCPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.RecPayServiceCCPaymentBtn.IconColor = System.Drawing.Color.Black;
+            this.RecPayServiceCCPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecPayServiceCCPaymentBtn.Location = new System.Drawing.Point(0, 0);
+            this.RecPayServiceCCPaymentBtn.Name = "RecPayServiceCCPaymentBtn";
+            this.RecPayServiceCCPaymentBtn.Size = new System.Drawing.Size(223, 50);
+            this.RecPayServiceCCPaymentBtn.TabIndex = 106;
+            this.RecPayServiceCCPaymentBtn.Text = "Credit Card";
+            this.RecPayServiceCCPaymentBtn.UseVisualStyleBackColor = true;
+            this.RecPayServiceCCPaymentBtn.Click += new System.EventHandler(this.RecWalkinCCPaymentBtn_Click);
+            // 
             // RecPayServiceMethodLbl
             // 
             this.RecPayServiceMethodLbl.AutoSize = true;
@@ -10192,24 +12789,24 @@ namespace Enchante
             this.RecPayServiceAcquiredDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecPayServiceAcquiredDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecPayServiceAcquiredDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecPayServiceAcquiredDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle83.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle83.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle83.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle83.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle83.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle83.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle83.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecPayServiceAcquiredDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle83;
             this.RecPayServiceAcquiredDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecPayServiceAcquiredDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecPayServiceAcquiredDGV.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle84.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle84.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle84.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle84.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle84.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle84.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle84.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecPayServiceAcquiredDGV.DefaultCellStyle = dataGridViewCellStyle84;
             this.RecPayServiceAcquiredDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecPayServiceAcquiredDGV.Location = new System.Drawing.Point(152, 644);
             this.RecPayServiceAcquiredDGV.Name = "RecPayServiceAcquiredDGV";
@@ -10229,24 +12826,24 @@ namespace Enchante
             this.RecPayServiceCompleteTransDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecPayServiceCompleteTransDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecPayServiceCompleteTransDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecPayServiceCompleteTransDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle85.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle85.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle85.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle85.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle85.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle85.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle85.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecPayServiceCompleteTransDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle85;
             this.RecPayServiceCompleteTransDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecPayServiceCompleteTransDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecPayServiceCompleteTransDGV.DefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle86.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle86.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle86.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle86.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle86.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle86.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle86.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecPayServiceCompleteTransDGV.DefaultCellStyle = dataGridViewCellStyle86;
             this.RecPayServiceCompleteTransDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecPayServiceCompleteTransDGV.Location = new System.Drawing.Point(152, 119);
             this.RecPayServiceCompleteTransDGV.Name = "RecPayServiceCompleteTransDGV";
@@ -10257,6 +12854,46 @@ namespace Enchante
             this.RecPayServiceCompleteTransDGV.Size = new System.Drawing.Size(1312, 336);
             this.RecPayServiceCompleteTransDGV.TabIndex = 99;
             this.RecPayServiceCompleteTransDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecPayServiceCompleteTransDGV_CellClick);
+            // 
+            // RecPayServiceEditBtn
+            // 
+            this.RecPayServiceEditBtn.AutoSize = true;
+            this.RecPayServiceEditBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecPayServiceEditBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecPayServiceEditBtn.FlatAppearance.BorderSize = 0;
+            this.RecPayServiceEditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecPayServiceEditBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecPayServiceEditBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServiceEditBtn.IconChar = FontAwesome.Sharp.IconChar.List;
+            this.RecPayServiceEditBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServiceEditBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecPayServiceEditBtn.IconSize = 32;
+            this.RecPayServiceEditBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.RecPayServiceEditBtn.Location = new System.Drawing.Point(57, 42);
+            this.RecPayServiceEditBtn.Name = "RecPayServiceEditBtn";
+            this.RecPayServiceEditBtn.Size = new System.Drawing.Size(354, 71);
+            this.RecPayServiceEditBtn.TabIndex = 101;
+            this.RecPayServiceEditBtn.Text = "Completed Transactions";
+            this.RecPayServiceEditBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.RecPayServiceEditBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.RecPayServiceEditBtn.UseVisualStyleBackColor = true;
+            // 
+            // RecPayServiceExitBtn
+            // 
+            this.RecPayServiceExitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.RecPayServiceExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecPayServiceExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.RecPayServiceExitBtn.FlatAppearance.BorderSize = 0;
+            this.RecPayServiceExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecPayServiceExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.RecPayServiceExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServiceExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecPayServiceExitBtn.Location = new System.Drawing.Point(1546, 26);
+            this.RecPayServiceExitBtn.Name = "RecPayServiceExitBtn";
+            this.RecPayServiceExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.RecPayServiceExitBtn.TabIndex = 100;
+            this.RecPayServiceExitBtn.UseVisualStyleBackColor = false;
+            this.RecPayServiceExitBtn.Click += new System.EventHandler(this.MngrPayServiceExitBtn_Click);
             // 
             // RecWalkinPanel
             // 
@@ -10394,26 +13031,26 @@ namespace Enchante
             this.RecWalkinSelectedProdDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecWalkinSelectedProdDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecWalkinSelectedProdDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecWalkinSelectedProdDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle87.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle87.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle87.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle87.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle87.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle87.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle87.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecWalkinSelectedProdDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle87;
             this.RecWalkinSelectedProdDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecWalkinSelectedProdDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.OrderProdItemID});
             this.RecWalkinSelectedProdDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecWalkinSelectedProdDGV.DefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle88.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle88.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle88.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle88.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle88.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle88.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle88.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecWalkinSelectedProdDGV.DefaultCellStyle = dataGridViewCellStyle88;
             this.RecWalkinSelectedProdDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecWalkinSelectedProdDGV.Location = new System.Drawing.Point(840, 1740);
             this.RecWalkinSelectedProdDGV.Name = "RecWalkinSelectedProdDGV";
@@ -10480,14 +13117,14 @@ namespace Enchante
             this.RecWalkinSelectedServiceDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecWalkinSelectedServiceDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecWalkinSelectedServiceDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecWalkinSelectedServiceDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle89.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle89.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle89.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle89.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle89.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle89.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle89.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecWalkinSelectedServiceDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle89;
             this.RecWalkinSelectedServiceDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecWalkinSelectedServiceDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SelectedService,
@@ -10498,14 +13135,14 @@ namespace Enchante
             this.QueNumber,
             this.QueType});
             this.RecWalkinSelectedServiceDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecWalkinSelectedServiceDGV.DefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle90.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle90.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle90.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle90.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle90.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle90.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle90.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecWalkinSelectedServiceDGV.DefaultCellStyle = dataGridViewCellStyle90;
             this.RecWalkinSelectedServiceDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecWalkinSelectedServiceDGV.Location = new System.Drawing.Point(840, 1160);
             this.RecWalkinSelectedServiceDGV.Name = "RecWalkinSelectedServiceDGV";
@@ -10671,24 +13308,24 @@ namespace Enchante
             this.RecWalkInServiceTypeDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecWalkInServiceTypeDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecWalkInServiceTypeDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecWalkInServiceTypeDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle91.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle91.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle91.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle91.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle91.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle91.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle91.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecWalkInServiceTypeDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle91;
             this.RecWalkInServiceTypeDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecWalkInServiceTypeDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecWalkInServiceTypeDGV.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle92.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle92.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle92.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle92.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle92.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle92.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle92.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecWalkInServiceTypeDGV.DefaultCellStyle = dataGridViewCellStyle92;
             this.RecWalkInServiceTypeDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecWalkInServiceTypeDGV.Location = new System.Drawing.Point(106, 1160);
             this.RecWalkInServiceTypeDGV.Name = "RecWalkInServiceTypeDGV";
@@ -10734,6 +13371,27 @@ namespace Enchante
             this.RecWalkinCatMassageRB.UseVisualStyleBackColor = true;
             this.RecWalkinCatMassageRB.Visible = false;
             // 
+            // RecWalkinCatMassageBtn
+            // 
+            this.RecWalkinCatMassageBtn.AutoSize = true;
+            this.RecWalkinCatMassageBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecWalkinCatMassageBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RecWalkinCatMassageBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecWalkinCatMassageBtn.FlatAppearance.BorderSize = 3;
+            this.RecWalkinCatMassageBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecWalkinCatMassageBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecWalkinCatMassageBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecWalkinCatMassageBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.RecWalkinCatMassageBtn.IconColor = System.Drawing.Color.Black;
+            this.RecWalkinCatMassageBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecWalkinCatMassageBtn.Location = new System.Drawing.Point(0, 0);
+            this.RecWalkinCatMassageBtn.Name = "RecWalkinCatMassageBtn";
+            this.RecWalkinCatMassageBtn.Size = new System.Drawing.Size(250, 250);
+            this.RecWalkinCatMassageBtn.TabIndex = 86;
+            this.RecWalkinCatMassageBtn.Text = "Massage";
+            this.RecWalkinCatMassageBtn.UseVisualStyleBackColor = true;
+            this.RecWalkinCatMassageBtn.Click += new System.EventHandler(this.RecWalkInCatMassageBtn_Click);
+            // 
             // RecWalkinCatSpaPanel
             // 
             this.RecWalkinCatSpaPanel.Controls.Add(this.RecWalkinCatSpaRB);
@@ -10756,6 +13414,27 @@ namespace Enchante
             this.RecWalkinCatSpaRB.TabIndex = 114;
             this.RecWalkinCatSpaRB.UseVisualStyleBackColor = true;
             this.RecWalkinCatSpaRB.Visible = false;
+            // 
+            // RecWalkinCatSpaBtn
+            // 
+            this.RecWalkinCatSpaBtn.AutoSize = true;
+            this.RecWalkinCatSpaBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecWalkinCatSpaBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RecWalkinCatSpaBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecWalkinCatSpaBtn.FlatAppearance.BorderSize = 3;
+            this.RecWalkinCatSpaBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecWalkinCatSpaBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecWalkinCatSpaBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecWalkinCatSpaBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.RecWalkinCatSpaBtn.IconColor = System.Drawing.Color.Black;
+            this.RecWalkinCatSpaBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecWalkinCatSpaBtn.Location = new System.Drawing.Point(0, 0);
+            this.RecWalkinCatSpaBtn.Name = "RecWalkinCatSpaBtn";
+            this.RecWalkinCatSpaBtn.Size = new System.Drawing.Size(250, 250);
+            this.RecWalkinCatSpaBtn.TabIndex = 81;
+            this.RecWalkinCatSpaBtn.Text = "Spa";
+            this.RecWalkinCatSpaBtn.UseVisualStyleBackColor = true;
+            this.RecWalkinCatSpaBtn.Click += new System.EventHandler(this.RecWalkInCatSpaBtn_Click);
             // 
             // RecWalkinCatNCPanel
             // 
@@ -10780,6 +13459,27 @@ namespace Enchante
             this.RecWalkinCatNCRB.UseVisualStyleBackColor = true;
             this.RecWalkinCatNCRB.Visible = false;
             // 
+            // RecWalkinCatNCBtn
+            // 
+            this.RecWalkinCatNCBtn.AutoSize = true;
+            this.RecWalkinCatNCBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecWalkinCatNCBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RecWalkinCatNCBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecWalkinCatNCBtn.FlatAppearance.BorderSize = 3;
+            this.RecWalkinCatNCBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecWalkinCatNCBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecWalkinCatNCBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecWalkinCatNCBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.RecWalkinCatNCBtn.IconColor = System.Drawing.Color.Black;
+            this.RecWalkinCatNCBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecWalkinCatNCBtn.Location = new System.Drawing.Point(0, 0);
+            this.RecWalkinCatNCBtn.Name = "RecWalkinCatNCBtn";
+            this.RecWalkinCatNCBtn.Size = new System.Drawing.Size(250, 250);
+            this.RecWalkinCatNCBtn.TabIndex = 86;
+            this.RecWalkinCatNCBtn.Text = "Nail Care";
+            this.RecWalkinCatNCBtn.UseVisualStyleBackColor = true;
+            this.RecWalkinCatNCBtn.Click += new System.EventHandler(this.RecWalkInCatNCBtn_Click);
+            // 
             // RecWalkinCatFSPanel
             // 
             this.RecWalkinCatFSPanel.Controls.Add(this.RecWalkinCatFSRB);
@@ -10803,6 +13503,27 @@ namespace Enchante
             this.RecWalkinCatFSRB.UseVisualStyleBackColor = true;
             this.RecWalkinCatFSRB.Visible = false;
             // 
+            // RecWalkinCatFSBtn
+            // 
+            this.RecWalkinCatFSBtn.AutoSize = true;
+            this.RecWalkinCatFSBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecWalkinCatFSBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RecWalkinCatFSBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecWalkinCatFSBtn.FlatAppearance.BorderSize = 3;
+            this.RecWalkinCatFSBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecWalkinCatFSBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecWalkinCatFSBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecWalkinCatFSBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.RecWalkinCatFSBtn.IconColor = System.Drawing.Color.Black;
+            this.RecWalkinCatFSBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecWalkinCatFSBtn.Location = new System.Drawing.Point(0, 0);
+            this.RecWalkinCatFSBtn.Name = "RecWalkinCatFSBtn";
+            this.RecWalkinCatFSBtn.Size = new System.Drawing.Size(250, 250);
+            this.RecWalkinCatFSBtn.TabIndex = 81;
+            this.RecWalkinCatFSBtn.Text = "Face && Skin";
+            this.RecWalkinCatFSBtn.UseVisualStyleBackColor = true;
+            this.RecWalkinCatFSBtn.Click += new System.EventHandler(this.RecWalkInCatFSBtn_Click);
+            // 
             // RecWalkinCatHSPanel
             // 
             this.RecWalkinCatHSPanel.Controls.Add(this.RecWalkinCatHSRB);
@@ -10825,6 +13546,27 @@ namespace Enchante
             this.RecWalkinCatHSRB.TabIndex = 113;
             this.RecWalkinCatHSRB.UseVisualStyleBackColor = true;
             this.RecWalkinCatHSRB.Visible = false;
+            // 
+            // RecWalkinCatHSBtn
+            // 
+            this.RecWalkinCatHSBtn.AutoSize = true;
+            this.RecWalkinCatHSBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecWalkinCatHSBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RecWalkinCatHSBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecWalkinCatHSBtn.FlatAppearance.BorderSize = 3;
+            this.RecWalkinCatHSBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecWalkinCatHSBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecWalkinCatHSBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecWalkinCatHSBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.RecWalkinCatHSBtn.IconColor = System.Drawing.Color.Black;
+            this.RecWalkinCatHSBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecWalkinCatHSBtn.Location = new System.Drawing.Point(0, 0);
+            this.RecWalkinCatHSBtn.Name = "RecWalkinCatHSBtn";
+            this.RecWalkinCatHSBtn.Size = new System.Drawing.Size(250, 250);
+            this.RecWalkinCatHSBtn.TabIndex = 77;
+            this.RecWalkinCatHSBtn.Text = "Hair Styling";
+            this.RecWalkinCatHSBtn.UseVisualStyleBackColor = true;
+            this.RecWalkinCatHSBtn.Click += new System.EventHandler(this.RecWalkInCatHSBtn_Click);
             // 
             // RecWalkinBasicInfoLbl
             // 
@@ -11022,6 +13764,42 @@ namespace Enchante
             this.RecWalkinLbl.TabIndex = 7;
             this.RecWalkinLbl.Text = "Walk-in Client";
             // 
+            // RecWalkinSearchServiceTypeBtn
+            // 
+            this.RecWalkinSearchServiceTypeBtn.AutoSize = true;
+            this.RecWalkinSearchServiceTypeBtn.BackColor = System.Drawing.Color.Transparent;
+            this.RecWalkinSearchServiceTypeBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecWalkinSearchServiceTypeBtn.FlatAppearance.BorderSize = 0;
+            this.RecWalkinSearchServiceTypeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecWalkinSearchServiceTypeBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecWalkinSearchServiceTypeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecWalkinSearchServiceTypeBtn.IconChar = FontAwesome.Sharp.IconChar.Searchengin;
+            this.RecWalkinSearchServiceTypeBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinSearchServiceTypeBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecWalkinSearchServiceTypeBtn.IconSize = 40;
+            this.RecWalkinSearchServiceTypeBtn.Location = new System.Drawing.Point(763, 1089);
+            this.RecWalkinSearchServiceTypeBtn.Name = "RecWalkinSearchServiceTypeBtn";
+            this.RecWalkinSearchServiceTypeBtn.Size = new System.Drawing.Size(46, 46);
+            this.RecWalkinSearchServiceTypeBtn.TabIndex = 133;
+            this.RecWalkinSearchServiceTypeBtn.UseVisualStyleBackColor = false;
+            this.RecWalkinSearchServiceTypeBtn.Click += new System.EventHandler(this.RecWalkInSearchServiceTypeBtn_Click);
+            // 
+            // RecWalkInExitBtn
+            // 
+            this.RecWalkInExitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.RecWalkInExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.RecWalkInExitBtn.FlatAppearance.BorderSize = 0;
+            this.RecWalkInExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecWalkInExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.RecWalkInExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkInExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecWalkInExitBtn.Location = new System.Drawing.Point(1553, 15);
+            this.RecWalkInExitBtn.Name = "RecWalkInExitBtn";
+            this.RecWalkInExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.RecWalkInExitBtn.TabIndex = 43;
+            this.RecWalkInExitBtn.UseVisualStyleBackColor = false;
+            this.RecWalkInExitBtn.Click += new System.EventHandler(this.RecWalkInExitBtn_Click);
+            // 
             // RecTransactionPanel
             // 
             this.RecTransactionPanel.AutoScroll = true;
@@ -11038,6 +13816,132 @@ namespace Enchante
             this.RecTransactionCard.SetPreferredSize(this.RecTransactionPanel, new System.Drawing.Size(200, 100));
             this.RecTransactionPanel.Size = new System.Drawing.Size(1633, 728);
             this.RecTransactionPanel.TabIndex = 0;
+            // 
+            // RecApptConfirmBtn
+            // 
+            this.RecApptConfirmBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecApptConfirmBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecApptConfirmBtn.FlatAppearance.BorderSize = 3;
+            this.RecApptConfirmBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecApptConfirmBtn.Font = new System.Drawing.Font("Arial Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecApptConfirmBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecApptConfirmBtn.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
+            this.RecApptConfirmBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecApptConfirmBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecApptConfirmBtn.IconSize = 128;
+            this.RecApptConfirmBtn.Location = new System.Drawing.Point(1062, 46);
+            this.RecApptConfirmBtn.Name = "RecApptConfirmBtn";
+            this.RecApptConfirmBtn.Size = new System.Drawing.Size(300, 300);
+            this.RecApptConfirmBtn.TabIndex = 5;
+            this.RecApptConfirmBtn.Text = "APPOINTMENT\r\nCONFIRMATION";
+            this.RecApptConfirmBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.RecApptConfirmBtn.UseVisualStyleBackColor = false;
+            this.RecApptConfirmBtn.Click += new System.EventHandler(this.RecApptConfirmBtn_Click);
+            // 
+            // RecShopProdBtn
+            // 
+            this.RecShopProdBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecShopProdBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecShopProdBtn.FlatAppearance.BorderSize = 3;
+            this.RecShopProdBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecShopProdBtn.Font = new System.Drawing.Font("Arial Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecShopProdBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecShopProdBtn.IconChar = FontAwesome.Sharp.IconChar.Shop;
+            this.RecShopProdBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecShopProdBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecShopProdBtn.IconSize = 128;
+            this.RecShopProdBtn.Location = new System.Drawing.Point(666, 383);
+            this.RecShopProdBtn.Name = "RecShopProdBtn";
+            this.RecShopProdBtn.Size = new System.Drawing.Size(300, 300);
+            this.RecShopProdBtn.TabIndex = 4;
+            this.RecShopProdBtn.Text = "BUY\r\nPRODUCTS";
+            this.RecShopProdBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.RecShopProdBtn.UseVisualStyleBackColor = false;
+            this.RecShopProdBtn.Click += new System.EventHandler(this.RecShopProdBtn_Click);
+            // 
+            // RecQueWinBtn
+            // 
+            this.RecQueWinBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecQueWinBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecQueWinBtn.FlatAppearance.BorderSize = 3;
+            this.RecQueWinBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecQueWinBtn.Font = new System.Drawing.Font("Arial Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecQueWinBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecQueWinBtn.IconChar = FontAwesome.Sharp.IconChar.PeopleLine;
+            this.RecQueWinBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecQueWinBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecQueWinBtn.IconSize = 128;
+            this.RecQueWinBtn.Location = new System.Drawing.Point(1062, 383);
+            this.RecQueWinBtn.Name = "RecQueWinBtn";
+            this.RecQueWinBtn.Size = new System.Drawing.Size(300, 300);
+            this.RecQueWinBtn.TabIndex = 3;
+            this.RecQueWinBtn.Text = "QUEUE\r\nWINDOW";
+            this.RecQueWinBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.RecQueWinBtn.UseVisualStyleBackColor = false;
+            this.RecQueWinBtn.Click += new System.EventHandler(this.RecQueWinBtn_Click);
+            // 
+            // RecPayServiceBtn
+            // 
+            this.RecPayServiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecPayServiceBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecPayServiceBtn.FlatAppearance.BorderSize = 3;
+            this.RecPayServiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecPayServiceBtn.Font = new System.Drawing.Font("Arial Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecPayServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServiceBtn.IconChar = FontAwesome.Sharp.IconChar.MoneyBillTransfer;
+            this.RecPayServiceBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServiceBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecPayServiceBtn.IconSize = 128;
+            this.RecPayServiceBtn.Location = new System.Drawing.Point(270, 383);
+            this.RecPayServiceBtn.Name = "RecPayServiceBtn";
+            this.RecPayServiceBtn.Size = new System.Drawing.Size(300, 300);
+            this.RecPayServiceBtn.TabIndex = 2;
+            this.RecPayServiceBtn.Text = "PAYMENT\r\nSERVICE";
+            this.RecPayServiceBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.RecPayServiceBtn.UseVisualStyleBackColor = false;
+            this.RecPayServiceBtn.Click += new System.EventHandler(this.RecPayServiceBtn_Click);
+            // 
+            // RecAppointmentBtn
+            // 
+            this.RecAppointmentBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecAppointmentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecAppointmentBtn.FlatAppearance.BorderSize = 3;
+            this.RecAppointmentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecAppointmentBtn.Font = new System.Drawing.Font("Arial Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecAppointmentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecAppointmentBtn.IconChar = FontAwesome.Sharp.IconChar.Calendar;
+            this.RecAppointmentBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecAppointmentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecAppointmentBtn.IconSize = 128;
+            this.RecAppointmentBtn.Location = new System.Drawing.Point(666, 46);
+            this.RecAppointmentBtn.Name = "RecAppointmentBtn";
+            this.RecAppointmentBtn.Size = new System.Drawing.Size(300, 300);
+            this.RecAppointmentBtn.TabIndex = 1;
+            this.RecAppointmentBtn.Text = "APPOINTMENT\r\nTRANSACTION";
+            this.RecAppointmentBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.RecAppointmentBtn.UseVisualStyleBackColor = false;
+            this.RecAppointmentBtn.Click += new System.EventHandler(this.RecAppointmentBtn_Click);
+            // 
+            // RecWalkInBtn
+            // 
+            this.RecWalkInBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecWalkInBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecWalkInBtn.FlatAppearance.BorderSize = 3;
+            this.RecWalkInBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecWalkInBtn.Font = new System.Drawing.Font("Arial Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecWalkInBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkInBtn.IconChar = FontAwesome.Sharp.IconChar.PersonWalkingArrowLoopLeft;
+            this.RecWalkInBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkInBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecWalkInBtn.IconSize = 128;
+            this.RecWalkInBtn.Location = new System.Drawing.Point(270, 46);
+            this.RecWalkInBtn.Name = "RecWalkInBtn";
+            this.RecWalkInBtn.Size = new System.Drawing.Size(300, 300);
+            this.RecWalkInBtn.TabIndex = 0;
+            this.RecWalkInBtn.Text = "WALK-IN\r\nTRANSACTION";
+            this.RecWalkInBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.RecWalkInBtn.UseVisualStyleBackColor = false;
+            this.RecWalkInBtn.Click += new System.EventHandler(this.RecWalkInBtn_Click);
             // 
             // ReceptionNavBar
             // 
@@ -11064,6 +13968,61 @@ namespace Enchante
             this.RecDateTimeText.Size = new System.Drawing.Size(305, 23);
             this.RecDateTimeText.TabIndex = 59;
             this.RecDateTimeText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // RecAccBtn
+            // 
+            this.RecAccBtn.AutoSize = true;
+            this.RecAccBtn.BackColor = System.Drawing.Color.Transparent;
+            this.RecAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecAccBtn.FlatAppearance.BorderSize = 0;
+            this.RecAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecAccBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecAccBtn.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.RecAccBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecAccBtn.Location = new System.Drawing.Point(1808, 47);
+            this.RecAccBtn.Name = "RecAccBtn";
+            this.RecAccBtn.Size = new System.Drawing.Size(54, 54);
+            this.RecAccBtn.TabIndex = 8;
+            this.RecAccBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.RecAccBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.RecAccBtn.UseVisualStyleBackColor = false;
+            this.RecAccBtn.Click += new System.EventHandler(this.ReceptionAccBtn_Click);
+            this.RecAccBtn.MouseHover += new System.EventHandler(this.ReceptionAccBtn_MouseHover);
+            // 
+            // RecHomeBtn
+            // 
+            this.RecHomeBtn.AutoSize = true;
+            this.RecHomeBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.RecHomeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecHomeBtn.FlatAppearance.BorderSize = 0;
+            this.RecHomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecHomeBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecHomeBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.RecHomeBtn.IconColor = System.Drawing.Color.Black;
+            this.RecHomeBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecHomeBtn.Location = new System.Drawing.Point(241, 45);
+            this.RecHomeBtn.Name = "RecHomeBtn";
+            this.RecHomeBtn.Size = new System.Drawing.Size(92, 54);
+            this.RecHomeBtn.TabIndex = 1;
+            this.RecHomeBtn.Text = "HOME";
+            this.RecHomeBtn.UseVisualStyleBackColor = true;
+            this.RecHomeBtn.Click += new System.EventHandler(this.RecHomeBtn_Click);
+            this.RecHomeBtn.MouseHover += new System.EventHandler(this.RecHomeBtn_MouseHover);
+            // 
+            // RecHeaderLogo
+            // 
+            this.RecHeaderLogo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecHeaderLogo.Image = global::Enchante.Properties.Resources.Enchante_Logo__200_x_200_px___1_;
+            this.RecHeaderLogo.Location = new System.Drawing.Point(127, 27);
+            this.RecHeaderLogo.Name = "RecHeaderLogo";
+            this.RecHeaderLogo.Size = new System.Drawing.Size(100, 100);
+            this.RecHeaderLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.RecHeaderLogo.TabIndex = 0;
+            this.RecHeaderLogo.TabStop = false;
             // 
             // EnchanteStaffPage
             // 
@@ -11097,6 +14056,27 @@ namespace Enchante
             this.StaffScrollPanel.Name = "StaffScrollPanel";
             this.StaffScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.StaffScrollPanel.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoEllipsis = true;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.label4.Location = new System.Drawing.Point(564, 242);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(200, 29);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Priority Queue:";
+            // 
+            // StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel
+            // 
+            this.StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.AutoScroll = true;
+            this.StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Location = new System.Drawing.Point(566, 286);
+            this.StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Name = "StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel";
+            this.StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Size = new System.Drawing.Size(900, 333);
+            this.StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.TabIndex = 25;
             // 
             // StaffUserAccPanel
             // 
@@ -11146,6 +14126,30 @@ namespace Enchante
             this.StaffNameLbl.Size = new System.Drawing.Size(168, 29);
             this.StaffNameLbl.TabIndex = 8;
             this.StaffNameLbl.Text = "STAFF Name";
+            // 
+            // StaffSignOutBtn
+            // 
+            this.StaffSignOutBtn.AutoSize = true;
+            this.StaffSignOutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.StaffSignOutBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.StaffSignOutBtn.FlatAppearance.BorderSize = 0;
+            this.StaffSignOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StaffSignOutBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.StaffSignOutBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.StaffSignOutBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.StaffSignOutBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.StaffSignOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.StaffSignOutBtn.IconSize = 32;
+            this.StaffSignOutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.StaffSignOutBtn.Location = new System.Drawing.Point(82, 114);
+            this.StaffSignOutBtn.Name = "StaffSignOutBtn";
+            this.StaffSignOutBtn.Size = new System.Drawing.Size(176, 60);
+            this.StaffSignOutBtn.TabIndex = 7;
+            this.StaffSignOutBtn.Text = "LOGOUT";
+            this.StaffSignOutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.StaffSignOutBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.StaffSignOutBtn.UseVisualStyleBackColor = true;
+            this.StaffSignOutBtn.Click += new System.EventHandler(this.StaffSignOutBtn_Click);
             // 
             // label3
             // 
@@ -11313,16 +14317,16 @@ namespace Enchante
             // 
             this.StaffPersonalInventoryDataGrid.AllowUserToAddRows = false;
             this.StaffPersonalInventoryDataGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle44.BackColor = System.Drawing.Color.White;
-            this.StaffPersonalInventoryDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle44;
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle45.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.StaffPersonalInventoryDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle93.BackColor = System.Drawing.Color.White;
+            this.StaffPersonalInventoryDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle93;
+            dataGridViewCellStyle94.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle94.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle94.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle94.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle94.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle94.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle94.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.StaffPersonalInventoryDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle94;
             this.StaffPersonalInventoryDataGrid.ColumnHeadersHeight = 15;
             this.StaffPersonalInventoryDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.StaffPersonalInventoryDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -11330,14 +14334,14 @@ namespace Enchante
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8});
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle46.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle46.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.StaffPersonalInventoryDataGrid.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle95.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle95.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle95.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle95.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle95.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle95.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle95.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.StaffPersonalInventoryDataGrid.DefaultCellStyle = dataGridViewCellStyle95;
             this.StaffPersonalInventoryDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.StaffPersonalInventoryDataGrid.Location = new System.Drawing.Point(569, 69);
             this.StaffPersonalInventoryDataGrid.Name = "StaffPersonalInventoryDataGrid";
@@ -11395,16 +14399,16 @@ namespace Enchante
             // 
             this.StaffInventoryDataGrid.AllowUserToAddRows = false;
             this.StaffInventoryDataGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle47.BackColor = System.Drawing.Color.White;
-            this.StaffInventoryDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle47;
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle48.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle48.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.StaffInventoryDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle96.BackColor = System.Drawing.Color.White;
+            this.StaffInventoryDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle96;
+            dataGridViewCellStyle97.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle97.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle97.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle97.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle97.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle97.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle97.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.StaffInventoryDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle97;
             this.StaffInventoryDataGrid.ColumnHeadersHeight = 15;
             this.StaffInventoryDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.StaffInventoryDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -11412,14 +14416,14 @@ namespace Enchante
             this.ItemName,
             this.ItemStock,
             this.ItemStatus});
-            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle49.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle49.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle49.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle49.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle49.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.StaffInventoryDataGrid.DefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle98.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle98.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle98.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle98.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle98.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle98.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle98.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.StaffInventoryDataGrid.DefaultCellStyle = dataGridViewCellStyle98;
             this.StaffInventoryDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.StaffInventoryDataGrid.Location = new System.Drawing.Point(32, 69);
             this.StaffInventoryDataGrid.Name = "StaffInventoryDataGrid";
@@ -11496,2972 +14500,6 @@ namespace Enchante
             this.StaffNavBarPanel.Name = "StaffNavBarPanel";
             this.StaffNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.StaffNavBarPanel.TabIndex = 5;
-            // 
-            // EnchanteParentCard
-            // 
-            this.EnchanteParentCard.ContainerControl = this.EnchanteParentContainer;
-            this.EnchanteParentCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.EnchanteParentCard.SelectedCard = "Reception";
-            // 
-            // HomeMembershipCard
-            // 
-            this.HomeMembershipCard.ContainerControl = this.MembershipPanel;
-            this.HomeMembershipCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.HomeMembershipCard.SelectedCard = "SVIP";
-            // 
-            // HomeServiceCard
-            // 
-            this.HomeServiceCard.ContainerControl = this.ServicePanel;
-            this.HomeServiceCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.HomeServiceCard.SelectedCard = "Nails";
-            // 
-            // RecTransactionCard
-            // 
-            this.RecTransactionCard.ContainerControl = this.ReceptionCreateTransactPanel;
-            this.RecTransactionCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.RecTransactionCard.SelectedCard = "Appointment";
-            // 
-            // DateTimePickerTimer
-            // 
-            this.DateTimePickerTimer.Tick += new System.EventHandler(this.DateTimePickerTimer_Tick);
-            // 
-            // MngrInventoryCard
-            // 
-            this.MngrInventoryCard.ContainerControl = this.MngrInventoryPanel;
-            this.MngrInventoryCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.MngrInventoryCard.SelectedCard = "PRODUCT HISTORY";
-            // 
-            // StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel
-            // 
-            this.StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.AutoScroll = true;
-            this.StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Location = new System.Drawing.Point(566, 286);
-            this.StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Name = "StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel";
-            this.StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Size = new System.Drawing.Size(900, 333);
-            this.StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.TabIndex = 25;
-            // 
-            // label4
-            // 
-            this.label4.AutoEllipsis = true;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.label4.Location = new System.Drawing.Point(564, 242);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(200, 29);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "Priority Queue:";
-            // 
-            // MngrSignOutBtn
-            // 
-            this.MngrSignOutBtn.AutoSize = true;
-            this.MngrSignOutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrSignOutBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrSignOutBtn.FlatAppearance.BorderSize = 0;
-            this.MngrSignOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrSignOutBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrSignOutBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrSignOutBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
-            this.MngrSignOutBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrSignOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrSignOutBtn.IconSize = 32;
-            this.MngrSignOutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrSignOutBtn.Location = new System.Drawing.Point(82, 114);
-            this.MngrSignOutBtn.Name = "MngrSignOutBtn";
-            this.MngrSignOutBtn.Size = new System.Drawing.Size(176, 60);
-            this.MngrSignOutBtn.TabIndex = 7;
-            this.MngrSignOutBtn.Text = "LOGOUT";
-            this.MngrSignOutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrSignOutBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.MngrSignOutBtn.UseVisualStyleBackColor = true;
-            this.MngrSignOutBtn.Click += new System.EventHandler(this.MngrSignOutBtn_Click_1);
-            // 
-            // MngrWalkinProdSalesExitBtn
-            // 
-            this.MngrWalkinProdSalesExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.MngrWalkinProdSalesExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrWalkinProdSalesExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.MngrWalkinProdSalesExitBtn.FlatAppearance.BorderSize = 0;
-            this.MngrWalkinProdSalesExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrWalkinProdSalesExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.MngrWalkinProdSalesExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinProdSalesExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrWalkinProdSalesExitBtn.Location = new System.Drawing.Point(1717, 29);
-            this.MngrWalkinProdSalesExitBtn.Name = "MngrWalkinProdSalesExitBtn";
-            this.MngrWalkinProdSalesExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.MngrWalkinProdSalesExitBtn.TabIndex = 84;
-            this.MngrWalkinProdSalesExitBtn.UseVisualStyleBackColor = false;
-            this.MngrWalkinProdSalesExitBtn.Click += new System.EventHandler(this.MngrWalkinProdSalesExitBtn_Click);
-            // 
-            // MngrServiceHistoryExitBtn
-            // 
-            this.MngrServiceHistoryExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.MngrServiceHistoryExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrServiceHistoryExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.MngrServiceHistoryExitBtn.FlatAppearance.BorderSize = 0;
-            this.MngrServiceHistoryExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrServiceHistoryExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.MngrServiceHistoryExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServiceHistoryExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrServiceHistoryExitBtn.Location = new System.Drawing.Point(1717, 29);
-            this.MngrServiceHistoryExitBtn.Name = "MngrServiceHistoryExitBtn";
-            this.MngrServiceHistoryExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.MngrServiceHistoryExitBtn.TabIndex = 84;
-            this.MngrServiceHistoryExitBtn.UseVisualStyleBackColor = false;
-            this.MngrServiceHistoryExitBtn.Click += new System.EventHandler(this.MngrServiceHistoryExitBtn_Click);
-            // 
-            // MngrWalkinSalesExitBtn
-            // 
-            this.MngrWalkinSalesExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.MngrWalkinSalesExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrWalkinSalesExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.MngrWalkinSalesExitBtn.FlatAppearance.BorderSize = 0;
-            this.MngrWalkinSalesExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrWalkinSalesExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.MngrWalkinSalesExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrWalkinSalesExitBtn.Location = new System.Drawing.Point(1716, 20);
-            this.MngrWalkinSalesExitBtn.Name = "MngrWalkinSalesExitBtn";
-            this.MngrWalkinSalesExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.MngrWalkinSalesExitBtn.TabIndex = 85;
-            this.MngrWalkinSalesExitBtn.UseVisualStyleBackColor = false;
-            this.MngrWalkinSalesExitBtn.Click += new System.EventHandler(this.MngrWalkinSalesExitBtn_Click);
-            // 
-            // MngrWalkinProdSalesBtn
-            // 
-            this.MngrWalkinProdSalesBtn.AutoSize = true;
-            this.MngrWalkinProdSalesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrWalkinProdSalesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrWalkinProdSalesBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrWalkinProdSalesBtn.FlatAppearance.BorderSize = 3;
-            this.MngrWalkinProdSalesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrWalkinProdSalesBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrWalkinProdSalesBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinProdSalesBtn.IconChar = FontAwesome.Sharp.IconChar.ChartColumn;
-            this.MngrWalkinProdSalesBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrWalkinProdSalesBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrWalkinProdSalesBtn.Location = new System.Drawing.Point(772, 399);
-            this.MngrWalkinProdSalesBtn.Name = "MngrWalkinProdSalesBtn";
-            this.MngrWalkinProdSalesBtn.Size = new System.Drawing.Size(250, 250);
-            this.MngrWalkinProdSalesBtn.TabIndex = 96;
-            this.MngrWalkinProdSalesBtn.Text = "WALK-IN\r\nPRODUCT\r\nSALES";
-            this.MngrWalkinProdSalesBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.MngrWalkinProdSalesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.MngrWalkinProdSalesBtn.UseVisualStyleBackColor = false;
-            this.MngrWalkinProdSalesBtn.Click += new System.EventHandler(this.MngrWalkinProdSalesBtn_Click);
-            // 
-            // MngrInventoryMembershipBtn
-            // 
-            this.MngrInventoryMembershipBtn.AutoSize = true;
-            this.MngrInventoryMembershipBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrInventoryMembershipBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrInventoryMembershipBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrInventoryMembershipBtn.FlatAppearance.BorderSize = 3;
-            this.MngrInventoryMembershipBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrInventoryMembershipBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrInventoryMembershipBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryMembershipBtn.IconChar = FontAwesome.Sharp.IconChar.UserGroup;
-            this.MngrInventoryMembershipBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrInventoryMembershipBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrInventoryMembershipBtn.Location = new System.Drawing.Point(114, 243);
-            this.MngrInventoryMembershipBtn.Name = "MngrInventoryMembershipBtn";
-            this.MngrInventoryMembershipBtn.Size = new System.Drawing.Size(250, 250);
-            this.MngrInventoryMembershipBtn.TabIndex = 88;
-            this.MngrInventoryMembershipBtn.Text = "MEMBER\r\nACCOUNTS";
-            this.MngrInventoryMembershipBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.MngrInventoryMembershipBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.MngrInventoryMembershipBtn.UseVisualStyleBackColor = false;
-            this.MngrInventoryMembershipBtn.Visible = false;
-            this.MngrInventoryMembershipBtn.Click += new System.EventHandler(this.RecInventoryMembershipBtn_Click);
-            // 
-            // MngrServicesHistoryBtn
-            // 
-            this.MngrServicesHistoryBtn.AutoSize = true;
-            this.MngrServicesHistoryBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrServicesHistoryBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrServicesHistoryBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrServicesHistoryBtn.FlatAppearance.BorderSize = 3;
-            this.MngrServicesHistoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrServicesHistoryBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrServicesHistoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesHistoryBtn.IconChar = FontAwesome.Sharp.IconChar.ClockRotateLeft;
-            this.MngrServicesHistoryBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrServicesHistoryBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrServicesHistoryBtn.Location = new System.Drawing.Point(114, 511);
-            this.MngrServicesHistoryBtn.Name = "MngrServicesHistoryBtn";
-            this.MngrServicesHistoryBtn.Size = new System.Drawing.Size(250, 250);
-            this.MngrServicesHistoryBtn.TabIndex = 95;
-            this.MngrServicesHistoryBtn.Text = "SERVICE\r\nHISTORY";
-            this.MngrServicesHistoryBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.MngrServicesHistoryBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.MngrServicesHistoryBtn.UseVisualStyleBackColor = false;
-            this.MngrServicesHistoryBtn.Visible = false;
-            this.MngrServicesHistoryBtn.Click += new System.EventHandler(this.MngrServicesHistoryBtn_Click);
-            // 
-            // MngrInDemandBtn
-            // 
-            this.MngrInDemandBtn.AutoSize = true;
-            this.MngrInDemandBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrInDemandBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrInDemandBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrInDemandBtn.FlatAppearance.BorderSize = 3;
-            this.MngrInDemandBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrInDemandBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrInDemandBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInDemandBtn.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
-            this.MngrInDemandBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrInDemandBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrInDemandBtn.Location = new System.Drawing.Point(1068, 399);
-            this.MngrInDemandBtn.Name = "MngrInDemandBtn";
-            this.MngrInDemandBtn.Size = new System.Drawing.Size(250, 250);
-            this.MngrInDemandBtn.TabIndex = 94;
-            this.MngrInDemandBtn.Text = "IN DEMAND\r\nSERVICES";
-            this.MngrInDemandBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.MngrInDemandBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.MngrInDemandBtn.UseVisualStyleBackColor = false;
-            this.MngrInDemandBtn.Click += new System.EventHandler(this.MngrInventoryInDemandBtn_Click);
-            // 
-            // MngrStaffSchedBtn
-            // 
-            this.MngrStaffSchedBtn.AutoSize = true;
-            this.MngrStaffSchedBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrStaffSchedBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrStaffSchedBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrStaffSchedBtn.FlatAppearance.BorderSize = 3;
-            this.MngrStaffSchedBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrStaffSchedBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrStaffSchedBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrStaffSchedBtn.IconChar = FontAwesome.Sharp.IconChar.Calendar;
-            this.MngrStaffSchedBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrStaffSchedBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrStaffSchedBtn.Location = new System.Drawing.Point(1068, 100);
-            this.MngrStaffSchedBtn.Name = "MngrStaffSchedBtn";
-            this.MngrStaffSchedBtn.Size = new System.Drawing.Size(250, 250);
-            this.MngrStaffSchedBtn.TabIndex = 93;
-            this.MngrStaffSchedBtn.Text = "STAFF\r\nSCHEDULE";
-            this.MngrStaffSchedBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.MngrStaffSchedBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.MngrStaffSchedBtn.UseVisualStyleBackColor = false;
-            this.MngrStaffSchedBtn.Click += new System.EventHandler(this.MngrInventoryStaffSchedBtn_Click);
-            // 
-            // MngrProductsHistoryBtn
-            // 
-            this.MngrProductsHistoryBtn.AutoSize = true;
-            this.MngrProductsHistoryBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrProductsHistoryBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrProductsHistoryBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrProductsHistoryBtn.FlatAppearance.BorderSize = 3;
-            this.MngrProductsHistoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrProductsHistoryBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrProductsHistoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrProductsHistoryBtn.IconChar = FontAwesome.Sharp.IconChar.ClockRotateLeft;
-            this.MngrProductsHistoryBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrProductsHistoryBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrProductsHistoryBtn.Location = new System.Drawing.Point(114, -13);
-            this.MngrProductsHistoryBtn.Name = "MngrProductsHistoryBtn";
-            this.MngrProductsHistoryBtn.Size = new System.Drawing.Size(250, 250);
-            this.MngrProductsHistoryBtn.TabIndex = 92;
-            this.MngrProductsHistoryBtn.Text = "PRODUCT\r\nHISTORY";
-            this.MngrProductsHistoryBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.MngrProductsHistoryBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.MngrProductsHistoryBtn.UseVisualStyleBackColor = false;
-            this.MngrProductsHistoryBtn.Visible = false;
-            this.MngrProductsHistoryBtn.Click += new System.EventHandler(this.MngrInventoryProductsHistoryBtn_Click);
-            // 
-            // MngrWalkinServiceSalesBtn
-            // 
-            this.MngrWalkinServiceSalesBtn.AutoSize = true;
-            this.MngrWalkinServiceSalesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrWalkinServiceSalesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrWalkinServiceSalesBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrWalkinServiceSalesBtn.FlatAppearance.BorderSize = 3;
-            this.MngrWalkinServiceSalesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrWalkinServiceSalesBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrWalkinServiceSalesBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinServiceSalesBtn.IconChar = FontAwesome.Sharp.IconChar.ChartColumn;
-            this.MngrWalkinServiceSalesBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrWalkinServiceSalesBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrWalkinServiceSalesBtn.Location = new System.Drawing.Point(481, 399);
-            this.MngrWalkinServiceSalesBtn.Name = "MngrWalkinServiceSalesBtn";
-            this.MngrWalkinServiceSalesBtn.Size = new System.Drawing.Size(250, 250);
-            this.MngrWalkinServiceSalesBtn.TabIndex = 91;
-            this.MngrWalkinServiceSalesBtn.Text = "WALK-IN\r\nSALES";
-            this.MngrWalkinServiceSalesBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.MngrWalkinServiceSalesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.MngrWalkinServiceSalesBtn.UseVisualStyleBackColor = false;
-            this.MngrWalkinServiceSalesBtn.Click += new System.EventHandler(this.MngrInventoryWalkinSalesBtn_Click);
-            // 
-            // MngrServicesDataBtn
-            // 
-            this.MngrServicesDataBtn.AutoSize = true;
-            this.MngrServicesDataBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrServicesDataBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrServicesDataBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrServicesDataBtn.FlatAppearance.BorderSize = 3;
-            this.MngrServicesDataBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrServicesDataBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrServicesDataBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesDataBtn.IconChar = FontAwesome.Sharp.IconChar.Database;
-            this.MngrServicesDataBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrServicesDataBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrServicesDataBtn.Location = new System.Drawing.Point(479, 100);
-            this.MngrServicesDataBtn.Name = "MngrServicesDataBtn";
-            this.MngrServicesDataBtn.Size = new System.Drawing.Size(250, 250);
-            this.MngrServicesDataBtn.TabIndex = 90;
-            this.MngrServicesDataBtn.Text = "SERVICE\r\nDATA\r\n";
-            this.MngrServicesDataBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.MngrServicesDataBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.MngrServicesDataBtn.UseVisualStyleBackColor = false;
-            this.MngrServicesDataBtn.Click += new System.EventHandler(this.RecInventoryServicesBtn_Click_1);
-            // 
-            // MngrProductsDataBtn
-            // 
-            this.MngrProductsDataBtn.AutoSize = true;
-            this.MngrProductsDataBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrProductsDataBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrProductsDataBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrProductsDataBtn.FlatAppearance.BorderSize = 3;
-            this.MngrProductsDataBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrProductsDataBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrProductsDataBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrProductsDataBtn.IconChar = FontAwesome.Sharp.IconChar.Database;
-            this.MngrProductsDataBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrProductsDataBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrProductsDataBtn.Location = new System.Drawing.Point(772, 100);
-            this.MngrProductsDataBtn.Name = "MngrProductsDataBtn";
-            this.MngrProductsDataBtn.Size = new System.Drawing.Size(250, 250);
-            this.MngrProductsDataBtn.TabIndex = 89;
-            this.MngrProductsDataBtn.Text = "PRODUCT\r\nDATA\r\n";
-            this.MngrProductsDataBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.MngrProductsDataBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.MngrProductsDataBtn.UseVisualStyleBackColor = false;
-            this.MngrProductsDataBtn.Click += new System.EventHandler(this.RecInventoryProductsBtn_Click);
-            // 
-            // MngrIndemandExitBtn
-            // 
-            this.MngrIndemandExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.MngrIndemandExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrIndemandExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.MngrIndemandExitBtn.FlatAppearance.BorderSize = 0;
-            this.MngrIndemandExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrIndemandExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.MngrIndemandExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrIndemandExitBtn.Location = new System.Drawing.Point(1732, 15);
-            this.MngrIndemandExitBtn.Name = "MngrIndemandExitBtn";
-            this.MngrIndemandExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.MngrIndemandExitBtn.TabIndex = 85;
-            this.MngrIndemandExitBtn.UseVisualStyleBackColor = false;
-            this.MngrIndemandExitBtn.Click += new System.EventHandler(this.MngrIndemandExitBtn_Click);
-            // 
-            // MngrInventoryProductHistoryEditBtn
-            // 
-            this.MngrInventoryProductHistoryEditBtn.AutoSize = true;
-            this.MngrInventoryProductHistoryEditBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrInventoryProductHistoryEditBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrInventoryProductHistoryEditBtn.FlatAppearance.BorderSize = 3;
-            this.MngrInventoryProductHistoryEditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrInventoryProductHistoryEditBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrInventoryProductHistoryEditBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductHistoryEditBtn.IconChar = FontAwesome.Sharp.IconChar.Pen;
-            this.MngrInventoryProductHistoryEditBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductHistoryEditBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrInventoryProductHistoryEditBtn.IconSize = 32;
-            this.MngrInventoryProductHistoryEditBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrInventoryProductHistoryEditBtn.Location = new System.Drawing.Point(1172, 537);
-            this.MngrInventoryProductHistoryEditBtn.Name = "MngrInventoryProductHistoryEditBtn";
-            this.MngrInventoryProductHistoryEditBtn.Size = new System.Drawing.Size(111, 60);
-            this.MngrInventoryProductHistoryEditBtn.TabIndex = 98;
-            this.MngrInventoryProductHistoryEditBtn.Text = "Edit";
-            this.MngrInventoryProductHistoryEditBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrInventoryProductHistoryEditBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.MngrInventoryProductHistoryEditBtn.UseVisualStyleBackColor = true;
-            // 
-            // MngrInventoryProductHistoryExitBtn
-            // 
-            this.MngrInventoryProductHistoryExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.MngrInventoryProductHistoryExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrInventoryProductHistoryExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.MngrInventoryProductHistoryExitBtn.FlatAppearance.BorderSize = 0;
-            this.MngrInventoryProductHistoryExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrInventoryProductHistoryExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.MngrInventoryProductHistoryExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductHistoryExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrInventoryProductHistoryExitBtn.Location = new System.Drawing.Point(1717, 29);
-            this.MngrInventoryProductHistoryExitBtn.Name = "MngrInventoryProductHistoryExitBtn";
-            this.MngrInventoryProductHistoryExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.MngrInventoryProductHistoryExitBtn.TabIndex = 84;
-            this.MngrInventoryProductHistoryExitBtn.UseVisualStyleBackColor = false;
-            this.MngrInventoryProductHistoryExitBtn.Click += new System.EventHandler(this.MngrInventoryProductHistoryExitBtn_Click);
-            // 
-            // MngrSchedExitBtn
-            // 
-            this.MngrSchedExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.MngrSchedExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrSchedExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.MngrSchedExitBtn.FlatAppearance.BorderSize = 0;
-            this.MngrSchedExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrSchedExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.MngrSchedExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrSchedExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrSchedExitBtn.Location = new System.Drawing.Point(1707, 29);
-            this.MngrSchedExitBtn.Name = "MngrSchedExitBtn";
-            this.MngrSchedExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.MngrSchedExitBtn.TabIndex = 85;
-            this.MngrSchedExitBtn.UseVisualStyleBackColor = false;
-            this.MngrSchedExitBtn.Click += new System.EventHandler(this.MngrSchedExitBtn_Click);
-            // 
-            // MngrServicesUpdateBtn
-            // 
-            this.MngrServicesUpdateBtn.AutoSize = true;
-            this.MngrServicesUpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrServicesUpdateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrServicesUpdateBtn.FlatAppearance.BorderSize = 3;
-            this.MngrServicesUpdateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrServicesUpdateBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrServicesUpdateBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesUpdateBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
-            this.MngrServicesUpdateBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesUpdateBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrServicesUpdateBtn.IconSize = 32;
-            this.MngrServicesUpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrServicesUpdateBtn.Location = new System.Drawing.Point(1195, 567);
-            this.MngrServicesUpdateBtn.Name = "MngrServicesUpdateBtn";
-            this.MngrServicesUpdateBtn.Size = new System.Drawing.Size(244, 60);
-            this.MngrServicesUpdateBtn.TabIndex = 82;
-            this.MngrServicesUpdateBtn.Text = "Update Service";
-            this.MngrServicesUpdateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrServicesUpdateBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.MngrServicesUpdateBtn.UseVisualStyleBackColor = true;
-            this.MngrServicesUpdateBtn.Visible = false;
-            this.MngrServicesUpdateBtn.Click += new System.EventHandler(this.RecServicesUpdateBtn_Click);
-            // 
-            // MngrServicesUpdateInfoBtn
-            // 
-            this.MngrServicesUpdateInfoBtn.AutoSize = true;
-            this.MngrServicesUpdateInfoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrServicesUpdateInfoBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrServicesUpdateInfoBtn.FlatAppearance.BorderSize = 3;
-            this.MngrServicesUpdateInfoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrServicesUpdateInfoBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrServicesUpdateInfoBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesUpdateInfoBtn.IconChar = FontAwesome.Sharp.IconChar.Pen;
-            this.MngrServicesUpdateInfoBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesUpdateInfoBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrServicesUpdateInfoBtn.IconSize = 32;
-            this.MngrServicesUpdateInfoBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrServicesUpdateInfoBtn.Location = new System.Drawing.Point(731, 597);
-            this.MngrServicesUpdateInfoBtn.Name = "MngrServicesUpdateInfoBtn";
-            this.MngrServicesUpdateInfoBtn.Size = new System.Drawing.Size(111, 60);
-            this.MngrServicesUpdateInfoBtn.TabIndex = 79;
-            this.MngrServicesUpdateInfoBtn.Text = "Edit";
-            this.MngrServicesUpdateInfoBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrServicesUpdateInfoBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.MngrServicesUpdateInfoBtn.UseVisualStyleBackColor = true;
-            this.MngrServicesUpdateInfoBtn.Click += new System.EventHandler(this.RecServicesUpdateInfoBtn_Click);
-            // 
-            // MngrServicesCreateBtn
-            // 
-            this.MngrServicesCreateBtn.AutoSize = true;
-            this.MngrServicesCreateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrServicesCreateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrServicesCreateBtn.FlatAppearance.BorderSize = 3;
-            this.MngrServicesCreateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrServicesCreateBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrServicesCreateBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesCreateBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
-            this.MngrServicesCreateBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesCreateBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrServicesCreateBtn.IconSize = 32;
-            this.MngrServicesCreateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrServicesCreateBtn.Location = new System.Drawing.Point(1194, 567);
-            this.MngrServicesCreateBtn.Name = "MngrServicesCreateBtn";
-            this.MngrServicesCreateBtn.Size = new System.Drawing.Size(246, 60);
-            this.MngrServicesCreateBtn.TabIndex = 78;
-            this.MngrServicesCreateBtn.Text = "Create Service";
-            this.MngrServicesCreateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrServicesCreateBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.MngrServicesCreateBtn.UseVisualStyleBackColor = true;
-            this.MngrServicesCreateBtn.Click += new System.EventHandler(this.RecServicesCreateBtn_Click);
-            // 
-            // MngrServicesExitBtn
-            // 
-            this.MngrServicesExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.MngrServicesExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrServicesExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.MngrServicesExitBtn.FlatAppearance.BorderSize = 0;
-            this.MngrServicesExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrServicesExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.MngrServicesExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrServicesExitBtn.Location = new System.Drawing.Point(1715, 30);
-            this.MngrServicesExitBtn.Name = "MngrServicesExitBtn";
-            this.MngrServicesExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.MngrServicesExitBtn.TabIndex = 46;
-            this.MngrServicesExitBtn.UseVisualStyleBackColor = false;
-            this.MngrServicesExitBtn.Click += new System.EventHandler(this.RecInventoryServicesExitBtn_Click);
-            // 
-            // MngrInventoryMembershipExitBtn
-            // 
-            this.MngrInventoryMembershipExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.MngrInventoryMembershipExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrInventoryMembershipExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.MngrInventoryMembershipExitBtn.FlatAppearance.BorderSize = 0;
-            this.MngrInventoryMembershipExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrInventoryMembershipExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.MngrInventoryMembershipExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryMembershipExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrInventoryMembershipExitBtn.Location = new System.Drawing.Point(1737, 17);
-            this.MngrInventoryMembershipExitBtn.Name = "MngrInventoryMembershipExitBtn";
-            this.MngrInventoryMembershipExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.MngrInventoryMembershipExitBtn.TabIndex = 47;
-            this.MngrInventoryMembershipExitBtn.UseVisualStyleBackColor = false;
-            this.MngrInventoryMembershipExitBtn.Click += new System.EventHandler(this.MngrInventoryMembershipExitBtn_Click);
-            // 
-            // CancelEdit
-            // 
-            this.CancelEdit.AutoSize = true;
-            this.CancelEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CancelEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.CancelEdit.FlatAppearance.BorderSize = 3;
-            this.CancelEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelEdit.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.CancelEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.CancelEdit.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
-            this.CancelEdit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.CancelEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.CancelEdit.IconSize = 32;
-            this.CancelEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CancelEdit.Location = new System.Drawing.Point(1052, 604);
-            this.CancelEdit.Name = "CancelEdit";
-            this.CancelEdit.Size = new System.Drawing.Size(296, 60);
-            this.CancelEdit.TabIndex = 105;
-            this.CancelEdit.Text = "CANCEL";
-            this.CancelEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CancelEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.CancelEdit.UseVisualStyleBackColor = true;
-            this.CancelEdit.Visible = false;
-            this.CancelEdit.Click += new System.EventHandler(this.CancelEdit_Click);
-            // 
-            // ProductImagePictureBox
-            // 
-            this.ProductImagePictureBox.ImageRotate = 0F;
-            this.ProductImagePictureBox.Location = new System.Drawing.Point(1558, 172);
-            this.ProductImagePictureBox.Name = "ProductImagePictureBox";
-            this.ProductImagePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.ProductImagePictureBox.Size = new System.Drawing.Size(168, 168);
-            this.ProductImagePictureBox.TabIndex = 103;
-            this.ProductImagePictureBox.TabStop = false;
-            this.ProductImagePictureBox.Visible = false;
-            // 
-            // MngrInventoryProductsUpdateBtn
-            // 
-            this.MngrInventoryProductsUpdateBtn.AutoSize = true;
-            this.MngrInventoryProductsUpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrInventoryProductsUpdateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrInventoryProductsUpdateBtn.FlatAppearance.BorderSize = 3;
-            this.MngrInventoryProductsUpdateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrInventoryProductsUpdateBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrInventoryProductsUpdateBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsUpdateBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
-            this.MngrInventoryProductsUpdateBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsUpdateBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrInventoryProductsUpdateBtn.IconSize = 32;
-            this.MngrInventoryProductsUpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrInventoryProductsUpdateBtn.Location = new System.Drawing.Point(1052, 531);
-            this.MngrInventoryProductsUpdateBtn.Name = "MngrInventoryProductsUpdateBtn";
-            this.MngrInventoryProductsUpdateBtn.Size = new System.Drawing.Size(296, 60);
-            this.MngrInventoryProductsUpdateBtn.TabIndex = 101;
-            this.MngrInventoryProductsUpdateBtn.Text = "UPDATE PRODUCT";
-            this.MngrInventoryProductsUpdateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrInventoryProductsUpdateBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.MngrInventoryProductsUpdateBtn.UseVisualStyleBackColor = true;
-            this.MngrInventoryProductsUpdateBtn.Visible = false;
-            this.MngrInventoryProductsUpdateBtn.Click += new System.EventHandler(this.MngrInventoryProductsUpdateBtn_Click);
-            // 
-            // MngrInventoryProductsInfoEditBtn
-            // 
-            this.MngrInventoryProductsInfoEditBtn.AutoSize = true;
-            this.MngrInventoryProductsInfoEditBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrInventoryProductsInfoEditBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrInventoryProductsInfoEditBtn.FlatAppearance.BorderSize = 3;
-            this.MngrInventoryProductsInfoEditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrInventoryProductsInfoEditBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrInventoryProductsInfoEditBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsInfoEditBtn.IconChar = FontAwesome.Sharp.IconChar.Pen;
-            this.MngrInventoryProductsInfoEditBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsInfoEditBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrInventoryProductsInfoEditBtn.IconSize = 32;
-            this.MngrInventoryProductsInfoEditBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrInventoryProductsInfoEditBtn.Location = new System.Drawing.Point(727, 604);
-            this.MngrInventoryProductsInfoEditBtn.Name = "MngrInventoryProductsInfoEditBtn";
-            this.MngrInventoryProductsInfoEditBtn.Size = new System.Drawing.Size(111, 60);
-            this.MngrInventoryProductsInfoEditBtn.TabIndex = 98;
-            this.MngrInventoryProductsInfoEditBtn.Text = "Edit";
-            this.MngrInventoryProductsInfoEditBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrInventoryProductsInfoEditBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.MngrInventoryProductsInfoEditBtn.UseVisualStyleBackColor = true;
-            this.MngrInventoryProductsInfoEditBtn.Click += new System.EventHandler(this.MngrInventoryProductsInfoEditBtn_Click);
-            // 
-            // MngrInventoryProductsInsertBtn
-            // 
-            this.MngrInventoryProductsInsertBtn.AutoSize = true;
-            this.MngrInventoryProductsInsertBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrInventoryProductsInsertBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrInventoryProductsInsertBtn.FlatAppearance.BorderSize = 3;
-            this.MngrInventoryProductsInsertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrInventoryProductsInsertBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrInventoryProductsInsertBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsInsertBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
-            this.MngrInventoryProductsInsertBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsInsertBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrInventoryProductsInsertBtn.IconSize = 32;
-            this.MngrInventoryProductsInsertBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrInventoryProductsInsertBtn.Location = new System.Drawing.Point(1052, 531);
-            this.MngrInventoryProductsInsertBtn.Name = "MngrInventoryProductsInsertBtn";
-            this.MngrInventoryProductsInsertBtn.Size = new System.Drawing.Size(296, 60);
-            this.MngrInventoryProductsInsertBtn.TabIndex = 97;
-            this.MngrInventoryProductsInsertBtn.Text = "INSERT PRODUCT";
-            this.MngrInventoryProductsInsertBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrInventoryProductsInsertBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.MngrInventoryProductsInsertBtn.UseVisualStyleBackColor = true;
-            this.MngrInventoryProductsInsertBtn.Click += new System.EventHandler(this.MngrInventoryProductsInsertBtn_Click);
-            // 
-            // MngrInventoryProductsExitBtn
-            // 
-            this.MngrInventoryProductsExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.MngrInventoryProductsExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrInventoryProductsExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.MngrInventoryProductsExitBtn.FlatAppearance.BorderSize = 0;
-            this.MngrInventoryProductsExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrInventoryProductsExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.MngrInventoryProductsExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrInventoryProductsExitBtn.Location = new System.Drawing.Point(1717, 29);
-            this.MngrInventoryProductsExitBtn.Name = "MngrInventoryProductsExitBtn";
-            this.MngrInventoryProductsExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.MngrInventoryProductsExitBtn.TabIndex = 84;
-            this.MngrInventoryProductsExitBtn.UseVisualStyleBackColor = false;
-            this.MngrInventoryProductsExitBtn.Click += new System.EventHandler(this.MngrInventoryProductsExitBtn_Click);
-            // 
-            // MngrUserAccBtn
-            // 
-            this.MngrUserAccBtn.AutoSize = true;
-            this.MngrUserAccBtn.BackColor = System.Drawing.Color.Transparent;
-            this.MngrUserAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrUserAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrUserAccBtn.FlatAppearance.BorderSize = 0;
-            this.MngrUserAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrUserAccBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrUserAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrUserAccBtn.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.MngrUserAccBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrUserAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrUserAccBtn.Location = new System.Drawing.Point(1808, 47);
-            this.MngrUserAccBtn.Name = "MngrUserAccBtn";
-            this.MngrUserAccBtn.Size = new System.Drawing.Size(54, 54);
-            this.MngrUserAccBtn.TabIndex = 8;
-            this.MngrUserAccBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrUserAccBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.MngrUserAccBtn.UseVisualStyleBackColor = false;
-            this.MngrUserAccBtn.Click += new System.EventHandler(this.MngrUserAccBtn_Click);
-            // 
-            // MngrHomeBtn
-            // 
-            this.MngrHomeBtn.AutoSize = true;
-            this.MngrHomeBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.MngrHomeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrHomeBtn.FlatAppearance.BorderSize = 0;
-            this.MngrHomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrHomeBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrHomeBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.MngrHomeBtn.IconColor = System.Drawing.Color.Black;
-            this.MngrHomeBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrHomeBtn.Location = new System.Drawing.Point(241, 45);
-            this.MngrHomeBtn.Name = "MngrHomeBtn";
-            this.MngrHomeBtn.Size = new System.Drawing.Size(92, 54);
-            this.MngrHomeBtn.TabIndex = 1;
-            this.MngrHomeBtn.Text = "HOME";
-            this.MngrHomeBtn.UseVisualStyleBackColor = true;
-            this.MngrHomeBtn.Click += new System.EventHandler(this.MngrHomeBtn_Click);
-            // 
-            // MngrHeaderLogo
-            // 
-            this.MngrHeaderLogo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrHeaderLogo.Image = global::Enchante.Properties.Resources.Enchante_Logo__200_x_200_px___1_;
-            this.MngrHeaderLogo.Location = new System.Drawing.Point(127, 27);
-            this.MngrHeaderLogo.Name = "MngrHeaderLogo";
-            this.MngrHeaderLogo.Size = new System.Drawing.Size(100, 100);
-            this.MngrHeaderLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.MngrHeaderLogo.TabIndex = 0;
-            this.MngrHeaderLogo.TabStop = false;
-            // 
-            // AdminSignOutBtn
-            // 
-            this.AdminSignOutBtn.AutoSize = true;
-            this.AdminSignOutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AdminSignOutBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.AdminSignOutBtn.FlatAppearance.BorderSize = 0;
-            this.AdminSignOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AdminSignOutBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.AdminSignOutBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.AdminSignOutBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
-            this.AdminSignOutBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.AdminSignOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.AdminSignOutBtn.IconSize = 32;
-            this.AdminSignOutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AdminSignOutBtn.Location = new System.Drawing.Point(16, 122);
-            this.AdminSignOutBtn.Name = "AdminSignOutBtn";
-            this.AdminSignOutBtn.Size = new System.Drawing.Size(231, 60);
-            this.AdminSignOutBtn.TabIndex = 7;
-            this.AdminSignOutBtn.Text = "LOGOUT";
-            this.AdminSignOutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AdminSignOutBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.AdminSignOutBtn.UseVisualStyleBackColor = true;
-            this.AdminSignOutBtn.Click += new System.EventHandler(this.AdminSignOutBtn_Click_1);
-            // 
-            // AdminCancelEditBtn
-            // 
-            this.AdminCancelEditBtn.AutoSize = true;
-            this.AdminCancelEditBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AdminCancelEditBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.AdminCancelEditBtn.FlatAppearance.BorderSize = 3;
-            this.AdminCancelEditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AdminCancelEditBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.AdminCancelEditBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.AdminCancelEditBtn.IconChar = FontAwesome.Sharp.IconChar.Pen;
-            this.AdminCancelEditBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.AdminCancelEditBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.AdminCancelEditBtn.IconSize = 32;
-            this.AdminCancelEditBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AdminCancelEditBtn.Location = new System.Drawing.Point(465, 687);
-            this.AdminCancelEditBtn.Name = "AdminCancelEditBtn";
-            this.AdminCancelEditBtn.Size = new System.Drawing.Size(255, 60);
-            this.AdminCancelEditBtn.TabIndex = 126;
-            this.AdminCancelEditBtn.Text = "Cancel Editing";
-            this.AdminCancelEditBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AdminCancelEditBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.AdminCancelEditBtn.UseVisualStyleBackColor = true;
-            this.AdminCancelEditBtn.Visible = false;
-            this.AdminCancelEditBtn.Click += new System.EventHandler(this.AdminCancelEditBtn_Click);
-            // 
-            // AdminShowHideConfirmPassBtn
-            // 
-            this.AdminShowHideConfirmPassBtn.AutoSize = true;
-            this.AdminShowHideConfirmPassBtn.BackColor = System.Drawing.Color.Transparent;
-            this.AdminShowHideConfirmPassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AdminShowHideConfirmPassBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.AdminShowHideConfirmPassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.AdminShowHideConfirmPassBtn.FlatAppearance.BorderSize = 0;
-            this.AdminShowHideConfirmPassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AdminShowHideConfirmPassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.AdminShowHideConfirmPassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.AdminShowHideConfirmPassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.AdminShowHideConfirmPassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.AdminShowHideConfirmPassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.AdminShowHideConfirmPassBtn.IconSize = 30;
-            this.AdminShowHideConfirmPassBtn.Location = new System.Drawing.Point(371, 0);
-            this.AdminShowHideConfirmPassBtn.Name = "AdminShowHideConfirmPassBtn";
-            this.AdminShowHideConfirmPassBtn.Size = new System.Drawing.Size(36, 37);
-            this.AdminShowHideConfirmPassBtn.TabIndex = 31;
-            this.AdminShowHideConfirmPassBtn.UseVisualStyleBackColor = false;
-            this.AdminShowHideConfirmPassBtn.Click += new System.EventHandler(this.AdminShowHideConfirmPassBtn_Click);
-            // 
-            // AdminShowHidePassBtn
-            // 
-            this.AdminShowHidePassBtn.AutoSize = true;
-            this.AdminShowHidePassBtn.BackColor = System.Drawing.Color.Transparent;
-            this.AdminShowHidePassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AdminShowHidePassBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.AdminShowHidePassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.AdminShowHidePassBtn.FlatAppearance.BorderSize = 0;
-            this.AdminShowHidePassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AdminShowHidePassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.AdminShowHidePassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.AdminShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.AdminShowHidePassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.AdminShowHidePassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.AdminShowHidePassBtn.IconSize = 30;
-            this.AdminShowHidePassBtn.Location = new System.Drawing.Point(365, 0);
-            this.AdminShowHidePassBtn.Name = "AdminShowHidePassBtn";
-            this.AdminShowHidePassBtn.Size = new System.Drawing.Size(36, 37);
-            this.AdminShowHidePassBtn.TabIndex = 31;
-            this.AdminShowHidePassBtn.UseVisualStyleBackColor = false;
-            this.AdminShowHidePassBtn.Click += new System.EventHandler(this.AdminShowHidePassBtn_Click);
-            // 
-            // iconButton31
-            // 
-            this.iconButton31.AutoSize = true;
-            this.iconButton31.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton31.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton31.FlatAppearance.BorderSize = 0;
-            this.iconButton31.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton31.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton31.IconChar = FontAwesome.Sharp.IconChar.Question;
-            this.iconButton31.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.iconButton31.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton31.IconSize = 20;
-            this.iconButton31.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton31.Location = new System.Drawing.Point(213, 630);
-            this.iconButton31.Name = "iconButton31";
-            this.iconButton31.Size = new System.Drawing.Size(26, 26);
-            this.iconButton31.TabIndex = 113;
-            this.iconButton31.UseVisualStyleBackColor = false;
-            // 
-            // AdminUpdateAccBtn
-            // 
-            this.AdminUpdateAccBtn.AutoSize = true;
-            this.AdminUpdateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AdminUpdateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.AdminUpdateAccBtn.FlatAppearance.BorderSize = 3;
-            this.AdminUpdateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AdminUpdateAccBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.AdminUpdateAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.AdminUpdateAccBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
-            this.AdminUpdateAccBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.AdminUpdateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.AdminUpdateAccBtn.IconSize = 32;
-            this.AdminUpdateAccBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AdminUpdateAccBtn.Location = new System.Drawing.Point(189, 687);
-            this.AdminUpdateAccBtn.Name = "AdminUpdateAccBtn";
-            this.AdminUpdateAccBtn.Size = new System.Drawing.Size(255, 60);
-            this.AdminUpdateAccBtn.TabIndex = 82;
-            this.AdminUpdateAccBtn.Text = "Update Account";
-            this.AdminUpdateAccBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AdminUpdateAccBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.AdminUpdateAccBtn.UseVisualStyleBackColor = true;
-            this.AdminUpdateAccBtn.Visible = false;
-            this.AdminUpdateAccBtn.Click += new System.EventHandler(this.AdminUpdateAccBtn_Click);
-            // 
-            // AdminEditAccBtn
-            // 
-            this.AdminEditAccBtn.AutoSize = true;
-            this.AdminEditAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AdminEditAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.AdminEditAccBtn.FlatAppearance.BorderSize = 3;
-            this.AdminEditAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AdminEditAccBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.AdminEditAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.AdminEditAccBtn.IconChar = FontAwesome.Sharp.IconChar.Pen;
-            this.AdminEditAccBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.AdminEditAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.AdminEditAccBtn.IconSize = 32;
-            this.AdminEditAccBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AdminEditAccBtn.Location = new System.Drawing.Point(1574, 687);
-            this.AdminEditAccBtn.Name = "AdminEditAccBtn";
-            this.AdminEditAccBtn.Size = new System.Drawing.Size(111, 60);
-            this.AdminEditAccBtn.TabIndex = 79;
-            this.AdminEditAccBtn.Text = "Edit";
-            this.AdminEditAccBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AdminEditAccBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.AdminEditAccBtn.UseVisualStyleBackColor = true;
-            this.AdminEditAccBtn.Click += new System.EventHandler(this.AdminEditAccBtn_Click);
-            // 
-            // AdminCreateAccBtn
-            // 
-            this.AdminCreateAccBtn.AutoSize = true;
-            this.AdminCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AdminCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.AdminCreateAccBtn.FlatAppearance.BorderSize = 3;
-            this.AdminCreateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AdminCreateAccBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.AdminCreateAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.AdminCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
-            this.AdminCreateAccBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.AdminCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.AdminCreateAccBtn.IconSize = 32;
-            this.AdminCreateAccBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AdminCreateAccBtn.Location = new System.Drawing.Point(327, 687);
-            this.AdminCreateAccBtn.Name = "AdminCreateAccBtn";
-            this.AdminCreateAccBtn.Size = new System.Drawing.Size(257, 60);
-            this.AdminCreateAccBtn.TabIndex = 78;
-            this.AdminCreateAccBtn.Text = "Create Account";
-            this.AdminCreateAccBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AdminCreateAccBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.AdminCreateAccBtn.UseVisualStyleBackColor = true;
-            this.AdminCreateAccBtn.Click += new System.EventHandler(this.AdminCreateAccBtn_Click);
-            // 
-            // AdminAccUserBtn
-            // 
-            this.AdminAccUserBtn.AutoSize = true;
-            this.AdminAccUserBtn.BackColor = System.Drawing.Color.Transparent;
-            this.AdminAccUserBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AdminAccUserBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.AdminAccUserBtn.FlatAppearance.BorderSize = 0;
-            this.AdminAccUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AdminAccUserBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.AdminAccUserBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.AdminAccUserBtn.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.AdminAccUserBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.AdminAccUserBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.AdminAccUserBtn.Location = new System.Drawing.Point(1801, 48);
-            this.AdminAccUserBtn.Name = "AdminAccUserBtn";
-            this.AdminAccUserBtn.Size = new System.Drawing.Size(54, 54);
-            this.AdminAccUserBtn.TabIndex = 8;
-            this.AdminAccUserBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AdminAccUserBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.AdminAccUserBtn.UseVisualStyleBackColor = false;
-            this.AdminAccUserBtn.Click += new System.EventHandler(this.AdminAccUserBtn_Click);
-            // 
-            // AdminHomeBtn
-            // 
-            this.AdminHomeBtn.AutoSize = true;
-            this.AdminHomeBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.AdminHomeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AdminHomeBtn.FlatAppearance.BorderSize = 0;
-            this.AdminHomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AdminHomeBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.AdminHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.AdminHomeBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.AdminHomeBtn.IconColor = System.Drawing.Color.Black;
-            this.AdminHomeBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.AdminHomeBtn.Location = new System.Drawing.Point(214, 47);
-            this.AdminHomeBtn.Name = "AdminHomeBtn";
-            this.AdminHomeBtn.Size = new System.Drawing.Size(92, 54);
-            this.AdminHomeBtn.TabIndex = 1;
-            this.AdminHomeBtn.Text = "HOME";
-            this.AdminHomeBtn.UseVisualStyleBackColor = true;
-            // 
-            // AdminHeaderLogo
-            // 
-            this.AdminHeaderLogo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AdminHeaderLogo.Image = global::Enchante.Properties.Resources.Enchante_Logo__200_x_200_px___1_;
-            this.AdminHeaderLogo.Location = new System.Drawing.Point(81, 25);
-            this.AdminHeaderLogo.Name = "AdminHeaderLogo";
-            this.AdminHeaderLogo.Size = new System.Drawing.Size(100, 100);
-            this.AdminHeaderLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.AdminHeaderLogo.TabIndex = 0;
-            this.AdminHeaderLogo.TabStop = false;
-            // 
-            // EnchanteHLoginBtn
-            // 
-            this.EnchanteHLoginBtn.AutoSize = true;
-            this.EnchanteHLoginBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EnchanteHLoginBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.EnchanteHLoginBtn.FlatAppearance.BorderSize = 3;
-            this.EnchanteHLoginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EnchanteHLoginBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.EnchanteHLoginBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.EnchanteHLoginBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.EnchanteHLoginBtn.IconColor = System.Drawing.Color.Black;
-            this.EnchanteHLoginBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.EnchanteHLoginBtn.Location = new System.Drawing.Point(1599, 47);
-            this.EnchanteHLoginBtn.Name = "EnchanteHLoginBtn";
-            this.EnchanteHLoginBtn.Size = new System.Drawing.Size(180, 77);
-            this.EnchanteHLoginBtn.TabIndex = 7;
-            this.EnchanteHLoginBtn.Text = "LOGIN";
-            this.EnchanteHLoginBtn.UseVisualStyleBackColor = true;
-            this.EnchanteHLoginBtn.Click += new System.EventHandler(this.EnchanteHLoginBtn_Click);
-            this.EnchanteHLoginBtn.MouseHover += new System.EventHandler(this.EnchanteHLoginBtn_MouseHover);
-            // 
-            // EnchanteAbtUsBtn
-            // 
-            this.EnchanteAbtUsBtn.AutoSize = true;
-            this.EnchanteAbtUsBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.EnchanteAbtUsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EnchanteAbtUsBtn.FlatAppearance.BorderSize = 0;
-            this.EnchanteAbtUsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EnchanteAbtUsBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.EnchanteAbtUsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.EnchanteAbtUsBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.EnchanteAbtUsBtn.IconColor = System.Drawing.Color.Black;
-            this.EnchanteAbtUsBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.EnchanteAbtUsBtn.Location = new System.Drawing.Point(1408, 58);
-            this.EnchanteAbtUsBtn.Name = "EnchanteAbtUsBtn";
-            this.EnchanteAbtUsBtn.Size = new System.Drawing.Size(149, 54);
-            this.EnchanteAbtUsBtn.TabIndex = 6;
-            this.EnchanteAbtUsBtn.Text = "ABOUT US";
-            this.EnchanteAbtUsBtn.UseVisualStyleBackColor = true;
-            this.EnchanteAbtUsBtn.Click += new System.EventHandler(this.EnchanteAbtUsBtn_Click);
-            this.EnchanteAbtUsBtn.MouseHover += new System.EventHandler(this.EnchanteAbtUsBtn_MouseHover);
-            // 
-            // EnchanteTeamBtn
-            // 
-            this.EnchanteTeamBtn.AutoSize = true;
-            this.EnchanteTeamBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.EnchanteTeamBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EnchanteTeamBtn.FlatAppearance.BorderSize = 0;
-            this.EnchanteTeamBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EnchanteTeamBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.EnchanteTeamBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.EnchanteTeamBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.EnchanteTeamBtn.IconColor = System.Drawing.Color.Black;
-            this.EnchanteTeamBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.EnchanteTeamBtn.Location = new System.Drawing.Point(1234, 58);
-            this.EnchanteTeamBtn.Name = "EnchanteTeamBtn";
-            this.EnchanteTeamBtn.Size = new System.Drawing.Size(168, 54);
-            this.EnchanteTeamBtn.TabIndex = 5;
-            this.EnchanteTeamBtn.Text = "OUR TEAMS";
-            this.EnchanteTeamBtn.UseVisualStyleBackColor = true;
-            this.EnchanteTeamBtn.Click += new System.EventHandler(this.EnchanteTeamBtn_Click);
-            this.EnchanteTeamBtn.MouseHover += new System.EventHandler(this.EnchanteTeamBtn_MouseHover);
-            // 
-            // EnchanteReviewBtn
-            // 
-            this.EnchanteReviewBtn.AutoSize = true;
-            this.EnchanteReviewBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.EnchanteReviewBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EnchanteReviewBtn.FlatAppearance.BorderSize = 0;
-            this.EnchanteReviewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EnchanteReviewBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.EnchanteReviewBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.EnchanteReviewBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.EnchanteReviewBtn.IconColor = System.Drawing.Color.Black;
-            this.EnchanteReviewBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.EnchanteReviewBtn.Location = new System.Drawing.Point(1096, 58);
-            this.EnchanteReviewBtn.Name = "EnchanteReviewBtn";
-            this.EnchanteReviewBtn.Size = new System.Drawing.Size(132, 54);
-            this.EnchanteReviewBtn.TabIndex = 4;
-            this.EnchanteReviewBtn.Text = "REVIEWS";
-            this.EnchanteReviewBtn.UseVisualStyleBackColor = true;
-            this.EnchanteReviewBtn.Click += new System.EventHandler(this.EnchanteReviewBtn_Click);
-            this.EnchanteReviewBtn.MouseHover += new System.EventHandler(this.EnchanteReviewBtn_MouseHover);
-            // 
-            // EnchanteMemberBtn
-            // 
-            this.EnchanteMemberBtn.AutoSize = true;
-            this.EnchanteMemberBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.EnchanteMemberBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EnchanteMemberBtn.FlatAppearance.BorderSize = 0;
-            this.EnchanteMemberBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EnchanteMemberBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.EnchanteMemberBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.EnchanteMemberBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.EnchanteMemberBtn.IconColor = System.Drawing.Color.Black;
-            this.EnchanteMemberBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.EnchanteMemberBtn.Location = new System.Drawing.Point(909, 58);
-            this.EnchanteMemberBtn.Name = "EnchanteMemberBtn";
-            this.EnchanteMemberBtn.Size = new System.Drawing.Size(181, 54);
-            this.EnchanteMemberBtn.TabIndex = 3;
-            this.EnchanteMemberBtn.Text = "MEMBERSHIP";
-            this.EnchanteMemberBtn.UseVisualStyleBackColor = true;
-            this.EnchanteMemberBtn.Click += new System.EventHandler(this.EnchanteMemberBtn_Click);
-            this.EnchanteMemberBtn.MouseHover += new System.EventHandler(this.EnchanteMemberBtn_MouseHover);
-            // 
-            // EnchanteServiceBtn
-            // 
-            this.EnchanteServiceBtn.AutoSize = true;
-            this.EnchanteServiceBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.EnchanteServiceBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EnchanteServiceBtn.FlatAppearance.BorderSize = 0;
-            this.EnchanteServiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EnchanteServiceBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.EnchanteServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.EnchanteServiceBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.EnchanteServiceBtn.IconColor = System.Drawing.Color.Black;
-            this.EnchanteServiceBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.EnchanteServiceBtn.Location = new System.Drawing.Point(775, 58);
-            this.EnchanteServiceBtn.Name = "EnchanteServiceBtn";
-            this.EnchanteServiceBtn.Size = new System.Drawing.Size(128, 54);
-            this.EnchanteServiceBtn.TabIndex = 2;
-            this.EnchanteServiceBtn.Text = "SERVICE";
-            this.EnchanteServiceBtn.UseVisualStyleBackColor = true;
-            this.EnchanteServiceBtn.Click += new System.EventHandler(this.EnchanteServiceBtn_Click);
-            this.EnchanteServiceBtn.MouseHover += new System.EventHandler(this.EnchanteServiceBtn_MouseHover);
-            // 
-            // EnchanteHomeBtn
-            // 
-            this.EnchanteHomeBtn.AutoSize = true;
-            this.EnchanteHomeBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.EnchanteHomeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EnchanteHomeBtn.FlatAppearance.BorderSize = 0;
-            this.EnchanteHomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EnchanteHomeBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.EnchanteHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.EnchanteHomeBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.EnchanteHomeBtn.IconColor = System.Drawing.Color.Black;
-            this.EnchanteHomeBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.EnchanteHomeBtn.Location = new System.Drawing.Point(677, 58);
-            this.EnchanteHomeBtn.Name = "EnchanteHomeBtn";
-            this.EnchanteHomeBtn.Size = new System.Drawing.Size(92, 54);
-            this.EnchanteHomeBtn.TabIndex = 1;
-            this.EnchanteHomeBtn.Text = "HOME";
-            this.EnchanteHomeBtn.UseVisualStyleBackColor = true;
-            this.EnchanteHomeBtn.Click += new System.EventHandler(this.EnchanteHomeBtn_Click);
-            this.EnchanteHomeBtn.MouseHover += new System.EventHandler(this.EnchanteHomeBtn_MouseHover);
-            // 
-            // EnchanteHeaderLogo
-            // 
-            this.EnchanteHeaderLogo.Image = global::Enchante.Properties.Resources.Enchante_Logo_275x100;
-            this.EnchanteHeaderLogo.Location = new System.Drawing.Point(104, 35);
-            this.EnchanteHeaderLogo.Name = "EnchanteHeaderLogo";
-            this.EnchanteHeaderLogo.Size = new System.Drawing.Size(275, 100);
-            this.EnchanteHeaderLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.EnchanteHeaderLogo.TabIndex = 0;
-            this.EnchanteHeaderLogo.TabStop = false;
-            this.EnchanteHeaderLogo.Click += new System.EventHandler(this.EnchanteHeaderLogo_Click);
-            // 
-            // ServiceHSBtn
-            // 
-            this.ServiceHSBtn.BackgroundImage = global::Enchante.Properties.Resources._30_People_Are_Sharing_Seemingly_Innocent_Questions_That_Broke_Their_Heart_A_;
-            this.ServiceHSBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ServiceHSBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ServiceHSBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(101)))), ((int)(((byte)(42)))));
-            this.ServiceHSBtn.FlatAppearance.BorderSize = 2;
-            this.ServiceHSBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ServiceHSBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.ServiceHSBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ServiceHSBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.ServiceHSBtn.IconColor = System.Drawing.Color.Black;
-            this.ServiceHSBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ServiceHSBtn.Location = new System.Drawing.Point(51, 250);
-            this.ServiceHSBtn.Name = "ServiceHSBtn";
-            this.ServiceHSBtn.Size = new System.Drawing.Size(250, 250);
-            this.ServiceHSBtn.TabIndex = 10;
-            this.ServiceHSBtn.Text = "Hair Styling";
-            this.ServiceHSBtn.UseVisualStyleBackColor = true;
-            this.ServiceHSBtn.Click += new System.EventHandler(this.ServiceHSBtn_Click);
-            // 
-            // ServiceFSBtn
-            // 
-            this.ServiceFSBtn.BackgroundImage = global::Enchante.Properties.Resources.cabernetqween;
-            this.ServiceFSBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ServiceFSBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ServiceFSBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(101)))), ((int)(((byte)(42)))));
-            this.ServiceFSBtn.FlatAppearance.BorderSize = 2;
-            this.ServiceFSBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ServiceFSBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.ServiceFSBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ServiceFSBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.ServiceFSBtn.IconColor = System.Drawing.Color.Black;
-            this.ServiceFSBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ServiceFSBtn.Location = new System.Drawing.Point(328, 250);
-            this.ServiceFSBtn.Name = "ServiceFSBtn";
-            this.ServiceFSBtn.Size = new System.Drawing.Size(250, 250);
-            this.ServiceFSBtn.TabIndex = 12;
-            this.ServiceFSBtn.Text = "FACE && SKIN";
-            this.ServiceFSBtn.UseVisualStyleBackColor = true;
-            this.ServiceFSBtn.Click += new System.EventHandler(this.ServiceFSBtn_Click);
-            // 
-            // ServiceNCBtn
-            // 
-            this.ServiceNCBtn.BackgroundImage = global::Enchante.Properties.Resources.Nail_Tech_Career;
-            this.ServiceNCBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ServiceNCBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ServiceNCBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(101)))), ((int)(((byte)(42)))));
-            this.ServiceNCBtn.FlatAppearance.BorderSize = 2;
-            this.ServiceNCBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ServiceNCBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.ServiceNCBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ServiceNCBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.ServiceNCBtn.IconColor = System.Drawing.Color.Black;
-            this.ServiceNCBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ServiceNCBtn.Location = new System.Drawing.Point(603, 250);
-            this.ServiceNCBtn.Name = "ServiceNCBtn";
-            this.ServiceNCBtn.Size = new System.Drawing.Size(250, 250);
-            this.ServiceNCBtn.TabIndex = 13;
-            this.ServiceNCBtn.Text = "NAIL CARE";
-            this.ServiceNCBtn.UseVisualStyleBackColor = true;
-            this.ServiceNCBtn.Click += new System.EventHandler(this.ServiceNCBtn_Click);
-            // 
-            // ServiceSpaBtn
-            // 
-            this.ServiceSpaBtn.BackgroundImage = global::Enchante.Properties.Resources.download__1_;
-            this.ServiceSpaBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ServiceSpaBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ServiceSpaBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(101)))), ((int)(((byte)(42)))));
-            this.ServiceSpaBtn.FlatAppearance.BorderSize = 2;
-            this.ServiceSpaBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ServiceSpaBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.ServiceSpaBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ServiceSpaBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.ServiceSpaBtn.IconColor = System.Drawing.Color.Black;
-            this.ServiceSpaBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ServiceSpaBtn.Location = new System.Drawing.Point(875, 250);
-            this.ServiceSpaBtn.Name = "ServiceSpaBtn";
-            this.ServiceSpaBtn.Size = new System.Drawing.Size(250, 250);
-            this.ServiceSpaBtn.TabIndex = 14;
-            this.ServiceSpaBtn.Text = "SPA";
-            this.ServiceSpaBtn.UseVisualStyleBackColor = true;
-            this.ServiceSpaBtn.Click += new System.EventHandler(this.ServiceSpaBtn_Click);
-            // 
-            // ServiceMBtn
-            // 
-            this.ServiceMBtn.BackgroundImage = global::Enchante.Properties.Resources.guia_para_personalizar_tu_masaje;
-            this.ServiceMBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ServiceMBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ServiceMBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(101)))), ((int)(((byte)(42)))));
-            this.ServiceMBtn.FlatAppearance.BorderSize = 2;
-            this.ServiceMBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ServiceMBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.ServiceMBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ServiceMBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.ServiceMBtn.IconColor = System.Drawing.Color.Black;
-            this.ServiceMBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ServiceMBtn.Location = new System.Drawing.Point(1151, 250);
-            this.ServiceMBtn.Name = "ServiceMBtn";
-            this.ServiceMBtn.Size = new System.Drawing.Size(250, 250);
-            this.ServiceMBtn.TabIndex = 15;
-            this.ServiceMBtn.Text = "MASSAGE";
-            this.ServiceMBtn.UseVisualStyleBackColor = true;
-            this.ServiceMBtn.Click += new System.EventHandler(this.ServiceMBtn_Click);
-            // 
-            // PremPayPPaymentBtn
-            // 
-            this.PremPayPPaymentBtn.AutoSize = true;
-            this.PremPayPPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PremPayPPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PremPayPPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.PremPayPPaymentBtn.FlatAppearance.BorderSize = 3;
-            this.PremPayPPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremPayPPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremPayPPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.PremPayPPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.PremPayPPaymentBtn.IconColor = System.Drawing.Color.Black;
-            this.PremPayPPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremPayPPaymentBtn.Location = new System.Drawing.Point(0, 0);
-            this.PremPayPPaymentBtn.Name = "PremPayPPaymentBtn";
-            this.PremPayPPaymentBtn.Size = new System.Drawing.Size(223, 50);
-            this.PremPayPPaymentBtn.TabIndex = 106;
-            this.PremPayPPaymentBtn.Text = "Paypal";
-            this.PremPayPPaymentBtn.UseVisualStyleBackColor = true;
-            this.PremPayPPaymentBtn.Click += new System.EventHandler(this.PremPayPPaymentBtn_Click);
-            // 
-            // PremPayMPaymentBtn
-            // 
-            this.PremPayMPaymentBtn.AutoSize = true;
-            this.PremPayMPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PremPayMPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PremPayMPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.PremPayMPaymentBtn.FlatAppearance.BorderSize = 3;
-            this.PremPayMPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremPayMPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremPayMPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.PremPayMPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.PremPayMPaymentBtn.IconColor = System.Drawing.Color.Black;
-            this.PremPayMPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremPayMPaymentBtn.Location = new System.Drawing.Point(0, 0);
-            this.PremPayMPaymentBtn.Name = "PremPayMPaymentBtn";
-            this.PremPayMPaymentBtn.Size = new System.Drawing.Size(223, 50);
-            this.PremPayMPaymentBtn.TabIndex = 106;
-            this.PremPayMPaymentBtn.Text = "Paymaya";
-            this.PremPayMPaymentBtn.UseVisualStyleBackColor = true;
-            this.PremPayMPaymentBtn.Click += new System.EventHandler(this.PremPayMPaymentBtn_Click);
-            // 
-            // PremGCPaymentBtn
-            // 
-            this.PremGCPaymentBtn.AutoSize = true;
-            this.PremGCPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PremGCPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PremGCPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.PremGCPaymentBtn.FlatAppearance.BorderSize = 3;
-            this.PremGCPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremGCPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremGCPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.PremGCPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.PremGCPaymentBtn.IconColor = System.Drawing.Color.Black;
-            this.PremGCPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremGCPaymentBtn.Location = new System.Drawing.Point(0, 0);
-            this.PremGCPaymentBtn.Name = "PremGCPaymentBtn";
-            this.PremGCPaymentBtn.Size = new System.Drawing.Size(223, 50);
-            this.PremGCPaymentBtn.TabIndex = 106;
-            this.PremGCPaymentBtn.Text = "Gcash";
-            this.PremGCPaymentBtn.UseVisualStyleBackColor = true;
-            this.PremGCPaymentBtn.Click += new System.EventHandler(this.PremGCPaymentBtn_Click);
-            // 
-            // PremCCPaymentBtn
-            // 
-            this.PremCCPaymentBtn.AutoSize = true;
-            this.PremCCPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PremCCPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PremCCPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.PremCCPaymentBtn.FlatAppearance.BorderSize = 3;
-            this.PremCCPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremCCPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremCCPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.PremCCPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.PremCCPaymentBtn.IconColor = System.Drawing.Color.Black;
-            this.PremCCPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremCCPaymentBtn.Location = new System.Drawing.Point(0, 0);
-            this.PremCCPaymentBtn.Name = "PremCCPaymentBtn";
-            this.PremCCPaymentBtn.Size = new System.Drawing.Size(223, 50);
-            this.PremCCPaymentBtn.TabIndex = 106;
-            this.PremCCPaymentBtn.Text = "Credit Card";
-            this.PremCCPaymentBtn.UseVisualStyleBackColor = true;
-            this.PremCCPaymentBtn.Click += new System.EventHandler(this.PremCCPaymentBtn_Click);
-            // 
-            // PremBiyearlyPlanBtn
-            // 
-            this.PremBiyearlyPlanBtn.AutoSize = true;
-            this.PremBiyearlyPlanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PremBiyearlyPlanBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PremBiyearlyPlanBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremBiyearlyPlanBtn.FlatAppearance.BorderSize = 3;
-            this.PremBiyearlyPlanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremBiyearlyPlanBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremBiyearlyPlanBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.PremBiyearlyPlanBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.PremBiyearlyPlanBtn.IconColor = System.Drawing.Color.Black;
-            this.PremBiyearlyPlanBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremBiyearlyPlanBtn.Location = new System.Drawing.Point(0, 0);
-            this.PremBiyearlyPlanBtn.Name = "PremBiyearlyPlanBtn";
-            this.PremBiyearlyPlanBtn.Size = new System.Drawing.Size(250, 250);
-            this.PremBiyearlyPlanBtn.TabIndex = 86;
-            this.PremBiyearlyPlanBtn.Text = "Php.\r\n999.00";
-            this.PremBiyearlyPlanBtn.UseVisualStyleBackColor = true;
-            this.PremBiyearlyPlanBtn.Click += new System.EventHandler(this.PremBiyearlyPlanBtn_Click);
-            // 
-            // PremYearlyPlanBtn
-            // 
-            this.PremYearlyPlanBtn.AutoSize = true;
-            this.PremYearlyPlanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PremYearlyPlanBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PremYearlyPlanBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremYearlyPlanBtn.FlatAppearance.BorderSize = 3;
-            this.PremYearlyPlanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremYearlyPlanBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremYearlyPlanBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.PremYearlyPlanBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.PremYearlyPlanBtn.IconColor = System.Drawing.Color.Black;
-            this.PremYearlyPlanBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremYearlyPlanBtn.Location = new System.Drawing.Point(0, 0);
-            this.PremYearlyPlanBtn.Name = "PremYearlyPlanBtn";
-            this.PremYearlyPlanBtn.Size = new System.Drawing.Size(250, 250);
-            this.PremYearlyPlanBtn.TabIndex = 81;
-            this.PremYearlyPlanBtn.Text = "Php.\r\n1299.00";
-            this.PremYearlyPlanBtn.UseVisualStyleBackColor = true;
-            this.PremYearlyPlanBtn.Click += new System.EventHandler(this.PremYearlyPlanBtn_Click);
-            // 
-            // PremMonthlyPlanBtn
-            // 
-            this.PremMonthlyPlanBtn.AutoSize = true;
-            this.PremMonthlyPlanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PremMonthlyPlanBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PremMonthlyPlanBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremMonthlyPlanBtn.FlatAppearance.BorderSize = 3;
-            this.PremMonthlyPlanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremMonthlyPlanBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremMonthlyPlanBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.PremMonthlyPlanBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.PremMonthlyPlanBtn.IconColor = System.Drawing.Color.Black;
-            this.PremMonthlyPlanBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremMonthlyPlanBtn.Location = new System.Drawing.Point(0, 0);
-            this.PremMonthlyPlanBtn.Name = "PremMonthlyPlanBtn";
-            this.PremMonthlyPlanBtn.Size = new System.Drawing.Size(250, 250);
-            this.PremMonthlyPlanBtn.TabIndex = 77;
-            this.PremMonthlyPlanBtn.Text = "Php.\r\n1499.00";
-            this.PremMonthlyPlanBtn.UseVisualStyleBackColor = true;
-            this.PremMonthlyPlanBtn.Click += new System.EventHandler(this.PremMonthlyPlanBtn_Click);
-            // 
-            // PremShowHideConfirmPassBtn
-            // 
-            this.PremShowHideConfirmPassBtn.AutoSize = true;
-            this.PremShowHideConfirmPassBtn.BackColor = System.Drawing.Color.Transparent;
-            this.PremShowHideConfirmPassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PremShowHideConfirmPassBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PremShowHideConfirmPassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremShowHideConfirmPassBtn.FlatAppearance.BorderSize = 0;
-            this.PremShowHideConfirmPassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremShowHideConfirmPassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremShowHideConfirmPassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremShowHideConfirmPassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.PremShowHideConfirmPassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremShowHideConfirmPassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremShowHideConfirmPassBtn.IconSize = 30;
-            this.PremShowHideConfirmPassBtn.Location = new System.Drawing.Point(512, 0);
-            this.PremShowHideConfirmPassBtn.Name = "PremShowHideConfirmPassBtn";
-            this.PremShowHideConfirmPassBtn.Size = new System.Drawing.Size(36, 37);
-            this.PremShowHideConfirmPassBtn.TabIndex = 31;
-            this.PremShowHideConfirmPassBtn.UseVisualStyleBackColor = false;
-            this.PremShowHideConfirmPassBtn.Click += new System.EventHandler(this.PremShowHideConfirmPassBtn_Click);
-            this.PremShowHideConfirmPassBtn.MouseHover += new System.EventHandler(this.PremShowHideConfirmPassBtn_MouseHover);
-            // 
-            // PremShowHidePassBtn
-            // 
-            this.PremShowHidePassBtn.AutoSize = true;
-            this.PremShowHidePassBtn.BackColor = System.Drawing.Color.Transparent;
-            this.PremShowHidePassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PremShowHidePassBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PremShowHidePassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremShowHidePassBtn.FlatAppearance.BorderSize = 0;
-            this.PremShowHidePassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremShowHidePassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremShowHidePassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.PremShowHidePassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremShowHidePassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremShowHidePassBtn.IconSize = 30;
-            this.PremShowHidePassBtn.Location = new System.Drawing.Point(512, 0);
-            this.PremShowHidePassBtn.Name = "PremShowHidePassBtn";
-            this.PremShowHidePassBtn.Size = new System.Drawing.Size(36, 37);
-            this.PremShowHidePassBtn.TabIndex = 31;
-            this.PremShowHidePassBtn.UseVisualStyleBackColor = false;
-            this.PremShowHidePassBtn.Click += new System.EventHandler(this.PremShowHidePassBtn_Click);
-            this.PremShowHidePassBtn.MouseHover += new System.EventHandler(this.PremShowHidePassBtn_MouseHover);
-            // 
-            // PremMemberIDCopyBtn
-            // 
-            this.PremMemberIDCopyBtn.AutoSize = true;
-            this.PremMemberIDCopyBtn.BackColor = System.Drawing.Color.Transparent;
-            this.PremMemberIDCopyBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PremMemberIDCopyBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremMemberIDCopyBtn.FlatAppearance.BorderSize = 0;
-            this.PremMemberIDCopyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremMemberIDCopyBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremMemberIDCopyBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremMemberIDCopyBtn.IconChar = FontAwesome.Sharp.IconChar.Copy;
-            this.PremMemberIDCopyBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremMemberIDCopyBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremMemberIDCopyBtn.IconSize = 30;
-            this.PremMemberIDCopyBtn.Location = new System.Drawing.Point(633, 758);
-            this.PremMemberIDCopyBtn.Name = "PremMemberIDCopyBtn";
-            this.PremMemberIDCopyBtn.Size = new System.Drawing.Size(36, 36);
-            this.PremMemberIDCopyBtn.TabIndex = 120;
-            this.PremMemberIDCopyBtn.UseVisualStyleBackColor = false;
-            this.PremMemberIDCopyBtn.Click += new System.EventHandler(this.PremMemberIDCopyBtn_Click);
-            // 
-            // PremPassReqBtn
-            // 
-            this.PremPassReqBtn.AutoSize = true;
-            this.PremPassReqBtn.BackColor = System.Drawing.Color.Transparent;
-            this.PremPassReqBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremPassReqBtn.FlatAppearance.BorderSize = 0;
-            this.PremPassReqBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremPassReqBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremPassReqBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremPassReqBtn.IconChar = FontAwesome.Sharp.IconChar.Question;
-            this.PremPassReqBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremPassReqBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremPassReqBtn.IconSize = 20;
-            this.PremPassReqBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PremPassReqBtn.Location = new System.Drawing.Point(836, 679);
-            this.PremPassReqBtn.Name = "PremPassReqBtn";
-            this.PremPassReqBtn.Size = new System.Drawing.Size(26, 26);
-            this.PremPassReqBtn.TabIndex = 76;
-            this.PremPassReqBtn.UseVisualStyleBackColor = false;
-            this.PremPassReqBtn.MouseHover += new System.EventHandler(this.PremPassReqBtn_MouseHover);
-            // 
-            // PremCreateAccBtn
-            // 
-            this.PremCreateAccBtn.AutoSize = true;
-            this.PremCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PremCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PremCreateAccBtn.FlatAppearance.BorderSize = 3;
-            this.PremCreateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremCreateAccBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PremCreateAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.PremCreateAccBtn.IconColor = System.Drawing.Color.Black;
-            this.PremCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremCreateAccBtn.Location = new System.Drawing.Point(542, 1693);
-            this.PremCreateAccBtn.Name = "PremCreateAccBtn";
-            this.PremCreateAccBtn.Size = new System.Drawing.Size(268, 60);
-            this.PremCreateAccBtn.TabIndex = 73;
-            this.PremCreateAccBtn.Text = "CREATE ACCOUNT NOW";
-            this.PremCreateAccBtn.UseVisualStyleBackColor = true;
-            this.PremCreateAccBtn.Click += new System.EventHandler(this.PremCreateAccBtn_Click);
-            // 
-            // PremiumExitBtn
-            // 
-            this.PremiumExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.PremiumExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PremiumExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.PremiumExitBtn.FlatAppearance.BorderSize = 0;
-            this.PremiumExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PremiumExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.PremiumExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PremiumExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PremiumExitBtn.Location = new System.Drawing.Point(1289, 16);
-            this.PremiumExitBtn.Name = "PremiumExitBtn";
-            this.PremiumExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.PremiumExitBtn.TabIndex = 43;
-            this.PremiumExitBtn.UseVisualStyleBackColor = false;
-            this.PremiumExitBtn.Click += new System.EventHandler(this.PremiumExitBtn_Click);
-            // 
-            // SVIPPayPPaymentBtn
-            // 
-            this.SVIPPayPPaymentBtn.AutoSize = true;
-            this.SVIPPayPPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SVIPPayPPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SVIPPayPPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.SVIPPayPPaymentBtn.FlatAppearance.BorderSize = 3;
-            this.SVIPPayPPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SVIPPayPPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SVIPPayPPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.SVIPPayPPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.SVIPPayPPaymentBtn.IconColor = System.Drawing.Color.Black;
-            this.SVIPPayPPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SVIPPayPPaymentBtn.Location = new System.Drawing.Point(0, 0);
-            this.SVIPPayPPaymentBtn.Name = "SVIPPayPPaymentBtn";
-            this.SVIPPayPPaymentBtn.Size = new System.Drawing.Size(223, 50);
-            this.SVIPPayPPaymentBtn.TabIndex = 106;
-            this.SVIPPayPPaymentBtn.Text = "Paypal";
-            this.SVIPPayPPaymentBtn.UseVisualStyleBackColor = true;
-            this.SVIPPayPPaymentBtn.Click += new System.EventHandler(this.SVIPPayPPaymentBtn_Click);
-            // 
-            // SVIPPayMPaymentBtn
-            // 
-            this.SVIPPayMPaymentBtn.AutoSize = true;
-            this.SVIPPayMPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SVIPPayMPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SVIPPayMPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.SVIPPayMPaymentBtn.FlatAppearance.BorderSize = 3;
-            this.SVIPPayMPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SVIPPayMPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SVIPPayMPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.SVIPPayMPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.SVIPPayMPaymentBtn.IconColor = System.Drawing.Color.Black;
-            this.SVIPPayMPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SVIPPayMPaymentBtn.Location = new System.Drawing.Point(0, 0);
-            this.SVIPPayMPaymentBtn.Name = "SVIPPayMPaymentBtn";
-            this.SVIPPayMPaymentBtn.Size = new System.Drawing.Size(223, 50);
-            this.SVIPPayMPaymentBtn.TabIndex = 106;
-            this.SVIPPayMPaymentBtn.Text = "Paymaya";
-            this.SVIPPayMPaymentBtn.UseVisualStyleBackColor = true;
-            this.SVIPPayMPaymentBtn.Click += new System.EventHandler(this.SVIPPayMPaymentBtn_Click);
-            // 
-            // SVIPGCPaymentBtn
-            // 
-            this.SVIPGCPaymentBtn.AutoSize = true;
-            this.SVIPGCPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SVIPGCPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SVIPGCPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.SVIPGCPaymentBtn.FlatAppearance.BorderSize = 3;
-            this.SVIPGCPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SVIPGCPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SVIPGCPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.SVIPGCPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.SVIPGCPaymentBtn.IconColor = System.Drawing.Color.Black;
-            this.SVIPGCPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SVIPGCPaymentBtn.Location = new System.Drawing.Point(0, 0);
-            this.SVIPGCPaymentBtn.Name = "SVIPGCPaymentBtn";
-            this.SVIPGCPaymentBtn.Size = new System.Drawing.Size(223, 50);
-            this.SVIPGCPaymentBtn.TabIndex = 106;
-            this.SVIPGCPaymentBtn.Text = "Gcash";
-            this.SVIPGCPaymentBtn.UseVisualStyleBackColor = true;
-            this.SVIPGCPaymentBtn.Click += new System.EventHandler(this.SVIPGCPaymentBtn_Click);
-            // 
-            // SVIPCCPaymentBtn
-            // 
-            this.SVIPCCPaymentBtn.AutoSize = true;
-            this.SVIPCCPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SVIPCCPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SVIPCCPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.SVIPCCPaymentBtn.FlatAppearance.BorderSize = 3;
-            this.SVIPCCPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SVIPCCPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SVIPCCPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.SVIPCCPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.SVIPCCPaymentBtn.IconColor = System.Drawing.Color.Black;
-            this.SVIPCCPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SVIPCCPaymentBtn.Location = new System.Drawing.Point(0, 0);
-            this.SVIPCCPaymentBtn.Name = "SVIPCCPaymentBtn";
-            this.SVIPCCPaymentBtn.Size = new System.Drawing.Size(223, 50);
-            this.SVIPCCPaymentBtn.TabIndex = 106;
-            this.SVIPCCPaymentBtn.Text = "Credit Card";
-            this.SVIPCCPaymentBtn.UseVisualStyleBackColor = true;
-            this.SVIPCCPaymentBtn.Click += new System.EventHandler(this.SVIPCCPaymentBtn_Click);
-            // 
-            // SVIPBiyearlyPlanBtn
-            // 
-            this.SVIPBiyearlyPlanBtn.AutoSize = true;
-            this.SVIPBiyearlyPlanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SVIPBiyearlyPlanBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SVIPBiyearlyPlanBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SVIPBiyearlyPlanBtn.FlatAppearance.BorderSize = 3;
-            this.SVIPBiyearlyPlanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SVIPBiyearlyPlanBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SVIPBiyearlyPlanBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.SVIPBiyearlyPlanBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.SVIPBiyearlyPlanBtn.IconColor = System.Drawing.Color.Black;
-            this.SVIPBiyearlyPlanBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SVIPBiyearlyPlanBtn.Location = new System.Drawing.Point(0, 0);
-            this.SVIPBiyearlyPlanBtn.Name = "SVIPBiyearlyPlanBtn";
-            this.SVIPBiyearlyPlanBtn.Size = new System.Drawing.Size(250, 250);
-            this.SVIPBiyearlyPlanBtn.TabIndex = 86;
-            this.SVIPBiyearlyPlanBtn.Text = "Php.\r\n2999.00";
-            this.SVIPBiyearlyPlanBtn.UseVisualStyleBackColor = true;
-            this.SVIPBiyearlyPlanBtn.Click += new System.EventHandler(this.SVIPBiyearlyPlanBtn_Click);
-            // 
-            // SVIPYearlyPlanBtn
-            // 
-            this.SVIPYearlyPlanBtn.AutoSize = true;
-            this.SVIPYearlyPlanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SVIPYearlyPlanBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SVIPYearlyPlanBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SVIPYearlyPlanBtn.FlatAppearance.BorderSize = 3;
-            this.SVIPYearlyPlanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SVIPYearlyPlanBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SVIPYearlyPlanBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.SVIPYearlyPlanBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.SVIPYearlyPlanBtn.IconColor = System.Drawing.Color.Black;
-            this.SVIPYearlyPlanBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SVIPYearlyPlanBtn.Location = new System.Drawing.Point(0, 0);
-            this.SVIPYearlyPlanBtn.Name = "SVIPYearlyPlanBtn";
-            this.SVIPYearlyPlanBtn.Size = new System.Drawing.Size(250, 250);
-            this.SVIPYearlyPlanBtn.TabIndex = 81;
-            this.SVIPYearlyPlanBtn.Text = "Php.\r\n3499.00";
-            this.SVIPYearlyPlanBtn.UseVisualStyleBackColor = true;
-            this.SVIPYearlyPlanBtn.Click += new System.EventHandler(this.SVIPYearlyPlanBtn_Click);
-            // 
-            // SVIPMonthlyPlanBtn
-            // 
-            this.SVIPMonthlyPlanBtn.AutoSize = true;
-            this.SVIPMonthlyPlanBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SVIPMonthlyPlanBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SVIPMonthlyPlanBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SVIPMonthlyPlanBtn.FlatAppearance.BorderSize = 3;
-            this.SVIPMonthlyPlanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SVIPMonthlyPlanBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SVIPMonthlyPlanBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.SVIPMonthlyPlanBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.SVIPMonthlyPlanBtn.IconColor = System.Drawing.Color.Black;
-            this.SVIPMonthlyPlanBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SVIPMonthlyPlanBtn.Location = new System.Drawing.Point(0, 0);
-            this.SVIPMonthlyPlanBtn.Name = "SVIPMonthlyPlanBtn";
-            this.SVIPMonthlyPlanBtn.Size = new System.Drawing.Size(250, 250);
-            this.SVIPMonthlyPlanBtn.TabIndex = 77;
-            this.SVIPMonthlyPlanBtn.Text = "Php.\r\n4999.00";
-            this.SVIPMonthlyPlanBtn.UseVisualStyleBackColor = true;
-            this.SVIPMonthlyPlanBtn.Click += new System.EventHandler(this.SVIPMonthlyPlanBtn_Click);
-            // 
-            // SVIPShowHideConfirmPassBtn
-            // 
-            this.SVIPShowHideConfirmPassBtn.AutoSize = true;
-            this.SVIPShowHideConfirmPassBtn.BackColor = System.Drawing.Color.Transparent;
-            this.SVIPShowHideConfirmPassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SVIPShowHideConfirmPassBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.SVIPShowHideConfirmPassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SVIPShowHideConfirmPassBtn.FlatAppearance.BorderSize = 0;
-            this.SVIPShowHideConfirmPassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SVIPShowHideConfirmPassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SVIPShowHideConfirmPassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SVIPShowHideConfirmPassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.SVIPShowHideConfirmPassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.SVIPShowHideConfirmPassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SVIPShowHideConfirmPassBtn.IconSize = 30;
-            this.SVIPShowHideConfirmPassBtn.Location = new System.Drawing.Point(512, 0);
-            this.SVIPShowHideConfirmPassBtn.Name = "SVIPShowHideConfirmPassBtn";
-            this.SVIPShowHideConfirmPassBtn.Size = new System.Drawing.Size(36, 37);
-            this.SVIPShowHideConfirmPassBtn.TabIndex = 31;
-            this.SVIPShowHideConfirmPassBtn.UseVisualStyleBackColor = false;
-            this.SVIPShowHideConfirmPassBtn.Click += new System.EventHandler(this.SVIPShowHideConfirmPassBtn_Click);
-            // 
-            // SVIPShowHidePassBtn
-            // 
-            this.SVIPShowHidePassBtn.AutoSize = true;
-            this.SVIPShowHidePassBtn.BackColor = System.Drawing.Color.Transparent;
-            this.SVIPShowHidePassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SVIPShowHidePassBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.SVIPShowHidePassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SVIPShowHidePassBtn.FlatAppearance.BorderSize = 0;
-            this.SVIPShowHidePassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SVIPShowHidePassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SVIPShowHidePassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SVIPShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.SVIPShowHidePassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.SVIPShowHidePassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SVIPShowHidePassBtn.IconSize = 30;
-            this.SVIPShowHidePassBtn.Location = new System.Drawing.Point(512, 0);
-            this.SVIPShowHidePassBtn.Name = "SVIPShowHidePassBtn";
-            this.SVIPShowHidePassBtn.Size = new System.Drawing.Size(36, 37);
-            this.SVIPShowHidePassBtn.TabIndex = 31;
-            this.SVIPShowHidePassBtn.UseVisualStyleBackColor = false;
-            this.SVIPShowHidePassBtn.Click += new System.EventHandler(this.SVIPShowHidePassBtn_Click);
-            // 
-            // SVIPMemberIDCopyBtn
-            // 
-            this.SVIPMemberIDCopyBtn.AutoSize = true;
-            this.SVIPMemberIDCopyBtn.BackColor = System.Drawing.Color.Transparent;
-            this.SVIPMemberIDCopyBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SVIPMemberIDCopyBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SVIPMemberIDCopyBtn.FlatAppearance.BorderSize = 0;
-            this.SVIPMemberIDCopyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SVIPMemberIDCopyBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SVIPMemberIDCopyBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SVIPMemberIDCopyBtn.IconChar = FontAwesome.Sharp.IconChar.Copy;
-            this.SVIPMemberIDCopyBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.SVIPMemberIDCopyBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SVIPMemberIDCopyBtn.IconSize = 30;
-            this.SVIPMemberIDCopyBtn.Location = new System.Drawing.Point(633, 758);
-            this.SVIPMemberIDCopyBtn.Name = "SVIPMemberIDCopyBtn";
-            this.SVIPMemberIDCopyBtn.Size = new System.Drawing.Size(36, 36);
-            this.SVIPMemberIDCopyBtn.TabIndex = 120;
-            this.SVIPMemberIDCopyBtn.UseVisualStyleBackColor = false;
-            this.SVIPMemberIDCopyBtn.Click += new System.EventHandler(this.SVIPMemberCopyBtn_Click);
-            // 
-            // SVIPPassReqBtn
-            // 
-            this.SVIPPassReqBtn.AutoSize = true;
-            this.SVIPPassReqBtn.BackColor = System.Drawing.Color.Transparent;
-            this.SVIPPassReqBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SVIPPassReqBtn.FlatAppearance.BorderSize = 0;
-            this.SVIPPassReqBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SVIPPassReqBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SVIPPassReqBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SVIPPassReqBtn.IconChar = FontAwesome.Sharp.IconChar.Question;
-            this.SVIPPassReqBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.SVIPPassReqBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SVIPPassReqBtn.IconSize = 20;
-            this.SVIPPassReqBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SVIPPassReqBtn.Location = new System.Drawing.Point(836, 679);
-            this.SVIPPassReqBtn.Name = "SVIPPassReqBtn";
-            this.SVIPPassReqBtn.Size = new System.Drawing.Size(26, 26);
-            this.SVIPPassReqBtn.TabIndex = 76;
-            this.SVIPPassReqBtn.UseVisualStyleBackColor = false;
-            this.SVIPPassReqBtn.MouseHover += new System.EventHandler(this.SVIPPassReqBtn_MouseHover);
-            // 
-            // SVIPCreateAccBtn
-            // 
-            this.SVIPCreateAccBtn.AutoSize = true;
-            this.SVIPCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SVIPCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SVIPCreateAccBtn.FlatAppearance.BorderSize = 3;
-            this.SVIPCreateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SVIPCreateAccBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SVIPCreateAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.SVIPCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.SVIPCreateAccBtn.IconColor = System.Drawing.Color.Black;
-            this.SVIPCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SVIPCreateAccBtn.Location = new System.Drawing.Point(542, 1693);
-            this.SVIPCreateAccBtn.Name = "SVIPCreateAccBtn";
-            this.SVIPCreateAccBtn.Size = new System.Drawing.Size(268, 60);
-            this.SVIPCreateAccBtn.TabIndex = 73;
-            this.SVIPCreateAccBtn.Text = "CREATE ACCOUNT NOW";
-            this.SVIPCreateAccBtn.UseVisualStyleBackColor = true;
-            this.SVIPCreateAccBtn.Click += new System.EventHandler(this.SVIPCreateAccBtn_Click);
-            // 
-            // SVIPExitBtn
-            // 
-            this.SVIPExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.SVIPExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SVIPExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.SVIPExitBtn.FlatAppearance.BorderSize = 0;
-            this.SVIPExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SVIPExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.SVIPExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.SVIPExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SVIPExitBtn.Location = new System.Drawing.Point(1289, 16);
-            this.SVIPExitBtn.Name = "SVIPExitBtn";
-            this.SVIPExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.SVIPExitBtn.TabIndex = 43;
-            this.SVIPExitBtn.UseVisualStyleBackColor = false;
-            this.SVIPExitBtn.Click += new System.EventHandler(this.SVIPExitBtn_Click);
-            // 
-            // RegularConfirmShowHidePassBtn
-            // 
-            this.RegularConfirmShowHidePassBtn.AutoSize = true;
-            this.RegularConfirmShowHidePassBtn.BackColor = System.Drawing.Color.Transparent;
-            this.RegularConfirmShowHidePassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RegularConfirmShowHidePassBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.RegularConfirmShowHidePassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RegularConfirmShowHidePassBtn.FlatAppearance.BorderSize = 0;
-            this.RegularConfirmShowHidePassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RegularConfirmShowHidePassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RegularConfirmShowHidePassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RegularConfirmShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.RegularConfirmShowHidePassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RegularConfirmShowHidePassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RegularConfirmShowHidePassBtn.IconSize = 30;
-            this.RegularConfirmShowHidePassBtn.Location = new System.Drawing.Point(529, 0);
-            this.RegularConfirmShowHidePassBtn.Name = "RegularConfirmShowHidePassBtn";
-            this.RegularConfirmShowHidePassBtn.Size = new System.Drawing.Size(36, 37);
-            this.RegularConfirmShowHidePassBtn.TabIndex = 31;
-            this.RegularConfirmShowHidePassBtn.UseVisualStyleBackColor = false;
-            this.RegularConfirmShowHidePassBtn.Click += new System.EventHandler(this.RegularConfirmShowHidePassBtn_Click);
-            // 
-            // RegularShowHidePassBtn
-            // 
-            this.RegularShowHidePassBtn.AutoSize = true;
-            this.RegularShowHidePassBtn.BackColor = System.Drawing.Color.Transparent;
-            this.RegularShowHidePassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RegularShowHidePassBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.RegularShowHidePassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RegularShowHidePassBtn.FlatAppearance.BorderSize = 0;
-            this.RegularShowHidePassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RegularShowHidePassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RegularShowHidePassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RegularShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.RegularShowHidePassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RegularShowHidePassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RegularShowHidePassBtn.IconSize = 30;
-            this.RegularShowHidePassBtn.Location = new System.Drawing.Point(529, 0);
-            this.RegularShowHidePassBtn.Name = "RegularShowHidePassBtn";
-            this.RegularShowHidePassBtn.Size = new System.Drawing.Size(36, 37);
-            this.RegularShowHidePassBtn.TabIndex = 31;
-            this.RegularShowHidePassBtn.UseVisualStyleBackColor = false;
-            this.RegularShowHidePassBtn.Click += new System.EventHandler(this.RegularShowHidePassBtn_Click);
-            // 
-            // RegularMemberIDCopyBtn
-            // 
-            this.RegularMemberIDCopyBtn.AutoSize = true;
-            this.RegularMemberIDCopyBtn.BackColor = System.Drawing.Color.Transparent;
-            this.RegularMemberIDCopyBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RegularMemberIDCopyBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RegularMemberIDCopyBtn.FlatAppearance.BorderSize = 0;
-            this.RegularMemberIDCopyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RegularMemberIDCopyBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RegularMemberIDCopyBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RegularMemberIDCopyBtn.IconChar = FontAwesome.Sharp.IconChar.Copy;
-            this.RegularMemberIDCopyBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RegularMemberIDCopyBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RegularMemberIDCopyBtn.IconSize = 30;
-            this.RegularMemberIDCopyBtn.Location = new System.Drawing.Point(633, 609);
-            this.RegularMemberIDCopyBtn.Name = "RegularMemberIDCopyBtn";
-            this.RegularMemberIDCopyBtn.Size = new System.Drawing.Size(36, 36);
-            this.RegularMemberIDCopyBtn.TabIndex = 121;
-            this.RegularMemberIDCopyBtn.UseVisualStyleBackColor = false;
-            this.RegularMemberIDCopyBtn.Click += new System.EventHandler(this.RegularMemberIDCopyBtn_Click);
-            // 
-            // RegularPassReqBtn
-            // 
-            this.RegularPassReqBtn.AutoSize = true;
-            this.RegularPassReqBtn.BackColor = System.Drawing.Color.Transparent;
-            this.RegularPassReqBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RegularPassReqBtn.FlatAppearance.BorderSize = 0;
-            this.RegularPassReqBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RegularPassReqBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RegularPassReqBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RegularPassReqBtn.IconChar = FontAwesome.Sharp.IconChar.Question;
-            this.RegularPassReqBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RegularPassReqBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RegularPassReqBtn.IconSize = 20;
-            this.RegularPassReqBtn.Location = new System.Drawing.Point(837, 523);
-            this.RegularPassReqBtn.Name = "RegularPassReqBtn";
-            this.RegularPassReqBtn.Size = new System.Drawing.Size(36, 36);
-            this.RegularPassReqBtn.TabIndex = 76;
-            this.RegularPassReqBtn.UseVisualStyleBackColor = false;
-            this.RegularPassReqBtn.MouseHover += new System.EventHandler(this.RegularPassReqBtn_MouseHover);
-            // 
-            // RegularCreateAccBtn
-            // 
-            this.RegularCreateAccBtn.AutoSize = true;
-            this.RegularCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RegularCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RegularCreateAccBtn.FlatAppearance.BorderSize = 3;
-            this.RegularCreateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RegularCreateAccBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RegularCreateAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RegularCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.RegularCreateAccBtn.IconColor = System.Drawing.Color.Black;
-            this.RegularCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RegularCreateAccBtn.Location = new System.Drawing.Point(511, 713);
-            this.RegularCreateAccBtn.Name = "RegularCreateAccBtn";
-            this.RegularCreateAccBtn.Size = new System.Drawing.Size(346, 60);
-            this.RegularCreateAccBtn.TabIndex = 73;
-            this.RegularCreateAccBtn.Text = "CREATE ACCOUNT NOW";
-            this.RegularCreateAccBtn.UseVisualStyleBackColor = true;
-            this.RegularCreateAccBtn.Click += new System.EventHandler(this.RegularCreateAccBtn_Click);
-            // 
-            // RegularExitBtn
-            // 
-            this.RegularExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.RegularExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RegularExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.RegularExitBtn.FlatAppearance.BorderSize = 0;
-            this.RegularExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RegularExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.RegularExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RegularExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RegularExitBtn.Location = new System.Drawing.Point(1257, 28);
-            this.RegularExitBtn.Name = "RegularExitBtn";
-            this.RegularExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.RegularExitBtn.TabIndex = 43;
-            this.RegularExitBtn.UseVisualStyleBackColor = false;
-            this.RegularExitBtn.Click += new System.EventHandler(this.RegularExitBtn_Click);
-            // 
-            // SVIPMemberCreateAccBtn
-            // 
-            this.SVIPMemberCreateAccBtn.AutoSize = true;
-            this.SVIPMemberCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SVIPMemberCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SVIPMemberCreateAccBtn.FlatAppearance.BorderSize = 3;
-            this.SVIPMemberCreateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SVIPMemberCreateAccBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SVIPMemberCreateAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.SVIPMemberCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.SVIPMemberCreateAccBtn.IconColor = System.Drawing.Color.Black;
-            this.SVIPMemberCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SVIPMemberCreateAccBtn.Location = new System.Drawing.Point(54, 471);
-            this.SVIPMemberCreateAccBtn.Name = "SVIPMemberCreateAccBtn";
-            this.SVIPMemberCreateAccBtn.Size = new System.Drawing.Size(285, 60);
-            this.SVIPMemberCreateAccBtn.TabIndex = 8;
-            this.SVIPMemberCreateAccBtn.Text = "GET SUPER VIP PLAN NOW";
-            this.SVIPMemberCreateAccBtn.UseVisualStyleBackColor = true;
-            this.SVIPMemberCreateAccBtn.Click += new System.EventHandler(this.SVIPMemberCreateAccBtn_Click);
-            // 
-            // PMemberCreateAccBtn
-            // 
-            this.PMemberCreateAccBtn.AutoSize = true;
-            this.PMemberCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PMemberCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.PMemberCreateAccBtn.FlatAppearance.BorderSize = 3;
-            this.PMemberCreateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PMemberCreateAccBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PMemberCreateAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PMemberCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.PMemberCreateAccBtn.IconColor = System.Drawing.Color.Black;
-            this.PMemberCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.PMemberCreateAccBtn.Location = new System.Drawing.Point(55, 471);
-            this.PMemberCreateAccBtn.Name = "PMemberCreateAccBtn";
-            this.PMemberCreateAccBtn.Size = new System.Drawing.Size(285, 60);
-            this.PMemberCreateAccBtn.TabIndex = 8;
-            this.PMemberCreateAccBtn.Text = "GET PREMIUM PLAN NOW";
-            this.PMemberCreateAccBtn.UseVisualStyleBackColor = true;
-            this.PMemberCreateAccBtn.Click += new System.EventHandler(this.PMemberCreateAccBtn_Click);
-            // 
-            // RMemberCreateAccBtn
-            // 
-            this.RMemberCreateAccBtn.AutoSize = true;
-            this.RMemberCreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RMemberCreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RMemberCreateAccBtn.FlatAppearance.BorderSize = 3;
-            this.RMemberCreateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RMemberCreateAccBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RMemberCreateAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RMemberCreateAccBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.RMemberCreateAccBtn.IconColor = System.Drawing.Color.Black;
-            this.RMemberCreateAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RMemberCreateAccBtn.Location = new System.Drawing.Point(48, 471);
-            this.RMemberCreateAccBtn.Name = "RMemberCreateAccBtn";
-            this.RMemberCreateAccBtn.Size = new System.Drawing.Size(312, 60);
-            this.RMemberCreateAccBtn.TabIndex = 8;
-            this.RMemberCreateAccBtn.Text = "CREATE FREE ACCOUNT NOW";
-            this.RMemberCreateAccBtn.UseVisualStyleBackColor = true;
-            this.RMemberCreateAccBtn.Click += new System.EventHandler(this.RMemberCreateAccBtn_Click);
-            // 
-            // LoginPassReqBtn
-            // 
-            this.LoginPassReqBtn.AutoSize = true;
-            this.LoginPassReqBtn.BackColor = System.Drawing.Color.Transparent;
-            this.LoginPassReqBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.LoginPassReqBtn.FlatAppearance.BorderSize = 0;
-            this.LoginPassReqBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LoginPassReqBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.LoginPassReqBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.LoginPassReqBtn.IconChar = FontAwesome.Sharp.IconChar.Question;
-            this.LoginPassReqBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.LoginPassReqBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.LoginPassReqBtn.IconSize = 20;
-            this.LoginPassReqBtn.Location = new System.Drawing.Point(239, 313);
-            this.LoginPassReqBtn.Name = "LoginPassReqBtn";
-            this.LoginPassReqBtn.Size = new System.Drawing.Size(36, 36);
-            this.LoginPassReqBtn.TabIndex = 77;
-            this.LoginPassReqBtn.UseVisualStyleBackColor = false;
-            this.LoginPassReqBtn.MouseHover += new System.EventHandler(this.LoginPassReqBtn_MouseHover);
-            // 
-            // ShowHidePassBtn
-            // 
-            this.ShowHidePassBtn.AutoSize = true;
-            this.ShowHidePassBtn.BackColor = System.Drawing.Color.Transparent;
-            this.ShowHidePassBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ShowHidePassBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ShowHidePassBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.ShowHidePassBtn.FlatAppearance.BorderSize = 0;
-            this.ShowHidePassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ShowHidePassBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.ShowHidePassBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.ShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.ShowHidePassBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ShowHidePassBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ShowHidePassBtn.IconSize = 30;
-            this.ShowHidePassBtn.Location = new System.Drawing.Point(461, 0);
-            this.ShowHidePassBtn.Name = "ShowHidePassBtn";
-            this.ShowHidePassBtn.Size = new System.Drawing.Size(36, 49);
-            this.ShowHidePassBtn.TabIndex = 31;
-            this.ShowHidePassBtn.UseVisualStyleBackColor = false;
-            this.ShowHidePassBtn.Click += new System.EventHandler(this.ShowHidePassBtn_Click);
-            this.ShowHidePassBtn.MouseHover += new System.EventHandler(this.ShowHidePassBtn_MouseHover);
-            // 
-            // LoginBtn
-            // 
-            this.LoginBtn.AutoSize = true;
-            this.LoginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(98)))), ((int)(((byte)(60)))));
-            this.LoginBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LoginBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.LoginBtn.FlatAppearance.BorderSize = 3;
-            this.LoginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LoginBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.LoginBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.LoginBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.LoginBtn.IconColor = System.Drawing.Color.Black;
-            this.LoginBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.LoginBtn.Location = new System.Drawing.Point(212, 429);
-            this.LoginBtn.Name = "LoginBtn";
-            this.LoginBtn.Size = new System.Drawing.Size(200, 63);
-            this.LoginBtn.TabIndex = 30;
-            this.LoginBtn.Text = "LOGIN";
-            this.LoginBtn.UseVisualStyleBackColor = false;
-            this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
-            // 
-            // SM_GmailBtn
-            // 
-            this.SM_GmailBtn.AutoSize = true;
-            this.SM_GmailBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SM_GmailBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SM_GmailBtn.FlatAppearance.BorderSize = 3;
-            this.SM_GmailBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SM_GmailBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SM_GmailBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.SM_GmailBtn.IconChar = FontAwesome.Sharp.IconChar.Envelope;
-            this.SM_GmailBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SM_GmailBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SM_GmailBtn.Location = new System.Drawing.Point(548, 51);
-            this.SM_GmailBtn.Name = "SM_GmailBtn";
-            this.SM_GmailBtn.Size = new System.Drawing.Size(60, 60);
-            this.SM_GmailBtn.TabIndex = 12;
-            this.SM_GmailBtn.UseVisualStyleBackColor = true;
-            this.SM_GmailBtn.Click += new System.EventHandler(this.SM_GmailBtn_Click);
-            this.SM_GmailBtn.MouseHover += new System.EventHandler(this.SM_GmailBtn_MouseHover);
-            // 
-            // SM_IGBtn
-            // 
-            this.SM_IGBtn.AutoSize = true;
-            this.SM_IGBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SM_IGBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SM_IGBtn.FlatAppearance.BorderSize = 3;
-            this.SM_IGBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SM_IGBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SM_IGBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.SM_IGBtn.IconChar = FontAwesome.Sharp.IconChar.Instagram;
-            this.SM_IGBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SM_IGBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SM_IGBtn.Location = new System.Drawing.Point(482, 51);
-            this.SM_IGBtn.Name = "SM_IGBtn";
-            this.SM_IGBtn.Size = new System.Drawing.Size(60, 60);
-            this.SM_IGBtn.TabIndex = 11;
-            this.SM_IGBtn.UseVisualStyleBackColor = true;
-            this.SM_IGBtn.Click += new System.EventHandler(this.SM_IGBtn_Click);
-            this.SM_IGBtn.MouseHover += new System.EventHandler(this.SM_IGBtn_MouseHover);
-            // 
-            // SM_TwitterBtn
-            // 
-            this.SM_TwitterBtn.AutoSize = true;
-            this.SM_TwitterBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SM_TwitterBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SM_TwitterBtn.FlatAppearance.BorderSize = 3;
-            this.SM_TwitterBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SM_TwitterBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SM_TwitterBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.SM_TwitterBtn.IconChar = FontAwesome.Sharp.IconChar.Twitter;
-            this.SM_TwitterBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SM_TwitterBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SM_TwitterBtn.Location = new System.Drawing.Point(416, 51);
-            this.SM_TwitterBtn.Name = "SM_TwitterBtn";
-            this.SM_TwitterBtn.Size = new System.Drawing.Size(60, 60);
-            this.SM_TwitterBtn.TabIndex = 10;
-            this.SM_TwitterBtn.UseVisualStyleBackColor = true;
-            this.SM_TwitterBtn.Click += new System.EventHandler(this.SM_TwitterBtn_Click);
-            this.SM_TwitterBtn.MouseHover += new System.EventHandler(this.SM_TwitterBtn_MouseHover);
-            // 
-            // EnchanteFooterLogo
-            // 
-            this.EnchanteFooterLogo.Image = global::Enchante.Properties.Resources.Enchante_Logo_275x100;
-            this.EnchanteFooterLogo.Location = new System.Drawing.Point(58, 29);
-            this.EnchanteFooterLogo.Name = "EnchanteFooterLogo";
-            this.EnchanteFooterLogo.Size = new System.Drawing.Size(275, 100);
-            this.EnchanteFooterLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.EnchanteFooterLogo.TabIndex = 9;
-            this.EnchanteFooterLogo.TabStop = false;
-            // 
-            // SM_FBBtn
-            // 
-            this.SM_FBBtn.AutoSize = true;
-            this.SM_FBBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SM_FBBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SM_FBBtn.FlatAppearance.BorderSize = 3;
-            this.SM_FBBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SM_FBBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SM_FBBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.SM_FBBtn.IconChar = FontAwesome.Sharp.IconChar.Facebook;
-            this.SM_FBBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SM_FBBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SM_FBBtn.Location = new System.Drawing.Point(350, 51);
-            this.SM_FBBtn.Name = "SM_FBBtn";
-            this.SM_FBBtn.Size = new System.Drawing.Size(60, 60);
-            this.SM_FBBtn.TabIndex = 8;
-            this.SM_FBBtn.UseVisualStyleBackColor = true;
-            this.SM_FBBtn.Click += new System.EventHandler(this.SM_FBBtn_Click);
-            this.SM_FBBtn.MouseHover += new System.EventHandler(this.SM_FBBtn_MouseHover);
-            // 
-            // EnchanteAppointBtn
-            // 
-            this.EnchanteAppointBtn.AutoSize = true;
-            this.EnchanteAppointBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(98)))), ((int)(((byte)(60)))));
-            this.EnchanteAppointBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EnchanteAppointBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.EnchanteAppointBtn.FlatAppearance.BorderSize = 3;
-            this.EnchanteAppointBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EnchanteAppointBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.EnchanteAppointBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.EnchanteAppointBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.EnchanteAppointBtn.IconColor = System.Drawing.Color.Black;
-            this.EnchanteAppointBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.EnchanteAppointBtn.Location = new System.Drawing.Point(461, 696);
-            this.EnchanteAppointBtn.Name = "EnchanteAppointBtn";
-            this.EnchanteAppointBtn.Size = new System.Drawing.Size(442, 77);
-            this.EnchanteAppointBtn.TabIndex = 0;
-            this.EnchanteAppointBtn.Text = "BOOK YOUR APPOINTMENT";
-            this.EnchanteAppointBtn.UseVisualStyleBackColor = false;
-            this.EnchanteAppointBtn.Click += new System.EventHandler(this.EnchanteAppointBtn_Click);
-            // 
-            // EDP1
-            // 
-            this.EDP1.Image = global::Enchante.Properties.Resources.Lobby;
-            this.EDP1.Location = new System.Drawing.Point(1154, 303);
-            this.EDP1.Name = "EDP1";
-            this.EDP1.Size = new System.Drawing.Size(625, 625);
-            this.EDP1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.EDP1.TabIndex = 24;
-            this.EDP1.TabStop = false;
-            // 
-            // MemberSignOut
-            // 
-            this.MemberSignOut.AutoSize = true;
-            this.MemberSignOut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MemberSignOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MemberSignOut.FlatAppearance.BorderSize = 0;
-            this.MemberSignOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MemberSignOut.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MemberSignOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MemberSignOut.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
-            this.MemberSignOut.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MemberSignOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MemberSignOut.IconSize = 32;
-            this.MemberSignOut.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MemberSignOut.Location = new System.Drawing.Point(27, 311);
-            this.MemberSignOut.Name = "MemberSignOut";
-            this.MemberSignOut.Size = new System.Drawing.Size(401, 60);
-            this.MemberSignOut.TabIndex = 7;
-            this.MemberSignOut.Text = "LOGOUT";
-            this.MemberSignOut.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MemberSignOut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.MemberSignOut.UseVisualStyleBackColor = true;
-            this.MemberSignOut.Click += new System.EventHandler(this.MemberSignOut_Click);
-            // 
-            // SM_EmailBtn1
-            // 
-            this.SM_EmailBtn1.AutoSize = true;
-            this.SM_EmailBtn1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SM_EmailBtn1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SM_EmailBtn1.FlatAppearance.BorderSize = 3;
-            this.SM_EmailBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SM_EmailBtn1.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SM_EmailBtn1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.SM_EmailBtn1.IconChar = FontAwesome.Sharp.IconChar.Envelope;
-            this.SM_EmailBtn1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SM_EmailBtn1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SM_EmailBtn1.Location = new System.Drawing.Point(548, 51);
-            this.SM_EmailBtn1.Name = "SM_EmailBtn1";
-            this.SM_EmailBtn1.Size = new System.Drawing.Size(60, 60);
-            this.SM_EmailBtn1.TabIndex = 12;
-            this.SM_EmailBtn1.UseVisualStyleBackColor = true;
-            // 
-            // SM_IGBtn1
-            // 
-            this.SM_IGBtn1.AutoSize = true;
-            this.SM_IGBtn1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SM_IGBtn1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SM_IGBtn1.FlatAppearance.BorderSize = 3;
-            this.SM_IGBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SM_IGBtn1.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SM_IGBtn1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.SM_IGBtn1.IconChar = FontAwesome.Sharp.IconChar.Instagram;
-            this.SM_IGBtn1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SM_IGBtn1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SM_IGBtn1.Location = new System.Drawing.Point(482, 51);
-            this.SM_IGBtn1.Name = "SM_IGBtn1";
-            this.SM_IGBtn1.Size = new System.Drawing.Size(60, 60);
-            this.SM_IGBtn1.TabIndex = 11;
-            this.SM_IGBtn1.UseVisualStyleBackColor = true;
-            // 
-            // SM_TwitterBtn1
-            // 
-            this.SM_TwitterBtn1.AutoSize = true;
-            this.SM_TwitterBtn1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SM_TwitterBtn1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SM_TwitterBtn1.FlatAppearance.BorderSize = 3;
-            this.SM_TwitterBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SM_TwitterBtn1.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SM_TwitterBtn1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.SM_TwitterBtn1.IconChar = FontAwesome.Sharp.IconChar.Twitter;
-            this.SM_TwitterBtn1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SM_TwitterBtn1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SM_TwitterBtn1.Location = new System.Drawing.Point(416, 51);
-            this.SM_TwitterBtn1.Name = "SM_TwitterBtn1";
-            this.SM_TwitterBtn1.Size = new System.Drawing.Size(60, 60);
-            this.SM_TwitterBtn1.TabIndex = 10;
-            this.SM_TwitterBtn1.UseVisualStyleBackColor = true;
-            // 
-            // MemberFooterLogo
-            // 
-            this.MemberFooterLogo.Image = global::Enchante.Properties.Resources.Enchante_Logo_275x100;
-            this.MemberFooterLogo.Location = new System.Drawing.Point(58, 29);
-            this.MemberFooterLogo.Name = "MemberFooterLogo";
-            this.MemberFooterLogo.Size = new System.Drawing.Size(275, 100);
-            this.MemberFooterLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.MemberFooterLogo.TabIndex = 9;
-            this.MemberFooterLogo.TabStop = false;
-            // 
-            // SM_FBBtn1
-            // 
-            this.SM_FBBtn1.AutoSize = true;
-            this.SM_FBBtn1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SM_FBBtn1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SM_FBBtn1.FlatAppearance.BorderSize = 3;
-            this.SM_FBBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SM_FBBtn1.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SM_FBBtn1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.SM_FBBtn1.IconChar = FontAwesome.Sharp.IconChar.Facebook;
-            this.SM_FBBtn1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.SM_FBBtn1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SM_FBBtn1.Location = new System.Drawing.Point(350, 51);
-            this.SM_FBBtn1.Name = "SM_FBBtn1";
-            this.SM_FBBtn1.Size = new System.Drawing.Size(60, 60);
-            this.SM_FBBtn1.TabIndex = 8;
-            this.SM_FBBtn1.UseVisualStyleBackColor = true;
-            // 
-            // MemberAccUserBtn
-            // 
-            this.MemberAccUserBtn.AutoSize = true;
-            this.MemberAccUserBtn.BackColor = System.Drawing.Color.Transparent;
-            this.MemberAccUserBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MemberAccUserBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MemberAccUserBtn.FlatAppearance.BorderSize = 0;
-            this.MemberAccUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MemberAccUserBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MemberAccUserBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MemberAccUserBtn.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.MemberAccUserBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MemberAccUserBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MemberAccUserBtn.Location = new System.Drawing.Point(1801, 48);
-            this.MemberAccUserBtn.Name = "MemberAccUserBtn";
-            this.MemberAccUserBtn.Size = new System.Drawing.Size(54, 54);
-            this.MemberAccUserBtn.TabIndex = 8;
-            this.MemberAccUserBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MemberAccUserBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.MemberAccUserBtn.UseVisualStyleBackColor = false;
-            this.MemberAccUserBtn.Click += new System.EventHandler(this.MemberAccUserBtn_Click);
-            // 
-            // MemberSubAccUserBtn
-            // 
-            this.MemberSubAccUserBtn.AutoSize = true;
-            this.MemberSubAccUserBtn.BackColor = System.Drawing.Color.Transparent;
-            this.MemberSubAccUserBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MemberSubAccUserBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MemberSubAccUserBtn.FlatAppearance.BorderSize = 0;
-            this.MemberSubAccUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MemberSubAccUserBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MemberSubAccUserBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MemberSubAccUserBtn.IconChar = FontAwesome.Sharp.IconChar.Crown;
-            this.MemberSubAccUserBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MemberSubAccUserBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MemberSubAccUserBtn.Location = new System.Drawing.Point(1741, 48);
-            this.MemberSubAccUserBtn.Name = "MemberSubAccUserBtn";
-            this.MemberSubAccUserBtn.Size = new System.Drawing.Size(54, 54);
-            this.MemberSubAccUserBtn.TabIndex = 9;
-            this.MemberSubAccUserBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MemberSubAccUserBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.MemberSubAccUserBtn.UseVisualStyleBackColor = false;
-            // 
-            // MemberReviewBtn
-            // 
-            this.MemberReviewBtn.AutoSize = true;
-            this.MemberReviewBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.MemberReviewBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MemberReviewBtn.FlatAppearance.BorderSize = 0;
-            this.MemberReviewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MemberReviewBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MemberReviewBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MemberReviewBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.MemberReviewBtn.IconColor = System.Drawing.Color.Black;
-            this.MemberReviewBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MemberReviewBtn.Location = new System.Drawing.Point(642, 48);
-            this.MemberReviewBtn.Name = "MemberReviewBtn";
-            this.MemberReviewBtn.Size = new System.Drawing.Size(132, 54);
-            this.MemberReviewBtn.TabIndex = 4;
-            this.MemberReviewBtn.Text = "REVIEWS";
-            this.MemberReviewBtn.UseVisualStyleBackColor = true;
-            // 
-            // MemberBillBtn
-            // 
-            this.MemberBillBtn.AutoSize = true;
-            this.MemberBillBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.MemberBillBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MemberBillBtn.FlatAppearance.BorderSize = 0;
-            this.MemberBillBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MemberBillBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MemberBillBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MemberBillBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.MemberBillBtn.IconColor = System.Drawing.Color.Black;
-            this.MemberBillBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MemberBillBtn.Location = new System.Drawing.Point(516, 47);
-            this.MemberBillBtn.Name = "MemberBillBtn";
-            this.MemberBillBtn.Size = new System.Drawing.Size(120, 54);
-            this.MemberBillBtn.TabIndex = 3;
-            this.MemberBillBtn.Text = "BILLING";
-            this.MemberBillBtn.UseVisualStyleBackColor = true;
-            // 
-            // MemberAppointBtn
-            // 
-            this.MemberAppointBtn.AutoSize = true;
-            this.MemberAppointBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.MemberAppointBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MemberAppointBtn.FlatAppearance.BorderSize = 0;
-            this.MemberAppointBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MemberAppointBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MemberAppointBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MemberAppointBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.MemberAppointBtn.IconColor = System.Drawing.Color.Black;
-            this.MemberAppointBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MemberAppointBtn.Location = new System.Drawing.Point(312, 47);
-            this.MemberAppointBtn.Name = "MemberAppointBtn";
-            this.MemberAppointBtn.Size = new System.Drawing.Size(198, 54);
-            this.MemberAppointBtn.TabIndex = 2;
-            this.MemberAppointBtn.Text = "APPOINTMENT";
-            this.MemberAppointBtn.UseVisualStyleBackColor = true;
-            // 
-            // MemberHomeBtn
-            // 
-            this.MemberHomeBtn.AutoSize = true;
-            this.MemberHomeBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.MemberHomeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MemberHomeBtn.FlatAppearance.BorderSize = 0;
-            this.MemberHomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MemberHomeBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MemberHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MemberHomeBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.MemberHomeBtn.IconColor = System.Drawing.Color.Black;
-            this.MemberHomeBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MemberHomeBtn.Location = new System.Drawing.Point(214, 47);
-            this.MemberHomeBtn.Name = "MemberHomeBtn";
-            this.MemberHomeBtn.Size = new System.Drawing.Size(92, 54);
-            this.MemberHomeBtn.TabIndex = 1;
-            this.MemberHomeBtn.Text = "HOME";
-            this.MemberHomeBtn.UseVisualStyleBackColor = true;
-            // 
-            // EnchanteMemberHeaderLogo
-            // 
-            this.EnchanteMemberHeaderLogo.Image = global::Enchante.Properties.Resources.Enchante_Logo__200_x_200_px___1_;
-            this.EnchanteMemberHeaderLogo.Location = new System.Drawing.Point(81, 25);
-            this.EnchanteMemberHeaderLogo.Name = "EnchanteMemberHeaderLogo";
-            this.EnchanteMemberHeaderLogo.Size = new System.Drawing.Size(100, 100);
-            this.EnchanteMemberHeaderLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.EnchanteMemberHeaderLogo.TabIndex = 0;
-            this.EnchanteMemberHeaderLogo.TabStop = false;
-            // 
-            // ReceptionLogoutBtn
-            // 
-            this.ReceptionLogoutBtn.AutoSize = true;
-            this.ReceptionLogoutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ReceptionLogoutBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.ReceptionLogoutBtn.FlatAppearance.BorderSize = 0;
-            this.ReceptionLogoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReceptionLogoutBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.ReceptionLogoutBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ReceptionLogoutBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
-            this.ReceptionLogoutBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ReceptionLogoutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ReceptionLogoutBtn.IconSize = 32;
-            this.ReceptionLogoutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ReceptionLogoutBtn.Location = new System.Drawing.Point(129, 137);
-            this.ReceptionLogoutBtn.Name = "ReceptionLogoutBtn";
-            this.ReceptionLogoutBtn.Size = new System.Drawing.Size(176, 60);
-            this.ReceptionLogoutBtn.TabIndex = 7;
-            this.ReceptionLogoutBtn.Text = "LOGOUT";
-            this.ReceptionLogoutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ReceptionLogoutBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.ReceptionLogoutBtn.UseVisualStyleBackColor = true;
-            this.ReceptionLogoutBtn.Click += new System.EventHandler(this.ReceptionLogoutBtn_Click);
-            // 
-            // RecApptConfirmExitBtn
-            // 
-            this.RecApptConfirmExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.RecApptConfirmExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.RecApptConfirmExitBtn.FlatAppearance.BorderSize = 0;
-            this.RecApptConfirmExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecApptConfirmExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.RecApptConfirmExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecApptConfirmExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecApptConfirmExitBtn.Location = new System.Drawing.Point(1558, 20);
-            this.RecApptConfirmExitBtn.Name = "RecApptConfirmExitBtn";
-            this.RecApptConfirmExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.RecApptConfirmExitBtn.TabIndex = 44;
-            this.RecApptConfirmExitBtn.UseVisualStyleBackColor = false;
-            this.RecApptConfirmExitBtn.Click += new System.EventHandler(this.RecApptConfirmExitBtn_Click);
-            // 
-            // RecShopProdExitBtn
-            // 
-            this.RecShopProdExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.RecShopProdExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.RecShopProdExitBtn.FlatAppearance.BorderSize = 0;
-            this.RecShopProdExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecShopProdExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.RecShopProdExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecShopProdExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecShopProdExitBtn.Location = new System.Drawing.Point(1558, 20);
-            this.RecShopProdExitBtn.Name = "RecShopProdExitBtn";
-            this.RecShopProdExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.RecShopProdExitBtn.TabIndex = 44;
-            this.RecShopProdExitBtn.UseVisualStyleBackColor = false;
-            this.RecShopProdExitBtn.Click += new System.EventHandler(this.RecShopProdExitBtn_Click);
-            // 
-            // RecApptSearchServiceTypeBtn
-            // 
-            this.RecApptSearchServiceTypeBtn.AutoSize = true;
-            this.RecApptSearchServiceTypeBtn.BackColor = System.Drawing.Color.Transparent;
-            this.RecApptSearchServiceTypeBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecApptSearchServiceTypeBtn.FlatAppearance.BorderSize = 0;
-            this.RecApptSearchServiceTypeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecApptSearchServiceTypeBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecApptSearchServiceTypeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecApptSearchServiceTypeBtn.IconChar = FontAwesome.Sharp.IconChar.Searchengin;
-            this.RecApptSearchServiceTypeBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecApptSearchServiceTypeBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecApptSearchServiceTypeBtn.IconSize = 40;
-            this.RecApptSearchServiceTypeBtn.Location = new System.Drawing.Point(772, 1340);
-            this.RecApptSearchServiceTypeBtn.Name = "RecApptSearchServiceTypeBtn";
-            this.RecApptSearchServiceTypeBtn.Size = new System.Drawing.Size(46, 46);
-            this.RecApptSearchServiceTypeBtn.TabIndex = 133;
-            this.RecApptSearchServiceTypeBtn.UseVisualStyleBackColor = false;
-            // 
-            // RecApptPanelExitBtn
-            // 
-            this.RecApptPanelExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.RecApptPanelExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.RecApptPanelExitBtn.FlatAppearance.BorderSize = 0;
-            this.RecApptPanelExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecApptPanelExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.RecApptPanelExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecApptPanelExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecApptPanelExitBtn.Location = new System.Drawing.Point(1553, 15);
-            this.RecApptPanelExitBtn.Name = "RecApptPanelExitBtn";
-            this.RecApptPanelExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.RecApptPanelExitBtn.TabIndex = 43;
-            this.RecApptPanelExitBtn.UseVisualStyleBackColor = false;
-            this.RecApptPanelExitBtn.Click += new System.EventHandler(this.RecApptPanelExitBtn_Click);
-            // 
-            // RecQueWinExitBtn
-            // 
-            this.RecQueWinExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.RecQueWinExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecQueWinExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.RecQueWinExitBtn.FlatAppearance.BorderSize = 0;
-            this.RecQueWinExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecQueWinExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.RecQueWinExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecQueWinExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecQueWinExitBtn.Location = new System.Drawing.Point(1546, 27);
-            this.RecQueWinExitBtn.Name = "RecQueWinExitBtn";
-            this.RecQueWinExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.RecQueWinExitBtn.TabIndex = 100;
-            this.RecQueWinExitBtn.UseVisualStyleBackColor = false;
-            this.RecQueWinExitBtn.Click += new System.EventHandler(this.RecQueWinExitBtn_Click);
-            // 
-            // RecPayServiceGCPaymentBtn
-            // 
-            this.RecPayServiceGCPaymentBtn.AutoSize = true;
-            this.RecPayServiceGCPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecPayServiceGCPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RecPayServiceGCPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.RecPayServiceGCPaymentBtn.FlatAppearance.BorderSize = 3;
-            this.RecPayServiceGCPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecPayServiceGCPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceGCPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecPayServiceGCPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.RecPayServiceGCPaymentBtn.IconColor = System.Drawing.Color.Black;
-            this.RecPayServiceGCPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecPayServiceGCPaymentBtn.Location = new System.Drawing.Point(0, 0);
-            this.RecPayServiceGCPaymentBtn.Name = "RecPayServiceGCPaymentBtn";
-            this.RecPayServiceGCPaymentBtn.Size = new System.Drawing.Size(223, 50);
-            this.RecPayServiceGCPaymentBtn.TabIndex = 106;
-            this.RecPayServiceGCPaymentBtn.Text = "GCash";
-            this.RecPayServiceGCPaymentBtn.UseVisualStyleBackColor = true;
-            this.RecPayServiceGCPaymentBtn.Click += new System.EventHandler(this.RecWalkinGCPaymentBtn_Click);
-            // 
-            // RecPayServiceCashPaymentBtn
-            // 
-            this.RecPayServiceCashPaymentBtn.AutoSize = true;
-            this.RecPayServiceCashPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecPayServiceCashPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RecPayServiceCashPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.RecPayServiceCashPaymentBtn.FlatAppearance.BorderSize = 3;
-            this.RecPayServiceCashPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecPayServiceCashPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceCashPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecPayServiceCashPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.RecPayServiceCashPaymentBtn.IconColor = System.Drawing.Color.Black;
-            this.RecPayServiceCashPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecPayServiceCashPaymentBtn.Location = new System.Drawing.Point(0, 0);
-            this.RecPayServiceCashPaymentBtn.Name = "RecPayServiceCashPaymentBtn";
-            this.RecPayServiceCashPaymentBtn.Size = new System.Drawing.Size(223, 50);
-            this.RecPayServiceCashPaymentBtn.TabIndex = 106;
-            this.RecPayServiceCashPaymentBtn.Text = "Cash";
-            this.RecPayServiceCashPaymentBtn.UseVisualStyleBackColor = true;
-            this.RecPayServiceCashPaymentBtn.Click += new System.EventHandler(this.RecWalkinCashPaymentBtn_Click);
-            // 
-            // RecPayServicePPPaymentBtn
-            // 
-            this.RecPayServicePPPaymentBtn.AutoSize = true;
-            this.RecPayServicePPPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecPayServicePPPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RecPayServicePPPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.RecPayServicePPPaymentBtn.FlatAppearance.BorderSize = 3;
-            this.RecPayServicePPPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecPayServicePPPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServicePPPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecPayServicePPPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.RecPayServicePPPaymentBtn.IconColor = System.Drawing.Color.Black;
-            this.RecPayServicePPPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecPayServicePPPaymentBtn.Location = new System.Drawing.Point(0, 0);
-            this.RecPayServicePPPaymentBtn.Name = "RecPayServicePPPaymentBtn";
-            this.RecPayServicePPPaymentBtn.Size = new System.Drawing.Size(223, 50);
-            this.RecPayServicePPPaymentBtn.TabIndex = 106;
-            this.RecPayServicePPPaymentBtn.Text = "Paypal";
-            this.RecPayServicePPPaymentBtn.UseVisualStyleBackColor = true;
-            this.RecPayServicePPPaymentBtn.Click += new System.EventHandler(this.RecWalkinPPPaymentBtn_Click);
-            // 
-            // RecPayServicePMPaymentBtn
-            // 
-            this.RecPayServicePMPaymentBtn.AutoSize = true;
-            this.RecPayServicePMPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecPayServicePMPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RecPayServicePMPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.RecPayServicePMPaymentBtn.FlatAppearance.BorderSize = 3;
-            this.RecPayServicePMPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecPayServicePMPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServicePMPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecPayServicePMPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.RecPayServicePMPaymentBtn.IconColor = System.Drawing.Color.Black;
-            this.RecPayServicePMPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecPayServicePMPaymentBtn.Location = new System.Drawing.Point(0, 0);
-            this.RecPayServicePMPaymentBtn.Name = "RecPayServicePMPaymentBtn";
-            this.RecPayServicePMPaymentBtn.Size = new System.Drawing.Size(223, 50);
-            this.RecPayServicePMPaymentBtn.TabIndex = 106;
-            this.RecPayServicePMPaymentBtn.Text = "Paymaya";
-            this.RecPayServicePMPaymentBtn.UseVisualStyleBackColor = true;
-            this.RecPayServicePMPaymentBtn.Click += new System.EventHandler(this.RecWalkinPMPaymentBtn_Click);
-            // 
-            // RecPayServicePaymentButton
-            // 
-            this.RecPayServicePaymentButton.AutoSize = true;
-            this.RecPayServicePaymentButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecPayServicePaymentButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecPayServicePaymentButton.FlatAppearance.BorderSize = 3;
-            this.RecPayServicePaymentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecPayServicePaymentButton.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServicePaymentButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServicePaymentButton.IconChar = FontAwesome.Sharp.IconChar.MoneyCheck;
-            this.RecPayServicePaymentButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServicePaymentButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecPayServicePaymentButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RecPayServicePaymentButton.Location = new System.Drawing.Point(542, 414);
-            this.RecPayServicePaymentButton.Name = "RecPayServicePaymentButton";
-            this.RecPayServicePaymentButton.Size = new System.Drawing.Size(284, 60);
-            this.RecPayServicePaymentButton.TabIndex = 145;
-            this.RecPayServicePaymentButton.Text = "Pay Service / Product";
-            this.RecPayServicePaymentButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.RecPayServicePaymentButton.UseVisualStyleBackColor = true;
-            this.RecPayServicePaymentButton.Click += new System.EventHandler(this.MngrPayServicePaymentButton_Click);
-            // 
-            // RecPayServiceCCPaymentBtn
-            // 
-            this.RecPayServiceCCPaymentBtn.AutoSize = true;
-            this.RecPayServiceCCPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecPayServiceCCPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RecPayServiceCCPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.RecPayServiceCCPaymentBtn.FlatAppearance.BorderSize = 3;
-            this.RecPayServiceCCPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecPayServiceCCPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceCCPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecPayServiceCCPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.RecPayServiceCCPaymentBtn.IconColor = System.Drawing.Color.Black;
-            this.RecPayServiceCCPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecPayServiceCCPaymentBtn.Location = new System.Drawing.Point(0, 0);
-            this.RecPayServiceCCPaymentBtn.Name = "RecPayServiceCCPaymentBtn";
-            this.RecPayServiceCCPaymentBtn.Size = new System.Drawing.Size(223, 50);
-            this.RecPayServiceCCPaymentBtn.TabIndex = 106;
-            this.RecPayServiceCCPaymentBtn.Text = "Credit Card";
-            this.RecPayServiceCCPaymentBtn.UseVisualStyleBackColor = true;
-            this.RecPayServiceCCPaymentBtn.Click += new System.EventHandler(this.RecWalkinCCPaymentBtn_Click);
-            // 
-            // RecPayServiceEditBtn
-            // 
-            this.RecPayServiceEditBtn.AutoSize = true;
-            this.RecPayServiceEditBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecPayServiceEditBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecPayServiceEditBtn.FlatAppearance.BorderSize = 0;
-            this.RecPayServiceEditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecPayServiceEditBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceEditBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceEditBtn.IconChar = FontAwesome.Sharp.IconChar.List;
-            this.RecPayServiceEditBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceEditBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecPayServiceEditBtn.IconSize = 32;
-            this.RecPayServiceEditBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RecPayServiceEditBtn.Location = new System.Drawing.Point(57, 42);
-            this.RecPayServiceEditBtn.Name = "RecPayServiceEditBtn";
-            this.RecPayServiceEditBtn.Size = new System.Drawing.Size(354, 71);
-            this.RecPayServiceEditBtn.TabIndex = 101;
-            this.RecPayServiceEditBtn.Text = "Completed Transactions";
-            this.RecPayServiceEditBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RecPayServiceEditBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.RecPayServiceEditBtn.UseVisualStyleBackColor = true;
-            // 
-            // RecPayServiceExitBtn
-            // 
-            this.RecPayServiceExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.RecPayServiceExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecPayServiceExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.RecPayServiceExitBtn.FlatAppearance.BorderSize = 0;
-            this.RecPayServiceExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecPayServiceExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.RecPayServiceExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecPayServiceExitBtn.Location = new System.Drawing.Point(1546, 26);
-            this.RecPayServiceExitBtn.Name = "RecPayServiceExitBtn";
-            this.RecPayServiceExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.RecPayServiceExitBtn.TabIndex = 100;
-            this.RecPayServiceExitBtn.UseVisualStyleBackColor = false;
-            this.RecPayServiceExitBtn.Click += new System.EventHandler(this.MngrPayServiceExitBtn_Click);
-            // 
-            // RecWalkinCatMassageBtn
-            // 
-            this.RecWalkinCatMassageBtn.AutoSize = true;
-            this.RecWalkinCatMassageBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecWalkinCatMassageBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RecWalkinCatMassageBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecWalkinCatMassageBtn.FlatAppearance.BorderSize = 3;
-            this.RecWalkinCatMassageBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecWalkinCatMassageBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecWalkinCatMassageBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecWalkinCatMassageBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.RecWalkinCatMassageBtn.IconColor = System.Drawing.Color.Black;
-            this.RecWalkinCatMassageBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecWalkinCatMassageBtn.Location = new System.Drawing.Point(0, 0);
-            this.RecWalkinCatMassageBtn.Name = "RecWalkinCatMassageBtn";
-            this.RecWalkinCatMassageBtn.Size = new System.Drawing.Size(250, 250);
-            this.RecWalkinCatMassageBtn.TabIndex = 86;
-            this.RecWalkinCatMassageBtn.Text = "Massage";
-            this.RecWalkinCatMassageBtn.UseVisualStyleBackColor = true;
-            this.RecWalkinCatMassageBtn.Click += new System.EventHandler(this.RecWalkInCatMassageBtn_Click);
-            // 
-            // RecWalkinCatSpaBtn
-            // 
-            this.RecWalkinCatSpaBtn.AutoSize = true;
-            this.RecWalkinCatSpaBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecWalkinCatSpaBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RecWalkinCatSpaBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecWalkinCatSpaBtn.FlatAppearance.BorderSize = 3;
-            this.RecWalkinCatSpaBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecWalkinCatSpaBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecWalkinCatSpaBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecWalkinCatSpaBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.RecWalkinCatSpaBtn.IconColor = System.Drawing.Color.Black;
-            this.RecWalkinCatSpaBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecWalkinCatSpaBtn.Location = new System.Drawing.Point(0, 0);
-            this.RecWalkinCatSpaBtn.Name = "RecWalkinCatSpaBtn";
-            this.RecWalkinCatSpaBtn.Size = new System.Drawing.Size(250, 250);
-            this.RecWalkinCatSpaBtn.TabIndex = 81;
-            this.RecWalkinCatSpaBtn.Text = "Spa";
-            this.RecWalkinCatSpaBtn.UseVisualStyleBackColor = true;
-            this.RecWalkinCatSpaBtn.Click += new System.EventHandler(this.RecWalkInCatSpaBtn_Click);
-            // 
-            // RecWalkinCatNCBtn
-            // 
-            this.RecWalkinCatNCBtn.AutoSize = true;
-            this.RecWalkinCatNCBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecWalkinCatNCBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RecWalkinCatNCBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecWalkinCatNCBtn.FlatAppearance.BorderSize = 3;
-            this.RecWalkinCatNCBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecWalkinCatNCBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecWalkinCatNCBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecWalkinCatNCBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.RecWalkinCatNCBtn.IconColor = System.Drawing.Color.Black;
-            this.RecWalkinCatNCBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecWalkinCatNCBtn.Location = new System.Drawing.Point(0, 0);
-            this.RecWalkinCatNCBtn.Name = "RecWalkinCatNCBtn";
-            this.RecWalkinCatNCBtn.Size = new System.Drawing.Size(250, 250);
-            this.RecWalkinCatNCBtn.TabIndex = 86;
-            this.RecWalkinCatNCBtn.Text = "Nail Care";
-            this.RecWalkinCatNCBtn.UseVisualStyleBackColor = true;
-            this.RecWalkinCatNCBtn.Click += new System.EventHandler(this.RecWalkInCatNCBtn_Click);
-            // 
-            // RecWalkinCatFSBtn
-            // 
-            this.RecWalkinCatFSBtn.AutoSize = true;
-            this.RecWalkinCatFSBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecWalkinCatFSBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RecWalkinCatFSBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecWalkinCatFSBtn.FlatAppearance.BorderSize = 3;
-            this.RecWalkinCatFSBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecWalkinCatFSBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecWalkinCatFSBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecWalkinCatFSBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.RecWalkinCatFSBtn.IconColor = System.Drawing.Color.Black;
-            this.RecWalkinCatFSBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecWalkinCatFSBtn.Location = new System.Drawing.Point(0, 0);
-            this.RecWalkinCatFSBtn.Name = "RecWalkinCatFSBtn";
-            this.RecWalkinCatFSBtn.Size = new System.Drawing.Size(250, 250);
-            this.RecWalkinCatFSBtn.TabIndex = 81;
-            this.RecWalkinCatFSBtn.Text = "Face && Skin";
-            this.RecWalkinCatFSBtn.UseVisualStyleBackColor = true;
-            this.RecWalkinCatFSBtn.Click += new System.EventHandler(this.RecWalkInCatFSBtn_Click);
-            // 
-            // RecWalkinCatHSBtn
-            // 
-            this.RecWalkinCatHSBtn.AutoSize = true;
-            this.RecWalkinCatHSBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecWalkinCatHSBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RecWalkinCatHSBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecWalkinCatHSBtn.FlatAppearance.BorderSize = 3;
-            this.RecWalkinCatHSBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecWalkinCatHSBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecWalkinCatHSBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecWalkinCatHSBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.RecWalkinCatHSBtn.IconColor = System.Drawing.Color.Black;
-            this.RecWalkinCatHSBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecWalkinCatHSBtn.Location = new System.Drawing.Point(0, 0);
-            this.RecWalkinCatHSBtn.Name = "RecWalkinCatHSBtn";
-            this.RecWalkinCatHSBtn.Size = new System.Drawing.Size(250, 250);
-            this.RecWalkinCatHSBtn.TabIndex = 77;
-            this.RecWalkinCatHSBtn.Text = "Hair Styling";
-            this.RecWalkinCatHSBtn.UseVisualStyleBackColor = true;
-            this.RecWalkinCatHSBtn.Click += new System.EventHandler(this.RecWalkInCatHSBtn_Click);
-            // 
-            // RecWalkinSearchServiceTypeBtn
-            // 
-            this.RecWalkinSearchServiceTypeBtn.AutoSize = true;
-            this.RecWalkinSearchServiceTypeBtn.BackColor = System.Drawing.Color.Transparent;
-            this.RecWalkinSearchServiceTypeBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecWalkinSearchServiceTypeBtn.FlatAppearance.BorderSize = 0;
-            this.RecWalkinSearchServiceTypeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecWalkinSearchServiceTypeBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecWalkinSearchServiceTypeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecWalkinSearchServiceTypeBtn.IconChar = FontAwesome.Sharp.IconChar.Searchengin;
-            this.RecWalkinSearchServiceTypeBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinSearchServiceTypeBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecWalkinSearchServiceTypeBtn.IconSize = 40;
-            this.RecWalkinSearchServiceTypeBtn.Location = new System.Drawing.Point(763, 1089);
-            this.RecWalkinSearchServiceTypeBtn.Name = "RecWalkinSearchServiceTypeBtn";
-            this.RecWalkinSearchServiceTypeBtn.Size = new System.Drawing.Size(46, 46);
-            this.RecWalkinSearchServiceTypeBtn.TabIndex = 133;
-            this.RecWalkinSearchServiceTypeBtn.UseVisualStyleBackColor = false;
-            this.RecWalkinSearchServiceTypeBtn.Click += new System.EventHandler(this.RecWalkInSearchServiceTypeBtn_Click);
-            // 
-            // RecWalkInExitBtn
-            // 
-            this.RecWalkInExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.RecWalkInExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.RecWalkInExitBtn.FlatAppearance.BorderSize = 0;
-            this.RecWalkInExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecWalkInExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.RecWalkInExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkInExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecWalkInExitBtn.Location = new System.Drawing.Point(1553, 15);
-            this.RecWalkInExitBtn.Name = "RecWalkInExitBtn";
-            this.RecWalkInExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.RecWalkInExitBtn.TabIndex = 43;
-            this.RecWalkInExitBtn.UseVisualStyleBackColor = false;
-            this.RecWalkInExitBtn.Click += new System.EventHandler(this.RecWalkInExitBtn_Click);
-            // 
-            // RecApptConfirmBtn
-            // 
-            this.RecApptConfirmBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecApptConfirmBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecApptConfirmBtn.FlatAppearance.BorderSize = 3;
-            this.RecApptConfirmBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecApptConfirmBtn.Font = new System.Drawing.Font("Arial Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecApptConfirmBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecApptConfirmBtn.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
-            this.RecApptConfirmBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecApptConfirmBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecApptConfirmBtn.IconSize = 128;
-            this.RecApptConfirmBtn.Location = new System.Drawing.Point(1062, 46);
-            this.RecApptConfirmBtn.Name = "RecApptConfirmBtn";
-            this.RecApptConfirmBtn.Size = new System.Drawing.Size(300, 300);
-            this.RecApptConfirmBtn.TabIndex = 5;
-            this.RecApptConfirmBtn.Text = "APPOINTMENT\r\nCONFIRMATION";
-            this.RecApptConfirmBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.RecApptConfirmBtn.UseVisualStyleBackColor = false;
-            this.RecApptConfirmBtn.Click += new System.EventHandler(this.RecApptConfirmBtn_Click);
-            // 
-            // RecShopProdBtn
-            // 
-            this.RecShopProdBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecShopProdBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecShopProdBtn.FlatAppearance.BorderSize = 3;
-            this.RecShopProdBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecShopProdBtn.Font = new System.Drawing.Font("Arial Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecShopProdBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecShopProdBtn.IconChar = FontAwesome.Sharp.IconChar.Shop;
-            this.RecShopProdBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecShopProdBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecShopProdBtn.IconSize = 128;
-            this.RecShopProdBtn.Location = new System.Drawing.Point(666, 383);
-            this.RecShopProdBtn.Name = "RecShopProdBtn";
-            this.RecShopProdBtn.Size = new System.Drawing.Size(300, 300);
-            this.RecShopProdBtn.TabIndex = 4;
-            this.RecShopProdBtn.Text = "BUY\r\nPRODUCTS";
-            this.RecShopProdBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.RecShopProdBtn.UseVisualStyleBackColor = false;
-            this.RecShopProdBtn.Click += new System.EventHandler(this.RecShopProdBtn_Click);
-            // 
-            // RecQueWinBtn
-            // 
-            this.RecQueWinBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecQueWinBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecQueWinBtn.FlatAppearance.BorderSize = 3;
-            this.RecQueWinBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecQueWinBtn.Font = new System.Drawing.Font("Arial Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecQueWinBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecQueWinBtn.IconChar = FontAwesome.Sharp.IconChar.PeopleLine;
-            this.RecQueWinBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecQueWinBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecQueWinBtn.IconSize = 128;
-            this.RecQueWinBtn.Location = new System.Drawing.Point(1062, 383);
-            this.RecQueWinBtn.Name = "RecQueWinBtn";
-            this.RecQueWinBtn.Size = new System.Drawing.Size(300, 300);
-            this.RecQueWinBtn.TabIndex = 3;
-            this.RecQueWinBtn.Text = "QUEUE\r\nWINDOW";
-            this.RecQueWinBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.RecQueWinBtn.UseVisualStyleBackColor = false;
-            this.RecQueWinBtn.Click += new System.EventHandler(this.RecQueWinBtn_Click);
-            // 
-            // RecPayServiceBtn
-            // 
-            this.RecPayServiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecPayServiceBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecPayServiceBtn.FlatAppearance.BorderSize = 3;
-            this.RecPayServiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecPayServiceBtn.Font = new System.Drawing.Font("Arial Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecPayServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceBtn.IconChar = FontAwesome.Sharp.IconChar.MoneyBillTransfer;
-            this.RecPayServiceBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecPayServiceBtn.IconSize = 128;
-            this.RecPayServiceBtn.Location = new System.Drawing.Point(270, 383);
-            this.RecPayServiceBtn.Name = "RecPayServiceBtn";
-            this.RecPayServiceBtn.Size = new System.Drawing.Size(300, 300);
-            this.RecPayServiceBtn.TabIndex = 2;
-            this.RecPayServiceBtn.Text = "PAYMENT\r\nSERVICE";
-            this.RecPayServiceBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.RecPayServiceBtn.UseVisualStyleBackColor = false;
-            this.RecPayServiceBtn.Click += new System.EventHandler(this.RecPayServiceBtn_Click);
-            // 
-            // RecAppointmentBtn
-            // 
-            this.RecAppointmentBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecAppointmentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecAppointmentBtn.FlatAppearance.BorderSize = 3;
-            this.RecAppointmentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecAppointmentBtn.Font = new System.Drawing.Font("Arial Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecAppointmentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecAppointmentBtn.IconChar = FontAwesome.Sharp.IconChar.Calendar;
-            this.RecAppointmentBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecAppointmentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecAppointmentBtn.IconSize = 128;
-            this.RecAppointmentBtn.Location = new System.Drawing.Point(666, 46);
-            this.RecAppointmentBtn.Name = "RecAppointmentBtn";
-            this.RecAppointmentBtn.Size = new System.Drawing.Size(300, 300);
-            this.RecAppointmentBtn.TabIndex = 1;
-            this.RecAppointmentBtn.Text = "APPOINTMENT\r\nTRANSACTION";
-            this.RecAppointmentBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.RecAppointmentBtn.UseVisualStyleBackColor = false;
-            this.RecAppointmentBtn.Click += new System.EventHandler(this.RecAppointmentBtn_Click);
-            // 
-            // RecWalkInBtn
-            // 
-            this.RecWalkInBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecWalkInBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecWalkInBtn.FlatAppearance.BorderSize = 3;
-            this.RecWalkInBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecWalkInBtn.Font = new System.Drawing.Font("Arial Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecWalkInBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkInBtn.IconChar = FontAwesome.Sharp.IconChar.PersonWalkingArrowLoopLeft;
-            this.RecWalkInBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkInBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecWalkInBtn.IconSize = 128;
-            this.RecWalkInBtn.Location = new System.Drawing.Point(270, 46);
-            this.RecWalkInBtn.Name = "RecWalkInBtn";
-            this.RecWalkInBtn.Size = new System.Drawing.Size(300, 300);
-            this.RecWalkInBtn.TabIndex = 0;
-            this.RecWalkInBtn.Text = "WALK-IN\r\nTRANSACTION";
-            this.RecWalkInBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.RecWalkInBtn.UseVisualStyleBackColor = false;
-            this.RecWalkInBtn.Click += new System.EventHandler(this.RecWalkInBtn_Click);
-            // 
-            // RecAccBtn
-            // 
-            this.RecAccBtn.AutoSize = true;
-            this.RecAccBtn.BackColor = System.Drawing.Color.Transparent;
-            this.RecAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecAccBtn.FlatAppearance.BorderSize = 0;
-            this.RecAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecAccBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecAccBtn.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.RecAccBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecAccBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecAccBtn.Location = new System.Drawing.Point(1808, 47);
-            this.RecAccBtn.Name = "RecAccBtn";
-            this.RecAccBtn.Size = new System.Drawing.Size(54, 54);
-            this.RecAccBtn.TabIndex = 8;
-            this.RecAccBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RecAccBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.RecAccBtn.UseVisualStyleBackColor = false;
-            this.RecAccBtn.Click += new System.EventHandler(this.ReceptionAccBtn_Click);
-            this.RecAccBtn.MouseHover += new System.EventHandler(this.ReceptionAccBtn_MouseHover);
-            // 
-            // RecHomeBtn
-            // 
-            this.RecHomeBtn.AutoSize = true;
-            this.RecHomeBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.RecHomeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecHomeBtn.FlatAppearance.BorderSize = 0;
-            this.RecHomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecHomeBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecHomeBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.RecHomeBtn.IconColor = System.Drawing.Color.Black;
-            this.RecHomeBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecHomeBtn.Location = new System.Drawing.Point(241, 45);
-            this.RecHomeBtn.Name = "RecHomeBtn";
-            this.RecHomeBtn.Size = new System.Drawing.Size(92, 54);
-            this.RecHomeBtn.TabIndex = 1;
-            this.RecHomeBtn.Text = "HOME";
-            this.RecHomeBtn.UseVisualStyleBackColor = true;
-            this.RecHomeBtn.Click += new System.EventHandler(this.RecHomeBtn_Click);
-            this.RecHomeBtn.MouseHover += new System.EventHandler(this.RecHomeBtn_MouseHover);
-            // 
-            // RecHeaderLogo
-            // 
-            this.RecHeaderLogo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecHeaderLogo.Image = global::Enchante.Properties.Resources.Enchante_Logo__200_x_200_px___1_;
-            this.RecHeaderLogo.Location = new System.Drawing.Point(127, 27);
-            this.RecHeaderLogo.Name = "RecHeaderLogo";
-            this.RecHeaderLogo.Size = new System.Drawing.Size(100, 100);
-            this.RecHeaderLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.RecHeaderLogo.TabIndex = 0;
-            this.RecHeaderLogo.TabStop = false;
-            // 
-            // StaffSignOutBtn
-            // 
-            this.StaffSignOutBtn.AutoSize = true;
-            this.StaffSignOutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.StaffSignOutBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.StaffSignOutBtn.FlatAppearance.BorderSize = 0;
-            this.StaffSignOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.StaffSignOutBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.StaffSignOutBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.StaffSignOutBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
-            this.StaffSignOutBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.StaffSignOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.StaffSignOutBtn.IconSize = 32;
-            this.StaffSignOutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.StaffSignOutBtn.Location = new System.Drawing.Point(82, 114);
-            this.StaffSignOutBtn.Name = "StaffSignOutBtn";
-            this.StaffSignOutBtn.Size = new System.Drawing.Size(176, 60);
-            this.StaffSignOutBtn.TabIndex = 7;
-            this.StaffSignOutBtn.Text = "LOGOUT";
-            this.StaffSignOutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.StaffSignOutBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.StaffSignOutBtn.UseVisualStyleBackColor = true;
-            this.StaffSignOutBtn.Click += new System.EventHandler(this.StaffSignOutBtn_Click);
             // 
             // StaffPastTransactionBtn
             // 
@@ -14553,77 +14591,39 @@ namespace Enchante
             this.StaffHeaderLogo.TabIndex = 0;
             this.StaffHeaderLogo.TabStop = false;
             // 
-            // TransactionID
+            // EnchanteParentCard
             // 
-            this.TransactionID.HeaderText = "Transaction ID";
-            this.TransactionID.Name = "TransactionID";
-            this.TransactionID.ReadOnly = true;
+            this.EnchanteParentCard.ContainerControl = this.EnchanteParentContainer;
+            this.EnchanteParentCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
+            this.EnchanteParentCard.SelectedCard = "Reception";
             // 
-            // AppointmentDate
+            // HomeMembershipCard
             // 
-            this.AppointmentDate.HeaderText = "Appointment Date";
-            this.AppointmentDate.Name = "AppointmentDate";
-            this.AppointmentDate.ReadOnly = true;
+            this.HomeMembershipCard.ContainerControl = this.MembershipPanel;
+            this.HomeMembershipCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
+            this.HomeMembershipCard.SelectedCard = "SVIP";
             // 
-            // AppointmentTime
+            // HomeServiceCard
             // 
-            this.AppointmentTime.HeaderText = "Appointment Time";
-            this.AppointmentTime.Name = "AppointmentTime";
-            this.AppointmentTime.ReadOnly = true;
+            this.HomeServiceCard.ContainerControl = this.ServicePanel;
+            this.HomeServiceCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
+            this.HomeServiceCard.SelectedCard = "Nails";
             // 
-            // RecApptSelectedService
+            // RecTransactionCard
             // 
-            this.RecApptSelectedService.HeaderText = "Selected Service";
-            this.RecApptSelectedService.Name = "RecApptSelectedService";
-            this.RecApptSelectedService.ReadOnly = true;
+            this.RecTransactionCard.ContainerControl = this.ReceptionCreateTransactPanel;
+            this.RecTransactionCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
+            this.RecTransactionCard.SelectedCard = "Appointment";
             // 
-            // RecApptServicePrice
+            // DateTimePickerTimer
             // 
-            this.RecApptServicePrice.HeaderText = "Service Price";
-            this.RecApptServicePrice.Name = "RecApptServicePrice";
-            this.RecApptServicePrice.ReadOnly = true;
+            this.DateTimePickerTimer.Tick += new System.EventHandler(this.DateTimePickerTimer_Tick);
             // 
-            // RecApptServiceCategory
+            // MngrInventoryCard
             // 
-            this.RecApptServiceCategory.HeaderText = "Service Category";
-            this.RecApptServiceCategory.Name = "RecApptServiceCategory";
-            this.RecApptServiceCategory.ReadOnly = true;
-            this.RecApptServiceCategory.Visible = false;
-            // 
-            // RecApptServiceID
-            // 
-            this.RecApptServiceID.HeaderText = "Service ID";
-            this.RecApptServiceID.Name = "RecApptServiceID";
-            this.RecApptServiceID.ReadOnly = true;
-            this.RecApptServiceID.Visible = false;
-            // 
-            // RecApptStaffSelected
-            // 
-            this.RecApptStaffSelected.HeaderText = "Staff Selected";
-            this.RecApptStaffSelected.Name = "RecApptStaffSelected";
-            this.RecApptStaffSelected.ReadOnly = true;
-            this.RecApptStaffSelected.Visible = false;
-            // 
-            // RecApptPriorityNumber
-            // 
-            this.RecApptPriorityNumber.HeaderText = "Priority Number";
-            this.RecApptPriorityNumber.Name = "RecApptPriorityNumber";
-            this.RecApptPriorityNumber.ReadOnly = true;
-            this.RecApptPriorityNumber.Visible = false;
-            // 
-            // RecApptTimeSelected
-            // 
-            this.RecApptTimeSelected.HeaderText = "Time Selected";
-            this.RecApptTimeSelected.Name = "RecApptTimeSelected";
-            this.RecApptTimeSelected.ReadOnly = true;
-            this.RecApptTimeSelected.Visible = false;
-            // 
-            // RecApptQueType
-            // 
-            this.RecApptQueType.HeaderText = "Que Type";
-            this.RecApptQueType.Name = "RecApptQueType";
-            this.RecApptQueType.ReadOnly = true;
-            this.RecApptQueType.Visible = false;
+            this.MngrInventoryCard.ContainerControl = this.MngrInventoryPanel;
+            this.MngrInventoryCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
+            this.MngrInventoryCard.SelectedCard = "PRODUCT HISTORY";
             // 
             // Enchante
             // 
@@ -14678,9 +14678,11 @@ namespace Enchante
             this.MngrInventoryMembershipPanel.ResumeLayout(false);
             this.MngrInventoryProductsPanel.ResumeLayout(false);
             this.MngrInventoryProductsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductImagePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrInventoryProductsTable)).EndInit();
             this.MngrNavBarPanel.ResumeLayout(false);
             this.MngrNavBarPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrHeaderLogo)).EndInit();
             this.EnchanteAdminPage.ResumeLayout(false);
             this.AdminScrollPanel.ResumeLayout(false);
             this.AdminUserAccPanel.ResumeLayout(false);
@@ -14696,9 +14698,11 @@ namespace Enchante
             ((System.ComponentModel.ISupportInitialize)(this.AdminAccountTable)).EndInit();
             this.AdminNavBarPanel.ResumeLayout(false);
             this.AdminNavBarPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AdminHeaderLogo)).EndInit();
             this.EnchanteHomePage.ResumeLayout(false);
             this.EnchanteHomeNavBar.ResumeLayout(false);
             this.EnchanteHomeNavBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EnchanteHeaderLogo)).EndInit();
             this.EnchanteHomeScrollPanel.ResumeLayout(false);
             this.EnchanteHomeScrollPanel.PerformLayout();
             this.ServicePanel.ResumeLayout(false);
@@ -14787,6 +14791,8 @@ namespace Enchante
             this.HomeFooterStopper.PerformLayout();
             this.EnchanteFooterBar.ResumeLayout(false);
             this.EnchanteFooterBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EnchanteFooterLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EDP1)).EndInit();
             this.EnchanteMemberPage.ResumeLayout(false);
             this.MemberScrollPanel.ResumeLayout(false);
             this.MemberUserAccPanel.ResumeLayout(false);
@@ -14795,8 +14801,10 @@ namespace Enchante
             this.MemberScrollFooterStopperPanel.PerformLayout();
             this.MemberFooter.ResumeLayout(false);
             this.MemberFooter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MemberFooterLogo)).EndInit();
             this.MemberNavBarPanel.ResumeLayout(false);
             this.MemberNavBarPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EnchanteMemberHeaderLogo)).EndInit();
             this.EnchanteReceptionPage.ResumeLayout(false);
             this.ReceptionScrollPanel.ResumeLayout(false);
             this.ReceptionUserAccPanel.ResumeLayout(false);
@@ -14887,6 +14895,7 @@ namespace Enchante
             this.RecTransactionPanel.ResumeLayout(false);
             this.ReceptionNavBar.ResumeLayout(false);
             this.ReceptionNavBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RecHeaderLogo)).EndInit();
             this.EnchanteStaffPage.ResumeLayout(false);
             this.StaffScrollPanel.ResumeLayout(false);
             this.StaffScrollPanel.PerformLayout();
@@ -14899,21 +14908,12 @@ namespace Enchante
             ((System.ComponentModel.ISupportInitialize)(this.StaffInventoryDataGrid)).EndInit();
             this.StaffNavBarPanel.ResumeLayout(false);
             this.StaffNavBarPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.StaffHeaderLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnchanteParentCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HomeMembershipCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HomeServiceCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecTransactionCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrInventoryCard)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ProductImagePictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MngrHeaderLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AdminHeaderLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EnchanteHeaderLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EnchanteFooterLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EDP1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MemberFooterLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EnchanteMemberHeaderLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RecHeaderLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StaffHeaderLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -15669,7 +15669,6 @@ namespace Enchante
         private System.Windows.Forms.Label RecApptStaffSelectLbl;
         private System.Windows.Forms.DataGridView RecApptSelectedServiceDGV;
         private System.Windows.Forms.Label RecApptNoServiceCategoryChosenWarningLbl;
-        private Guna.UI2.WinForms.Guna2ComboBox RecApptAttendingStaffSelectedComboBox;
         private System.Windows.Forms.Label RecApptAnyStaffLbl;
         private Guna.UI2.WinForms.Guna2ToggleSwitch RecApptAnyStaffToggleSwitch;
         private Guna.UI2.WinForms.Guna2ToggleSwitch RecApptPreferredStaffToggleSwitch;
@@ -15834,6 +15833,7 @@ namespace Enchante
         private System.Windows.Forms.DataGridViewTextBoxColumn RecApptPriorityNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn RecApptTimeSelected;
         private System.Windows.Forms.DataGridViewTextBoxColumn RecApptQueType;
+        private Guna.UI2.WinForms.Guna2ComboBox RecApptAvailableAttendingStaffSelectedComboBox;
     }
 }
 
