@@ -7193,12 +7193,16 @@ namespace Enchante
 
                                 if (selectedStaff != "Anyone")
                                 {
-                                    string insertScheduleQuery = "INSERT INTO staffappointmentschedule (EmployeeID, AppointmentDate, AppointmentTime) VALUES (@EmployeeID, @AppointmentDate, @AppointmentTime)";
+                                    string insertScheduleQuery = "INSERT INTO staffappointmentschedule (EmployeeID, AppointmentDate, AppointmentTime,TransactionNumber,ServiceName,ServiceCategory,ServiceID) VALUES (@EmployeeID, @AppointmentDate, @AppointmentTime, @Transact, " +
+                                                                 "@serviceName, @serviceCat, @ID )";
                                     MySqlCommand insertScheduleCommand = new MySqlCommand(insertScheduleQuery, connection);
                                     insertScheduleCommand.Parameters.AddWithValue("@EmployeeID", selectedStaff);
                                     insertScheduleCommand.Parameters.AddWithValue("@AppointmentDate", bookedDate);
                                     insertScheduleCommand.Parameters.AddWithValue("@AppointmentTime", bookedTime);
-
+                                    insertScheduleCommand.Parameters.AddWithValue("@Transact", transactionNum);
+                                    insertScheduleCommand.Parameters.AddWithValue("@serviceName", serviceName);
+                                    insertScheduleCommand.Parameters.AddWithValue("@serviceCat", serviceCat);
+                                    insertScheduleCommand.Parameters.AddWithValue("@ID", serviceID);
                                     insertScheduleCommand.ExecuteNonQuery();
                                 }
                             }
