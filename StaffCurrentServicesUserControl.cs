@@ -13,19 +13,24 @@ namespace Enchante
 {
     public partial class StaffCurrentAvailableCustomersUserControl : UserControl
     {
-        public StaffCurrentAvailableCustomersUserControl()
-        {
-            InitializeComponent();
-        }
         public static string mysqlconn = "server=localhost;user=root;database=enchante;password=";
         public event EventHandler StartServiceButtonClicked;
         public event EventHandler ExpandUserControlButtonClicked;
         public event EventHandler StaffEndServiceBtnClicked;
         private System.Windows.Forms.Timer timer;
-        private TimeSpan elapsedTime;
+        private TimeSpan elapsedTime = TimeSpan.Zero;
         private TimeSpan lastElapsedTime;
         private System.Diagnostics.Stopwatch stopwatch;
         private bool viewing = false;
+        private Enchante EnchanteForm;
+
+        public StaffCurrentAvailableCustomersUserControl(Enchante EnchanteForm)
+        {
+            InitializeComponent();
+            StaffEndServiceBtn.Enabled = false;
+            this.EnchanteForm = EnchanteForm;
+        }
+        
 
         public bool Viewing
         {
@@ -38,30 +43,18 @@ namespace Enchante
             return elapsedTime;
         }
 
-        private void StaffCurrentServicesDropDownBtn_Click(object sender, EventArgs e)
-        {
-            viewing = !viewing;
-
-            if (ExpandUserControlButtonClicked != null)
-            {
-                ExpandUserControlButtonClicked(this, EventArgs.Empty);
-            }
-            else
-            {
-                StaffCurrentServicesDropDownBtn.IconChar = FontAwesome.Sharp.IconChar.SquareCaretUp;
-            }
-        }
-
         public void AvailableCustomerSetData(Enchante.PendingCustomers customer)
         {
             StaffTransactionIDTextBox.Text = customer.TransactionNumber;
             StaffCustomerServiceNameSelectedTextBox.Text = customer.ServiceName;
             StaffCustomerServiceStatusTextBox.Text = customer.ServiceStatus;
-            StaffCustomerNameTextBox.Text = customer.ClientName;
-            StaffCustomerCustomizationsTextBox.Text = customer.CustomerCustomizations;
-            StaffAdditionalNotesTextBox.Text = customer.AdditionalNotes;
+            StaffCustomerNameTextBox.Text = "Client Name: " + customer.ClientName;
+
+            StaffServiceIDTextBox.Text = customer.ServiceID;
+            StaffQueNumberTextBox.Text = customer.QueNumber;
         }
 
+        public string CurrentStaffID { get; set; }
 
         public void StartTimer()
         {
@@ -89,28 +82,104 @@ namespace Enchante
             }
         }
 
+
+
         private void StaffUpdateServiceStatusOfCustomerinDB(string UpdatedServiceStatus)
         {
             string transactionID = StaffTransactionIDTextBox.Text;
+            string attenidingStaff = CurrentStaffID;
+            string serviceID = StaffServiceIDTextBox.Text;
+            string timeElapsed = StaffElapsedTimeTextBox.Text;
+            string customerName = StaffCustomerNameTextBox.Text;
+            string customerQueNumber = StaffQueNumberTextBox.Text;
 
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+
             {
                 connection.Open();
 
-                string updateQuery = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus WHERE TransactionNumber = @TransactionNumber";
-
-                using (MySqlCommand command = new MySqlCommand(updateQuery, connection))
+                if (UpdatedServiceStatus == "In Session")
                 {
-                    command.Parameters.AddWithValue("@ServiceStatus", UpdatedServiceStatus);
-                    command.Parameters.AddWithValue("@TransactionNumber", transactionID);
-                    command.ExecuteNonQuery();
+                    string updateQuery = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus WHERE TransactionNumber = @TransactionNumber";
+                    string updateQuery2 = "UPDATE servicehistory SET ServiceStatus = @ServiceStatus, AttendingStaff = @AttendingStaff, ServiceStart = @ServiceStart WHERE TransactionNumber = @TransactionNumber AND ServiceID = @ServiceID";
+                    string updateQuery3 = "UPDATE systemusers SET Availability = 'Unavailable', CurrentCustomerName = @CurrentCustomerName, CurrentCustomerQueNumber = @CurrentCustomerQueNumber WHERE EmployeeID = @EmployeeID";
+
+                    using (MySqlCommand command = new MySqlCommand(updateQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@ServiceStatus", UpdatedServiceStatus);
+                        command.Parameters.AddWithValue("@TransactionNumber", transactionID);
+                        command.ExecuteNonQuery();
+                    }
+                    using (MySqlCommand command = new MySqlCommand(updateQuery2, connection))
+                    {
+                        command.Parameters.AddWithValue("@ServiceStatus", UpdatedServiceStatus);
+                        command.Parameters.AddWithValue("@TransactionNumber", transactionID);
+                        command.Parameters.AddWithValue("@AttendingStaff", attenidingStaff);
+                        command.Parameters.AddWithValue("@ServiceID", serviceID);
+                        command.Parameters.AddWithValue("@ServiceStart", DateTime.Now.ToString("HH:mm:ss"));
+                        command.ExecuteNonQuery();
+                    }
+                    using (MySqlCommand command = new MySqlCommand(updateQuery3, connection))
+                    {
+                        command.Parameters.AddWithValue("@EmployeeID", attenidingStaff);
+                        command.Parameters.AddWithValue("@CurrentCustomerName", customerName);
+                        command.Parameters.AddWithValue("@CurrentCustomerQueNumber", customerQueNumber);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                else if (UpdatedServiceStatus == "Completed")
+                {
+                    string updateQuery1 = "UPDATE servicehistory SET ServiceStatus = @ServiceStatus, ServiceEnd = @ServiceEnd, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber AND ServiceID = @ServiceID";
+                    string updateQuery2 = "UPDATE systemusers SET Availability = 'Available', CurrentCustomerName = '', CurrentCustomerQueNumber = '' WHERE EmployeeID = @EmployeeID";
+                    string updateQuery3 = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
+
+
+                    using (MySqlCommand command = new MySqlCommand(updateQuery1, connection))
+                    {
+                        command.Parameters.AddWithValue("@ServiceStatus", UpdatedServiceStatus);
+                        command.Parameters.AddWithValue("@TransactionNumber", transactionID);
+                        command.Parameters.AddWithValue("@ServiceID", serviceID);
+                        command.Parameters.AddWithValue("@ServiceEnd", DateTime.Now.ToString("HH:mm:ss"));
+                        command.Parameters.AddWithValue("@ServiceDuration", timeElapsed);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    string countQuery = "SELECT COUNT(*) FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND ServiceStatus = 'Pending' ";
+                    int matchCount;
+
+                    using (MySqlCommand command = new MySqlCommand(countQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@TransactionNumber", transactionID);
+                        matchCount = Convert.ToInt32(command.ExecuteScalar());
+                    }
+
+                    string serviceStatus = (matchCount == 0) ? "Completed" : "Pending";
+
+                    using (MySqlCommand command = new MySqlCommand(updateQuery3, connection))
+                    {
+                        command.Parameters.AddWithValue("@ServiceStatus", serviceStatus);
+                        command.Parameters.AddWithValue("@TransactionNumber", transactionID);
+                        command.Parameters.AddWithValue("@ServiceDuration", timeElapsed);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    
+                    using (MySqlCommand command = new MySqlCommand(updateQuery2, connection))
+                    {
+                        command.Parameters.AddWithValue("@EmployeeID", attenidingStaff);
+                        command.ExecuteNonQuery();
+                    }
                 }
             }
         }
+
         private void StaffStartServiceBtn_Click(object sender, EventArgs e)
         {
-            StartTimer();
             StartServiceButtonClicked?.Invoke(this, EventArgs.Empty);
+            StaffEndServiceBtn.Enabled = true;
+            EnchanteForm.RemovePendingUserControls(this);
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -143,9 +212,12 @@ namespace Enchante
             StaffCustomerServiceStatusTextBox.Text = "Completed";
             StaffEndServiceBtn.Enabled = false;
             StaffUpdateServiceStatusOfCustomerinDB("Completed");
+            if (Parent != null)
+            {
+                Parent.Controls.Remove(this);
+            }
+            EnchanteForm.RefreshFlowLayoutPanel();
         }
-
-
 
     }
 }

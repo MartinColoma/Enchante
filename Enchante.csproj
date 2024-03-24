@@ -109,6 +109,7 @@
     </Reference>
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -125,12 +126,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AvailableStaffUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="AvailableStaffUserControl.Designer.cs">
-      <DependentUpon>AvailableStaffUserControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Enchante.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,15 +151,27 @@
     <Compile Include="StaffCurrentServicesUserControl.Designer.cs">
       <DependentUpon>StaffCurrentServicesUserControl.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AvailableStaffUserControl.resx">
-      <DependentUpon>AvailableStaffUserControl.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="ProductUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProductUserControl.Designer.cs">
+      <DependentUpon>ProductUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NoCustomerInQueueUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NoCustomerInQueueUserControl.Designer.cs">
+      <DependentUpon>NoCustomerInQueueUserControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Enchante.resx">
       <DependentUpon>Enchante.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="MemberPlanPeriod.resx">
       <DependentUpon>MemberPlanPeriod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductUserControl.resx">
+      <DependentUpon>ProductUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -178,6 +185,9 @@
     </Compile>
     <EmbeddedResource Include="StaffCurrentServicesUserControl.resx">
       <DependentUpon>StaffCurrentServicesUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NoCustomerInQueueUserControl.resx">
+      <DependentUpon>NoCustomerInQueueUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -221,7 +231,10 @@
     <None Include="Resources\download %281%29.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Enchante Logo %28200 x 200 px%29 %281%29.png" />
+    <EmbeddedResource Include="Resources\Enchante Logo %28200 x 200 px%29 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\outofstock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
