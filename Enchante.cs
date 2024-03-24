@@ -6839,13 +6839,18 @@ namespace Enchante
                 MessageBox.Show("Please select a prefered staff or toggle anyone ", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            if (RecApptBookingTimeComboBox.SelectedIndex == 0 || RecApptBookingTimeComboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a booking time", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             DataGridViewRow selectedRow = RecApptServiceTypeDGV.SelectedRows[0];
 
             string SelectedCategory = selectedRow.Cells[0].Value.ToString();
             string ServiceID = selectedRow.Cells[2].Value.ToString();
             string ServiceName = selectedRow.Cells[3].Value.ToString();
             string ServicePrice = selectedRow.Cells[6].Value.ToString();
-
+            string ServiceTime = RecApptBookingTimeComboBox.SelectedItem.ToString();
             string serviceID = selectedRow.Cells[2]?.Value?.ToString(); // Use null-conditional operator to avoid NullReferenceException
 
             // ... (existing code)
@@ -6902,6 +6907,7 @@ namespace Enchante
                 NewSelectedServiceRow.Cells["RecApptServiceCategory"].Value = SelectedCategory;
                 NewSelectedServiceRow.Cells["RecApptSelectedService"].Value = ServiceName;
                 NewSelectedServiceRow.Cells["RecApptServiceID"].Value = ServiceID;
+                NewSelectedServiceRow.Cells["RecApptTimeSelected"].Value = ServiceTime;
                 NewSelectedServiceRow.Cells["RecApptPriorityNumber"].Value = latestprioritynumber;
                 NewSelectedServiceRow.Cells["RecApptStaffSelected"].Value = selectedStaffID;
                 QueTypeIdentifier(NewSelectedServiceRow.Cells["RecApptQueType"]);
@@ -7073,7 +7079,6 @@ namespace Enchante
 
             //booked values
             string bookedDate = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
-            string bookedTime = RecApptBookingTimeComboBox.SelectedItem?.ToString();//appointmenttime
 
             //basic info
             string CustomerName = RecApptFNameText.Text + " " + RecApptLNameText.Text; //client name
@@ -7097,6 +7102,7 @@ namespace Enchante
                                 string selectedStaff = row.Cells["RecApptStaffSelected"].Value.ToString();
                                 string quepriorityNumber = row.Cells["RecApptPriorityNumber"].Value.ToString();
                                 string queType = row.Cells["RecApptQueType"].Value.ToString();
+                                string bookedTime = row.Cells["RecApptTimeSelected"].Value.ToString();
 
                                 string insertQuery = "INSERT INTO servicehistory (TransactionNumber, TransactionType, ServiceStatus, AppointmentDate, AppointmentTime, ClientName, " +
                                                      "ServiceCategory, ServiceID, SelectedService, ServicePrice, PreferredStaff, PriorityNumber," +
@@ -10719,6 +10725,16 @@ namespace Enchante
                     }
                 }
             }
+            if (StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Count > 0 && !StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
+            {
+                foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
+                {
+                    if (control is StaffCurrentAvailableCustomersUserControl userControl)
+                    {
+                        userControl.StaffStartServiceBtn.Enabled = false;
+                    }
+                }
+            }
         }
 
         private void AvailableCustomersUserControl_ExpandCollapseButtonClicked(object sender, EventArgs e)
@@ -10829,8 +10845,11 @@ namespace Enchante
             }
             StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
             StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+            StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+            InitializePriorityPendingCustomersForStaff();
             InitializeGeneralCuePendingCustomersForStaff();
             InitializePreferredCuePendingCustomersForStaff();
+
 
             bool hasNoCustomerControl = StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any()
                || StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any();
@@ -10866,6 +10885,14 @@ namespace Enchante
                 if (control != selectedControl)
                 {
                     StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Remove(control);
+                    control.Dispose();
+                }
+            }
+            foreach (System.Windows.Forms.Control control in StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<StaffCurrentAvailableCustomersUserControl>().ToList())
+            {
+                if (control != selectedControl)
+                {
+                    StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Remove(control);
                     control.Dispose();
                 }
             }
@@ -11041,6 +11068,16 @@ namespace Enchante
             else
             {
                 foreach (System.Windows.Forms.Control control in StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls)
+                {
+                    if (control is StaffCurrentAvailableCustomersUserControl userControl)
+                    {
+                        userControl.StaffStartServiceBtn.Enabled = false;
+                    }
+                }
+            }
+            if (StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Count > 0 && !StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
+            {
+                foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
                 {
                     if (control is StaffCurrentAvailableCustomersUserControl userControl)
                     {

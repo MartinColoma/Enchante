@@ -103,6 +103,7 @@ namespace Enchante
             string timeElapsed = StaffElapsedTimeTextBox.Text;
             string customerName = StaffCustomerNameTextBox.Text;
             string customerQueNumber = StaffQueNumberTextBox.Text;
+            string quetype = StaffQueTypeTextBox.Text;
 
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
 
@@ -111,11 +112,18 @@ namespace Enchante
 
                 if (UpdatedServiceStatus == "In Session")
                 {
-                    string updateQuery = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus WHERE TransactionNumber = @TransactionNumber";
+                    string updateQueryWalkInTransaction = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus WHERE TransactionNumber = @TransactionNumber";
+                    string updateQueryAppointment = "UPDATE appointment SET ServiceStatus = @ServiceStatus WHERE TransactionNumber = @TransactionNumber";
                     string updateQuery2 = "UPDATE servicehistory SET ServiceStatus = @ServiceStatus, AttendingStaff = @AttendingStaff, ServiceStart = @ServiceStart WHERE TransactionNumber = @TransactionNumber AND ServiceID = @ServiceID";
                     string updateQuery3 = "UPDATE systemusers SET Availability = 'Unavailable', CurrentCustomerName = @CurrentCustomerName, CurrentCustomerQueNumber = @CurrentCustomerQueNumber WHERE EmployeeID = @EmployeeID";
 
-                    using (MySqlCommand command = new MySqlCommand(updateQuery, connection))
+                    using (MySqlCommand command = new MySqlCommand(updateQueryAppointment, connection))
+                    {
+                        command.Parameters.AddWithValue("@ServiceStatus", UpdatedServiceStatus);
+                        command.Parameters.AddWithValue("@TransactionNumber", transactionID);
+                        command.ExecuteNonQuery();
+                    }
+                    using (MySqlCommand command = new MySqlCommand(updateQueryWalkInTransaction, connection))
                     {
                         command.Parameters.AddWithValue("@ServiceStatus", UpdatedServiceStatus);
                         command.Parameters.AddWithValue("@TransactionNumber", transactionID);
@@ -143,7 +151,7 @@ namespace Enchante
                     string updateQuery1 = "UPDATE servicehistory SET ServiceStatus = @ServiceStatus, ServiceEnd = @ServiceEnd, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber AND ServiceID = @ServiceID";
                     string updateQuery2 = "UPDATE systemusers SET Availability = 'Available', CurrentCustomerName = '', CurrentCustomerQueNumber = '' WHERE EmployeeID = @EmployeeID";
                     string updateQuery3 = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
-
+                    string updateQuery4 = "UPDATE appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
 
                     using (MySqlCommand command = new MySqlCommand(updateQuery1, connection))
                     {
@@ -176,13 +184,26 @@ namespace Enchante
                         command.ExecuteNonQuery();
                     }
 
-                    
+                    using (MySqlCommand command = new MySqlCommand(updateQuery4, connection))
+                    {
+                        command.Parameters.AddWithValue("@ServiceStatus", serviceStatus);
+                        command.Parameters.AddWithValue("@TransactionNumber", transactionID);
+                        command.Parameters.AddWithValue("@ServiceDuration", timeElapsed);
+
+                        command.ExecuteNonQuery();
+                    }
+
+
                     using (MySqlCommand command = new MySqlCommand(updateQuery2, connection))
                     {
                         command.Parameters.AddWithValue("@EmployeeID", attenidingStaff);
                         command.ExecuteNonQuery();
                     }
                 }
+
+
+                
+
             }
         }
 
