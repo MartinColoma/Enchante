@@ -74,9 +74,16 @@ namespace Enchante
             timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += Timer_Tick;
-            StaffCustomerServiceStatusTextBox.Text = "In Session";
+            if (StaffCustomerServiceStatusTextBox.Text == "Pending")
+            {
+                StaffCustomerServiceStatusTextBox.Text = "In Session";
+            }
+            else if (StaffCustomerServiceStatusTextBox.Text == "Pending Paid")
+            {
+                StaffCustomerServiceStatusTextBox.Text = "In Session Paid";
+            }
             StaffStartServiceBtn.Enabled = false;
-            StaffUpdateServiceStatusOfCustomerinDB("In Session");
+            StaffUpdateServiceStatusOfCustomerinDB(StaffCustomerServiceStatusTextBox.Text);
             timer.Start();
         }
         private void StopTimer()
@@ -103,14 +110,13 @@ namespace Enchante
             string timeElapsed = StaffElapsedTimeTextBox.Text;
             string customerName = StaffCustomerNameTextBox.Text;
             string customerQueNumber = StaffQueNumberTextBox.Text;
-            string quetype = StaffQueTypeTextBox.Text;
 
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
 
             {
                 connection.Open();
 
-                if (UpdatedServiceStatus == "In Session")
+                if (UpdatedServiceStatus == "In Session" || UpdatedServiceStatus == "In Session Paid")
                 {
                     string updateQueryWalkInTransaction = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus WHERE TransactionNumber = @TransactionNumber";
                     string updateQueryAppointment = "UPDATE appointment SET ServiceStatus = @ServiceStatus WHERE TransactionNumber = @TransactionNumber";
@@ -200,9 +206,61 @@ namespace Enchante
                         command.ExecuteNonQuery();
                     }
                 }
+                else if (UpdatedServiceStatus == "Completed Paid")
+                {
+                    string updateQuery1 = "UPDATE servicehistory SET ServiceStatus = @ServiceStatus, ServiceEnd = @ServiceEnd, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber AND ServiceID = @ServiceID";
+                    string updateQuery2 = "UPDATE systemusers SET Availability = 'Available', CurrentCustomerName = '', CurrentCustomerQueNumber = '' WHERE EmployeeID = @EmployeeID";
+                    string updateQuery3 = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
+                    string updateQuery4 = "UPDATE appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
+
+                    using (MySqlCommand command = new MySqlCommand(updateQuery1, connection))
+                    {
+                        command.Parameters.AddWithValue("@ServiceStatus", UpdatedServiceStatus);
+                        command.Parameters.AddWithValue("@TransactionNumber", transactionID);
+                        command.Parameters.AddWithValue("@ServiceID", serviceID);
+                        command.Parameters.AddWithValue("@ServiceEnd", DateTime.Now.ToString("HH:mm:ss"));
+                        command.Parameters.AddWithValue("@ServiceDuration", timeElapsed);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    string countQuery = "SELECT COUNT(*) FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND ServiceStatus = 'Pending Paid' ";
+                    int matchCount;
+
+                    using (MySqlCommand command = new MySqlCommand(countQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@TransactionNumber", transactionID);
+                        matchCount = Convert.ToInt32(command.ExecuteScalar());
+                    }
+
+                    string serviceStatus = (matchCount == 0) ? "Paid" : "Pending Paid";
+
+                    using (MySqlCommand command = new MySqlCommand(updateQuery3, connection))
+                    {
+                        command.Parameters.AddWithValue("@ServiceStatus", serviceStatus);
+                        command.Parameters.AddWithValue("@TransactionNumber", transactionID);
+                        command.Parameters.AddWithValue("@ServiceDuration", timeElapsed);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    using (MySqlCommand command = new MySqlCommand(updateQuery4, connection))
+                    {
+                        command.Parameters.AddWithValue("@ServiceStatus", serviceStatus);
+                        command.Parameters.AddWithValue("@TransactionNumber", transactionID);
+                        command.Parameters.AddWithValue("@ServiceDuration", timeElapsed);
+
+                        command.ExecuteNonQuery();
+                    }
 
 
-                
+                    using (MySqlCommand command = new MySqlCommand(updateQuery2, connection))
+                    {
+                        command.Parameters.AddWithValue("@EmployeeID", attenidingStaff);
+                        command.ExecuteNonQuery();
+                    }
+                }
+
 
             }
         }
@@ -241,9 +299,16 @@ namespace Enchante
         {
             StopTimer();
             StaffElapsedTimeTextBox.Text = lastElapsedTime.ToString(@"hh\:mm\:ss");
-            StaffCustomerServiceStatusTextBox.Text = "Completed";
+            if (StaffCustomerServiceStatusTextBox.Text == "In Session Paid")
+            {
+                StaffCustomerServiceStatusTextBox.Text = "Completed Paid";
+            }
+            else if (StaffCustomerServiceStatusTextBox.Text == "In Session")
+            {
+                StaffCustomerServiceStatusTextBox.Text = "Completed";
+            }
             StaffEndServiceBtn.Enabled = false;
-            StaffUpdateServiceStatusOfCustomerinDB("Completed");
+            StaffUpdateServiceStatusOfCustomerinDB(StaffCustomerServiceStatusTextBox.Text);
             if (Parent != null)
             {
                 Parent.Controls.Remove(this);

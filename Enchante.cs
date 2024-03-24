@@ -10773,10 +10773,10 @@ namespace Enchante
                     string generalquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber 
                                                      FROM servicehistory sh 
                                                      INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber 
-                                                     WHERE sh.ServiceStatus = 'Pending' 
+                                                     WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')
                                                      AND sh.ServiceCategory = @membercategory 
                                                      AND sh.QueType = 'GeneralQue' 
-                                                     AND wa.ServiceStatus = 'Pending' 
+                                                     AND (wa.ServiceStatus = 'Pending' OR wa.ServiceStatus = 'Pending Paid')
                                                      AND sh.AppointmentDate = @datetoday";
 
                     MySqlCommand command = new MySqlCommand(generalquependingcustomersquery, connection);
@@ -10922,7 +10922,7 @@ namespace Enchante
 
                     string preferredquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber
                        FROM servicehistory sh INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber
-                       WHERE sh.ServiceStatus = 'Pending' AND sh.ServiceCategory = @membercategory AND sh.PreferredStaff = @preferredstaff AND wa.ServiceStatus = 'Pending' AND sh.AppointmentDate = @datetoday";
+                       WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid') AND sh.ServiceCategory = @membercategory AND sh.PreferredStaff = @preferredstaff AND (wa.ServiceStatus = 'Pending' OR wa.ServiceStatus = 'Pending Paid') AND sh.AppointmentDate = @datetoday";
 
                     MySqlCommand command = new MySqlCommand(preferredquependingcustomersquery, connection);
                     command.Parameters.AddWithValue("@membercategory", membercategory);
@@ -12579,10 +12579,10 @@ namespace Enchante
                     string priorityquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber, sh.QueType 
                                  FROM servicehistory sh 
                                  INNER JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber 
-                                 WHERE sh.ServiceStatus = 'Pending' 
+                                 WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')
                                  AND sh.ServiceCategory = @membercategory 
                                  AND (sh.QueType = 'AnyonePriority' OR sh.PreferredStaff = @preferredstaff)
-                                 AND app.ServiceStatus = 'Pending' 
+                                 AND (app.ServiceStatus = 'Pending' OR app.ServiceStatus = 'Pending Paid')
                                  AND app.AppointmentStatus = 'Confirmed'
                                  AND sh.AppointmentDate = @datetoday";
 
@@ -12665,7 +12665,8 @@ namespace Enchante
             {
                 if (control is StaffCurrentAvailableCustomersUserControl userControl)
                 {
-                    int queNumber = int.Parse(userControl.StaffQueNumberTextBox.Text);
+                    int queNumber;
+                    int.TryParse(userControl.StaffQueNumberTextBox.Text, out queNumber);
                     userControl.StaffStartServiceBtn.Enabled = (queNumber == smallestQueNumber);
                 }
             }
