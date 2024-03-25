@@ -58,6 +58,7 @@ namespace Enchante
         private ServiceCard Service; //Service Card
         private ReceptionTransactionCard Transaction;
         private MngrInventoryCard Inventory;
+        RateMyService RateMe = new RateMyService();
 
         //tool tip
         private System.Windows.Forms.ToolTip iconToolTip;
@@ -2830,8 +2831,10 @@ namespace Enchante
         }
         #endregion
 
-        //Receptionist Dashboard Starts Here
-        #region
+
+        #region Receptionist Dashboard Starts Here
+
+        #region Receptionist Misc. Functions
         private void ReceptionLogoutBtn_Click(object sender, EventArgs e)
         {
             LogoutChecker();
@@ -2967,9 +2970,9 @@ namespace Enchante
         {
             iconToolTip.SetToolTip(RecAccBtn, "Profile");
         }
+        #endregion
 
-        //Receptionist Walk-in Transaction
-        #region
+        #region Receptionist Walk-in Transaction
         private void RecWalkInExitBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecTransactionPanel);
@@ -4395,7 +4398,7 @@ namespace Enchante
                 if (RecWalkinSelectedProdDGV.Columns[e.ColumnIndex].Name == "Void")
                 {
                     //input dialog messagebox
-                    string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Password Required");
+                    string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Void Product Permission");
 
                     // Hash the entered password
                     string hashedEnteredPassword = HashHelper.HashString(enteredPassword);
@@ -4509,13 +4512,8 @@ namespace Enchante
                 return;
             }
 
-            if (RecWalkinSelectedProdDGV.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Please select a product to void.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             //input dialog messagebox
-            string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Password Required");
+            string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Void Product Permission");
 
             // Hash the entered password
             string hashedEnteredPassword = HashHelper.HashString(enteredPassword);
@@ -4616,6 +4614,8 @@ namespace Enchante
 
                 // Set the fixed size for the form
                 passwordForm.Size = new Size(500, 300);
+                passwordForm.Text = title;
+
                 passwordForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
                 // Disable resizing of the form
                 passwordForm.FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -4640,9 +4640,8 @@ namespace Enchante
         #endregion
 
         #endregion
-
-        //Receptionist Payment Service
-        #region
+       
+        #region Receptionist Payment Service
 
         private void ReceptionCalculateTotalPrice()
         {
@@ -5178,6 +5177,8 @@ namespace Enchante
 
         public void RecLoadCompletedTrans()
         {
+            string todayDate = DateTime.Today.ToString("MM-dd-yyyy dddd");
+
             MySqlConnection connection = null;
             try
             {
@@ -5186,9 +5187,10 @@ namespace Enchante
                     connection.Open();
 
                     // Filter and sort the data by FoodType
-                    string sql = "SELECT * FROM `walk_in_appointment` WHERE ServiceStatus = 'Completed' ORDER BY ServiceStatus";
+                    string sql = "SELECT * FROM `walk_in_appointment` WHERE ServiceStatus = 'Completed' AND AppointmentDate = @todayDate ORDER BY ServiceStatus ";
                     MySqlCommand cmd = new MySqlCommand(sql, connection);
                     System.Data.DataTable dataTable = new System.Data.DataTable();
+                    cmd.Parameters.AddWithValue("@todayDate", todayDate);
 
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
                     {
@@ -6065,9 +6067,7 @@ namespace Enchante
         }
         #endregion
 
-
-        //Receptionist Queue Window
-        #region
+        #region Receptionist Queue Window
         private void RecQueWinBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecQueWinPanel);
@@ -6439,8 +6439,7 @@ namespace Enchante
         }
         #endregion
 
-        //Receptionsit Appointment
-        #region
+        #region Receptionsit Walk-in Appointment
 
         private void RecApptPanelExitBtn_Click(object sender, EventArgs e)
         {
@@ -7584,3776 +7583,7 @@ namespace Enchante
 
         #endregion
 
-
-        //Receptionist Shop Product 
-        #region
-
-        #endregion
-
-        #endregion
-        //Manager dashboard starts here
-        #region
-        private void MngrSignOutBtn_Click_1(object sender, EventArgs e)
-        {
-            LogoutChecker();
-        }
-
-        private void MngrUserAccBtn_Click(object sender, EventArgs e)
-        {
-            if (MngrUserAccPanel.Visible == false)
-            {
-                MngrUserAccPanel.Visible = true;
-            }
-            else
-            {
-                MngrUserAccPanel.Visible = false;
-            }
-        }
-        private void RecInventoryMembershipBtn_Click(object sender, EventArgs e)
-        {
-            Inventory.PanelShow(MngrInventoryMembershipPanel);
-
-        }
-
-        private void RecInventoryProductsBtn_Click(object sender, EventArgs e)
-        {
-            Inventory.PanelShow(MngrInventoryProductsPanel);
-            MngrInventoryProductData();
-        }
-        private void MngrSchedExitBtn_Click(object sender, EventArgs e)
-        {
-            Inventory.PanelShow(MngrInventoryTypePanel);
-        }
-
-        private void MngrInventoryProductHistoryExitBtn_Click(object sender, EventArgs e)
-        {
-            Inventory.PanelShow(MngrInventoryTypePanel);
-        }
-
-        private void MngrPayServiceExitBtn_Click(object sender, EventArgs e)
-        {
-            Transaction.PanelShow(RecTransactionPanel);
-
-        }
-
-        private void MngrInventoryWalkinSalesBtn_Click(object sender, EventArgs e)
-        {
-            Inventory.PanelShow(MngrWalkinSalesPanel);
-        }
-
-        private void MngrInventoryProductsHistoryBtn_Click(object sender, EventArgs e)
-        {
-            Inventory.PanelShow(MngrInventoryProductHistoryPanel);
-
-        }
-
-        private void MngrInventoryStaffSchedBtn_Click(object sender, EventArgs e)
-        {
-            Inventory.PanelShow(MngrSchedPanel);
-        }
-
-        private void MngrInventoryMembershipExitBtn_Click(object sender, EventArgs e)
-        {
-            Inventory.PanelShow(MngrInventoryTypePanel);
-        }
-        private void MngrInventoryInDemandBtn_Click(object sender, EventArgs e)
-        {
-            Inventory.PanelShow(MngrIndemandPanel);
-        }
-        private void MngrServicesHistoryBtn_Click(object sender, EventArgs e)
-        {
-            Inventory.PanelShow(MngrServiceHistoryPanel);
-
-        }
-        private void MngrServiceHistoryExitBtn_Click(object sender, EventArgs e)
-        {
-            Inventory.PanelShow(MngrInventoryTypePanel);
-
-        }
-
-        private void MngrWalkinProdSalesBtn_Click(object sender, EventArgs e)
-        {
-            Inventory.PanelShow(MngrWalkinProdSalesPanel);
-            MngrProductSalesTransRepDGV.DataSource = null;
-        }
-
-        private void MngrWalkinProdSalesExitBtn_Click(object sender, EventArgs e)
-        {
-            trydata.Visible = false;
-            MngrProductSalesTransRepDGV.DataSource = null;
-            trydata.DataSource = null;
-            MngrProductSalesSelectedPeriodLbl.Visible = true;
-            MngrProductSalesSelectedPeriodText.Visible = true;
-            MngrProductSalesFromLbl.Visible = false;
-            MngrProductSalesFromDatePicker.Visible = false;
-            MngrProductSalesToLbl.Visible = false;
-            MngrProductSalesToDatePicker.Visible = false;
-            MngrProductSalesPeriodCalendar.Visible = false;
-            MngrProductSalesPeriod.SelectedItem = null;
-            MngrProductSalesSelectCatBox.SelectedItem = null;
-            MngrProductSalesSelectedPeriodText.Text = "";
-            MngrProductSalesLineGraph.Series.Clear();
-            MngrProductSalesGraph.Series.Clear();
-            Inventory.PanelShow(MngrInventoryTypePanel);
-        }
-        //Services Data
-        #region
-        private void RecInventoryServicesBtn_Click_1(object sender, EventArgs e)
-        {
-            Inventory.PanelShow(MngrServicesPanel);
-            ReceptionLoadServices();
-
-        }
-
-        private void RecInventoryServicesExitBtn_Click(object sender, EventArgs e)
-        {
-            Inventory.PanelShow(MngrInventoryTypePanel);
-            ServiceBoxClear();
-
-        }
-
-        private void RecServicesCategoryComboText_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (MngrServicesCategoryComboText.SelectedItem != null)
-            {
-                MngrServicesCategoryComboText.Text = MngrServicesCategoryComboText.SelectedItem.ToString();
-                UpdateServiceTypeComboBox();
-                GenerateServiceID();
-            }
-        }
-
-        private void UpdateServiceTypeComboBox()
-        {
-            MngrServicesTypeComboText.Items.Clear();
-
-            // Get the selected category
-            string selectedCategory = MngrServicesCategoryComboText.SelectedItem.ToString();
-
-            // Filter and add the relevant service types based on the selected category
-            switch (selectedCategory)
-            {
-                case "Hair Styling":
-                    MngrServicesTypeComboText.Items.AddRange(new string[] { "Hair Cut", "Hair Blowout", "Hair Color", "Hair Extension", "Package" });
-                    break;
-                case "Nail Care":
-                    MngrServicesTypeComboText.Items.AddRange(new string[] { "Manicure", "Pedicure", "Nail Extension", "Nail Art", "Nail Treatment", "Nail Repair", "Package" });
-                    break;
-                case "Face & Skin":
-                    // Add relevant face and skin service types here
-                    MngrServicesTypeComboText.Items.AddRange(new string[] { "Skin Whitening", "Exfoliation Treatment", "Chemical Peel", "Hydration Treatment", "Acne Treatment", "Anti-Aging Treatment", "Package" });
-                    break;
-                case "Massage":
-                    // Add relevant massage service types here
-                    MngrServicesTypeComboText.Items.AddRange(new string[] { "Soft Massage", "Moderate Massage", "Hard Massage", "Package" });
-
-                    break;
-                case "Spa":
-                    // Add relevant spa service types here
-                    MngrServicesTypeComboText.Items.AddRange(new string[] { "Herbal Pool", "Sauna", "Package" });
-                    break;
-                default:
-                    break;
-            }
-
-            // Select the first item in the list
-            if (MngrServicesTypeComboText.Items.Count > 0)
-            {
-                MngrServicesTypeComboText.SelectedIndex = 0;
-            }
-        }
-
-        private void RecServicesTypeComboText_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (MngrServicesTypeComboText.SelectedItem != null)
-            {
-                MngrServicesTypeComboText.Text = MngrServicesTypeComboText.SelectedItem.ToString();
-                GenerateServiceID();
-
-            }
-        }
-        public class DynamicIDGenerator
-        {
-            private static Random random = new Random();
-
-            public static string GenerateServiceID(string selectedCategory, string selectedType)
-            {
-                // Get the first two characters of the service category
-                string categoryCode = selectedCategory.Substring(0, 2).ToUpper();
-
-                // Get the first character of the service type
-                char typeCode = selectedType[0];
-
-                // Generate a random 6-digit number
-                string randomPart = GenerateRandomNumber();
-
-                // Format the ServiceID
-                string serviceID = $"{categoryCode}-{typeCode}-{randomPart:D6}";
-
-                return serviceID;
-            }
-
-            private static string GenerateRandomNumber()
-            {
-                // Generate a random 6-digit number
-                int randomNumber = random.Next(100000, 999999);
-
-                return randomNumber.ToString();
-            }
-        }
-
-
-        private void GenerateServiceID()
-        {
-            if (MngrServicesCategoryComboText.SelectedIndex >= 0 && MngrServicesTypeComboText.SelectedIndex >= 0)
-            {
-                // Get the selected items from both combo boxes
-                string selectedCategory = MngrServicesCategoryComboText.SelectedItem.ToString();
-                string selectedType = MngrServicesTypeComboText.SelectedItem.ToString();
-
-                // Call the GenerateServiceID method
-                string generatedServiceID = DynamicIDGenerator.GenerateServiceID(selectedCategory, selectedType);
-
-                // Update your UI element with the generated ID
-                MngrServicesIDNumText.Text = generatedServiceID;
-            }
-        }
-
-        private void RecServicesCreateBtn_Click(object sender, EventArgs e)
-        {
-            string category = MngrServicesCategoryComboText.Text;
-            string type = MngrServicesTypeComboText.Text;
-            string name = MngrServicesNameText.Text;
-            string describe = MngrServicesDescriptionText.Text;
-            string duration = MngrServicesDurationText.Text;
-            string price = MngrServicesPriceText.Text;
-            string ID = MngrServicesIDNumText.Text;
-
-            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(type) && string.IsNullOrEmpty(category) && string.IsNullOrEmpty(describe)
-                && string.IsNullOrEmpty(duration) && string.IsNullOrEmpty(price))
-            {
-                MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            else if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(category) || string.IsNullOrEmpty(describe)
-                || string.IsNullOrEmpty(duration) || string.IsNullOrEmpty(price))
-            {
-                MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            else
-            {
-
-                try
-                {
-                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-                    {
-                        connection.Open();
-                        // Check if email already exists
-                        string checkIDQuery = "SELECT COUNT(*) FROM services WHERE ServiceID = @ID";
-                        MySqlCommand checkIDCmd = new MySqlCommand(checkIDQuery, connection);
-                        checkIDCmd.Parameters.AddWithValue("@ID", ID);
-
-                        int ID_Count = Convert.ToInt32(checkIDCmd.ExecuteScalar());
-
-                        if (ID_Count > 0)
-                        {
-                            // Email already exists, show a message or take appropriate action
-                            MessageBox.Show("Service ID already exists. Please use a different ID Number.", "Salon Service Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return; // Exit the method without inserting the new account
-                        }
-                        string insertQuery = "INSERT INTO services (Category, Type, ServiceID, Name, Description, Duration, Price)" +
-                            "VALUES (@category, @type, @ID, @name, @describe, @duration, @price)";
-
-                        MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
-                        cmd.Parameters.AddWithValue("@category", category);
-                        cmd.Parameters.AddWithValue("@type", type);
-                        cmd.Parameters.AddWithValue("@ID", ID);
-                        cmd.Parameters.AddWithValue("@name", name);
-                        cmd.Parameters.AddWithValue("@describe", describe);
-                        cmd.Parameters.AddWithValue("@duration", duration);
-                        cmd.Parameters.AddWithValue("@price", price);
-
-                        cmd.ExecuteNonQuery();
-                    }
-
-                    // Successful insertion
-                    MessageBox.Show("Salon service is successfully created.", "Enchanté Service", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ServiceBoxClear();
-                    ReceptionLoadServices();
-                    GenerateServiceID();
-
-
-                }
-                catch (MySqlException ex)
-                {
-                    // Handle MySQL database exception
-                    MessageBox.Show("MySQL Error: " + ex.Message, "Creating Enchanté Service Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    // Make sure to close the connection
-                    connection.Close();
-                }
-            }
-
-        }
-        private void ServiceBoxClear()
-        {
-            MngrServicesCreateBtn.Visible = true;
-            MngrServicesUpdateBtn.Visible = false;
-            MngrServicesCategoryComboText.Enabled = true;
-            MngrServicesTypeComboText.Enabled = true;
-            MngrServicesCategoryComboText.SelectedIndex = -1;
-            MngrServicesTypeComboText.SelectedIndex = -1;
-            MngrServicesCategoryComboText.Text = "";
-            MngrServicesTypeComboText.Text = "";
-            MngrServicesNameText.Text = "";
-            MngrServicesDescriptionText.Text = "";
-            MngrServicesDurationText.Text = "";
-            MngrServicesPriceText.Text = "";
-            MngrServicesIDNumText.Text = "";
-
-        }
-
-        private void RecServicesUpdateInfoBtn_Click(object sender, EventArgs e)
-        {
-            if (MngrInventoryServicesTable.SelectedRows.Count > 0)
-            {
-                DialogResult dialogResult = MessageBox.Show("Do you want to edit the selected data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (dialogResult == DialogResult.Yes)
-                {
-                    // Iterate through selected rows in PendingTable
-                    foreach (DataGridViewRow selectedRow in MngrInventoryServicesTable.SelectedRows)
-                    {
-                        try
-                        {
-                            //// Re data into the database
-                            RetrieveServiceDataFromDB(selectedRow);
-                            MngrServicesUpdateBtn.Visible = true;
-                            MngrServicesCreateBtn.Visible = false;
-                            MngrServicesCategoryComboText.Enabled = false;
-                            MngrServicesTypeComboText.Enabled = false;
-                        }
-                        catch (Exception ex)
-                        {
-                            // Handle any database-related errors here
-                            MessageBox.Show("Error: " + ex.Message, "Service Info Edit Failed");
-                        }
-                    }
-
-
-                }
-                else if (dialogResult == DialogResult.No)
-                {
-
-                }
-            }
-            else
-            {
-                MessageBox.Show("Select a table row first.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
-        }
-        private void RetrieveServiceDataFromDB(DataGridViewRow selectedRow)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-                {
-                    connection.Open();
-
-                    string ID = selectedRow.Cells[2].Value.ToString();
-
-                    string selectQuery = "SELECT * FROM services WHERE ServiceID = @ID";
-                    MySqlCommand selectCmd = new MySqlCommand(selectQuery, connection);
-                    selectCmd.Parameters.AddWithValue("@ID", ID);
-
-                    using (MySqlDataReader reader = selectCmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            string serviceCategory = reader["Category"].ToString();
-                            string serviceType = reader["Type"].ToString();
-                            string serviceID = reader["ServiceID"].ToString();
-                            string serviceName = reader["Name"].ToString();
-                            string serviceDescribe = reader["Description"].ToString();
-                            string serviceDuration = reader["Duration"].ToString();
-                            string servicePrice = reader["Price"].ToString();
-
-                            MngrServicesCategoryComboText.Text = serviceCategory;
-                            MngrServicesTypeComboText.Text = serviceType;
-                            MngrServicesIDNumText.Text = serviceID;
-                            MngrServicesNameText.Text = serviceName;
-                            MngrServicesDescriptionText.Text = serviceDescribe;
-                            MngrServicesDurationText.Text = serviceDuration;
-                            MngrServicesPriceText.Text = servicePrice;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Retrieving Food Item Data Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-        }
-
-
-        private void RecServicesUpdateBtn_Click(object sender, EventArgs e)
-        {
-            string category = MngrServicesCategoryComboText.Text;
-            string type = MngrServicesTypeComboText.Text;
-            string name = MngrServicesNameText.Text;
-            string describe = MngrServicesDescriptionText.Text;
-            string duration = MngrServicesDurationText.Text;
-            string price = MngrServicesPriceText.Text;
-            string ID = MngrServicesIDNumText.Text;
-
-            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(type) && string.IsNullOrEmpty(category) && string.IsNullOrEmpty(describe)
-                && string.IsNullOrEmpty(duration) && string.IsNullOrEmpty(price))
-            {
-                MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            else if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(category) || string.IsNullOrEmpty(describe)
-                || string.IsNullOrEmpty(duration) || string.IsNullOrEmpty(price))
-            {
-                MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            else
-            {
-                try
-                {
-                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-                    {
-                        connection.Open();
-
-                        // Check if the employee with the given Employee ID exists
-                        string checkExistQuery = "SELECT COUNT(*) FROM services WHERE ServiceID = @ID";
-                        MySqlCommand checkExistCmd = new MySqlCommand(checkExistQuery, connection);
-                        checkExistCmd.Parameters.AddWithValue("@ID", ID);
-                        int serviceCount = Convert.ToInt32(checkExistCmd.ExecuteScalar());
-
-                        if (serviceCount == 0)
-                        {
-                            MessageBox.Show("Service with the provided ID does not exist in the database.", "Service Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-
-
-                        // Update without image
-                        string updateQuery = "UPDATE services SET Category = @category, Type = @type, Name = @name, Description = @describe, Duration = @duration, Price = @price " +
-                            "WHERE ServiceID = @ID";
-                        MySqlCommand updateCmd = new MySqlCommand(updateQuery, connection);
-                        updateCmd.Parameters.AddWithValue("@category", category);
-                        updateCmd.Parameters.AddWithValue("@type", type);
-                        updateCmd.Parameters.AddWithValue("@ID", ID);
-                        updateCmd.Parameters.AddWithValue("@name", name);
-                        updateCmd.Parameters.AddWithValue("@describe", describe);
-                        updateCmd.Parameters.AddWithValue("@duration", duration);
-                        updateCmd.Parameters.AddWithValue("@price", price);
-
-                        updateCmd.ExecuteNonQuery();
-
-                    }
-
-                    // Successful update
-                    MessageBox.Show("Service information has been successfully updated.", "Service Info Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    ServiceBoxClear();
-                    ReceptionLoadServices();
-
-
-                }
-                catch (MySqlException ex)
-                {
-                    // Handle MySQL database exception
-                    MessageBox.Show("MySQL Error: " + ex.Message, "Updating Service Information Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
-
-        }
-        #endregion
-
-        //Product Data
-        #region
-
-        private void MngrInventoryProductsExitBtn_Click(object sender, EventArgs e)
-        {
-            Inventory.PanelShow(MngrInventoryTypePanel);
-            MngrProductClearFields();
-            PDImage.Visible = false;
-            ProductImagePictureBox.Visible = false;
-            CancelEdit.Visible = false;
-            SelectImage.Visible = false;
-            MngrInventoryProductsCatComboText.Enabled = true;
-            MngrInventoryProductsTypeComboText.Enabled = true;
-        }
-
-
-
-        private void MngrInventoryProductData()
-        {
-            string connectionString = "Server=localhost;Database=enchante;User=root;Password=;";
-
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    string query = "SELECT ItemID, ProductCategory, ItemName, ItemStock, ItemPrice, ProductType, ItemStatus FROM inventory";
-
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
-                    {
-                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
-                        {
-                            DataTable dataTable = new DataTable();
-                            adapter.Fill(dataTable);
-
-                            // Bind the DataTable to the DataGridView
-                            MngrInventoryProductsTable.DataSource = dataTable;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}");
-            }
-        }
-
-        private void MngrHomeBtn_Click(object sender, EventArgs e)
-        {
-            MngrHomePanelReset();
-        }
-
-        private bool shouldGenerateItemID = true;
-
-        private void MngrInventoryProductsCatComboText_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (shouldGenerateItemID)
-            {
-                ProductGenerateItemID();
-            }
-        }
-
-        private void ProductGenerateItemID()
-        {
-            string empType = AdminEmplTypeComboText.SelectedItem?.ToString() ?? string.Empty;
-
-            string productcat = null;
-            if (MngrInventoryProductsCatComboText.SelectedItem != null)
-            {
-                productcat = MngrInventoryProductsCatComboText.SelectedItem.ToString();
-            }
-            string pdcat = "";
-
-            if (productcat == "Hair Styling")
-            {
-                pdcat = "HS-";
-            }
-            else if (productcat == "Face & Skin")
-            {
-                pdcat = "FS-";
-            }
-            else if (productcat == "Nail Care")
-            {
-                pdcat = "NC-";
-            }
-            else if (productcat == "Massage")
-            {
-                pdcat = "MS-";
-            }
-            else if (productcat == "Spa")
-            {
-                pdcat = "SP-";
-            }
-
-            Random random = new Random();
-            int randomNumber = random.Next(100000, 999999);
-            string randomNumberString = randomNumber.ToString("D5");
-            string itemID = pdcat + randomNumberString;
-            MngrInventoryProductsIDText.Text = itemID;
-        }
-
-        private void MngrInventoryProductsInsertBtn_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(MngrInventoryProductsNameText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsPriceText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsStockText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsIDText.Text) ||
-            MngrInventoryProductsCatComboText.SelectedItem == null || MngrInventoryProductsTypeComboText.SelectedItem == null || MngrInventoryProductsStatusComboText.SelectedItem == null)
-            {
-                MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product")
-            {
-                if (ProductImagePictureBox.Image == null)
-                {
-                    MessageBox.Show("Please select an image for the product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-            }
-
-            if (!IsNumeric(MngrInventoryProductsStockText.Text))
-            {
-                MessageBox.Show("Invalid Stock Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (MngrInventoryProductsPriceText.Text != "Not Applicable" && !IsNumeric(MngrInventoryProductsPriceText.Text))
-            {
-                MessageBox.Show("Invalid Price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (Convert.ToInt32(MngrInventoryProductsStockText.Text) > 200)
-            {
-                MessageBox.Show("Stock cannot exceed 200.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (Convert.ToInt32(MngrInventoryProductsStockText.Text) < 40)
-            {
-                MessageBox.Show("Stock cannot be lower than 40.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            string query = "INSERT INTO inventory (ItemID, ProductCategory, ItemName, ItemStock, ItemPrice, ProductType, ItemStatus, ProductPicture) " +
-               "VALUES (@ItemID, @ProductCategory, @ItemName, @ItemStock, @ItemPrice, @ProductType, @ItemStatus, @ProductPicture)";
-
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-            {
-                try
-                {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@ItemName", MngrInventoryProductsNameText.Text);
-                        command.Parameters.AddWithValue("@ItemPrice", MngrInventoryProductsPriceText.Text);
-                        command.Parameters.AddWithValue("@ItemStock", MngrInventoryProductsStockText.Text);
-                        command.Parameters.AddWithValue("@ItemID", MngrInventoryProductsIDText.Text);
-                        command.Parameters.AddWithValue("@ProductCategory", MngrInventoryProductsCatComboText.SelectedItem.ToString());
-                        command.Parameters.AddWithValue("@ProductType", MngrInventoryProductsTypeComboText.SelectedItem.ToString());
-                        command.Parameters.AddWithValue("@ItemStatus", MngrInventoryProductsStatusComboText.SelectedItem.ToString());
-
-                        byte[] imageBytes = null;
-                        if (ProductImagePictureBox.Image != null)
-                        {
-                            using (MemoryStream ms = new MemoryStream())
-                            {
-                                ProductImagePictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                                imageBytes = ms.ToArray();
-                            }
-                        }
-                        command.Parameters.AddWithValue("@ProductPicture", imageBytes);
-                        command.ExecuteNonQuery();
-
-                    }
-                    MessageBox.Show("Item added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    shouldGenerateItemID = false;
-                    PDImage.Visible = false;
-                    ProductImagePictureBox.Visible = false;
-                    SelectImage.Visible = false;
-                    MngrInventoryProductData();
-                    MngrProductClearFields();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Product Creation Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        private void MngrInventoryProductsInfoEditBtn_Click(object sender, EventArgs e)
-        {
-            if (MngrInventoryProductsTable.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = MngrInventoryProductsTable.SelectedRows[0];
-
-                bool rowIsEmpty = true;
-                foreach (DataGridViewCell cell in selectedRow.Cells)
-                {
-                    if (!string.IsNullOrEmpty(cell.Value?.ToString()))
-                    {
-                        rowIsEmpty = false;
-                        break;
-                    }
-                }
-
-                if (rowIsEmpty)
-                {
-                    MessageBox.Show("The selected row is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                string connectionString = "server=localhost;user=root;database=enchante;password=";
-                string query = "SELECT ProductPicture FROM inventory WHERE ItemID = @ItemID";
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
-                {
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@ItemID", selectedRow.Cells["ItemID"].Value.ToString());
-
-                        try
-                        {
-                            connection.Open();
-
-                            // ExecuteScalar returns DBNull if the value is null in the database
-                            object result = command.ExecuteScalar();
-
-                            if (result != DBNull.Value && result != null)
-                            {
-                                byte[] imageData = (byte[])result;
-                                if (imageData != null && imageData.Length > 0)
-                                {
-                                    using (MemoryStream ms = new MemoryStream(imageData))
-                                    {
-                                        ProductImagePictureBox.Image = System.Drawing.Image.FromStream(ms);
-                                    }
-                                }
-                                else
-                                {
-                                    ProductImagePictureBox.Image = null;
-                                }
-                            }
-                            else
-                            {
-                                ProductImagePictureBox.Image = null;
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error: " + ex.Message, "Product Information Retrieve Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-
-                shouldGenerateItemID = false;
-                MngrInventoryProductsCatComboText.Enabled = false;
-                MngrInventoryProductsTypeComboText.Enabled = false;
-                MngrInventoryProductsInsertBtn.Visible = false;
-                MngrInventoryProductsUpdateBtn.Visible = true;
-                CancelEdit.Visible = true;
-                MngrInventoryProductsIDText.Text = selectedRow.Cells["ItemID"].Value.ToString();
-                MngrInventoryProductsNameText.Text = selectedRow.Cells["ItemName"].Value.ToString();
-                MngrInventoryProductsPriceText.Text = selectedRow.Cells["ItemPrice"].Value.ToString();
-                MngrInventoryProductsStockText.Text = selectedRow.Cells["ItemStock"].Value.ToString();
-                MngrInventoryProductsCatComboText.SelectedItem = selectedRow.Cells["ProductCategory"].Value.ToString();
-                MngrInventoryProductsTypeComboText.SelectedItem = selectedRow.Cells["ProductType"].Value.ToString();
-                MngrInventoryProductsStatusComboText.SelectedItem = selectedRow.Cells["ItemStatus"].Value.ToString();
-
-            }
-            else
-            {
-                MessageBox.Show("Please select a row to edit.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void MngrInventoryProductsUpdateBtn_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(MngrInventoryProductsNameText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsPriceText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsStockText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsIDText.Text) ||
-               MngrInventoryProductsCatComboText.SelectedItem == null || MngrInventoryProductsTypeComboText.SelectedItem == null || MngrInventoryProductsStatusComboText.SelectedItem == null || ProductImagePictureBox == null)
-            {
-                MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product")
-            {
-                if (ProductImagePictureBox.Image == null)
-                {
-                    MessageBox.Show("Please select an image for the product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-            }
-
-            if (!IsNumeric(MngrInventoryProductsStockText.Text))
-            {
-                MessageBox.Show("Invalid Stock.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (MngrInventoryProductsPriceText.Text != "Not Applicable" && !IsNumeric(MngrInventoryProductsPriceText.Text))
-            {
-                MessageBox.Show("Invalid Price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (Convert.ToInt32(MngrInventoryProductsStockText.Text) > 200)
-            {
-                MessageBox.Show("Stock cannot exceed 200.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (Convert.ToInt32(MngrInventoryProductsStockText.Text) < 40)
-            {
-                MessageBox.Show("Stock cannot be lower than 40.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            string connectionString = "server=localhost;user=root;database=enchante;password=";
-            string query = @"UPDATE inventory 
-                            SET ItemName = @ItemName, 
-                                ItemPrice = @ItemPrice, 
-                                ItemStock = @ItemStock, 
-                                ProductCategory = @ProductCategory, 
-                                ProductType = @ProductType, 
-                                ItemStatus = @ItemStatus,
-                                ProductPicture = @ProductPicture 
-                            WHERE ItemID = @ItemID";
-
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                using (MySqlCommand command = new MySqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@ItemName", MngrInventoryProductsNameText.Text);
-                    command.Parameters.AddWithValue("@ItemPrice", MngrInventoryProductsPriceText.Text);
-                    command.Parameters.AddWithValue("@ItemStock", MngrInventoryProductsStockText.Text);
-                    command.Parameters.AddWithValue("@ItemID", MngrInventoryProductsIDText.Text);
-                    command.Parameters.AddWithValue("@ProductCategory", MngrInventoryProductsCatComboText.SelectedItem.ToString());
-                    command.Parameters.AddWithValue("@ProductType", MngrInventoryProductsTypeComboText.SelectedItem.ToString());
-                    command.Parameters.AddWithValue("@ItemStatus", MngrInventoryProductsStatusComboText.SelectedItem.ToString());
-
-                    if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product" && ProductImagePictureBox.Image != null)
-                    {
-                        MemoryStream ms = new MemoryStream();
-                        ProductImagePictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                        byte[] imageData = ms.ToArray();
-                        command.Parameters.AddWithValue("@ProductPicture", imageData);
-                    }
-                    else
-                    {
-                        // If it's a Service Product or no image is selected, set the parameter to null
-                        command.Parameters.AddWithValue("@ProductPicture", DBNull.Value);
-                    }
-
-                    try
-                    {
-                        connection.Open();
-                        bool fieldsChanged = false;
-
-                        string selectQuery = "SELECT ItemName, ItemPrice, ItemStock, ProductCategory, ProductType, ItemStatus FROM inventory WHERE ItemID = @ItemID";
-                        using (MySqlCommand selectCommand = new MySqlCommand(selectQuery, connection))
-                        {
-                            selectCommand.Parameters.AddWithValue("@ItemID", MngrInventoryProductsIDText.Text);
-
-                            using (MySqlDataReader reader = selectCommand.ExecuteReader())
-                            {
-                                if (reader.Read())
-                                {
-                                    // Check if any of the fields have changed
-                                    if (reader["ItemName"].ToString() != MngrInventoryProductsNameText.Text ||
-                                        reader["ItemPrice"].ToString() != MngrInventoryProductsPriceText.Text ||
-                                        reader["ItemStock"].ToString() != MngrInventoryProductsStockText.Text ||
-                                        reader["ProductCategory"].ToString() != MngrInventoryProductsCatComboText.SelectedItem.ToString() ||
-                                        reader["ProductType"].ToString() != MngrInventoryProductsTypeComboText.SelectedItem.ToString() ||
-                                        reader["ItemStatus"].ToString() != MngrInventoryProductsStatusComboText.SelectedItem.ToString())
-                                    {
-                                        fieldsChanged = true;
-                                    }
-
-                                    // Check if the ProductType is "Retail Product" and IMGCheck radio button is checked
-                                    if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product")
-                                    {
-                                        fieldsChanged = true;
-                                    }
-                                }
-                            }
-                        }
-
-                        if (fieldsChanged)
-                        {
-                            int rowsAffected = command.ExecuteNonQuery();
-
-                            if (rowsAffected > 0)
-                            {
-                                MessageBox.Show("Item updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                MngrInventoryProductData();
-                                MngrProductClearFields();
-                                MngrInventoryProductsCatComboText.Enabled = true;
-                                MngrInventoryProductsTypeComboText.Enabled = true;
-                                MngrInventoryProductsUpdateBtn.Visible = false;
-                                MngrInventoryProductsInsertBtn.Visible = true;
-                                PDImage.Visible = false;
-                                ProductImagePictureBox.Visible = false;
-                                SelectImage.Visible = false;
-                                CancelEdit.Visible = false;
-                            }
-                            else
-                            {
-                                MessageBox.Show("No rows updated.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("No changes have been made.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message, "Product Information Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-        }
-
-        private void MngrProductClearFields()
-        {
-            MngrInventoryProductsIDText.Text = "";
-            MngrInventoryProductsNameText.Text = "";
-            MngrInventoryProductsPriceText.Text = "";
-            MngrInventoryProductsStockText.Text = "";
-            MngrInventoryProductsCatComboText.SelectedIndex = -1;
-            MngrInventoryProductsTypeComboText.SelectedIndex = -1;
-            MngrInventoryProductsStatusComboText.SelectedIndex = -1;
-            ProductImagePictureBox.Image = null;
-            shouldGenerateItemID = true;
-        }
-
-        private void MngrInventoryProductsTypeComboText_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            if (MngrInventoryProductsTypeComboText.SelectedItem != null)
-            {
-                if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Service Product")
-                {
-                    PDImage.Visible = false;
-                    ProductImagePictureBox.Visible = false;
-                    SelectImage.Visible = false;
-                }
-                else if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product")
-                {
-                    PDImage.Visible = true;
-                    ProductImagePictureBox.Visible = true;
-                    SelectImage.Visible = true;
-                }
-            }
-        }
-
-        private void CancelEdit_Click(object sender, EventArgs e)
-        {
-            shouldGenerateItemID = true;
-            MngrInventoryProductsInsertBtn.Visible = true;
-            MngrInventoryProductsUpdateBtn.Visible = false;
-            CancelEdit.Visible = false;
-            PDImage.Visible = false;
-            ProductImagePictureBox.Visible = false;
-            SelectImage.Visible = false;
-            MngrInventoryProductsCatComboText.Enabled = true;
-            MngrInventoryProductsTypeComboText.Enabled = true;
-
-            MngrInventoryProductsCatComboText.SelectedIndex = -1;
-            MngrInventoryProductsTypeComboText.SelectedIndex = -1;
-            MngrInventoryProductsStatusComboText.SelectedIndex = -1;
-            MngrInventoryProductsIDText.Text = "";
-            MngrInventoryProductsNameText.Text = "";
-            MngrInventoryProductsPriceText.Text = "";
-            MngrInventoryProductsStockText.Text = "";
-        }
-
-        private void SelectImage_Click(object sender, EventArgs e)
-        {
-            // Open file dialog to select an image
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files (*.jpg; *.jpeg; *.png; *.gif; *.bmp)|*.jpg; *.jpeg; *.png; *.gif; *.bmp|All files (*.*)|*.*";
-            openFileDialog.Title = "Select Image";
-            openFileDialog.Multiselect = false;
-
-            DialogResult result = openFileDialog.ShowDialog();
-
-            if (result == DialogResult.OK)
-            {
-                string selectedImagePath = openFileDialog.FileName;
-
-                try
-                {
-                    // Load the selected image and display it in the PictureBox
-                    using (System.Drawing.Image originalImage = System.Drawing.Image.FromFile(selectedImagePath))
-                    {
-                        System.Drawing.Image resizedImage = ResizeImage(originalImage, ProductImagePictureBox.Width, ProductImagePictureBox.Height);
-                        ProductImagePictureBox.Image = resizedImage;
-
-
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error loading image: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        private System.Drawing.Image ResizeImage(System.Drawing.Image image, int width, int height)
-        {
-            float aspectRatio = (float)image.Width / image.Height;
-            int targetWidth = width;
-            int targetHeight = (int)(width / aspectRatio);
-
-            if (targetHeight > height)
-            {
-                targetHeight = height;
-                targetWidth = (int)(height * aspectRatio);
-            }
-
-            Bitmap resizedImage = new Bitmap(width, height);
-            int x = (width - targetWidth) / 2;
-            int y = (height - targetHeight) / 2;
-
-            using (Graphics graphics = Graphics.FromImage(resizedImage))
-            {
-                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                graphics.Clear(Color.Transparent);
-                graphics.DrawImage(image, new System.Drawing.Rectangle(x, y, targetWidth, targetHeight));
-            }
-            return resizedImage;
-        }
-
-        private void MngrInventoryProductsStockText_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(MngrInventoryProductsStockText.Text))
-            {
-                MngrInventoryProductsStatusComboText.SelectedItem = null;
-            }
-
-            if (int.TryParse(MngrInventoryProductsStockText.Text, out int inputValue))
-            {
-                if (inputValue >= 0 && inputValue <= 50)
-                {
-                    MngrInventoryProductsStatusComboText.SelectedItem = "Low Stock";
-                }
-                else if (inputValue >= 51)
-                {
-                    MngrInventoryProductsStatusComboText.SelectedItem = "High Stock";
-                }
-            }
-        }
-
-
-
-        #endregion
-
-        //Staff Schedule 
-        #region
-
-        private void RecEditSchedBtn_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void FillRecStaffScheduleViewDataGrid()
-        {
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-            {
-                string query = "SELECT EmployeeID, FirstName, LastName, EmployeeCategory, EmployeeCategoryLevel, Schedule, Availability FROM systemusers WHERE EmployeeType = 'Staff'";
-                MySqlCommand command = new MySqlCommand(query, connection);
-                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-
-                MngrStaffSchedViewDataGrid.Rows.Clear(); // Clear existing rows
-
-                foreach (DataRow row in dataTable.Rows)
-                {
-                    int index = MngrStaffSchedViewDataGrid.Rows.Add(); // Add a new row to the DataGridView
-
-                    // Fill the existing columns with data
-                    MngrStaffSchedViewDataGrid.Rows[index].Cells["EmployeeID"].Value = row["EmployeeID"];
-                    MngrStaffSchedViewDataGrid.Rows[index].Cells["FirstName"].Value = row["FirstName"];
-                    MngrStaffSchedViewDataGrid.Rows[index].Cells["LastName"].Value = row["LastName"];
-                    MngrStaffSchedViewDataGrid.Rows[index].Cells["EmployeeCategory"].Value = row["EmployeeCategory"];
-                    MngrStaffSchedViewDataGrid.Rows[index].Cells["CategoryLevel"].Value = row["EmployeeCategoryLevel"];
-                    MngrStaffSchedViewDataGrid.Rows[index].Cells["Schedule"].Value = row["Schedule"];
-                    MngrStaffSchedViewDataGrid.Rows[index].Cells["Availability"].Value = row["Availability"];
-                }
-            }
-        }
-
-        private void RecEditStaffSchedBtn_Click(object sender, EventArgs e)
-        {
-            if (MngrStaffSchedViewDataGrid.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = MngrStaffSchedViewDataGrid.SelectedRows[0];
-
-                string EmployeeIDValue = selectedRow.Cells["EmployeeID"].Value.ToString();
-                string FirstNameValue = selectedRow.Cells["FirstName"].Value.ToString();
-                string LastNameValue = selectedRow.Cells["LastName"].Value.ToString();
-                string EmployeeCategoryValue = selectedRow.Cells["EmployeeCategory"].Value.ToString();
-                string CategoryLevelValue = selectedRow.Cells["CategoryLevel"].Value.ToString();
-                string ScheduleValue = selectedRow.Cells["Schedule"].Value.ToString();
-                string AvailabilityValue = selectedRow.Cells["Availability"].Value.ToString();
-
-                MngrEmployeeIDText.Text = EmployeeIDValue;
-                MngrEmployeeFirstNameLbl.Text = FirstNameValue;
-                MngrEmployeeLastNameLbl.Text = LastNameValue;
-                MngrEmployeeCategoryText.Text = EmployeeCategoryValue;
-                MngrEmployeeCategoryLevelText.Text = CategoryLevelValue;
-                MngrCurrentSchedText.Text = ScheduleValue;
-                MngrCurrentAvailabilityText.Text = AvailabilityValue;
-            }
-        }
-
-        private void RecChangeStaffSchedBtn_Click(object sender, EventArgs e)
-        {
-            string EmployeeIDValue = MngrEmployeeIDText.Text;
-            string EmployeeAvailabilityValue = MngrStaffAvailabilityComboBox.SelectedItem.ToString();
-            string EmployeeTimeScheduleValue = MngrStaffSchedComboBox.SelectedItem.ToString();
-
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-            {
-                connection.Open();
-
-                bool availabilityUpdated = false;
-                bool scheduleUpdated = false;
-
-                if (MngrStaffAvailabilityComboBox.SelectedIndex != 0)
-                {
-                    string updateAvailabilityQuery = "UPDATE systemusers SET Availability = @Availability WHERE EmployeeID = @EmployeeID";
-                    MySqlCommand availabilityCommand = new MySqlCommand(updateAvailabilityQuery, connection);
-                    availabilityCommand.Parameters.AddWithValue("@Availability", EmployeeAvailabilityValue);
-                    availabilityCommand.Parameters.AddWithValue("@EmployeeID", EmployeeIDValue);
-                    int availabilityRowsAffected = availabilityCommand.ExecuteNonQuery();
-
-                    if (availabilityRowsAffected > 0)
-                    {
-                        availabilityUpdated = true;
-                    }
-                }
-
-                if (MngrStaffSchedComboBox.SelectedIndex != 0)
-                {
-                    string updateScheduleQuery = "UPDATE systemusers SET Schedule = @Schedule WHERE EmployeeID = @EmployeeID";
-                    MySqlCommand scheduleCommand = new MySqlCommand(updateScheduleQuery, connection);
-                    scheduleCommand.Parameters.AddWithValue("@Schedule", EmployeeTimeScheduleValue);
-                    scheduleCommand.Parameters.AddWithValue("@EmployeeID", EmployeeIDValue);
-                    int scheduleRowsAffected = scheduleCommand.ExecuteNonQuery();
-
-                    if (scheduleRowsAffected > 0)
-                    {
-                        scheduleUpdated = true;
-                    }
-                }
-
-                if (availabilityUpdated && scheduleUpdated)
-                {
-                    MessageBox.Show("Availability and schedule updated.");
-                }
-                else if (availabilityUpdated || scheduleUpdated)
-                {
-                    MessageBox.Show("Availability or schedule was updated.");
-                }
-                else if (!availabilityUpdated && !scheduleUpdated)
-                {
-                    MessageBox.Show("No updates were made.");
-                }
-            }
-
-            //InitializeAvailableStaffFlowLayout();
-            FillRecStaffScheduleViewDataGrid();
-        }
-        #endregion
-
-        //PANEL OF WALK-IN REVENUE
-        #region
-        private void IncomeBtn_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(MngrWalkinSalesPeriod.Text))
-            {
-                MessageBox.Show("Please select a sale period.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            DateTime toDate;
-            string selectedCategory = MngrWalkinSalesSelectCatBox.SelectedItem?.ToString();
-            string salePeriod = MngrWalkinSalesPeriod.SelectedItem.ToString();
-            DateTime fromDate = DateTime.MinValue;
-
-            switch (salePeriod)
-            {
-                case "Day":
-                    if (!DateTime.TryParseExact(MngrWalkinSalesSelectedPeriodText.Text, "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDate))
-                    {
-                        MessageBox.Show("Please choose a day in the calendar.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    toDate = fromDate;
-                    break;
-                case "Week":
-                    if (MngrWalkinSalesSelectedPeriodText.Text.Length < 23 ||
-                        !DateTime.TryParseExact(MngrWalkinSalesSelectedPeriodText.Text.Substring(0, 10), "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDate) ||
-                        !DateTime.TryParseExact(MngrWalkinSalesSelectedPeriodText.Text.Substring(14), "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out toDate))
-                    {
-                        MessageBox.Show("Please choose a week in the calendar.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    break;
-                case "Month":
-                    if (!DateTime.TryParseExact(MngrWalkinSalesSelectedPeriodText.Text, "MMMM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDate))
-                    {
-                        MessageBox.Show("Please choose a month in the calendar.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    toDate = fromDate.AddMonths(1).AddDays(-1);
-                    break;
-                case "Specific Date Range":
-                    if (MngrWalkinSalesFromDatePicker.Value > MngrWalkinSalesToDatePicker.Value)
-                    {
-                        MessageBox.Show("From Date cannot be ahead of To Date.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    if (MngrWalkinSalesFromDatePicker.Value.Date == MngrWalkinSalesToDatePicker.Value.Date)
-                    {
-                        MessageBox.Show("From date and to date cannot be the same.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    fromDate = MngrWalkinSalesFromDatePicker.Value;
-                    toDate = MngrWalkinSalesToDatePicker.Value;
-                    break;
-                default:
-                    MessageBox.Show("Invalid Sale Period selection.", "Walk-in Services Error Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-            }
-
-            if (string.IsNullOrEmpty(selectedCategory))
-            {
-                MessageBox.Show("Please select a category.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
-
-            List<DateTime> dates = new List<DateTime>();
-            Dictionary<string, List<decimal>> categoryRevenues = new Dictionary<string, List<decimal>>();
-
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-
-                try
-                {
-                    connection.Open();
-
-                    string query = @"SELECT STR_TO_DATE(AppointmentDate, '%m-%d-%Y') AS AppointmentDay, 
-                            ServiceCategory,
-                            SUM(CAST(ServicePrice AS DECIMAL(10, 2))) AS TotalRevenue 
-                            FROM servicehistory 
-                            WHERE ServiceStatus = 'Completed' 
-                            AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y') BETWEEN @FromDate AND @ToDate ";
-
-                    if (selectedCategory != "All Categories")
-                    {
-                        query += " AND ServiceCategory = @SelectedCategory";
-                    }
-
-                    query += " GROUP BY AppointmentDay, ServiceCategory";
-
-                    MySqlCommand command = new MySqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@FromDate", fromDate.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@ToDate", toDate.ToString("yyyy-MM-dd"));
-
-                    if (selectedCategory != "All Categories")
-                    {
-                        command.Parameters.AddWithValue("@SelectedCategory", selectedCategory);
-                    }
-
-                    MySqlDataReader reader = command.ExecuteReader();
-
-                    if (!reader.HasRows)
-                    {
-                        MngrWalkinSalesGraph.Series.Clear();
-                        MngrWalkinSalesGraph.Legends.Clear();
-                        MngrWalkinSalesTransRepDGV.DataSource = null;
-                        MngrWalkinSalesTransServiceHisDGV.DataSource = null;
-                        MessageBox.Show("No data available for the selected date range.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
-
-                    while (reader.Read())
-                    {
-                        DateTime appointmentDay = (DateTime)reader["AppointmentDay"];
-                        string category = (string)reader["ServiceCategory"];
-                        decimal totalRevenue = (decimal)reader["TotalRevenue"];
-
-                        if (!categoryRevenues.ContainsKey(category))
-                        {
-                            categoryRevenues[category] = new List<decimal>();
-                        }
-
-                        categoryRevenues[category].Add(totalRevenue);
-
-                        if (!dates.Contains(appointmentDay))
-                        {
-                            dates.Add(appointmentDay);
-                        }
-                    }
-
-                    reader.Close();
-
-                    MngrWalkinSalesGraph.Series.Clear();
-                    MngrWalkinSalesGraph.Legends.Clear();
-
-                    foreach (var category in categoryRevenues.Keys)
-                    {
-                        Series series = MngrWalkinSalesGraph.Series.Add($"{category} Revenue");
-                        series.ChartType = SeriesChartType.Line;
-                        series.BorderWidth = 3;
-
-                        for (int i = 0; i < dates.Count; i++)
-                        {
-                            if (categoryRevenues[category].Count > i)
-                            {
-                                series.Points.AddXY(dates[i].ToShortDateString(), categoryRevenues[category][i]);
-                                series.Points[i].MarkerStyle = MarkerStyle.Circle;
-                                series.Points[i].MarkerSize = 8;
-                            }
-                            else
-                            {
-                                series.Points.AddXY(dates[i].ToShortDateString(), 0);
-                            }
-                        }
-                    }
-
-                    MngrWalkinSalesGraph.ChartAreas[0].AxisX.Title = "Dates";
-                    MngrWalkinSalesGraph.ChartAreas[0].AxisX.TitleFont = new System.Drawing.Font("Arial", 10, FontStyle.Bold);
-                    MngrWalkinSalesGraph.ChartAreas[0].AxisY.Title = "Revenue";
-                    MngrWalkinSalesGraph.ChartAreas[0].AxisY.TitleFont = new System.Drawing.Font("Arial", 10, FontStyle.Bold);
-
-                    MngrWalkinSalesGraph.Legends.Add("Legend1");
-                    MngrWalkinSalesGraph.Legends[0].Enabled = true;
-                    MngrWalkinSalesGraph.Legends[0].Docking = Docking.Bottom;
-
-                    DataTable dt = new DataTable();
-                    dt.Columns.Add("TransactionNumber");
-                    dt.Columns.Add("AppointmentDate");
-                    dt.Columns.Add("TotalServicePrice", typeof(decimal));
-
-                    string transNumQuery = @"SELECT TransactionNumber, AppointmentDate, SUM(CAST(ServicePrice AS DECIMAL(10, 2))) AS TotalServicePrice 
-                    FROM servicehistory 
-                    WHERE ServiceStatus = 'Completed' 
-                    AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y %W') BETWEEN @FromDate AND @ToDate ";
-
-                    if (selectedCategory != "All Categories")
-                    {
-                        transNumQuery += " AND ServiceCategory = @SelectedCategory";
-                    }
-
-                    transNumQuery += " GROUP BY TransactionNumber";
-
-                    MySqlCommand transNumCommand = new MySqlCommand(transNumQuery, connection);
-                    transNumCommand.Parameters.AddWithValue("@FromDate", fromDate);
-                    transNumCommand.Parameters.AddWithValue("@ToDate", toDate);
-
-                    if (selectedCategory != "All Categories")
-                    {
-                        transNumCommand.Parameters.AddWithValue("@SelectedCategory", selectedCategory);
-                    }
-
-                    using (MySqlDataReader transNumReader = transNumCommand.ExecuteReader())
-                    {
-                        while (transNumReader.Read())
-                        {
-                            string transactionNumber = transNumReader["TransactionNumber"].ToString();
-                            string appointmentDate = transNumReader["AppointmentDate"].ToString();
-                            decimal totalServicePrice = (decimal)transNumReader["TotalServicePrice"];
-
-                            dt.Rows.Add(transactionNumber, appointmentDate, totalServicePrice);
-                        }
-                    }
-
-                    MngrWalkinSalesTransRepDGV.DataSource = dt;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Walk-in Service Sales Graph Failed");
-                }
-            }
-        }
-
-        private void SalePeriod_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            MngrWalkinSalesSelectedPeriodText.Text = "";
-
-            string selectedItem = MngrWalkinSalesPeriod.SelectedItem?.ToString(); // Use null-conditional operator to handle null case
-
-            if (selectedItem != null)
-            {
-
-                if (selectedItem == "Day" || selectedItem == "Week" || selectedItem == "Month")
-                {
-                    MngrWalkinSalesPeriodCalendar.Visible = true;
-                    MngrWalkinSalesFromLbl.Visible = false;
-                    MngrWalkinSalesToLbl.Visible = false;
-                    MngrWalkinSalesFromDatePicker.Visible = false;
-                    MngrWalkinSalesToDatePicker.Visible = false;
-                    MngrWalkinSalesSelectedPeriodLbl.Visible = true;
-                    MngrWalkinSalesSelectedPeriodText.Visible = true;
-                }
-                else if (selectedItem == "Specific Date Range")
-                {
-                    MngrWalkinSalesPeriodCalendar.Visible = false;
-                    MngrWalkinSalesFromLbl.Visible = true;
-                    MngrWalkinSalesToLbl.Visible = true;
-                    MngrWalkinSalesFromDatePicker.Visible = true;
-                    MngrWalkinSalesToDatePicker.Visible = true;
-                    MngrWalkinSalesSelectedPeriodLbl.Visible = false;
-                    MngrWalkinSalesSelectedPeriodText.Visible = false;
-                }
-            }
-        }
-
-        private void SalesPeriodCalendar_DateChanged(object sender, DateRangeEventArgs e)
-        {
-            DateTime selectedDate = MngrWalkinSalesPeriodCalendar.SelectionStart;
-            string selectedPeriod = "";
-            string salePeriod = MngrWalkinSalesPeriod.SelectedItem.ToString();
-
-            switch (salePeriod)
-            {
-                case "Day":
-                    selectedPeriod = selectedDate.ToString("MM-dd-yyyy");
-                    break;
-                case "Week":
-                    DateTime monday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + (int)DayOfWeek.Monday);
-                    DateTime sunday = monday.AddDays(6);
-                    selectedPeriod = monday.ToString("MM-dd-yyyy") + " to " + sunday.ToString("MM-dd-yyyy");
-                    break;
-                case "Month":
-                    selectedPeriod = selectedDate.ToString("MMMM-yyyy");
-                    break;
-                default:
-                    break;
-            }
-            MngrWalkinSalesSelectedPeriodText.Text = selectedPeriod;
-        }
-
-        private void ViewWalkinSales()
-        {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
-
-            if (MngrWalkinSalesTransRepDGV == null || MngrWalkinSalesTransRepDGV.SelectedRows.Count == 0 || MngrWalkinSalesTransRepDGV.SelectedRows[0].Cells["TransactionNumber"] == null)
-            {
-                MessageBox.Show("Please select a row to view.", "No Row Selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            string transactionNumber = MngrWalkinSalesTransRepDGV.SelectedRows[0].Cells["TransactionNumber"].Value?.ToString();
-
-            if (string.IsNullOrEmpty(transactionNumber))
-            {
-                MessageBox.Show("TransactionNumber is null or empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            string categoryFilter = "";
-            if (MngrWalkinSalesSelectCatBox.SelectedItem?.ToString() != "All Categories")
-            {
-                categoryFilter = "AND ServiceCategory = @ServiceCategory";
-            }
-
-            string query = "SELECT ServiceCategory, SelectedService, ServicePrice FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND ServiceStatus = 'Completed' " + categoryFilter;
-
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                connection.Open();
-
-                using (MySqlCommand command = new MySqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
-
-                    if (MngrWalkinSalesSelectCatBox.SelectedItem?.ToString() != "All Categories")
-                    {
-                        command.Parameters.AddWithValue("@ServiceCategory", MngrWalkinSalesSelectCatBox.SelectedItem?.ToString());
-                    }
-
-                    DataTable dataTable = new DataTable();
-
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
-                    {
-                        adapter.Fill(dataTable);
-                    }
-
-                    MngrWalkinSalesTransServiceHisDGV.DataSource = dataTable;
-
-                    // Display the TransactionNumber in the TextBox
-                    MngrWalkinSalesTransIDShow.Text = transactionNumber;
-                }
-                connection.Close();
-            }
-        }
-
-        private void MngrWalkinSalesTransRepDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            ViewWalkinSales();
-        }
-
-        private void MngrWalkinSalesExitBtn_Click(object sender, EventArgs e)
-        {
-            MngrWalkinSalesSelectedPeriodLbl.Visible = true;
-            MngrWalkinSalesSelectedPeriodText.Visible = true;
-            MngrWalkinSalesFromLbl.Visible = false;
-            MngrWalkinSalesFromDatePicker.Visible = false;
-            MngrWalkinSalesToLbl.Visible = false;
-            MngrWalkinSalesToDatePicker.Visible = false;
-            MngrWalkinSalesPeriodCalendar.Visible = false;
-            MngrWalkinSalesPeriod.SelectedItem = null;
-            MngrWalkinSalesSelectCatBox.SelectedItem = null;
-            MngrWalkinSalesSelectedPeriodText.Text = "";
-            MngrWalkinSalesTransRepDGV.DataSource = null;
-            MngrWalkinSalesTransServiceHisDGV.DataSource = null;
-            MngrWalkinSalesGraph.Series.Clear();
-            MngrWalkinSalesGraph.Legends.Clear();
-            Inventory.PanelShow(MngrInventoryTypePanel);
-        }
-
-        #endregion
-
-        //PANEL OF SERVICE DEMAND
-        #region
-        private void ServiceHistoryBtn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (MngrIndemandServiceHistoryPeriod.SelectedItem == null || string.IsNullOrEmpty(MngrIndemandServiceHistoryPeriod.SelectedItem.ToString()))
-                {
-                    MessageBox.Show("Please select a service history period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                DateTime fromDate, toDate;
-
-                string selectedPeriod = MngrIndemandServiceHistoryPeriod.SelectedItem.ToString();
-
-                if (selectedPeriod == "Day" || selectedPeriod == "Week" || selectedPeriod == "Month")
-                {
-                    if (string.IsNullOrWhiteSpace(MngrIndemandSelectPeriod.Text))
-                    {
-                        MessageBox.Show("Please provide a date for the selected period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                }
-
-                if (selectedPeriod == "Day")
-                {
-                    fromDate = toDate = DateTime.ParseExact(MngrIndemandSelectPeriod.Text, "MM-dd-yyyy", CultureInfo.InvariantCulture);
-                }
-                else if (selectedPeriod == "Week")
-                {
-                    string[] dates = MngrIndemandSelectPeriod.Text.Split(new string[] { " to " }, StringSplitOptions.None);
-                    fromDate = DateTime.ParseExact(dates[0], "MM-dd-yyyy", CultureInfo.InvariantCulture);
-                    toDate = DateTime.ParseExact(dates[1], "MM-dd-yyyy", CultureInfo.InvariantCulture);
-                }
-                else if (selectedPeriod == "Month")
-                {
-                    fromDate = new DateTime(DateTime.ParseExact(MngrIndemandSelectPeriod.Text, "MMMM-yyyy", CultureInfo.InvariantCulture).Year,
-                                            DateTime.ParseExact(MngrIndemandSelectPeriod.Text, "MMMM-yyyy", CultureInfo.InvariantCulture).Month,
-                                            1);
-                    toDate = fromDate.AddMonths(1).AddDays(-1);
-                }
-                else
-                {
-                    if (MngrIndemandDatePickerFrom.Value > MngrIndemandDatePickerTo.Value)
-                    {
-                        MessageBox.Show("Invalid date range. Please make sure the From date is before the To date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    if (MngrIndemandDatePickerFrom.Value.Date == MngrIndemandDatePickerTo.Value.Date)
-                    {
-                        MessageBox.Show("From date and to date cannot be the same.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    fromDate = MngrIndemandDatePickerFrom.Value;
-                    toDate = MngrIndemandDatePickerTo.Value;
-                }
-
-                if (MngrIndemandSelectCatBox.SelectedItem == null)
-                {
-                    MessageBox.Show("Please select a category.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                string selectedCategory = MngrIndemandSelectCatBox.SelectedItem.ToString();
-
-                string query;
-                Dictionary<string, int> counts;
-
-                if (selectedCategory == "Top Service Category")
-                {
-                    query = @"
-                        SELECT 
-                            ServiceCategory,
-                            AttendingStaff,
-                        COUNT(*) AS CategoryCount
-                        FROM 
-                            servicehistory 
-                        WHERE 
-                            ServiceStatus = 'Completed' 
-                            AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y') BETWEEN @FromDate AND @ToDate 
-                        GROUP BY
-                            ServiceCategory, AttendingStaff";
-                    counts = new Dictionary<string, int>();
-                }
-                else
-                {
-                    query = @"
-                        SELECT 
-                            AttendingStaff,
-                            STR_TO_DATE(AppointmentDate, '%m-%d-%Y') AS AppointmentDay, 
-                            ServiceCategory,
-                            SelectedService
-                        FROM 
-                            servicehistory 
-                        WHERE 
-                            ServiceStatus = 'Completed' 
-                            AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y') BETWEEN @FromDate AND @ToDate 
-                            AND ServiceCategory = @SelectedCategory";
-                    counts = new Dictionary<string, int>();
-                }
-
-                using (MySqlConnection connection = new MySqlConnection("Server=localhost;Database=enchante;Uid=root;Pwd=;"))
-                {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@FromDate", fromDate.ToString("yyyy-MM-dd"));
-                        command.Parameters.AddWithValue("@ToDate", toDate.ToString("yyyy-MM-dd"));
-                        command.Parameters.AddWithValue("@SelectedCategory", selectedCategory);
-
-                        Dictionary<string, int> serviceCounts = new Dictionary<string, int>();
-                        Dictionary<string, int> staffCounts = new Dictionary<string, int>();
-
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-                            if (!reader.HasRows)
-                            {
-                                MngrIndemandServiceGraph.Series.Clear();
-                                MngrIndemandServiceSelection.DataSource = null;
-                                MngrIndemandBestEmployee.DataSource = null;
-                                MessageBox.Show("No data available for the selected date range.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                return;
-                            }
-
-                            while (reader.Read())
-                            {
-                                if (selectedCategory == "Top Service Category")
-                                {
-                                    string serviceCategory = reader.GetString("ServiceCategory");
-                                    int categoryCount = reader.GetInt32("CategoryCount");
-                                    serviceCounts[serviceCategory] = categoryCount;
-
-                                    string attendingStaff = reader.GetString("AttendingStaff");
-                                    if (staffCounts.ContainsKey(attendingStaff))
-                                    {
-                                        staffCounts[attendingStaff] += categoryCount;
-                                    }
-                                    else
-                                    {
-                                        staffCounts[attendingStaff] = categoryCount;
-                                    }
-                                }
-                                else
-                                {
-                                    string selectedService = reader.GetString("SelectedService");
-                                    if (serviceCounts.ContainsKey(selectedService))
-                                    {
-                                        serviceCounts[selectedService]++;
-
-                                        string attendingStaff = reader.GetString("AttendingStaff");
-                                        if (staffCounts.ContainsKey(attendingStaff))
-                                        {
-                                            staffCounts[attendingStaff]++;
-                                        }
-                                        else
-                                        {
-                                            staffCounts[attendingStaff] = 1;
-                                        }
-                                    }
-                                    else
-                                    {
-                                        serviceCounts[selectedService] = 1;
-
-                                        string attendingStaff = reader.GetString("AttendingStaff");
-                                        if (staffCounts.ContainsKey(attendingStaff))
-                                        {
-                                            staffCounts[attendingStaff]++;
-                                        }
-                                        else
-                                        {
-                                            staffCounts[attendingStaff] = 1;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        if (selectedCategory == "Top Service Category")
-                        {
-                            MngrIndemandServiceGraph.Series.Clear();
-                            var series = MngrIndemandServiceGraph.Series.Add("ServiceCount");
-                            series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-
-                            // Set pie chart appearance properties
-                            series["PieLabelStyle"] = "Inside";
-                            series["PieLineColor"] = "Black";
-                            series["PieDrawingStyle"] = "Concave";
-
-                            foreach (var kvp in serviceCounts)
-                            {
-                                string serviceName = kvp.Key;
-                                int serviceCount = kvp.Value;
-
-                                var dataPoint = series.Points.Add(serviceCount);
-                                series.Points.Last().LegendText = serviceName;
-                            }
-
-                            MngrIndemandServiceGraph.Titles.Clear();
-                            var title = MngrIndemandServiceGraph.Titles.Add("Top Service");
-                            title.Font = new System.Drawing.Font("Arial", 12f, System.Drawing.FontStyle.Bold);
-
-                            DataTable serviceCategoryTable = new DataTable();
-                            serviceCategoryTable.Columns.Add("Service Category");
-                            serviceCategoryTable.Columns.Add("Top Service Count");
-
-                            foreach (var kvp in serviceCounts)
-                            {
-                                serviceCategoryTable.Rows.Add(kvp.Key, kvp.Value);
-                            }
-
-                            MngrIndemandServiceSelection.DataSource = serviceCategoryTable;
-
-                            DataTable staffTable = new DataTable();
-                            staffTable.Columns.Add("Rank");
-                            staffTable.Columns.Add("ID");
-                            staffTable.Columns.Add("First Name");
-                            staffTable.Columns.Add("Last Name");
-                            staffTable.Columns.Add("# of Services Done");
-
-                            List<KeyValuePair<string, int>> sortedStaffCounts = staffCounts.ToList();
-                            sortedStaffCounts.Sort((x, y) => y.Value.CompareTo(x.Value));
-
-                            int rank = 1;
-                            foreach (var kvp in sortedStaffCounts)
-                            {
-                                string employeeID = kvp.Key;
-                                string firstName, lastName;
-                                using (MySqlCommand userCommand = new MySqlCommand("SELECT FirstName, LastName FROM systemusers WHERE EmployeeID = @EmployeeID", connection))
-                                {
-                                    userCommand.Parameters.AddWithValue("@EmployeeID", employeeID);
-
-                                    using (MySqlDataReader userReader = userCommand.ExecuteReader())
-                                    {
-                                        if (userReader.Read())
-                                        {
-                                            firstName = userReader.GetString("FirstName");
-                                            lastName = userReader.GetString("LastName");
-
-                                            staffTable.Rows.Add(rank, employeeID, firstName, lastName, kvp.Value);
-                                            rank++;
-                                        }
-                                    }
-                                }
-                            }
-                            MngrIndemandBestEmployee.DataSource = staffTable;
-                        }
-                        else
-                        {
-                            DataTable serviceTable = new DataTable();
-                            serviceTable.Columns.Add("Service Name");
-                            serviceTable.Columns.Add("Service Selection Counts");
-
-                            foreach (var kvp in serviceCounts)
-                            {
-                                serviceTable.Rows.Add(kvp.Key, kvp.Value);
-                            }
-
-                            MngrIndemandServiceSelection.DataSource = serviceTable;
-
-                            DataTable staffTable = new DataTable();
-                            staffTable.Columns.Add("Rank");
-                            staffTable.Columns.Add("ID");
-                            staffTable.Columns.Add("First Name");
-                            staffTable.Columns.Add("Last Name");
-                            staffTable.Columns.Add("# of Services Done");
-
-                            List<KeyValuePair<string, int>> sortedStaffCounts = staffCounts.ToList();
-                            sortedStaffCounts.Sort((x, y) => y.Value.CompareTo(x.Value));
-                            int rank = 1;
-
-                            foreach (var kvp in sortedStaffCounts)
-                            {
-                                string employeeID = kvp.Key;
-                                string firstName, lastName;
-                                using (MySqlCommand userCommand = new MySqlCommand("SELECT FirstName, LastName FROM systemusers WHERE EmployeeID = @EmployeeID", connection))
-                                {
-                                    userCommand.Parameters.AddWithValue("@EmployeeID", employeeID);
-
-                                    using (MySqlDataReader userReader = userCommand.ExecuteReader())
-                                    {
-                                        if (userReader.Read())
-                                        {
-                                            firstName = userReader.GetString("FirstName");
-                                            lastName = userReader.GetString("LastName");
-
-                                            staffTable.Rows.Add(rank, employeeID, firstName, lastName, kvp.Value);
-                                            rank++;
-                                        }
-                                    }
-                                }
-                            }
-
-                            DataView dv = staffTable.DefaultView;
-                            dv.Sort = "# of Services Done DESC";
-                            MngrIndemandBestEmployee.DataSource = dv.ToTable();
-
-                            MngrIndemandServiceGraph.Series.Clear();
-                            var pieSeries = MngrIndemandServiceGraph.Series.Add("ServiceCount");
-                            pieSeries.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-
-                            pieSeries["PieLabelStyle"] = "Inside";
-                            pieSeries["PieLineColor"] = "Black";
-                            pieSeries["PieDrawingStyle"] = "Concave";
-
-                            foreach (var kvp in serviceCounts)
-                            {
-                                string serviceName = kvp.Key;
-                                int serviceCount = kvp.Value;
-
-                                var dataPoint = pieSeries.Points.Add(serviceCount);
-                                pieSeries.Points.Last().LegendText = serviceName;
-                            }
-                            MngrIndemandServiceGraph.Titles.Clear();
-                            var chartTitle = MngrIndemandServiceGraph.Titles.Add("Service Demand");
-                            chartTitle.Font = new System.Drawing.Font("Arial", 12f, System.Drawing.FontStyle.Bold);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "In Demand Services Graph Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void ServiceHistoryPeriod_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            MngrIndemandSelectPeriod.Text = "";
-            string selectedItem = MngrIndemandServiceHistoryPeriod.SelectedItem?.ToString();
-
-            if (selectedItem != null)
-            {
-
-                if (selectedItem == "Day" || selectedItem == "Week" || selectedItem == "Month")
-                {
-                    MngrIndemandServicePeriodCalendar.Visible = true;
-                    MngrIndemandFromLbl.Visible = false;
-                    MngrIndemandToLbl.Visible = false;
-                    MngrIndemandDatePickerFrom.Visible = false;
-                    MngrIndemandDatePickerTo.Visible = false;
-                    MngrIndemandSelectPeriodLbl.Visible = true;
-                    MngrIndemandSelectPeriod.Visible = true;
-                }
-                else if (selectedItem == "Specific Date Range")
-                {
-                    MngrIndemandServicePeriodCalendar.Visible = false;
-                    MngrIndemandFromLbl.Visible = true;
-                    MngrIndemandToLbl.Visible = true;
-                    MngrIndemandDatePickerFrom.Visible = true;
-                    MngrIndemandDatePickerTo.Visible = true;
-                    MngrIndemandSelectPeriodLbl.Visible = false;
-                    MngrIndemandSelectPeriod.Visible = false;
-                }
-            }
-        }
-
-        private void ServicePeriodCalendar_DateChanged(object sender, DateRangeEventArgs e)
-        {
-            DateTime selectedDate = MngrIndemandServicePeriodCalendar.SelectionStart;
-            string selectedPeriod = "";
-            string salePeriod = MngrIndemandServiceHistoryPeriod.SelectedItem.ToString();
-
-            switch (salePeriod)
-            {
-                case "Day":
-                    selectedPeriod = selectedDate.ToString("MM-dd-yyyy");
-                    break;
-                case "Week":
-                    DateTime monday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + (int)DayOfWeek.Monday);
-                    DateTime sunday = monday.AddDays(6);
-                    selectedPeriod = monday.ToString("MM-dd-yyyy") + " to " + sunday.ToString("MM-dd-yyyy");
-                    break;
-                case "Month":
-                    selectedPeriod = selectedDate.ToString("MMMM-yyyy");
-                    break;
-                default:
-                    break;
-            }
-            MngrIndemandSelectPeriod.Text = selectedPeriod;
-        }
-
-        private void MngrIndemandExitBtn_Click(object sender, EventArgs e)
-        {
-            MngrIndemandSelectPeriodLbl.Visible = true;
-            MngrIndemandSelectPeriod.Visible = true;
-            MngrIndemandFromLbl.Visible = false;
-            MngrIndemandDatePickerFrom.Visible = false;
-            MngrIndemandToLbl.Visible = false;
-            MngrIndemandDatePickerTo.Visible = false;
-            MngrIndemandServicePeriodCalendar.Visible = false;
-            MngrIndemandServiceHistoryPeriod.SelectedItem = null;
-            MngrIndemandSelectCatBox.SelectedItem = null;
-            MngrIndemandSelectPeriod.Text = "";
-            MngrIndemandServiceGraph.Series.Clear();
-            MngrIndemandServiceSelection.DataSource = null;
-            MngrIndemandBestEmployee.DataSource = null;
-            Inventory.PanelShow(MngrInventoryTypePanel);
-        }
-
-        #endregion
-
-        //PANEL OF WALK-IN PRODUCT SALES
-        #region
-        private void MngrProductSalesIncomeBtn_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(MngrProductSalesPeriod.Text))
-            {
-                MessageBox.Show("Please select a sale period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (MngrProductSalesSelectCatBox.SelectedItem == null || string.IsNullOrEmpty(MngrProductSalesSelectCatBox.SelectedItem.ToString()))
-            {
-                MessageBox.Show("Please select a category.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            string fromDate = "";
-            string toDate = "";
-            string categoryPrefix = "";
-
-            switch (MngrProductSalesPeriod.Text)
-            {
-                case "Day":
-                    if (string.IsNullOrEmpty(MngrProductSalesSelectedPeriodText.Text))
-                    {
-                        MessageBox.Show("Please select a valid date for the day period.", "Walk-in Products Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    string inputValue = MngrProductSalesSelectedPeriodText.Text;
-                    fromDate = inputValue;
-                    toDate = inputValue;
-
-                    break;
-
-                case "Week":
-                    if (string.IsNullOrEmpty(MngrProductSalesSelectedPeriodText.Text))
-                    {
-                        MessageBox.Show("Please select a date range for the week period.", "Walk-in Products Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    string[] weekDates = MngrProductSalesSelectedPeriodText.Text.Split(new char[] { ' ', 't', 'o', ' ' }, StringSplitOptions.RemoveEmptyEntries);
-
-                    fromDate = weekDates[0];
-                    toDate = weekDates[1];
-                    break;
-
-                case "Month":
-                    if (string.IsNullOrEmpty(MngrProductSalesSelectedPeriodText.Text))
-                    {
-                        MessageBox.Show("Please select a month for the month period.", "Walk-in Products Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    string[] monthYear = MngrProductSalesSelectedPeriodText.Text.Split('-');
-
-                    int month = DateTime.ParseExact(monthYear[0], "MMMM", CultureInfo.InvariantCulture).Month;
-                    int year = int.Parse(monthYear[1]);
-                    fromDate = new DateTime(year, month, 1).ToString("MM-dd-yyyy");
-                    toDate = new DateTime(year, month, DateTime.DaysInMonth(year, month)).ToString("MM-dd-yyyy");
-                    break;
-
-                case "Specific Date Range":
-                    if (MngrProductSalesFromDatePicker.Value > MngrProductSalesToDatePicker.Value)
-                    {
-                        MessageBox.Show("Invalid date range. Please make sure the From date is before the To date.", "Walk-in Products Invalid Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    if (MngrProductSalesFromDatePicker.Value.Date == MngrProductSalesToDatePicker.Value.Date)
-                    {
-                        MessageBox.Show("From date and to date cannot be the same.", "Walk-in Products Invalid Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    fromDate = MngrProductSalesFromDatePicker.Value.ToString("MM-dd-yyyy");
-                    toDate = MngrProductSalesToDatePicker.Value.ToString("MM-dd-yyyy");
-                    break;
-
-                default:
-                    MessageBox.Show("Invalid selection.", "Walk-in Products Invalid Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-            }
-
-            switch (MngrProductSalesSelectCatBox.Text)
-            {
-                case "Hair Styling":
-                    categoryPrefix = "HS-";
-                    break;
-                case "Face & Skin":
-                    categoryPrefix = "FS-";
-                    break;
-                case "Nail Care":
-                    categoryPrefix = "NC-";
-                    break;
-                case "Massage":
-                    categoryPrefix = "MS-";
-                    break;
-                case "Spa":
-                    categoryPrefix = "SP-";
-                    break;
-                case "All Categories":
-                    categoryPrefix = "";
-                    break;
-                default:
-                    MessageBox.Show("Please select a category.", "Walk-in Products Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-            }
-
-            string categoryFilter = "";
-            if (MngrProductSalesSelectCatBox.Text != "All Categories")
-            {
-                categoryFilter = $"AND ItemID LIKE '{categoryPrefix}%'";
-            }
-            string statusFilter = "ProductStatus = 'Paid'";
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
-            string query = $@"
-                        SELECT  
-                            LEFT(CheckedOutDate, 10) AS CheckedOutDate,
-                            {(MngrProductSalesSelectCatBox.Text == "All Categories" ? "ItemID" : "ItemName")}, 
-                            ItemName,
-                            ItemID,        
-                            ItemPrice,
-                            SUM(Qty) AS Qty,                                                 
-                            SUM(ItemTotalPrice) AS ItemTotalPrice
-                        FROM 
-                            orderproducthistory 
-                        WHERE 
-                            LEFT(CheckedOutDate, 10) >= '{fromDate}'
-                            AND LEFT(CheckedOutDate, 10) <= '{toDate}'
-                            {categoryFilter}
-                            AND {statusFilter}
-                        GROUP BY 
-                            {(MngrProductSalesSelectCatBox.Text == "All Categories" ? "ItemID" : "ItemName")}, 
-                            ItemPrice, 
-                            LEFT(CheckedOutDate, 10)";
-
-            try
-            {
-                DataTable filteredData = FetchFilteredData(query, connectionString);
-                DisplayFilteredDataInGrid(filteredData);
-                DisplayDataInDataGridView(filteredData);
-
-                if (filteredData.Rows.Count == 0)
-                {
-                    MessageBox.Show("No data available for the selected date range.", "Walk-in Products Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    MngrProductSalesGraph.Series["Sales"].Points.Clear();
-                    MngrProductSalesLineGraph.Series.Clear();
-                    MngrProductSalesLineGraph.Legends.Clear();
-                    return;
-                }
-
-                DisplayPieChart(query, connectionString);
-                DisplayLineChart(query, connectionString);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Walk-in Products Graph Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void DisplayPieChart(string query, string connectionString)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
-                {
-                    connection.Open();
-                    MySqlCommand command = new MySqlCommand(query, connection);
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-
-                    var groupedRows = from row in dataTable.AsEnumerable()
-                                      group row by row.Field<string>("ItemName") into grp
-                                      select new
-                                      {
-                                          ItemName = grp.Key,
-                                          TotalQty = grp.Sum(r => r.Field<double>("Qty"))
-                                      };
-
-                    if (MngrProductSalesSelectCatBox.Text == "All Categories")
-                    {
-
-                        groupedRows = from row in dataTable.AsEnumerable()
-                                      group row by GetCategoryPrefix(row.Field<string>("ItemID")) into grp
-                                      select new
-                                      {
-                                          ItemName = grp.Key,
-                                          TotalQty = grp.Sum(r => r.Field<double>("Qty"))
-                                      };
-                    }
-
-                    if (!MngrProductSalesGraph.Series.Any(s => s.Name == "Sales"))
-                    {
-                        MngrProductSalesGraph.Series.Add("Sales");
-                    }
-
-                    MngrProductSalesGraph.Series["Sales"].Points.Clear();
-
-                    foreach (var group in groupedRows)
-                    {
-                        DataPoint dataPoint = new DataPoint();
-                        dataPoint.SetValueY(group.TotalQty);
-                        dataPoint.LegendText = (MngrProductSalesSelectCatBox.Text == "All Categories") ? GetCategoryName(group.ItemName) : group.ItemName;
-                        MngrProductSalesGraph.Series["Sales"].Points.Add(dataPoint);
-                    }
-
-                    MngrProductSalesGraph.Series["Sales"].ChartType = SeriesChartType.Pie;
-                    MngrProductSalesGraph.Series["Sales"]["PieLabelStyle"] = "Inside";
-                    MngrProductSalesGraph.Series["Sales"]["PieLineColor"] = "Black";
-                    MngrProductSalesGraph.Series["Sales"]["PieDrawingStyle"] = "Concave";
-
-                    MngrProductSalesGraph.Titles.Clear();
-                    MngrProductSalesGraph.Titles.Add("Quantity Sold Distribution").Font = new System.Drawing.Font("Arial", 12, FontStyle.Bold | FontStyle.Italic);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void DisplayLineChart(string query, string connectionString)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
-                {
-                    connection.Open();
-                    MySqlCommand command = new MySqlCommand(query, connection);
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-                    if (!MngrProductSalesLineGraph.ChartAreas.Any(ca => ca.Name == "MainChartArea"))
-                    {
-                        MngrProductSalesLineGraph.ChartAreas.Add("MainChartArea");
-                    }
-                    MngrProductSalesLineGraph.Series.Clear();
-                    MngrProductSalesLineGraph.Legends.Clear();
-                    bool groupByCategory = MngrProductSalesSelectCatBox.Text == "All Categories";
-                    trydata.Visible = true;
-                    if (groupByCategory)
-                    {
-                        var distinctItems = dataTable.AsEnumerable()
-                            .Select(row => GetCategoryPrefix(row.Field<string>("ItemID")))
-                            .Distinct();
-                        var distinctDates = dataTable.AsEnumerable()
-                            .Select(row => DateTime.ParseExact(row.Field<string>("CheckedOutDate").Substring(0, 10), "MM-dd-yyyy", CultureInfo.InvariantCulture))
-                            .Distinct();
-                        List<DateTime> selectedDates = distinctDates.ToList();
-                        Dictionary<string, Series> categorySeries = new Dictionary<string, Series>();
-                        foreach (var item in distinctItems)
-                        {
-                            Series series = new Series(GetCategoryName(item));
-                            series.ChartType = SeriesChartType.Line;
-                            series.XValueType = ChartValueType.DateTime;
-                            series.BorderWidth = 3;
-                            series.MarkerStyle = MarkerStyle.Circle;
-                            series.MarkerSize = 8;
-                            var dataForItem = dataTable.AsEnumerable()
-                                .Where(row => GetCategoryPrefix(row.Field<string>("ItemID")) == item)
-                                .OrderBy(row => DateTime.ParseExact(row.Field<string>("CheckedOutDate").Substring(0, 10), "MM-dd-yyyy", CultureInfo.InvariantCulture));
-                            Dictionary<DateTime, double> dateDataPoints = new Dictionary<DateTime, double>();
-                            foreach (var date in selectedDates)
-                            {
-                                dateDataPoints[date] = 0;
-                            }
-                            foreach (DataRow row in dataForItem)
-                            {
-                                string dateString = row["CheckedOutDate"].ToString().Substring(0, 10);
-                                DateTime date = DateTime.ParseExact(dateString, "MM-dd-yyyy", CultureInfo.InvariantCulture);
-                                double totalPrice = Convert.ToDouble(row["ItemTotalPrice"]);
-                                dateDataPoints[date] = totalPrice;
-                            }
-                            foreach (var date in selectedDates)
-                            {
-                                series.Points.AddXY(date, dateDataPoints[date]);
-                            }
-                            MngrProductSalesLineGraph.Series.Add(series);
-                        }
-                    }
-                    else
-                    {
-                        trydata.Visible = false;
-                        var distinctItemNames = dataTable.AsEnumerable()
-                            .Select(row => row.Field<string>("ItemName"))
-                            .Distinct();
-                        foreach (var itemName in distinctItemNames)
-                        {
-                            var dataForItem = dataTable.AsEnumerable()
-                                .Where(row => row.Field<string>("ItemName") == itemName);
-                            Series series = new Series(itemName);
-                            series.ChartType = SeriesChartType.Line;
-                            series.XValueType = ChartValueType.DateTime;
-                            series.BorderWidth = 3;
-                            series.MarkerStyle = MarkerStyle.Circle;
-                            series.MarkerSize = 8;
-                            foreach (DataRow row in dataForItem)
-                            {
-                                string dateString = row["CheckedOutDate"].ToString().Substring(0, 10);
-                                if (!DateTime.TryParseExact(dateString, "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime date))
-                                {
-                                    MessageBox.Show($"Error parsing date: {dateString}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    continue;
-                                }
-                                double totalPrice = Convert.ToDouble(row["ItemTotalPrice"]);
-                                series.Points.AddXY(date, totalPrice);
-                            }
-                            MngrProductSalesLineGraph.Series.Add(series);
-                        }
-                    }
-                    MngrProductSalesLineGraph.ChartAreas[0].AxisX.Title = "Dates";
-                    MngrProductSalesLineGraph.ChartAreas[0].AxisX.TitleFont = new System.Drawing.Font("Arial", 10, FontStyle.Bold);
-                    MngrProductSalesLineGraph.ChartAreas[0].AxisY.Title = "Revenue";
-                    MngrProductSalesLineGraph.ChartAreas[0].AxisY.TitleFont = new System.Drawing.Font("Arial", 10, FontStyle.Bold);
-                    MngrProductSalesLineGraph.ChartAreas["MainChartArea"].Position = new ElementPosition(5, 5, 90, 70);
-                    MngrProductSalesLineGraph.ChartAreas["MainChartArea"].InnerPlotPosition.Auto = false;
-                    MngrProductSalesLineGraph.Titles.Clear();
-                    MngrProductSalesLineGraph.Titles.Add("Sales Revenue").Font = new System.Drawing.Font("Arial", 12, FontStyle.Bold | FontStyle.Italic);
-                    MngrProductSalesLineGraph.Legends.Add(new Legend("MainLegend"));
-                    MngrProductSalesLineGraph.Legends["MainLegend"].Docking = Docking.Bottom;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private string GetCategoryPrefix(string itemId)
-        {
-            if (itemId.Length >= 3) return itemId.Substring(0, 3);
-            else return "Other";
-        }
-
-        private string GetCategoryName(string categoryPrefix)
-        {
-            switch (categoryPrefix)
-            {
-                case "HS-":
-                    return "Hair Styling Category";
-                case "FS-":
-                    return "Face & Skin Category";
-                case "NC-":
-                    return "Nail Care Category";
-                case "MS-":
-                    return "Massage Category";
-                case "SP-":
-                    return "Spa Category";
-                default:
-                    return "Other";
-            }
-        }
-
-        private void DisplayDataInDataGridView(DataTable data)
-        {
-            DataTable aggregatedData = new DataTable();
-
-            aggregatedData.Columns.Add("Date", typeof(string));
-            aggregatedData.Columns.Add("Category", typeof(string));
-            aggregatedData.Columns.Add("TotalRevenue", typeof(double));
-
-            var groupedData = data.AsEnumerable()
-                                  .GroupBy(row => new { Date = row.Field<string>("CheckedOutDate").Substring(0, 10), CategoryPrefix = GetCategoryPrefix(row.Field<string>("ItemID")) })
-                                  .Select(group => new
-                                  {
-                                      Date = group.Key.Date,
-                                      Category = GetCategoryName(group.Key.CategoryPrefix),
-                                      TotalRevenue = group.Sum(row => row.Field<double>("ItemTotalPrice"))
-                                  })
-                                  .OrderBy(group => group.Category)
-                                  .ThenBy(group => group.Date);
-
-            foreach (var group in groupedData)
-            {
-                aggregatedData.Rows.Add(group.Date, group.Category, group.TotalRevenue);
-            }
-            trydata.DataSource = aggregatedData;
-        }
-
-
-        private DataTable FetchFilteredData(string query, string connectionString)
-        {
-            DataTable filteredData = new DataTable();
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
-                {
-                    connection.Open();
-                    MySqlCommand command = new MySqlCommand(query, connection);
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                    adapter.Fill(filteredData);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error fetching data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            return filteredData;
-        }
-
-        private void DisplayFilteredDataInGrid(DataTable filteredData)
-        {
-            MngrProductSalesTransRepDGV.Rows.Clear();
-            MngrProductSalesTransRepDGV.Columns.Clear();
-
-            if (MngrProductSalesSelectCatBox.Text == "All Categories")
-            {
-                MngrProductSalesTransRepDGV.Columns.Add("Category", "Category");
-                MngrProductSalesTransRepDGV.Columns.Add("Quantity Sold", "Quantity Sold");
-                MngrProductSalesTransRepDGV.Columns.Add("Overall Revenue", "Overall Revenue");
-
-                Dictionary<string, int> categoryQuantities = new Dictionary<string, int>();
-                Dictionary<string, double> categoryRevenues = new Dictionary<string, double>();
-
-                foreach (DataRow row in filteredData.Rows)
-                {
-                    string categoryPrefix = GetCategoryPrefix(row.Field<string>("ItemID"));
-                    int qty = Convert.ToInt32(row["Qty"]);
-                    double itemTotalPrice = Convert.ToDouble(row["ItemTotalPrice"]);
-
-                    if (!categoryQuantities.ContainsKey(categoryPrefix))
-                    {
-                        categoryQuantities[categoryPrefix] = qty;
-                        categoryRevenues[categoryPrefix] = itemTotalPrice;
-                    }
-                    else
-                    {
-                        categoryQuantities[categoryPrefix] += qty;
-                        categoryRevenues[categoryPrefix] += itemTotalPrice;
-                    }
-                }
-
-                foreach (var kvp in categoryQuantities)
-                {
-                    string categoryName = GetCategoryName(kvp.Key);
-                    MngrProductSalesTransRepDGV.Rows.Add(
-                        categoryName,
-                        kvp.Value,
-                        categoryRevenues[kvp.Key]
-                    );
-                }
-            }
-            else
-            {
-                DataView dv = filteredData.DefaultView;
-                dv.Sort = "CheckedOutDate ASC";
-                DataTable sortedData = dv.ToTable();
-
-                MngrProductSalesTransRepDGV.Columns.Add("CheckedOutDate", "Date");
-                MngrProductSalesTransRepDGV.Columns.Add("ItemID", "Item ID");
-                MngrProductSalesTransRepDGV.Columns.Add("ItemName", "Item Name");
-                MngrProductSalesTransRepDGV.Columns.Add("Qty", "Quantity");
-                MngrProductSalesTransRepDGV.Columns.Add("ItemPrice", "Price");
-                MngrProductSalesTransRepDGV.Columns.Add("ItemTotalPrice", "Total Price");
-
-                foreach (DataRow row in sortedData.Rows)
-                {
-                    MngrProductSalesTransRepDGV.Rows.Add(
-                        row["CheckedOutDate"],
-                        row["ItemID"],
-                        row["ItemName"],
-                        row["Qty"],
-                        row["ItemPrice"],
-                        row["ItemTotalPrice"]
-                    );
-                }
-            }
-        }
-
-        private void MngrProductSalesPeriod_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            MngrProductSalesSelectedPeriodText.Text = "";
-            string selectedItem = MngrProductSalesPeriod.SelectedItem?.ToString();
-
-            if (selectedItem != null)
-            {
-
-                if (selectedItem == "Day" || selectedItem == "Week" || selectedItem == "Month")
-                {
-                    MngrProductSalesPeriodCalendar.Visible = true;
-                    MngrProductSalesFromLbl.Visible = false;
-                    MngrProductSalesToLbl.Visible = false;
-                    MngrProductSalesFromDatePicker.Visible = false;
-                    MngrProductSalesToDatePicker.Visible = false;
-                    MngrProductSalesSelectedPeriodLbl.Visible = true;
-                    MngrProductSalesSelectedPeriodText.Visible = true;
-                }
-                else if (selectedItem == "Specific Date Range")
-                {
-                    MngrProductSalesPeriodCalendar.Visible = false;
-                    MngrProductSalesFromLbl.Visible = true;
-                    MngrProductSalesToLbl.Visible = true;
-                    MngrProductSalesFromDatePicker.Visible = true;
-                    MngrProductSalesToDatePicker.Visible = true;
-                    MngrProductSalesSelectedPeriodLbl.Visible = false;
-                    MngrProductSalesSelectedPeriodText.Visible = false;
-                }
-            }
-        }
-
-        private void MngrProductSalesPeriodCalendar_DateChanged_1(object sender, DateRangeEventArgs e)
-        {
-            DateTime selectedDate = MngrProductSalesPeriodCalendar.SelectionStart;
-            string selectedPeriod = "";
-            string salePeriod = MngrProductSalesPeriod.SelectedItem.ToString();
-
-            switch (salePeriod)
-            {
-                case "Day":
-                    selectedPeriod = selectedDate.ToString("MM-dd-yyyy");
-                    break;
-                case "Week":
-                    DateTime monday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + (int)DayOfWeek.Monday);
-                    DateTime sunday = monday.AddDays(6);
-                    selectedPeriod = monday.ToString("MM-dd-yyyy") + " to " + sunday.ToString("MM-dd-yyyy");
-                    break;
-                case "Month":
-                    selectedPeriod = selectedDate.ToString("MMMM-yyyy");
-                    break;
-                default:
-                    break;
-            }
-            MngrProductSalesSelectedPeriodText.Text = selectedPeriod;
-        }
-
-        #endregion
-
-
-        #endregion
-
-
-        //Admin Dashboard Starts Here
-        #region
-        private void AdminSignOutBtn_Click_1(object sender, EventArgs e)
-        {
-            LogoutChecker();
-
-        }
-        private void AdminAccUserBtn_Click(object sender, EventArgs e)
-        {
-            if (AdminUserAccPanel.Visible == false)
-            {
-                AdminUserAccPanel.Visible = true;
-
-            }
-            else
-            {
-                AdminUserAccPanel.Visible = false;
-            }
-        }
-
-        private void AdminBdayPicker_ValueChanged(object sender, EventArgs e)
-        {
-            DateTime selectedDate = AdminBdayPicker.Value;
-            int age = DateTime.Now.Year - selectedDate.Year;
-
-            if (DateTime.Now < selectedDate.AddYears(age))
-            {
-                age--; // Subtract 1 if the birthday hasn't occurred yet this year
-            }
-            AdminAgeText.Text = age.ToString();
-            if (age == 0)
-            {
-                AdminAgeErrorLbl.Visible = false;
-                AdminAgeErrorLbl.Text = "Must be 18 years old and above";
-                return;
-            }
-            if (age < 18)
-            {
-                AdminAgeErrorLbl.Visible = true;
-                AdminAgeErrorLbl.Text = "Must be 18 years old and above";
-                return;
-            }
-            else
-            {
-                AdminAgeErrorLbl.Visible = false;
-            }
-        }
-
-        private string selectedHashedPerUser;
-
-        private void AdminEditAccBtn_Click(object sender, EventArgs e)
-        {
-            DateTime selectedDate = RegularBdayPicker.Value;
-            DateTime currentDate = DateTime.Now;
-
-            string fname = AdminFirstNameText.Text;
-            string lname = AdminLastNameText.Text;
-            string bday = selectedDate.ToString("MM-dd-yyyy");
-            string age = AdminAgeText.Text;
-            string gender = AdminGenderComboText.Text;
-            string cpnum = AdminCPNumText.Text;
-            string emplType = AdminEmplTypeComboText.Text;
-            string emplCat = AdminEmplCatComboText.Text;
-            string emplCatLvl = AdminEmplCatLvlComboText.Text;
-            string emplID = AdminEmplIDText.Text;
-            string email = AdminEmailText.Text;
-            string pass = AdminPassText.Text;
-            string confirm = AdminConfirmPassText.Text;
-
-            string hashedPassword = HashHelper.HashString(pass);    // Password hashed
-            string fixedSalt = HashHelper_Salt.HashString_Salt("Enchante" + pass + "2024");    //Fixed Salt
-            string perUserSalt = HashHelper_SaltperUser.HashString_SaltperUser(pass + emplID);    //Per User salt
-
-            if (AdminAccountTable.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = AdminAccountTable.SelectedRows[0];
-
-                bool rowIsEmpty = true;
-                foreach (DataGridViewCell cell in selectedRow.Cells)
-                {
-                    if (!string.IsNullOrEmpty(cell.Value?.ToString()))
-                    {
-                        rowIsEmpty = false;
-                        break;
-                    }
-                }
-
-                if (rowIsEmpty)
-                {
-                    MessageBox.Show("The selected row is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                AdminFirstNameText.Text = selectedRow.Cells["FirstName"].Value?.ToString();
-                AdminLastNameText.Text = selectedRow.Cells["LastName"].Value?.ToString();
-                AdminEmailText.Text = selectedRow.Cells["Email"].Value?.ToString();
-                AdminAgeText.Text = selectedRow.Cells["Age"].Value?.ToString();
-                AdminGenderComboText.SelectedItem = selectedRow.Cells["Gender"].Value?.ToString();
-                AdminCPNumText.Text = selectedRow.Cells["PhoneNumber"].Value?.ToString();
-                AdminEmplTypeComboText.SelectedItem = selectedRow.Cells["EmployeeType"].Value?.ToString();
-                AdminEmplCatComboText.SelectedItem = selectedRow.Cells["EmployeeCategory"].Value?.ToString();
-                AdminEmplCatLvlComboText.SelectedItem = selectedRow.Cells["EmployeeCategoryLevel"].Value?.ToString();
-                AdminEmplIDText.Text = selectedRow.Cells["EmployeeID"].Value?.ToString();
-
-                string birthdayString = selectedRow.Cells["Birthday"].Value?.ToString() ?? string.Empty;
-                DateTime birthday;
-                if (!string.IsNullOrEmpty(birthdayString) && DateTime.TryParseExact(birthdayString, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out birthday))
-                {
-                    AdminBdayPicker.Value = birthday.Date;
-                }
-                else if (string.IsNullOrEmpty(birthdayString))
-                {
-                    AdminBdayPicker.Value = DateTime.Today;
-                }
-                else
-                {
-                    MessageBox.Show("Invalid date format in the 'Birthday' column.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                selectedHashedPerUser = selectedRow.Cells["HashedPerUser"].Value?.ToString();
-                AdminEmplTypeComboText.Enabled = false;
-                AdminEmplCatComboText.Enabled = false;
-                AdminCreateAccBtn.Visible = false;
-                AdminUpdateAccBtn.Visible = true;
-                AdminCancelEditBtn.Visible = true;
-
-            }
-            else
-            {
-                MessageBox.Show("Please select a row first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void AdminEmplTypeComboText_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (AdminEmplTypeComboText.SelectedItem != null)
-            {
-                string selectedEmpType = AdminEmplTypeComboText.SelectedItem?.ToString() ?? string.Empty;
-
-                if (selectedEmpType == "Admin" || selectedEmpType == "Manager" || selectedEmpType == "Receptionist")
-                {
-                    AdminEmplCatComboText.Text = "Not Applicable";
-                    AdminEmplCatLvlComboText.Text = "Not Applicable";
-                    AdminEmplCatComboText.Enabled = false;
-                    AdminEmplCatLvlComboText.Enabled = false;
-                    AdminGenerateID();
-                }
-                else if (selectedEmpType == "Staff")
-                {
-                    AdminEmplCatComboText.SelectedIndex = -1;
-                    AdminEmplCatLvlComboText.SelectedIndex = -1;
-                    AdminEmplCatComboText.Enabled = true;
-                    AdminEmplCatLvlComboText.Enabled = true;
-                    AdminGenerateID();
-                }
-            }
-        }
-
-        private void AdminCancelEditBtn_Click(object sender, EventArgs e)
-        {
-            AdminCreateAccBtn.Visible = true;
-            AdminUpdateAccBtn.Visible = false;
-            AdminCancelEditBtn.Visible = false;
-            AdminEmplTypeComboText.Enabled = true;
-            AdminEmplCatComboText.Enabled = true;
-            AdminClearFields();
-        }
-
-        private void AdminEmplCatLvlComboText_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (AdminEmplCatLvlComboText.SelectedItem != null)
-            {
-                AdminEmplCatLvlComboText.Text = AdminEmplCatLvlComboText.SelectedItem.ToString();
-                AdminGenerateID();
-            }
-        }
-
-        private void AdminEmplCatComboText_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (AdminEmplCatComboText.SelectedItem != null)
-            {
-                AdminEmplCatComboText.Text = AdminEmplCatComboText.SelectedItem.ToString();
-                AdminGenerateID();
-            }
-        }
-
-        private void AdminShowHidePassBtn_Click(object sender, EventArgs e)
-        {
-            if (AdminPassText.UseSystemPasswordChar == true)
-            {
-                AdminPassText.UseSystemPasswordChar = false;
-                AdminShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
-            }
-            else if (AdminPassText.UseSystemPasswordChar == false)
-            {
-                AdminPassText.UseSystemPasswordChar = true;
-                AdminShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
-
-            }
-        }
-
-        private void AdminShowHideConfirmPassBtn_Click(object sender, EventArgs e)
-        {
-            if (AdminConfirmPassText.UseSystemPasswordChar == true)
-            {
-                AdminConfirmPassText.UseSystemPasswordChar = false;
-                AdminShowHideConfirmPassBtn.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
-            }
-            else if (AdminConfirmPassText.UseSystemPasswordChar == false)
-            {
-                AdminConfirmPassText.UseSystemPasswordChar = true;
-                AdminShowHideConfirmPassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
-
-            }
-        }
-
-        private void AdminConfirmPassText_TextChanged(object sender, EventArgs e)
-        {
-            if (AdminConfirmPassText.Text != AdminPassText.Text)
-            {
-                AdminConfirmPassErrorLbl.Visible = true;
-                AdminConfirmPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
-            }
-            else
-            {
-                AdminConfirmPassErrorLbl.Visible = false;
-            }
-        }
-        private bool ContainsNumbers(string input)
-        {
-            return input.Any(char.IsDigit);
-        }
-        private bool IsNumeric(string input)
-        {
-            foreach (char c in input)
-            {
-                if (!char.IsDigit(c))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-        private void AdminCreateAccBtn_Click(object sender, EventArgs e)
-        {
-            DateTime selectedDate = RegularBdayPicker.Value;
-            DateTime currentDate = DateTime.Now;
-
-            string fname = AdminFirstNameText.Text;
-            string lname = AdminLastNameText.Text;
-            string bday = selectedDate.ToString("MM-dd-yyyy");
-            string age = AdminAgeText.Text;
-            string gender = AdminGenderComboText.Text;
-            string cpnum = AdminCPNumText.Text;
-            string emplType = AdminEmplTypeComboText.Text;
-            string emplCat = AdminEmplCatComboText.Text;
-            string emplCatLvl = AdminEmplCatLvlComboText.Text;
-            string emplID = AdminEmplIDText.Text;
-            string email = AdminEmailText.Text;
-            string pass = AdminPassText.Text;
-            string confirm = AdminConfirmPassText.Text;
-
-            string hashedPassword = HashHelper.HashString(pass);    // Password hashed
-            string fixedSalt = HashHelper_Salt.HashString_Salt("Enchante" + pass + "2024");    //Fixed Salt
-            string perUserSalt = HashHelper_SaltperUser.HashString_SaltperUser(pass + emplID);    //Per User salt
-
-
-            if (string.IsNullOrWhiteSpace(fname) || string.IsNullOrWhiteSpace(lname) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(age) ||
-               string.IsNullOrWhiteSpace(cpnum) || string.IsNullOrWhiteSpace(emplID) || string.IsNullOrWhiteSpace(pass) || string.IsNullOrWhiteSpace(confirm) ||
-               AdminBdayPicker.Value == null || AdminGenderComboText.SelectedItem == null || AdminEmplTypeComboText.SelectedItem == null || AdminEmplCatComboText.SelectedItem == null || AdminEmplCatLvlComboText.SelectedItem == null)
-            {
-                MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (ContainsNumbers(fname))
-            {
-                MessageBox.Show("First Name should not contain numbers.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (ContainsNumbers(lname))
-            {
-                MessageBox.Show("Last Name should not contain numbers.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (!email.Contains("@") || !email.Contains(".com"))
-            {
-                MessageBox.Show("Invalid email format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (!IsNumeric(age))
-            {
-                MessageBox.Show("Invalid Age.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (!IsNumeric(cpnum))
-            {
-                MessageBox.Show("Invalid Phone Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (pass != confirm)
-            {
-                MessageBox.Show("Passwords do not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            else
-            {
-                try
-                {
-                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-                    {
-                        connection.Open();
-
-                        string query = "INSERT INTO systemusers (FirstName, LastName, Email, Birthday, Age, Gender, PhoneNumber, EmployeeType, EmployeeCategory, EmployeeCategoryLevel, EmployeeID, HashedPass, HashedFixedSalt, HashedPerUser) " +
-                                       "VALUES (@FirstName, @LastName, @Email, @Birthday, @Age, @Gender, @PhoneNumber, @EmployeeType, @EmployeeCategory, @EmployeeCategoryLevel, @EmployeeID, @HashedPass, @HashedFixedSalt, @HashedPerUser)";
-
-                        MySqlCommand command = new MySqlCommand(query, connection);
-                        command.Parameters.AddWithValue("@FirstName", fname);
-                        command.Parameters.AddWithValue("@LastName", lname);
-                        command.Parameters.AddWithValue("@Email", email);
-                        command.Parameters.AddWithValue("@Birthday", bday);
-                        command.Parameters.AddWithValue("@Age", int.Parse(age));
-                        command.Parameters.AddWithValue("@Gender", gender);
-                        command.Parameters.AddWithValue("@PhoneNumber", cpnum);
-                        command.Parameters.AddWithValue("@EmployeeType", emplType);
-                        command.Parameters.AddWithValue("@EmployeeCategory", emplCat);
-                        command.Parameters.AddWithValue("@EmployeeCategoryLevel", emplCatLvl);
-                        command.Parameters.AddWithValue("@EmployeeID", emplID);
-                        command.Parameters.AddWithValue("@HashedPass", hashedPassword);
-                        command.Parameters.AddWithValue("@HashedFixedSalt", fixedSalt);
-                        command.Parameters.AddWithValue("@HashedPerUser", perUserSalt);
-
-                        command.ExecuteNonQuery();
-
-                        MessageBox.Show("Registered Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        PopulateUserInfoDataGrid();
-                        AdminClearFields();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        private void AdminClearFields()
-        {
-            AdminFirstNameText.Text = "";
-            AdminLastNameText.Text = "";
-            AdminAgeText.Text = "";
-            AdminCPNumText.Text = "";
-            AdminEmplIDText.Text = "";
-            AdminEmailText.Text = "";
-            AdminPassText.Text = "";
-            AdminConfirmPassText.Text = "";
-            AdminEmplTypeComboText.SelectedItem = null;
-            AdminEmplCatComboText.SelectedItem = null;
-            AdminEmplCatLvlComboText.SelectedItem = null;
-            AdminGenderComboText.SelectedItem = null;
-            AdminBdayPicker.Value = DateTime.Now;
-        }
-
-
-        private void AdminUpdateAccBtn_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(AdminFirstNameText.Text) || string.IsNullOrWhiteSpace(AdminLastNameText.Text) || string.IsNullOrWhiteSpace(AdminEmailText.Text) || string.IsNullOrWhiteSpace(AdminAgeText.Text) ||
-            string.IsNullOrWhiteSpace(AdminCPNumText.Text) || string.IsNullOrWhiteSpace(AdminEmplIDText.Text) || AdminBdayPicker.Value == null || AdminGenderComboText.SelectedItem == null || AdminEmplTypeComboText.SelectedItem == null ||
-            AdminEmplCatComboText.SelectedItem == null || AdminEmplCatLvlComboText.SelectedItem == null)
-            {
-                MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (ContainsNumbers(AdminFirstNameText.Text))
-            {
-                MessageBox.Show("First Name should not contain numbers.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (ContainsNumbers(AdminLastNameText.Text))
-            {
-                MessageBox.Show("Last Name should not contain numbers.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (!AdminEmailText.Text.Contains("@") || !AdminEmailText.Text.Contains(".com"))
-            {
-                MessageBox.Show("Invalid email format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (!IsNumeric(AdminAgeText.Text))
-            {
-                MessageBox.Show("Invalid Age.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (!IsNumeric(AdminCPNumText.Text))
-            {
-                MessageBox.Show("Invalid Phone Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (selectedHashedPerUser != null)
-            {
-                try
-                {
-                    bool fieldsChanged = false;
-                    string selectQuery = "SELECT FirstName, LastName, Email, Birthday, Age, Gender, PhoneNumber, EmployeeType, EmployeeCategory, EmployeeCategoryLevel, EmployeeID FROM systemusers WHERE HashedPerUser = @HashedPerUser";
-                    string query = @"UPDATE systemusers 
-                 SET FirstName = @FirstName, 
-                     LastName = @LastName, 
-                     Email = @Email, 
-                     Birthday = @Birthday, 
-                     Age = @Age, 
-                     Gender = @Gender, 
-                     PhoneNumber = @PhoneNumber, 
-                     EmployeeType = @EmployeeType, 
-                     EmployeeCategory = @EmployeeCategory, 
-                     EmployeeCategoryLevel = @EmployeeCategoryLevel, 
-                     EmployeeID = @EmployeeID 
-                 WHERE HashedPerUser = @HashedPerUser";
-                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-                    {
-                        connection.Open();
-
-                        using (MySqlCommand selectCommand = new MySqlCommand(selectQuery, connection))
-                        {
-                            selectCommand.Parameters.AddWithValue("@HashedPerUser", selectedHashedPerUser);
-
-                            using (MySqlDataReader reader = selectCommand.ExecuteReader())
-                            {
-                                if (reader.Read())
-                                {
-                                    if (reader["FirstName"].ToString() != AdminFirstNameText.Text ||
-                                        reader["LastName"].ToString() != AdminLastNameText.Text ||
-                                        reader["Email"].ToString() != AdminEmailText.Text ||
-                                        !DateTime.TryParse(reader["Birthday"].ToString(), out DateTime birthday) || birthday != AdminBdayPicker.Value ||
-                                        Convert.ToInt32(reader["Age"]) != int.Parse(AdminAgeText.Text) ||
-                                        reader["Gender"].ToString() != AdminGenderComboText.SelectedItem.ToString() ||
-                                        reader["PhoneNumber"].ToString() != AdminCPNumText.Text ||
-                                        reader["EmployeeType"].ToString() != AdminEmplTypeComboText.SelectedItem.ToString() ||
-                                        reader["EmployeeCategory"].ToString() != AdminEmplCatComboText.SelectedItem.ToString() ||
-                                        reader["EmployeeCategoryLevel"].ToString() != AdminEmplCatLvlComboText.SelectedItem.ToString() ||
-                                        reader["EmployeeID"].ToString() != AdminEmplIDText.Text)
-                                    {
-                                        fieldsChanged = true;
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    if (fieldsChanged)
-                    {
-                        using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-                        {
-                            connection.Open();
-
-                            using (MySqlCommand command = new MySqlCommand(query, connection))
-                            {
-                                command.Parameters.AddWithValue("@FirstName", AdminFirstNameText.Text);
-                                command.Parameters.AddWithValue("@LastName", AdminLastNameText.Text);
-                                command.Parameters.AddWithValue("@Email", AdminEmailText.Text);
-                                command.Parameters.AddWithValue("@Birthday", AdminBdayPicker.Value);
-                                command.Parameters.AddWithValue("@Age", int.Parse(AdminAgeText.Text));
-                                command.Parameters.AddWithValue("@Gender", AdminGenderComboText.SelectedItem.ToString());
-                                command.Parameters.AddWithValue("@PhoneNumber", AdminCPNumText.Text);
-                                command.Parameters.AddWithValue("@EmployeeType", AdminEmplTypeComboText.SelectedItem.ToString());
-                                command.Parameters.AddWithValue("@EmployeeCategory", AdminEmplCatComboText.SelectedItem.ToString());
-                                command.Parameters.AddWithValue("@EmployeeCategoryLevel", AdminEmplCatLvlComboText.SelectedItem.ToString());
-                                command.Parameters.AddWithValue("@EmployeeID", AdminEmplIDText.Text);
-                                command.Parameters.AddWithValue("@HashedPerUser", selectedHashedPerUser);
-
-                                int rowsAffected = command.ExecuteNonQuery();
-
-                                if (rowsAffected > 0)
-                                {
-                                    MessageBox.Show("Data updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    PopulateUserInfoDataGrid();
-                                    AdminEmplTypeComboText.Enabled = true;
-                                    AdminEmplCatComboText.Enabled = true;
-                                    AdminCreateAccBtn.Visible = true;
-                                    AdminUpdateAccBtn.Visible = false;
-                                    AdminCancelEditBtn.Visible = false;
-                                    AdminClearFields();
-                                }
-                                else
-                                {
-                                    MessageBox.Show("No rows updated.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("No changes have been made.", "Information", MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please select a row first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void AdminGenderComboText_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (AdminGenderComboText.SelectedItem != null)
-            {
-                AdminGenderComboText.Text = AdminGenderComboText.SelectedItem.ToString();
-            }
-        }
-        private void PopulateUserInfoDataGrid()
-        {
-            string connectionString = "Server=localhost;Database=enchante;User=root;Password=;";
-
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    string query = "SELECT FirstName, LastName, Email, Birthday, Age, Gender, PhoneNumber, EmployeeType, EmployeeCategory, EmployeeCategoryLevel, EmployeeID, HashedPass, HashedFixedSalt, HashedPerUser FROM systemusers";
-
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
-                    {
-                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
-                        {
-                            DataTable dataTable = new DataTable();
-                            adapter.Fill(dataTable);
-
-                            // Bind the DataTable to the DataGridView
-                            AdminAccountTable.DataSource = dataTable;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}");
-            }
-        }
-
-        private void AdminGenerateID()
-        {
-            string empType = AdminEmplTypeComboText.SelectedItem?.ToString() ?? string.Empty;
-            string empCategory = AdminEmplCatComboText.SelectedItem?.ToString() ?? string.Empty;
-
-            string empTypePrefix = "";
-            string empCategoryPrefix = "";
-
-            if (empType == "Admin")
-            {
-                empTypePrefix = "A-";
-            }
-            else if (empType == "Manager")
-            {
-                empTypePrefix = "M-";
-            }
-            else if (empType == "Receptionist")
-            {
-                empTypePrefix = "R-";
-            }
-            else if (empType == "Staff")
-            {
-                empTypePrefix = "S-";
-            }
-
-            if (empCategory == "Hair Styling")
-            {
-                empCategoryPrefix = "HS-";
-            }
-            else if (empCategory == "Face & Skin")
-            {
-                empCategoryPrefix = "FS-";
-            }
-            else if (empCategory == "Nail Care")
-            {
-                empCategoryPrefix = "NC-";
-            }
-            else if (empCategory == "Massage")
-            {
-                empCategoryPrefix = "MS-";
-            }
-            else if (empCategory == "Spa")
-            {
-                empCategoryPrefix = "SP-";
-            }
-
-            Random random = new Random();
-            int randomNumber = random.Next(100000, 999999);
-            string randomNumberString = randomNumber.ToString("D6");
-            string finalID = empTypePrefix + empCategoryPrefix + randomNumberString;
-            AdminEmplIDText.Text = finalID;
-        }
-        #endregion
-
-
-        //Staff Dashboard Starts Here
-        #region
-        private void StaffUserAccBtn_Click(object sender, EventArgs e)
-        {
-            if (StaffUserAccPanel.Visible == false)
-            {
-                StaffUserAccPanel.Visible = true;
-            }
-            else
-            {
-                StaffUserAccPanel.Visible = false;
-            }
-
-        }
-        //general and preferred queue
-        #region
-        public class PendingCustomers
-        {
-            public string TransactionNumber { get; set; }
-            public string ClientName { get; set; }
-            public string ServiceID { get; set; }
-            public string ServiceName { get; set; }
-            public string ServiceStatus { get; set; }
-            public string QueNumber { get; set; }
-        }
-        public int generalsmallestquenumber;
-
-        protected void InitializeGeneralCuePendingCustomersForStaff()
-        {
-            List<PendingCustomers> generalquependingcustomers = RetrieveGeneralQuePendingCustomersFromDB();
-
-            if (generalquependingcustomers.Count == 0)
-            {
-                NoCustomerInQueueUserControl nocustomerusercontrol = new NoCustomerInQueueUserControl();
-                StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(nocustomerusercontrol);
-
-                List<PendingCustomers> preferredquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
-                int smallestQueNumber = int.MaxValue;
-
-                foreach (PendingCustomers customer in preferredquependingcustomers)
-                {
-                    StaffCurrentAvailableCustomersUserControl customer2 = new StaffCurrentAvailableCustomersUserControl(this);
-                    string queNumberText = customer2.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText, out int queNumber))
-                    {
-                        if (queNumber < smallestQueNumber)
-                        {
-                            preferredsmallestquenumber = queNumber;
-                        }
-                    }
-                }
-                return;
-            }
-
-            int smallestQueNumber2 = int.MaxValue;
-
-            foreach (PendingCustomers customer in generalquependingcustomers)
-            {
-                StaffCurrentAvailableCustomersUserControl availablecustomersusercontrol = new StaffCurrentAvailableCustomersUserControl(this);
-                availablecustomersusercontrol.AvailableCustomerSetData(customer);
-                availablecustomersusercontrol.ExpandUserControlButtonClicked += AvailableCustomersUserControl_ExpandCollapseButtonClicked;
-                availablecustomersusercontrol.StartServiceButtonClicked += AvailableCustomersUserControl_StartServiceButtonClicked;
-                availablecustomersusercontrol.StaffEndServiceBtnClicked += AvailableCustomersUserControl_EndServiceButtonClicked;
-                availablecustomersusercontrol.StaffQueTypeTextBox.Visible = false;
-                StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(availablecustomersusercontrol);
-                availablecustomersusercontrol.CurrentStaffID = StaffIDNumLbl.Text;
-
-                string queNumberText = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
-                if (int.TryParse(queNumberText, out int queNumber))
-                {
-                    if (queNumber < smallestQueNumber2)
-                    {
-                        smallestQueNumber2 = queNumber;
-                    }
-                }
-            }
-
-            UpdateStartServiceButtonStatusGeneral(generalquependingcustomers, smallestQueNumber2);
-            generalsmallestquenumber = smallestQueNumber2;
-        }
-        private void UpdateStartServiceButtonStatusGeneral(List<PendingCustomers> generalquependingcustomers, int smallestQueNumber)
-        {
-            if (StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Count > 0 && !StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls)
-                {
-                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText, out int queNumber))
-                    {
-                        if (queNumber < smallestQueNumber)
-                        {
-                            smallestQueNumber = queNumber;
-                        }
-                    }
-                }
-            }
-
-            if (StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Count > 0 && !StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
-                {
-                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText, out int queNumber))
-                    {
-                        if (queNumber < smallestQueNumber)
-                        {
-                            smallestQueNumber = queNumber;
-                        }
-                    }
-                }
-            }
-
-            if (generalquependingcustomers.Count > 0 && !StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
-                {
-                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText, out int queNumber))
-                    {
-                        if (queNumber == smallestQueNumber)
-                        {
-                            userControl.StaffStartServiceBtn.Enabled = true;
-                        }
-                        else
-                        {
-                            userControl.StaffStartServiceBtn.Enabled = false;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
-                {
-                    if (control is StaffCurrentAvailableCustomersUserControl userControl)
-                    {
-                        userControl.StaffStartServiceBtn.Enabled = false;
-                    }
-                }
-            }
-            if (StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Count > 0 && !StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
-                {
-                    if (control is StaffCurrentAvailableCustomersUserControl userControl)
-                    {
-                        userControl.StaffStartServiceBtn.Enabled = false;
-                    }
-                }
-            }
-        }
-
-        private void AvailableCustomersUserControl_ExpandCollapseButtonClicked(object sender, EventArgs e)
-        {
-            StaffCurrentAvailableCustomersUserControl availablecustomersusercontrol = (StaffCurrentAvailableCustomersUserControl)sender;
-
-            if (availablecustomersusercontrol != null)
-            {
-                if (!availablecustomersusercontrol.Viewing)
-                {
-                    availablecustomersusercontrol.Size = new System.Drawing.Size(875, 350);
-                    //StaffCurrentServicesDropDownBtn.IconChar = FontAwesome.Sharp.IconChar.SquareCaretUp;
-                }
-                else
-                {
-                    availablecustomersusercontrol.Size = new System.Drawing.Size(875, 200);
-                    //StaffCurrentServicesDropDownBtn.IconChar = FontAwesome.Sharp.IconChar.SquareCaretDown;
-
-                }
-            }
-
-        }
-
-        private List<PendingCustomers> RetrieveGeneralQuePendingCustomersFromDB()
-        {
-            DateTime currentDate = DateTime.Today;
-            string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
-            List<PendingCustomers> result = new List<PendingCustomers>();
-
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-            {
-                try
-                {
-                    connection.Open();
-
-                    string generalquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber 
-                                                     FROM servicehistory sh 
-                                                     INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber 
-                                                     WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')
-                                                     AND sh.ServiceCategory = @membercategory 
-                                                     AND sh.QueType = 'GeneralQue' 
-                                                     AND (wa.ServiceStatus = 'Pending' OR wa.ServiceStatus = 'Pending Paid')
-                                                     AND sh.AppointmentDate = @datetoday";
-
-                    MySqlCommand command = new MySqlCommand(generalquependingcustomersquery, connection);
-                    command.Parameters.AddWithValue("@membercategory", membercategory);
-                    command.Parameters.AddWithValue("@datetoday", datetoday);
-
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            PendingCustomers generalquependingcustomers = new PendingCustomers
-                            {
-                                TransactionNumber = reader["TransactionNumber"] as string,
-                                ClientName = reader["ClientName"] as string,
-                                ServiceStatus = reader["ServiceStatus"] as string,
-                                ServiceName = reader["SelectedService"] as string,
-                                ServiceID = reader["ServiceID"] as string,
-                                QueNumber = reader["QueNumber"] as string
-                            };
-
-                            result.Add(generalquependingcustomers);
-                        }
-                    }
-                    if (result.Count == 0)
-                    {
-                        //MessageBox.Show("No customers in the queue.", "Empty Queue", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("An error occurred: " + ex.Message);
-                }
-            }
-
-            return result;
-        }
-
-
-
-
-        private void AvailableCustomersUserControl_StartServiceButtonClicked(object sender, EventArgs e)
-        {
-            StaffCurrentAvailableCustomersUserControl insessioncustomerusercontrol = (StaffCurrentAvailableCustomersUserControl)sender;
-
-            if (insessioncustomerusercontrol != null)
-            {
-                insessioncustomerusercontrol.StartTimer();
-            }
-
-        }
-        private void AvailableCustomersUserControl_EndServiceButtonClicked(object sender, EventArgs e)
-        {
-            StaffCurrentAvailableCustomersUserControl clickedUserControl = (StaffCurrentAvailableCustomersUserControl)sender;
-            TimeSpan elapsedTime = clickedUserControl.GetElapsedTime();
-        }
-
-        public void RefreshFlowLayoutPanel()
-        {
-            foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
-            {
-                if (control is StaffCurrentAvailableCustomersUserControl userControl &&
-                    userControl.StaffCustomerServiceStatusTextBox.Text == "In Session")
-                {
-                    return;
-                }
-            }
-            StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
-            StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
-            StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
-            InitializePriorityPendingCustomersForStaff();
-            InitializeGeneralCuePendingCustomersForStaff();
-            InitializePreferredCuePendingCustomersForStaff();
-
-
-            bool hasNoCustomerControl = StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any()
-               || StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any();
-
-            if (!hasNoCustomerControl)
-            {
-                List<PendingCustomers> generalquependingcustomers = RetrieveGeneralQuePendingCustomersFromDB();
-                int smallestQueNumber2 = generalsmallestquenumber;
-                UpdateStartServiceButtonStatusGeneral(generalquependingcustomers, smallestQueNumber2);
-
-                List<PendingCustomers> preferredquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
-                int smallestQueNumber = preferredsmallestquenumber;
-                UpdateStartServiceButtonStatusPreferred(preferredquependingcustomers, smallestQueNumber);
-            }
-
-        }
-
-
-
-
-        public void RemovePendingUserControls(StaffCurrentAvailableCustomersUserControl selectedControl)
-        {
-            foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<StaffCurrentAvailableCustomersUserControl>().ToList())
-            {
-                if (control != selectedControl)
-                {
-                    StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Remove(control);
-                    control.Dispose();
-                }
-            }
-            foreach (System.Windows.Forms.Control control in StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<StaffCurrentAvailableCustomersUserControl>().ToList())
-            {
-                if (control != selectedControl)
-                {
-                    StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Remove(control);
-                    control.Dispose();
-                }
-            }
-            foreach (System.Windows.Forms.Control control in StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<StaffCurrentAvailableCustomersUserControl>().ToList())
-            {
-                if (control != selectedControl)
-                {
-                    StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Remove(control);
-                    control.Dispose();
-                }
-            }
-        }
-
-
-
-        private void StaffRefreshAvailableCustomersBtn_Click(object sender, EventArgs e)
-        {
-
-            RefreshFlowLayoutPanel();
-        }
-
-
-        private List<PendingCustomers> RetrievePreferredQuePendingCustomersFromDB()
-        {
-            string staffID = StaffIDNumLbl.Text;
-            DateTime currentDate = DateTime.Today;
-            string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
-            List<PendingCustomers> result = new List<PendingCustomers>();
-
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-            {
-                try
-                {
-                    connection.Open();
-
-                    string preferredquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber
-                       FROM servicehistory sh INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber
-                       WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid') AND sh.ServiceCategory = @membercategory AND sh.PreferredStaff = @preferredstaff AND (wa.ServiceStatus = 'Pending' OR wa.ServiceStatus = 'Pending Paid') AND sh.AppointmentDate = @datetoday";
-
-                    MySqlCommand command = new MySqlCommand(preferredquependingcustomersquery, connection);
-                    command.Parameters.AddWithValue("@membercategory", membercategory);
-                    command.Parameters.AddWithValue("@preferredstaff", staffID);
-                    command.Parameters.AddWithValue("@datetoday", datetoday);
-
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            PendingCustomers preferredquependingcustomers = new PendingCustomers
-                            {
-                                TransactionNumber = reader.IsDBNull(reader.GetOrdinal("TransactionNumber")) ? string.Empty : reader.GetString("TransactionNumber"),
-                                ClientName = reader.IsDBNull(reader.GetOrdinal("ClientName")) ? string.Empty : reader.GetString("ClientName"),
-                                ServiceStatus = reader.IsDBNull(reader.GetOrdinal("ServiceStatus")) ? string.Empty : reader.GetString("ServiceStatus"),
-                                ServiceName = reader.IsDBNull(reader.GetOrdinal("SelectedService")) ? string.Empty : reader.GetString("SelectedService"),
-                                ServiceID = reader.IsDBNull(reader.GetOrdinal("ServiceID")) ? string.Empty : reader.GetString("ServiceID"),
-                                QueNumber = reader.IsDBNull(reader.GetOrdinal("QueNumber")) ? string.Empty : reader.GetString("QueNumber")
-                            };
-
-                            result.Add(preferredquependingcustomers);
-                        }
-                    }
-
-                    if (result.Count == 0)
-                    {
-                        //MessageBox.Show("No customers in the preferred queue.", "Empty Queue", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("An error occurred: " + ex.Message);
-                }
-            }
-
-            return result;
-        }
-
-        public int preferredsmallestquenumber;
-
-        protected void InitializePreferredCuePendingCustomersForStaff()
-        {
-            List<PendingCustomers> preferredquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
-
-            if (preferredquependingcustomers.Count == 0)
-            {
-                NoCustomerInQueueUserControl nocustomerusercontrol = new NoCustomerInQueueUserControl();
-                StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(nocustomerusercontrol);
-                generalsmallestquenumber = preferredsmallestquenumber;
-
-                List<PendingCustomers> generalquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
-                int smallestQueNumber3 = int.MaxValue;
-
-                foreach (PendingCustomers customer in generalquependingcustomers)
-                {
-                    StaffCurrentAvailableCustomersUserControl customer2 = new StaffCurrentAvailableCustomersUserControl(this);
-                    string queNumberText2 = customer2.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText2, out int queNumber2))
-                    {
-                        if (queNumber2 < smallestQueNumber3)
-                        {
-                            generalsmallestquenumber = queNumber2;
-                        }
-                    }
-                }
-                return;
-            }
-            int smallestQueNumber = int.MaxValue;
-
-            foreach (PendingCustomers customer in preferredquependingcustomers)
-            {
-                StaffCurrentAvailableCustomersUserControl availablecustomersusercontrol = new StaffCurrentAvailableCustomersUserControl(this);
-                availablecustomersusercontrol.AvailableCustomerSetData(customer);
-                availablecustomersusercontrol.ExpandUserControlButtonClicked += AvailableCustomersUserControl_ExpandCollapseButtonClicked;
-                availablecustomersusercontrol.StartServiceButtonClicked += AvailableCustomersUserControl_StartServiceButtonClicked;
-                availablecustomersusercontrol.StaffEndServiceBtnClicked += AvailableCustomersUserControl_EndServiceButtonClicked;
-                availablecustomersusercontrol.StaffQueTypeTextBox.Visible = false;
-                StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(availablecustomersusercontrol);
-                availablecustomersusercontrol.CurrentStaffID = StaffIDNumLbl.Text;
-
-                string queNumberText = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
-                if (int.TryParse(queNumberText, out int queNumber))
-                {
-                    if (queNumber < smallestQueNumber)
-                    {
-                        smallestQueNumber = queNumber;
-                    }
-                }
-            }
-            UpdateStartServiceButtonStatusPreferred(preferredquependingcustomers, smallestQueNumber);
-            preferredsmallestquenumber = smallestQueNumber;
-        }
-
-        private void UpdateStartServiceButtonStatusPreferred(List<PendingCustomers> preferredquependingcustomers, int smallestQueNumber)
-        {
-            if (StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Count > 0 && !StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
-                {
-                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText, out int queNumber))
-                    {
-                        if (queNumber < smallestQueNumber)
-                        {
-                            smallestQueNumber = queNumber;
-                        }
-                    }
-                }
-            }
-            if (StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Count > 0 && !StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls)
-                {
-                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText, out int queNumber))
-                    {
-                        if (queNumber < smallestQueNumber)
-                        {
-                            smallestQueNumber = queNumber;
-                        }
-                    }
-                }
-            }
-
-            if (preferredquependingcustomers.Count > 0 && !StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls)
-                {
-                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText, out int queNumber))
-                    {
-                        if (queNumber == smallestQueNumber)
-                        {
-                            userControl.StaffStartServiceBtn.Enabled = true;
-                        }
-                        else
-                        {
-                            userControl.StaffStartServiceBtn.Enabled = false;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                foreach (System.Windows.Forms.Control control in StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls)
-                {
-                    if (control is StaffCurrentAvailableCustomersUserControl userControl)
-                    {
-                        userControl.StaffStartServiceBtn.Enabled = false;
-                    }
-                }
-            }
-            if (StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Count > 0 && !StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
-                {
-                    if (control is StaffCurrentAvailableCustomersUserControl userControl)
-                    {
-                        userControl.StaffStartServiceBtn.Enabled = false;
-                    }
-                }
-            }
-        }
-
-
-
-
-        #endregion
-
-        //staff inventory
-        #region
-        public void InitializeStaffInventoryDataGrid()
-        {
-            StaffInventoryDataGrid.Rows.Clear();
-
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-            {
-                connection.Open();
-
-                string inventoryquery = "SELECT ItemID, ItemName, ItemStock, ItemPrice, ItemStatus FROM inventory WHERE ProductType = 'Service Product' AND ProductCategory = @ProductCategory";
-
-                using (MySqlCommand command = new MySqlCommand(inventoryquery, connection))
-                {
-                    command.Parameters.AddWithValue("@ProductCategory", membercategory);
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            object[] rowData = new object[4];
-                            rowData[0] = reader["ItemID"];
-                            rowData[1] = reader["ItemName"];
-                            rowData[2] = reader["ItemStock"];
-                            rowData[3] = reader["ItemStatus"];
-
-                            StaffInventoryDataGrid.Rows.Add(rowData);
-                        }
-                    }
-                }
-
-            }
-
-        }
-
-        public void InitializeStaffPersonalInventoryDataGrid()
-        {
-            StaffPersonalInventoryDataGrid.Rows.Clear();
-            string staffID = StaffIDNumLbl.Text;
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-            {
-                connection.Open();
-
-                string personalinventoryquery = "SELECT ItemID, ItemName, ItemStock, ItemStatus FROM staff_inventory WHERE EmployeeID = @EmployeeID";
-
-                using (MySqlCommand command = new MySqlCommand(personalinventoryquery, connection))
-                {
-                    command.Parameters.AddWithValue("@EmployeeID", staffID);
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            object[] rowData = new object[4];
-                            rowData[0] = reader["ItemID"];
-                            rowData[1] = reader["ItemName"];
-                            rowData[2] = reader["ItemStock"];
-                            rowData[3] = reader["ItemStatus"];
-
-                            StaffPersonalInventoryDataGrid.Rows.Add(rowData);
-                        }
-                    }
-                }
-
-            }
-
-        }
-
-        private void StaffAddToInventoryButton_Click(object sender, EventArgs e)
-        {
-            if (StaffInventoryDataGrid.CurrentRow == null)
-            {
-                MessageBox.Show("Please select a row.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (string.IsNullOrEmpty(StaffItemSelectedCountTextBox.Text))
-            {
-                MessageBox.Show("Please enter the number of items to add.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (!int.TryParse(StaffItemSelectedCountTextBox.Text, out int itemStockToBeAdded) || itemStockToBeAdded <= 0)
-            {
-                MessageBox.Show("Invalid number of items to add.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (itemStockToBeAdded > 20)
-            {
-                MessageBox.Show("You can't take more than 20 items.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            string itemID = StaffInventoryDataGrid.SelectedRows[0].Cells["ItemID"].Value.ToString();
-            string itemName = StaffInventoryDataGrid.SelectedRows[0].Cells["ItemName"].Value.ToString();
-            int itemStock = Convert.ToInt32(StaffInventoryDataGrid.SelectedRows[0].Cells["ItemStock"].Value);
-            string itemStatus = StaffInventoryDataGrid.SelectedRows[0].Cells["ItemStatus"].Value.ToString();
-            string staffID = StaffIDNumLbl.Text;
-
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-            {
-                connection.Open();
-
-                string selectQuery = "SELECT * FROM staff_inventory WHERE ItemID = @ItemID AND EmployeeID = @EmployeeID";
-                using (MySqlCommand selectCommand = new MySqlCommand(selectQuery, connection))
-                {
-                    selectCommand.Parameters.AddWithValue("@ItemID", itemID);
-                    selectCommand.Parameters.AddWithValue("@EmployeeID", staffID);
-
-                    DataTable dataTable = new DataTable();
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(selectCommand))
-                    {
-                        adapter.Fill(dataTable);
-                    }
-
-                    if (dataTable.Rows.Count > 0)
-                    {
-                        int currentStock = Convert.ToInt32(dataTable.Rows[0]["ItemStock"]);
-                        int newStock = currentStock + itemStockToBeAdded;
-
-                        string updateQuery = "UPDATE staff_inventory SET ItemStock = @NewStock WHERE ItemID = @ItemID AND EmployeeID = @EmployeeID";
-                        using (MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection))
-                        {
-                            updateCommand.Parameters.AddWithValue("@NewStock", newStock);
-                            updateCommand.Parameters.AddWithValue("@ItemID", itemID);
-                            updateCommand.Parameters.AddWithValue("@EmployeeID", staffID);
-                            updateCommand.ExecuteNonQuery();
-                        }
-                    }
-                    else
-                    {
-                        string insertQuery = "INSERT INTO staff_inventory (ItemID, ItemName, ItemStock, ItemStatus, EmployeeID) " +
-                                             "VALUES (@ItemID, @ItemName, @ItemStock, @ItemStatus, @EmployeeID)";
-                        using (MySqlCommand insertCommand = new MySqlCommand(insertQuery, connection))
-                        {
-                            insertCommand.Parameters.AddWithValue("@ItemID", itemID);
-                            insertCommand.Parameters.AddWithValue("@ItemName", itemName);
-                            insertCommand.Parameters.AddWithValue("@ItemStock", itemStockToBeAdded);
-                            insertCommand.Parameters.AddWithValue("@ItemStatus", itemStatus);
-                            insertCommand.Parameters.AddWithValue("@EmployeeID", staffID);
-                            insertCommand.ExecuteNonQuery();
-                        }
-                    }
-                }
-
-                string deductQuery = "UPDATE inventory SET ItemStock = ItemStock - @SelectedCount WHERE ItemID = @ItemID AND ItemStock - @SelectedCount >= 40";
-                using (MySqlCommand deductCommand = new MySqlCommand(deductQuery, connection))
-                {
-                    deductCommand.Parameters.AddWithValue("@SelectedCount", itemStockToBeAdded);
-                    deductCommand.Parameters.AddWithValue("@ItemID", itemID);
-                    int rowsAffected = deductCommand.ExecuteNonQuery();
-
-                    if (rowsAffected == 0)
-                    {
-                        MessageBox.Show("Cannot deduct from this item as it would result in stock below 40. Please refill your inventory to continue operations.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
-                }
-
-                string updateStatusQuery = "UPDATE inventory SET ItemStatus = 'Low Stock' WHERE ItemID = @ItemID AND ItemStock >= 40 AND ItemStock <= 50";
-                using (MySqlCommand updateStatusCommand = new MySqlCommand(updateStatusQuery, connection))
-                {
-                    updateStatusCommand.Parameters.AddWithValue("@ItemID", itemID);
-                    updateStatusCommand.ExecuteNonQuery();
-                }
-
-                string checkStockQuery = "SELECT ItemStock FROM inventory WHERE ItemID = @ItemID";
-                using (MySqlCommand checkStockCommand = new MySqlCommand(checkStockQuery, connection))
-                {
-                    checkStockCommand.Parameters.AddWithValue("@ItemID", itemID);
-                    int currentStock = Convert.ToInt32(checkStockCommand.ExecuteScalar());
-                }
-
-                InitializeStaffPersonalInventoryDataGrid();
-                InitializeStaffInventoryDataGrid();
-                StaffItemSelectedCountTextBox.Clear();
-            }
-        }
-        #endregion
-
-        #endregion
-
-
-
+        #region Reception Walk-in Shop
         private void RecAppointmentExitBtn_Click(object sender, EventArgs e)
         {
 
@@ -11405,7 +7635,7 @@ namespace Enchante
                         if (RecShopProdSelectedProdDGV.Columns[e.ColumnIndex].Name == "Void")
                         {
                             //input dialog messagebox
-                            string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Password Required");
+                            string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Void Product Permission");
 
                             // Hash the entered password
                             string hashedEnteredPassword = HashHelper.HashString(enteredPassword);
@@ -12574,14 +8804,8 @@ namespace Enchante
                 MessageBox.Show("The product list is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            if (RecShopProdSelectedProdDGV.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Please select a product to void.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             //input dialog messagebox
-            string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Password Required");
+            string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Void Product Permission");
 
             // Hash the entered password
             string hashedEnteredPassword = HashHelper.HashString(enteredPassword);
@@ -12631,6 +8855,3766 @@ namespace Enchante
             }
         }
 
+        #endregion
+
+        #endregion
+
+        #region Manager dashboard starts here
+        #region Manager Misc. Functions
+        private void MngrSignOutBtn_Click_1(object sender, EventArgs e)
+        {
+            LogoutChecker();
+        }
+
+        private void MngrUserAccBtn_Click(object sender, EventArgs e)
+        {
+            if (MngrUserAccPanel.Visible == false)
+            {
+                MngrUserAccPanel.Visible = true;
+            }
+            else
+            {
+                MngrUserAccPanel.Visible = false;
+            }
+        }
+        private void RecInventoryMembershipBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrInventoryMembershipPanel);
+
+        }
+
+        private void RecInventoryProductsBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrInventoryProductsPanel);
+            MngrInventoryProductData();
+        }
+        private void MngrSchedExitBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrInventoryTypePanel);
+        }
+
+        private void MngrInventoryProductHistoryExitBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrInventoryTypePanel);
+        }
+
+        private void MngrPayServiceExitBtn_Click(object sender, EventArgs e)
+        {
+            Transaction.PanelShow(RecTransactionPanel);
+
+        }
+
+        private void MngrInventoryWalkinSalesBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrWalkinSalesPanel);
+        }
+
+        private void MngrInventoryProductsHistoryBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrInventoryProductHistoryPanel);
+
+        }
+
+        private void MngrInventoryStaffSchedBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrSchedPanel);
+        }
+
+        private void MngrInventoryMembershipExitBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrInventoryTypePanel);
+        }
+        private void MngrInventoryInDemandBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrIndemandPanel);
+        }
+        private void MngrServicesHistoryBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrServiceHistoryPanel);
+
+        }
+        private void MngrServiceHistoryExitBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrInventoryTypePanel);
+
+        }
+
+        private void MngrWalkinProdSalesBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrWalkinProdSalesPanel);
+            MngrProductSalesTransRepDGV.DataSource = null;
+        }
+
+        private void MngrWalkinProdSalesExitBtn_Click(object sender, EventArgs e)
+        {
+            trydata.Visible = false;
+            MngrProductSalesTransRepDGV.DataSource = null;
+            trydata.DataSource = null;
+            MngrProductSalesSelectedPeriodLbl.Visible = true;
+            MngrProductSalesSelectedPeriodText.Visible = true;
+            MngrProductSalesFromLbl.Visible = false;
+            MngrProductSalesFromDatePicker.Visible = false;
+            MngrProductSalesToLbl.Visible = false;
+            MngrProductSalesToDatePicker.Visible = false;
+            MngrProductSalesPeriodCalendar.Visible = false;
+            MngrProductSalesPeriod.SelectedItem = null;
+            MngrProductSalesSelectCatBox.SelectedItem = null;
+            MngrProductSalesSelectedPeriodText.Text = "";
+            MngrProductSalesLineGraph.Series.Clear();
+            MngrProductSalesGraph.Series.Clear();
+            Inventory.PanelShow(MngrInventoryTypePanel);
+        }
+        #endregion
+
+        //
+        #region Mngr Services Data
+        private void RecInventoryServicesBtn_Click_1(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrServicesPanel);
+            ReceptionLoadServices();
+
+        }
+
+        private void RecInventoryServicesExitBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrInventoryTypePanel);
+            ServiceBoxClear();
+
+        }
+        private void RecServicesCategoryComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (MngrServicesCategoryComboText.SelectedItem != null)
+            {
+                MngrServicesCategoryComboText.Text = MngrServicesCategoryComboText.SelectedItem.ToString();
+                UpdateServiceTypeComboBox();
+                GenerateServiceID();
+            }
+        }
+
+        private void UpdateServiceTypeComboBox()
+        {
+            MngrServicesTypeComboText.Items.Clear();
+
+            // Get the selected category
+            string selectedCategory = MngrServicesCategoryComboText.SelectedItem.ToString();
+
+            // Filter and add the relevant service types based on the selected category
+            switch (selectedCategory)
+            {
+                case "Hair Styling":
+                    MngrServicesTypeComboText.Items.AddRange(new string[] { "Hair Cut", "Hair Blowout", "Hair Color", "Hair Extension", "Package" });
+                    break;
+                case "Nail Care":
+                    MngrServicesTypeComboText.Items.AddRange(new string[] { "Manicure", "Pedicure", "Nail Extension", "Nail Art", "Nail Treatment", "Nail Repair", "Package" });
+                    break;
+                case "Face & Skin":
+                    // Add relevant face and skin service types here
+                    MngrServicesTypeComboText.Items.AddRange(new string[] { "Skin Whitening", "Exfoliation Treatment", "Chemical Peel", "Hydration Treatment", "Acne Treatment", "Anti-Aging Treatment", "Package" });
+                    break;
+                case "Massage":
+                    // Add relevant massage service types here
+                    MngrServicesTypeComboText.Items.AddRange(new string[] { "Soft Massage", "Moderate Massage", "Hard Massage", "Package" });
+
+                    break;
+                case "Spa":
+                    // Add relevant spa service types here
+                    MngrServicesTypeComboText.Items.AddRange(new string[] { "Herbal Pool", "Sauna", "Package" });
+                    break;
+                default:
+                    break;
+            }
+
+            // Select the first item in the list
+            if (MngrServicesTypeComboText.Items.Count > 0)
+            {
+                MngrServicesTypeComboText.SelectedIndex = 0;
+            }
+        }
+
+        private void RecServicesTypeComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (MngrServicesTypeComboText.SelectedItem != null)
+            {
+                MngrServicesTypeComboText.Text = MngrServicesTypeComboText.SelectedItem.ToString();
+                GenerateServiceID();
+
+            }
+        }
+        public class DynamicIDGenerator
+        {
+            private static Random random = new Random();
+
+            public static string GenerateServiceID(string selectedCategory, string selectedType)
+            {
+                // Get the first two characters of the service category
+                string categoryCode = selectedCategory.Substring(0, 2).ToUpper();
+
+                // Get the first character of the service type
+                char typeCode = selectedType[0];
+
+                // Generate a random 6-digit number
+                string randomPart = GenerateRandomNumber();
+
+                // Format the ServiceID
+                string serviceID = $"{categoryCode}-{typeCode}-{randomPart:D6}";
+
+                return serviceID;
+            }
+
+            private static string GenerateRandomNumber()
+            {
+                // Generate a random 6-digit number
+                int randomNumber = random.Next(100000, 999999);
+
+                return randomNumber.ToString();
+            }
+        }
+
+
+        private void GenerateServiceID()
+        {
+            if (MngrServicesCategoryComboText.SelectedIndex >= 0 && MngrServicesTypeComboText.SelectedIndex >= 0)
+            {
+                // Get the selected items from both combo boxes
+                string selectedCategory = MngrServicesCategoryComboText.SelectedItem.ToString();
+                string selectedType = MngrServicesTypeComboText.SelectedItem.ToString();
+
+                // Call the GenerateServiceID method
+                string generatedServiceID = DynamicIDGenerator.GenerateServiceID(selectedCategory, selectedType);
+
+                // Update your UI element with the generated ID
+                MngrServicesIDNumText.Text = generatedServiceID;
+            }
+        }
+
+        private void RecServicesCreateBtn_Click(object sender, EventArgs e)
+        {
+            string category = MngrServicesCategoryComboText.Text;
+            string type = MngrServicesTypeComboText.Text;
+            string name = MngrServicesNameText.Text;
+            string describe = MngrServicesDescriptionText.Text;
+            string duration = MngrServicesDurationText.Text;
+            string price = MngrServicesPriceText.Text;
+            string ID = MngrServicesIDNumText.Text;
+
+            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(type) && string.IsNullOrEmpty(category) && string.IsNullOrEmpty(describe)
+                && string.IsNullOrEmpty(duration) && string.IsNullOrEmpty(price))
+            {
+                MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(category) || string.IsNullOrEmpty(describe)
+                || string.IsNullOrEmpty(duration) || string.IsNullOrEmpty(price))
+            {
+                MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    {
+                        connection.Open();
+                        // Check if email already exists
+                        string checkIDQuery = "SELECT COUNT(*) FROM services WHERE ServiceID = @ID";
+                        MySqlCommand checkIDCmd = new MySqlCommand(checkIDQuery, connection);
+                        checkIDCmd.Parameters.AddWithValue("@ID", ID);
+
+                        int ID_Count = Convert.ToInt32(checkIDCmd.ExecuteScalar());
+
+                        if (ID_Count > 0)
+                        {
+                            // Email already exists, show a message or take appropriate action
+                            MessageBox.Show("Service ID already exists. Please use a different ID Number.", "Salon Service Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return; // Exit the method without inserting the new account
+                        }
+                        string insertQuery = "INSERT INTO services (Category, Type, ServiceID, Name, Description, Duration, Price)" +
+                            "VALUES (@category, @type, @ID, @name, @describe, @duration, @price)";
+
+                        MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
+                        cmd.Parameters.AddWithValue("@category", category);
+                        cmd.Parameters.AddWithValue("@type", type);
+                        cmd.Parameters.AddWithValue("@ID", ID);
+                        cmd.Parameters.AddWithValue("@name", name);
+                        cmd.Parameters.AddWithValue("@describe", describe);
+                        cmd.Parameters.AddWithValue("@duration", duration);
+                        cmd.Parameters.AddWithValue("@price", price);
+
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // Successful insertion
+                    MessageBox.Show("Salon service is successfully created.", "Enchanté Service", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ServiceBoxClear();
+                    ReceptionLoadServices();
+                    GenerateServiceID();
+
+
+                }
+                catch (MySqlException ex)
+                {
+                    // Handle MySQL database exception
+                    MessageBox.Show("MySQL Error: " + ex.Message, "Creating Enchanté Service Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    // Make sure to close the connection
+                    connection.Close();
+                }
+            }
+
+        }
+        private void ServiceBoxClear()
+        {
+            MngrServicesCreateBtn.Visible = true;
+            MngrServicesUpdateBtn.Visible = false;
+            MngrServicesCategoryComboText.Enabled = true;
+            MngrServicesTypeComboText.Enabled = true;
+            MngrServicesCategoryComboText.SelectedIndex = -1;
+            MngrServicesTypeComboText.SelectedIndex = -1;
+            MngrServicesCategoryComboText.Text = "";
+            MngrServicesTypeComboText.Text = "";
+            MngrServicesNameText.Text = "";
+            MngrServicesDescriptionText.Text = "";
+            MngrServicesDurationText.Text = "";
+            MngrServicesPriceText.Text = "";
+            MngrServicesIDNumText.Text = "";
+
+        }
+
+        private void RecServicesUpdateInfoBtn_Click(object sender, EventArgs e)
+        {
+            if (MngrInventoryServicesTable.SelectedRows.Count > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Do you want to edit the selected data?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    // Iterate through selected rows in PendingTable
+                    foreach (DataGridViewRow selectedRow in MngrInventoryServicesTable.SelectedRows)
+                    {
+                        try
+                        {
+                            //// Re data into the database
+                            RetrieveServiceDataFromDB(selectedRow);
+                            MngrServicesUpdateBtn.Visible = true;
+                            MngrServicesCreateBtn.Visible = false;
+                            MngrServicesCategoryComboText.Enabled = false;
+                            MngrServicesTypeComboText.Enabled = false;
+                        }
+                        catch (Exception ex)
+                        {
+                            // Handle any database-related errors here
+                            MessageBox.Show("Error: " + ex.Message, "Service Info Edit Failed");
+                        }
+                    }
+
+
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select a table row first.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+        }
+        private void RetrieveServiceDataFromDB(DataGridViewRow selectedRow)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    string ID = selectedRow.Cells[2].Value.ToString();
+
+                    string selectQuery = "SELECT * FROM services WHERE ServiceID = @ID";
+                    MySqlCommand selectCmd = new MySqlCommand(selectQuery, connection);
+                    selectCmd.Parameters.AddWithValue("@ID", ID);
+
+                    using (MySqlDataReader reader = selectCmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string serviceCategory = reader["Category"].ToString();
+                            string serviceType = reader["Type"].ToString();
+                            string serviceID = reader["ServiceID"].ToString();
+                            string serviceName = reader["Name"].ToString();
+                            string serviceDescribe = reader["Description"].ToString();
+                            string serviceDuration = reader["Duration"].ToString();
+                            string servicePrice = reader["Price"].ToString();
+
+                            MngrServicesCategoryComboText.Text = serviceCategory;
+                            MngrServicesTypeComboText.Text = serviceType;
+                            MngrServicesIDNumText.Text = serviceID;
+                            MngrServicesNameText.Text = serviceName;
+                            MngrServicesDescriptionText.Text = serviceDescribe;
+                            MngrServicesDurationText.Text = serviceDuration;
+                            MngrServicesPriceText.Text = servicePrice;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Retrieving Food Item Data Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
+        private void RecServicesUpdateBtn_Click(object sender, EventArgs e)
+        {
+            string category = MngrServicesCategoryComboText.Text;
+            string type = MngrServicesTypeComboText.Text;
+            string name = MngrServicesNameText.Text;
+            string describe = MngrServicesDescriptionText.Text;
+            string duration = MngrServicesDurationText.Text;
+            string price = MngrServicesPriceText.Text;
+            string ID = MngrServicesIDNumText.Text;
+
+            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(type) && string.IsNullOrEmpty(category) && string.IsNullOrEmpty(describe)
+                && string.IsNullOrEmpty(duration) && string.IsNullOrEmpty(price))
+            {
+                MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(category) || string.IsNullOrEmpty(describe)
+                || string.IsNullOrEmpty(duration) || string.IsNullOrEmpty(price))
+            {
+                MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    {
+                        connection.Open();
+
+                        // Check if the employee with the given Employee ID exists
+                        string checkExistQuery = "SELECT COUNT(*) FROM services WHERE ServiceID = @ID";
+                        MySqlCommand checkExistCmd = new MySqlCommand(checkExistQuery, connection);
+                        checkExistCmd.Parameters.AddWithValue("@ID", ID);
+                        int serviceCount = Convert.ToInt32(checkExistCmd.ExecuteScalar());
+
+                        if (serviceCount == 0)
+                        {
+                            MessageBox.Show("Service with the provided ID does not exist in the database.", "Service Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+
+                        // Update without image
+                        string updateQuery = "UPDATE services SET Category = @category, Type = @type, Name = @name, Description = @describe, Duration = @duration, Price = @price " +
+                            "WHERE ServiceID = @ID";
+                        MySqlCommand updateCmd = new MySqlCommand(updateQuery, connection);
+                        updateCmd.Parameters.AddWithValue("@category", category);
+                        updateCmd.Parameters.AddWithValue("@type", type);
+                        updateCmd.Parameters.AddWithValue("@ID", ID);
+                        updateCmd.Parameters.AddWithValue("@name", name);
+                        updateCmd.Parameters.AddWithValue("@describe", describe);
+                        updateCmd.Parameters.AddWithValue("@duration", duration);
+                        updateCmd.Parameters.AddWithValue("@price", price);
+
+                        updateCmd.ExecuteNonQuery();
+
+                    }
+
+                    // Successful update
+                    MessageBox.Show("Service information has been successfully updated.", "Service Info Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    ServiceBoxClear();
+                    ReceptionLoadServices();
+
+
+                }
+                catch (MySqlException ex)
+                {
+                    // Handle MySQL database exception
+                    MessageBox.Show("MySQL Error: " + ex.Message, "Updating Service Information Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+
+        }
+        #endregion
+
+        #region Mngr. Product Data
+
+        private void MngrInventoryProductsExitBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrInventoryTypePanel);
+            MngrProductClearFields();
+            PDImage.Visible = false;
+            ProductImagePictureBox.Visible = false;
+            CancelEdit.Visible = false;
+            SelectImage.Visible = false;
+            MngrInventoryProductsCatComboText.Enabled = true;
+            MngrInventoryProductsTypeComboText.Enabled = true;
+        }
+
+
+
+        private void MngrInventoryProductData()
+        {
+            string connectionString = "Server=localhost;Database=enchante;User=root;Password=;";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT ItemID, ProductCategory, ItemName, ItemStock, ItemPrice, ProductType, ItemStatus FROM inventory";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                        {
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
+
+                            // Bind the DataTable to the DataGridView
+                            MngrInventoryProductsTable.DataSource = dataTable;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+        }
+
+        private void MngrHomeBtn_Click(object sender, EventArgs e)
+        {
+            MngrHomePanelReset();
+        }
+
+        private bool shouldGenerateItemID = true;
+
+        private void MngrInventoryProductsCatComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (shouldGenerateItemID)
+            {
+                ProductGenerateItemID();
+            }
+        }
+
+        private void ProductGenerateItemID()
+        {
+            string empType = AdminEmplTypeComboText.SelectedItem?.ToString() ?? string.Empty;
+
+            string productcat = null;
+            if (MngrInventoryProductsCatComboText.SelectedItem != null)
+            {
+                productcat = MngrInventoryProductsCatComboText.SelectedItem.ToString();
+            }
+            string pdcat = "";
+
+            if (productcat == "Hair Styling")
+            {
+                pdcat = "HS-";
+            }
+            else if (productcat == "Face & Skin")
+            {
+                pdcat = "FS-";
+            }
+            else if (productcat == "Nail Care")
+            {
+                pdcat = "NC-";
+            }
+            else if (productcat == "Massage")
+            {
+                pdcat = "MS-";
+            }
+            else if (productcat == "Spa")
+            {
+                pdcat = "SP-";
+            }
+
+            Random random = new Random();
+            int randomNumber = random.Next(100000, 999999);
+            string randomNumberString = randomNumber.ToString("D5");
+            string itemID = pdcat + randomNumberString;
+            MngrInventoryProductsIDText.Text = itemID;
+        }
+
+        private void MngrInventoryProductsInsertBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(MngrInventoryProductsNameText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsPriceText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsStockText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsIDText.Text) ||
+            MngrInventoryProductsCatComboText.SelectedItem == null || MngrInventoryProductsTypeComboText.SelectedItem == null || MngrInventoryProductsStatusComboText.SelectedItem == null)
+            {
+                MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product")
+            {
+                if (ProductImagePictureBox.Image == null)
+                {
+                    MessageBox.Show("Please select an image for the product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            if (!IsNumeric(MngrInventoryProductsStockText.Text))
+            {
+                MessageBox.Show("Invalid Stock Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (MngrInventoryProductsPriceText.Text != "Not Applicable" && !IsNumeric(MngrInventoryProductsPriceText.Text))
+            {
+                MessageBox.Show("Invalid Price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (Convert.ToInt32(MngrInventoryProductsStockText.Text) > 200)
+            {
+                MessageBox.Show("Stock cannot exceed 200.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (Convert.ToInt32(MngrInventoryProductsStockText.Text) < 40)
+            {
+                MessageBox.Show("Stock cannot be lower than 40.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string query = "INSERT INTO inventory (ItemID, ProductCategory, ItemName, ItemStock, ItemPrice, ProductType, ItemStatus, ProductPicture) " +
+               "VALUES (@ItemID, @ProductCategory, @ItemName, @ItemStock, @ItemPrice, @ProductType, @ItemStatus, @ProductPicture)";
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                try
+                {
+                    connection.Open();
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ItemName", MngrInventoryProductsNameText.Text);
+                        command.Parameters.AddWithValue("@ItemPrice", MngrInventoryProductsPriceText.Text);
+                        command.Parameters.AddWithValue("@ItemStock", MngrInventoryProductsStockText.Text);
+                        command.Parameters.AddWithValue("@ItemID", MngrInventoryProductsIDText.Text);
+                        command.Parameters.AddWithValue("@ProductCategory", MngrInventoryProductsCatComboText.SelectedItem.ToString());
+                        command.Parameters.AddWithValue("@ProductType", MngrInventoryProductsTypeComboText.SelectedItem.ToString());
+                        command.Parameters.AddWithValue("@ItemStatus", MngrInventoryProductsStatusComboText.SelectedItem.ToString());
+
+                        byte[] imageBytes = null;
+                        if (ProductImagePictureBox.Image != null)
+                        {
+                            using (MemoryStream ms = new MemoryStream())
+                            {
+                                ProductImagePictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                                imageBytes = ms.ToArray();
+                            }
+                        }
+                        command.Parameters.AddWithValue("@ProductPicture", imageBytes);
+                        command.ExecuteNonQuery();
+
+                    }
+                    MessageBox.Show("Item added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    shouldGenerateItemID = false;
+                    PDImage.Visible = false;
+                    ProductImagePictureBox.Visible = false;
+                    SelectImage.Visible = false;
+                    MngrInventoryProductData();
+                    MngrProductClearFields();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Product Creation Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void MngrInventoryProductsInfoEditBtn_Click(object sender, EventArgs e)
+        {
+            if (MngrInventoryProductsTable.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = MngrInventoryProductsTable.SelectedRows[0];
+
+                bool rowIsEmpty = true;
+                foreach (DataGridViewCell cell in selectedRow.Cells)
+                {
+                    if (!string.IsNullOrEmpty(cell.Value?.ToString()))
+                    {
+                        rowIsEmpty = false;
+                        break;
+                    }
+                }
+
+                if (rowIsEmpty)
+                {
+                    MessageBox.Show("The selected row is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string connectionString = "server=localhost;user=root;database=enchante;password=";
+                string query = "SELECT ProductPicture FROM inventory WHERE ItemID = @ItemID";
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ItemID", selectedRow.Cells["ItemID"].Value.ToString());
+
+                        try
+                        {
+                            connection.Open();
+
+                            // ExecuteScalar returns DBNull if the value is null in the database
+                            object result = command.ExecuteScalar();
+
+                            if (result != DBNull.Value && result != null)
+                            {
+                                byte[] imageData = (byte[])result;
+                                if (imageData != null && imageData.Length > 0)
+                                {
+                                    using (MemoryStream ms = new MemoryStream(imageData))
+                                    {
+                                        ProductImagePictureBox.Image = System.Drawing.Image.FromStream(ms);
+                                    }
+                                }
+                                else
+                                {
+                                    ProductImagePictureBox.Image = null;
+                                }
+                            }
+                            else
+                            {
+                                ProductImagePictureBox.Image = null;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error: " + ex.Message, "Product Information Retrieve Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+
+                shouldGenerateItemID = false;
+                MngrInventoryProductsCatComboText.Enabled = false;
+                MngrInventoryProductsTypeComboText.Enabled = false;
+                MngrInventoryProductsInsertBtn.Visible = false;
+                MngrInventoryProductsUpdateBtn.Visible = true;
+                CancelEdit.Visible = true;
+                MngrInventoryProductsIDText.Text = selectedRow.Cells["ItemID"].Value.ToString();
+                MngrInventoryProductsNameText.Text = selectedRow.Cells["ItemName"].Value.ToString();
+                MngrInventoryProductsPriceText.Text = selectedRow.Cells["ItemPrice"].Value.ToString();
+                MngrInventoryProductsStockText.Text = selectedRow.Cells["ItemStock"].Value.ToString();
+                MngrInventoryProductsCatComboText.SelectedItem = selectedRow.Cells["ProductCategory"].Value.ToString();
+                MngrInventoryProductsTypeComboText.SelectedItem = selectedRow.Cells["ProductType"].Value.ToString();
+                MngrInventoryProductsStatusComboText.SelectedItem = selectedRow.Cells["ItemStatus"].Value.ToString();
+
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to edit.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void MngrInventoryProductsUpdateBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(MngrInventoryProductsNameText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsPriceText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsStockText.Text) || string.IsNullOrWhiteSpace(MngrInventoryProductsIDText.Text) ||
+               MngrInventoryProductsCatComboText.SelectedItem == null || MngrInventoryProductsTypeComboText.SelectedItem == null || MngrInventoryProductsStatusComboText.SelectedItem == null || ProductImagePictureBox == null)
+            {
+                MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product")
+            {
+                if (ProductImagePictureBox.Image == null)
+                {
+                    MessageBox.Show("Please select an image for the product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            if (!IsNumeric(MngrInventoryProductsStockText.Text))
+            {
+                MessageBox.Show("Invalid Stock.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (MngrInventoryProductsPriceText.Text != "Not Applicable" && !IsNumeric(MngrInventoryProductsPriceText.Text))
+            {
+                MessageBox.Show("Invalid Price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (Convert.ToInt32(MngrInventoryProductsStockText.Text) > 200)
+            {
+                MessageBox.Show("Stock cannot exceed 200.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (Convert.ToInt32(MngrInventoryProductsStockText.Text) < 40)
+            {
+                MessageBox.Show("Stock cannot be lower than 40.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string connectionString = "server=localhost;user=root;database=enchante;password=";
+            string query = @"UPDATE inventory 
+                            SET ItemName = @ItemName, 
+                                ItemPrice = @ItemPrice, 
+                                ItemStock = @ItemStock, 
+                                ProductCategory = @ProductCategory, 
+                                ProductType = @ProductType, 
+                                ItemStatus = @ItemStatus,
+                                ProductPicture = @ProductPicture 
+                            WHERE ItemID = @ItemID";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ItemName", MngrInventoryProductsNameText.Text);
+                    command.Parameters.AddWithValue("@ItemPrice", MngrInventoryProductsPriceText.Text);
+                    command.Parameters.AddWithValue("@ItemStock", MngrInventoryProductsStockText.Text);
+                    command.Parameters.AddWithValue("@ItemID", MngrInventoryProductsIDText.Text);
+                    command.Parameters.AddWithValue("@ProductCategory", MngrInventoryProductsCatComboText.SelectedItem.ToString());
+                    command.Parameters.AddWithValue("@ProductType", MngrInventoryProductsTypeComboText.SelectedItem.ToString());
+                    command.Parameters.AddWithValue("@ItemStatus", MngrInventoryProductsStatusComboText.SelectedItem.ToString());
+
+                    if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product" && ProductImagePictureBox.Image != null)
+                    {
+                        MemoryStream ms = new MemoryStream();
+                        ProductImagePictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        byte[] imageData = ms.ToArray();
+                        command.Parameters.AddWithValue("@ProductPicture", imageData);
+                    }
+                    else
+                    {
+                        // If it's a Service Product or no image is selected, set the parameter to null
+                        command.Parameters.AddWithValue("@ProductPicture", DBNull.Value);
+                    }
+
+                    try
+                    {
+                        connection.Open();
+                        bool fieldsChanged = false;
+
+                        string selectQuery = "SELECT ItemName, ItemPrice, ItemStock, ProductCategory, ProductType, ItemStatus FROM inventory WHERE ItemID = @ItemID";
+                        using (MySqlCommand selectCommand = new MySqlCommand(selectQuery, connection))
+                        {
+                            selectCommand.Parameters.AddWithValue("@ItemID", MngrInventoryProductsIDText.Text);
+
+                            using (MySqlDataReader reader = selectCommand.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    // Check if any of the fields have changed
+                                    if (reader["ItemName"].ToString() != MngrInventoryProductsNameText.Text ||
+                                        reader["ItemPrice"].ToString() != MngrInventoryProductsPriceText.Text ||
+                                        reader["ItemStock"].ToString() != MngrInventoryProductsStockText.Text ||
+                                        reader["ProductCategory"].ToString() != MngrInventoryProductsCatComboText.SelectedItem.ToString() ||
+                                        reader["ProductType"].ToString() != MngrInventoryProductsTypeComboText.SelectedItem.ToString() ||
+                                        reader["ItemStatus"].ToString() != MngrInventoryProductsStatusComboText.SelectedItem.ToString())
+                                    {
+                                        fieldsChanged = true;
+                                    }
+
+                                    // Check if the ProductType is "Retail Product" and IMGCheck radio button is checked
+                                    if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product")
+                                    {
+                                        fieldsChanged = true;
+                                    }
+                                }
+                            }
+                        }
+
+                        if (fieldsChanged)
+                        {
+                            int rowsAffected = command.ExecuteNonQuery();
+
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Item updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MngrInventoryProductData();
+                                MngrProductClearFields();
+                                MngrInventoryProductsCatComboText.Enabled = true;
+                                MngrInventoryProductsTypeComboText.Enabled = true;
+                                MngrInventoryProductsUpdateBtn.Visible = false;
+                                MngrInventoryProductsInsertBtn.Visible = true;
+                                PDImage.Visible = false;
+                                ProductImagePictureBox.Visible = false;
+                                SelectImage.Visible = false;
+                                CancelEdit.Visible = false;
+                            }
+                            else
+                            {
+                                MessageBox.Show("No rows updated.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("No changes have been made.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message, "Product Information Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void MngrProductClearFields()
+        {
+            MngrInventoryProductsIDText.Text = "";
+            MngrInventoryProductsNameText.Text = "";
+            MngrInventoryProductsPriceText.Text = "";
+            MngrInventoryProductsStockText.Text = "";
+            MngrInventoryProductsCatComboText.SelectedIndex = -1;
+            MngrInventoryProductsTypeComboText.SelectedIndex = -1;
+            MngrInventoryProductsStatusComboText.SelectedIndex = -1;
+            ProductImagePictureBox.Image = null;
+            shouldGenerateItemID = true;
+        }
+
+        private void MngrInventoryProductsTypeComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (MngrInventoryProductsTypeComboText.SelectedItem != null)
+            {
+                if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Service Product")
+                {
+                    PDImage.Visible = false;
+                    ProductImagePictureBox.Visible = false;
+                    SelectImage.Visible = false;
+                }
+                else if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product")
+                {
+                    PDImage.Visible = true;
+                    ProductImagePictureBox.Visible = true;
+                    SelectImage.Visible = true;
+                }
+            }
+        }
+
+        private void CancelEdit_Click(object sender, EventArgs e)
+        {
+            shouldGenerateItemID = true;
+            MngrInventoryProductsInsertBtn.Visible = true;
+            MngrInventoryProductsUpdateBtn.Visible = false;
+            CancelEdit.Visible = false;
+            PDImage.Visible = false;
+            ProductImagePictureBox.Visible = false;
+            SelectImage.Visible = false;
+            MngrInventoryProductsCatComboText.Enabled = true;
+            MngrInventoryProductsTypeComboText.Enabled = true;
+
+            MngrInventoryProductsCatComboText.SelectedIndex = -1;
+            MngrInventoryProductsTypeComboText.SelectedIndex = -1;
+            MngrInventoryProductsStatusComboText.SelectedIndex = -1;
+            MngrInventoryProductsIDText.Text = "";
+            MngrInventoryProductsNameText.Text = "";
+            MngrInventoryProductsPriceText.Text = "";
+            MngrInventoryProductsStockText.Text = "";
+        }
+
+        private void SelectImage_Click(object sender, EventArgs e)
+        {
+            // Open file dialog to select an image
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files (*.jpg; *.jpeg; *.png; *.gif; *.bmp)|*.jpg; *.jpeg; *.png; *.gif; *.bmp|All files (*.*)|*.*";
+            openFileDialog.Title = "Select Image";
+            openFileDialog.Multiselect = false;
+
+            DialogResult result = openFileDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                string selectedImagePath = openFileDialog.FileName;
+
+                try
+                {
+                    // Load the selected image and display it in the PictureBox
+                    using (System.Drawing.Image originalImage = System.Drawing.Image.FromFile(selectedImagePath))
+                    {
+                        System.Drawing.Image resizedImage = ResizeImage(originalImage, ProductImagePictureBox.Width, ProductImagePictureBox.Height);
+                        ProductImagePictureBox.Image = resizedImage;
+
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading image: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private System.Drawing.Image ResizeImage(System.Drawing.Image image, int width, int height)
+        {
+            float aspectRatio = (float)image.Width / image.Height;
+            int targetWidth = width;
+            int targetHeight = (int)(width / aspectRatio);
+
+            if (targetHeight > height)
+            {
+                targetHeight = height;
+                targetWidth = (int)(height * aspectRatio);
+            }
+
+            Bitmap resizedImage = new Bitmap(width, height);
+            int x = (width - targetWidth) / 2;
+            int y = (height - targetHeight) / 2;
+
+            using (Graphics graphics = Graphics.FromImage(resizedImage))
+            {
+                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                graphics.Clear(Color.Transparent);
+                graphics.DrawImage(image, new System.Drawing.Rectangle(x, y, targetWidth, targetHeight));
+            }
+            return resizedImage;
+        }
+
+        private void MngrInventoryProductsStockText_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(MngrInventoryProductsStockText.Text))
+            {
+                MngrInventoryProductsStatusComboText.SelectedItem = null;
+            }
+
+            if (int.TryParse(MngrInventoryProductsStockText.Text, out int inputValue))
+            {
+                if (inputValue >= 0 && inputValue <= 50)
+                {
+                    MngrInventoryProductsStatusComboText.SelectedItem = "Low Stock";
+                }
+                else if (inputValue >= 51)
+                {
+                    MngrInventoryProductsStatusComboText.SelectedItem = "High Stock";
+                }
+            }
+        }
+
+
+
+        #endregion
+
+        #region Mngr. Staff Schedule 
+
+        private void RecEditSchedBtn_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void FillRecStaffScheduleViewDataGrid()
+        {
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                string query = "SELECT EmployeeID, FirstName, LastName, EmployeeCategory, EmployeeCategoryLevel, Schedule, Availability FROM systemusers WHERE EmployeeType = 'Staff'";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                MngrStaffSchedViewDataGrid.Rows.Clear(); // Clear existing rows
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    int index = MngrStaffSchedViewDataGrid.Rows.Add(); // Add a new row to the DataGridView
+
+                    // Fill the existing columns with data
+                    MngrStaffSchedViewDataGrid.Rows[index].Cells["EmployeeID"].Value = row["EmployeeID"];
+                    MngrStaffSchedViewDataGrid.Rows[index].Cells["FirstName"].Value = row["FirstName"];
+                    MngrStaffSchedViewDataGrid.Rows[index].Cells["LastName"].Value = row["LastName"];
+                    MngrStaffSchedViewDataGrid.Rows[index].Cells["EmployeeCategory"].Value = row["EmployeeCategory"];
+                    MngrStaffSchedViewDataGrid.Rows[index].Cells["CategoryLevel"].Value = row["EmployeeCategoryLevel"];
+                    MngrStaffSchedViewDataGrid.Rows[index].Cells["Schedule"].Value = row["Schedule"];
+                    MngrStaffSchedViewDataGrid.Rows[index].Cells["Availability"].Value = row["Availability"];
+                }
+            }
+        }
+
+        private void RecEditStaffSchedBtn_Click(object sender, EventArgs e)
+        {
+            if (MngrStaffSchedViewDataGrid.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = MngrStaffSchedViewDataGrid.SelectedRows[0];
+
+                string EmployeeIDValue = selectedRow.Cells["EmployeeID"].Value.ToString();
+                string FirstNameValue = selectedRow.Cells["FirstName"].Value.ToString();
+                string LastNameValue = selectedRow.Cells["LastName"].Value.ToString();
+                string EmployeeCategoryValue = selectedRow.Cells["EmployeeCategory"].Value.ToString();
+                string CategoryLevelValue = selectedRow.Cells["CategoryLevel"].Value.ToString();
+                string ScheduleValue = selectedRow.Cells["Schedule"].Value.ToString();
+                string AvailabilityValue = selectedRow.Cells["Availability"].Value.ToString();
+
+                MngrEmployeeIDText.Text = EmployeeIDValue;
+                MngrEmployeeFirstNameLbl.Text = FirstNameValue;
+                MngrEmployeeLastNameLbl.Text = LastNameValue;
+                MngrEmployeeCategoryText.Text = EmployeeCategoryValue;
+                MngrEmployeeCategoryLevelText.Text = CategoryLevelValue;
+                MngrCurrentSchedText.Text = ScheduleValue;
+                MngrCurrentAvailabilityText.Text = AvailabilityValue;
+            }
+        }
+
+        private void RecChangeStaffSchedBtn_Click(object sender, EventArgs e)
+        {
+            string EmployeeIDValue = MngrEmployeeIDText.Text;
+            string EmployeeAvailabilityValue = MngrStaffAvailabilityComboBox.SelectedItem.ToString();
+            string EmployeeTimeScheduleValue = MngrStaffSchedComboBox.SelectedItem.ToString();
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                bool availabilityUpdated = false;
+                bool scheduleUpdated = false;
+
+                if (MngrStaffAvailabilityComboBox.SelectedIndex != 0)
+                {
+                    string updateAvailabilityQuery = "UPDATE systemusers SET Availability = @Availability WHERE EmployeeID = @EmployeeID";
+                    MySqlCommand availabilityCommand = new MySqlCommand(updateAvailabilityQuery, connection);
+                    availabilityCommand.Parameters.AddWithValue("@Availability", EmployeeAvailabilityValue);
+                    availabilityCommand.Parameters.AddWithValue("@EmployeeID", EmployeeIDValue);
+                    int availabilityRowsAffected = availabilityCommand.ExecuteNonQuery();
+
+                    if (availabilityRowsAffected > 0)
+                    {
+                        availabilityUpdated = true;
+                    }
+                }
+
+                if (MngrStaffSchedComboBox.SelectedIndex != 0)
+                {
+                    string updateScheduleQuery = "UPDATE systemusers SET Schedule = @Schedule WHERE EmployeeID = @EmployeeID";
+                    MySqlCommand scheduleCommand = new MySqlCommand(updateScheduleQuery, connection);
+                    scheduleCommand.Parameters.AddWithValue("@Schedule", EmployeeTimeScheduleValue);
+                    scheduleCommand.Parameters.AddWithValue("@EmployeeID", EmployeeIDValue);
+                    int scheduleRowsAffected = scheduleCommand.ExecuteNonQuery();
+
+                    if (scheduleRowsAffected > 0)
+                    {
+                        scheduleUpdated = true;
+                    }
+                }
+
+                if (availabilityUpdated && scheduleUpdated)
+                {
+                    MessageBox.Show("Availability and schedule updated.");
+                }
+                else if (availabilityUpdated || scheduleUpdated)
+                {
+                    MessageBox.Show("Availability or schedule was updated.");
+                }
+                else if (!availabilityUpdated && !scheduleUpdated)
+                {
+                    MessageBox.Show("No updates were made.");
+                }
+            }
+
+            //InitializeAvailableStaffFlowLayout();
+            FillRecStaffScheduleViewDataGrid();
+        }
+        #endregion
+
+        #region Mngr. PANEL OF WALK-IN Services REVENUE
+        private void IncomeBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(MngrWalkinSalesPeriod.Text))
+            {
+                MessageBox.Show("Please select a sale period.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DateTime toDate;
+            string selectedCategory = MngrWalkinSalesSelectCatBox.SelectedItem?.ToString();
+            string salePeriod = MngrWalkinSalesPeriod.SelectedItem.ToString();
+            DateTime fromDate = DateTime.MinValue;
+
+            switch (salePeriod)
+            {
+                case "Day":
+                    if (!DateTime.TryParseExact(MngrWalkinSalesSelectedPeriodText.Text, "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDate))
+                    {
+                        MessageBox.Show("Please choose a day in the calendar.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    toDate = fromDate;
+                    break;
+                case "Week":
+                    if (MngrWalkinSalesSelectedPeriodText.Text.Length < 23 ||
+                        !DateTime.TryParseExact(MngrWalkinSalesSelectedPeriodText.Text.Substring(0, 10), "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDate) ||
+                        !DateTime.TryParseExact(MngrWalkinSalesSelectedPeriodText.Text.Substring(14), "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out toDate))
+                    {
+                        MessageBox.Show("Please choose a week in the calendar.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    break;
+                case "Month":
+                    if (!DateTime.TryParseExact(MngrWalkinSalesSelectedPeriodText.Text, "MMMM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDate))
+                    {
+                        MessageBox.Show("Please choose a month in the calendar.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    toDate = fromDate.AddMonths(1).AddDays(-1);
+                    break;
+                case "Specific Date Range":
+                    if (MngrWalkinSalesFromDatePicker.Value > MngrWalkinSalesToDatePicker.Value)
+                    {
+                        MessageBox.Show("From Date cannot be ahead of To Date.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (MngrWalkinSalesFromDatePicker.Value.Date == MngrWalkinSalesToDatePicker.Value.Date)
+                    {
+                        MessageBox.Show("From date and to date cannot be the same.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    fromDate = MngrWalkinSalesFromDatePicker.Value;
+                    toDate = MngrWalkinSalesToDatePicker.Value;
+                    break;
+                default:
+                    MessageBox.Show("Invalid Sale Period selection.", "Walk-in Services Error Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+            }
+
+            if (string.IsNullOrEmpty(selectedCategory))
+            {
+                MessageBox.Show("Please select a category.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+
+            List<DateTime> dates = new List<DateTime>();
+            Dictionary<string, List<decimal>> categoryRevenues = new Dictionary<string, List<decimal>>();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+
+                try
+                {
+                    connection.Open();
+
+                    string query = @"SELECT STR_TO_DATE(AppointmentDate, '%m-%d-%Y') AS AppointmentDay, 
+                            ServiceCategory,
+                            SUM(CAST(ServicePrice AS DECIMAL(10, 2))) AS TotalRevenue 
+                            FROM servicehistory 
+                            WHERE ServiceStatus = 'Completed' 
+                            AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y') BETWEEN @FromDate AND @ToDate ";
+
+                    if (selectedCategory != "All Categories")
+                    {
+                        query += " AND ServiceCategory = @SelectedCategory";
+                    }
+
+                    query += " GROUP BY AppointmentDay, ServiceCategory";
+
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@FromDate", fromDate.ToString("yyyy-MM-dd"));
+                    command.Parameters.AddWithValue("@ToDate", toDate.ToString("yyyy-MM-dd"));
+
+                    if (selectedCategory != "All Categories")
+                    {
+                        command.Parameters.AddWithValue("@SelectedCategory", selectedCategory);
+                    }
+
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    if (!reader.HasRows)
+                    {
+                        MngrWalkinSalesGraph.Series.Clear();
+                        MngrWalkinSalesGraph.Legends.Clear();
+                        MngrWalkinSalesTransRepDGV.DataSource = null;
+                        MngrWalkinSalesTransServiceHisDGV.DataSource = null;
+                        MessageBox.Show("No data available for the selected date range.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+
+                    while (reader.Read())
+                    {
+                        DateTime appointmentDay = (DateTime)reader["AppointmentDay"];
+                        string category = (string)reader["ServiceCategory"];
+                        decimal totalRevenue = (decimal)reader["TotalRevenue"];
+
+                        if (!categoryRevenues.ContainsKey(category))
+                        {
+                            categoryRevenues[category] = new List<decimal>();
+                        }
+
+                        categoryRevenues[category].Add(totalRevenue);
+
+                        if (!dates.Contains(appointmentDay))
+                        {
+                            dates.Add(appointmentDay);
+                        }
+                    }
+
+                    reader.Close();
+
+                    MngrWalkinSalesGraph.Series.Clear();
+                    MngrWalkinSalesGraph.Legends.Clear();
+
+                    foreach (var category in categoryRevenues.Keys)
+                    {
+                        Series series = MngrWalkinSalesGraph.Series.Add($"{category} Revenue");
+                        series.ChartType = SeriesChartType.Line;
+                        series.BorderWidth = 3;
+
+                        for (int i = 0; i < dates.Count; i++)
+                        {
+                            if (categoryRevenues[category].Count > i)
+                            {
+                                series.Points.AddXY(dates[i].ToShortDateString(), categoryRevenues[category][i]);
+                                series.Points[i].MarkerStyle = MarkerStyle.Circle;
+                                series.Points[i].MarkerSize = 8;
+                            }
+                            else
+                            {
+                                series.Points.AddXY(dates[i].ToShortDateString(), 0);
+                            }
+                        }
+                    }
+
+                    MngrWalkinSalesGraph.ChartAreas[0].AxisX.Title = "Dates";
+                    MngrWalkinSalesGraph.ChartAreas[0].AxisX.TitleFont = new System.Drawing.Font("Arial", 10, FontStyle.Bold);
+                    MngrWalkinSalesGraph.ChartAreas[0].AxisY.Title = "Revenue";
+                    MngrWalkinSalesGraph.ChartAreas[0].AxisY.TitleFont = new System.Drawing.Font("Arial", 10, FontStyle.Bold);
+
+                    MngrWalkinSalesGraph.Legends.Add("Legend1");
+                    MngrWalkinSalesGraph.Legends[0].Enabled = true;
+                    MngrWalkinSalesGraph.Legends[0].Docking = Docking.Bottom;
+
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("TransactionNumber");
+                    dt.Columns.Add("AppointmentDate");
+                    dt.Columns.Add("TotalServicePrice", typeof(decimal));
+
+                    string transNumQuery = @"SELECT TransactionNumber, AppointmentDate, SUM(CAST(ServicePrice AS DECIMAL(10, 2))) AS TotalServicePrice 
+                    FROM servicehistory 
+                    WHERE ServiceStatus = 'Completed' 
+                    AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y %W') BETWEEN @FromDate AND @ToDate ";
+
+                    if (selectedCategory != "All Categories")
+                    {
+                        transNumQuery += " AND ServiceCategory = @SelectedCategory";
+                    }
+
+                    transNumQuery += " GROUP BY TransactionNumber";
+
+                    MySqlCommand transNumCommand = new MySqlCommand(transNumQuery, connection);
+                    transNumCommand.Parameters.AddWithValue("@FromDate", fromDate);
+                    transNumCommand.Parameters.AddWithValue("@ToDate", toDate);
+
+                    if (selectedCategory != "All Categories")
+                    {
+                        transNumCommand.Parameters.AddWithValue("@SelectedCategory", selectedCategory);
+                    }
+
+                    using (MySqlDataReader transNumReader = transNumCommand.ExecuteReader())
+                    {
+                        while (transNumReader.Read())
+                        {
+                            string transactionNumber = transNumReader["TransactionNumber"].ToString();
+                            string appointmentDate = transNumReader["AppointmentDate"].ToString();
+                            decimal totalServicePrice = (decimal)transNumReader["TotalServicePrice"];
+
+                            dt.Rows.Add(transactionNumber, appointmentDate, totalServicePrice);
+                        }
+                    }
+
+                    MngrWalkinSalesTransRepDGV.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Walk-in Service Sales Graph Failed");
+                }
+            }
+        }
+
+        private void SalePeriod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MngrWalkinSalesSelectedPeriodText.Text = "";
+
+            string selectedItem = MngrWalkinSalesPeriod.SelectedItem?.ToString(); // Use null-conditional operator to handle null case
+
+            if (selectedItem != null)
+            {
+
+                if (selectedItem == "Day" || selectedItem == "Week" || selectedItem == "Month")
+                {
+                    MngrWalkinSalesPeriodCalendar.Visible = true;
+                    MngrWalkinSalesFromLbl.Visible = false;
+                    MngrWalkinSalesToLbl.Visible = false;
+                    MngrWalkinSalesFromDatePicker.Visible = false;
+                    MngrWalkinSalesToDatePicker.Visible = false;
+                    MngrWalkinSalesSelectedPeriodLbl.Visible = true;
+                    MngrWalkinSalesSelectedPeriodText.Visible = true;
+                }
+                else if (selectedItem == "Specific Date Range")
+                {
+                    MngrWalkinSalesPeriodCalendar.Visible = false;
+                    MngrWalkinSalesFromLbl.Visible = true;
+                    MngrWalkinSalesToLbl.Visible = true;
+                    MngrWalkinSalesFromDatePicker.Visible = true;
+                    MngrWalkinSalesToDatePicker.Visible = true;
+                    MngrWalkinSalesSelectedPeriodLbl.Visible = false;
+                    MngrWalkinSalesSelectedPeriodText.Visible = false;
+                }
+            }
+        }
+
+        private void SalesPeriodCalendar_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            DateTime selectedDate = MngrWalkinSalesPeriodCalendar.SelectionStart;
+            string selectedPeriod = "";
+            string salePeriod = MngrWalkinSalesPeriod.SelectedItem.ToString();
+
+            switch (salePeriod)
+            {
+                case "Day":
+                    selectedPeriod = selectedDate.ToString("MM-dd-yyyy");
+                    break;
+                case "Week":
+                    DateTime monday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + (int)DayOfWeek.Monday);
+                    DateTime sunday = monday.AddDays(6);
+                    selectedPeriod = monday.ToString("MM-dd-yyyy") + " to " + sunday.ToString("MM-dd-yyyy");
+                    break;
+                case "Month":
+                    selectedPeriod = selectedDate.ToString("MMMM-yyyy");
+                    break;
+                default:
+                    break;
+            }
+            MngrWalkinSalesSelectedPeriodText.Text = selectedPeriod;
+        }
+
+        private void ViewWalkinSales()
+        {
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+
+            if (MngrWalkinSalesTransRepDGV == null || MngrWalkinSalesTransRepDGV.SelectedRows.Count == 0 || MngrWalkinSalesTransRepDGV.SelectedRows[0].Cells["TransactionNumber"] == null)
+            {
+                MessageBox.Show("Please select a row to view.", "No Row Selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string transactionNumber = MngrWalkinSalesTransRepDGV.SelectedRows[0].Cells["TransactionNumber"].Value?.ToString();
+
+            if (string.IsNullOrEmpty(transactionNumber))
+            {
+                MessageBox.Show("TransactionNumber is null or empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string categoryFilter = "";
+            if (MngrWalkinSalesSelectCatBox.SelectedItem?.ToString() != "All Categories")
+            {
+                categoryFilter = "AND ServiceCategory = @ServiceCategory";
+            }
+
+            string query = "SELECT ServiceCategory, SelectedService, ServicePrice FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND ServiceStatus = 'Completed' " + categoryFilter;
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+
+                    if (MngrWalkinSalesSelectCatBox.SelectedItem?.ToString() != "All Categories")
+                    {
+                        command.Parameters.AddWithValue("@ServiceCategory", MngrWalkinSalesSelectCatBox.SelectedItem?.ToString());
+                    }
+
+                    DataTable dataTable = new DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        adapter.Fill(dataTable);
+                    }
+
+                    MngrWalkinSalesTransServiceHisDGV.DataSource = dataTable;
+
+                    // Display the TransactionNumber in the TextBox
+                    MngrWalkinSalesTransIDShow.Text = transactionNumber;
+                }
+                connection.Close();
+            }
+        }
+
+        private void MngrWalkinSalesTransRepDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ViewWalkinSales();
+        }
+
+        private void MngrWalkinSalesExitBtn_Click(object sender, EventArgs e)
+        {
+            MngrWalkinSalesSelectedPeriodLbl.Visible = true;
+            MngrWalkinSalesSelectedPeriodText.Visible = true;
+            MngrWalkinSalesFromLbl.Visible = false;
+            MngrWalkinSalesFromDatePicker.Visible = false;
+            MngrWalkinSalesToLbl.Visible = false;
+            MngrWalkinSalesToDatePicker.Visible = false;
+            MngrWalkinSalesPeriodCalendar.Visible = false;
+            MngrWalkinSalesPeriod.SelectedItem = null;
+            MngrWalkinSalesSelectCatBox.SelectedItem = null;
+            MngrWalkinSalesSelectedPeriodText.Text = "";
+            MngrWalkinSalesTransRepDGV.DataSource = null;
+            MngrWalkinSalesTransServiceHisDGV.DataSource = null;
+            MngrWalkinSalesGraph.Series.Clear();
+            MngrWalkinSalesGraph.Legends.Clear();
+            Inventory.PanelShow(MngrInventoryTypePanel);
+        }
+
+        #endregion
+
+        #region MNgr. PANEL OF SERVICE DEMAND
+        private void ServiceHistoryBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MngrIndemandServiceHistoryPeriod.SelectedItem == null || string.IsNullOrEmpty(MngrIndemandServiceHistoryPeriod.SelectedItem.ToString()))
+                {
+                    MessageBox.Show("Please select a service history period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                DateTime fromDate, toDate;
+
+                string selectedPeriod = MngrIndemandServiceHistoryPeriod.SelectedItem.ToString();
+
+                if (selectedPeriod == "Day" || selectedPeriod == "Week" || selectedPeriod == "Month")
+                {
+                    if (string.IsNullOrWhiteSpace(MngrIndemandSelectPeriod.Text))
+                    {
+                        MessageBox.Show("Please provide a date for the selected period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
+                if (selectedPeriod == "Day")
+                {
+                    fromDate = toDate = DateTime.ParseExact(MngrIndemandSelectPeriod.Text, "MM-dd-yyyy", CultureInfo.InvariantCulture);
+                }
+                else if (selectedPeriod == "Week")
+                {
+                    string[] dates = MngrIndemandSelectPeriod.Text.Split(new string[] { " to " }, StringSplitOptions.None);
+                    fromDate = DateTime.ParseExact(dates[0], "MM-dd-yyyy", CultureInfo.InvariantCulture);
+                    toDate = DateTime.ParseExact(dates[1], "MM-dd-yyyy", CultureInfo.InvariantCulture);
+                }
+                else if (selectedPeriod == "Month")
+                {
+                    fromDate = new DateTime(DateTime.ParseExact(MngrIndemandSelectPeriod.Text, "MMMM-yyyy", CultureInfo.InvariantCulture).Year,
+                                            DateTime.ParseExact(MngrIndemandSelectPeriod.Text, "MMMM-yyyy", CultureInfo.InvariantCulture).Month,
+                                            1);
+                    toDate = fromDate.AddMonths(1).AddDays(-1);
+                }
+                else
+                {
+                    if (MngrIndemandDatePickerFrom.Value > MngrIndemandDatePickerTo.Value)
+                    {
+                        MessageBox.Show("Invalid date range. Please make sure the From date is before the To date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    if (MngrIndemandDatePickerFrom.Value.Date == MngrIndemandDatePickerTo.Value.Date)
+                    {
+                        MessageBox.Show("From date and to date cannot be the same.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    fromDate = MngrIndemandDatePickerFrom.Value;
+                    toDate = MngrIndemandDatePickerTo.Value;
+                }
+
+                if (MngrIndemandSelectCatBox.SelectedItem == null)
+                {
+                    MessageBox.Show("Please select a category.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string selectedCategory = MngrIndemandSelectCatBox.SelectedItem.ToString();
+
+                string query;
+                Dictionary<string, int> counts;
+
+                if (selectedCategory == "Top Service Category")
+                {
+                    query = @"
+                        SELECT 
+                            ServiceCategory,
+                            AttendingStaff,
+                        COUNT(*) AS CategoryCount
+                        FROM 
+                            servicehistory 
+                        WHERE 
+                            ServiceStatus = 'Completed' 
+                            AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y') BETWEEN @FromDate AND @ToDate 
+                        GROUP BY
+                            ServiceCategory, AttendingStaff";
+                    counts = new Dictionary<string, int>();
+                }
+                else
+                {
+                    query = @"
+                        SELECT 
+                            AttendingStaff,
+                            STR_TO_DATE(AppointmentDate, '%m-%d-%Y') AS AppointmentDay, 
+                            ServiceCategory,
+                            SelectedService
+                        FROM 
+                            servicehistory 
+                        WHERE 
+                            ServiceStatus = 'Completed' 
+                            AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y') BETWEEN @FromDate AND @ToDate 
+                            AND ServiceCategory = @SelectedCategory";
+                    counts = new Dictionary<string, int>();
+                }
+
+                using (MySqlConnection connection = new MySqlConnection("Server=localhost;Database=enchante;Uid=root;Pwd=;"))
+                {
+                    connection.Open();
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@FromDate", fromDate.ToString("yyyy-MM-dd"));
+                        command.Parameters.AddWithValue("@ToDate", toDate.ToString("yyyy-MM-dd"));
+                        command.Parameters.AddWithValue("@SelectedCategory", selectedCategory);
+
+                        Dictionary<string, int> serviceCounts = new Dictionary<string, int>();
+                        Dictionary<string, int> staffCounts = new Dictionary<string, int>();
+
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (!reader.HasRows)
+                            {
+                                MngrIndemandServiceGraph.Series.Clear();
+                                MngrIndemandServiceSelection.DataSource = null;
+                                MngrIndemandBestEmployee.DataSource = null;
+                                MessageBox.Show("No data available for the selected date range.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                return;
+                            }
+
+                            while (reader.Read())
+                            {
+                                if (selectedCategory == "Top Service Category")
+                                {
+                                    string serviceCategory = reader.GetString("ServiceCategory");
+                                    int categoryCount = reader.GetInt32("CategoryCount");
+                                    serviceCounts[serviceCategory] = categoryCount;
+
+                                    string attendingStaff = reader.GetString("AttendingStaff");
+                                    if (staffCounts.ContainsKey(attendingStaff))
+                                    {
+                                        staffCounts[attendingStaff] += categoryCount;
+                                    }
+                                    else
+                                    {
+                                        staffCounts[attendingStaff] = categoryCount;
+                                    }
+                                }
+                                else
+                                {
+                                    string selectedService = reader.GetString("SelectedService");
+                                    if (serviceCounts.ContainsKey(selectedService))
+                                    {
+                                        serviceCounts[selectedService]++;
+
+                                        string attendingStaff = reader.GetString("AttendingStaff");
+                                        if (staffCounts.ContainsKey(attendingStaff))
+                                        {
+                                            staffCounts[attendingStaff]++;
+                                        }
+                                        else
+                                        {
+                                            staffCounts[attendingStaff] = 1;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        serviceCounts[selectedService] = 1;
+
+                                        string attendingStaff = reader.GetString("AttendingStaff");
+                                        if (staffCounts.ContainsKey(attendingStaff))
+                                        {
+                                            staffCounts[attendingStaff]++;
+                                        }
+                                        else
+                                        {
+                                            staffCounts[attendingStaff] = 1;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        if (selectedCategory == "Top Service Category")
+                        {
+                            MngrIndemandServiceGraph.Series.Clear();
+                            var series = MngrIndemandServiceGraph.Series.Add("ServiceCount");
+                            series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+
+                            // Set pie chart appearance properties
+                            series["PieLabelStyle"] = "Inside";
+                            series["PieLineColor"] = "Black";
+                            series["PieDrawingStyle"] = "Concave";
+
+                            foreach (var kvp in serviceCounts)
+                            {
+                                string serviceName = kvp.Key;
+                                int serviceCount = kvp.Value;
+
+                                var dataPoint = series.Points.Add(serviceCount);
+                                series.Points.Last().LegendText = serviceName;
+                            }
+
+                            MngrIndemandServiceGraph.Titles.Clear();
+                            var title = MngrIndemandServiceGraph.Titles.Add("Top Service");
+                            title.Font = new System.Drawing.Font("Arial", 12f, System.Drawing.FontStyle.Bold);
+
+                            DataTable serviceCategoryTable = new DataTable();
+                            serviceCategoryTable.Columns.Add("Service Category");
+                            serviceCategoryTable.Columns.Add("Top Service Count");
+
+                            foreach (var kvp in serviceCounts)
+                            {
+                                serviceCategoryTable.Rows.Add(kvp.Key, kvp.Value);
+                            }
+
+                            MngrIndemandServiceSelection.DataSource = serviceCategoryTable;
+
+                            DataTable staffTable = new DataTable();
+                            staffTable.Columns.Add("Rank");
+                            staffTable.Columns.Add("ID");
+                            staffTable.Columns.Add("First Name");
+                            staffTable.Columns.Add("Last Name");
+                            staffTable.Columns.Add("# of Services Done");
+
+                            List<KeyValuePair<string, int>> sortedStaffCounts = staffCounts.ToList();
+                            sortedStaffCounts.Sort((x, y) => y.Value.CompareTo(x.Value));
+
+                            int rank = 1;
+                            foreach (var kvp in sortedStaffCounts)
+                            {
+                                string employeeID = kvp.Key;
+                                string firstName, lastName;
+                                using (MySqlCommand userCommand = new MySqlCommand("SELECT FirstName, LastName FROM systemusers WHERE EmployeeID = @EmployeeID", connection))
+                                {
+                                    userCommand.Parameters.AddWithValue("@EmployeeID", employeeID);
+
+                                    using (MySqlDataReader userReader = userCommand.ExecuteReader())
+                                    {
+                                        if (userReader.Read())
+                                        {
+                                            firstName = userReader.GetString("FirstName");
+                                            lastName = userReader.GetString("LastName");
+
+                                            staffTable.Rows.Add(rank, employeeID, firstName, lastName, kvp.Value);
+                                            rank++;
+                                        }
+                                    }
+                                }
+                            }
+                            MngrIndemandBestEmployee.DataSource = staffTable;
+                        }
+                        else
+                        {
+                            DataTable serviceTable = new DataTable();
+                            serviceTable.Columns.Add("Service Name");
+                            serviceTable.Columns.Add("Service Selection Counts");
+
+                            foreach (var kvp in serviceCounts)
+                            {
+                                serviceTable.Rows.Add(kvp.Key, kvp.Value);
+                            }
+
+                            MngrIndemandServiceSelection.DataSource = serviceTable;
+
+                            DataTable staffTable = new DataTable();
+                            staffTable.Columns.Add("Rank");
+                            staffTable.Columns.Add("ID");
+                            staffTable.Columns.Add("First Name");
+                            staffTable.Columns.Add("Last Name");
+                            staffTable.Columns.Add("# of Services Done");
+
+                            List<KeyValuePair<string, int>> sortedStaffCounts = staffCounts.ToList();
+                            sortedStaffCounts.Sort((x, y) => y.Value.CompareTo(x.Value));
+                            int rank = 1;
+
+                            foreach (var kvp in sortedStaffCounts)
+                            {
+                                string employeeID = kvp.Key;
+                                string firstName, lastName;
+                                using (MySqlCommand userCommand = new MySqlCommand("SELECT FirstName, LastName FROM systemusers WHERE EmployeeID = @EmployeeID", connection))
+                                {
+                                    userCommand.Parameters.AddWithValue("@EmployeeID", employeeID);
+
+                                    using (MySqlDataReader userReader = userCommand.ExecuteReader())
+                                    {
+                                        if (userReader.Read())
+                                        {
+                                            firstName = userReader.GetString("FirstName");
+                                            lastName = userReader.GetString("LastName");
+
+                                            staffTable.Rows.Add(rank, employeeID, firstName, lastName, kvp.Value);
+                                            rank++;
+                                        }
+                                    }
+                                }
+                            }
+
+                            DataView dv = staffTable.DefaultView;
+                            dv.Sort = "# of Services Done DESC";
+                            MngrIndemandBestEmployee.DataSource = dv.ToTable();
+
+                            MngrIndemandServiceGraph.Series.Clear();
+                            var pieSeries = MngrIndemandServiceGraph.Series.Add("ServiceCount");
+                            pieSeries.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+
+                            pieSeries["PieLabelStyle"] = "Inside";
+                            pieSeries["PieLineColor"] = "Black";
+                            pieSeries["PieDrawingStyle"] = "Concave";
+
+                            foreach (var kvp in serviceCounts)
+                            {
+                                string serviceName = kvp.Key;
+                                int serviceCount = kvp.Value;
+
+                                var dataPoint = pieSeries.Points.Add(serviceCount);
+                                pieSeries.Points.Last().LegendText = serviceName;
+                            }
+                            MngrIndemandServiceGraph.Titles.Clear();
+                            var chartTitle = MngrIndemandServiceGraph.Titles.Add("Service Demand");
+                            chartTitle.Font = new System.Drawing.Font("Arial", 12f, System.Drawing.FontStyle.Bold);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "In Demand Services Graph Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ServiceHistoryPeriod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MngrIndemandSelectPeriod.Text = "";
+            string selectedItem = MngrIndemandServiceHistoryPeriod.SelectedItem?.ToString();
+
+            if (selectedItem != null)
+            {
+
+                if (selectedItem == "Day" || selectedItem == "Week" || selectedItem == "Month")
+                {
+                    MngrIndemandServicePeriodCalendar.Visible = true;
+                    MngrIndemandFromLbl.Visible = false;
+                    MngrIndemandToLbl.Visible = false;
+                    MngrIndemandDatePickerFrom.Visible = false;
+                    MngrIndemandDatePickerTo.Visible = false;
+                    MngrIndemandSelectPeriodLbl.Visible = true;
+                    MngrIndemandSelectPeriod.Visible = true;
+                }
+                else if (selectedItem == "Specific Date Range")
+                {
+                    MngrIndemandServicePeriodCalendar.Visible = false;
+                    MngrIndemandFromLbl.Visible = true;
+                    MngrIndemandToLbl.Visible = true;
+                    MngrIndemandDatePickerFrom.Visible = true;
+                    MngrIndemandDatePickerTo.Visible = true;
+                    MngrIndemandSelectPeriodLbl.Visible = false;
+                    MngrIndemandSelectPeriod.Visible = false;
+                }
+            }
+        }
+
+        private void ServicePeriodCalendar_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            DateTime selectedDate = MngrIndemandServicePeriodCalendar.SelectionStart;
+            string selectedPeriod = "";
+            string salePeriod = MngrIndemandServiceHistoryPeriod.SelectedItem.ToString();
+
+            switch (salePeriod)
+            {
+                case "Day":
+                    selectedPeriod = selectedDate.ToString("MM-dd-yyyy");
+                    break;
+                case "Week":
+                    DateTime monday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + (int)DayOfWeek.Monday);
+                    DateTime sunday = monday.AddDays(6);
+                    selectedPeriod = monday.ToString("MM-dd-yyyy") + " to " + sunday.ToString("MM-dd-yyyy");
+                    break;
+                case "Month":
+                    selectedPeriod = selectedDate.ToString("MMMM-yyyy");
+                    break;
+                default:
+                    break;
+            }
+            MngrIndemandSelectPeriod.Text = selectedPeriod;
+        }
+
+        private void MngrIndemandExitBtn_Click(object sender, EventArgs e)
+        {
+            MngrIndemandSelectPeriodLbl.Visible = true;
+            MngrIndemandSelectPeriod.Visible = true;
+            MngrIndemandFromLbl.Visible = false;
+            MngrIndemandDatePickerFrom.Visible = false;
+            MngrIndemandToLbl.Visible = false;
+            MngrIndemandDatePickerTo.Visible = false;
+            MngrIndemandServicePeriodCalendar.Visible = false;
+            MngrIndemandServiceHistoryPeriod.SelectedItem = null;
+            MngrIndemandSelectCatBox.SelectedItem = null;
+            MngrIndemandSelectPeriod.Text = "";
+            MngrIndemandServiceGraph.Series.Clear();
+            MngrIndemandServiceSelection.DataSource = null;
+            MngrIndemandBestEmployee.DataSource = null;
+            Inventory.PanelShow(MngrInventoryTypePanel);
+        }
+
+        #endregion
+
+        #region Mngr. PANEL OF WALK-IN PRODUCT SALES
+        private void MngrProductSalesIncomeBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(MngrProductSalesPeriod.Text))
+            {
+                MessageBox.Show("Please select a sale period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (MngrProductSalesSelectCatBox.SelectedItem == null || string.IsNullOrEmpty(MngrProductSalesSelectCatBox.SelectedItem.ToString()))
+            {
+                MessageBox.Show("Please select a category.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string fromDate = "";
+            string toDate = "";
+            string categoryPrefix = "";
+
+            switch (MngrProductSalesPeriod.Text)
+            {
+                case "Day":
+                    if (string.IsNullOrEmpty(MngrProductSalesSelectedPeriodText.Text))
+                    {
+                        MessageBox.Show("Please select a valid date for the day period.", "Walk-in Products Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    string inputValue = MngrProductSalesSelectedPeriodText.Text;
+                    fromDate = inputValue;
+                    toDate = inputValue;
+
+                    break;
+
+                case "Week":
+                    if (string.IsNullOrEmpty(MngrProductSalesSelectedPeriodText.Text))
+                    {
+                        MessageBox.Show("Please select a date range for the week period.", "Walk-in Products Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    string[] weekDates = MngrProductSalesSelectedPeriodText.Text.Split(new char[] { ' ', 't', 'o', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+                    fromDate = weekDates[0];
+                    toDate = weekDates[1];
+                    break;
+
+                case "Month":
+                    if (string.IsNullOrEmpty(MngrProductSalesSelectedPeriodText.Text))
+                    {
+                        MessageBox.Show("Please select a month for the month period.", "Walk-in Products Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    string[] monthYear = MngrProductSalesSelectedPeriodText.Text.Split('-');
+
+                    int month = DateTime.ParseExact(monthYear[0], "MMMM", CultureInfo.InvariantCulture).Month;
+                    int year = int.Parse(monthYear[1]);
+                    fromDate = new DateTime(year, month, 1).ToString("MM-dd-yyyy");
+                    toDate = new DateTime(year, month, DateTime.DaysInMonth(year, month)).ToString("MM-dd-yyyy");
+                    break;
+
+                case "Specific Date Range":
+                    if (MngrProductSalesFromDatePicker.Value > MngrProductSalesToDatePicker.Value)
+                    {
+                        MessageBox.Show("Invalid date range. Please make sure the From date is before the To date.", "Walk-in Products Invalid Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    if (MngrProductSalesFromDatePicker.Value.Date == MngrProductSalesToDatePicker.Value.Date)
+                    {
+                        MessageBox.Show("From date and to date cannot be the same.", "Walk-in Products Invalid Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    fromDate = MngrProductSalesFromDatePicker.Value.ToString("MM-dd-yyyy");
+                    toDate = MngrProductSalesToDatePicker.Value.ToString("MM-dd-yyyy");
+                    break;
+
+                default:
+                    MessageBox.Show("Invalid selection.", "Walk-in Products Invalid Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+            }
+
+            switch (MngrProductSalesSelectCatBox.Text)
+            {
+                case "Hair Styling":
+                    categoryPrefix = "HS-";
+                    break;
+                case "Face & Skin":
+                    categoryPrefix = "FS-";
+                    break;
+                case "Nail Care":
+                    categoryPrefix = "NC-";
+                    break;
+                case "Massage":
+                    categoryPrefix = "MS-";
+                    break;
+                case "Spa":
+                    categoryPrefix = "SP-";
+                    break;
+                case "All Categories":
+                    categoryPrefix = "";
+                    break;
+                default:
+                    MessageBox.Show("Please select a category.", "Walk-in Products Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+            }
+
+            string categoryFilter = "";
+            if (MngrProductSalesSelectCatBox.Text != "All Categories")
+            {
+                categoryFilter = $"AND ItemID LIKE '{categoryPrefix}%'";
+            }
+            string statusFilter = "ProductStatus = 'Paid'";
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            string query = $@"
+                        SELECT  
+                            LEFT(CheckedOutDate, 10) AS CheckedOutDate,
+                            {(MngrProductSalesSelectCatBox.Text == "All Categories" ? "ItemID" : "ItemName")}, 
+                            ItemName,
+                            ItemID,        
+                            ItemPrice,
+                            SUM(Qty) AS Qty,                                                 
+                            SUM(ItemTotalPrice) AS ItemTotalPrice
+                        FROM 
+                            orderproducthistory 
+                        WHERE 
+                            LEFT(CheckedOutDate, 10) >= '{fromDate}'
+                            AND LEFT(CheckedOutDate, 10) <= '{toDate}'
+                            {categoryFilter}
+                            AND {statusFilter}
+                        GROUP BY 
+                            {(MngrProductSalesSelectCatBox.Text == "All Categories" ? "ItemID" : "ItemName")}, 
+                            ItemPrice, 
+                            LEFT(CheckedOutDate, 10)";
+
+            try
+            {
+                DataTable filteredData = FetchFilteredData(query, connectionString);
+                DisplayFilteredDataInGrid(filteredData);
+                DisplayDataInDataGridView(filteredData);
+
+                if (filteredData.Rows.Count == 0)
+                {
+                    MessageBox.Show("No data available for the selected date range.", "Walk-in Products Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MngrProductSalesGraph.Series["Sales"].Points.Clear();
+                    MngrProductSalesLineGraph.Series.Clear();
+                    MngrProductSalesLineGraph.Legends.Clear();
+                    return;
+                }
+
+                DisplayPieChart(query, connectionString);
+                DisplayLineChart(query, connectionString);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Walk-in Products Graph Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DisplayPieChart(string query, string connectionString)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    var groupedRows = from row in dataTable.AsEnumerable()
+                                      group row by row.Field<string>("ItemName") into grp
+                                      select new
+                                      {
+                                          ItemName = grp.Key,
+                                          TotalQty = grp.Sum(r => r.Field<double>("Qty"))
+                                      };
+
+                    if (MngrProductSalesSelectCatBox.Text == "All Categories")
+                    {
+
+                        groupedRows = from row in dataTable.AsEnumerable()
+                                      group row by GetCategoryPrefix(row.Field<string>("ItemID")) into grp
+                                      select new
+                                      {
+                                          ItemName = grp.Key,
+                                          TotalQty = grp.Sum(r => r.Field<double>("Qty"))
+                                      };
+                    }
+
+                    if (!MngrProductSalesGraph.Series.Any(s => s.Name == "Sales"))
+                    {
+                        MngrProductSalesGraph.Series.Add("Sales");
+                    }
+
+                    MngrProductSalesGraph.Series["Sales"].Points.Clear();
+
+                    foreach (var group in groupedRows)
+                    {
+                        DataPoint dataPoint = new DataPoint();
+                        dataPoint.SetValueY(group.TotalQty);
+                        dataPoint.LegendText = (MngrProductSalesSelectCatBox.Text == "All Categories") ? GetCategoryName(group.ItemName) : group.ItemName;
+                        MngrProductSalesGraph.Series["Sales"].Points.Add(dataPoint);
+                    }
+
+                    MngrProductSalesGraph.Series["Sales"].ChartType = SeriesChartType.Pie;
+                    MngrProductSalesGraph.Series["Sales"]["PieLabelStyle"] = "Inside";
+                    MngrProductSalesGraph.Series["Sales"]["PieLineColor"] = "Black";
+                    MngrProductSalesGraph.Series["Sales"]["PieDrawingStyle"] = "Concave";
+
+                    MngrProductSalesGraph.Titles.Clear();
+                    MngrProductSalesGraph.Titles.Add("Quantity Sold Distribution").Font = new System.Drawing.Font("Arial", 12, FontStyle.Bold | FontStyle.Italic);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DisplayLineChart(string query, string connectionString)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    if (!MngrProductSalesLineGraph.ChartAreas.Any(ca => ca.Name == "MainChartArea"))
+                    {
+                        MngrProductSalesLineGraph.ChartAreas.Add("MainChartArea");
+                    }
+                    MngrProductSalesLineGraph.Series.Clear();
+                    MngrProductSalesLineGraph.Legends.Clear();
+                    bool groupByCategory = MngrProductSalesSelectCatBox.Text == "All Categories";
+                    trydata.Visible = true;
+                    if (groupByCategory)
+                    {
+                        var distinctItems = dataTable.AsEnumerable()
+                            .Select(row => GetCategoryPrefix(row.Field<string>("ItemID")))
+                            .Distinct();
+                        var distinctDates = dataTable.AsEnumerable()
+                            .Select(row => DateTime.ParseExact(row.Field<string>("CheckedOutDate").Substring(0, 10), "MM-dd-yyyy", CultureInfo.InvariantCulture))
+                            .Distinct();
+                        List<DateTime> selectedDates = distinctDates.ToList();
+                        Dictionary<string, Series> categorySeries = new Dictionary<string, Series>();
+                        foreach (var item in distinctItems)
+                        {
+                            Series series = new Series(GetCategoryName(item));
+                            series.ChartType = SeriesChartType.Line;
+                            series.XValueType = ChartValueType.DateTime;
+                            series.BorderWidth = 3;
+                            series.MarkerStyle = MarkerStyle.Circle;
+                            series.MarkerSize = 8;
+                            var dataForItem = dataTable.AsEnumerable()
+                                .Where(row => GetCategoryPrefix(row.Field<string>("ItemID")) == item)
+                                .OrderBy(row => DateTime.ParseExact(row.Field<string>("CheckedOutDate").Substring(0, 10), "MM-dd-yyyy", CultureInfo.InvariantCulture));
+                            Dictionary<DateTime, double> dateDataPoints = new Dictionary<DateTime, double>();
+                            foreach (var date in selectedDates)
+                            {
+                                dateDataPoints[date] = 0;
+                            }
+                            foreach (DataRow row in dataForItem)
+                            {
+                                string dateString = row["CheckedOutDate"].ToString().Substring(0, 10);
+                                DateTime date = DateTime.ParseExact(dateString, "MM-dd-yyyy", CultureInfo.InvariantCulture);
+                                double totalPrice = Convert.ToDouble(row["ItemTotalPrice"]);
+                                dateDataPoints[date] = totalPrice;
+                            }
+                            foreach (var date in selectedDates)
+                            {
+                                series.Points.AddXY(date, dateDataPoints[date]);
+                            }
+                            MngrProductSalesLineGraph.Series.Add(series);
+                        }
+                    }
+                    else
+                    {
+                        trydata.Visible = false;
+                        var distinctItemNames = dataTable.AsEnumerable()
+                            .Select(row => row.Field<string>("ItemName"))
+                            .Distinct();
+                        foreach (var itemName in distinctItemNames)
+                        {
+                            var dataForItem = dataTable.AsEnumerable()
+                                .Where(row => row.Field<string>("ItemName") == itemName);
+                            Series series = new Series(itemName);
+                            series.ChartType = SeriesChartType.Line;
+                            series.XValueType = ChartValueType.DateTime;
+                            series.BorderWidth = 3;
+                            series.MarkerStyle = MarkerStyle.Circle;
+                            series.MarkerSize = 8;
+                            foreach (DataRow row in dataForItem)
+                            {
+                                string dateString = row["CheckedOutDate"].ToString().Substring(0, 10);
+                                if (!DateTime.TryParseExact(dateString, "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime date))
+                                {
+                                    MessageBox.Show($"Error parsing date: {dateString}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    continue;
+                                }
+                                double totalPrice = Convert.ToDouble(row["ItemTotalPrice"]);
+                                series.Points.AddXY(date, totalPrice);
+                            }
+                            MngrProductSalesLineGraph.Series.Add(series);
+                        }
+                    }
+                    MngrProductSalesLineGraph.ChartAreas[0].AxisX.Title = "Dates";
+                    MngrProductSalesLineGraph.ChartAreas[0].AxisX.TitleFont = new System.Drawing.Font("Arial", 10, FontStyle.Bold);
+                    MngrProductSalesLineGraph.ChartAreas[0].AxisY.Title = "Revenue";
+                    MngrProductSalesLineGraph.ChartAreas[0].AxisY.TitleFont = new System.Drawing.Font("Arial", 10, FontStyle.Bold);
+                    MngrProductSalesLineGraph.ChartAreas["MainChartArea"].Position = new ElementPosition(5, 5, 90, 70);
+                    MngrProductSalesLineGraph.ChartAreas["MainChartArea"].InnerPlotPosition.Auto = false;
+                    MngrProductSalesLineGraph.Titles.Clear();
+                    MngrProductSalesLineGraph.Titles.Add("Sales Revenue").Font = new System.Drawing.Font("Arial", 12, FontStyle.Bold | FontStyle.Italic);
+                    MngrProductSalesLineGraph.Legends.Add(new Legend("MainLegend"));
+                    MngrProductSalesLineGraph.Legends["MainLegend"].Docking = Docking.Bottom;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private string GetCategoryPrefix(string itemId)
+        {
+            if (itemId.Length >= 3) return itemId.Substring(0, 3);
+            else return "Other";
+        }
+
+        private string GetCategoryName(string categoryPrefix)
+        {
+            switch (categoryPrefix)
+            {
+                case "HS-":
+                    return "Hair Styling Category";
+                case "FS-":
+                    return "Face & Skin Category";
+                case "NC-":
+                    return "Nail Care Category";
+                case "MS-":
+                    return "Massage Category";
+                case "SP-":
+                    return "Spa Category";
+                default:
+                    return "Other";
+            }
+        }
+
+        private void DisplayDataInDataGridView(DataTable data)
+        {
+            DataTable aggregatedData = new DataTable();
+
+            aggregatedData.Columns.Add("Date", typeof(string));
+            aggregatedData.Columns.Add("Category", typeof(string));
+            aggregatedData.Columns.Add("TotalRevenue", typeof(double));
+
+            var groupedData = data.AsEnumerable()
+                                  .GroupBy(row => new { Date = row.Field<string>("CheckedOutDate").Substring(0, 10), CategoryPrefix = GetCategoryPrefix(row.Field<string>("ItemID")) })
+                                  .Select(group => new
+                                  {
+                                      Date = group.Key.Date,
+                                      Category = GetCategoryName(group.Key.CategoryPrefix),
+                                      TotalRevenue = group.Sum(row => row.Field<double>("ItemTotalPrice"))
+                                  })
+                                  .OrderBy(group => group.Category)
+                                  .ThenBy(group => group.Date);
+
+            foreach (var group in groupedData)
+            {
+                aggregatedData.Rows.Add(group.Date, group.Category, group.TotalRevenue);
+            }
+            trydata.DataSource = aggregatedData;
+        }
+
+
+        private DataTable FetchFilteredData(string query, string connectionString)
+        {
+            DataTable filteredData = new DataTable();
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                    adapter.Fill(filteredData);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error fetching data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return filteredData;
+        }
+
+        private void DisplayFilteredDataInGrid(DataTable filteredData)
+        {
+            MngrProductSalesTransRepDGV.Rows.Clear();
+            MngrProductSalesTransRepDGV.Columns.Clear();
+
+            if (MngrProductSalesSelectCatBox.Text == "All Categories")
+            {
+                MngrProductSalesTransRepDGV.Columns.Add("Category", "Category");
+                MngrProductSalesTransRepDGV.Columns.Add("Quantity Sold", "Quantity Sold");
+                MngrProductSalesTransRepDGV.Columns.Add("Overall Revenue", "Overall Revenue");
+
+                Dictionary<string, int> categoryQuantities = new Dictionary<string, int>();
+                Dictionary<string, double> categoryRevenues = new Dictionary<string, double>();
+
+                foreach (DataRow row in filteredData.Rows)
+                {
+                    string categoryPrefix = GetCategoryPrefix(row.Field<string>("ItemID"));
+                    int qty = Convert.ToInt32(row["Qty"]);
+                    double itemTotalPrice = Convert.ToDouble(row["ItemTotalPrice"]);
+
+                    if (!categoryQuantities.ContainsKey(categoryPrefix))
+                    {
+                        categoryQuantities[categoryPrefix] = qty;
+                        categoryRevenues[categoryPrefix] = itemTotalPrice;
+                    }
+                    else
+                    {
+                        categoryQuantities[categoryPrefix] += qty;
+                        categoryRevenues[categoryPrefix] += itemTotalPrice;
+                    }
+                }
+
+                foreach (var kvp in categoryQuantities)
+                {
+                    string categoryName = GetCategoryName(kvp.Key);
+                    MngrProductSalesTransRepDGV.Rows.Add(
+                        categoryName,
+                        kvp.Value,
+                        categoryRevenues[kvp.Key]
+                    );
+                }
+            }
+            else
+            {
+                DataView dv = filteredData.DefaultView;
+                dv.Sort = "CheckedOutDate ASC";
+                DataTable sortedData = dv.ToTable();
+
+                MngrProductSalesTransRepDGV.Columns.Add("CheckedOutDate", "Date");
+                MngrProductSalesTransRepDGV.Columns.Add("ItemID", "Item ID");
+                MngrProductSalesTransRepDGV.Columns.Add("ItemName", "Item Name");
+                MngrProductSalesTransRepDGV.Columns.Add("Qty", "Quantity");
+                MngrProductSalesTransRepDGV.Columns.Add("ItemPrice", "Price");
+                MngrProductSalesTransRepDGV.Columns.Add("ItemTotalPrice", "Total Price");
+
+                foreach (DataRow row in sortedData.Rows)
+                {
+                    MngrProductSalesTransRepDGV.Rows.Add(
+                        row["CheckedOutDate"],
+                        row["ItemID"],
+                        row["ItemName"],
+                        row["Qty"],
+                        row["ItemPrice"],
+                        row["ItemTotalPrice"]
+                    );
+                }
+            }
+        }
+
+        private void MngrProductSalesPeriod_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            MngrProductSalesSelectedPeriodText.Text = "";
+            string selectedItem = MngrProductSalesPeriod.SelectedItem?.ToString();
+
+            if (selectedItem != null)
+            {
+
+                if (selectedItem == "Day" || selectedItem == "Week" || selectedItem == "Month")
+                {
+                    MngrProductSalesPeriodCalendar.Visible = true;
+                    MngrProductSalesFromLbl.Visible = false;
+                    MngrProductSalesToLbl.Visible = false;
+                    MngrProductSalesFromDatePicker.Visible = false;
+                    MngrProductSalesToDatePicker.Visible = false;
+                    MngrProductSalesSelectedPeriodLbl.Visible = true;
+                    MngrProductSalesSelectedPeriodText.Visible = true;
+                }
+                else if (selectedItem == "Specific Date Range")
+                {
+                    MngrProductSalesPeriodCalendar.Visible = false;
+                    MngrProductSalesFromLbl.Visible = true;
+                    MngrProductSalesToLbl.Visible = true;
+                    MngrProductSalesFromDatePicker.Visible = true;
+                    MngrProductSalesToDatePicker.Visible = true;
+                    MngrProductSalesSelectedPeriodLbl.Visible = false;
+                    MngrProductSalesSelectedPeriodText.Visible = false;
+                }
+            }
+        }
+
+        private void MngrProductSalesPeriodCalendar_DateChanged_1(object sender, DateRangeEventArgs e)
+        {
+            DateTime selectedDate = MngrProductSalesPeriodCalendar.SelectionStart;
+            string selectedPeriod = "";
+            string salePeriod = MngrProductSalesPeriod.SelectedItem.ToString();
+
+            switch (salePeriod)
+            {
+                case "Day":
+                    selectedPeriod = selectedDate.ToString("MM-dd-yyyy");
+                    break;
+                case "Week":
+                    DateTime monday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + (int)DayOfWeek.Monday);
+                    DateTime sunday = monday.AddDays(6);
+                    selectedPeriod = monday.ToString("MM-dd-yyyy") + " to " + sunday.ToString("MM-dd-yyyy");
+                    break;
+                case "Month":
+                    selectedPeriod = selectedDate.ToString("MMMM-yyyy");
+                    break;
+                default:
+                    break;
+            }
+            MngrProductSalesSelectedPeriodText.Text = selectedPeriod;
+        }
+
+        #endregion
+
+
+        #endregion
+
+
+        //Admin Dashboard Starts Here
+        #region
+        private void AdminSignOutBtn_Click_1(object sender, EventArgs e)
+        {
+            LogoutChecker();
+
+        }
+        private void AdminAccUserBtn_Click(object sender, EventArgs e)
+        {
+            if (AdminUserAccPanel.Visible == false)
+            {
+                AdminUserAccPanel.Visible = true;
+
+            }
+            else
+            {
+                AdminUserAccPanel.Visible = false;
+            }
+        }
+
+        private void AdminBdayPicker_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime selectedDate = AdminBdayPicker.Value;
+            int age = DateTime.Now.Year - selectedDate.Year;
+
+            if (DateTime.Now < selectedDate.AddYears(age))
+            {
+                age--; // Subtract 1 if the birthday hasn't occurred yet this year
+            }
+            AdminAgeText.Text = age.ToString();
+            if (age == 0)
+            {
+                AdminAgeErrorLbl.Visible = false;
+                AdminAgeErrorLbl.Text = "Must be 18 years old and above";
+                return;
+            }
+            if (age < 18)
+            {
+                AdminAgeErrorLbl.Visible = true;
+                AdminAgeErrorLbl.Text = "Must be 18 years old and above";
+                return;
+            }
+            else
+            {
+                AdminAgeErrorLbl.Visible = false;
+            }
+        }
+
+        private string selectedHashedPerUser;
+
+        private void AdminEditAccBtn_Click(object sender, EventArgs e)
+        {
+            DateTime selectedDate = RegularBdayPicker.Value;
+            DateTime currentDate = DateTime.Now;
+
+            string fname = AdminFirstNameText.Text;
+            string lname = AdminLastNameText.Text;
+            string bday = selectedDate.ToString("MM-dd-yyyy");
+            string age = AdminAgeText.Text;
+            string gender = AdminGenderComboText.Text;
+            string cpnum = AdminCPNumText.Text;
+            string emplType = AdminEmplTypeComboText.Text;
+            string emplCat = AdminEmplCatComboText.Text;
+            string emplCatLvl = AdminEmplCatLvlComboText.Text;
+            string emplID = AdminEmplIDText.Text;
+            string email = AdminEmailText.Text;
+            string pass = AdminPassText.Text;
+            string confirm = AdminConfirmPassText.Text;
+
+            string hashedPassword = HashHelper.HashString(pass);    // Password hashed
+            string fixedSalt = HashHelper_Salt.HashString_Salt("Enchante" + pass + "2024");    //Fixed Salt
+            string perUserSalt = HashHelper_SaltperUser.HashString_SaltperUser(pass + emplID);    //Per User salt
+
+            if (AdminAccountTable.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = AdminAccountTable.SelectedRows[0];
+
+                bool rowIsEmpty = true;
+                foreach (DataGridViewCell cell in selectedRow.Cells)
+                {
+                    if (!string.IsNullOrEmpty(cell.Value?.ToString()))
+                    {
+                        rowIsEmpty = false;
+                        break;
+                    }
+                }
+
+                if (rowIsEmpty)
+                {
+                    MessageBox.Show("The selected row is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                AdminFirstNameText.Text = selectedRow.Cells["FirstName"].Value?.ToString();
+                AdminLastNameText.Text = selectedRow.Cells["LastName"].Value?.ToString();
+                AdminEmailText.Text = selectedRow.Cells["Email"].Value?.ToString();
+                AdminAgeText.Text = selectedRow.Cells["Age"].Value?.ToString();
+                AdminGenderComboText.SelectedItem = selectedRow.Cells["Gender"].Value?.ToString();
+                AdminCPNumText.Text = selectedRow.Cells["PhoneNumber"].Value?.ToString();
+                AdminEmplTypeComboText.SelectedItem = selectedRow.Cells["EmployeeType"].Value?.ToString();
+                AdminEmplCatComboText.SelectedItem = selectedRow.Cells["EmployeeCategory"].Value?.ToString();
+                AdminEmplCatLvlComboText.SelectedItem = selectedRow.Cells["EmployeeCategoryLevel"].Value?.ToString();
+                AdminEmplIDText.Text = selectedRow.Cells["EmployeeID"].Value?.ToString();
+
+                string birthdayString = selectedRow.Cells["Birthday"].Value?.ToString() ?? string.Empty;
+                DateTime birthday;
+                if (!string.IsNullOrEmpty(birthdayString) && DateTime.TryParseExact(birthdayString, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out birthday))
+                {
+                    AdminBdayPicker.Value = birthday.Date;
+                }
+                else if (string.IsNullOrEmpty(birthdayString))
+                {
+                    AdminBdayPicker.Value = DateTime.Today;
+                }
+                else
+                {
+                    MessageBox.Show("Invalid date format in the 'Birthday' column.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                selectedHashedPerUser = selectedRow.Cells["HashedPerUser"].Value?.ToString();
+                AdminEmplTypeComboText.Enabled = false;
+                AdminEmplCatComboText.Enabled = false;
+                AdminCreateAccBtn.Visible = false;
+                AdminUpdateAccBtn.Visible = true;
+                AdminCancelEditBtn.Visible = true;
+
+            }
+            else
+            {
+                MessageBox.Show("Please select a row first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void AdminEmplTypeComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (AdminEmplTypeComboText.SelectedItem != null)
+            {
+                string selectedEmpType = AdminEmplTypeComboText.SelectedItem?.ToString() ?? string.Empty;
+
+                if (selectedEmpType == "Admin" || selectedEmpType == "Manager" || selectedEmpType == "Receptionist")
+                {
+                    AdminEmplCatComboText.Text = "Not Applicable";
+                    AdminEmplCatLvlComboText.Text = "Not Applicable";
+                    AdminEmplCatComboText.Enabled = false;
+                    AdminEmplCatLvlComboText.Enabled = false;
+                    AdminGenerateID();
+                }
+                else if (selectedEmpType == "Staff")
+                {
+                    AdminEmplCatComboText.SelectedIndex = -1;
+                    AdminEmplCatLvlComboText.SelectedIndex = -1;
+                    AdminEmplCatComboText.Enabled = true;
+                    AdminEmplCatLvlComboText.Enabled = true;
+                    AdminGenerateID();
+                }
+            }
+        }
+
+        private void AdminCancelEditBtn_Click(object sender, EventArgs e)
+        {
+            AdminCreateAccBtn.Visible = true;
+            AdminUpdateAccBtn.Visible = false;
+            AdminCancelEditBtn.Visible = false;
+            AdminEmplTypeComboText.Enabled = true;
+            AdminEmplCatComboText.Enabled = true;
+            AdminClearFields();
+        }
+
+        private void AdminEmplCatLvlComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (AdminEmplCatLvlComboText.SelectedItem != null)
+            {
+                AdminEmplCatLvlComboText.Text = AdminEmplCatLvlComboText.SelectedItem.ToString();
+                AdminGenerateID();
+            }
+        }
+
+        private void AdminEmplCatComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (AdminEmplCatComboText.SelectedItem != null)
+            {
+                AdminEmplCatComboText.Text = AdminEmplCatComboText.SelectedItem.ToString();
+                AdminGenerateID();
+            }
+        }
+
+        private void AdminShowHidePassBtn_Click(object sender, EventArgs e)
+        {
+            if (AdminPassText.UseSystemPasswordChar == true)
+            {
+                AdminPassText.UseSystemPasswordChar = false;
+                AdminShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            }
+            else if (AdminPassText.UseSystemPasswordChar == false)
+            {
+                AdminPassText.UseSystemPasswordChar = true;
+                AdminShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+
+            }
+        }
+
+        private void AdminShowHideConfirmPassBtn_Click(object sender, EventArgs e)
+        {
+            if (AdminConfirmPassText.UseSystemPasswordChar == true)
+            {
+                AdminConfirmPassText.UseSystemPasswordChar = false;
+                AdminShowHideConfirmPassBtn.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            }
+            else if (AdminConfirmPassText.UseSystemPasswordChar == false)
+            {
+                AdminConfirmPassText.UseSystemPasswordChar = true;
+                AdminShowHideConfirmPassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
+
+            }
+        }
+
+        private void AdminConfirmPassText_TextChanged(object sender, EventArgs e)
+        {
+            if (AdminConfirmPassText.Text != AdminPassText.Text)
+            {
+                AdminConfirmPassErrorLbl.Visible = true;
+                AdminConfirmPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
+            }
+            else
+            {
+                AdminConfirmPassErrorLbl.Visible = false;
+            }
+        }
+        private bool ContainsNumbers(string input)
+        {
+            return input.Any(char.IsDigit);
+        }
+        private bool IsNumeric(string input)
+        {
+            foreach (char c in input)
+            {
+                if (!char.IsDigit(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        private void AdminCreateAccBtn_Click(object sender, EventArgs e)
+        {
+            DateTime selectedDate = RegularBdayPicker.Value;
+            DateTime currentDate = DateTime.Now;
+
+            string fname = AdminFirstNameText.Text;
+            string lname = AdminLastNameText.Text;
+            string bday = selectedDate.ToString("MM-dd-yyyy");
+            string age = AdminAgeText.Text;
+            string gender = AdminGenderComboText.Text;
+            string cpnum = AdminCPNumText.Text;
+            string emplType = AdminEmplTypeComboText.Text;
+            string emplCat = AdminEmplCatComboText.Text;
+            string emplCatLvl = AdminEmplCatLvlComboText.Text;
+            string emplID = AdminEmplIDText.Text;
+            string email = AdminEmailText.Text;
+            string pass = AdminPassText.Text;
+            string confirm = AdminConfirmPassText.Text;
+
+            string hashedPassword = HashHelper.HashString(pass);    // Password hashed
+            string fixedSalt = HashHelper_Salt.HashString_Salt("Enchante" + pass + "2024");    //Fixed Salt
+            string perUserSalt = HashHelper_SaltperUser.HashString_SaltperUser(pass + emplID);    //Per User salt
+
+
+            if (string.IsNullOrWhiteSpace(fname) || string.IsNullOrWhiteSpace(lname) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(age) ||
+               string.IsNullOrWhiteSpace(cpnum) || string.IsNullOrWhiteSpace(emplID) || string.IsNullOrWhiteSpace(pass) || string.IsNullOrWhiteSpace(confirm) ||
+               AdminBdayPicker.Value == null || AdminGenderComboText.SelectedItem == null || AdminEmplTypeComboText.SelectedItem == null || AdminEmplCatComboText.SelectedItem == null || AdminEmplCatLvlComboText.SelectedItem == null)
+            {
+                MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (ContainsNumbers(fname))
+            {
+                MessageBox.Show("First Name should not contain numbers.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (ContainsNumbers(lname))
+            {
+                MessageBox.Show("Last Name should not contain numbers.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!email.Contains("@") || !email.Contains(".com"))
+            {
+                MessageBox.Show("Invalid email format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!IsNumeric(age))
+            {
+                MessageBox.Show("Invalid Age.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!IsNumeric(cpnum))
+            {
+                MessageBox.Show("Invalid Phone Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (pass != confirm)
+            {
+                MessageBox.Show("Passwords do not match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    {
+                        connection.Open();
+
+                        string query = "INSERT INTO systemusers (FirstName, LastName, Email, Birthday, Age, Gender, PhoneNumber, EmployeeType, EmployeeCategory, EmployeeCategoryLevel, EmployeeID, HashedPass, HashedFixedSalt, HashedPerUser) " +
+                                       "VALUES (@FirstName, @LastName, @Email, @Birthday, @Age, @Gender, @PhoneNumber, @EmployeeType, @EmployeeCategory, @EmployeeCategoryLevel, @EmployeeID, @HashedPass, @HashedFixedSalt, @HashedPerUser)";
+
+                        MySqlCommand command = new MySqlCommand(query, connection);
+                        command.Parameters.AddWithValue("@FirstName", fname);
+                        command.Parameters.AddWithValue("@LastName", lname);
+                        command.Parameters.AddWithValue("@Email", email);
+                        command.Parameters.AddWithValue("@Birthday", bday);
+                        command.Parameters.AddWithValue("@Age", int.Parse(age));
+                        command.Parameters.AddWithValue("@Gender", gender);
+                        command.Parameters.AddWithValue("@PhoneNumber", cpnum);
+                        command.Parameters.AddWithValue("@EmployeeType", emplType);
+                        command.Parameters.AddWithValue("@EmployeeCategory", emplCat);
+                        command.Parameters.AddWithValue("@EmployeeCategoryLevel", emplCatLvl);
+                        command.Parameters.AddWithValue("@EmployeeID", emplID);
+                        command.Parameters.AddWithValue("@HashedPass", hashedPassword);
+                        command.Parameters.AddWithValue("@HashedFixedSalt", fixedSalt);
+                        command.Parameters.AddWithValue("@HashedPerUser", perUserSalt);
+
+                        command.ExecuteNonQuery();
+
+                        MessageBox.Show("Registered Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        PopulateUserInfoDataGrid();
+                        AdminClearFields();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void AdminClearFields()
+        {
+            AdminFirstNameText.Text = "";
+            AdminLastNameText.Text = "";
+            AdminAgeText.Text = "";
+            AdminCPNumText.Text = "";
+            AdminEmplIDText.Text = "";
+            AdminEmailText.Text = "";
+            AdminPassText.Text = "";
+            AdminConfirmPassText.Text = "";
+            AdminEmplTypeComboText.SelectedItem = null;
+            AdminEmplCatComboText.SelectedItem = null;
+            AdminEmplCatLvlComboText.SelectedItem = null;
+            AdminGenderComboText.SelectedItem = null;
+            AdminBdayPicker.Value = DateTime.Now;
+        }
+
+
+        private void AdminUpdateAccBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(AdminFirstNameText.Text) || string.IsNullOrWhiteSpace(AdminLastNameText.Text) || string.IsNullOrWhiteSpace(AdminEmailText.Text) || string.IsNullOrWhiteSpace(AdminAgeText.Text) ||
+            string.IsNullOrWhiteSpace(AdminCPNumText.Text) || string.IsNullOrWhiteSpace(AdminEmplIDText.Text) || AdminBdayPicker.Value == null || AdminGenderComboText.SelectedItem == null || AdminEmplTypeComboText.SelectedItem == null ||
+            AdminEmplCatComboText.SelectedItem == null || AdminEmplCatLvlComboText.SelectedItem == null)
+            {
+                MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (ContainsNumbers(AdminFirstNameText.Text))
+            {
+                MessageBox.Show("First Name should not contain numbers.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (ContainsNumbers(AdminLastNameText.Text))
+            {
+                MessageBox.Show("Last Name should not contain numbers.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!AdminEmailText.Text.Contains("@") || !AdminEmailText.Text.Contains(".com"))
+            {
+                MessageBox.Show("Invalid email format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!IsNumeric(AdminAgeText.Text))
+            {
+                MessageBox.Show("Invalid Age.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!IsNumeric(AdminCPNumText.Text))
+            {
+                MessageBox.Show("Invalid Phone Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (selectedHashedPerUser != null)
+            {
+                try
+                {
+                    bool fieldsChanged = false;
+                    string selectQuery = "SELECT FirstName, LastName, Email, Birthday, Age, Gender, PhoneNumber, EmployeeType, EmployeeCategory, EmployeeCategoryLevel, EmployeeID FROM systemusers WHERE HashedPerUser = @HashedPerUser";
+                    string query = @"UPDATE systemusers 
+                 SET FirstName = @FirstName, 
+                     LastName = @LastName, 
+                     Email = @Email, 
+                     Birthday = @Birthday, 
+                     Age = @Age, 
+                     Gender = @Gender, 
+                     PhoneNumber = @PhoneNumber, 
+                     EmployeeType = @EmployeeType, 
+                     EmployeeCategory = @EmployeeCategory, 
+                     EmployeeCategoryLevel = @EmployeeCategoryLevel, 
+                     EmployeeID = @EmployeeID 
+                 WHERE HashedPerUser = @HashedPerUser";
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    {
+                        connection.Open();
+
+                        using (MySqlCommand selectCommand = new MySqlCommand(selectQuery, connection))
+                        {
+                            selectCommand.Parameters.AddWithValue("@HashedPerUser", selectedHashedPerUser);
+
+                            using (MySqlDataReader reader = selectCommand.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    if (reader["FirstName"].ToString() != AdminFirstNameText.Text ||
+                                        reader["LastName"].ToString() != AdminLastNameText.Text ||
+                                        reader["Email"].ToString() != AdminEmailText.Text ||
+                                        !DateTime.TryParse(reader["Birthday"].ToString(), out DateTime birthday) || birthday != AdminBdayPicker.Value ||
+                                        Convert.ToInt32(reader["Age"]) != int.Parse(AdminAgeText.Text) ||
+                                        reader["Gender"].ToString() != AdminGenderComboText.SelectedItem.ToString() ||
+                                        reader["PhoneNumber"].ToString() != AdminCPNumText.Text ||
+                                        reader["EmployeeType"].ToString() != AdminEmplTypeComboText.SelectedItem.ToString() ||
+                                        reader["EmployeeCategory"].ToString() != AdminEmplCatComboText.SelectedItem.ToString() ||
+                                        reader["EmployeeCategoryLevel"].ToString() != AdminEmplCatLvlComboText.SelectedItem.ToString() ||
+                                        reader["EmployeeID"].ToString() != AdminEmplIDText.Text)
+                                    {
+                                        fieldsChanged = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    if (fieldsChanged)
+                    {
+                        using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                        {
+                            connection.Open();
+
+                            using (MySqlCommand command = new MySqlCommand(query, connection))
+                            {
+                                command.Parameters.AddWithValue("@FirstName", AdminFirstNameText.Text);
+                                command.Parameters.AddWithValue("@LastName", AdminLastNameText.Text);
+                                command.Parameters.AddWithValue("@Email", AdminEmailText.Text);
+                                command.Parameters.AddWithValue("@Birthday", AdminBdayPicker.Value);
+                                command.Parameters.AddWithValue("@Age", int.Parse(AdminAgeText.Text));
+                                command.Parameters.AddWithValue("@Gender", AdminGenderComboText.SelectedItem.ToString());
+                                command.Parameters.AddWithValue("@PhoneNumber", AdminCPNumText.Text);
+                                command.Parameters.AddWithValue("@EmployeeType", AdminEmplTypeComboText.SelectedItem.ToString());
+                                command.Parameters.AddWithValue("@EmployeeCategory", AdminEmplCatComboText.SelectedItem.ToString());
+                                command.Parameters.AddWithValue("@EmployeeCategoryLevel", AdminEmplCatLvlComboText.SelectedItem.ToString());
+                                command.Parameters.AddWithValue("@EmployeeID", AdminEmplIDText.Text);
+                                command.Parameters.AddWithValue("@HashedPerUser", selectedHashedPerUser);
+
+                                int rowsAffected = command.ExecuteNonQuery();
+
+                                if (rowsAffected > 0)
+                                {
+                                    MessageBox.Show("Data updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    PopulateUserInfoDataGrid();
+                                    AdminEmplTypeComboText.Enabled = true;
+                                    AdminEmplCatComboText.Enabled = true;
+                                    AdminCreateAccBtn.Visible = true;
+                                    AdminUpdateAccBtn.Visible = false;
+                                    AdminCancelEditBtn.Visible = false;
+                                    AdminClearFields();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No rows updated.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No changes have been made.", "Information", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void AdminGenderComboText_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (AdminGenderComboText.SelectedItem != null)
+            {
+                AdminGenderComboText.Text = AdminGenderComboText.SelectedItem.ToString();
+            }
+        }
+        private void PopulateUserInfoDataGrid()
+        {
+            string connectionString = "Server=localhost;Database=enchante;User=root;Password=;";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT FirstName, LastName, Email, Birthday, Age, Gender, PhoneNumber, EmployeeType, EmployeeCategory, EmployeeCategoryLevel, EmployeeID, HashedPass, HashedFixedSalt, HashedPerUser FROM systemusers";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                        {
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
+
+                            // Bind the DataTable to the DataGridView
+                            AdminAccountTable.DataSource = dataTable;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+        }
+
+        private void AdminGenerateID()
+        {
+            string empType = AdminEmplTypeComboText.SelectedItem?.ToString() ?? string.Empty;
+            string empCategory = AdminEmplCatComboText.SelectedItem?.ToString() ?? string.Empty;
+
+            string empTypePrefix = "";
+            string empCategoryPrefix = "";
+
+            if (empType == "Admin")
+            {
+                empTypePrefix = "A-";
+            }
+            else if (empType == "Manager")
+            {
+                empTypePrefix = "M-";
+            }
+            else if (empType == "Receptionist")
+            {
+                empTypePrefix = "R-";
+            }
+            else if (empType == "Staff")
+            {
+                empTypePrefix = "S-";
+            }
+
+            if (empCategory == "Hair Styling")
+            {
+                empCategoryPrefix = "HS-";
+            }
+            else if (empCategory == "Face & Skin")
+            {
+                empCategoryPrefix = "FS-";
+            }
+            else if (empCategory == "Nail Care")
+            {
+                empCategoryPrefix = "NC-";
+            }
+            else if (empCategory == "Massage")
+            {
+                empCategoryPrefix = "MS-";
+            }
+            else if (empCategory == "Spa")
+            {
+                empCategoryPrefix = "SP-";
+            }
+
+            Random random = new Random();
+            int randomNumber = random.Next(100000, 999999);
+            string randomNumberString = randomNumber.ToString("D6");
+            string finalID = empTypePrefix + empCategoryPrefix + randomNumberString;
+            AdminEmplIDText.Text = finalID;
+        }
+        #endregion
+
+
+        
+        #region Staff Dashboard Starts Here
+        private void StaffUserAccBtn_Click(object sender, EventArgs e)
+        {
+            if (StaffUserAccPanel.Visible == false)
+            {
+                StaffUserAccPanel.Visible = true;
+            }
+            else
+            {
+                StaffUserAccPanel.Visible = false;
+            }
+
+        }
+        
+        #region general and preferred queue
+        public class PendingCustomers
+        {
+            public string TransactionNumber { get; set; }
+            public string ClientName { get; set; }
+            public string ServiceID { get; set; }
+            public string ServiceName { get; set; }
+            public string ServiceStatus { get; set; }
+            public string QueNumber { get; set; }
+        }
+        public int generalsmallestquenumber;
+
+        protected void InitializeGeneralCuePendingCustomersForStaff()
+        {
+            List<PendingCustomers> generalquependingcustomers = RetrieveGeneralQuePendingCustomersFromDB();
+
+            if (generalquependingcustomers.Count == 0)
+            {
+                NoCustomerInQueueUserControl nocustomerusercontrol = new NoCustomerInQueueUserControl();
+                StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(nocustomerusercontrol);
+
+                List<PendingCustomers> preferredquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
+                int smallestQueNumber = int.MaxValue;
+
+                foreach (PendingCustomers customer in preferredquependingcustomers)
+                {
+                    StaffCurrentAvailableCustomersUserControl customer2 = new StaffCurrentAvailableCustomersUserControl(this);
+                    string queNumberText = customer2.StaffQueNumberTextBox.Text;
+                    if (int.TryParse(queNumberText, out int queNumber))
+                    {
+                        if (queNumber < smallestQueNumber)
+                        {
+                            preferredsmallestquenumber = queNumber;
+                        }
+                    }
+                }
+                return;
+            }
+
+            int smallestQueNumber2 = int.MaxValue;
+
+            foreach (PendingCustomers customer in generalquependingcustomers)
+            {
+                StaffCurrentAvailableCustomersUserControl availablecustomersusercontrol = new StaffCurrentAvailableCustomersUserControl(this);
+                availablecustomersusercontrol.AvailableCustomerSetData(customer);
+                availablecustomersusercontrol.ExpandUserControlButtonClicked += AvailableCustomersUserControl_ExpandCollapseButtonClicked;
+                availablecustomersusercontrol.StartServiceButtonClicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+                availablecustomersusercontrol.StaffEndServiceBtnClicked += AvailableCustomersUserControl_EndServiceButtonClicked;
+                availablecustomersusercontrol.StaffQueTypeTextBox.Visible = false;
+                StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(availablecustomersusercontrol);
+                availablecustomersusercontrol.CurrentStaffID = StaffIDNumLbl.Text;
+
+                string queNumberText = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
+                if (int.TryParse(queNumberText, out int queNumber))
+                {
+                    if (queNumber < smallestQueNumber2)
+                    {
+                        smallestQueNumber2 = queNumber;
+                    }
+                }
+            }
+
+            UpdateStartServiceButtonStatusGeneral(generalquependingcustomers, smallestQueNumber2);
+            generalsmallestquenumber = smallestQueNumber2;
+        }
+        private void UpdateStartServiceButtonStatusGeneral(List<PendingCustomers> generalquependingcustomers, int smallestQueNumber)
+        {
+            if (StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Count > 0 && !StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
+            {
+                foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls)
+                {
+                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
+                    if (int.TryParse(queNumberText, out int queNumber))
+                    {
+                        if (queNumber < smallestQueNumber)
+                        {
+                            smallestQueNumber = queNumber;
+                        }
+                    }
+                }
+            }
+
+            if (StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Count > 0 && !StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
+            {
+                foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
+                {
+                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
+                    if (int.TryParse(queNumberText, out int queNumber))
+                    {
+                        if (queNumber < smallestQueNumber)
+                        {
+                            smallestQueNumber = queNumber;
+                        }
+                    }
+                }
+            }
+
+            if (generalquependingcustomers.Count > 0 && !StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
+            {
+                foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
+                {
+                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
+                    if (int.TryParse(queNumberText, out int queNumber))
+                    {
+                        if (queNumber == smallestQueNumber)
+                        {
+                            userControl.StaffStartServiceBtn.Enabled = true;
+                        }
+                        else
+                        {
+                            userControl.StaffStartServiceBtn.Enabled = false;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
+                {
+                    if (control is StaffCurrentAvailableCustomersUserControl userControl)
+                    {
+                        userControl.StaffStartServiceBtn.Enabled = false;
+                    }
+                }
+            }
+            if (StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Count > 0 && !StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
+            {
+                foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
+                {
+                    if (control is StaffCurrentAvailableCustomersUserControl userControl)
+                    {
+                        userControl.StaffStartServiceBtn.Enabled = false;
+                    }
+                }
+            }
+        }
+
+        private void AvailableCustomersUserControl_ExpandCollapseButtonClicked(object sender, EventArgs e)
+        {
+            StaffCurrentAvailableCustomersUserControl availablecustomersusercontrol = (StaffCurrentAvailableCustomersUserControl)sender;
+
+            if (availablecustomersusercontrol != null)
+            {
+                if (!availablecustomersusercontrol.Viewing)
+                {
+                    availablecustomersusercontrol.Size = new System.Drawing.Size(875, 350);
+                    //StaffCurrentServicesDropDownBtn.IconChar = FontAwesome.Sharp.IconChar.SquareCaretUp;
+                }
+                else
+                {
+                    availablecustomersusercontrol.Size = new System.Drawing.Size(875, 200);
+                    //StaffCurrentServicesDropDownBtn.IconChar = FontAwesome.Sharp.IconChar.SquareCaretDown;
+
+                }
+            }
+
+        }
+
+        private List<PendingCustomers> RetrieveGeneralQuePendingCustomersFromDB()
+        {
+            DateTime currentDate = DateTime.Today;
+            string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
+            List<PendingCustomers> result = new List<PendingCustomers>();
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string generalquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber 
+                                                     FROM servicehistory sh 
+                                                     INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber 
+                                                     WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')
+                                                     AND sh.ServiceCategory = @membercategory 
+                                                     AND sh.QueType = 'GeneralQue' 
+                                                     AND (wa.ServiceStatus = 'Pending' OR wa.ServiceStatus = 'Pending Paid')
+                                                     AND sh.AppointmentDate = @datetoday";
+
+                    MySqlCommand command = new MySqlCommand(generalquependingcustomersquery, connection);
+                    command.Parameters.AddWithValue("@membercategory", membercategory);
+                    command.Parameters.AddWithValue("@datetoday", datetoday);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            PendingCustomers generalquependingcustomers = new PendingCustomers
+                            {
+                                TransactionNumber = reader["TransactionNumber"] as string,
+                                ClientName = reader["ClientName"] as string,
+                                ServiceStatus = reader["ServiceStatus"] as string,
+                                ServiceName = reader["SelectedService"] as string,
+                                ServiceID = reader["ServiceID"] as string,
+                                QueNumber = reader["QueNumber"] as string
+                            };
+
+                            result.Add(generalquependingcustomers);
+                        }
+                    }
+                    if (result.Count == 0)
+                    {
+                        //MessageBox.Show("No customers in the queue.", "Empty Queue", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred: " + ex.Message);
+                }
+            }
+
+            return result;
+        }
+
+
+
+
+        private void AvailableCustomersUserControl_StartServiceButtonClicked(object sender, EventArgs e)
+        {
+            StaffCurrentAvailableCustomersUserControl insessioncustomerusercontrol = (StaffCurrentAvailableCustomersUserControl)sender;
+
+            if (insessioncustomerusercontrol != null)
+            {
+                insessioncustomerusercontrol.StartTimer();
+            }
+
+        }
+        private void AvailableCustomersUserControl_EndServiceButtonClicked(object sender, EventArgs e)
+        {
+            StaffCurrentAvailableCustomersUserControl clickedUserControl = (StaffCurrentAvailableCustomersUserControl)sender;
+            TimeSpan elapsedTime = clickedUserControl.GetElapsedTime();
+        }
+
+        public void RefreshFlowLayoutPanel()
+        {
+            foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
+            {
+                if (control is StaffCurrentAvailableCustomersUserControl userControl &&
+                    userControl.StaffCustomerServiceStatusTextBox.Text == "In Session")
+                {
+                    return;
+                }
+            }
+            StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+            StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+            StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+            InitializePriorityPendingCustomersForStaff();
+            InitializeGeneralCuePendingCustomersForStaff();
+            InitializePreferredCuePendingCustomersForStaff();
+
+
+            bool hasNoCustomerControl = StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any()
+               || StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any();
+
+            if (!hasNoCustomerControl)
+            {
+                List<PendingCustomers> generalquependingcustomers = RetrieveGeneralQuePendingCustomersFromDB();
+                int smallestQueNumber2 = generalsmallestquenumber;
+                UpdateStartServiceButtonStatusGeneral(generalquependingcustomers, smallestQueNumber2);
+
+                List<PendingCustomers> preferredquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
+                int smallestQueNumber = preferredsmallestquenumber;
+                UpdateStartServiceButtonStatusPreferred(preferredquependingcustomers, smallestQueNumber);
+            }
+
+        }
+
+
+
+
+        public void RemovePendingUserControls(StaffCurrentAvailableCustomersUserControl selectedControl)
+        {
+            foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<StaffCurrentAvailableCustomersUserControl>().ToList())
+            {
+                if (control != selectedControl)
+                {
+                    StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Remove(control);
+                    control.Dispose();
+                }
+            }
+            foreach (System.Windows.Forms.Control control in StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<StaffCurrentAvailableCustomersUserControl>().ToList())
+            {
+                if (control != selectedControl)
+                {
+                    StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Remove(control);
+                    control.Dispose();
+                }
+            }
+            foreach (System.Windows.Forms.Control control in StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<StaffCurrentAvailableCustomersUserControl>().ToList())
+            {
+                if (control != selectedControl)
+                {
+                    StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Remove(control);
+                    control.Dispose();
+                }
+            }
+        }
+
+
+
+        private void StaffRefreshAvailableCustomersBtn_Click(object sender, EventArgs e)
+        {
+
+            RefreshFlowLayoutPanel();
+        }
+
+
+        private List<PendingCustomers> RetrievePreferredQuePendingCustomersFromDB()
+        {
+            string staffID = StaffIDNumLbl.Text;
+            DateTime currentDate = DateTime.Today;
+            string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
+            List<PendingCustomers> result = new List<PendingCustomers>();
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string preferredquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber
+                       FROM servicehistory sh INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber
+                       WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid') AND sh.ServiceCategory = @membercategory AND sh.PreferredStaff = @preferredstaff AND (wa.ServiceStatus = 'Pending' OR wa.ServiceStatus = 'Pending Paid') AND sh.AppointmentDate = @datetoday";
+
+                    MySqlCommand command = new MySqlCommand(preferredquependingcustomersquery, connection);
+                    command.Parameters.AddWithValue("@membercategory", membercategory);
+                    command.Parameters.AddWithValue("@preferredstaff", staffID);
+                    command.Parameters.AddWithValue("@datetoday", datetoday);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            PendingCustomers preferredquependingcustomers = new PendingCustomers
+                            {
+                                TransactionNumber = reader.IsDBNull(reader.GetOrdinal("TransactionNumber")) ? string.Empty : reader.GetString("TransactionNumber"),
+                                ClientName = reader.IsDBNull(reader.GetOrdinal("ClientName")) ? string.Empty : reader.GetString("ClientName"),
+                                ServiceStatus = reader.IsDBNull(reader.GetOrdinal("ServiceStatus")) ? string.Empty : reader.GetString("ServiceStatus"),
+                                ServiceName = reader.IsDBNull(reader.GetOrdinal("SelectedService")) ? string.Empty : reader.GetString("SelectedService"),
+                                ServiceID = reader.IsDBNull(reader.GetOrdinal("ServiceID")) ? string.Empty : reader.GetString("ServiceID"),
+                                QueNumber = reader.IsDBNull(reader.GetOrdinal("QueNumber")) ? string.Empty : reader.GetString("QueNumber")
+                            };
+
+                            result.Add(preferredquependingcustomers);
+                        }
+                    }
+
+                    if (result.Count == 0)
+                    {
+                        //MessageBox.Show("No customers in the preferred queue.", "Empty Queue", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
+
+            return result;
+        }
+
+        public int preferredsmallestquenumber;
+
+        protected void InitializePreferredCuePendingCustomersForStaff()
+        {
+            List<PendingCustomers> preferredquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
+
+            if (preferredquependingcustomers.Count == 0)
+            {
+                NoCustomerInQueueUserControl nocustomerusercontrol = new NoCustomerInQueueUserControl();
+                StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(nocustomerusercontrol);
+                generalsmallestquenumber = preferredsmallestquenumber;
+
+                List<PendingCustomers> generalquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
+                int smallestQueNumber3 = int.MaxValue;
+
+                foreach (PendingCustomers customer in generalquependingcustomers)
+                {
+                    StaffCurrentAvailableCustomersUserControl customer2 = new StaffCurrentAvailableCustomersUserControl(this);
+                    string queNumberText2 = customer2.StaffQueNumberTextBox.Text;
+                    if (int.TryParse(queNumberText2, out int queNumber2))
+                    {
+                        if (queNumber2 < smallestQueNumber3)
+                        {
+                            generalsmallestquenumber = queNumber2;
+                        }
+                    }
+                }
+                return;
+            }
+            int smallestQueNumber = int.MaxValue;
+
+            foreach (PendingCustomers customer in preferredquependingcustomers)
+            {
+                StaffCurrentAvailableCustomersUserControl availablecustomersusercontrol = new StaffCurrentAvailableCustomersUserControl(this);
+                availablecustomersusercontrol.AvailableCustomerSetData(customer);
+                availablecustomersusercontrol.ExpandUserControlButtonClicked += AvailableCustomersUserControl_ExpandCollapseButtonClicked;
+                availablecustomersusercontrol.StartServiceButtonClicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+                availablecustomersusercontrol.StaffEndServiceBtnClicked += AvailableCustomersUserControl_EndServiceButtonClicked;
+                availablecustomersusercontrol.StaffQueTypeTextBox.Visible = false;
+                StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(availablecustomersusercontrol);
+                availablecustomersusercontrol.CurrentStaffID = StaffIDNumLbl.Text;
+
+                string queNumberText = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
+                if (int.TryParse(queNumberText, out int queNumber))
+                {
+                    if (queNumber < smallestQueNumber)
+                    {
+                        smallestQueNumber = queNumber;
+                    }
+                }
+            }
+            UpdateStartServiceButtonStatusPreferred(preferredquependingcustomers, smallestQueNumber);
+            preferredsmallestquenumber = smallestQueNumber;
+        }
+
+        private void UpdateStartServiceButtonStatusPreferred(List<PendingCustomers> preferredquependingcustomers, int smallestQueNumber)
+        {
+            if (StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Count > 0 && !StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
+            {
+                foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
+                {
+                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
+                    if (int.TryParse(queNumberText, out int queNumber))
+                    {
+                        if (queNumber < smallestQueNumber)
+                        {
+                            smallestQueNumber = queNumber;
+                        }
+                    }
+                }
+            }
+            if (StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Count > 0 && !StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
+            {
+                foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls)
+                {
+                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
+                    if (int.TryParse(queNumberText, out int queNumber))
+                    {
+                        if (queNumber < smallestQueNumber)
+                        {
+                            smallestQueNumber = queNumber;
+                        }
+                    }
+                }
+            }
+
+            if (preferredquependingcustomers.Count > 0 && !StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
+            {
+                foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls)
+                {
+                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
+                    if (int.TryParse(queNumberText, out int queNumber))
+                    {
+                        if (queNumber == smallestQueNumber)
+                        {
+                            userControl.StaffStartServiceBtn.Enabled = true;
+                        }
+                        else
+                        {
+                            userControl.StaffStartServiceBtn.Enabled = false;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (System.Windows.Forms.Control control in StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls)
+                {
+                    if (control is StaffCurrentAvailableCustomersUserControl userControl)
+                    {
+                        userControl.StaffStartServiceBtn.Enabled = false;
+                    }
+                }
+            }
+            if (StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Count > 0 && !StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
+            {
+                foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
+                {
+                    if (control is StaffCurrentAvailableCustomersUserControl userControl)
+                    {
+                        userControl.StaffStartServiceBtn.Enabled = false;
+                    }
+                }
+            }
+        }
+
+
+
+
+        #endregion
+
+
+        #region staff inventory
+        public void InitializeStaffInventoryDataGrid()
+        {
+            StaffInventoryDataGrid.Rows.Clear();
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string inventoryquery = "SELECT ItemID, ItemName, ItemStock, ItemPrice, ItemStatus FROM inventory WHERE ProductType = 'Service Product' AND ProductCategory = @ProductCategory";
+
+                using (MySqlCommand command = new MySqlCommand(inventoryquery, connection))
+                {
+                    command.Parameters.AddWithValue("@ProductCategory", membercategory);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            object[] rowData = new object[4];
+                            rowData[0] = reader["ItemID"];
+                            rowData[1] = reader["ItemName"];
+                            rowData[2] = reader["ItemStock"];
+                            rowData[3] = reader["ItemStatus"];
+
+                            StaffInventoryDataGrid.Rows.Add(rowData);
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+        public void InitializeStaffPersonalInventoryDataGrid()
+        {
+            StaffPersonalInventoryDataGrid.Rows.Clear();
+            string staffID = StaffIDNumLbl.Text;
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string personalinventoryquery = "SELECT ItemID, ItemName, ItemStock, ItemStatus FROM staff_inventory WHERE EmployeeID = @EmployeeID";
+
+                using (MySqlCommand command = new MySqlCommand(personalinventoryquery, connection))
+                {
+                    command.Parameters.AddWithValue("@EmployeeID", staffID);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            object[] rowData = new object[4];
+                            rowData[0] = reader["ItemID"];
+                            rowData[1] = reader["ItemName"];
+                            rowData[2] = reader["ItemStock"];
+                            rowData[3] = reader["ItemStatus"];
+
+                            StaffPersonalInventoryDataGrid.Rows.Add(rowData);
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+        private void StaffAddToInventoryButton_Click(object sender, EventArgs e)
+        {
+            if (StaffInventoryDataGrid.CurrentRow == null)
+            {
+                MessageBox.Show("Please select a row.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(StaffItemSelectedCountTextBox.Text))
+            {
+                MessageBox.Show("Please enter the number of items to add.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!int.TryParse(StaffItemSelectedCountTextBox.Text, out int itemStockToBeAdded) || itemStockToBeAdded <= 0)
+            {
+                MessageBox.Show("Invalid number of items to add.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (itemStockToBeAdded > 20)
+            {
+                MessageBox.Show("You can't take more than 20 items.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string itemID = StaffInventoryDataGrid.SelectedRows[0].Cells["ItemID"].Value.ToString();
+            string itemName = StaffInventoryDataGrid.SelectedRows[0].Cells["ItemName"].Value.ToString();
+            int itemStock = Convert.ToInt32(StaffInventoryDataGrid.SelectedRows[0].Cells["ItemStock"].Value);
+            string itemStatus = StaffInventoryDataGrid.SelectedRows[0].Cells["ItemStatus"].Value.ToString();
+            string staffID = StaffIDNumLbl.Text;
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string selectQuery = "SELECT * FROM staff_inventory WHERE ItemID = @ItemID AND EmployeeID = @EmployeeID";
+                using (MySqlCommand selectCommand = new MySqlCommand(selectQuery, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@ItemID", itemID);
+                    selectCommand.Parameters.AddWithValue("@EmployeeID", staffID);
+
+                    DataTable dataTable = new DataTable();
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(selectCommand))
+                    {
+                        adapter.Fill(dataTable);
+                    }
+
+                    if (dataTable.Rows.Count > 0)
+                    {
+                        int currentStock = Convert.ToInt32(dataTable.Rows[0]["ItemStock"]);
+                        int newStock = currentStock + itemStockToBeAdded;
+
+                        string updateQuery = "UPDATE staff_inventory SET ItemStock = @NewStock WHERE ItemID = @ItemID AND EmployeeID = @EmployeeID";
+                        using (MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection))
+                        {
+                            updateCommand.Parameters.AddWithValue("@NewStock", newStock);
+                            updateCommand.Parameters.AddWithValue("@ItemID", itemID);
+                            updateCommand.Parameters.AddWithValue("@EmployeeID", staffID);
+                            updateCommand.ExecuteNonQuery();
+                        }
+                    }
+                    else
+                    {
+                        string insertQuery = "INSERT INTO staff_inventory (ItemID, ItemName, ItemStock, ItemStatus, EmployeeID) " +
+                                             "VALUES (@ItemID, @ItemName, @ItemStock, @ItemStatus, @EmployeeID)";
+                        using (MySqlCommand insertCommand = new MySqlCommand(insertQuery, connection))
+                        {
+                            insertCommand.Parameters.AddWithValue("@ItemID", itemID);
+                            insertCommand.Parameters.AddWithValue("@ItemName", itemName);
+                            insertCommand.Parameters.AddWithValue("@ItemStock", itemStockToBeAdded);
+                            insertCommand.Parameters.AddWithValue("@ItemStatus", itemStatus);
+                            insertCommand.Parameters.AddWithValue("@EmployeeID", staffID);
+                            insertCommand.ExecuteNonQuery();
+                        }
+                    }
+                }
+
+                string deductQuery = "UPDATE inventory SET ItemStock = ItemStock - @SelectedCount WHERE ItemID = @ItemID AND ItemStock - @SelectedCount >= 40";
+                using (MySqlCommand deductCommand = new MySqlCommand(deductQuery, connection))
+                {
+                    deductCommand.Parameters.AddWithValue("@SelectedCount", itemStockToBeAdded);
+                    deductCommand.Parameters.AddWithValue("@ItemID", itemID);
+                    int rowsAffected = deductCommand.ExecuteNonQuery();
+
+                    if (rowsAffected == 0)
+                    {
+                        MessageBox.Show("Cannot deduct from this item as it would result in stock below 40. Please refill your inventory to continue operations.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+
+                string updateStatusQuery = "UPDATE inventory SET ItemStatus = 'Low Stock' WHERE ItemID = @ItemID AND ItemStock >= 40 AND ItemStock <= 50";
+                using (MySqlCommand updateStatusCommand = new MySqlCommand(updateStatusQuery, connection))
+                {
+                    updateStatusCommand.Parameters.AddWithValue("@ItemID", itemID);
+                    updateStatusCommand.ExecuteNonQuery();
+                }
+
+                string checkStockQuery = "SELECT ItemStock FROM inventory WHERE ItemID = @ItemID";
+                using (MySqlCommand checkStockCommand = new MySqlCommand(checkStockQuery, connection))
+                {
+                    checkStockCommand.Parameters.AddWithValue("@ItemID", itemID);
+                    int currentStock = Convert.ToInt32(checkStockCommand.ExecuteScalar());
+                }
+
+                InitializeStaffPersonalInventoryDataGrid();
+                InitializeStaffInventoryDataGrid();
+                StaffItemSelectedCountTextBox.Clear();
+            }
+        }
+        #endregion
+
+        #region Paid Appointment Queue 
         public class PriorityPendingCustomers
         {
             public string TransactionNumber { get; set; }
@@ -12737,7 +12721,7 @@ namespace Enchante
 
             UpdateStartServiceButtonStatusPriority(priorityqueuependingcustomers, smallestQueNumber2);
         }
-        
+
         private void UpdateStartServiceButtonStatusPriority(List<PriorityPendingCustomers> priorityqueuependingcustomers, int smallestQueNumber)
         {
             foreach (System.Windows.Forms.Control control in StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls)
@@ -12750,8 +12734,21 @@ namespace Enchante
                 }
             }
         }
+        #endregion
 
-        
-        
+
+
+
+
+        #endregion
+
+
+
+
+        private void StaffServiceRateTestBtn_Click(object sender, EventArgs e)
+        {
+            RateMe.Show();
+        }
+
     }
 }
