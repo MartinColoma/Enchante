@@ -3885,7 +3885,7 @@ namespace Enchante
 
                     // Total from your textboxes as decimal
                     decimal netAmount = decimal.Parse(RecPayServiceNetAmountBox.Text);
-                    decimal discount = decimal.Parse(RecWalkinDiscountBox.Text);
+                    decimal discount = decimal.Parse(RecPayServiceDiscountBox.Text);
                     decimal vat = decimal.Parse(RecPayServiceVATBox.Text);
                     decimal grossAmount = decimal.Parse(RecPayServiceGrossAmountBox.Text);
                     decimal cash = decimal.Parse(RecPayServiceCashBox.Text);
@@ -4126,8 +4126,8 @@ namespace Enchante
 
                                 string insertQuery = "INSERT INTO servicehistory (TransactionNumber, ServiceStatus, AppointmentDate, AppointmentTime, ClientName, " +
                                                      "ServiceCategory, ServiceID, SelectedService, ServicePrice, PreferredStaff, QueNumber," +
-                                                     "QueType" +
-                                                     ") VALUES (@Transact, @status, @appointDate, @appointTime, @name, @serviceCat, @ID, @serviceName, @servicePrice, " +
+                                                     "QueType) " +
+                                                     "VALUES (@Transact, @status, @appointDate, @appointTime, @name, @serviceCat, @ID, @serviceName, @servicePrice, " +
                                                      "@preferredstaff, @quenumber, @quetype)";
 
                                 MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
@@ -4731,7 +4731,7 @@ namespace Enchante
                     decimal vatAmount = 0;
                     RecPayServiceGrossAmountBox.Text = discountedAmount.ToString("0.00"); // Format to display as currency
                     RecPayServiceNetAmountBox.Text = discountedAmount.ToString("0.00"); // Format to display as currency
-                    RecWalkinDiscountBox.Text = discountAmount.ToString("0.00"); // Display the discount amount
+                    RecPayServiceDiscountBox.Text = discountAmount.ToString("0.00"); // Display the discount amount
                     RecPayServiceVATBox.Text = vatAmount.ToString("0.00");
                     RecPayServiceDiscountPWD.Checked = false;
                     RecPayServiceVATExemptChk.Checked = true;
@@ -4742,7 +4742,7 @@ namespace Enchante
                 {
                     // Unchecked, set MngrGrossAmount to the original value if the discount has been applied before
                     RecPayServiceGrossAmountBox.Text = originalGrossAmount.ToString("0.00");
-                    RecWalkinDiscountBox.Text = "0.00"; // Reset the discount amount display
+                    RecPayServiceDiscountBox.Text = "0.00"; // Reset the discount amount display
                     ReceptionCalculateVATAndNetAmount();
                     RecPayServiceVATExemptChk.Checked = false;
                     RecPayServiceVATExemptChk.Enabled = true;
@@ -4766,7 +4766,7 @@ namespace Enchante
                     decimal vatAmount = 0;
                     RecPayServiceGrossAmountBox.Text = discountedAmount.ToString("0.00"); // Format to display as currency
                     RecPayServiceNetAmountBox.Text = discountedAmount.ToString("0.00"); // Format to display as currency
-                    RecWalkinDiscountBox.Text = discountAmount.ToString("0.00"); // Display the discount amount
+                    RecPayServiceDiscountBox.Text = discountAmount.ToString("0.00"); // Display the discount amount
                     RecPayServiceVATBox.Text = vatAmount.ToString("0.00");
                     RecPayServiceDiscountSenior.Checked = false;
                     RecPayServiceVATExemptChk.Checked = true;
@@ -4777,7 +4777,7 @@ namespace Enchante
                 {
                     // Unchecked, set MngrGrossAmount to the original value if the discount has been applied before
                     RecPayServiceGrossAmountBox.Text = originalGrossAmount.ToString("0.00");
-                    RecWalkinDiscountBox.Text = "0.00"; // Reset the discount amount display
+                    RecPayServiceDiscountBox.Text = "0.00"; // Reset the discount amount display
                     ReceptionCalculateVATAndNetAmount();
                     RecPayServiceVATExemptChk.Checked = false;
                     RecPayServiceVATExemptChk.Enabled = true;
@@ -5088,6 +5088,7 @@ namespace Enchante
                         RecPayServiceAcquiredDGV.Columns[15].Visible = false; // que number
                         RecPayServiceAcquiredDGV.Columns[16].Visible = false; // que type
                         RecPayServiceAcquiredDGV.Columns[17].Visible = false; // prio number
+                        RecPayServiceAcquiredDGV.Columns[18].Visible = false; // prio number
 
                     }
                 }
@@ -5163,19 +5164,39 @@ namespace Enchante
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 // Get TransactNumber and OrderNumber from the clicked cell in MngrSalesTable
-                string transactNumber = RecPayServiceCompleteTransDGV.Rows[e.RowIndex].Cells["TransactionNumber"].Value.ToString();
-                string clientName = RecPayServiceCompleteTransDGV.Rows[e.RowIndex].Cells["ClientName"].Value.ToString();
+                string transactNumber = RecPayServiceWalkinCompleteTransDGV.Rows[e.RowIndex].Cells["TransactionNumber"].Value.ToString();
+                string clientName = RecPayServiceWalkinCompleteTransDGV.Rows[e.RowIndex].Cells["ClientName"].Value.ToString();
 
+                
                 RecPayServiceTransactNumLbl.Text = transactNumber;
                 RecPayServiceClientNameLbl.Text = $"Client Name: {clientName}";
+
                 RecLoadServiceHistoryDB(transactNumber);
                 RecLoadOrderProdHistoryDB(transactNumber);
+
                 ReceptionCalculateTotalPrice();
+                RecPayServiceTransTypeLbl.Text = "Walk-in";
 
             }
         }
+        private void RecPayServiceApptCompleteTransDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                string transactNumber1 = RecPayServiceApptCompleteTransDGV.Rows[e.RowIndex].Cells["TransactionNumber"].Value.ToString();
+                string clientName1 = RecPayServiceApptCompleteTransDGV.Rows[e.RowIndex].Cells["ClientName"].Value.ToString();
 
-        public void RecLoadCompletedTrans()
+                RecPayServiceTransactNumLbl.Text = transactNumber1;
+                RecPayServiceClientNameLbl.Text = $"Client Name: {clientName1}";
+                RecLoadServiceHistoryDB(transactNumber1);
+                RecLoadOrderProdHistoryDB(transactNumber1);
+
+                ReceptionCalculateTotalPrice();
+                RecPayServiceTransTypeLbl.Text = "Appointment";
+
+            }
+        }
+        public void RecLoadCompletedWalkinTrans()
         {
             string todayDate = DateTime.Today.ToString("MM-dd-yyyy dddd");
 
@@ -5196,39 +5217,108 @@ namespace Enchante
                     {
                         adapter.Fill(dataTable);
 
-                        RecPayServiceCompleteTransDGV.Columns.Clear();
+                        RecPayServiceWalkinCompleteTransDGV.Columns.Clear();
 
-                        RecPayServiceCompleteTransDGV.DataSource = dataTable;
+                        RecPayServiceWalkinCompleteTransDGV.DataSource = dataTable;
 
-                        // Ensure the column count before accessing columns
-                        if (RecPayServiceCompleteTransDGV.Columns.Count > 2)
+                        if (RecPayServiceWalkinCompleteTransDGV.Columns.Count > 2)
                         {
-                            RecPayServiceCompleteTransDGV.Columns[2].Visible = false; //appointment date
-                            RecPayServiceCompleteTransDGV.Columns[3].Visible = false; //appointment time
-                                                                                      // Make sure to adjust the column indices based on visibility changes
-                            RecPayServiceCompleteTransDGV.Columns[5].Visible = false; // client cp num
-                            RecPayServiceCompleteTransDGV.Columns[6].Visible = false; // net price
-                            RecPayServiceCompleteTransDGV.Columns[7].Visible = false; // net price
-                            RecPayServiceCompleteTransDGV.Columns[8].Visible = false; // net price
-                            RecPayServiceCompleteTransDGV.Columns[10].Visible = false; // discount amount
-                            RecPayServiceCompleteTransDGV.Columns[11].Visible = false; // discount amount
-                            RecPayServiceCompleteTransDGV.Columns[12].Visible = false; // cash given
-                            RecPayServiceCompleteTransDGV.Columns[13].Visible = false; // due change
-                            RecPayServiceCompleteTransDGV.Columns[14].Visible = false; // payment method
-                            RecPayServiceCompleteTransDGV.Columns[15].Visible = false; // card name
-                            RecPayServiceCompleteTransDGV.Columns[16].Visible = false; // card num
-                            RecPayServiceCompleteTransDGV.Columns[17].Visible = false; // cvc
-                            RecPayServiceCompleteTransDGV.Columns[18].Visible = false; // card expiration
-                            RecPayServiceCompleteTransDGV.Columns[19].Visible = false; // wallet num
-                            RecPayServiceCompleteTransDGV.Columns[20].Visible = false; // wallet PIN
-                            RecPayServiceCompleteTransDGV.Columns[21].Visible = false; // wallet OTP
-                            RecPayServiceCompleteTransDGV.Columns[22].Visible = false; // service duration
-                            RecPayServiceCompleteTransDGV.Columns[23].Visible = false; // booked by
-                            RecPayServiceCompleteTransDGV.Columns[24].Visible = false; // booked date
+                            RecPayServiceWalkinCompleteTransDGV.Columns[2].Visible = false; //appointment date
+                            RecPayServiceWalkinCompleteTransDGV.Columns[3].Visible = false; //appointment time
+                            RecPayServiceWalkinCompleteTransDGV.Columns[5].Visible = false; // client cp num
+                            RecPayServiceWalkinCompleteTransDGV.Columns[6].Visible = false; // net price
+                            RecPayServiceWalkinCompleteTransDGV.Columns[7].Visible = false; // net price
+                            RecPayServiceWalkinCompleteTransDGV.Columns[8].Visible = false; // net price
+                            RecPayServiceWalkinCompleteTransDGV.Columns[9].Visible = false; // net price
+                            RecPayServiceWalkinCompleteTransDGV.Columns[10].Visible = false; // discount amount
+                            RecPayServiceWalkinCompleteTransDGV.Columns[11].Visible = false; // discount amount
+                            RecPayServiceWalkinCompleteTransDGV.Columns[12].Visible = false; // cash given
+                            RecPayServiceWalkinCompleteTransDGV.Columns[13].Visible = false; // due change
+                            RecPayServiceWalkinCompleteTransDGV.Columns[14].Visible = false; // payment method
+                            RecPayServiceWalkinCompleteTransDGV.Columns[15].Visible = false; // card name
+                            RecPayServiceWalkinCompleteTransDGV.Columns[16].Visible = false; // card num
+                            RecPayServiceWalkinCompleteTransDGV.Columns[17].Visible = false; // cvc
+                            RecPayServiceWalkinCompleteTransDGV.Columns[18].Visible = false; // card expiration
+                            RecPayServiceWalkinCompleteTransDGV.Columns[19].Visible = false; // wallet num
+                            RecPayServiceWalkinCompleteTransDGV.Columns[20].Visible = false; // wallet PIN
+                            RecPayServiceWalkinCompleteTransDGV.Columns[21].Visible = false; // wallet OTP
+                            RecPayServiceWalkinCompleteTransDGV.Columns[22].Visible = false; // service duration
+                            RecPayServiceWalkinCompleteTransDGV.Columns[23].Visible = false; // booked by
+                            RecPayServiceWalkinCompleteTransDGV.Columns[24].Visible = false; // booked date
                         }
 
-                        RecPayServiceCompleteTransDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                        RecPayServiceCompleteTransDGV.ClearSelection();
+                        RecPayServiceWalkinCompleteTransDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        RecPayServiceWalkinCompleteTransDGV.ClearSelection();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("An error occurred: " + e.Message, "Completed Transaction List Failed to Load");
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+        }
+        public void RecLoadCompletedAppointmentTrans()
+        {
+            string todayDate = DateTime.Today.ToString("MM-dd-yyyy dddd");
+
+            MySqlConnection connection = null;
+            try
+            {
+                using (connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    // Filter and sort the data by FoodType
+                    string sql = "SELECT * FROM `appointment` WHERE ServiceStatus = 'Completed' AND AppointmentDate = @todayDate ORDER BY ServiceStatus ";
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+                    cmd.Parameters.AddWithValue("@todayDate", todayDate);
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+                        RecPayServiceApptCompleteTransDGV.Columns.Clear();
+
+                        RecPayServiceApptCompleteTransDGV.DataSource = dataTable;
+
+                        if (RecPayServiceWalkinCompleteTransDGV.Columns.Count > 2)
+                        {
+                            RecPayServiceApptCompleteTransDGV.Columns[3].Visible = false; //appointment time
+                            RecPayServiceApptCompleteTransDGV.Columns[4].Visible = false; //appointment time
+                            RecPayServiceApptCompleteTransDGV.Columns[5].Visible = false; // client cp num
+                            RecPayServiceApptCompleteTransDGV.Columns[7].Visible = false; // net price
+                            RecPayServiceApptCompleteTransDGV.Columns[8].Visible = false; // net price
+                            RecPayServiceApptCompleteTransDGV.Columns[9].Visible = false; // net price
+                            RecPayServiceApptCompleteTransDGV.Columns[10].Visible = false; // discount amount
+                            RecPayServiceApptCompleteTransDGV.Columns[11].Visible = false; // discount amount
+                            RecPayServiceApptCompleteTransDGV.Columns[12].Visible = false; // cash given
+                            RecPayServiceApptCompleteTransDGV.Columns[13].Visible = false; // due change
+                            RecPayServiceApptCompleteTransDGV.Columns[14].Visible = false; // payment method
+                            RecPayServiceApptCompleteTransDGV.Columns[15].Visible = false; // card name
+                            RecPayServiceApptCompleteTransDGV.Columns[16].Visible = false; // card num
+                            RecPayServiceApptCompleteTransDGV.Columns[17].Visible = false; // cvc
+                            RecPayServiceApptCompleteTransDGV.Columns[18].Visible = false; // card expiration
+                            RecPayServiceApptCompleteTransDGV.Columns[19].Visible = false; // wallet num
+                            RecPayServiceApptCompleteTransDGV.Columns[20].Visible = false; // wallet PIN
+                            RecPayServiceApptCompleteTransDGV.Columns[21].Visible = false; // wallet OTP
+                            RecPayServiceApptCompleteTransDGV.Columns[22].Visible = false; // service duration
+                            RecPayServiceApptCompleteTransDGV.Columns[23].Visible = false; // booked by
+                            RecPayServiceApptCompleteTransDGV.Columns[24].Visible = false; // booked date
+                            RecPayServiceApptCompleteTransDGV.Columns[25].Visible = false; // booked date
+                            RecPayServiceApptCompleteTransDGV.Columns[26].Visible = false; // booked date
+
+                        }
+
+                        RecPayServiceApptCompleteTransDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        RecPayServiceApptCompleteTransDGV.ClearSelection();
                     }
                 }
             }
@@ -5245,17 +5335,17 @@ namespace Enchante
             }
         }
 
-        private bool RecPayServiceUpdateWalk_in_AppointmentDB()
+        private bool RecPayServiceUpdateWalkin_And_ApptDB()
         {
             // cash values
             string netAmount = RecPayServiceNetAmountBox.Text; // net amount
             string vat = RecPayServiceVATBox.Text; // vat 
-            string discount = RecWalkinDiscountBox.Text; // discount
+            string discount = RecPayServiceDiscountBox.Text; // discount
             string grossAmount = RecPayServiceGrossAmountBox.Text; // gross amount
             string cash = RecPayServiceCashBox.Text; // cash given
             string change = RecPayServiceChangeBox.Text; // due change
             string paymentMethod = RecPayServiceTypeText.Text; // payment method
-            string mngr = MngrNameLbl.Text;
+            string mngr = RecNameLbl.Text;
             string transactNum = RecPayServiceTransactNumLbl.Text;
 
             // bank & wallet details
@@ -5385,21 +5475,35 @@ namespace Enchante
                             return false;
                         }
                     }
-                    string cashPayment = "UPDATE walk_in_appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
+                    string cashPaymentWalkin = "UPDATE walk_in_appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
                                         "GrossAmount = @gross, CashGiven = @cash, DueChange = @change, PaymentMethod = @payment, CheckedOutBy = @mngr " +
                                         "WHERE TransactionNumber = @transactNum"; // cash query
-                    string bankPayment = "UPDATE walk_in_appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
+                    string bankPaymentWalkin = "UPDATE walk_in_appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
                                         "GrossAmount = @gross, PaymentMethod = @payment, CardName = @cardname, CardNumber = @cardNum, " +
                                         "CVC = @cvc, CardExpiration = @expiration, CheckedOutBy = @mngr " +
                                         "WHERE TransactionNumber = @transactNum"; // credit card and paypal query
-                    string walletPayment = "UPDATE walk_in_appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
+                    string walletPaymentWalkin = "UPDATE walk_in_appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
                                         "GrossAmount = @gross, PaymentMethod = @payment, WalletNumber = @walletNum, WalletPIN = @walletPin, WalletOTP = @walletOTP, CheckedOutBy = @mngr " +
                                         "WHERE TransactionNumber = @transactNum"; // gcash and paymaya query
-                    string productPayment = "UPDATE orderproducthistory SET ProductStatus = @status WHERE TransactionNumber = @transactNum";
+                    string productPaymentWalkin = "UPDATE orderproducthistory SET ProductStatus = @status WHERE TransactionNumber = @transactNum";
 
-                    if (RecPayServiceCashPaymentRB.Checked == true)
+
+                    string cashPaymentAppt = "UPDATE appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
+                                        "GrossAmount = @gross, CashGiven = @cash, DueChange = @change, PaymentMethod = @payment, CheckedOutBy = @mngr " +
+                                        "WHERE TransactionNumber = @transactNum"; // cash query
+                    string bankPaymentAppt = "UPDATE appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
+                                        "GrossAmount = @gross, PaymentMethod = @payment, CardName = @cardname, CardNumber = @cardNum, " +
+                                        "CVC = @cvc, CardExpiration = @expiration, CheckedOutBy = @mngr " +
+                                        "WHERE TransactionNumber = @transactNum"; // credit card and paypal query
+                    string walletPaymentAppt = "UPDATE appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
+                                        "GrossAmount = @gross, PaymentMethod = @payment, WalletNumber = @walletNum, WalletPIN = @walletPin, WalletOTP = @walletOTP, CheckedOutBy = @mngr " +
+                                        "WHERE TransactionNumber = @transactNum"; // gcash and paymaya query
+                    string productPaymentAppt = "UPDATE orderproducthistory SET ProductStatus = @status WHERE TransactionNumber = @transactNum";
+                    
+                    
+                    if (RecPayServiceCashPaymentRB.Checked == true && RecPayServiceTransTypeLbl.Text == "Walk-in")
                     {
-                        MySqlCommand cmd = new MySqlCommand(cashPayment, connection);
+                        MySqlCommand cmd = new MySqlCommand(cashPaymentWalkin, connection);
                         cmd.Parameters.AddWithValue("@status", "Paid");
                         cmd.Parameters.AddWithValue("@net", netAmount);
                         cmd.Parameters.AddWithValue("@vat", vat);
@@ -5414,11 +5518,10 @@ namespace Enchante
                         cmd.ExecuteNonQuery();
                         // Successful update
                         MessageBox.Show("Service successfully been paid through cash.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Inventory.PanelShow(MngrInventoryTypePanel);
                     }
-                    else if (RecPayServiceCCPaymentRB.Checked == true || RecPayServicePPPaymentRB.Checked == true)
+                    else if ((RecPayServiceCCPaymentRB.Checked == true || RecPayServicePPPaymentRB.Checked == true) && RecPayServiceTransTypeLbl.Text == "Walk-in")
                     {
-                        MySqlCommand cmd = new MySqlCommand(bankPayment, connection);
+                        MySqlCommand cmd = new MySqlCommand(bankPaymentWalkin, connection);
                         cmd.Parameters.AddWithValue("@status", "Paid");
                         cmd.Parameters.AddWithValue("@net", netAmount);
                         cmd.Parameters.AddWithValue("@vat", vat);
@@ -5435,11 +5538,67 @@ namespace Enchante
                         cmd.ExecuteNonQuery();
                         // Successful update
                         MessageBox.Show("Service successfully been paid through bank.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Inventory.PanelShow(MngrInventoryTypePanel);
                     }
-                    else if (RecPayServiceGCPaymentRB.Checked == true || RecPayServicePMPaymentRB.Checked == true)
+                    else if ((RecPayServiceGCPaymentRB.Checked == true || RecPayServicePMPaymentRB.Checked == true) && RecPayServiceTransTypeLbl.Text == "Walk-in")
                     {
-                        MySqlCommand cmd = new MySqlCommand(walletPayment, connection);
+                        MySqlCommand cmd = new MySqlCommand(walletPaymentWalkin, connection);
+                        cmd.Parameters.AddWithValue("@status", "Paid");
+                        cmd.Parameters.AddWithValue("@net", netAmount);
+                        cmd.Parameters.AddWithValue("@vat", vat);
+                        cmd.Parameters.AddWithValue("@discount", discount);
+                        cmd.Parameters.AddWithValue("@gross", grossAmount);
+                        cmd.Parameters.AddWithValue("@payment", paymentMethod);
+                        cmd.Parameters.AddWithValue("@walletNum", walletNum);
+                        cmd.Parameters.AddWithValue("@walletPin", walletPIN);
+                        cmd.Parameters.AddWithValue("@walletOTP", walletOTP);
+                        cmd.Parameters.AddWithValue("@mngr", mngr);
+                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
+
+                        cmd.ExecuteNonQuery();
+                        // Successful update
+                        MessageBox.Show("Service successfully been paid through online wallet.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (RecPayServiceCashPaymentRB.Checked == true && RecPayServiceTransTypeLbl.Text == "Appointment")
+                    {
+                        MySqlCommand cmd = new MySqlCommand(cashPaymentAppt, connection);
+                        cmd.Parameters.AddWithValue("@status", "Paid");
+                        cmd.Parameters.AddWithValue("@net", netAmount);
+                        cmd.Parameters.AddWithValue("@vat", vat);
+                        cmd.Parameters.AddWithValue("@discount", discount);
+                        cmd.Parameters.AddWithValue("@gross", grossAmount);
+                        cmd.Parameters.AddWithValue("@cash", cash);
+                        cmd.Parameters.AddWithValue("@change", change);
+                        cmd.Parameters.AddWithValue("@payment", paymentMethod);
+                        cmd.Parameters.AddWithValue("@mngr", mngr);
+                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
+
+                        cmd.ExecuteNonQuery();
+                        // Successful update
+                        MessageBox.Show("Service successfully been paid through cash.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if ((RecPayServiceCCPaymentRB.Checked == true || RecPayServicePPPaymentRB.Checked == true) && RecPayServiceTransTypeLbl.Text == "Appointment")
+                    {
+                        MySqlCommand cmd = new MySqlCommand(bankPaymentAppt, connection);
+                        cmd.Parameters.AddWithValue("@status", "Paid");
+                        cmd.Parameters.AddWithValue("@net", netAmount);
+                        cmd.Parameters.AddWithValue("@vat", vat);
+                        cmd.Parameters.AddWithValue("@discount", discount);
+                        cmd.Parameters.AddWithValue("@gross", grossAmount);
+                        cmd.Parameters.AddWithValue("@payment", paymentMethod);
+                        cmd.Parameters.AddWithValue("@cardname", cardName);
+                        cmd.Parameters.AddWithValue("@cardNum", cardNum);
+                        cmd.Parameters.AddWithValue("@cvc", CVC);
+                        cmd.Parameters.AddWithValue("@expiration", expire);
+                        cmd.Parameters.AddWithValue("@mngr", mngr);
+                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
+
+                        cmd.ExecuteNonQuery();
+                        // Successful update
+                        MessageBox.Show("Service successfully been paid through bank.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if ((RecPayServiceGCPaymentRB.Checked == true || RecPayServicePMPaymentRB.Checked == true) && RecPayServiceTransTypeLbl.Text == "Appointment")
+                    {
+                        MySqlCommand cmd = new MySqlCommand(walletPaymentAppt, connection);
                         cmd.Parameters.AddWithValue("@status", "Paid");
                         cmd.Parameters.AddWithValue("@net", netAmount);
                         cmd.Parameters.AddWithValue("@vat", vat);
@@ -5458,38 +5617,66 @@ namespace Enchante
                         Inventory.PanelShow(MngrInventoryTypePanel);
                     }
 
-                    if (RecPayServiceCashPaymentRB.Checked == true)
+                    if (RecPayServiceCashPaymentRB.Checked == true && RecPayServiceTransTypeLbl.Text == "Walk-in")
                     {
-                        MySqlCommand cmd = new MySqlCommand(productPayment, connection);
+                        MySqlCommand cmd = new MySqlCommand(productPaymentWalkin, connection);
                         cmd.Parameters.AddWithValue("@status", "Paid");
                         cmd.Parameters.AddWithValue("@transactNum", transactNum);
 
 
                         cmd.ExecuteNonQuery();
                         // Successful update
-                        //MessageBox.Show("Service successfully been paid through cash.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Inventory.PanelShow(MngrInventoryTypePanel);
                     }
-                    else if (RecPayServiceCCPaymentRB.Checked == true || RecPayServicePPPaymentRB.Checked == true)
+                    else if ((RecPayServiceCCPaymentRB.Checked == true || RecPayServicePPPaymentRB.Checked == true) && RecPayServiceTransTypeLbl.Text == "Walk-in")
                     {
-                        MySqlCommand cmd = new MySqlCommand(productPayment, connection);
+                        MySqlCommand cmd = new MySqlCommand(productPaymentWalkin, connection);
                         cmd.Parameters.AddWithValue("@status", "Paid");
                         cmd.Parameters.AddWithValue("@transactNum", transactNum);
 
                         cmd.ExecuteNonQuery();
                         // Successful update
-                        //MessageBox.Show("Service successfully been paid through bank.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Inventory.PanelShow(MngrInventoryTypePanel);
                     }
-                    else if (RecPayServiceGCPaymentRB.Checked == true || RecPayServicePMPaymentRB.Checked == true)
+                    else if ((RecPayServiceGCPaymentRB.Checked == true || RecPayServicePMPaymentRB.Checked == true) && RecPayServiceTransTypeLbl.Text == "Walk-in")
                     {
-                        MySqlCommand cmd = new MySqlCommand(productPayment, connection);
+                        MySqlCommand cmd = new MySqlCommand(productPaymentWalkin, connection);
                         cmd.Parameters.AddWithValue("@status", "Paid");
                         cmd.Parameters.AddWithValue("@transactNum", transactNum);
 
                         cmd.ExecuteNonQuery();
                         // Successful update
-                        //MessageBox.Show("Service successfully been paid through online wallet.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Inventory.PanelShow(MngrInventoryTypePanel);
+                    }
+                    else if (RecPayServiceCashPaymentRB.Checked == true && RecPayServiceTransTypeLbl.Text == "Appointment")
+                    {
+                        MySqlCommand cmd = new MySqlCommand(productPaymentAppt, connection);
+                        cmd.Parameters.AddWithValue("@status", "Paid");
+                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
+
+
+                        cmd.ExecuteNonQuery();
+                        // Successful update
+                        Inventory.PanelShow(MngrInventoryTypePanel);
+                    }
+                    else if ((RecPayServiceCCPaymentRB.Checked == true || RecPayServicePPPaymentRB.Checked == true) && RecPayServiceTransTypeLbl.Text == "Appointment")
+                    {
+                        MySqlCommand cmd = new MySqlCommand(productPaymentAppt, connection);
+                        cmd.Parameters.AddWithValue("@status", "Paid");
+                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
+
+                        cmd.ExecuteNonQuery();
+                        // Successful update
+                        Inventory.PanelShow(MngrInventoryTypePanel);
+                    }
+                    else if ((RecPayServiceGCPaymentRB.Checked == true || RecPayServicePMPaymentRB.Checked == true) && RecPayServiceTransTypeLbl.Text == "Appointment")
+                    {
+                        MySqlCommand cmd = new MySqlCommand(productPaymentAppt, connection);
+                        cmd.Parameters.AddWithValue("@status", "Paid");
+                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
+
+                        cmd.ExecuteNonQuery();
+                        // Successful update
                         Inventory.PanelShow(MngrInventoryTypePanel);
                     }
                 }
@@ -5520,11 +5707,15 @@ namespace Enchante
                 return;
             }
 
-            if (RecPayServiceUpdateWalk_in_AppointmentDB())
+            if (RecPayServiceUpdateWalkin_And_ApptDB())
             {
-                RecPayServiceClearAllField();
-                RecLoadCompletedTrans();
+                RecLoadCompletedWalkinTrans();
+                RecLoadCompletedAppointmentTrans();
                 RecPayServiceInvoiceReceiptGenerator();
+                RecPayServiceClearAllField();
+                Transaction.PanelShow(RecTransactionPanel);
+                //RecPayServiceAcquiredDGV.Rows.Clear();
+                //RecPayServiceCOProdDGV.Rows.Clear();
             }
         }
 
@@ -5532,7 +5723,7 @@ namespace Enchante
         {
             RecPayServiceNetAmountBox.Text = "0.00";
             RecPayServiceVATBox.Text = "0.00";
-            RecWalkinDiscountBox.Text = "0.00";
+            RecPayServiceDiscountBox.Text = "0.00";
             RecPayServiceGrossAmountBox.Text = "0.00";
             RecPayServiceCashBox.Text = "0";
             RecPayServiceChangeBox.Text = "0.00";
@@ -5547,12 +5738,15 @@ namespace Enchante
             RecPayServiceWalletOTPText.Text = "";
 
             RecPayServiceClientNameLbl.Text = "";
+            RecPayServiceTransTypeLbl.Text = "";
+
         }
 
         private void RecPayServiceBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecPayServicePanel);
-            RecLoadCompletedTrans();
+            RecLoadCompletedWalkinTrans();
+            RecLoadCompletedAppointmentTrans();
         }
 
         private void RecWalkinAttendingStaffComboText_SelectedIndexChanged(object sender, EventArgs e)
@@ -5761,7 +5955,7 @@ namespace Enchante
 
                     // Total from your textboxes as decimal
                     decimal netAmount = decimal.Parse(RecPayServiceNetAmountBox.Text);
-                    decimal discount = decimal.Parse(RecWalkinDiscountBox.Text);
+                    decimal discount = decimal.Parse(RecPayServiceDiscountBox.Text);
                     decimal vat = decimal.Parse(RecPayServiceVATBox.Text);
                     decimal grossAmount = decimal.Parse(RecPayServiceGrossAmountBox.Text);
                     decimal cash = decimal.Parse(RecPayServiceCashBox.Text);
@@ -8898,7 +9092,7 @@ namespace Enchante
             Inventory.PanelShow(MngrInventoryTypePanel);
         }
 
-        private void MngrPayServiceExitBtn_Click(object sender, EventArgs e)
+        private void RecPayServiceExitBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecTransactionPanel);
 
@@ -12749,6 +12943,7 @@ namespace Enchante
         {
             RateMe.Show();
         }
+
 
     }
 }
