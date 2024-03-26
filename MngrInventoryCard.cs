@@ -16,9 +16,11 @@ namespace Enchante
         private Panel StaffSched;
         private Panel Walk_In_Sales;
         private Panel Walk_In_Prod_sales;
+        private Panel ApptTrans_Sales;
         private Panel InDemandService;
 
-        public MngrInventoryCard(Panel type, Panel service, Panel serviceHis, Panel member, Panel product, Panel prodHistory, Panel sched, Panel walk_in, Panel walkin_prod, Panel indemand)
+        public MngrInventoryCard(Panel type, Panel service, Panel serviceHis, Panel member, Panel product, Panel prodHistory, 
+                                Panel sched, Panel walk_in, Panel walkin_prod, Panel apptTrans,Panel indemand)
         {
             Type = type;
             Services = service;
@@ -29,6 +31,7 @@ namespace Enchante
             StaffSched = sched;
             Walk_In_Sales = walk_in;
             Walk_In_Prod_sales = walkin_prod;
+            ApptTrans_Sales = apptTrans;
             InDemandService = indemand;
         }
 
@@ -43,6 +46,7 @@ namespace Enchante
             StaffSched.Hide();
             Walk_In_Sales.Hide();
             Walk_In_Prod_sales.Hide();
+            ApptTrans_Sales.Hide();
             InDemandService.Hide();
 
             panelToShow.Show(); // do not delete

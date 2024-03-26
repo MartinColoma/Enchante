@@ -132,6 +132,12 @@
     <Compile Include="Enchante.Designer.cs">
       <DependentUpon>Enchante.cs</DependentUpon>
     </Compile>
+    <Compile Include="RateMyService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RateMyService.Designer.cs">
+      <DependentUpon>RateMyService.cs</DependentUpon>
+    </Compile>
     <Compile Include="MemberPlanPeriod.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     <EmbeddedResource Include="Enchante.resx">
       <DependentUpon>Enchante.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RateMyService.resx">
+      <DependentUpon>RateMyService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MemberPlanPeriod.resx">
       <DependentUpon>MemberPlanPeriod.cs</DependentUpon>
