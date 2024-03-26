@@ -30,7 +30,7 @@ namespace Enchante
             StaffEndServiceBtn.Enabled = false;
             this.EnchanteForm = EnchanteForm;
         }
-        
+
 
         public bool Viewing
         {
@@ -313,8 +313,30 @@ namespace Enchante
             {
                 Parent.Controls.Remove(this);
             }
+            string transactionID = StaffTransactionIDTextBox.Text;
+            string staffID = CurrentStaffID;
+            RateMyService rateForm = new RateMyService(EnchanteForm, transactionID, staffID);
+            rateForm.FormClosed += RateForm_FormClosed;
+
+            // Set the transactionID property of rateForm
+            rateForm.TransactionID = transactionID;
+            rateForm.StaffID = staffID;
+
+            // Show the RateMyService form
+            rateForm.Show();
             EnchanteForm.RefreshFlowLayoutPanel();
         }
+
+        private void RateForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            RateMyService rateForm = sender as RateMyService;
+            if (rateForm != null)
+            {
+                rateForm.Dispose(); 
+                rateForm = null;
+            }
+        }
+
 
     }
 }

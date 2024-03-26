@@ -58,7 +58,7 @@ namespace Enchante
         private ServiceCard Service; //Service Card
         private ReceptionTransactionCard Transaction;
         private MngrInventoryCard Inventory;
-        RateMyService RateMe = new RateMyService();
+
 
         //tool tip
         private System.Windows.Forms.ToolTip iconToolTip;
@@ -13028,7 +13028,7 @@ namespace Enchante
 
         private void StaffServiceRateTestBtn_Click(object sender, EventArgs e)
         {
-            RateMe.Show();
+
         }
 
         private void MngrApptServiceBtn_Click(object sender, EventArgs e)
@@ -13041,5 +13041,6 @@ namespace Enchante
             Inventory.PanelShow(MngrInventoryTypePanel);
 
         }
+        
     }
 }

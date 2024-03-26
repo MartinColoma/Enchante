@@ -1,4 +1,5 @@
 ﻿using FontAwesome.Sharp;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +16,17 @@ namespace Enchante
     public partial class RateMyService : Form
     {
         private string[] stars = { "5-star (Exceptional)", "4-star (Great)", "3-star (Satisfactory)", "2-star (Mediocre)", "1-star (Awful)", "Select A Star" };
+        public static string mysqlconn = "server=localhost;user=root;database=enchante;password=";
+        private Enchante EnchanteForm;
+        public string TransactionID { get; set; }
+        public string StaffID { get; set; }
 
-        public RateMyService()
+        public RateMyService(Enchante EnchanteForm, string transactionID, string staffID)
         {
             InitializeComponent();
-
+            this.EnchanteForm = EnchanteForm;
+            TransactionID = transactionID;
+            StaffID = staffID;
             foreach (string star in stars)
             {
                 RateMeStarBox.Items.Add(star);
@@ -229,10 +236,45 @@ namespace Enchante
 
         private void RateMeSubmitBtn_Click(object sender, EventArgs e)
         {
-            //hide lang siya bawal dispose kasi kung dispose di na siya ulit mabubuksan if pindutin ng ibang btn sa ibang service
-            //delete this comment na lang if nakita mo na
+            // Assuming transactionID and staffID are properties or fields of your class
+            string transactionID = TransactionID; // Ensure transactionID is properly assigned
+            string attendingStaff = StaffID; // Ensure staffID is properly assigned
+
+            string dateToday = DateTime.Now.ToString("MM-dd-yy dddd");
+
+            string rating = RateMeStarBox.SelectedItem?.ToString(); // Use null-conditional operator
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    string query = "INSERT INTO staffrating (EmployeeID, TransactionID, Date, Rating) " +
+                                   "VALUES (@EmployeeID, @TransactionID, @Date, @Rating)";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        // Set the parameter values
+                        command.Parameters.AddWithValue("@EmployeeID", attendingStaff);
+                        command.Parameters.AddWithValue("@TransactionID", transactionID);
+                        command.Parameters.AddWithValue("@Date", dateToday);
+                        command.Parameters.AddWithValue("@Rating", rating);
+
+                        // Execute the query
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions that occur during the database operation
+                MessageBox.Show("An error occurred while inserting the rating: " + ex.Message);
+            }
+
             this.Hide();
             RateMeStarBox.SelectedIndex = 5;
         }
+
     }
 }
