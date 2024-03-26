@@ -3753,6 +3753,8 @@ namespace Enchante
             RecWalkinSelectedProdDGV.Rows.Clear();
 
         }
+
+        
         private void QueueNumReceiptGenerator()
         {
             DateTime currentDate = RecDateTimePicker.Value;
@@ -4095,6 +4097,8 @@ namespace Enchante
         {
             DateTime currentDate = RecDateTimePicker.Value;
             string transactionNum = RecWalkinTransNumText.Text;
+            string transactionType = "Walk-in Transaction";
+
             string serviceStatus = "Pending";
 
             //booked values
@@ -4124,14 +4128,15 @@ namespace Enchante
                                 string queNumber = row.Cells["QueNumber"].Value.ToString();
                                 string queType = row.Cells["QueType"].Value.ToString();
 
-                                string insertQuery = "INSERT INTO servicehistory (TransactionNumber, ServiceStatus, AppointmentDate, AppointmentTime, ClientName, " +
+                                string insertQuery = "INSERT INTO servicehistory (TransactionNumber, TransactionType, ServiceStatus, AppointmentDate, AppointmentTime, ClientName, " +
                                                      "ServiceCategory, ServiceID, SelectedService, ServicePrice, PreferredStaff, QueNumber," +
                                                      "QueType) " +
-                                                     "VALUES (@Transact, @status, @appointDate, @appointTime, @name, @serviceCat, @ID, @serviceName, @servicePrice, " +
+                                                     "VALUES (@Transact, @type, @status, @appointDate, @appointTime, @name, @serviceCat, @ID, @serviceName, @servicePrice, " +
                                                      "@preferredstaff, @quenumber, @quetype)";
 
                                 MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
                                 cmd.Parameters.AddWithValue("@Transact", transactionNum);
+                                cmd.Parameters.AddWithValue("@type", transactionType);
                                 cmd.Parameters.AddWithValue("@status", serviceStatus);
                                 cmd.Parameters.AddWithValue("@appointDate", bookedDate);
                                 cmd.Parameters.AddWithValue("@appointTime", bookedTime);
@@ -5058,11 +5063,12 @@ namespace Enchante
                     connection.Open();
 
                     // Modify the SQL query to filter based on TransactNumber and OrderNumber
-                    string sql = "SELECT * FROM `servicehistory` WHERE TransactionNumber = @TransactionNumber";
+                    string sql = "SELECT * FROM `servicehistory` WHERE TransactionNumber = @TransactionNumber AND ServiceStatus = @status";
                     MySqlCommand cmd = new MySqlCommand(sql, connection);
 
                     // Add parameters to the query
                     cmd.Parameters.AddWithValue("@TransactionNumber", transactNumber);
+                    cmd.Parameters.AddWithValue("@status", "Completed");
 
                     System.Data.DataTable dataTable = new System.Data.DataTable();
 
@@ -5116,11 +5122,12 @@ namespace Enchante
                     connection.Open();
 
                     // Modify the SQL query to filter based on TransactNumber and OrderNumber
-                    string sql = "SELECT * FROM `orderproducthistory` WHERE TransactionNumber = @TransactionNumber";
+                    string sql = "SELECT * FROM `orderproducthistory` WHERE TransactionNumber = @TransactionNumber AND ProductStatus = @status";
                     MySqlCommand cmd = new MySqlCommand(sql, connection);
 
                     // Add parameters to the query
                     cmd.Parameters.AddWithValue("@TransactionNumber", transactNumber);
+                    cmd.Parameters.AddWithValue("@status", "Not Paid");
 
                     System.Data.DataTable dataTable = new System.Data.DataTable();
 
@@ -5475,6 +5482,8 @@ namespace Enchante
                             return false;
                         }
                     }
+
+                    //walk-in transactions
                     string cashPaymentWalkin = "UPDATE walk_in_appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
                                         "GrossAmount = @gross, CashGiven = @cash, DueChange = @change, PaymentMethod = @payment, CheckedOutBy = @mngr " +
                                         "WHERE TransactionNumber = @transactNum"; // cash query
@@ -5487,7 +5496,7 @@ namespace Enchante
                                         "WHERE TransactionNumber = @transactNum"; // gcash and paymaya query
                     string productPaymentWalkin = "UPDATE orderproducthistory SET ProductStatus = @status WHERE TransactionNumber = @transactNum";
 
-
+                    //appointment transactions
                     string cashPaymentAppt = "UPDATE appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
                                         "GrossAmount = @gross, CashGiven = @cash, DueChange = @change, PaymentMethod = @payment, CheckedOutBy = @mngr " +
                                         "WHERE TransactionNumber = @transactNum"; // cash query
@@ -5695,7 +5704,7 @@ namespace Enchante
             return true;
         }
 
-        private void MngrPayServicePaymentButton_Click(object sender, EventArgs e)
+        private void RecPayServicePaymentButton_Click(object sender, EventArgs e)
         {
             if (!RecPayServiceCashPaymentRB.Checked &&
                 !RecPayServiceCCPaymentRB.Checked &&
@@ -5709,13 +5718,45 @@ namespace Enchante
 
             if (RecPayServiceUpdateWalkin_And_ApptDB())
             {
+                RecPayServiceUpdateQtyInventory(RecPayServiceCOProdDGV);
                 RecLoadCompletedWalkinTrans();
                 RecLoadCompletedAppointmentTrans();
                 RecPayServiceInvoiceReceiptGenerator();
                 RecPayServiceClearAllField();
                 Transaction.PanelShow(RecTransactionPanel);
-                //RecPayServiceAcquiredDGV.Rows.Clear();
-                //RecPayServiceCOProdDGV.Rows.Clear();
+
+            }
+        }
+
+        private void RecPayServiceUpdateQtyInventory(DataGridView dgv)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+                    string updateQuery = "UPDATE inventory SET ItemStock = ItemStock - @Qty WHERE ItemID = @ItemID";
+
+                    foreach (DataGridViewRow row in RecPayServiceCOProdDGV.Rows)
+                    {
+                        string itemID = row.Cells["ItemID"].Value.ToString();
+                        int qty = Convert.ToInt32(row.Cells["Qty"].Value);
+
+                        MySqlCommand command = new MySqlCommand(updateQuery, connection);
+                        command.Parameters.AddWithValue("@Qty", qty);
+                        command.Parameters.AddWithValue("@ItemID", itemID);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string errorMessage = "An error occurred: " + ex.Message + "\n\n" + ex.StackTrace;
+                MessageBox.Show(errorMessage, "Product Qty Failed Inserting to Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -5739,6 +5780,13 @@ namespace Enchante
 
             RecPayServiceClientNameLbl.Text = "";
             RecPayServiceTransTypeLbl.Text = "";
+            // Clear rows from RecPayServiceAcquiredDGV
+            RecPayServiceAcquiredDGV.DataSource = null; // Set data source to null
+            RecPayServiceAcquiredDGV.Rows.Clear(); // Clear any remaining rows
+
+            // Clear rows from RecPayServiceCOProdDGV
+            RecPayServiceCOProdDGV.DataSource = null; // Set data source to null
+            RecPayServiceCOProdDGV.Rows.Clear(); // Clear any remaining rows
 
         }
 
@@ -5845,6 +5893,7 @@ namespace Enchante
                     iTextSharp.text.Font headerFont = FontFactory.GetFont("Courier", 16, iTextSharp.text.Font.BOLD);
                     iTextSharp.text.Font boldfont = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.BOLD);
                     iTextSharp.text.Font font = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.NORMAL);
+                    iTextSharp.text.Font italic = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.ITALIC);
 
                     // Create a centered alignment for text
                     iTextSharp.text.Paragraph centerAligned = new Paragraph();
@@ -5960,6 +6009,7 @@ namespace Enchante
                     decimal grossAmount = decimal.Parse(RecPayServiceGrossAmountBox.Text);
                     decimal cash = decimal.Parse(RecPayServiceCashBox.Text);
                     decimal change = decimal.Parse(RecPayServiceChangeBox.Text);
+                    string paymentMethod = RecPayServiceTypeText.Text;
 
                     // Create a new table for the "Total" section
                     PdfPTable totalTable = new PdfPTable(2); // 2 columns for the "Total" table
@@ -5975,7 +6025,8 @@ namespace Enchante
                     totalTable.AddCell(new Phrase($"Php {cash:F2}", font));
                     totalTable.AddCell(new Phrase($"Change", font));
                     totalTable.AddCell(new Phrase($"Php {change:F2}", font));
-
+                    totalTable.AddCell(new Phrase($"Payment Method:", font));
+                    totalTable.AddCell(new Phrase($"{paymentMethod:F2}", font));
 
                     // Add the "Total" table to the document
                     doc.Add(totalTable);
@@ -6000,12 +6051,12 @@ namespace Enchante
 
                     // Add the "Served To" section
                     doc.Add(new Chunk("\n")); // New line
-                    doc.Add(new Paragraph($"Served To: {clientName}", font));
-                    doc.Add(new Paragraph("Address:_______________________________", font));
-                    doc.Add(new Paragraph("TIN No.:_______________________________", font));
+                    doc.Add(new Paragraph($"Served To: {clientName}", italic));
+                    doc.Add(new Paragraph("Address:_______________________________", italic));
+                    doc.Add(new Paragraph("TIN No.:_______________________________", italic));
 
                     // Add the legal string with center alignment
-                    Paragraph paragraph_footer = new Paragraph($"\n\n{legal}", font);
+                    Paragraph paragraph_footer = new Paragraph($"\n\n{legal}", italic);
                     paragraph_footer.Alignment = Element.ALIGN_CENTER;
                     doc.Add(paragraph_footer);
                 }
@@ -8363,6 +8414,7 @@ namespace Enchante
             }
             if (RecShopProdInsertOrderDB())
             {
+                RecShopProdUpdateQtyInventory(RecShopProdSelectedProdDGV);
                 RecShopProdOrderProdHistoryDB(RecShopProdSelectedProdDGV);
                 RecShopProdInvoiceReceiptGenerator();
                 RecShopProdClearAllField();
@@ -8398,6 +8450,38 @@ namespace Enchante
             RecShopProdPMPaymentChk.Checked = false;
 
         }
+        private void RecShopProdUpdateQtyInventory(DataGridView dgv)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+                    string updateQuery = "UPDATE inventory SET ItemStock = ItemStock - @Qty WHERE ItemID = @ItemID";
+
+                    foreach (DataGridViewRow row in RecShopProdSelectedProdDGV.Rows)
+                    {
+                        string itemID = row.Cells["RecShopProdItemID"].Value.ToString();
+                        int qty = Convert.ToInt32(row.Cells["Qty"].Value);
+
+                        MySqlCommand command = new MySqlCommand(updateQuery, connection);
+                        command.Parameters.AddWithValue("@Qty", qty);
+                        command.Parameters.AddWithValue("@ItemID", itemID);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string errorMessage = "An error occurred: " + ex.Message + "\n\n" + ex.StackTrace;
+                MessageBox.Show(errorMessage, "Product Qty Failed Inserting to Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
         private bool RecShopProdInsertOrderDB()
         {
             DateTime currentDate = RecDateTimePicker.Value;
@@ -8872,6 +8956,7 @@ namespace Enchante
                     decimal grossAmount = decimal.Parse(RecShopProdGrossAmountBox.Text);
                     decimal cash = decimal.Parse(RecShopProdCashBox.Text);
                     decimal change = decimal.Parse(RecShopProdChangeBox.Text);
+                    string paymentMethod = RecShopProdTypeText.Text;
 
                     // Create a new table for the "Total" section
                     PdfPTable totalTable = new PdfPTable(2); // 2 columns for the "Total" table
@@ -8887,7 +8972,8 @@ namespace Enchante
                     totalTable.AddCell(new Phrase($"Php {cash:F2}", font));
                     totalTable.AddCell(new Phrase($"Change", font));
                     totalTable.AddCell(new Phrase($"Php {change:F2}", font));
-
+                    totalTable.AddCell(new Phrase($"Payment Method:", font));
+                    totalTable.AddCell(new Phrase($"{paymentMethod:F2}", font));
 
                     // Add the "Total" table to the document
                     doc.Add(totalTable);
@@ -9095,7 +9181,7 @@ namespace Enchante
         private void RecPayServiceExitBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecTransactionPanel);
-
+            RecPayServiceClearAllField();
         }
 
         private void MngrInventoryWalkinSalesBtn_Click(object sender, EventArgs e)
