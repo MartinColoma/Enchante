@@ -114,7 +114,8 @@ namespace Enchante
             Service = new ServiceCard(ServiceType, ServiceHairStyling, ServiceFaceSkin, ServiceNailCare, ServiceSpa, ServiceMassage);
             Transaction = new ReceptionTransactionCard(RecTransactionPanel, RecWalkinPanel, RecApptPanel, RecPayServicePanel, RecQueWinPanel, RecShopProdPanel, RecApptConfirmPanel);
             Inventory = new MngrInventoryCard(MngrInventoryTypePanel, MngrServicesPanel, MngrServiceHistoryPanel, MngrInventoryMembershipPanel,
-                                            MngrInventoryProductsPanel, MngrInventoryProductHistoryPanel, MngrSchedPanel, MngrWalkinSalesPanel, MngrIndemandPanel, MngrWalkinProdSalesPanel);
+                                            MngrInventoryProductsPanel, MngrInventoryProductHistoryPanel, MngrSchedPanel, MngrWalkinSalesPanel, MngrIndemandPanel, MngrWalkinProdSalesPanel, MngrApptServicePanel);
+
 
 
 
@@ -13030,6 +13031,15 @@ namespace Enchante
             RateMe.Show();
         }
 
+        private void MngrApptServiceBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrApptServicePanel);
+        }
 
+        private void MngrApptServiceExitBtn_Click(object sender, EventArgs e)
+        {
+            Inventory.PanelShow(MngrInventoryTypePanel);
+
+        }
     }
 }
