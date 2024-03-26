@@ -970,7 +970,6 @@ namespace Enchante
             this.RecHeaderLogo = new System.Windows.Forms.PictureBox();
             this.EnchanteStaffPage = new System.Windows.Forms.Panel();
             this.StaffScrollPanel = new System.Windows.Forms.Panel();
-            this.StaffServiceRateTestBtn = new Guna.UI2.WinForms.Guna2Button();
             this.label4 = new System.Windows.Forms.Label();
             this.StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.StaffUserAccPanel = new System.Windows.Forms.Panel();
@@ -14183,7 +14182,6 @@ namespace Enchante
             // 
             this.StaffScrollPanel.AutoScroll = true;
             this.StaffScrollPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.StaffScrollPanel.Controls.Add(this.StaffServiceRateTestBtn);
             this.StaffScrollPanel.Controls.Add(this.label4);
             this.StaffScrollPanel.Controls.Add(this.StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel);
             this.StaffScrollPanel.Controls.Add(this.StaffUserAccPanel);
@@ -14199,23 +14197,6 @@ namespace Enchante
             this.StaffScrollPanel.Name = "StaffScrollPanel";
             this.StaffScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.StaffScrollPanel.TabIndex = 6;
-            // 
-            // StaffServiceRateTestBtn
-            // 
-            this.StaffServiceRateTestBtn.BorderRadius = 20;
-            this.StaffServiceRateTestBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.StaffServiceRateTestBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.StaffServiceRateTestBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.StaffServiceRateTestBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.StaffServiceRateTestBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.StaffServiceRateTestBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffServiceRateTestBtn.ForeColor = System.Drawing.Color.White;
-            this.StaffServiceRateTestBtn.Location = new System.Drawing.Point(732, 21);
-            this.StaffServiceRateTestBtn.Name = "StaffServiceRateTestBtn";
-            this.StaffServiceRateTestBtn.Size = new System.Drawing.Size(195, 39);
-            this.StaffServiceRateTestBtn.TabIndex = 27;
-            this.StaffServiceRateTestBtn.Text = "Rate My Service";
-            this.StaffServiceRateTestBtn.Click += new System.EventHandler(this.StaffServiceRateTestBtn_Click);
             // 
             // label4
             // 
@@ -14777,7 +14758,7 @@ namespace Enchante
             // 
             this.EnchanteParentCard.ContainerControl = this.EnchanteParentContainer;
             this.EnchanteParentCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.EnchanteParentCard.SelectedCard = "Reception";
+            this.EnchanteParentCard.SelectedCard = "Staff";
             // 
             // HomeMembershipCard
             // 
@@ -16018,7 +15999,6 @@ namespace Enchante
         private System.Windows.Forms.DataGridViewTextBoxColumn RecApptTimeSelected;
         private System.Windows.Forms.DataGridViewTextBoxColumn RecApptQueType;
         private Guna.UI2.WinForms.Guna2ComboBox RecApptAvailableAttendingStaffSelectedComboBox;
-        private Guna.UI2.WinForms.Guna2Button StaffServiceRateTestBtn;
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.Label RecPayServiceApptCompleteTransLbl;
         private System.Windows.Forms.DataGridView RecPayServiceApptCompleteTransDGV;
