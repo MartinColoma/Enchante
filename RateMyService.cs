@@ -242,7 +242,7 @@ namespace Enchante
 
             string dateToday = DateTime.Now.ToString("MM-dd-yy dddd");
 
-            string rating = RateMeStarBox.SelectedItem?.ToString(); // Use null-conditional operator
+            string rating = RateMeNumStarsLbl.Text;
 
             try
             {
