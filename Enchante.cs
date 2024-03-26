@@ -58,7 +58,7 @@ namespace Enchante
         private ServiceCard Service; //Service Card
         private ReceptionTransactionCard Transaction;
         private MngrInventoryCard Inventory;
-        RateMyService RateMe = new RateMyService();
+
 
         //tool tip
         private System.Windows.Forms.ToolTip iconToolTip;
@@ -2864,6 +2864,8 @@ namespace Enchante
         private void RecAppointmentBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecApptPanel);
+            RecApptBookingTimeComboBox.Items.Clear();
+            LoadBookingTimes();
             RecApptTransNumText.Text = TransactionNumberGenerator.AppointGenerateTransNumberDefault();
             RecApptBookingDatePicker.MinDate = DateTime.Today;
             RecApptClientBdayPicker.MaxDate = DateTime.Today;
@@ -7152,7 +7154,7 @@ namespace Enchante
                 MessageBox.Show("Please select a prefered staff or toggle anyone ", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (RecApptBookingTimeComboBox.SelectedIndex == 0 || RecApptBookingTimeComboBox.SelectedItem == null)
+            if (RecApptBookingTimeComboBox.SelectedIndex == 0 || RecApptBookingTimeComboBox.SelectedItem == null || RecApptBookingTimeComboBox.SelectedItem.ToString() == "Cutoff Time")
             {
                 MessageBox.Show("Please select a booking time", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -7583,6 +7585,11 @@ namespace Enchante
             RecApptCatMassRB.Checked = false;
             RecApptSelectedServiceDGV.Rows.Clear();
             RecApptBookingTimeComboBox.Items.Clear();
+            RecApptClientBdayPicker.Value = DateTime.Today;
+            RecApptClientAgeText.Text = "Age";
+            RecApptBookingDatePicker.Value = DateTime.Today;
+            RecApptPreferredStaffToggleSwitch.Checked = false;
+            RecApptAnyStaffToggleSwitch.Checked = false;
             isappointment = false;
         }
 
@@ -7759,13 +7766,26 @@ namespace Enchante
                                 queNumber++;
                                 string updateQueNumberQuery = $"UPDATE servicehistory SET QueNumber = {queNumber} WHERE TransactionNumber = '{transactionID}' AND ServiceStatus = 'Pending' AND ServiceCategory = '{serviceCategory}'";
                                 ExecuteQuery(updateQueNumberQuery);
-                                MessageBox.Show("Appointment Accepted");
 
-                                string updateAppointmentStatusQuery = $"UPDATE appointment SET AppointmentStatus = 'Confirmed' WHERE TransactionNumber = '{transactionID}'";
-                                ExecuteQuery(updateAppointmentStatusQuery);
+                                // Ask for confirmation before confirming the appointment
+                                DialogResult result = MessageBox.Show("Are you sure you want to confirm the appointment?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                                RecApptAcceptLateDeclineDGV.Rows.Clear();
-                                InitializeAppointmentDataGrid();
+                                if (result == DialogResult.Yes)
+                                {
+                                    // User confirmed, proceed with appointment confirmation
+                                    string updateAppointmentStatusQuery = $"UPDATE appointment SET AppointmentStatus = 'Confirmed' WHERE TransactionNumber = '{transactionID}'";
+                                    ExecuteQuery(updateAppointmentStatusQuery);
+
+                                    MessageBox.Show("Appointment Confirmed");
+
+                                    RecApptAcceptLateDeclineDGV.Rows.Clear();
+                                    InitializeAppointmentDataGrid();
+                                }
+                                else
+                                {
+                                    // User cancelled the operation
+                                    MessageBox.Show("Appointment confirmation cancelled");
+                                }
                             }
                             else
                             {
@@ -7773,13 +7793,26 @@ namespace Enchante
                                 queNumber++;
                                 string updateQueNumberQuery = $"UPDATE servicehistory SET QueNumber = {queNumber} WHERE TransactionNumber = '{transactionID}' AND ServiceStatus = 'Pending' AND ServiceCategory = '{serviceCategory}'";
                                 ExecuteQuery(updateQueNumberQuery);
-                                MessageBox.Show("Appointment Accepted");
 
-                                string updateAppointmentStatusQuery = $"UPDATE appointment SET AppointmentStatus = 'Confirmed' WHERE TransactionNumber = '{transactionID}'";
-                                ExecuteQuery(updateAppointmentStatusQuery);
+                                // Ask for confirmation before confirming the appointment
+                                DialogResult result = MessageBox.Show("Are you sure you want to confirm the appointment?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                                RecApptAcceptLateDeclineDGV.Rows.Clear();
-                                InitializeAppointmentDataGrid();
+                                if (result == DialogResult.Yes)
+                                {
+                                    // User confirmed, proceed with appointment confirmation
+                                    string updateAppointmentStatusQuery = $"UPDATE appointment SET AppointmentStatus = 'Confirmed' WHERE TransactionNumber = '{transactionID}'";
+                                    ExecuteQuery(updateAppointmentStatusQuery);
+
+                                    MessageBox.Show("Appointment Confirmed");
+
+                                    RecApptAcceptLateDeclineDGV.Rows.Clear();
+                                    InitializeAppointmentDataGrid();
+                                }
+                                else
+                                {
+                                    // User cancelled the operation
+                                    MessageBox.Show("Appointment confirmation cancelled by user.");
+                                }
                             }
                         }
                     }
@@ -7790,6 +7823,7 @@ namespace Enchante
                 MessageBox.Show("Please select a transaction number.");
             }
         }
+
 
         private int GetLargestQueNumberFromDatabase(string serviceCategory)
         {
@@ -13028,7 +13062,7 @@ namespace Enchante
 
         private void StaffServiceRateTestBtn_Click(object sender, EventArgs e)
         {
-            RateMe.Show();
+
         }
 
         private void MngrApptServiceBtn_Click(object sender, EventArgs e)
@@ -13041,5 +13075,52 @@ namespace Enchante
             Inventory.PanelShow(MngrInventoryTypePanel);
 
         }
+
+        private void RecCanceltApptTransactionBtn_Click(object sender, EventArgs e)
+        {
+            if (RecApptAcceptLateDeclineDGV.SelectedRows.Count > 0)
+            {
+                // Get the selected transaction ID from the DataGridView
+                string transactionID = RecApptAcceptLateDeclineDGV.SelectedRows[0].Cells["TransactionID"].Value.ToString();
+
+                // Ask for confirmation before canceling the appointment
+                DialogResult result = MessageBox.Show("Are you sure you want to cancel the appointment?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    // User confirmed, proceed with cancellation
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    {
+                        connection.Open();
+
+                        string updateQuery = $"UPDATE appointment SET AppointmentStatus = 'Cancelled' WHERE TransactionNumber = '{transactionID}'";
+                        MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection);
+                        int rowsAffected = updateCommand.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            RecApptAcceptLateDeclineDGV.Rows.Clear();
+                            InitializeAppointmentDataGrid();
+                            MessageBox.Show("Appointment successfully cancelled.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to cancel appointment. Please try again.");
+                        }
+                    }
+                }
+                else
+                {
+                    // User cancelled the operation
+                    MessageBox.Show("Appointment cancellation cancelled.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a transaction number.");
+            }
+        }
+
+
     }
 }
