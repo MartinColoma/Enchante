@@ -187,6 +187,16 @@ namespace Enchante
             MngrProductSalesSelectCatBox.Items.Add("Spa");
             MngrProductSalesSelectCatBox.Items.Add("All Categories");
 
+            MngrAppSalesPeriod.Items.Add("Day");
+            MngrAppSalesPeriod.Items.Add("Week");
+            MngrAppSalesPeriod.Items.Add("Month");
+            MngrAppSalesPeriod.Items.Add("Specific Date Range");
+            MngrAppSalesSelectCatBox.Items.Add("Hair Styling");
+            MngrAppSalesSelectCatBox.Items.Add("Face & Skin");
+            MngrAppSalesSelectCatBox.Items.Add("Nail Care");
+            MngrAppSalesSelectCatBox.Items.Add("Massage");
+            MngrAppSalesSelectCatBox.Items.Add("Spa");
+            MngrAppSalesSelectCatBox.Items.Add("All Categories");
 
             //InitializeAvailableStaffFlowLayout();
 
@@ -9262,6 +9272,7 @@ namespace Enchante
 
         private void MngrWalkinProdSalesExitBtn_Click(object sender, EventArgs e)
         {
+
             trydata.Visible = false;
             MngrProductSalesTransRepDGV.DataSource = null;
             trydata.DataSource = null;
@@ -10436,6 +10447,7 @@ namespace Enchante
                         query += " AND ServiceCategory = @SelectedCategory";
                     }
 
+                    query += " AND TransactionType = 'Walk-in Transaction'";
                     query += " GROUP BY AppointmentDay, ServiceCategory";
 
                     MySqlCommand command = new MySqlCommand(query, connection);
@@ -10528,6 +10540,7 @@ namespace Enchante
                         transNumQuery += " AND ServiceCategory = @SelectedCategory";
                     }
 
+                    transNumQuery += " AND TransactionType = 'Walk-in Transaction'";
                     transNumQuery += " GROUP BY TransactionNumber";
 
                     MySqlCommand transNumCommand = new MySqlCommand(transNumQuery, connection);
@@ -10564,7 +10577,7 @@ namespace Enchante
         {
             MngrWalkinSalesSelectedPeriodText.Text = "";
 
-            string selectedItem = MngrWalkinSalesPeriod.SelectedItem?.ToString(); // Use null-conditional operator to handle null case
+            string selectedItem = MngrWalkinSalesPeriod.SelectedItem?.ToString();
 
             if (selectedItem != null)
             {
@@ -10665,7 +10678,6 @@ namespace Enchante
 
                     MngrWalkinSalesTransServiceHisDGV.DataSource = dataTable;
 
-                    // Display the TransactionNumber in the TextBox
                     MngrWalkinSalesTransIDShow.Text = transactionNumber;
                 }
                 connection.Close();
@@ -10689,6 +10701,7 @@ namespace Enchante
             MngrWalkinSalesPeriod.SelectedItem = null;
             MngrWalkinSalesSelectCatBox.SelectedItem = null;
             MngrWalkinSalesSelectedPeriodText.Text = "";
+            MngrWalkinSalesTransIDShow.Text = "";
             MngrWalkinSalesTransRepDGV.DataSource = null;
             MngrWalkinSalesTransServiceHisDGV.DataSource = null;
             MngrWalkinSalesGraph.Series.Clear();
@@ -11245,7 +11258,7 @@ namespace Enchante
                 if (filteredData.Rows.Count == 0)
                 {
                     MessageBox.Show("No data available for the selected date range.", "Walk-in Products Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    MngrProductSalesGraph.Series["Sales"].Points.Clear();
+                    MngrProductSalesGraph.Series[0].Points.Clear();
                     MngrProductSalesLineGraph.Series.Clear();
                     MngrProductSalesLineGraph.Legends.Clear();
                     return;
@@ -11292,25 +11305,25 @@ namespace Enchante
                                       };
                     }
 
-                    if (!MngrProductSalesGraph.Series.Any(s => s.Name == "Sales"))
+                    if (!MngrProductSalesGraph.Series.Any())
                     {
-                        MngrProductSalesGraph.Series.Add("Sales");
+                        MngrProductSalesGraph.Series.Add(new Series());
                     }
 
-                    MngrProductSalesGraph.Series["Sales"].Points.Clear();
+                    MngrProductSalesGraph.Series[0].Points.Clear();
 
                     foreach (var group in groupedRows)
                     {
                         DataPoint dataPoint = new DataPoint();
                         dataPoint.SetValueY(group.TotalQty);
                         dataPoint.LegendText = (MngrProductSalesSelectCatBox.Text == "All Categories") ? GetCategoryName(group.ItemName) : group.ItemName;
-                        MngrProductSalesGraph.Series["Sales"].Points.Add(dataPoint);
+                        MngrProductSalesGraph.Series[0].Points.Add(dataPoint);
                     }
 
-                    MngrProductSalesGraph.Series["Sales"].ChartType = SeriesChartType.Pie;
-                    MngrProductSalesGraph.Series["Sales"]["PieLabelStyle"] = "Inside";
-                    MngrProductSalesGraph.Series["Sales"]["PieLineColor"] = "Black";
-                    MngrProductSalesGraph.Series["Sales"]["PieDrawingStyle"] = "Concave";
+                    MngrProductSalesGraph.Series[0].ChartType = SeriesChartType.Pie;
+                    MngrProductSalesGraph.Series[0]["PieLabelStyle"] = "Inside";
+                    MngrProductSalesGraph.Series[0]["PieLineColor"] = "Black";
+                    MngrProductSalesGraph.Series[0]["PieDrawingStyle"] = "Concave";
 
                     MngrProductSalesGraph.Titles.Clear();
                     MngrProductSalesGraph.Titles.Add("Quantity Sold Distribution").Font = new System.Drawing.Font("Arial", 12, FontStyle.Bold | FontStyle.Italic);
@@ -11628,6 +11641,376 @@ namespace Enchante
 
         #endregion
 
+        #region Mngr. PANEL OF APPOINTMENT Services REVENUE
+        private void MngrAppSalesIncomeBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(MngrAppSalesPeriod.Text))
+            {
+                MessageBox.Show("Please select a sale period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (MngrAppSalesSelectCatBox.SelectedItem == null || string.IsNullOrEmpty(MngrAppSalesSelectCatBox.SelectedItem.ToString()))
+            {
+                MessageBox.Show("Please select a category.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string fromDate = "";
+            string toDate = "";
+            string selectedCategory = MngrAppSalesSelectCatBox.SelectedItem?.ToString();
+            string salePeriod = MngrAppSalesPeriod.SelectedItem.ToString();
+
+            switch (MngrAppSalesPeriod.Text)
+            {
+                case "Day":
+
+                    if (string.IsNullOrEmpty(MngrAppSalesSelectedPeriodText.Text))
+                    {
+                        MessageBox.Show("Please select a valid date for the day period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    string inputValue = MngrAppSalesSelectedPeriodText.Text;
+                    fromDate = inputValue;
+                    toDate = inputValue;
+                    break;
+
+                case "Week":
+
+                    if (string.IsNullOrEmpty(MngrAppSalesSelectedPeriodText.Text))
+                    {
+                        MessageBox.Show("Please select a date range for the week period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    string[] weekDates = MngrAppSalesSelectedPeriodText.Text.Split(new char[] { ' ', 't', 'o', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    fromDate = weekDates[0];
+                    toDate = weekDates[1];
+                    break;
+
+                case "Month":
+
+                    if (string.IsNullOrEmpty(MngrAppSalesSelectedPeriodText.Text))
+                    {
+                        MessageBox.Show("Please select a month for the month period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    string[] monthYear = MngrAppSalesSelectedPeriodText.Text.Split('-');
+                    int month = DateTime.ParseExact(monthYear[0], "MMMM", CultureInfo.InvariantCulture).Month;
+                    int year = int.Parse(monthYear[1]);
+                    fromDate = new DateTime(year, month, 1).ToString("MM-dd-yyyy");
+                    toDate = new DateTime(year, month, DateTime.DaysInMonth(year, month)).ToString("MM-dd-yyyy");
+                    break;
+
+                case "Specific Date Range":
+
+                    if (MngrAppSalesFromDatePicker.Value > MngrAppSalesToDatePicker.Value)
+                    {
+                        MessageBox.Show("Invalid date range. Please make sure the From date is before the To date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    if (MngrAppSalesFromDatePicker.Value.Date == MngrAppSalesToDatePicker.Value.Date)
+                    {
+                        MessageBox.Show("From date and to date cannot be the same.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    fromDate = MngrAppSalesFromDatePicker.Value.ToString("MM-dd-yyyy");
+                    toDate = MngrAppSalesToDatePicker.Value.ToString("MM-dd-yyyy");
+                    break;
+
+                default:
+                    MessageBox.Show("Invalid selection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+            }
+
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+
+            List<DateTime> dates = new List<DateTime>();
+            Dictionary<string, List<decimal>> categoryRevenues = new Dictionary<string, List<decimal>>();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string query = @"
+                        SELECT 
+                            LEFT(AppointmentDate, 10) AS AppointmentDay, 
+                            ServiceCategory,
+                            SUM(CAST(ServicePrice AS DECIMAL(10, 2))) AS TotalRevenue 
+                        FROM 
+                            servicehistory 
+                        WHERE 
+                            ServiceStatus = 'Completed' 
+                            AND LEFT(AppointmentDate, 10) BETWEEN @FromDate AND @ToDate ";
+
+                    if (selectedCategory != "All Categories")
+                    {
+                        query += " AND ServiceCategory = @SelectedCategory";
+                    }
+
+                    query += " AND TransactionType = 'Walk-in Appointment Transaction'";
+                    query += " GROUP BY LEFT(AppointmentDate, 10), ServiceCategory";
+
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@FromDate", fromDate);
+                    command.Parameters.AddWithValue("@ToDate", toDate);
+
+                    if (selectedCategory != "All Categories")
+                    {
+                        command.Parameters.AddWithValue("@SelectedCategory", selectedCategory);
+                    }
+
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    if (!reader.HasRows)
+                    {
+                        MessageBox.Show("No data available for the selected date range.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MngrAppSalesGraph.Series.Clear();
+                        MngrAppSalesGraph.Legends.Clear();
+                        MngrAppSalesTransRepDGV.DataSource = null;
+                        MngrAppSalesTransServiceHisDGV.DataSource = null;
+                        MngrAppSalesTransIDShow.Text = "";
+                        return;
+                    }
+
+                    while (reader.Read())
+                    {
+                        string appointmentDayString = reader["AppointmentDay"].ToString().Substring(0, 10);
+                        DateTime appointmentDay;
+                        if (!DateTime.TryParseExact(appointmentDayString, "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out appointmentDay))
+                        {
+                            MessageBox.Show($"Error parsing date: {appointmentDayString}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            continue;
+                        }
+
+                        string category = (string)reader["ServiceCategory"];
+                        decimal totalRevenue = (decimal)reader["TotalRevenue"];
+
+                        if (!categoryRevenues.ContainsKey(category))
+                        {
+                            categoryRevenues[category] = new List<decimal>();
+                        }
+
+                        categoryRevenues[category].Add(totalRevenue);
+
+                        if (!dates.Contains(appointmentDay))
+                        {
+                            dates.Add(appointmentDay);
+                        }
+                    }
+                    reader.Close();
+
+                    AppointmentServiceBreakdown(selectedCategory, fromDate, toDate, connection);
+                    DisplayAppointmentLineChart(query, connectionString, categoryRevenues, dates);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
+        private void DisplayAppointmentLineChart(string query, string connectionString, Dictionary<string, List<decimal>> categoryRevenues, List<DateTime> dates)
+        {
+            MngrAppSalesGraph.Series.Clear();
+            MngrAppSalesGraph.Legends.Clear();
+
+            foreach (var category in categoryRevenues.Keys)
+            {
+                Series series = MngrAppSalesGraph.Series.Add($"{category} Revenue");
+                series.ChartType = SeriesChartType.Line;
+                series.BorderWidth = 3;
+
+                for (int i = 0; i < dates.Count; i++)
+                {
+                    string dateString = dates[i].ToShortDateString();
+                    if (categoryRevenues[category].Count > i)
+                    {
+                        series.Points.AddXY(dateString, categoryRevenues[category][i]);
+                        series.Points[i].MarkerStyle = MarkerStyle.Circle;
+                        series.Points[i].MarkerSize = 8;
+                    }
+                    else
+                    {
+                        series.Points.AddXY(dateString, 0);
+                    }
+                }
+            }
+
+            MngrAppSalesGraph.ChartAreas[0].AxisX.Title = "Dates";
+            MngrAppSalesGraph.ChartAreas[0].AxisX.TitleFont = new System.Drawing.Font("Arial", 10, System.Drawing.FontStyle.Bold);
+            MngrAppSalesGraph.ChartAreas[0].AxisY.Title = "Revenue";
+            MngrAppSalesGraph.ChartAreas[0].AxisY.TitleFont = new System.Drawing.Font("Arial", 10, System.Drawing.FontStyle.Bold);
+
+            MngrAppSalesGraph.Legends.Add("Legend1");
+            MngrAppSalesGraph.Legends[0].Enabled = true;
+            MngrAppSalesGraph.Legends[0].Docking = Docking.Bottom;
+        }
+
+        private void AppointmentServiceBreakdown(string selectedCategory, string fromDate, string toDate, MySqlConnection connection)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("TransactionNumber");
+            dt.Columns.Add("AppointmentDate");
+            dt.Columns.Add("TotalServicePrice", typeof(decimal));
+
+            string transNumQuery = @"
+                    SELECT TransactionNumber, AppointmentDate, SUM(CAST(ServicePrice AS DECIMAL(10, 2))) AS TotalServicePrice 
+                    FROM servicehistory 
+                    WHERE ServiceStatus = 'Completed' 
+                    AND LEFT(AppointmentDate, 10) BETWEEN @FromDate AND @ToDate ";
+
+            if (selectedCategory != "All Categories")
+            {
+                transNumQuery += " AND ServiceCategory = @SelectedCategory";
+            }
+
+            transNumQuery += " AND TransactionType = 'Walk-in Appointment Transaction'";
+            transNumQuery += " GROUP BY TransactionNumber";
+
+            MySqlCommand transNumCommand = new MySqlCommand(transNumQuery, connection);
+            transNumCommand.Parameters.AddWithValue("@FromDate", fromDate);
+            transNumCommand.Parameters.AddWithValue("@ToDate", toDate);
+
+            if (selectedCategory != "All Categories")
+            {
+                transNumCommand.Parameters.AddWithValue("@SelectedCategory", selectedCategory);
+            }
+
+            using (MySqlDataReader transNumReader = transNumCommand.ExecuteReader())
+            {
+                while (transNumReader.Read())
+                {
+                    string transactionNumber = transNumReader["TransactionNumber"].ToString();
+                    string appointmentDate = transNumReader["AppointmentDate"].ToString();
+                    decimal totalServicePrice = transNumReader.GetDecimal("TotalServicePrice");
+
+                    dt.Rows.Add(transactionNumber, appointmentDate, totalServicePrice);
+                }
+            }
+
+            MngrAppSalesTransRepDGV.DataSource = dt;
+        }
+
+        private void MngrAppSalesPeriod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MngrAppSalesSelectedPeriodText.Text = "";
+            string selectedItem = MngrAppSalesPeriod.SelectedItem?.ToString();
+
+            if (selectedItem != null)
+            {
+                if (selectedItem == "Day" || selectedItem == "Week" || selectedItem == "Month")
+                {
+                    MngrAppSalesPeriodCalendar.Visible = true;
+                    MngrAppSalesFromLbl.Visible = false;
+                    MngrAppSalesToLbl.Visible = false;
+                    MngrAppSalesFromDatePicker.Visible = false;
+                    MngrAppSalesToDatePicker.Visible = false;
+                    MngrAppSalesSelectedPeriodLbl.Visible = true;
+                    MngrAppSalesSelectedPeriodText.Visible = true;
+                }
+
+                else if (selectedItem == "Specific Date Range")
+                {
+                    MngrAppSalesPeriodCalendar.Visible = false;
+                    MngrAppSalesFromLbl.Visible = true;
+                    MngrAppSalesToLbl.Visible = true;
+                    MngrAppSalesFromDatePicker.Visible = true;
+                    MngrAppSalesToDatePicker.Visible = true;
+                    MngrAppSalesSelectedPeriodLbl.Visible = false;
+                    MngrAppSalesSelectedPeriodText.Visible = false;
+                }
+            }
+        }
+
+        private void MngrAppSalesPeriodCalendar_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            DateTime selectedDate = MngrAppSalesPeriodCalendar.SelectionStart;
+            string selectedPeriod = "";
+            string salePeriod = MngrAppSalesPeriod.SelectedItem.ToString();
+
+            switch (salePeriod)
+            {
+                case "Day":
+                    selectedPeriod = selectedDate.ToString("MM-dd-yyyy");
+                    break;
+                case "Week":
+                    DateTime monday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + (int)DayOfWeek.Monday);
+                    DateTime sunday = monday.AddDays(6);
+                    selectedPeriod = monday.ToString("MM-dd-yyyy") + " to " + sunday.ToString("MM-dd-yyyy");
+                    break;
+                case "Month":
+                    selectedPeriod = selectedDate.ToString("MMMM-yyyy");
+                    break;
+                default:
+                    break;
+            }
+            MngrAppSalesSelectedPeriodText.Text = selectedPeriod;
+        }
+
+        private void MngrAppSalesTransRepDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+
+            if (MngrAppSalesTransRepDGV == null || MngrAppSalesTransRepDGV.SelectedRows.Count == 0 || MngrAppSalesTransRepDGV.SelectedRows[0].Cells["TransactionNumber"] == null)
+            {
+                MessageBox.Show("Please select a row to view.", "No Row Selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string transactionNumber = MngrAppSalesTransRepDGV.SelectedRows[0].Cells["TransactionNumber"].Value?.ToString();
+
+            if (string.IsNullOrEmpty(transactionNumber))
+            {
+                MessageBox.Show("TransactionNumber is null or empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string categoryFilter = "";
+            if (MngrAppSalesSelectCatBox.SelectedItem?.ToString() != "All Categories")
+            {
+                categoryFilter = "AND ServiceCategory = @ServiceCategory";
+            }
+
+            string query = @"
+                    SELECT ServiceCategory, SelectedService, ServicePrice 
+                    FROM servicehistory 
+                    WHERE TransactionNumber = @TransactionNumber 
+                    AND ServiceStatus = 'Completed' 
+                    AND TransactionType = 'Walk-in Appointment Transaction' " + categoryFilter;
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+
+                    if (MngrAppSalesSelectCatBox.SelectedItem?.ToString() != "All Categories")
+                    {
+                        command.Parameters.AddWithValue("@ServiceCategory", MngrAppSalesSelectCatBox.SelectedItem?.ToString());
+                    }
+
+                    DataTable dataTable = new DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        adapter.Fill(dataTable);
+                    }
+                    MngrAppSalesTransServiceHisDGV.DataSource = dataTable;
+                    MngrAppSalesTransIDShow.Text = transactionNumber;
+                }
+                connection.Close();
+            }
+        }
+        #endregion
 
         #endregion
 
@@ -13072,6 +13455,21 @@ namespace Enchante
 
         private void MngrApptServiceExitBtn_Click(object sender, EventArgs e)
         {
+            MngrAppSalesSelectedPeriodLbl.Visible = true;
+            MngrAppSalesSelectedPeriodText.Visible = true;
+            MngrAppSalesFromLbl.Visible = false;
+            MngrAppSalesFromDatePicker.Visible = false;
+            MngrAppSalesToLbl.Visible = false;
+            MngrAppSalesToDatePicker.Visible = false;
+            MngrAppSalesPeriodCalendar.Visible = false;
+            MngrAppSalesPeriod.SelectedItem = null;
+            MngrAppSalesSelectCatBox.SelectedItem = null;
+            MngrAppSalesSelectedPeriodText.Text = "";
+            MngrAppSalesTransIDShow.Text = "";
+            MngrAppSalesTransRepDGV.DataSource = null;
+            MngrAppSalesTransServiceHisDGV.DataSource = null;
+            MngrAppSalesGraph.Series.Clear();
+            MngrAppSalesGraph.Legends.Clear();
             Inventory.PanelShow(MngrInventoryTypePanel);
 
         }
@@ -13120,7 +13518,5 @@ namespace Enchante
                 MessageBox.Show("Please select a transaction number.");
             }
         }
-
-
     }
 }
