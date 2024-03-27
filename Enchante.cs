@@ -5281,9 +5281,24 @@ namespace Enchante
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show("An error occurred: " + e.Message, "Completed Transaction List Failed to Load");
+                string errorMessage = "An error occurred: " + ex.Message + "\n\n" + ex.StackTrace;
+
+                try
+                {
+                    // Try to copy the error message to the clipboard
+                    Clipboard.SetText(errorMessage);
+
+                    // Show a MessageBox indicating that the error message has been copied to the clipboard
+                    MessageBox.Show("An error occurred. The error message has been copied to the clipboard.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception copyEx)
+                {
+                    // If copying to clipboard fails, display a MessageBox with the error message without copying to clipboard
+                    string copyErrorMessage = "An error occurred while copying the error message to the clipboard:\n" + copyEx.Message;
+                    MessageBox.Show(errorMessage + "\n\n" + copyErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             finally
             {
@@ -5351,9 +5366,24 @@ namespace Enchante
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show("An error occurred: " + e.Message, "Completed Transaction List Failed to Load");
+                string errorMessage = "An error occurred: " + ex.Message + "\n\n" + ex.StackTrace;
+
+                try
+                {
+                    // Try to copy the error message to the clipboard
+                    Clipboard.SetText(errorMessage);
+
+                    // Show a MessageBox indicating that the error message has been copied to the clipboard
+                    MessageBox.Show("An error occurred. The error message has been copied to the clipboard.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception copyEx)
+                {
+                    // If copying to clipboard fails, display a MessageBox with the error message without copying to clipboard
+                    string copyErrorMessage = "An error occurred while copying the error message to the clipboard:\n" + copyEx.Message;
+                    MessageBox.Show(errorMessage + "\n\n" + copyErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             finally
             {
