@@ -218,6 +218,6 @@
         public Guna.UI2.WinForms.Guna2CirclePictureBox ProductPicturePictureBox;
         public Guna.UI2.WinForms.Guna2TextBox ProductStockTextBox;
         public Guna.UI2.WinForms.Guna2PictureBox ProductOutOfStockPictureBox;
-        private System.Windows.Forms.Label PhpSignLbl;
+        public System.Windows.Forms.Label PhpSignLbl;
     }
 }
