@@ -4316,6 +4316,7 @@ namespace Enchante
                 string query = "SELECT ItemID, ItemName, ItemStock, ItemPrice, ItemStatus, ProductPicture FROM inventory WHERE ProductType = 'Retail Product'";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 MySqlDataReader reader = command.ExecuteReader();
+                Size userControlSize = new Size(295, 275);
 
                 while (reader.Read())
                 {
@@ -4336,6 +4337,14 @@ namespace Enchante
                     recwalkinproductusercontrol.ProductPriceTextBox.Text = itemPrice;
                     recwalkinproductusercontrol.ProductStatusTextBox.Text = itemStatus;
                     //recshop product
+                    recshopproductusercontrol.Size = userControlSize;
+                    recshopproductusercontrol.ProductNameTextBox.Size = new Size(235, 33);
+                    recshopproductusercontrol.ProductPriceTextBox.Size = new Size(90, 27);
+                    recshopproductusercontrol.ProductPicturePictureBox.Size = new Size(162, 162);
+                    recshopproductusercontrol.ProductNameTextBox.Location = new Point(12, 190);
+                    recshopproductusercontrol.ProductPriceTextBox.Location = new Point(67, 230);
+                    recshopproductusercontrol.PhpSignLbl.Location = new Point(18, 230);
+                    recshopproductusercontrol.ProductPicturePictureBox.Location = new Point(72, 12);
                     recshopproductusercontrol.ProductItemIDTextBox.Text = itemID;
                     recshopproductusercontrol.ProductNameTextBox.Text = itemName;
                     recshopproductusercontrol.ProductStockTextBox.Text = itemStock;
@@ -5272,9 +5281,24 @@ namespace Enchante
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show("An error occurred: " + e.Message, "Completed Transaction List Failed to Load");
+                string errorMessage = "An error occurred: " + ex.Message + "\n\n" + ex.StackTrace;
+
+                try
+                {
+                    // Try to copy the error message to the clipboard
+                    Clipboard.SetText(errorMessage);
+
+                    // Show a MessageBox indicating that the error message has been copied to the clipboard
+                    MessageBox.Show("An error occurred. The error message has been copied to the clipboard.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception copyEx)
+                {
+                    // If copying to clipboard fails, display a MessageBox with the error message without copying to clipboard
+                    string copyErrorMessage = "An error occurred while copying the error message to the clipboard:\n" + copyEx.Message;
+                    MessageBox.Show(errorMessage + "\n\n" + copyErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             finally
             {
@@ -5342,9 +5366,24 @@ namespace Enchante
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show("An error occurred: " + e.Message, "Completed Transaction List Failed to Load");
+                string errorMessage = "An error occurred: " + ex.Message + "\n\n" + ex.StackTrace;
+
+                try
+                {
+                    // Try to copy the error message to the clipboard
+                    Clipboard.SetText(errorMessage);
+
+                    // Show a MessageBox indicating that the error message has been copied to the clipboard
+                    MessageBox.Show("An error occurred. The error message has been copied to the clipboard.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception copyEx)
+                {
+                    // If copying to clipboard fails, display a MessageBox with the error message without copying to clipboard
+                    string copyErrorMessage = "An error occurred while copying the error message to the clipboard:\n" + copyEx.Message;
+                    MessageBox.Show(errorMessage + "\n\n" + copyErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             finally
             {
