@@ -10796,7 +10796,7 @@ namespace Enchante
 
         #endregion
 
-        #region MNgr. PANEL OF SERVICE DEMAND
+        #region Mngr. PANEL OF SERVICE DEMAND
         private void ServiceHistoryBtn_Click(object sender, EventArgs e)
         {
             try
@@ -10870,7 +10870,8 @@ namespace Enchante
                         SELECT 
                             ServiceCategory,
                             AttendingStaff,
-                        COUNT(*) AS CategoryCount
+                            StarRating,
+                            COUNT(*) AS CategoryCount
                         FROM 
                             servicehistory 
                         WHERE 
@@ -10884,10 +10885,11 @@ namespace Enchante
                 {
                     query = @"
                         SELECT 
-                            AttendingStaff,
+                            AttendingStaff,                   
                             STR_TO_DATE(AppointmentDate, '%m-%d-%Y') AS AppointmentDay, 
                             ServiceCategory,
-                            SelectedService
+                            SelectedService,
+                            StarRating
                         FROM 
                             servicehistory 
                         WHERE 
@@ -10909,6 +10911,8 @@ namespace Enchante
 
                         Dictionary<string, int> serviceCounts = new Dictionary<string, int>();
                         Dictionary<string, int> staffCounts = new Dictionary<string, int>();
+                        Dictionary<string, int> staffRatings = new Dictionary<string, int>();
+                        Dictionary<string, double> staffFinalRatings = new Dictionary<string, double>();
 
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
@@ -10974,13 +10978,64 @@ namespace Enchante
                             }
                         }
 
+                        using (MySqlCommand ratingCommand = new MySqlCommand(query, connection))
+                        {
+                            ratingCommand.Parameters.AddWithValue("@FromDate", fromDate.ToString("yyyy-MM-dd"));
+                            ratingCommand.Parameters.AddWithValue("@ToDate", toDate.ToString("yyyy-MM-dd"));
+                            ratingCommand.Parameters.AddWithValue("@SelectedCategory", selectedCategory);
+
+                            using (MySqlDataReader staffReader = ratingCommand.ExecuteReader())
+                            {
+                                while (staffReader.Read())
+                                {
+                                    string attendingStaff = staffReader.GetString("AttendingStaff");
+                                    int starRating = staffReader.GetInt32("StarRating");
+
+                                    if (selectedCategory == "Top Service Category")
+                                    {
+                                        if (staffRatings.ContainsKey(attendingStaff))
+                                        {
+                                            staffRatings[attendingStaff] += starRating;
+                                        }
+                                        else
+                                        {
+                                            staffRatings[attendingStaff] = starRating;
+                                        }
+                                    }
+                                    else
+                                    {                                       
+                                        if (staffRatings.ContainsKey(attendingStaff))
+                                        {
+                                            staffRatings[attendingStaff] += starRating;
+                                        }
+                                        else
+                                        {
+                                            staffRatings[attendingStaff] = starRating;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        foreach (var staffName in staffCounts.Keys)
+                        {
+                            if (staffCounts.ContainsKey(staffName) && staffCounts[staffName] != 0)
+                            {
+                                double finalRating = (double)staffRatings[staffName] / staffCounts[staffName];
+                                staffFinalRatings[staffName] = finalRating;
+                            }
+                            else
+                            {
+                                staffFinalRatings[staffName] = 0;
+                            }
+                        }
+
                         if (selectedCategory == "Top Service Category")
                         {
                             MngrIndemandServiceGraph.Series.Clear();
                             var series = MngrIndemandServiceGraph.Series.Add("ServiceCount");
                             series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
 
-                            // Set pie chart appearance properties
                             series["PieLabelStyle"] = "Inside";
                             series["PieLineColor"] = "Black";
                             series["PieDrawingStyle"] = "Concave";
@@ -11014,7 +11069,8 @@ namespace Enchante
                             staffTable.Columns.Add("ID");
                             staffTable.Columns.Add("First Name");
                             staffTable.Columns.Add("Last Name");
-                            staffTable.Columns.Add("# of Services Done");
+                            staffTable.Columns.Add("Services Done");
+                            //staffTable.Columns.Add("Rating");
 
                             List<KeyValuePair<string, int>> sortedStaffCounts = staffCounts.ToList();
                             sortedStaffCounts.Sort((x, y) => y.Value.CompareTo(x.Value));
@@ -11035,13 +11091,18 @@ namespace Enchante
                                             firstName = userReader.GetString("FirstName");
                                             lastName = userReader.GetString("LastName");
 
-                                            staffTable.Rows.Add(rank, employeeID, firstName, lastName, kvp.Value);
+                                            //double rating = staffFinalRatings.ContainsKey(employeeID) ? staffFinalRatings[employeeID] : 0;
+
+                                            staffTable.Rows.Add(rank, employeeID, firstName, lastName, kvp.Value); //rating);
                                             rank++;
                                         }
                                     }
                                 }
                             }
                             MngrIndemandBestEmployee.DataSource = staffTable;
+                            MngrIndemandBestEmployee.Columns["Rank"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                            MngrIndemandBestEmployee.Columns["Services Done"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                            //MngrIndemandBestEmployee.Columns["Rating"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                         }
                         else
                         {
@@ -11061,7 +11122,8 @@ namespace Enchante
                             staffTable.Columns.Add("ID");
                             staffTable.Columns.Add("First Name");
                             staffTable.Columns.Add("Last Name");
-                            staffTable.Columns.Add("# of Services Done");
+                            staffTable.Columns.Add("Services Done");
+                            staffTable.Columns.Add("Rating");
 
                             List<KeyValuePair<string, int>> sortedStaffCounts = staffCounts.ToList();
                             sortedStaffCounts.Sort((x, y) => y.Value.CompareTo(x.Value));
@@ -11082,7 +11144,10 @@ namespace Enchante
                                             firstName = userReader.GetString("FirstName");
                                             lastName = userReader.GetString("LastName");
 
-                                            staffTable.Rows.Add(rank, employeeID, firstName, lastName, kvp.Value);
+                                            double rating = staffFinalRatings.ContainsKey(employeeID) ? staffFinalRatings[employeeID] : 0;
+                                            string formattedRating = rating.ToString("0.0");
+
+                                            staffTable.Rows.Add(rank, employeeID, firstName, lastName, kvp.Value, formattedRating);
                                             rank++;
                                         }
                                     }
@@ -11090,8 +11155,11 @@ namespace Enchante
                             }
 
                             DataView dv = staffTable.DefaultView;
-                            dv.Sort = "# of Services Done DESC";
+                            dv.Sort = "Services Done DESC";
                             MngrIndemandBestEmployee.DataSource = dv.ToTable();
+                            MngrIndemandBestEmployee.Columns["Rank"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                            MngrIndemandBestEmployee.Columns["Services Done"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                            MngrIndemandBestEmployee.Columns["Rating"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                             MngrIndemandServiceGraph.Series.Clear();
                             var pieSeries = MngrIndemandServiceGraph.Series.Add("ServiceCount");
@@ -13603,5 +13671,7 @@ namespace Enchante
                 MessageBox.Show("Please select a transaction number.");
             }
         }
+
+        
     }
 }
