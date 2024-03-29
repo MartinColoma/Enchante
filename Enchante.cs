@@ -2871,6 +2871,7 @@ namespace Enchante
             RecWalkinTransNumText.Text = TransactionNumberGenerator.WalkinGenerateTransNumberDefault();
         }
 
+        //ApptMember
         private void RecAppointmentBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecApptPanel);
@@ -2918,6 +2919,7 @@ namespace Enchante
 
                 return ordersessionNumber;
             }
+            //ApptMember
             public static string AppointGenerateTransNumberInc()
             {
                 string datePart = DateTime.Now.ToString("MMddhhmm");
@@ -3591,6 +3593,7 @@ namespace Enchante
             }
         }
 
+
         private int GetLargestQueNum(string appointmentDate, string serviceCategory)
         {
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
@@ -3622,6 +3625,7 @@ namespace Enchante
             }
         }
 
+        //ApptMember
         public bool isappointment;
         public void QueTypeIdentifier(DataGridViewCell QueType)
         {
@@ -5208,6 +5212,7 @@ namespace Enchante
 
             }
         }
+
         private void RecPayServiceApptCompleteTransDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
@@ -6161,6 +6166,7 @@ namespace Enchante
             RecWalkinAttendingStaffSelectedComboBox.SelectedIndex = 0;
         }
 
+        //ApptMember
         public void LoadAppointmentPreferredStaffComboBox()
         {
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
@@ -6284,6 +6290,7 @@ namespace Enchante
 
         }
 
+        //ApptMember
         private void ShowNoServiceCategoryChosenWarningMessage()
         {
             RecWalkinNoServiceCategoryChosenWarningLbl.Visible = true;
@@ -6303,6 +6310,8 @@ namespace Enchante
             timer.Start();
         }
 
+
+        //ApptMember
         private void AnimateShakeEffect(System.Windows.Forms.Control control)
         {
             int originalX = control.Location.X;
@@ -6326,6 +6335,7 @@ namespace Enchante
             }
         }
 
+        //ApptMember
         private void RecApptAvailableAttendingStaffSelectedComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (RecApptAvailableAttendingStaffSelectedComboBox.SelectedItem != null)
@@ -6738,11 +6748,13 @@ namespace Enchante
 
         #region Receptionsit Walk-in Appointment
 
+        //ApptMember
         private void RecApptPanelExitBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecTransactionPanel);
         }
 
+        //ApptMember
         private void RecApptClientBdayPicker_ValueChanged(object sender, EventArgs e)
         {
             DateTime selectedDate = RecApptClientBdayPicker.Value;
@@ -6766,12 +6778,15 @@ namespace Enchante
             }
         }
 
+        //ApptMember
         string[] bookingTimes = new string[]
         {
             "Select a booking time", "08:00 am", "08:30 am", "09:00 am",
             "09:30 am", "10:00 am", "10:30 am", "11:00 am", "11:30 am",
             "01:00 pm", "01:30 pm", "02:00 pm", "02:30 pm", "03:00 pm",
         };
+
+        //ApptMember
         private void RecApptCatHSBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Hair Styling";
@@ -6785,6 +6800,7 @@ namespace Enchante
             RecApptHairStyle();
         }
 
+        //ApptMember
         private void RecApptCatFSBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Face & Skin";
@@ -6798,6 +6814,7 @@ namespace Enchante
             RecApptFace();
         }
 
+        //ApptMember
         private void RecApptCatNCBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Nail Care";
@@ -6808,10 +6825,10 @@ namespace Enchante
                 LoadAppointmentPreferredStaffComboBox();
             }
             LoadBookingTimes();
-
             RecApptNail();
         }
 
+        //ApptMember
         private void RecApptCatSpaBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Spa";
@@ -6822,10 +6839,10 @@ namespace Enchante
                 LoadAppointmentPreferredStaffComboBox();
             }
             LoadBookingTimes();
-
             RecApptSpa();
         }
 
+        //ApptMember
         private void RecApptCatMassBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Massage";
@@ -6836,9 +6853,10 @@ namespace Enchante
                 LoadAppointmentPreferredStaffComboBox();
             }
             LoadBookingTimes();
-
             RecApptMassage();
         }
+
+        //ApptMember
         private void RecApptHairStyle()
         {
             if (RecApptCatHSRB.Checked == false)
@@ -6873,6 +6891,7 @@ namespace Enchante
                 RecApptCatMassRB.Checked = false;
             }
         }
+        //ApptMember
         private void RecApptFace()
         {
             if (RecApptCatFSRB.Checked == false)
@@ -6897,6 +6916,7 @@ namespace Enchante
                 RecApptCatFSRB.Checked = true;
             }
         }
+        //ApptMember
         private void RecApptNail()
         {
             if (RecApptCatNCRB.Checked == false)
@@ -6921,6 +6941,7 @@ namespace Enchante
                 RecApptCatNCRB.Checked = true;
             }
         }
+        //ApptMember
         private void RecApptSpa()
         {
             if (RecApptCatSpaRB.Checked == false)
@@ -6945,6 +6966,7 @@ namespace Enchante
                 RecApptCatSpaRB.Checked = true;
             }
         }
+        //ApptMember
         private void RecApptMassage()
         {
             if (RecApptCatMassRB.Checked == false)
@@ -6969,6 +6991,8 @@ namespace Enchante
                 RecApptCatMassRB.Checked = true;
             }
         }
+
+        //ApptMember
         public void RecApptLoadHairStyleType()
         {
             try
@@ -7047,6 +7071,8 @@ namespace Enchante
                 connection.Close();
             }
         }
+
+        //ApptMember
         public void RecApptNailCareType()
         {
             try
@@ -7086,6 +7112,8 @@ namespace Enchante
                 connection.Close();
             }
         }
+
+        //ApptMember
         public void RecApptSpaType()
         {
             try
@@ -7125,6 +7153,8 @@ namespace Enchante
                 connection.Close();
             }
         }
+
+        //ApptMember
         public void RecApptMassageType()
         {
             try
@@ -7164,6 +7194,8 @@ namespace Enchante
                 connection.Close();
             }
         }
+
+        //ApptMember
         private void RecApptLoadServiceTypeComboBox(string selectedCategory)
         {
             // Filter and add the relevant service types based on the selected category
@@ -7189,6 +7221,8 @@ namespace Enchante
             }
 
         }
+
+        //ApptMember
         private void RecApptAddService()
         {
 
@@ -7286,11 +7320,13 @@ namespace Enchante
             RecApptAddService();
         }
 
+        //ApptMember
         private void RecApptSelectServiceAndStaffBtn_Click(object sender, EventArgs e)
         {
             RecApptAddService();
         }
 
+        //ApptMember
         private void RecApptAnyStaffToggleSwitch_CheckedChanged(object sender, EventArgs e)
         {
             if (haschosenacategory == false)
@@ -7317,6 +7353,7 @@ namespace Enchante
             }
         }
 
+        //ApptMember
         private void RecApptPreferredStaffToggleSwitch_CheckedChanged(object sender, EventArgs e)
         {
             if (haschosenacategory == false)
@@ -7355,6 +7392,7 @@ namespace Enchante
            
         }
 
+        //ApptMember
         private void RecApptDeleteSelectedServiceAndStaffBtn_Click(object sender, EventArgs e)
         {
             if (RecApptSelectedServiceDGV.SelectedRows.Count > 0)
@@ -7369,6 +7407,8 @@ namespace Enchante
             }
         }
 
+
+        //ApptMember
         private void RecApptBookTransactBtn_Click(object sender, EventArgs e)
         {
             DateTime selectedDate = RecApptBookingDatePicker.Value.Date;
@@ -7430,6 +7470,7 @@ namespace Enchante
             }
         }
 
+        //ApptMember
         private void RecApptServiceHistoryDB(DataGridView RecApptSelectedServiceDGV)
         {
             DateTime pickedDate = RecApptBookingDatePicker.Value;
@@ -7521,6 +7562,7 @@ namespace Enchante
 
         }
 
+        //ApptMember
         private void ReceptionistAppointmentDB()
         {
             DateTime appointmentdate = RecApptBookingDatePicker.Value;
@@ -7584,6 +7626,7 @@ namespace Enchante
             }
         }
 
+        //ApptMember
         private int GetLargestPriorityNum(string appointmentDate, string serviceCategory)
         {
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
@@ -7616,12 +7659,13 @@ namespace Enchante
         }
 
 
-
+        //ApptMember
         private void RecApptTransactNumRefresh()
         {
             RecApptTransNumText.Text = TransactionNumberGenerator.AppointGenerateTransNumberInc();
         }
 
+        //ApptMember
         private void RecApptTransactionClear()
         {
             RecApptFNameText.Text = "";
@@ -7642,12 +7686,13 @@ namespace Enchante
             isappointment = false;
         }
 
+        //ApptMember
         private void RecApptBookingDatePicker_ValueChanged(object sender, EventArgs e)
         {
             LoadBookingTimes();
-
         }
 
+        //ApptMember
         private void LoadBookingTimes()
         {
             DateTime selectedDate = RecApptBookingDatePicker.Value.Date;
@@ -7702,6 +7747,7 @@ namespace Enchante
             }
         }
 
+        //ApptMember
         private List<string> RetrieveMatchingAppointmentTimes(string selectedDate, string serviceCategory)
         {
             List<string> matchingTimes = new List<string>();
