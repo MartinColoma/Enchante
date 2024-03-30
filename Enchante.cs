@@ -13919,7 +13919,18 @@ namespace Enchante
 
                                     if (completedStatusResult != null)
                                     {
-                                        serviceStatus = "Completed";
+                                        string statusQuery = "SELECT ServiceStatus FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND (ServiceStatus = 'Completed' OR ServiceStatus = 'Completed Paid')";
+
+                                        using (MySqlCommand statusCommand = new MySqlCommand(statusQuery, connection))
+                                        {
+                                            statusCommand.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                                            object result = statusCommand.ExecuteScalar();
+
+                                            if (result != null)
+                                            {
+                                                serviceStatus = result.ToString();
+                                            }
+                                        }
                                     }
                                     else
                                     {
