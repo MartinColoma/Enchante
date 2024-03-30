@@ -13910,7 +13910,7 @@ namespace Enchante
 
                             if (matchCount == 0)
                             {
-                                string completedStatusQuery = "SELECT ServiceStatus FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND ServiceStatus = 'Completed'";
+                                string completedStatusQuery = "SELECT ServiceStatus FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND (ServiceStatus = 'Completed' OR ServiceStatus = 'Completed Paid')";
 
                                 using (MySqlCommand completedStatusCommand = new MySqlCommand(completedStatusQuery, connection))
                                 {
