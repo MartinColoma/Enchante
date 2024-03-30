@@ -13869,7 +13869,6 @@ namespace Enchante
 
         private void RecCancelServiceBtn_Click(object sender, EventArgs e)
         {
-            // Check if any row is selected
             if (RecCancelServicesDGV.SelectedRows.Count > 0)
             {
                 // Get the selected row
@@ -13880,30 +13879,23 @@ namespace Enchante
                 string serviceCategory = selectedRow.Cells["RecServiceServiceCategory"].Value.ToString();
                 string serviceID = selectedRow.Cells["RecServiceServiceID"].Value.ToString();
 
-                // Update servicehistory table
-                string updateServiceHistoryQuery = "UPDATE servicehistory SET ServiceStatus = 'Cancelled' WHERE TransactionNumber = @TransactionNumber";
+                // Check if the service can be cancelled
+                string countQuery = "SELECT COUNT(*) FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND (ServiceStatus = 'Pending Paid' OR ServiceStatus = 'Pending') ";
+                string serviceStatus = null;
 
                 using (MySqlConnection connection = new MySqlConnection(mysqlconn))
                 {
                     connection.Open();
 
-                    // Update servicehistory table
-                    MySqlCommand updateServiceHistoryCommand = new MySqlCommand(updateServiceHistoryQuery, connection);
-                    updateServiceHistoryCommand.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
-                    updateServiceHistoryCommand.ExecuteNonQuery();
-
-                    // Check if the service can be cancelled
-                    string countQuery = "SELECT COUNT(*) FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND (ServiceStatus = 'Pending Paid' OR ServiceStatus = 'Pending') ";
-                    string serviceStatus = null;
-
+                    int matchCount;
                     using (MySqlCommand command = new MySqlCommand(countQuery, connection))
                     {
                         command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
-                        int matchCount = Convert.ToInt32(command.ExecuteScalar());
+                        matchCount = Convert.ToInt32(command.ExecuteScalar());
 
                         if (matchCount == 0)
                         {
-                            string completedStatusQuery = "SELECT ServiceStatus FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND (ServiceStatus = 'Completed' OR ServiceStatus = 'Completed Paid')";
+                            string completedStatusQuery = "SELECT ServiceStatus FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND (ServiceStatus = 'Completed' OR ServiceStatus = 'Completed Paid' ";
 
                             using (MySqlCommand completedStatusCommand = new MySqlCommand(completedStatusQuery, connection))
                             {
@@ -13936,19 +13928,24 @@ namespace Enchante
                             }
                         }
                     }
+                }
 
-                    if (serviceStatus == "Pending" || serviceStatus == "Pending Paid")
+                if (serviceStatus == "Pending" || serviceStatus == "Pending Paid")
+                {
+                    // Confirm with the user if they want to continue canceling the service
+                    DialogResult result = MessageBox.Show("Are you sure you want to cancel the selected service?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (result == DialogResult.Yes)
                     {
-                        // Confirm with the user if they want to continue canceling the service
-                        DialogResult result = MessageBox.Show("Are you sure you want to cancel the selected service?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        // Update walk_in_appointment table
+                        string updateWalkInQuery = "UPDATE walk_in_appointment SET ServiceStatus = 'Cancelled' WHERE TransactionNumber = @TransactionNumber";
 
-                        if (result == DialogResult.Yes)
+                        // Update servicehistory table
+                        string updateServiceHistoryQuery = "UPDATE servicehistory SET ServiceStatus = 'Cancelled' WHERE TransactionNumber = @TransactionNumber";
+
+                        using (MySqlConnection connection = new MySqlConnection(mysqlconn))
                         {
-                            // Update walk_in_appointment table
-                            string updateWalkInQuery = "UPDATE walk_in_appointment SET ServiceStatus = 'Cancelled' WHERE TransactionNumber = @TransactionNumber";
-
-                            // Update servicehistory table
-                            string updateServiceHistoryQuery = "UPDATE servicehistory SET ServiceStatus = 'Cancelled' WHERE TransactionNumber = @TransactionNumber";
+                            connection.Open();
 
                             // Update walk_in_appointment table
                             MySqlCommand updateWalkInCommand = new MySqlCommand(updateWalkInQuery, connection);
@@ -13963,17 +13960,17 @@ namespace Enchante
                             // Display a success message
                             MessageBox.Show("Service has been cancelled successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-                        else
-                        {
-                            // User chose not to continue with the cancellation
-                            // Additional handling can be added if needed
-                        }
                     }
                     else
                     {
-                        // Service cannot be cancelled
-                        MessageBox.Show("The selected service cannot be cancelled.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // User chose not to continue with the cancellation
+                        // Additional handling can be added if needed
                     }
+                }
+                else
+                {
+                    // Service cannot be cancelled
+                    MessageBox.Show("The selected service cannot be cancelled.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
