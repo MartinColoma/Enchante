@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents.Serialization;
 using System.Windows.Forms;
 
 namespace Enchante
@@ -17,6 +18,7 @@ namespace Enchante
         public event EventHandler StartServiceButtonClicked;
         public event EventHandler ExpandUserControlButtonClicked;
         public event EventHandler StaffEndServiceBtnClicked;
+        public event EventHandler StaffCancelServiceBtnClicked;
         private System.Windows.Forms.Timer timer;
         private TimeSpan elapsedTime = TimeSpan.Zero;
         private TimeSpan lastElapsedTime;
@@ -260,7 +262,96 @@ namespace Enchante
                         command.ExecuteNonQuery();
                     }
                 }
+                else if (UpdatedServiceStatus == "Cancelled")
+                {
+                    string updateQuery1 = "UPDATE servicehistory SET ServiceStatus = @ServiceStatus, ServiceEnd = @ServiceEnd, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber AND ServiceID = @ServiceID";
+                    string updateQuery2 = "UPDATE systemusers SET Availability = 'Available', CurrentCustomerName = '', CurrentCustomerQueNumber = '' WHERE EmployeeID = @EmployeeID";
+                    string updateQuery3 = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
+                    string updateQuery4 = "UPDATE appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
 
+                    using (MySqlCommand command = new MySqlCommand(updateQuery1, connection))
+                    {
+                        command.Parameters.AddWithValue("@ServiceStatus", UpdatedServiceStatus);
+                        command.Parameters.AddWithValue("@TransactionNumber", transactionID);
+                        command.Parameters.AddWithValue("@ServiceID", serviceID);
+                        command.Parameters.AddWithValue("@ServiceEnd", DateTime.Now.ToString("HH:mm:ss"));
+                        command.Parameters.AddWithValue("@ServiceDuration", timeElapsed);
+
+                        command.ExecuteNonQuery();
+                    }
+
+
+                    string countQuery = "SELECT COUNT(*) FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND (ServiceStatus = 'Pending Paid' OR ServiceStatus = 'Pending') ";
+                    int matchCount;
+                    string serviceStatus = null;
+
+                    using (MySqlCommand command = new MySqlCommand(countQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@TransactionNumber", transactionID);
+                        matchCount = Convert.ToInt32(command.ExecuteScalar());
+
+                        if (matchCount == 0)
+                        {
+                            string completedStatusQuery = "SELECT ServiceStatus FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND ServiceStatus = 'Completed'";
+
+                            using (MySqlCommand completedStatusCommand = new MySqlCommand(completedStatusQuery, connection))
+                            {
+                                completedStatusCommand.Parameters.AddWithValue("@TransactionNumber", transactionID);
+                                object completedStatusResult = completedStatusCommand.ExecuteScalar();
+
+                                if (completedStatusResult != null)
+                                {
+                                    serviceStatus = "Completed";
+                                }
+                                else
+                                {
+                                    serviceStatus = "Cancelled";
+                                }
+                            }
+                        }
+                        else
+                        {
+                            string statusQuery = "SELECT ServiceStatus FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND (ServiceStatus = 'Pending' OR ServiceStatus = 'Pending Paid')";
+
+                            using (MySqlCommand statusCommand = new MySqlCommand(statusQuery, connection))
+                            {
+                                statusCommand.Parameters.AddWithValue("@TransactionNumber", transactionID);
+                                object result = statusCommand.ExecuteScalar();
+
+                                if (result != null)
+                                {
+                                    serviceStatus = result.ToString();
+                                }
+                            }
+                        }
+                    }
+
+
+                    using (MySqlCommand command = new MySqlCommand(updateQuery3, connection))
+                    {
+                        command.Parameters.AddWithValue("@ServiceStatus", serviceStatus);
+                        command.Parameters.AddWithValue("@TransactionNumber", transactionID);
+                        command.Parameters.AddWithValue("@ServiceDuration", timeElapsed);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    using (MySqlCommand command = new MySqlCommand(updateQuery4, connection))
+                    {
+                        command.Parameters.AddWithValue("@ServiceStatus", serviceStatus);
+                        command.Parameters.AddWithValue("@TransactionNumber", transactionID);
+                        command.Parameters.AddWithValue("@ServiceDuration", timeElapsed);
+
+                        command.ExecuteNonQuery();
+                    }
+
+
+                    using (MySqlCommand command = new MySqlCommand(updateQuery2, connection))
+                    {
+                        command.Parameters.AddWithValue("@EmployeeID", attenidingStaff);
+                        command.ExecuteNonQuery();
+                    }
+                }
 
             }
         }
@@ -341,6 +432,14 @@ namespace Enchante
             }
         }
 
-
+        private void StaffCancelServiceBtn_Click(object sender, EventArgs e)
+        {
+            StaffUpdateServiceStatusOfCustomerinDB("Cancelled");
+            if (Parent != null)
+            {
+                Parent.Controls.Remove(this);
+            }
+            EnchanteForm.RefreshFlowLayoutPanel();
+        }
     }
 }

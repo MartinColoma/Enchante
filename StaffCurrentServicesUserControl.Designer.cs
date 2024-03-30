@@ -38,6 +38,7 @@
             this.StaffServiceIDTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.StaffQueNumberTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.StaffQueTypeTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.StaffCancelServiceBtn = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // StaffCustomerServiceNameSelectedTextBox
@@ -90,7 +91,7 @@
             this.StaffCustomerServiceStatusTextBox.PlaceholderText = "[Status]";
             this.StaffCustomerServiceStatusTextBox.ReadOnly = true;
             this.StaffCustomerServiceStatusTextBox.SelectedText = "";
-            this.StaffCustomerServiceStatusTextBox.Size = new System.Drawing.Size(101, 25);
+            this.StaffCustomerServiceStatusTextBox.Size = new System.Drawing.Size(169, 25);
             this.StaffCustomerServiceStatusTextBox.TabIndex = 2;
             // 
             // StaffTransactionIDTextBox
@@ -162,7 +163,7 @@
             this.StaffElapsedTimeTextBox.Font = new System.Drawing.Font("Arial Black", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StaffElapsedTimeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.StaffElapsedTimeTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffElapsedTimeTextBox.Location = new System.Drawing.Point(283, 73);
+            this.StaffElapsedTimeTextBox.Location = new System.Drawing.Point(353, 73);
             this.StaffElapsedTimeTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.StaffElapsedTimeTextBox.Name = "StaffElapsedTimeTextBox";
             this.StaffElapsedTimeTextBox.PasswordChar = '\0';
@@ -170,7 +171,7 @@
             this.StaffElapsedTimeTextBox.PlaceholderText = "00:00:00";
             this.StaffElapsedTimeTextBox.ReadOnly = true;
             this.StaffElapsedTimeTextBox.SelectedText = "";
-            this.StaffElapsedTimeTextBox.Size = new System.Drawing.Size(174, 25);
+            this.StaffElapsedTimeTextBox.Size = new System.Drawing.Size(104, 25);
             this.StaffElapsedTimeTextBox.TabIndex = 9;
             // 
             // StaffStartServiceBtn
@@ -187,7 +188,7 @@
             this.StaffStartServiceBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.StaffStartServiceBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StaffStartServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.StaffStartServiceBtn.Location = new System.Drawing.Point(682, 58);
+            this.StaffStartServiceBtn.Location = new System.Drawing.Point(687, 27);
             this.StaffStartServiceBtn.Name = "StaffStartServiceBtn";
             this.StaffStartServiceBtn.Size = new System.Drawing.Size(118, 40);
             this.StaffStartServiceBtn.TabIndex = 10;
@@ -206,7 +207,7 @@
             this.StaffEndServiceBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.StaffEndServiceBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StaffEndServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.StaffEndServiceBtn.Location = new System.Drawing.Point(682, 103);
+            this.StaffEndServiceBtn.Location = new System.Drawing.Point(687, 72);
             this.StaffEndServiceBtn.Name = "StaffEndServiceBtn";
             this.StaffEndServiceBtn.Size = new System.Drawing.Size(118, 40);
             this.StaffEndServiceBtn.TabIndex = 11;
@@ -287,12 +288,32 @@
             this.StaffQueTypeTextBox.Size = new System.Drawing.Size(177, 25);
             this.StaffQueTypeTextBox.TabIndex = 29;
             // 
+            // StaffCancelServiceBtn
+            // 
+            this.StaffCancelServiceBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.StaffCancelServiceBtn.BorderRadius = 5;
+            this.StaffCancelServiceBtn.BorderThickness = 3;
+            this.StaffCancelServiceBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.StaffCancelServiceBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.StaffCancelServiceBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.StaffCancelServiceBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.StaffCancelServiceBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.StaffCancelServiceBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StaffCancelServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.StaffCancelServiceBtn.Location = new System.Drawing.Point(687, 118);
+            this.StaffCancelServiceBtn.Name = "StaffCancelServiceBtn";
+            this.StaffCancelServiceBtn.Size = new System.Drawing.Size(118, 40);
+            this.StaffCancelServiceBtn.TabIndex = 30;
+            this.StaffCancelServiceBtn.Text = "Cancel";
+            this.StaffCancelServiceBtn.Click += new System.EventHandler(this.StaffCancelServiceBtn_Click);
+            // 
             // StaffCurrentAvailableCustomersUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.StaffCancelServiceBtn);
             this.Controls.Add(this.StaffQueNumberTextBox);
             this.Controls.Add(this.StaffServiceIDTextBox);
             this.Controls.Add(this.StaffEndServiceBtn);
@@ -321,5 +342,6 @@
         private Guna.UI2.WinForms.Guna2TextBox StaffServiceIDTextBox;
         public Guna.UI2.WinForms.Guna2TextBox StaffQueNumberTextBox;
         public Guna.UI2.WinForms.Guna2TextBox StaffQueTypeTextBox;
+        public Guna.UI2.WinForms.Guna2Button StaffCancelServiceBtn;
     }
 }
