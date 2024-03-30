@@ -44,6 +44,7 @@ using Mysqlx.Expr;
 using System.Security.Policy;
 using Org.BouncyCastle.Math;
 using Mysqlx.Crud;
+using System.Web.Util;
 
 namespace Enchante
 {
@@ -13749,7 +13750,7 @@ namespace Enchante
                "SELECT w.TransactionNumber, w.AppointmentDate, w.ClientName " +
                "FROM walk_in_appointment w " +
                "LEFT JOIN servicehistory sh ON w.TransactionNumber = sh.TransactionNumber " +
-               "WHERE w.ServiceStatus = 'Pending' AND " +
+               "WHERE (w.ServiceStatus = 'Pending' OR w.ServiceStatus = 'Pending Paid') AND " +
                "w.AppointmentDate = @currentDate " +
                "GROUP BY w.TransactionNumber, w.AppointmentDate, w.ClientName";
 
@@ -13777,7 +13778,7 @@ namespace Enchante
                 string transactionNumber = selectedRow.Cells["ServiceTransactionID"].Value.ToString();
                 string serviceHistoryQuery = "SELECT TransactionNumber, ServiceCategory, ServiceID, SelectedService " +
                                              "FROM servicehistory " +
-                                             "WHERE TransactionNumber = @transactionNumber";
+                                             "WHERE TransactionNumber = @transactionNumber AND (ServiceStatus = 'Pending' OR ServiceStatus = 'PendingPaid')" ;
 
                 using (MySqlConnection connection = new MySqlConnection(mysqlconn))
                 {
@@ -13853,6 +13854,8 @@ namespace Enchante
 
                     // Display a success message
                     MessageBox.Show("Services have been cancelled successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RecCanceAllServicesDGV.Rows.Clear();
+                    InitializeCustomerServiceListDataGrid();
                 }
                 else
                 {
@@ -13871,111 +13874,98 @@ namespace Enchante
         {
             if (RecCancelServicesDGV.SelectedRows.Count > 0)
             {
-                // Get the selected row
                 DataGridViewRow selectedRow = RecCancelServicesDGV.SelectedRows[0];
 
-                // Get the TransactionNumber, ServiceCategory, and ServiceID from the selected row
                 string transactionNumber = selectedRow.Cells["RecServiceTransactionID"].Value.ToString();
-                string serviceCategory = selectedRow.Cells["RecServiceServiceCategory"].Value.ToString();
                 string serviceID = selectedRow.Cells["RecServiceServiceID"].Value.ToString();
 
-                // Check if the service can be cancelled
-                string countQuery = "SELECT COUNT(*) FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND (ServiceStatus = 'Pending Paid' OR ServiceStatus = 'Pending') ";
-                string serviceStatus = null;
+                DialogResult confirmationResult = MessageBox.Show("Are you sure you want to cancel the selected service?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                if (confirmationResult == DialogResult.Yes)
                 {
-                    connection.Open();
-
-                    int matchCount;
-                    using (MySqlCommand command = new MySqlCommand(countQuery, connection))
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
                     {
-                        command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
-                        matchCount = Convert.ToInt32(command.ExecuteScalar());
 
-                        if (matchCount == 0)
+                        connection.Open();
+
+                        string updateQuery1 = "UPDATE servicehistory SET ServiceStatus = 'Cancelled' WHERE TransactionNumber = @TransactionNumber AND ServiceID = @ServiceID";
+                        string updateQuery3 = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus WHERE TransactionNumber = @TransactionNumber";
+                        string updateQuery4 = "UPDATE appointment SET ServiceStatus = @ServiceStatus WHERE TransactionNumber = @TransactionNumber";
+
+                        using (MySqlCommand command = new MySqlCommand(updateQuery1, connection))
                         {
-                            string completedStatusQuery = "SELECT ServiceStatus FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND (ServiceStatus = 'Completed' OR ServiceStatus = 'Completed Paid' ";
+                            command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                            command.Parameters.AddWithValue("@ServiceID", serviceID);
+                            command.ExecuteNonQuery();
+                        }
 
-                            using (MySqlCommand completedStatusCommand = new MySqlCommand(completedStatusQuery, connection))
+                        string countQuery = "SELECT COUNT(*) FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND (ServiceStatus = 'Pending Paid' OR ServiceStatus = 'Pending') ";
+                        int matchCount;
+                        string serviceStatus = null;
+
+                        using (MySqlCommand command = new MySqlCommand(countQuery, connection))
+                        {
+                            command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                            matchCount = Convert.ToInt32(command.ExecuteScalar());
+
+                            if (matchCount == 0)
                             {
-                                completedStatusCommand.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
-                                object completedStatusResult = completedStatusCommand.ExecuteScalar();
+                                string completedStatusQuery = "SELECT ServiceStatus FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND ServiceStatus = 'Completed'";
 
-                                if (completedStatusResult != null)
+                                using (MySqlCommand completedStatusCommand = new MySqlCommand(completedStatusQuery, connection))
                                 {
-                                    serviceStatus = "Completed";
+                                    completedStatusCommand.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                                    object completedStatusResult = completedStatusCommand.ExecuteScalar();
+
+                                    if (completedStatusResult != null)
+                                    {
+                                        serviceStatus = "Completed";
+                                    }
+                                    else
+                                    {
+                                        serviceStatus = "Cancelled";
+                                    }
                                 }
-                                else
+                            }
+                            else
+                            {
+                                string statusQuery = "SELECT ServiceStatus FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND (ServiceStatus = 'Pending' OR ServiceStatus = 'Pending Paid')";
+
+                                using (MySqlCommand statusCommand = new MySqlCommand(statusQuery, connection))
                                 {
-                                    serviceStatus = "Cancelled";
+                                    statusCommand.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                                    object result = statusCommand.ExecuteScalar();
+
+                                    if (result != null)
+                                    {
+                                        serviceStatus = result.ToString();
+                                    }
                                 }
                             }
                         }
-                        else
+                        using (MySqlCommand command = new MySqlCommand(updateQuery3, connection))
                         {
-                            string statusQuery = "SELECT ServiceStatus FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND (ServiceStatus = 'Pending' OR ServiceStatus = 'Pending Paid')";
-
-                            using (MySqlCommand statusCommand = new MySqlCommand(statusQuery, connection))
-                            {
-                                statusCommand.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
-                                object result = statusCommand.ExecuteScalar();
-
-                                if (result != null)
-                                {
-                                    serviceStatus = result.ToString();
-                                }
-                            }
+                            command.Parameters.AddWithValue("@ServiceStatus", serviceStatus);
+                            command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                            command.ExecuteNonQuery();
                         }
-                    }
-                }
 
-                if (serviceStatus == "Pending" || serviceStatus == "Pending Paid")
-                {
-                    // Confirm with the user if they want to continue canceling the service
-                    DialogResult result = MessageBox.Show("Are you sure you want to cancel the selected service?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    if (result == DialogResult.Yes)
-                    {
-                        // Update walk_in_appointment table
-                        string updateWalkInQuery = "UPDATE walk_in_appointment SET ServiceStatus = 'Cancelled' WHERE TransactionNumber = @TransactionNumber";
-
-                        // Update servicehistory table
-                        string updateServiceHistoryQuery = "UPDATE servicehistory SET ServiceStatus = 'Cancelled' WHERE TransactionNumber = @TransactionNumber";
-
-                        using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                        using (MySqlCommand command = new MySqlCommand(updateQuery4, connection))
                         {
-                            connection.Open();
-
-                            // Update walk_in_appointment table
-                            MySqlCommand updateWalkInCommand = new MySqlCommand(updateWalkInQuery, connection);
-                            updateWalkInCommand.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
-                            updateWalkInCommand.ExecuteNonQuery();
-
-                            // Update servicehistory table
-                            MySqlCommand updateServiceHistoryCommand = new MySqlCommand(updateServiceHistoryQuery, connection);
-                            updateServiceHistoryCommand.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
-                            updateServiceHistoryCommand.ExecuteNonQuery();
-
-                            // Display a success message
-                            MessageBox.Show("Service has been cancelled successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            command.Parameters.AddWithValue("@ServiceStatus", serviceStatus);
+                            command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                            command.ExecuteNonQuery();
                         }
+
+                        MessageBox.Show("Service has been cancelled successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        RecCanceAllServicesDGV.Rows.Clear();
+                        RecCancelServicesDGV.Rows.Clear();
+                        InitializeCustomerServiceListDataGrid();
                     }
-                    else
-                    {
-                        // User chose not to continue with the cancellation
-                        // Additional handling can be added if needed
-                    }
-                }
-                else
-                {
-                    // Service cannot be cancelled
-                    MessageBox.Show("The selected service cannot be cancelled.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
             {
-                // No rows selected
                 MessageBox.Show("Please select a service to cancel.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
