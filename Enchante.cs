@@ -973,6 +973,7 @@ namespace Enchante
                 InitializeProducts();
                 logincredclear();
                 InitializeAppointmentDataGrid();
+                InitializeCustomerServiceListDataGrid();
                 return;
             }
             else if (LoginEmailAddText.Text != "Recept" && LoginPassText.Text == "Recept123")
@@ -1281,6 +1282,7 @@ namespace Enchante
                                         ReceptionHomePanelReset();
                                         logincredclear();
                                         InitializeAppointmentDataGrid();
+                                        InitializeCustomerServiceListDataGrid();
 
                                     }
                                     else
@@ -1403,6 +1405,7 @@ namespace Enchante
                 StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
                 StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
                 RecApptAcceptLateDeclineDGV.Rows.Clear();
+                RecCanceAllServicesDGV.Rows.Clear();
                 membercategory = "";
                 StaffIDNumLbl.Text = string.Empty;
                 StaffMemeberCategoryLbl.Text = string.Empty;
@@ -2970,6 +2973,7 @@ namespace Enchante
             ScrollToCoordinates(0, 0);
             ReceptionHomePanelReset();
             RecApptAcceptLateDeclineDGV.Rows.Clear();
+            RecCanceAllServicesDGV.Rows.Clear();
 
             //Change color once clicked
             RecHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
@@ -7974,7 +7978,9 @@ namespace Enchante
         {
             Transaction.PanelShow(RecApptConfirmPanel);
             RecApptAcceptLateDeclineDGV.Rows.Clear();
+            RecCanceAllServicesDGV.Rows.Clear();
             InitializeAppointmentDataGrid();
+            InitializeCustomerServiceListDataGrid();
         }
         private void RecApptConfirmExitBtn_Click(object sender, EventArgs e)
         {
@@ -13725,6 +13731,256 @@ namespace Enchante
             }
         }
 
-        
+        public void InitializeCustomerServiceListDataGrid()
+        {
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string currentDate = DateTime.Now.ToString("MM-dd-yyyy dddd");
+
+                string query = "SELECT a.TransactionNumber, a.AppointmentDate, a.ClientName " +
+               "FROM appointment a " +
+               "LEFT JOIN servicehistory sh ON a.TransactionNumber = sh.TransactionNumber " +
+               "WHERE (a.ServiceStatus = 'Pending' OR a.ServiceStatus = 'Pending Paid')  AND " +
+               "a.AppointmentDate = @currentDate AND a.AppointmentStatus = 'Confirmed' " +
+               "GROUP BY a.TransactionNumber, a.AppointmentDate, a.ClientName " +
+               "UNION " +
+               "SELECT w.TransactionNumber, w.AppointmentDate, w.ClientName " +
+               "FROM walk_in_appointment w " +
+               "LEFT JOIN servicehistory sh ON w.TransactionNumber = sh.TransactionNumber " +
+               "WHERE w.ServiceStatus = 'Pending' AND " +
+               "w.AppointmentDate = @currentDate " +
+               "GROUP BY w.TransactionNumber, w.AppointmentDate, w.ClientName";
+
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@currentDate", currentDate);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count > 0)
+                {
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        RecCanceAllServicesDGV.Rows.Add(row["TransactionNumber"], row["AppointmentDate"], row["ClientName"]);
+                    }
+                }
+            }
+        }
+
+        private void RecCanceAllServicesDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = RecCanceAllServicesDGV.Rows[e.RowIndex];
+                string transactionNumber = selectedRow.Cells["ServiceTransactionID"].Value.ToString();
+                string serviceHistoryQuery = "SELECT TransactionNumber, ServiceCategory, ServiceID, SelectedService " +
+                                             "FROM servicehistory " +
+                                             "WHERE TransactionNumber = @transactionNumber";
+
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    MySqlCommand command = new MySqlCommand(serviceHistoryQuery, connection);
+                    command.Parameters.AddWithValue("@transactionNumber", transactionNumber);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                    DataTable serviceHistoryTable = new DataTable();
+                    adapter.Fill(serviceHistoryTable);
+
+                    RecCancelServicesDGV.Rows.Clear();
+                    if (serviceHistoryTable.Rows.Count > 0)
+                    {
+                        foreach (DataRow serviceHistoryRow in serviceHistoryTable.Rows)
+                        {
+                            RecCancelServicesDGV.Rows.Add(
+                                serviceHistoryRow["TransactionNumber"],
+                                serviceHistoryRow["ServiceCategory"],
+                                serviceHistoryRow["ServiceID"],
+                                serviceHistoryRow["SelectedService"]
+                            );
+                        }
+                    }
+                }
+            }
+        }
+
+        private void RecCancelAllServiceBtn_Click(object sender, EventArgs e)
+        {
+            // Check if any row is selected
+            if (RecCanceAllServicesDGV.SelectedRows.Count > 0)
+            {
+                // Confirm with the user if they want to continue canceling the services
+                DialogResult result = MessageBox.Show("Are you sure you want to cancel the selected services?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    foreach (DataGridViewRow selectedRow in RecCanceAllServicesDGV.SelectedRows)
+                    {
+                        // Get the TransactionNumber from the selected row
+                        string transactionNumber = selectedRow.Cells["ServiceTransactionID"].Value.ToString();
+
+                        // Update walk_in_appointment table
+                        string updateWalkInQuery = "UPDATE walk_in_appointment SET ServiceStatus = 'Cancelled' WHERE TransactionNumber = @transactionNumber";
+
+                        // Update servicehistory table
+                        string updateServiceHistoryQuery = "UPDATE servicehistory SET ServiceStatus = 'Cancelled' WHERE TransactionNumber = @transactionNumber";
+
+                        // Update appointment table
+                        string updateAppointmentQuery = "UPDATE appointment SET ServiceStatus = 'Cancelled' WHERE TransactionNumber = @transactionNumber";
+
+                        using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                        {
+                            connection.Open();
+
+                            // Update walk_in_appointment table
+                            MySqlCommand updateWalkInCommand = new MySqlCommand(updateWalkInQuery, connection);
+                            updateWalkInCommand.Parameters.AddWithValue("@transactionNumber", transactionNumber);
+                            updateWalkInCommand.ExecuteNonQuery();
+
+                            // Update servicehistory table
+                            MySqlCommand updateServiceHistoryCommand = new MySqlCommand(updateServiceHistoryQuery, connection);
+                            updateServiceHistoryCommand.Parameters.AddWithValue("@transactionNumber", transactionNumber);
+                            updateServiceHistoryCommand.ExecuteNonQuery();
+
+                            // Update appointment table
+                            MySqlCommand updateAppointmentCommand = new MySqlCommand(updateAppointmentQuery, connection);
+                            updateAppointmentCommand.Parameters.AddWithValue("@transactionNumber", transactionNumber);
+                            updateAppointmentCommand.ExecuteNonQuery();
+                        }
+                    }
+
+                    // Display a success message
+                    MessageBox.Show("Services have been cancelled successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    // User chose not to continue with the cancellation
+                    // Additional handling can be added if needed
+                }
+            }
+            else
+            {
+                // No rows selected
+                MessageBox.Show("Please select services to cancel.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void RecCancelServiceBtn_Click(object sender, EventArgs e)
+        {
+            // Check if any row is selected
+            if (RecCancelServicesDGV.SelectedRows.Count > 0)
+            {
+                // Get the selected row
+                DataGridViewRow selectedRow = RecCancelServicesDGV.SelectedRows[0];
+
+                // Get the TransactionNumber, ServiceCategory, and ServiceID from the selected row
+                string transactionNumber = selectedRow.Cells["RecServiceTransactionID"].Value.ToString();
+                string serviceCategory = selectedRow.Cells["RecServiceServiceCategory"].Value.ToString();
+                string serviceID = selectedRow.Cells["RecServiceServiceID"].Value.ToString();
+
+                // Update servicehistory table
+                string updateServiceHistoryQuery = "UPDATE servicehistory SET ServiceStatus = 'Cancelled' WHERE TransactionNumber = @TransactionNumber";
+
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    // Update servicehistory table
+                    MySqlCommand updateServiceHistoryCommand = new MySqlCommand(updateServiceHistoryQuery, connection);
+                    updateServiceHistoryCommand.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                    updateServiceHistoryCommand.ExecuteNonQuery();
+
+                    // Check if the service can be cancelled
+                    string countQuery = "SELECT COUNT(*) FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND (ServiceStatus = 'Pending Paid' OR ServiceStatus = 'Pending') ";
+                    string serviceStatus = null;
+
+                    using (MySqlCommand command = new MySqlCommand(countQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                        int matchCount = Convert.ToInt32(command.ExecuteScalar());
+
+                        if (matchCount == 0)
+                        {
+                            string completedStatusQuery = "SELECT ServiceStatus FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND (ServiceStatus = 'Completed' OR ServiceStatus = 'Completed Paid')";
+
+                            using (MySqlCommand completedStatusCommand = new MySqlCommand(completedStatusQuery, connection))
+                            {
+                                completedStatusCommand.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                                object completedStatusResult = completedStatusCommand.ExecuteScalar();
+
+                                if (completedStatusResult != null)
+                                {
+                                    serviceStatus = "Completed";
+                                }
+                                else
+                                {
+                                    serviceStatus = "Cancelled";
+                                }
+                            }
+                        }
+                        else
+                        {
+                            string statusQuery = "SELECT ServiceStatus FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND (ServiceStatus = 'Pending' OR ServiceStatus = 'Pending Paid')";
+
+                            using (MySqlCommand statusCommand = new MySqlCommand(statusQuery, connection))
+                            {
+                                statusCommand.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                                object result = statusCommand.ExecuteScalar();
+
+                                if (result != null)
+                                {
+                                    serviceStatus = result.ToString();
+                                }
+                            }
+                        }
+                    }
+
+                    if (serviceStatus == "Pending" || serviceStatus == "Pending Paid")
+                    {
+                        // Confirm with the user if they want to continue canceling the service
+                        DialogResult result = MessageBox.Show("Are you sure you want to cancel the selected service?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            // Update walk_in_appointment table
+                            string updateWalkInQuery = "UPDATE walk_in_appointment SET ServiceStatus = 'Cancelled' WHERE TransactionNumber = @TransactionNumber";
+
+                            // Update servicehistory table
+                            string updateServiceHistoryQuery = "UPDATE servicehistory SET ServiceStatus = 'Cancelled' WHERE TransactionNumber = @TransactionNumber";
+
+                            // Update walk_in_appointment table
+                            MySqlCommand updateWalkInCommand = new MySqlCommand(updateWalkInQuery, connection);
+                            updateWalkInCommand.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                            updateWalkInCommand.ExecuteNonQuery();
+
+                            // Update servicehistory table
+                            MySqlCommand updateServiceHistoryCommand = new MySqlCommand(updateServiceHistoryQuery, connection);
+                            updateServiceHistoryCommand.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                            updateServiceHistoryCommand.ExecuteNonQuery();
+
+                            // Display a success message
+                            MessageBox.Show("Service has been cancelled successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            // User chose not to continue with the cancellation
+                            // Additional handling can be added if needed
+                        }
+                    }
+                    else
+                    {
+                        // Service cannot be cancelled
+                        MessageBox.Show("The selected service cannot be cancelled.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            else
+            {
+                // No rows selected
+                MessageBox.Show("Please select a service to cancel.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
