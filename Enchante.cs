@@ -43,6 +43,7 @@ using System.Collections;
 using Mysqlx.Expr;
 using System.Security.Policy;
 using Org.BouncyCastle.Math;
+using Mysqlx.Crud;
 
 namespace Enchante
 {
@@ -10876,7 +10877,7 @@ namespace Enchante
                             servicehistory 
                         WHERE 
                             ServiceStatus = 'Completed' 
-                            AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y') BETWEEN @FromDate AND @ToDate 
+                            AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y') BETWEEN @FromDate AND @ToDate
                         GROUP BY
                             ServiceCategory, AttendingStaff";
                     counts = new Dictionary<string, int>();
@@ -11053,16 +11054,7 @@ namespace Enchante
                             var title = MngrIndemandServiceGraph.Titles.Add("Top Service");
                             title.Font = new System.Drawing.Font("Arial", 12f, System.Drawing.FontStyle.Bold);
 
-                            DataTable serviceCategoryTable = new DataTable();
-                            serviceCategoryTable.Columns.Add("Service Category");
-                            serviceCategoryTable.Columns.Add("Top Service Count");
-
-                            foreach (var kvp in serviceCounts)
-                            {
-                                serviceCategoryTable.Rows.Add(kvp.Key, kvp.Value);
-                            }
-
-                            MngrIndemandServiceSelection.DataSource = serviceCategoryTable;
+                            PopulateServiceSelectionGrid(fromDate.ToString("yyyy-MM-dd"), toDate.ToString("yyyy-MM-dd"));
 
                             DataTable staffTable = new DataTable();
                             staffTable.Columns.Add("Rank");
@@ -11125,11 +11117,12 @@ namespace Enchante
                             staffTable.Columns.Add("Services Done");
                             staffTable.Columns.Add("Rating");
 
-                            List<KeyValuePair<string, int>> sortedStaffCounts = staffCounts.ToList();
-                            sortedStaffCounts.Sort((x, y) => y.Value.CompareTo(x.Value));
+                            List<KeyValuePair<string, double>> sortedStaffRatings = staffFinalRatings.ToList();
+                            sortedStaffRatings.Sort((x, y) => y.Value.CompareTo(x.Value));
+
                             int rank = 1;
 
-                            foreach (var kvp in sortedStaffCounts)
+                            foreach (var kvp in sortedStaffRatings)
                             {
                                 string employeeID = kvp.Key;
                                 string firstName, lastName;
@@ -11144,10 +11137,10 @@ namespace Enchante
                                             firstName = userReader.GetString("FirstName");
                                             lastName = userReader.GetString("LastName");
 
-                                            double rating = staffFinalRatings.ContainsKey(employeeID) ? staffFinalRatings[employeeID] : 0;
-                                            string formattedRating = rating.ToString("0.0");
+                                            int servicesDone = staffCounts.ContainsKey(employeeID) ? staffCounts[employeeID] : 0;
+                                            string formattedRating = kvp.Value.ToString("0.0");
 
-                                            staffTable.Rows.Add(rank, employeeID, firstName, lastName, kvp.Value, formattedRating);
+                                            staffTable.Rows.Add(rank, employeeID, firstName, lastName, servicesDone, formattedRating);
                                             rank++;
                                         }
                                     }
@@ -11155,7 +11148,7 @@ namespace Enchante
                             }
 
                             DataView dv = staffTable.DefaultView;
-                            dv.Sort = "Services Done DESC";
+                            dv.Sort = "Rating DESC";
                             MngrIndemandBestEmployee.DataSource = dv.ToTable();
                             MngrIndemandBestEmployee.Columns["Rank"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                             MngrIndemandBestEmployee.Columns["Services Done"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -11188,6 +11181,58 @@ namespace Enchante
             {
                 MessageBox.Show("Error: " + ex.Message, "In Demand Services Graph Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void PopulateServiceSelectionGrid(string fromDate, string toDate)
+        {
+            string query = @"
+        SELECT 
+            ServiceCategory,
+            COUNT(*) AS CategoryCount
+        FROM 
+            servicehistory 
+        WHERE 
+            ServiceStatus = 'Completed' 
+            AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y') BETWEEN @FromDate AND @ToDate
+        GROUP BY
+            ServiceCategory";
+
+            Dictionary<string, int> serviceCounts = new Dictionary<string, int>();
+
+            using (MySqlConnection connection = new MySqlConnection("Server=localhost;Database=enchante;Uid=root;Pwd=;"))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@FromDate", fromDate);
+                    command.Parameters.AddWithValue("@ToDate", toDate);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string serviceCategory = reader.GetString("ServiceCategory");
+                            int categoryCount = reader.GetInt32("CategoryCount");
+                            serviceCounts[serviceCategory] = categoryCount;
+                        }
+                    }
+                }
+            }
+
+            DataTable serviceTable = new DataTable();
+            serviceTable.Columns.Add("Service Category");
+            serviceTable.Columns.Add("Service Count");
+
+            foreach (string category in new List<string> { "Hair Styling", "Massage", "Nail Care", "Face & Skin", "Spa" })
+            {
+                int count = serviceCounts.ContainsKey(category) ? serviceCounts[category] : 0;
+                serviceTable.Rows.Add(category, count);
+            }
+            serviceTable.DefaultView.Sort = "Service Count DESC";
+            serviceTable = serviceTable.DefaultView.ToTable();
+
+            MngrIndemandServiceSelection.DataSource = serviceTable;
         }
 
         private void ServiceHistoryPeriod_SelectedIndexChanged(object sender, EventArgs e)

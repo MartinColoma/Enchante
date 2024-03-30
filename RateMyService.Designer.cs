@@ -208,6 +208,7 @@
             this.RateMeNumStarsLbl.Size = new System.Drawing.Size(101, 18);
             this.RateMeNumStarsLbl.TabIndex = 189;
             this.RateMeNumStarsLbl.Text = "No. of stars";
+            this.RateMeNumStarsLbl.Visible = false;
             // 
             // RateMyService
             // 
