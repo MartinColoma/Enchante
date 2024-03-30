@@ -313,14 +313,18 @@ namespace Enchante
             {
                 Parent.Controls.Remove(this);
             }
+            string customerName = StaffCustomerNameTextBox.Text;
+            string serviceID = StaffServiceIDTextBox.Text;
             string transactionID = StaffTransactionIDTextBox.Text;
             string staffID = CurrentStaffID;
-            RateMyService rateForm = new RateMyService(EnchanteForm, transactionID, staffID);
+            RateMyService rateForm = new RateMyService(EnchanteForm, transactionID, staffID, customerName, serviceID);
             rateForm.FormClosed += RateForm_FormClosed;
 
             // Set the transactionID property of rateForm
             rateForm.TransactionID = transactionID;
             rateForm.StaffID = staffID;
+            rateForm.CustomerName = customerName;
+            rateForm.ServiceID = serviceID;
 
             // Show the RateMyService form
             rateForm.Show();

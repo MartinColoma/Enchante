@@ -18,15 +18,19 @@ namespace Enchante
         private string[] stars = { "5-star (Exceptional)", "4-star (Great)", "3-star (Satisfactory)", "2-star (Mediocre)", "1-star (Awful)", "Select A Star" };
         public static string mysqlconn = "server=localhost;user=root;database=enchante;password=";
         private Enchante EnchanteForm;
+        public string ServiceID { get; set; }
+        public string CustomerName { get; set; }
         public string TransactionID { get; set; }
         public string StaffID { get; set; }
 
-        public RateMyService(Enchante EnchanteForm, string transactionID, string staffID)
+        public RateMyService(Enchante EnchanteForm, string transactionID, string staffID, string customerName, string serviceID)
         {
             InitializeComponent();
             this.EnchanteForm = EnchanteForm;
             TransactionID = transactionID;
             StaffID = staffID;
+            ServiceID = serviceID;
+            CustomerName = customerName;
             foreach (string star in stars)
             {
                 RateMeStarBox.Items.Add(star);
@@ -236,13 +240,13 @@ namespace Enchante
 
         private void RateMeSubmitBtn_Click(object sender, EventArgs e)
         {
-            // Assuming transactionID and staffID are properties or fields of your class
-            string transactionID = TransactionID; // Ensure transactionID is properly assigned
-            string attendingStaff = StaffID; // Ensure staffID is properly assigned
-
-            string dateToday = DateTime.Now.ToString("MM-dd-yy dddd");
-
+           
+            string transactionID = TransactionID; 
+            string attendingStaff = StaffID; 
+            string serviceID = ServiceID;
+            string customerName = CustomerName;
             string rating = RateMeNumStarsLbl.Text;
+
 
             try
             {
@@ -250,26 +254,25 @@ namespace Enchante
                 {
                     connection.Open();
 
-                    string query = "INSERT INTO staffrating (EmployeeID, TransactionID, Date, Rating) " +
-                                   "VALUES (@EmployeeID, @TransactionID, @Date, @Rating)";
+                    string query = "UPDATE servicehistory SET StarRating = @Rating " +
+                                   "WHERE TransactionNumber = @TransactionID " +
+                                   "AND AttendingStaff = @EmployeeID " +
+                                   "AND ServiceID = @ServiceID ";
 
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
-                        // Set the parameter values
-                        command.Parameters.AddWithValue("@EmployeeID", attendingStaff);
-                        command.Parameters.AddWithValue("@TransactionID", transactionID);
-                        command.Parameters.AddWithValue("@Date", dateToday);
                         command.Parameters.AddWithValue("@Rating", rating);
+                        command.Parameters.AddWithValue("@TransactionID", transactionID);
+                        command.Parameters.AddWithValue("@EmployeeID", attendingStaff);
+                        command.Parameters.AddWithValue("@ServiceID", serviceID);
 
-                        // Execute the query
                         command.ExecuteNonQuery();
                     }
                 }
             }
             catch (Exception ex)
             {
-                // Handle any exceptions that occur during the database operation
-                MessageBox.Show("An error occurred while inserting the rating: " + ex.Message);
+                MessageBox.Show("An error occurred while updating the rating: " + ex.Message);
             }
 
             this.Hide();
