@@ -11155,7 +11155,7 @@ namespace Enchante
                             }
 
                             DataView dv = staffTable.DefaultView;
-                            dv.Sort = "Services Done DESC";
+                            dv.Sort = "Rating DESC";
                             MngrIndemandBestEmployee.DataSource = dv.ToTable();
                             MngrIndemandBestEmployee.Columns["Rank"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                             MngrIndemandBestEmployee.Columns["Services Done"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
