@@ -200,6 +200,37 @@ namespace Enchante
             MngrAppSalesSelectCatBox.Items.Add("Spa");
             MngrAppSalesSelectCatBox.Items.Add("All Categories");
 
+            MngrPDHistoryStatusBox.Items.Add("Paid");
+            MngrPDHistoryStatusBox.Items.Add("Not Paid");
+
+            MngrPDHistoryItemCatBox.Items.Add("Hair Styling");
+            MngrPDHistoryItemCatBox.Items.Add("Face & Skin");
+            MngrPDHistoryItemCatBox.Items.Add("Nail Care");
+            MngrPDHistoryItemCatBox.Items.Add("Massage");
+            MngrPDHistoryItemCatBox.Items.Add("Spa");
+
+            MngrSVHistoryTransTypeBox.Items.Add("Walk-in Transaction");
+            MngrSVHistoryTransTypeBox.Items.Add("Walk-in Appointment Transaction");
+
+            MngrSVHistoryServiceStatusBox.Items.Add("Completed");
+            MngrSVHistoryServiceStatusBox.Items.Add("Pending");
+            MngrSVHistoryServiceStatusBox.Items.Add("In Session");
+            MngrSVHistoryServiceStatusBox.Items.Add("Cancelled");
+
+            MngrSVHistoryServiceCatBox.Items.Add("Hair Styling");
+            MngrSVHistoryServiceCatBox.Items.Add("Face & Skin");
+            MngrSVHistoryServiceCatBox.Items.Add("Nail Care");
+            MngrSVHistoryServiceCatBox.Items.Add("Massage");
+            MngrSVHistoryServiceCatBox.Items.Add("Spa");
+
+            MngrMemAccMemTypeBox.Items.Add("Regular");
+            MngrMemAccMemTypeBox.Items.Add("PREMIUM");
+            MngrMemAccMemTypeBox.Items.Add("SVIP");
+
+            ProductHistoryShow();
+            ServiceHistoryShow();
+            MemberAccountsShow();
+
             //InitializeAvailableStaffFlowLayout();
 
             //RecAppPrefferedTimeAMComboBox.SelectedIndex = 0;
@@ -12218,12 +12249,469 @@ namespace Enchante
         }
         #endregion
 
+        #region PANEL OF PRODUCT HISTORY
+
+        private void ProductHistoryShow()
+        {
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "SELECT TransactionNumber, ProductStatus, CheckedOutDate, ClientName, ItemName, " +
+                                    "ItemID, Qty, ItemPrice, ItemTotalPrice FROM orderproducthistory";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+                    adapter.Fill(dataTable);
+
+                    MngrPDHistoryDGV.DataSource = dataTable;
+
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private bool considerDateFilter = false;
+
+        private string GetCombinedFilter()
+        {
+            string statusFilter = GetStatusFilter();
+            string categoryFilter = GetCategoryFilter();
+            string dateFilter = considerDateFilter ? GetDateFilter() : string.Empty;
+
+            List<string> filters = new List<string>();
+
+            if (!string.IsNullOrEmpty(statusFilter))
+                filters.Add(statusFilter);
+
+            if (!string.IsNullOrEmpty(categoryFilter))
+                filters.Add(categoryFilter);
+
+            if (!string.IsNullOrEmpty(dateFilter))
+                filters.Add(dateFilter);
+
+            if (filters.Count == 1)
+                return filters[0];
+
+            string combinedFilter = string.Join(" AND ", filters);
+
+            return combinedFilter;
+        }
+
+        private string GetStatusFilter()
+        {
+            if (MngrPDHistoryStatusBox.SelectedItem != null)
+            {
+                string selectedStatus = MngrPDHistoryStatusBox.SelectedItem.ToString();
+                if (selectedStatus == "Paid")
+                {
+                    return "ProductStatus = 'Paid'";
+                }
+                else if (selectedStatus == "Not Paid")
+                {
+                    return "ProductStatus = 'Not Paid'";
+                }
+            }
+            return string.Empty;
+        }
+
+        private string GetCategoryFilter()
+        {
+            if (MngrPDHistoryItemCatBox.SelectedItem != null)
+            {
+                string selectedCategory = MngrPDHistoryItemCatBox.SelectedItem.ToString();
+                switch (selectedCategory)
+                {
+                    case "Hair Styling":
+                        return "SUBSTRING(ItemID, 1, 2) = 'HS'";
+                    case "Face & Skin":
+                        return "SUBSTRING(ItemID, 1, 2) = 'FS'";
+                    case "Nail Care":
+                        return "SUBSTRING(ItemID, 1, 2) = 'NC'";
+                    case "Massage":
+                        return "SUBSTRING(ItemID, 1, 2) = 'MS'";
+                    case "Spa":
+                        return "SUBSTRING(ItemID, 1, 2) = 'SP'";
+                }
+            }
+            return string.Empty;
+        }
+
+        private string GetDateFilter()
+        {
+            DateTime fromDate = MngrPDHistoryDatePickFrom.Value.Date;
+            DateTime toDate = MngrPDHistoryDatePickTo.Value.Date;
+
+            if (fromDate > toDate && fromDate != DateTime.Now.Date && toDate != DateTime.Now.Date)
+            {
+                MessageBox.Show("From date should not be ahead of To date.", "Invalid Date Range", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return null;
+            }
+
+            toDate = toDate.AddDays(1);
+
+            if (fromDate == toDate)
+            {
+                string dateString = fromDate.ToString("MM-dd-yyyy");
+                return $"CONVERT(CheckedOutDate, 'System.String') LIKE '{dateString}%'";
+            }
+            else
+            {
+                string fromDateString = fromDate.ToString("MM-dd-yyyy");
+                string toDateString = toDate.ToString("MM-dd-yyyy");
+
+                return $"CONVERT(CheckedOutDate, 'System.String') >= '{fromDateString}' AND CONVERT(CheckedOutDate, 'System.String') <= '{toDateString}'";
+            }
+        }
+
+        private void ApplyCombinedFilter()
+        {
+            string combinedFilter = GetCombinedFilter();
+
+            DataView dv = ((DataTable)MngrPDHistoryDGV.DataSource).DefaultView;
+            dv.RowFilter = combinedFilter;
+        }
+
+        private void MngrPDHistoryStatusBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplyCombinedFilter();
+        }
+
+        private void MngrPDHistoryItemCatBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplyCombinedFilter();
+        }
+
+        private void MngrPDHistoryDatePickFrom_ValueChanged(object sender, EventArgs e)
+        {
+            considerDateFilter = true;
+            ApplyCombinedFilter();
+        }
+
+        private void MngrPDHistoryDatePickTo_ValueChanged(object sender, EventArgs e)
+        {
+            considerDateFilter = true;
+            ApplyCombinedFilter();
+        }
+
+        private void MngrPDHistoryResetBtn_Click(object sender, EventArgs e)
+        {
+            MngrPDHistoryStatusBox.SelectedIndex = -1;
+            MngrPDHistoryItemCatBox.SelectedIndex = -1;
+            MngrPDHistoryDatePickFrom.Value = DateTime.Now;
+            MngrPDHistoryDatePickTo.Value = DateTime.Now;
+            considerDateFilter = false;
+
+            DataView dv = ((DataTable)MngrPDHistoryDGV.DataSource).DefaultView;
+            dv.RowFilter = string.Empty;
+        }
         #endregion
 
+        #region PANEL OF SERVICE HISTORY
+        private void ServiceHistoryShow()
+        {
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
 
-        //Admin Dashboard Starts Here
-        #region
-        private void AdminSignOutBtn_Click_1(object sender, EventArgs e)
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "SELECT TransactionNumber, TransactionType, ServiceStatus, AppointmentDate, ClientName, " +
+                                    "ServiceCategory, AttendingStaff, ServiceID, SelectedService, ServicePrice, StarRating FROM servicehistory";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+                    adapter.Fill(dataTable);
+
+                    MngrSVHistoryDGV.DataSource = dataTable;
+
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private bool ConsiderDateFilter = false;
+
+        private string GetCombined_Filter()
+        {
+            string transactionTypeFilter = GetTransactionTypeFilter();
+            string serviceStatusFilter = GetServiceStatusFilter();
+            string serviceCategoryFilter = GetServiceCategoryFilter();
+            string dateFilter = ConsiderDateFilter ? FilterRowByDateRange() : string.Empty;
+
+            List<string> filters = new List<string>();
+
+            if (!string.IsNullOrEmpty(transactionTypeFilter))
+                filters.Add(transactionTypeFilter);
+
+            if (!string.IsNullOrEmpty(serviceStatusFilter))
+                filters.Add(serviceStatusFilter);
+
+            if (!string.IsNullOrEmpty(serviceCategoryFilter))
+                filters.Add(serviceCategoryFilter);
+
+            if (!string.IsNullOrEmpty(dateFilter))
+                filters.Add(dateFilter);
+
+            if (filters.Count == 1)
+                return filters[0];
+
+            string combinedFilter = string.Join(" AND ", filters);
+
+            return combinedFilter;
+        }
+
+        private string GetTransactionTypeFilter()
+        {
+            if (MngrSVHistoryTransTypeBox.SelectedItem != null)
+            {
+                string selectedTransactionType = MngrSVHistoryTransTypeBox.SelectedItem.ToString();
+                return $"TransactionType = '{selectedTransactionType}'";
+            }
+            return string.Empty;
+        }
+
+        private string GetServiceStatusFilter()
+        {
+            if (MngrSVHistoryServiceStatusBox.SelectedItem != null)
+            {
+                string selectedServiceStatus = MngrSVHistoryServiceStatusBox.SelectedItem.ToString();
+                return $"ServiceStatus = '{selectedServiceStatus}'";
+            }
+            return string.Empty;
+        }
+
+        private string GetServiceCategoryFilter()
+        {
+            if (MngrSVHistoryServiceCatBox.SelectedItem != null)
+            {
+                string selectedServiceCategory = MngrSVHistoryServiceCatBox.SelectedItem.ToString();
+                return $"ServiceCategory = '{selectedServiceCategory}'";
+            }
+            return string.Empty;
+        }
+
+        private void Apply_CombinedFilter()
+        {
+            string combinedFilter = GetCombined_Filter();
+
+            DataView dv = ((DataTable)MngrSVHistoryDGV.DataSource).DefaultView;
+            dv.RowFilter = combinedFilter;
+        }
+
+        private string FilterRowByDateRange()
+        {
+            DateTime fromDate = MngrSVHistoryDatePickFrom.Value.Date;
+            DateTime toDate = MngrSVHistoryDatePickTo.Value.Date;
+
+            if (fromDate > toDate && fromDate != DateTime.Now.Date && toDate != DateTime.Now.Date)
+            {
+                MessageBox.Show("From date should not be ahead of To date.", "Invalid Date Range", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
+            }
+
+            toDate = toDate.AddDays(1);
+
+            if (fromDate == toDate)
+            {
+                string dateString = fromDate.ToString("MM-dd-yyyy");
+                return $"CONVERT(AppointmentDate, 'System.String') LIKE '{dateString}%'";
+            }
+            else
+            {
+                string fromDateString = fromDate.ToString("MM-dd-yyyy");
+                string toDateString = toDate.ToString("MM-dd-yyyy");
+
+                return $"CONVERT(AppointmentDate, 'System.String') >= '{fromDateString}' AND CONVERT(AppointmentDate, 'System.String') <= '{toDateString}'";
+            }
+        }
+
+        private void MngrSVHistoryTransTypeBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Apply_CombinedFilter();
+        }
+
+        private void MngrSVHistoryServiceStatusBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Apply_CombinedFilter();
+        }
+
+        private void MngrSVHistoryServiceCatBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Apply_CombinedFilter();
+        }
+
+        private void MngrSVHistoryDatePickFrom_ValueChanged(object sender, EventArgs e)
+        {
+            ConsiderDateFilter = true;
+            Apply_CombinedFilter();
+        }
+
+        private void MngrSVHistoryDatePickTo_ValueChanged(object sender, EventArgs e)
+        {
+            ConsiderDateFilter = true;
+            Apply_CombinedFilter();
+        }
+
+        private void MngrSVHistoryResetBtn_Click(object sender, EventArgs e)
+        {
+            MngrSVHistoryTransTypeBox.SelectedIndex = -1;
+            MngrSVHistoryServiceStatusBox.SelectedIndex = -1;
+            MngrSVHistoryServiceCatBox.SelectedIndex = -1;
+            MngrSVHistoryDatePickFrom.Value = DateTime.Now;
+            MngrSVHistoryDatePickTo.Value = DateTime.Now;
+            ConsiderDateFilter = false;
+
+            DataView dv = ((DataTable)MngrSVHistoryDGV.DataSource).DefaultView;
+            dv.RowFilter = string.Empty;
+        }
+        #endregion
+
+        #region PANEL OF MEMBER ACCOUNTS
+        private void MemberAccountsShow()
+        {
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "SELECT MembershipType, MemberIDNumber, AccountStatus, FirstName, LastName, " +
+                                    "Birthday, CPNumber, EmailAdd, AccountCreated FROM membershipaccount";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+                    adapter.Fill(dataTable);
+
+                    MngrMemAccDGV.DataSource = dataTable;
+
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private bool considerDateFilter_MngrMemAcc = false;
+
+        private string GetCombinedFilter_MngrMemAcc()
+        {
+            string membershipTypeFilter = GetMembershipTypeFilter();
+            string dateFilter = considerDateFilter_MngrMemAcc ? FilterRowByDateCreated() : string.Empty;
+
+            List<string> filters = new List<string>();
+
+            if (!string.IsNullOrEmpty(membershipTypeFilter))
+                filters.Add(membershipTypeFilter);
+
+            if (!string.IsNullOrEmpty(dateFilter))
+                filters.Add(dateFilter);
+
+            if (filters.Count == 1)
+                return filters[0];
+
+            string combinedFilter = string.Join(" AND ", filters);
+
+            return combinedFilter;
+        }
+
+        private string GetMembershipTypeFilter()
+        {
+            if (MngrMemAccMemTypeBox.SelectedItem != null)
+            {
+                string selectedMembershipType = MngrMemAccMemTypeBox.SelectedItem.ToString();
+                return $"MembershipType = '{selectedMembershipType}'";
+            }
+            return string.Empty;
+        }
+
+        private void ApplyCombinedFilter_MngrMemAcc()
+        {
+            string combinedFilter = GetCombinedFilter_MngrMemAcc();
+
+            DataView dv = ((DataTable)MngrMemAccDGV.DataSource).DefaultView;
+            dv.RowFilter = combinedFilter;
+        }
+
+        private string FilterRowByDateCreated()
+        {
+            DateTime fromDate = MngrMemAccDatePickFrom.Value.Date;
+            DateTime toDate = MngrMemAccDatePickTo.Value.Date;
+
+            if (fromDate > toDate && fromDate != DateTime.Now.Date && toDate != DateTime.Now.Date)
+            {
+                MessageBox.Show("From date should not be ahead of To date.", "Invalid Date Range", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
+            }
+
+            toDate = toDate.AddDays(1);
+
+            if (fromDate == toDate)
+            {
+                string dateString = fromDate.ToString("MM-dd-yyyy");
+                return $"CONVERT(AccountCreated, 'System.String') LIKE '{dateString}%'";
+            }
+            else
+            {
+                string fromDateString = fromDate.ToString("MM-dd-yyyy");
+                string toDateString = toDate.ToString("MM-dd-yyyy");
+
+                return $"CONVERT(AccountCreated, 'System.String') >= '{fromDateString}' AND CONVERT(AccountCreated, 'System.String') <= '{toDateString}'";
+            }
+        }
+
+        private void MngrMemAccMemTypeBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplyCombinedFilter_MngrMemAcc();
+        }
+
+        private void MngrMemAccDatePickFrom_ValueChanged(object sender, EventArgs e)
+        {
+            considerDateFilter_MngrMemAcc = true;
+            ApplyCombinedFilter_MngrMemAcc();
+        }
+
+        private void MngrMemAccDatePickTo_ValueChanged(object sender, EventArgs e)
+        {
+            considerDateFilter_MngrMemAcc = true;
+            ApplyCombinedFilter_MngrMemAcc();
+        }
+
+        private void MngrMemAccResetBtn_Click(object sender, EventArgs e)
+        {
+            MngrMemAccMemTypeBox.SelectedIndex = -1;
+            MngrMemAccDatePickFrom.Value = DateTime.Now;
+            MngrMemAccDatePickTo.Value = DateTime.Now;
+            considerDateFilter_MngrMemAcc = false;
+
+            DataView dv = ((DataTable)MngrMemAccDGV.DataSource).DefaultView;
+            dv.RowFilter = string.Empty;
+        }   
+    #endregion
+
+
+    #endregion
+
+
+    //Admin Dashboard Starts Here
+    #region
+    private void AdminSignOutBtn_Click_1(object sender, EventArgs e)
         {
             LogoutChecker();
 
