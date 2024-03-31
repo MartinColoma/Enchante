@@ -3777,7 +3777,7 @@ namespace Enchante
 
         }
 
-        
+
         private void QueueNumReceiptGenerator()
         {
             DateTime currentDate = RecDateTimePicker.Value;
@@ -4677,7 +4677,7 @@ namespace Enchante
         #endregion
 
         #endregion
-       
+
         #region Receptionist Payment Service
 
         private void ReceptionCalculateTotalPrice()
@@ -5206,7 +5206,7 @@ namespace Enchante
                 string transactNumber = RecPayServiceWalkinCompleteTransDGV.Rows[e.RowIndex].Cells["TransactionNumber"].Value.ToString();
                 string clientName = RecPayServiceWalkinCompleteTransDGV.Rows[e.RowIndex].Cells["ClientName"].Value.ToString();
 
-                
+
                 RecPayServiceTransactNumLbl.Text = transactNumber;
                 RecPayServiceClientNameLbl.Text = $"Client Name: {clientName}";
 
@@ -5571,8 +5571,8 @@ namespace Enchante
                                         "GrossAmount = @gross, PaymentMethod = @payment, WalletNumber = @walletNum, WalletPIN = @walletPin, WalletOTP = @walletOTP, CheckedOutBy = @mngr " +
                                         "WHERE TransactionNumber = @transactNum"; // gcash and paymaya query
                     string productPaymentAppt = "UPDATE orderproducthistory SET ProductStatus = @status WHERE TransactionNumber = @transactNum";
-                    
-                    
+
+
                     if (RecPayServiceCashPaymentRB.Checked == true && RecPayServiceTransTypeLbl.Text == "Walk-in")
                     {
                         MySqlCommand cmd = new MySqlCommand(cashPaymentWalkin, connection);
@@ -6350,7 +6350,7 @@ namespace Enchante
                 selectedStaffID = selectedValue.Substring(0, 11);
             }
         }
-            private void RecPayServiceVATExemptChk_CheckedChanged(object sender, EventArgs e)
+        private void RecPayServiceVATExemptChk_CheckedChanged(object sender, EventArgs e)
         {
             if (RecPayServiceVATExemptChk.Checked)
             {
@@ -7395,7 +7395,7 @@ namespace Enchante
 
         private void RecApptAttendingStaffSelectedComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         //ApptMember
@@ -11011,7 +11011,7 @@ namespace Enchante
                                         }
                                     }
                                     else
-                                    {                                       
+                                    {
                                         if (staffRatings.ContainsKey(attendingStaff))
                                         {
                                             staffRatings[attendingStaff] += starRating;
@@ -12831,7 +12831,7 @@ namespace Enchante
         #endregion
 
 
-        
+
         #region Staff Dashboard Starts Here
         private void StaffUserAccBtn_Click(object sender, EventArgs e)
         {
@@ -12845,7 +12845,7 @@ namespace Enchante
             }
 
         }
-        
+
         #region general and preferred queue
         public class PendingCustomers
         {
@@ -13780,7 +13780,7 @@ namespace Enchante
                 string transactionNumber = selectedRow.Cells["ServiceTransactionID"].Value.ToString();
                 string serviceHistoryQuery = "SELECT TransactionNumber, ServiceCategory, ServiceID, SelectedService " +
                                              "FROM servicehistory " +
-                                             "WHERE TransactionNumber = @transactionNumber AND (ServiceStatus = 'Pending' OR ServiceStatus = 'PendingPaid')" ;
+                                             "WHERE TransactionNumber = @transactionNumber AND (ServiceStatus = 'Pending' OR ServiceStatus = 'PendingPaid')";
 
                 using (MySqlConnection connection = new MySqlConnection(mysqlconn))
                 {
@@ -13858,11 +13858,6 @@ namespace Enchante
                     MessageBox.Show("Services have been cancelled successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RecCanceAllServicesDGV.Rows.Clear();
                     InitializeCustomerServiceListDataGrid();
-                }
-                else
-                {
-                    // User chose not to continue with the cancellation
-                    // Additional handling can be added if needed
                 }
             }
             else
@@ -13980,6 +13975,98 @@ namespace Enchante
             else
             {
                 MessageBox.Show("Please select a service to cancel.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void RecApptSearchServiceTypeText_TextChanged(object sender, EventArgs e)
+        {
+            RecApptSearchServicePerCat();
+        }
+
+        private void RecApptSearchServicePerCat()
+        {
+            string searchText = RecApptSearchServiceTypeText.Text;
+            if (RecApptCatHSRB.Checked)
+            {
+                SearchApptAcrossCategories(searchText, "Hair Styling");
+                return;
+            }
+            else if (RecApptCatFSRB.Checked)
+            {
+                SearchApptAcrossCategories(searchText, "Face & Skin");
+                return;
+            }
+            else if (RecApptCatNCRB.Checked)
+            {
+                SearchApptAcrossCategories(searchText, "Nail Care");
+                return;
+            }
+            else if (RecApptCatSpaRB.Checked)
+            {
+                SearchApptAcrossCategories(searchText, "Spa");
+                return;
+            }
+            else if (RecApptCatMassRB.Checked)
+            {
+                SearchApptAcrossCategories(searchText, "Massage");
+                return;
+            }
+        }
+
+        private void RecApptSearchServiceTypeBtn_Click(object sender, EventArgs e)
+        {
+            RecApptSearchServicePerCat();
+        }
+
+        private void SearchApptAcrossCategories(string searchText, string category)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    // Modify the query to search for the specified text in a specific category
+                    string sql = "SELECT * FROM `services` WHERE Category = @category AND " +
+                                 "(Name LIKE @searchText OR " +
+                                 "Description LIKE @searchText OR " +
+                                 "Duration LIKE @searchText OR " +
+                                 "Price LIKE @searchText)";
+
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    cmd.Parameters.AddWithValue("@searchText", "%" + searchText + "%");
+                    cmd.Parameters.AddWithValue("@category", category);
+
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+                        RecApptServiceTypeDGV.Columns.Clear();
+
+                        RecApptServiceTypeDGV.DataSource = dataTable;
+
+                        // Adjust column visibility and sizing as needed
+                        RecApptServiceTypeDGV.Columns[0].Visible = false;
+                        RecApptServiceTypeDGV.Columns[1].Visible = false;
+                        RecApptServiceTypeDGV.Columns[2].Visible = false;
+                        RecApptServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        RecApptServiceTypeDGV.ClearSelection();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("An error occurred: " + e.Message, "Error");
+            }
+            finally
+            {
+                // Ensure the connection is closed even in case of an exception
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
             }
         }
     }

@@ -11285,6 +11285,7 @@ namespace Enchante
             this.RecApptSearchServiceTypeText.SelectedText = "";
             this.RecApptSearchServiceTypeText.Size = new System.Drawing.Size(666, 30);
             this.RecApptSearchServiceTypeText.TabIndex = 190;
+            this.RecApptSearchServiceTypeText.TextChanged += new System.EventHandler(this.RecApptSearchServiceTypeText_TextChanged);
             // 
             // RecApptClientAgeErrorLbl
             // 
@@ -12176,6 +12177,7 @@ namespace Enchante
             this.RecApptSearchServiceTypeBtn.Size = new System.Drawing.Size(46, 46);
             this.RecApptSearchServiceTypeBtn.TabIndex = 133;
             this.RecApptSearchServiceTypeBtn.UseVisualStyleBackColor = false;
+            this.RecApptSearchServiceTypeBtn.Click += new System.EventHandler(this.RecApptSearchServiceTypeBtn_Click);
             // 
             // RecApptPanelExitBtn
             // 
@@ -15193,7 +15195,7 @@ namespace Enchante
             // 
             this.RecTransactionCard.ContainerControl = this.ReceptionCreateTransactPanel;
             this.RecTransactionCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.RecTransactionCard.SelectedCard = "AppointConfirm";
+            this.RecTransactionCard.SelectedCard = "WalkinAppt";
             // 
             // DateTimePickerTimer
             // 
