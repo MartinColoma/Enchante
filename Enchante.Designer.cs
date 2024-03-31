@@ -10197,7 +10197,7 @@ namespace Enchante
             this.RecCanceltApptTransactionBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.RecCanceltApptTransactionBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.RecCanceltApptTransactionBtn.ForeColor = System.Drawing.Color.White;
-            this.RecCanceltApptTransactionBtn.Location = new System.Drawing.Point(559, 548);
+            this.RecCanceltApptTransactionBtn.Location = new System.Drawing.Point(682, 552);
             this.RecCanceltApptTransactionBtn.Name = "RecCanceltApptTransactionBtn";
             this.RecCanceltApptTransactionBtn.Size = new System.Drawing.Size(94, 32);
             this.RecCanceltApptTransactionBtn.TabIndex = 195;
@@ -10235,7 +10235,7 @@ namespace Enchante
             this.RecAcceptApptTransactionBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.RecAcceptApptTransactionBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.RecAcceptApptTransactionBtn.ForeColor = System.Drawing.Color.White;
-            this.RecAcceptApptTransactionBtn.Location = new System.Drawing.Point(659, 548);
+            this.RecAcceptApptTransactionBtn.Location = new System.Drawing.Point(782, 552);
             this.RecAcceptApptTransactionBtn.Name = "RecAcceptApptTransactionBtn";
             this.RecAcceptApptTransactionBtn.Size = new System.Drawing.Size(83, 32);
             this.RecAcceptApptTransactionBtn.TabIndex = 194;

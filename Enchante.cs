@@ -13704,11 +13704,14 @@ namespace Enchante
                     {
                         connection.Open();
 
-                        string updateQuery = $"UPDATE appointment SET AppointmentStatus = 'Cancelled' WHERE TransactionNumber = '{transactionID}'";
+                        string updateQuery = $"UPDATE appointment SET AppointmentStatus = 'Cancelled', ServiceStatus = 'Cancelled' WHERE TransactionNumber = '{transactionID}'";
+                        string updateQuery2 = $"UPDATE servicehistory SET ServiceStatus = 'Cancelled' WHERE TransactionNumber = '{transactionID}'";
                         MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection);
                         int rowsAffected = updateCommand.ExecuteNonQuery();
+                        MySqlCommand updateCommand2 = new MySqlCommand(updateQuery2, connection);
+                        int rowsAffected2 = updateCommand2.ExecuteNonQuery();
 
-                        if (rowsAffected > 0)
+                        if (rowsAffected > 0 && rowsAffected2 > 0)
                         {
                             RecApptAcceptLateDeclineDGV.Rows.Clear();
                             InitializeAppointmentDataGrid();
@@ -13722,7 +13725,6 @@ namespace Enchante
                 }
                 else
                 {
-                    // User cancelled the operation
                     MessageBox.Show("Appointment cancellation cancelled.");
                 }
             }
