@@ -15195,7 +15195,7 @@ namespace Enchante
             // 
             this.RecTransactionCard.ContainerControl = this.ReceptionCreateTransactPanel;
             this.RecTransactionCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.RecTransactionCard.SelectedCard = "WalkinAppt";
+            this.RecTransactionCard.SelectedCard = "Walk-in";
             // 
             // DateTimePickerTimer
             // 

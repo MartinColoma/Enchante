@@ -3774,7 +3774,8 @@ namespace Enchante
             RecWalkinCatMassageRB.Checked = false;
             RecWalkinSelectedServiceDGV.Rows.Clear();
             RecWalkinSelectedProdDGV.Rows.Clear();
-
+            RecWalkinAnyStaffToggleSwitch.Checked = false;
+            RecWalkinPreferredStaffToggleSwitch.Checked = false;
         }
 
 
