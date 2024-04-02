@@ -83,7 +83,7 @@
             this.StaffCustomerServiceStatusTextBox.Font = new System.Drawing.Font("Arial Black", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StaffCustomerServiceStatusTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.StaffCustomerServiceStatusTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffCustomerServiceStatusTextBox.Location = new System.Drawing.Point(187, 73);
+            this.StaffCustomerServiceStatusTextBox.Location = new System.Drawing.Point(210, 73);
             this.StaffCustomerServiceStatusTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.StaffCustomerServiceStatusTextBox.Name = "StaffCustomerServiceStatusTextBox";
             this.StaffCustomerServiceStatusTextBox.PasswordChar = '\0';
@@ -117,7 +117,7 @@
             this.StaffTransactionIDTextBox.PlaceholderText = "[Transaction ID]";
             this.StaffTransactionIDTextBox.ReadOnly = true;
             this.StaffTransactionIDTextBox.SelectedText = "";
-            this.StaffTransactionIDTextBox.Size = new System.Drawing.Size(141, 25);
+            this.StaffTransactionIDTextBox.Size = new System.Drawing.Size(163, 25);
             this.StaffTransactionIDTextBox.TabIndex = 4;
             // 
             // StaffCustomerNameTextBox
@@ -163,7 +163,7 @@
             this.StaffElapsedTimeTextBox.Font = new System.Drawing.Font("Arial Black", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StaffElapsedTimeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.StaffElapsedTimeTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffElapsedTimeTextBox.Location = new System.Drawing.Point(353, 73);
+            this.StaffElapsedTimeTextBox.Location = new System.Drawing.Point(378, 73);
             this.StaffElapsedTimeTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.StaffElapsedTimeTextBox.Name = "StaffElapsedTimeTextBox";
             this.StaffElapsedTimeTextBox.PasswordChar = '\0';
@@ -277,7 +277,7 @@
             this.StaffQueTypeTextBox.Font = new System.Drawing.Font("Arial Black", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StaffQueTypeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.StaffQueTypeTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffQueTypeTextBox.Location = new System.Drawing.Point(456, 73);
+            this.StaffQueTypeTextBox.Location = new System.Drawing.Point(478, 73);
             this.StaffQueTypeTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.StaffQueTypeTextBox.Name = "StaffQueTypeTextBox";
             this.StaffQueTypeTextBox.PasswordChar = '\0';
@@ -285,7 +285,7 @@
             this.StaffQueTypeTextBox.PlaceholderText = "[QueType]";
             this.StaffQueTypeTextBox.ReadOnly = true;
             this.StaffQueTypeTextBox.SelectedText = "";
-            this.StaffQueTypeTextBox.Size = new System.Drawing.Size(177, 25);
+            this.StaffQueTypeTextBox.Size = new System.Drawing.Size(155, 25);
             this.StaffQueTypeTextBox.TabIndex = 29;
             // 
             // StaffCancelServiceBtn
