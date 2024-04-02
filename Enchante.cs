@@ -14270,14 +14270,14 @@ namespace Enchante
                     connection.Open();
 
                     string priorityquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber, sh.QueType 
-                                 FROM servicehistory sh 
-                                 INNER JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber 
-                                 WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')
-                                 AND sh.ServiceCategory = @membercategory 
-                                 AND (sh.QueType = 'AnyonePriority' OR sh.PreferredStaff = @preferredstaff)
-                                 AND (app.ServiceStatus = 'Pending' OR app.ServiceStatus = 'Pending Paid')
-                                 AND app.AppointmentStatus = 'Confirmed'
-                                 AND sh.AppointmentDate = @datetoday";
+                                                                 FROM servicehistory sh 
+                                                                 INNER JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber 
+                                                                 WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')
+                                                                 AND sh.ServiceCategory = @membercategory 
+                                                                 AND (sh.QueType = 'AnyonePriority' OR sh.QueType = 'AnyoneSPriority' OR sh.PreferredStaff = @preferredstaff)
+                                                                 AND (app.ServiceStatus = 'Pending' OR app.ServiceStatus = 'Pending Paid')
+                                                                 AND app.AppointmentStatus = 'Confirmed'
+                                                                 AND sh.AppointmentDate = @datetoday";
 
                     MySqlCommand command = new MySqlCommand(priorityquependingcustomersquery, connection);
                     command.Parameters.AddWithValue("@membercategory", membercategory);
@@ -14316,7 +14316,9 @@ namespace Enchante
             return result;
         }
 
-        protected void InitializePriorityPendingCustomersForStaff()
+        public int sprioritycount;
+        bool ThereIsSvip = false;
+        public void InitializePriorityPendingCustomersForStaff()
         {
             List<PriorityPendingCustomers> priorityqueuependingcustomers = RetrievePriorityGeneralAndPreferredQuePendingCustomersFromDB();
 
@@ -14328,6 +14330,8 @@ namespace Enchante
             }
 
             int smallestQueNumber2 = int.MaxValue;
+            int smallestQueNumberAnyonePreferred = int.MaxValue;
+
 
             foreach (PriorityPendingCustomers customer in priorityqueuependingcustomers)
             {
@@ -14347,21 +14351,69 @@ namespace Enchante
                     {
                         smallestQueNumber2 = queNumber;
                     }
+
+                }
+
+                string queNumberText2 = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
+                if (int.TryParse(queNumberText2, out int queNumber2))
+                {
+                    if (customer.QueType == "AnyoneSPriority" || customer.QueType == "PreferredSPriority")
+                    {
+                        if (queNumber2 < smallestQueNumberAnyonePreferred)
+                        {
+                            smallestQueNumberAnyonePreferred = queNumber2;
+                        }
+                        ThereIsSvip = true;
+                        sprioritycount++;
+                    }
+
                 }
             }
 
-            UpdateStartServiceButtonStatusPriority(priorityqueuependingcustomers, smallestQueNumber2);
+
+            if (!ThereIsSvip && sprioritycount == 0)
+            {
+                ThereIsSvip = false;
+            }
+            UpdateStartServiceButtonStatusPriority(priorityqueuependingcustomers, smallestQueNumber2, smallestQueNumberAnyonePreferred);
+
         }
 
-        private void UpdateStartServiceButtonStatusPriority(List<PriorityPendingCustomers> priorityqueuependingcustomers, int smallestQueNumber)
+        private void UpdateStartServiceButtonStatusPriority(List<PriorityPendingCustomers> priorityqueuependingcustomers, int smallestQueNumber, int smallestQueNumberAnyonePreferred)
         {
-            foreach (System.Windows.Forms.Control control in StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls)
+            bool hasAnyoneSPriorityOrPreferredSPriority = priorityqueuependingcustomers
+                .Any(customer => customer.QueType == "AnyoneSPriority" || customer.QueType == "PreferredSPriority");
+            if (ThereIsSvip == true)
             {
-                if (control is StaffCurrentAvailableCustomersUserControl userControl)
+
+                foreach (System.Windows.Forms.Control control in StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls)
                 {
-                    int queNumber;
-                    int.TryParse(userControl.StaffQueNumberTextBox.Text, out queNumber);
-                    userControl.StaffStartServiceBtn.Enabled = (queNumber == smallestQueNumber);
+                    if (control is StaffCurrentAvailableCustomersUserControl userControl)
+                    {
+                        int queNumber;
+                        int.TryParse(userControl.StaffQueNumberTextBox.Text, out queNumber);
+                        if (userControl.StaffQueTypeTextBox.Text == "AnyoneSPriority" || userControl.StaffQueTypeTextBox.Text == "PreferredSPriority")
+                        {
+                            userControl.StaffStartServiceBtn.Enabled = (queNumber == smallestQueNumberAnyonePreferred);
+                        }
+                        else
+                        {
+                            userControl.StaffStartServiceBtn.Enabled = false;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (System.Windows.Forms.Control control in StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls)
+                {
+                    if (control is StaffCurrentAvailableCustomersUserControl userControl)
+                    {
+                        int queNumber;
+                        int.TryParse(userControl.StaffQueNumberTextBox.Text, out queNumber);
+                        userControl.StaffStartServiceBtn.Enabled = (queNumber == smallestQueNumber);
+
+                    }
                 }
             }
         }
