@@ -7912,7 +7912,11 @@ namespace Enchante
                                     MessageBox.Show("Appointment Confirmed");
 
                                     RecApptAcceptLateDeclineDGV.Rows.Clear();
+                                    RecCanceAllServicesDGV.Rows.Clear();
+                                    RecCancelServicesDGV.Rows.Clear();
                                     InitializeAppointmentDataGrid();
+                                    InitializeCustomerServiceListDataGrid();
+
                                 }
                                 else
                                 {
@@ -7939,7 +7943,11 @@ namespace Enchante
                                     MessageBox.Show("Appointment Confirmed");
 
                                     RecApptAcceptLateDeclineDGV.Rows.Clear();
+                                    RecCanceAllServicesDGV.Rows.Clear();
+                                    RecCancelServicesDGV.Rows.Clear();
                                     InitializeAppointmentDataGrid();
+                                    InitializeCustomerServiceListDataGrid();
+
                                 }
                                 else
                                 {
@@ -13515,11 +13523,42 @@ namespace Enchante
                                                      AND (wa.ServiceStatus = 'Pending' OR wa.ServiceStatus = 'Pending Paid')
                                                      AND sh.AppointmentDate = @datetoday";
 
+                    string generalquependingcustomersquery2 = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber 
+                                                     FROM servicehistory sh 
+                                                     INNER JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber 
+                                                     WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')
+                                                     AND sh.ServiceCategory = @membercategory 
+                                                     AND sh.QueType = 'GeneralQue' 
+                                                     AND (app.ServiceStatus = 'Pending' OR app.ServiceStatus = 'Pending Paid')
+                                                     AND sh.AppointmentDate = @datetoday";
+
                     MySqlCommand command = new MySqlCommand(generalquependingcustomersquery, connection);
                     command.Parameters.AddWithValue("@membercategory", membercategory);
                     command.Parameters.AddWithValue("@datetoday", datetoday);
 
                     using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            PendingCustomers generalquependingcustomers = new PendingCustomers
+                            {
+                                TransactionNumber = reader["TransactionNumber"] as string,
+                                ClientName = reader["ClientName"] as string,
+                                ServiceStatus = reader["ServiceStatus"] as string,
+                                ServiceName = reader["SelectedService"] as string,
+                                ServiceID = reader["ServiceID"] as string,
+                                QueNumber = reader["QueNumber"] as string
+                            };
+
+                            result.Add(generalquependingcustomers);
+                        }
+                    }
+
+                    MySqlCommand command2 = new MySqlCommand(generalquependingcustomersquery2, connection);
+                    command2.Parameters.AddWithValue("@membercategory", membercategory);
+                    command2.Parameters.AddWithValue("@datetoday", datetoday);
+
+                    using (MySqlDataReader reader = command2.ExecuteReader())
                     {
                         while (reader.Read())
                         {
@@ -13665,12 +13704,40 @@ namespace Enchante
                        FROM servicehistory sh INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber
                        WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid') AND sh.ServiceCategory = @membercategory AND sh.PreferredStaff = @preferredstaff AND (wa.ServiceStatus = 'Pending' OR wa.ServiceStatus = 'Pending Paid') AND sh.AppointmentDate = @datetoday";
 
+
+                    string preferredquependingcustomersquery2 = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber
+                       FROM servicehistory sh INNER JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber
+                       WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')  AND sh.QueType = 'Preferred' AND sh.ServiceCategory = @membercategory AND sh.PreferredStaff = @preferredstaff AND (app.ServiceStatus = 'Pending' OR app.ServiceStatus = 'Pending Paid') AND sh.AppointmentDate = @datetoday";
+                    
                     MySqlCommand command = new MySqlCommand(preferredquependingcustomersquery, connection);
                     command.Parameters.AddWithValue("@membercategory", membercategory);
                     command.Parameters.AddWithValue("@preferredstaff", staffID);
                     command.Parameters.AddWithValue("@datetoday", datetoday);
 
+                    MySqlCommand command2 = new MySqlCommand(preferredquependingcustomersquery2, connection);
+                    command2.Parameters.AddWithValue("@membercategory", membercategory);
+                    command2.Parameters.AddWithValue("@preferredstaff", staffID);
+                    command2.Parameters.AddWithValue("@datetoday", datetoday);
+
                     using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            PendingCustomers preferredquependingcustomers = new PendingCustomers
+                            {
+                                TransactionNumber = reader.IsDBNull(reader.GetOrdinal("TransactionNumber")) ? string.Empty : reader.GetString("TransactionNumber"),
+                                ClientName = reader.IsDBNull(reader.GetOrdinal("ClientName")) ? string.Empty : reader.GetString("ClientName"),
+                                ServiceStatus = reader.IsDBNull(reader.GetOrdinal("ServiceStatus")) ? string.Empty : reader.GetString("ServiceStatus"),
+                                ServiceName = reader.IsDBNull(reader.GetOrdinal("SelectedService")) ? string.Empty : reader.GetString("SelectedService"),
+                                ServiceID = reader.IsDBNull(reader.GetOrdinal("ServiceID")) ? string.Empty : reader.GetString("ServiceID"),
+                                QueNumber = reader.IsDBNull(reader.GetOrdinal("QueNumber")) ? string.Empty : reader.GetString("QueNumber")
+                            };
+
+                            result.Add(preferredquependingcustomers);
+                        }
+                    }
+
+                    using (MySqlDataReader reader = command2.ExecuteReader())
                     {
                         while (reader.Read())
                         {
