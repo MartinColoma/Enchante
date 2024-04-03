@@ -1062,6 +1062,10 @@ namespace Enchante
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.StaffAddToInventoryButton = new Guna.UI2.WinForms.Guna2Button();
             this.StaffPersonalInventoryDataGrid = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.StaffItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StaffItemStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StaffInventoryDataGrid = new Guna.UI2.WinForms.Guna2DataGridView();
             this.ItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1078,10 +1082,6 @@ namespace Enchante
             this.RecTransactionCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.DateTimePickerTimer = new System.Windows.Forms.Timer(this.components);
             this.MngrInventoryCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
-            this.StaffItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StaffItemStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteMngrPage.SuspendLayout();
             this.MngrScrollPanel.SuspendLayout();
@@ -15287,13 +15287,14 @@ namespace Enchante
             this.guna2GradientPanel1.Controls.Add(this.StaffAddToInventoryButton);
             this.guna2GradientPanel1.Controls.Add(this.StaffPersonalInventoryDataGrid);
             this.guna2GradientPanel1.Controls.Add(this.StaffInventoryDataGrid);
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(379, 1401);
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(242, 1309);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(1128, 328);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(1473, 328);
             this.guna2GradientPanel1.TabIndex = 22;
             // 
             // StaffItemSelectedCountTextBox
             // 
+            this.StaffItemSelectedCountTextBox.BorderRadius = 17;
             this.StaffItemSelectedCountTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.StaffItemSelectedCountTextBox.DefaultText = "";
             this.StaffItemSelectedCountTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -15301,49 +15302,53 @@ namespace Enchante
             this.StaffItemSelectedCountTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.StaffItemSelectedCountTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.StaffItemSelectedCountTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffItemSelectedCountTextBox.Font = new System.Drawing.Font("TechnicBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.StaffItemSelectedCountTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StaffItemSelectedCountTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.StaffItemSelectedCountTextBox.Location = new System.Drawing.Point(32, 251);
-            this.StaffItemSelectedCountTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.StaffItemSelectedCountTextBox.Location = new System.Drawing.Point(32, 278);
+            this.StaffItemSelectedCountTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.StaffItemSelectedCountTextBox.Name = "StaffItemSelectedCountTextBox";
             this.StaffItemSelectedCountTextBox.PasswordChar = '\0';
             this.StaffItemSelectedCountTextBox.PlaceholderText = "";
             this.StaffItemSelectedCountTextBox.SelectedText = "";
-            this.StaffItemSelectedCountTextBox.Size = new System.Drawing.Size(208, 31);
+            this.StaffItemSelectedCountTextBox.Size = new System.Drawing.Size(138, 36);
             this.StaffItemSelectedCountTextBox.TabIndex = 6;
             // 
             // guna2TextBox2
             // 
+            this.guna2TextBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.guna2TextBox2.DefaultText = "Your Inventory";
             this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox2.ForeColor = System.Drawing.Color.Black;
+            this.guna2TextBox2.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.guna2TextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Location = new System.Drawing.Point(569, 44);
+            this.guna2TextBox2.Location = new System.Drawing.Point(766, 44);
             this.guna2TextBox2.Name = "guna2TextBox2";
             this.guna2TextBox2.PasswordChar = '\0';
             this.guna2TextBox2.PlaceholderText = "";
             this.guna2TextBox2.ReadOnly = true;
             this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.Size = new System.Drawing.Size(102, 19);
+            this.guna2TextBox2.Size = new System.Drawing.Size(225, 19);
             this.guna2TextBox2.TabIndex = 5;
             // 
             // guna2TextBox1
             // 
+            this.guna2TextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.guna2TextBox1.DefaultText = "Inventory";
             this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox1.ForeColor = System.Drawing.Color.Black;
+            this.guna2TextBox1.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.guna2TextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.Location = new System.Drawing.Point(32, 44);
             this.guna2TextBox1.Name = "guna2TextBox1";
@@ -15351,20 +15356,22 @@ namespace Enchante
             this.guna2TextBox1.PlaceholderText = "";
             this.guna2TextBox1.ReadOnly = true;
             this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(75, 19);
+            this.guna2TextBox1.Size = new System.Drawing.Size(152, 19);
             this.guna2TextBox1.TabIndex = 4;
             // 
             // StaffAddToInventoryButton
             // 
+            this.StaffAddToInventoryButton.BorderRadius = 17;
             this.StaffAddToInventoryButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.StaffAddToInventoryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.StaffAddToInventoryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.StaffAddToInventoryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.StaffAddToInventoryButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.StaffAddToInventoryButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.StaffAddToInventoryButton.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StaffAddToInventoryButton.ForeColor = System.Drawing.Color.White;
-            this.StaffAddToInventoryButton.Location = new System.Drawing.Point(247, 251);
+            this.StaffAddToInventoryButton.Location = new System.Drawing.Point(177, 278);
             this.StaffAddToInventoryButton.Name = "StaffAddToInventoryButton";
-            this.StaffAddToInventoryButton.Size = new System.Drawing.Size(119, 31);
+            this.StaffAddToInventoryButton.Size = new System.Drawing.Size(136, 36);
             this.StaffAddToInventoryButton.TabIndex = 2;
             this.StaffAddToInventoryButton.Text = "Add to Inventory";
             this.StaffAddToInventoryButton.Click += new System.EventHandler(this.StaffAddToInventoryButton_Click);
@@ -15399,11 +15406,11 @@ namespace Enchante
             dataGridViewCellStyle50.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.StaffPersonalInventoryDataGrid.DefaultCellStyle = dataGridViewCellStyle50;
             this.StaffPersonalInventoryDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.StaffPersonalInventoryDataGrid.Location = new System.Drawing.Point(569, 69);
+            this.StaffPersonalInventoryDataGrid.Location = new System.Drawing.Point(766, 69);
             this.StaffPersonalInventoryDataGrid.Name = "StaffPersonalInventoryDataGrid";
             this.StaffPersonalInventoryDataGrid.ReadOnly = true;
             this.StaffPersonalInventoryDataGrid.RowHeadersVisible = false;
-            this.StaffPersonalInventoryDataGrid.Size = new System.Drawing.Size(528, 167);
+            this.StaffPersonalInventoryDataGrid.Size = new System.Drawing.Size(651, 203);
             this.StaffPersonalInventoryDataGrid.TabIndex = 1;
             this.StaffPersonalInventoryDataGrid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.StaffPersonalInventoryDataGrid.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -15426,6 +15433,30 @@ namespace Enchante
             this.StaffPersonalInventoryDataGrid.ThemeStyle.RowsStyle.Height = 22;
             this.StaffPersonalInventoryDataGrid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.StaffPersonalInventoryDataGrid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // StaffItemID
+            // 
+            this.StaffItemID.HeaderText = "Item ID";
+            this.StaffItemID.Name = "StaffItemID";
+            this.StaffItemID.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Item Name";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // StaffItemStock
+            // 
+            this.StaffItemStock.HeaderText = "Item Stock";
+            this.StaffItemStock.Name = "StaffItemStock";
+            this.StaffItemStock.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "Item Status";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
             // StaffInventoryDataGrid
             // 
@@ -15461,7 +15492,7 @@ namespace Enchante
             this.StaffInventoryDataGrid.Name = "StaffInventoryDataGrid";
             this.StaffInventoryDataGrid.ReadOnly = true;
             this.StaffInventoryDataGrid.RowHeadersVisible = false;
-            this.StaffInventoryDataGrid.Size = new System.Drawing.Size(528, 167);
+            this.StaffInventoryDataGrid.Size = new System.Drawing.Size(651, 203);
             this.StaffInventoryDataGrid.TabIndex = 0;
             this.StaffInventoryDataGrid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.StaffInventoryDataGrid.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -15616,30 +15647,6 @@ namespace Enchante
             this.MngrInventoryCard.ContainerControl = this.MngrInventoryPanel;
             this.MngrInventoryCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
             this.MngrInventoryCard.SelectedCard = "PRODUCTS";
-            // 
-            // StaffItemID
-            // 
-            this.StaffItemID.HeaderText = "Item ID";
-            this.StaffItemID.Name = "StaffItemID";
-            this.StaffItemID.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Item Name";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // StaffItemStock
-            // 
-            this.StaffItemStock.HeaderText = "Item Stock";
-            this.StaffItemStock.Name = "StaffItemStock";
-            this.StaffItemStock.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "Item Status";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
             // Enchante
             // 
