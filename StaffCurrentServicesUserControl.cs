@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -367,12 +368,7 @@ namespace Enchante
             }
         }
 
-        private void StaffStartServiceBtn_Click(object sender, EventArgs e)
-        {
-            StartServiceButtonClicked?.Invoke(this, EventArgs.Empty);
-            StaffEndServiceBtn.Enabled = true;
-            EnchanteForm.RemovePendingUserControls(this);
-        }
+        
 
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -451,6 +447,162 @@ namespace Enchante
                 Parent.Controls.Remove(this);
             }
             EnchanteForm.RefreshFlowLayoutPanel();
+        }
+
+
+        private void StaffStartServiceBtn_Click(object sender, EventArgs e)
+        {
+            string serviceID = StaffServiceIDTextBox.Text;
+            if (CheckIfInventoryIsEnoughForService(serviceID, EnchanteForm.StaffPersonalInventoryDataGrid) == true)
+            {
+                StartServiceButtonClicked?.Invoke(this, EventArgs.Empty);
+                StaffEndServiceBtn.Enabled = true;
+                EnchanteForm.RemovePendingUserControls(this);
+            }
+            else
+            {
+                MessageBox.Show("You don't have enough stock to perform this service");
+            }
+
+        }
+
+        public bool CheckIfInventoryIsEnoughForService(string serviceID, DataGridView staffPersonalInventoryDataGrid)
+        {
+
+            if (staffPersonalInventoryDataGrid.Rows.Count == 0)
+            {
+                return false;
+            }
+            string query = "SELECT RequiredItem, NumOfItems FROM services WHERE ServiceID = @serviceID";
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@serviceID", serviceID);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string requiredItemString = reader.GetString("RequiredItem");
+                            string numOfItemsString = reader.GetString("NumOfItems");
+
+                            string[] requiredItemsArray = requiredItemString.Split(',');
+                            string[] numOfItemsArray = numOfItemsString.Split(',');
+
+                            if (requiredItemsArray.Length != numOfItemsArray.Length)
+                            {
+                                return false;
+                            }
+
+                            var requiredItemsDict = new Dictionary<string, int>();
+
+                            for (int i = 0; i < requiredItemsArray.Length; i++)
+                            {
+                                string requiredItem = requiredItemsArray[i].Trim();
+                                int numOfItem = int.Parse(numOfItemsArray[i].Trim());
+                                requiredItemsDict.Add(requiredItem, numOfItem);
+                            }
+                            bool isEnoughInventory = true; // Flag to track inventory sufficiency
+
+                            foreach (DataGridViewRow row in staffPersonalInventoryDataGrid.Rows)
+                            {
+                                string staffItemID = row.Cells["StaffItemID"].Value.ToString();
+                                int staffItemStock = int.Parse(row.Cells["StaffItemStock"].Value.ToString());
+
+
+                                if (requiredItemsDict.ContainsKey(staffItemID))
+                                {
+                                    int requiredItemQuantity = requiredItemsDict[staffItemID];
+
+                                    if (requiredItemQuantity > staffItemStock || staffItemStock == 0)
+                                    {
+                                        isEnoughInventory = false;
+                                    }
+                                }
+                                else
+                                {
+                                    isEnoughInventory = false;
+                                }
+                            }
+
+                            if (isEnoughInventory && staffPersonalInventoryDataGrid.Rows.Count == requiredItemsDict.Count)
+                            {
+                                //MessageBox.Show("Inventory is enough for service");
+                                DeductFromStaffInventory(requiredItemsDict);
+                                return true;
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return false;
+        }
+        public void DeductFromStaffInventory(Dictionary<string, int> requiredItemsDict)
+        {
+            string staffID = CurrentStaffID;
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                foreach (string staffItemID in requiredItemsDict.Keys)
+                {
+                    int requiredItemQuantity = requiredItemsDict[staffItemID];
+
+                    string selectQuery = "SELECT ItemStock FROM staff_inventory " +
+                                         "WHERE EmployeeID = @CurrentStaffID AND ItemID = @StaffItemID";
+
+                    MySqlCommand selectCommand = new MySqlCommand(selectQuery, connection);
+                    selectCommand.Parameters.AddWithValue("@CurrentStaffID", CurrentStaffID);
+                    selectCommand.Parameters.AddWithValue("@StaffItemID", staffItemID);
+
+                    string staffItemStock = selectCommand.ExecuteScalar()?.ToString();
+
+                    if (staffItemStock != null)
+                    {
+                        if (int.TryParse(staffItemStock, out int stock) && requiredItemQuantity <= stock)
+                        {
+                            string updateQuery = $"UPDATE staff_inventory " +
+                                                 $"SET ItemStock = @NewStock " +
+                                                 $"WHERE EmployeeID = @CurrentStaffID AND ItemID = @StaffItemID";
+
+                            MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection);
+                            updateCommand.Parameters.AddWithValue("@NewStock", (stock - requiredItemQuantity).ToString());
+                            updateCommand.Parameters.AddWithValue("@CurrentStaffID", CurrentStaffID);
+                            updateCommand.Parameters.AddWithValue("@StaffItemID", staffItemID);
+
+                            int rowsAffected = updateCommand.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                //MessageBox.Show($"Deducted {requiredItemQuantity} items from staff item: {staffItemID}");
+                                EnchanteForm.CheckItemStockPersonalStatus(staffItemID, staffID);
+                                EnchanteForm.StaffPersonalInventoryDataGrid.Rows.Clear();
+                                EnchanteForm.InitializeStaffPersonalInventoryDataGrid();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"Failed to deduct items from staff item: {staffItemID}");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Inventory is not enough for service. Staff item: {staffItemID}");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Failed to retrieve staff item stock for: {staffItemID}");
+                    }
+                }
+            }
         }
     }
 }

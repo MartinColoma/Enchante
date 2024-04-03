@@ -14237,11 +14237,80 @@ namespace Enchante
                     int currentStock = Convert.ToInt32(checkStockCommand.ExecuteScalar());
                 }
 
-                InitializeStaffPersonalInventoryDataGrid();
-                InitializeStaffInventoryDataGrid();
-                StaffItemSelectedCountTextBox.Clear();
+
+            }
+
+            CheckItemStockPersonalStatus(itemID, staffID);
+            InitializeStaffPersonalInventoryDataGrid();
+            InitializeStaffInventoryDataGrid();
+            StaffItemSelectedCountTextBox.Clear();
+        }
+
+        public void CheckItemStockPersonalStatus(string ItemID, string staffID)
+        {
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string selectQuery = "SELECT ItemStock, ItemStatus, ItemName FROM staff_inventory " +
+                                     "WHERE EmployeeID = @staffID AND ItemID = @ItemID";
+
+                MySqlCommand selectCommand = new MySqlCommand(selectQuery, connection);
+                selectCommand.Parameters.AddWithValue("@staffID", staffID);
+                selectCommand.Parameters.AddWithValue("@ItemID", ItemID);
+
+                using (MySqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        int itemStock = int.Parse(reader["ItemStock"].ToString());
+                        string itemStatus = reader["ItemStatus"].ToString();
+                        string itemName = reader["ItemName"].ToString();
+
+                        reader.Close(); // Close the data reader before executing the update query
+
+                        if (itemStock >= 8 && itemStatus == "High Stock")
+                        {
+                            // Don't update
+                        }
+                        else if (itemStock >= 8 && itemStatus == "Low Stock")
+                        {
+                            string updateQuery = "UPDATE staff_inventory " +
+                                                 "SET ItemStatus = 'High Stock' " +
+                                                 "WHERE EmployeeID = @staffID AND ItemID = @ItemID";
+
+                            MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection);
+                            updateCommand.Parameters.AddWithValue("@staffID", staffID);
+                            updateCommand.Parameters.AddWithValue("@ItemID", ItemID);
+                            updateCommand.ExecuteNonQuery();
+                        }
+                        else if (itemStock < 8 && itemStatus == "High Stock")
+                        {
+                            string updateQuery = "UPDATE staff_inventory " +
+                                                 "SET ItemStatus = 'Low Stock' " +
+                                                 "WHERE EmployeeID = @staffID AND ItemID = @ItemID";
+
+                            MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection);
+                            updateCommand.Parameters.AddWithValue("@staffID", staffID);
+                            updateCommand.Parameters.AddWithValue("@ItemID", ItemID);
+                            updateCommand.ExecuteNonQuery();
+
+                            MessageBox.Show($"{itemName} is at Low Stock");
+                        }
+                        else if (itemStatus == "Low Stock")
+                        {
+                            // Don't update
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Item not found in staff inventory");
+                    }
+                }
             }
         }
+    
+
         #endregion
 
         #region Paid Appointment Queue 
