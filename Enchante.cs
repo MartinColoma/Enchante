@@ -3254,6 +3254,8 @@ namespace Enchante
                         RecWalkInServiceTypeDGV.Columns[0].Visible = false; //service category
                         RecWalkInServiceTypeDGV.Columns[1].Visible = false; // service type
                         RecWalkInServiceTypeDGV.Columns[2].Visible = false; // service ID
+                        RecWalkInServiceTypeDGV.Columns[7].Visible = false; // required item
+                        RecWalkInServiceTypeDGV.Columns[8].Visible = false; // numofitems
                         RecWalkInServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         RecWalkInServiceTypeDGV.ClearSelection();
                     }
@@ -3293,6 +3295,8 @@ namespace Enchante
                         RecWalkInServiceTypeDGV.Columns[0].Visible = false;
                         RecWalkInServiceTypeDGV.Columns[1].Visible = false;
                         RecWalkInServiceTypeDGV.Columns[2].Visible = false;
+                        RecWalkInServiceTypeDGV.Columns[7].Visible = false; 
+                        RecWalkInServiceTypeDGV.Columns[8].Visible = false;
                         RecWalkInServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         RecWalkInServiceTypeDGV.ClearSelection();
                     }
@@ -3332,6 +3336,8 @@ namespace Enchante
                         RecWalkInServiceTypeDGV.Columns[0].Visible = false;
                         RecWalkInServiceTypeDGV.Columns[1].Visible = false;
                         RecWalkInServiceTypeDGV.Columns[2].Visible = false;
+                        RecWalkInServiceTypeDGV.Columns[7].Visible = false;
+                        RecWalkInServiceTypeDGV.Columns[8].Visible = false;
                         RecWalkInServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         RecWalkInServiceTypeDGV.ClearSelection();
                     }
@@ -3371,6 +3377,8 @@ namespace Enchante
                         RecWalkInServiceTypeDGV.Columns[0].Visible = false;
                         RecWalkInServiceTypeDGV.Columns[1].Visible = false;
                         RecWalkInServiceTypeDGV.Columns[2].Visible = false;
+                        RecWalkInServiceTypeDGV.Columns[7].Visible = false;
+                        RecWalkInServiceTypeDGV.Columns[8].Visible = false;
                         RecWalkInServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         RecWalkInServiceTypeDGV.ClearSelection();
                     }
@@ -3410,6 +3418,8 @@ namespace Enchante
                         RecWalkInServiceTypeDGV.Columns[0].Visible = false;
                         RecWalkInServiceTypeDGV.Columns[1].Visible = false;
                         RecWalkInServiceTypeDGV.Columns[2].Visible = false;
+                        RecWalkInServiceTypeDGV.Columns[7].Visible = false; 
+                        RecWalkInServiceTypeDGV.Columns[8].Visible = false;
                         RecWalkInServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         RecWalkInServiceTypeDGV.ClearSelection();
                     }
@@ -7057,6 +7067,8 @@ namespace Enchante
                         RecApptServiceTypeDGV.Columns[0].Visible = false; //service category
                         RecApptServiceTypeDGV.Columns[1].Visible = false; // service type
                         RecApptServiceTypeDGV.Columns[2].Visible = false; // service ID
+                        RecApptServiceTypeDGV.Columns[7].Visible = false; // required item
+                        RecApptServiceTypeDGV.Columns[8].Visible = false; // numofitems
                         RecApptServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         RecApptServiceTypeDGV.ClearSelection();
                     }
@@ -7096,6 +7108,8 @@ namespace Enchante
                         RecApptServiceTypeDGV.Columns[0].Visible = false;
                         RecApptServiceTypeDGV.Columns[1].Visible = false;
                         RecApptServiceTypeDGV.Columns[2].Visible = false;
+                        RecApptServiceTypeDGV.Columns[7].Visible = false;
+                        RecApptServiceTypeDGV.Columns[8].Visible = false;
                         RecApptServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         RecApptServiceTypeDGV.ClearSelection();
                     }
@@ -7137,6 +7151,8 @@ namespace Enchante
                         RecApptServiceTypeDGV.Columns[0].Visible = false;
                         RecApptServiceTypeDGV.Columns[1].Visible = false;
                         RecApptServiceTypeDGV.Columns[2].Visible = false;
+                        RecApptServiceTypeDGV.Columns[7].Visible = false;
+                        RecApptServiceTypeDGV.Columns[8].Visible = false;
                         RecApptServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         RecApptServiceTypeDGV.ClearSelection();
                     }
@@ -7178,6 +7194,8 @@ namespace Enchante
                         RecApptServiceTypeDGV.Columns[0].Visible = false;
                         RecApptServiceTypeDGV.Columns[1].Visible = false;
                         RecApptServiceTypeDGV.Columns[2].Visible = false;
+                        RecApptServiceTypeDGV.Columns[7].Visible = false;
+                        RecApptServiceTypeDGV.Columns[8].Visible = false;
                         RecApptServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         RecApptServiceTypeDGV.ClearSelection();
                     }
@@ -7219,6 +7237,8 @@ namespace Enchante
                         RecApptServiceTypeDGV.Columns[0].Visible = false;
                         RecApptServiceTypeDGV.Columns[1].Visible = false;
                         RecApptServiceTypeDGV.Columns[2].Visible = false;
+                        RecApptServiceTypeDGV.Columns[7].Visible = false;
+                        RecApptServiceTypeDGV.Columns[8].Visible = false;
                         RecApptServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         RecApptServiceTypeDGV.ClearSelection();
                     }
