@@ -208,6 +208,10 @@ namespace Enchante
 
             MngrSVHistoryTransTypeBox.Items.Add("Walk-in Transaction");
             MngrSVHistoryTransTypeBox.Items.Add("Walk-in Appointment Transaction");
+            MngrSVHistoryTransTypeBox.Items.Add("Appointment Transaction");
+
+            MngrAppSalesAppointmentSelect.Items.Add("Walk-in Appointment Transaction");
+            MngrAppSalesAppointmentSelect.Items.Add("Appointment Transaction");
 
             MngrSVHistoryServiceStatusBox.Items.Add("Completed");
             MngrSVHistoryServiceStatusBox.Items.Add("Pending");
@@ -8789,8 +8793,8 @@ namespace Enchante
                         MessageBox.Show("From date and to date cannot be the same.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    fromDate = MngrWalkinSalesFromDatePicker.Value;
-                    toDate = MngrWalkinSalesToDatePicker.Value;
+                    fromDate = MngrWalkinSalesFromDatePicker.Value.Date;
+                    toDate = MngrWalkinSalesToDatePicker.Value.Date.AddDays(1).AddTicks(-1);
                     break;
                 default:
                     MessageBox.Show("Invalid Sale Period selection.", "Walk-in Services Error Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -8945,10 +8949,17 @@ namespace Enchante
                     }
 
                     MngrWalkinSalesTransRepDGV.DataSource = dt;
+                    decimal totalServicePriceSum = 0;
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        totalServicePriceSum += Convert.ToDecimal(row["TotalServicePrice"]);
+                    }
+                    string formattedTotalServicePrice = "₱" + totalServicePriceSum.ToString("#,##0.00");
+                    MngrWalkinSalesRevenueTextbox.Text = formattedTotalServicePrice;
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message, "Walk-in Service Sales Graph Failed");
+                    MessageBox.Show("Error: " + ex.Message);
                 }
             }
         }
@@ -9082,6 +9093,7 @@ namespace Enchante
             MngrWalkinSalesSelectCatBox.SelectedItem = null;
             MngrWalkinSalesSelectedPeriodText.Text = "";
             MngrWalkinSalesTransIDShow.Text = "";
+            MngrWalkinSalesRevenueTextbox.Text = "";
             MngrWalkinSalesTransRepDGV.DataSource = null;
             MngrWalkinSalesTransServiceHisDGV.DataSource = null;
             MngrWalkinSalesGraph.Series.Clear();
@@ -10142,6 +10154,12 @@ namespace Enchante
                 return;
             }
 
+            if (string.IsNullOrEmpty(MngrAppSalesAppointmentSelect.Text))
+            {
+                MessageBox.Show("Please select a type of appointment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+          
             if (MngrAppSalesSelectCatBox.SelectedItem == null || string.IsNullOrEmpty(MngrAppSalesSelectCatBox.SelectedItem.ToString()))
             {
                 MessageBox.Show("Please select a category.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -10151,6 +10169,7 @@ namespace Enchante
             string fromDate = "";
             string toDate = "";
             string selectedCategory = MngrAppSalesSelectCatBox.SelectedItem?.ToString();
+            string selectedAppointmentType = MngrAppSalesAppointmentSelect.SelectedItem?.ToString();
             string salePeriod = MngrAppSalesPeriod.SelectedItem.ToString();
 
             switch (MngrAppSalesPeriod.Text)
@@ -10246,7 +10265,11 @@ namespace Enchante
                         query += " AND ServiceCategory = @SelectedCategory";
                     }
 
-                    query += " AND TransactionType = 'Walk-in Appointment Transaction'";
+                    if (MngrAppSalesAppointmentSelect.SelectedItem != null)
+                    {
+                        query += " AND TransactionType = @SelectedTransactionType";
+                    }
+
                     query += " GROUP BY LEFT(AppointmentDate, 10), ServiceCategory";
 
                     MySqlCommand command = new MySqlCommand(query, connection);
@@ -10256,6 +10279,11 @@ namespace Enchante
                     if (selectedCategory != "All Categories")
                     {
                         command.Parameters.AddWithValue("@SelectedCategory", selectedCategory);
+                    }
+
+                    if (MngrAppSalesAppointmentSelect.SelectedItem != null)
+                    {
+                        command.Parameters.AddWithValue("@SelectedTransactionType", selectedAppointmentType);
                     }
 
                     MySqlDataReader reader = command.ExecuteReader();
@@ -10298,12 +10326,12 @@ namespace Enchante
                     }
                     reader.Close();
 
-                    AppointmentServiceBreakdown(selectedCategory, fromDate, toDate, connection);
+                    AppointmentServiceBreakdown(selectedCategory, selectedAppointmentType, fromDate, toDate, connection);
                     DisplayAppointmentLineChart(query, connectionString, categoryRevenues, dates);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message); // Palagyan ng title yung error 
+                    MessageBox.Show("Error: " + ex.Message);
                 }
             }
         }
@@ -10345,7 +10373,7 @@ namespace Enchante
             MngrAppSalesGraph.Legends[0].Docking = Docking.Bottom;
         }
 
-        private void AppointmentServiceBreakdown(string selectedCategory, string fromDate, string toDate, MySqlConnection connection)
+        private void AppointmentServiceBreakdown(string selectedCategory, string selectedAppointmentType, string fromDate, string toDate, MySqlConnection connection)
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("TransactionNumber");
@@ -10353,17 +10381,21 @@ namespace Enchante
             dt.Columns.Add("TotalServicePrice", typeof(decimal));
 
             string transNumQuery = @"
-                    SELECT TransactionNumber, AppointmentDate, SUM(CAST(ServicePrice AS DECIMAL(10, 2))) AS TotalServicePrice 
-                    FROM servicehistory 
-                    WHERE ServiceStatus = 'Completed' 
-                    AND LEFT(AppointmentDate, 10) BETWEEN @FromDate AND @ToDate ";
+                            SELECT TransactionNumber, AppointmentDate, SUM(CAST(ServicePrice AS DECIMAL(10, 2))) AS TotalServicePrice 
+                            FROM servicehistory 
+                            WHERE ServiceStatus = 'Completed' 
+                            AND LEFT(AppointmentDate, 10) BETWEEN @FromDate AND @ToDate ";
 
             if (selectedCategory != "All Categories")
             {
                 transNumQuery += " AND ServiceCategory = @SelectedCategory";
             }
 
-            transNumQuery += " AND TransactionType = 'Walk-in Appointment Transaction'";
+            if (selectedAppointmentType != null)
+            {
+                transNumQuery += " AND TransactionType = @SelectedTransactionType";
+            }
+
             transNumQuery += " GROUP BY TransactionNumber";
 
             MySqlCommand transNumCommand = new MySqlCommand(transNumQuery, connection);
@@ -10373,6 +10405,11 @@ namespace Enchante
             if (selectedCategory != "All Categories")
             {
                 transNumCommand.Parameters.AddWithValue("@SelectedCategory", selectedCategory);
+            }
+
+            if (selectedAppointmentType != null)
+            {
+                transNumCommand.Parameters.AddWithValue("@SelectedTransactionType", selectedAppointmentType); // Use the parameter here
             }
 
             using (MySqlDataReader transNumReader = transNumCommand.ExecuteReader())
@@ -10392,11 +10429,11 @@ namespace Enchante
 
         private void MngrAppSalesPeriod_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MngrAppSalesSelectedPeriodText.Text = "";
-            string selectedItem = MngrAppSalesPeriod.SelectedItem?.ToString();
-
-            if (selectedItem != null)
+            if (MngrAppSalesPeriod != null && MngrAppSalesPeriod.SelectedItem != null)
             {
+                MngrAppSalesSelectedPeriodText.Text = "";
+                string selectedItem = MngrAppSalesPeriod.SelectedItem.ToString();
+
                 if (selectedItem == "Day" || selectedItem == "Week" || selectedItem == "Month")
                 {
                     MngrAppSalesPeriodCalendar.Visible = true;
@@ -10407,7 +10444,6 @@ namespace Enchante
                     MngrAppSalesSelectedPeriodLbl.Visible = true;
                     MngrAppSalesSelectedPeriodText.Visible = true;
                 }
-
                 else if (selectedItem == "Specific Date Range")
                 {
                     MngrAppSalesPeriodCalendar.Visible = false;
@@ -10471,11 +10507,11 @@ namespace Enchante
             }
 
             string query = @"
-                    SELECT ServiceCategory, SelectedService, ServicePrice 
-                    FROM servicehistory 
-                    WHERE TransactionNumber = @TransactionNumber 
-                    AND ServiceStatus = 'Completed' 
-                    AND TransactionType = 'Walk-in Appointment Transaction' " + categoryFilter;
+            SELECT ServiceCategory, SelectedService, ServicePrice 
+            FROM servicehistory 
+            WHERE TransactionNumber = @TransactionNumber 
+            AND ServiceStatus = 'Completed' 
+            AND TransactionType = @SelectedTransactionType " + categoryFilter;
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -10484,6 +10520,7 @@ namespace Enchante
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                    command.Parameters.AddWithValue("@SelectedTransactionType", MngrAppSalesAppointmentSelect.SelectedItem?.ToString());
 
                     if (MngrAppSalesSelectCatBox.SelectedItem?.ToString() != "All Categories")
                     {
@@ -12612,6 +12649,7 @@ namespace Enchante
             MngrAppSalesPeriodCalendar.Visible = false;
             MngrAppSalesPeriod.SelectedItem = null;
             MngrAppSalesSelectCatBox.SelectedItem = null;
+            MngrAppSalesAppointmentSelect.SelectedItem = null;
             MngrAppSalesSelectedPeriodText.Text = "";
             MngrAppSalesTransIDShow.Text = "";
             MngrAppSalesTransRepDGV.DataSource = null;

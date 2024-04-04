@@ -137,6 +137,8 @@ namespace Enchante
             this.MngrSVHistoryServiceStatusBox = new System.Windows.Forms.ComboBox();
             this.MngrSVHistoryServiceStatusLbl = new System.Windows.Forms.Label();
             this.MngrApptServicePanel = new System.Windows.Forms.Panel();
+            this.MngrAppSalesSelectAppLbl = new System.Windows.Forms.Label();
+            this.MngrAppSalesAppointmentSelect = new System.Windows.Forms.ComboBox();
             this.MngrAppSalesTransIDShow = new System.Windows.Forms.TextBox();
             this.MngrAppSalesTransServiceLbl = new System.Windows.Forms.Label();
             this.MngrAppSalesSelectedPeriodText = new System.Windows.Forms.TextBox();
@@ -178,6 +180,8 @@ namespace Enchante
             this.MngrProductSalesCatLbl = new System.Windows.Forms.Label();
             this.MngrWalkinProdSalesExitBtn = new FontAwesome.Sharp.IconButton();
             this.MngrWalkinSalesPanel = new System.Windows.Forms.Panel();
+            this.MngrWalkinSalesRevenueTextbox = new System.Windows.Forms.TextBox();
+            this.MngrWalkinSalesTotalRevenueLbl = new System.Windows.Forms.Label();
             this.MngrWalkinSalesGraphLbl = new System.Windows.Forms.Label();
             this.MngrWalkinSalesTransServiceHisDGV = new System.Windows.Forms.DataGridView();
             this.MngrWalkinSalesTransRepDGV = new System.Windows.Forms.DataGridView();
@@ -450,6 +454,8 @@ namespace Enchante
             this.RecApptConfirmClientNameLbl = new System.Windows.Forms.Label();
             this.RecApptConfirmExitBtn = new FontAwesome.Sharp.IconButton();
             this.RecShopProdPanel = new System.Windows.Forms.Panel();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.RecSearchProductTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.RecShopProdProductFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.RecShopProdSelectedProdVoidBtn = new Guna.UI2.WinForms.Guna2Button();
             this.RecShopProdPayMethodPanel = new System.Windows.Forms.Panel();
@@ -661,6 +667,8 @@ namespace Enchante
             this.RecPayServiceWalkinCompleteTransDGV = new System.Windows.Forms.DataGridView();
             this.RecPayServiceExitBtn = new FontAwesome.Sharp.IconButton();
             this.RecWalkinPanel = new System.Windows.Forms.Panel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.RecWalkinSearchProductTextBox = new System.Windows.Forms.TextBox();
             this.RecWalkinBookTransactBtn = new Guna.UI2.WinForms.Guna2Button();
             this.RecWalkinSelectServiceAndStaffBtn = new Guna.UI2.WinForms.Guna2Button();
             this.RecWalkinDeleteSelectedServiceAndStaffBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -773,10 +781,10 @@ namespace Enchante
             this.DateTimePickerTimer = new System.Windows.Forms.Timer(this.components);
             this.MngrInventoryCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.PictureSlideTimer = new System.Windows.Forms.Timer(this.components);
-            this.RecWalkinSearchProductTextBox = new System.Windows.Forms.TextBox();
-            this.RecSearchProductTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteMngrPage.SuspendLayout();
             this.MngrScrollPanel.SuspendLayout();
@@ -915,7 +923,7 @@ namespace Enchante
             this.EnchanteParentContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnchanteParentContainer.Location = new System.Drawing.Point(0, 0);
             this.EnchanteParentContainer.Name = "EnchanteParentContainer";
-            this.EnchanteParentContainer.Size = new System.Drawing.Size(1370, 749);
+            this.EnchanteParentContainer.Size = new System.Drawing.Size(1924, 1061);
             this.EnchanteParentContainer.TabIndex = 0;
             // 
             // EnchanteMngrPage
@@ -927,7 +935,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteMngrPage, new System.Drawing.Size(200, 100));
             this.EnchanteMngrPage.Name = "EnchanteMngrPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteMngrPage, new System.Drawing.Size(200, 100));
-            this.EnchanteMngrPage.Size = new System.Drawing.Size(1370, 749);
+            this.EnchanteMngrPage.Size = new System.Drawing.Size(1924, 1061);
             this.EnchanteMngrPage.TabIndex = 6;
             // 
             // MngrScrollPanel
@@ -939,7 +947,7 @@ namespace Enchante
             this.MngrScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MngrScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.MngrScrollPanel.Name = "MngrScrollPanel";
-            this.MngrScrollPanel.Size = new System.Drawing.Size(1370, 599);
+            this.MngrScrollPanel.Size = new System.Drawing.Size(1924, 911);
             this.MngrScrollPanel.TabIndex = 4;
             // 
             // MngrUserAccPanel
@@ -1475,6 +1483,10 @@ namespace Enchante
             // 
             this.MngrApptServicePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrInventoryCard.SetCardName(this.MngrApptServicePanel, "Appt Service");
+            this.MngrApptServicePanel.Controls.Add(this.label8);
+            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesSelectAppLbl);
+            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesAppointmentSelect);
+            this.MngrApptServicePanel.Controls.Add(this.textBox2);
             this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesTransIDShow);
             this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesTransServiceLbl);
             this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesSelectedPeriodText);
@@ -1504,12 +1516,34 @@ namespace Enchante
             this.MngrApptServicePanel.TabIndex = 100;
             this.MngrApptServicePanel.Visible = false;
             // 
+            // MngrAppSalesSelectAppLbl
+            // 
+            this.MngrAppSalesSelectAppLbl.AutoSize = true;
+            this.MngrAppSalesSelectAppLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesSelectAppLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.MngrAppSalesSelectAppLbl.Location = new System.Drawing.Point(283, 166);
+            this.MngrAppSalesSelectAppLbl.Name = "MngrAppSalesSelectAppLbl";
+            this.MngrAppSalesSelectAppLbl.Size = new System.Drawing.Size(190, 23);
+            this.MngrAppSalesSelectAppLbl.TabIndex = 87;
+            this.MngrAppSalesSelectAppLbl.Text = "Select Appointment:";
+            // 
+            // MngrAppSalesAppointmentSelect
+            // 
+            this.MngrAppSalesAppointmentSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MngrAppSalesAppointmentSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesAppointmentSelect.FormattingEnabled = true;
+            this.MngrAppSalesAppointmentSelect.Location = new System.Drawing.Point(283, 196);
+            this.MngrAppSalesAppointmentSelect.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrAppSalesAppointmentSelect.Name = "MngrAppSalesAppointmentSelect";
+            this.MngrAppSalesAppointmentSelect.Size = new System.Drawing.Size(316, 24);
+            this.MngrAppSalesAppointmentSelect.TabIndex = 86;
+            // 
             // MngrAppSalesTransIDShow
             // 
             this.MngrAppSalesTransIDShow.BackColor = System.Drawing.Color.White;
             this.MngrAppSalesTransIDShow.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MngrAppSalesTransIDShow.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesTransIDShow.Location = new System.Drawing.Point(1358, 399);
+            this.MngrAppSalesTransIDShow.Location = new System.Drawing.Point(1358, 415);
             this.MngrAppSalesTransIDShow.Margin = new System.Windows.Forms.Padding(2);
             this.MngrAppSalesTransIDShow.Name = "MngrAppSalesTransIDShow";
             this.MngrAppSalesTransIDShow.ReadOnly = true;
@@ -1522,7 +1556,7 @@ namespace Enchante
             this.MngrAppSalesTransServiceLbl.AutoSize = true;
             this.MngrAppSalesTransServiceLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesTransServiceLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrAppSalesTransServiceLbl.Location = new System.Drawing.Point(939, 395);
+            this.MngrAppSalesTransServiceLbl.Location = new System.Drawing.Point(939, 415);
             this.MngrAppSalesTransServiceLbl.Name = "MngrAppSalesTransServiceLbl";
             this.MngrAppSalesTransServiceLbl.Size = new System.Drawing.Size(401, 23);
             this.MngrAppSalesTransServiceLbl.TabIndex = 13;
@@ -1530,12 +1564,12 @@ namespace Enchante
             // 
             // MngrAppSalesSelectedPeriodText
             // 
-            this.MngrAppSalesSelectedPeriodText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesSelectedPeriodText.Location = new System.Drawing.Point(283, 293);
+            this.MngrAppSalesSelectedPeriodText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesSelectedPeriodText.Location = new System.Drawing.Point(283, 321);
             this.MngrAppSalesSelectedPeriodText.Margin = new System.Windows.Forms.Padding(2);
             this.MngrAppSalesSelectedPeriodText.Name = "MngrAppSalesSelectedPeriodText";
             this.MngrAppSalesSelectedPeriodText.ReadOnly = true;
-            this.MngrAppSalesSelectedPeriodText.Size = new System.Drawing.Size(316, 30);
+            this.MngrAppSalesSelectedPeriodText.Size = new System.Drawing.Size(316, 22);
             this.MngrAppSalesSelectedPeriodText.TabIndex = 18;
             // 
             // MngrAppSalesTransServiceHisDGV
@@ -1543,7 +1577,7 @@ namespace Enchante
             this.MngrAppSalesTransServiceHisDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MngrAppSalesTransServiceHisDGV.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
             this.MngrAppSalesTransServiceHisDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MngrAppSalesTransServiceHisDGV.Location = new System.Drawing.Point(943, 433);
+            this.MngrAppSalesTransServiceHisDGV.Location = new System.Drawing.Point(943, 447);
             this.MngrAppSalesTransServiceHisDGV.Margin = new System.Windows.Forms.Padding(2);
             this.MngrAppSalesTransServiceHisDGV.Name = "MngrAppSalesTransServiceHisDGV";
             this.MngrAppSalesTransServiceHisDGV.RowHeadersWidth = 51;
@@ -1557,7 +1591,7 @@ namespace Enchante
             this.MngrAppSalesGraph.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.MngrAppSalesGraph.Legends.Add(legend1);
-            this.MngrAppSalesGraph.Location = new System.Drawing.Point(943, 99);
+            this.MngrAppSalesGraph.Location = new System.Drawing.Point(943, 106);
             this.MngrAppSalesGraph.Margin = new System.Windows.Forms.Padding(2);
             this.MngrAppSalesGraph.Name = "MngrAppSalesGraph";
             series1.ChartArea = "ChartArea1";
@@ -1565,7 +1599,7 @@ namespace Enchante
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.MngrAppSalesGraph.Series.Add(series1);
-            this.MngrAppSalesGraph.Size = new System.Drawing.Size(606, 280);
+            this.MngrAppSalesGraph.Size = new System.Drawing.Size(606, 295);
             this.MngrAppSalesGraph.TabIndex = 9;
             this.MngrAppSalesGraph.Text = "chart1";
             // 
@@ -1574,7 +1608,7 @@ namespace Enchante
             this.MngrAppSalesSelectedPeriodLbl.AutoSize = true;
             this.MngrAppSalesSelectedPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesSelectedPeriodLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrAppSalesSelectedPeriodLbl.Location = new System.Drawing.Point(281, 258);
+            this.MngrAppSalesSelectedPeriodLbl.Location = new System.Drawing.Point(283, 290);
             this.MngrAppSalesSelectedPeriodLbl.Name = "MngrAppSalesSelectedPeriodLbl";
             this.MngrAppSalesSelectedPeriodLbl.Size = new System.Drawing.Size(156, 23);
             this.MngrAppSalesSelectedPeriodLbl.TabIndex = 17;
@@ -1585,7 +1619,7 @@ namespace Enchante
             this.MngrApptServiceLbl.AutoSize = true;
             this.MngrApptServiceLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrApptServiceLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrApptServiceLbl.Location = new System.Drawing.Point(76, 61);
+            this.MngrApptServiceLbl.Location = new System.Drawing.Point(76, 53);
             this.MngrApptServiceLbl.Name = "MngrApptServiceLbl";
             this.MngrApptServiceLbl.Size = new System.Drawing.Size(505, 35);
             this.MngrApptServiceLbl.TabIndex = 24;
@@ -1596,7 +1630,7 @@ namespace Enchante
             this.MngrAppSalesPeriodLbl.AutoSize = true;
             this.MngrAppSalesPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesPeriodLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrAppSalesPeriodLbl.Location = new System.Drawing.Point(279, 110);
+            this.MngrAppSalesPeriodLbl.Location = new System.Drawing.Point(283, 106);
             this.MngrAppSalesPeriodLbl.Name = "MngrAppSalesPeriodLbl";
             this.MngrAppSalesPeriodLbl.Size = new System.Drawing.Size(197, 23);
             this.MngrAppSalesPeriodLbl.TabIndex = 15;
@@ -1605,18 +1639,18 @@ namespace Enchante
             // MngrAppSalesPeriod
             // 
             this.MngrAppSalesPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MngrAppSalesPeriod.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesPeriod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesPeriod.FormattingEnabled = true;
-            this.MngrAppSalesPeriod.Location = new System.Drawing.Point(283, 140);
+            this.MngrAppSalesPeriod.Location = new System.Drawing.Point(283, 136);
             this.MngrAppSalesPeriod.Margin = new System.Windows.Forms.Padding(2);
             this.MngrAppSalesPeriod.Name = "MngrAppSalesPeriod";
-            this.MngrAppSalesPeriod.Size = new System.Drawing.Size(316, 31);
+            this.MngrAppSalesPeriod.Size = new System.Drawing.Size(316, 24);
             this.MngrAppSalesPeriod.TabIndex = 14;
             this.MngrAppSalesPeriod.SelectedIndexChanged += new System.EventHandler(this.MngrAppSalesPeriod_SelectedIndexChanged);
             // 
             // MngrAppSalesPeriodCalendar
             // 
-            this.MngrAppSalesPeriodCalendar.Location = new System.Drawing.Point(647, 144);
+            this.MngrAppSalesPeriodCalendar.Location = new System.Drawing.Point(650, 160);
             this.MngrAppSalesPeriodCalendar.Margin = new System.Windows.Forms.Padding(7);
             this.MngrAppSalesPeriodCalendar.Name = "MngrAppSalesPeriodCalendar";
             this.MngrAppSalesPeriodCalendar.TabIndex = 16;
@@ -1625,10 +1659,10 @@ namespace Enchante
             // 
             // MngrAppSalesFromDatePicker
             // 
-            this.MngrAppSalesFromDatePicker.Location = new System.Drawing.Point(635, 144);
+            this.MngrAppSalesFromDatePicker.Location = new System.Drawing.Point(637, 200);
             this.MngrAppSalesFromDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.MngrAppSalesFromDatePicker.Name = "MngrAppSalesFromDatePicker";
-            this.MngrAppSalesFromDatePicker.Size = new System.Drawing.Size(253, 20);
+            this.MngrAppSalesFromDatePicker.Size = new System.Drawing.Size(252, 20);
             this.MngrAppSalesFromDatePicker.TabIndex = 0;
             this.MngrAppSalesFromDatePicker.Visible = false;
             // 
@@ -1637,7 +1671,7 @@ namespace Enchante
             this.MngrAppSalesTransactionRepLbl.AutoSize = true;
             this.MngrAppSalesTransactionRepLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesTransactionRepLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrAppSalesTransactionRepLbl.Location = new System.Drawing.Point(279, 395);
+            this.MngrAppSalesTransactionRepLbl.Location = new System.Drawing.Point(283, 415);
             this.MngrAppSalesTransactionRepLbl.Name = "MngrAppSalesTransactionRepLbl";
             this.MngrAppSalesTransactionRepLbl.Size = new System.Drawing.Size(479, 23);
             this.MngrAppSalesTransactionRepLbl.TabIndex = 12;
@@ -1645,7 +1679,7 @@ namespace Enchante
             // 
             // MngrAppSalesToDatePicker
             // 
-            this.MngrAppSalesToDatePicker.Location = new System.Drawing.Point(636, 218);
+            this.MngrAppSalesToDatePicker.Location = new System.Drawing.Point(637, 262);
             this.MngrAppSalesToDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.MngrAppSalesToDatePicker.Name = "MngrAppSalesToDatePicker";
             this.MngrAppSalesToDatePicker.Size = new System.Drawing.Size(252, 20);
@@ -1655,12 +1689,12 @@ namespace Enchante
             // MngrAppSalesSelectCatBox
             // 
             this.MngrAppSalesSelectCatBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MngrAppSalesSelectCatBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesSelectCatBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesSelectCatBox.FormattingEnabled = true;
-            this.MngrAppSalesSelectCatBox.Location = new System.Drawing.Point(283, 217);
+            this.MngrAppSalesSelectCatBox.Location = new System.Drawing.Point(283, 258);
             this.MngrAppSalesSelectCatBox.Margin = new System.Windows.Forms.Padding(2);
             this.MngrAppSalesSelectCatBox.Name = "MngrAppSalesSelectCatBox";
-            this.MngrAppSalesSelectCatBox.Size = new System.Drawing.Size(316, 31);
+            this.MngrAppSalesSelectCatBox.Size = new System.Drawing.Size(316, 24);
             this.MngrAppSalesSelectCatBox.TabIndex = 2;
             // 
             // MngrAppSalesTransRepDGV
@@ -1673,7 +1707,7 @@ namespace Enchante
             this.MngrAppSalesTransRepDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.MngrAppSalesTransRepDGV.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
             this.MngrAppSalesTransRepDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MngrAppSalesTransRepDGV.Location = new System.Drawing.Point(283, 433);
+            this.MngrAppSalesTransRepDGV.Location = new System.Drawing.Point(283, 447);
             this.MngrAppSalesTransRepDGV.Margin = new System.Windows.Forms.Padding(2);
             this.MngrAppSalesTransRepDGV.MultiSelect = false;
             this.MngrAppSalesTransRepDGV.Name = "MngrAppSalesTransRepDGV";
@@ -1681,7 +1715,7 @@ namespace Enchante
             this.MngrAppSalesTransRepDGV.RowHeadersWidth = 51;
             this.MngrAppSalesTransRepDGV.RowTemplate.Height = 24;
             this.MngrAppSalesTransRepDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MngrAppSalesTransRepDGV.Size = new System.Drawing.Size(606, 280);
+            this.MngrAppSalesTransRepDGV.Size = new System.Drawing.Size(606, 253);
             this.MngrAppSalesTransRepDGV.TabIndex = 10;
             this.MngrAppSalesTransRepDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MngrAppSalesTransRepDGV_CellContentClick);
             // 
@@ -1690,7 +1724,7 @@ namespace Enchante
             this.MngrAppSalesFromLbl.AutoSize = true;
             this.MngrAppSalesFromLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesFromLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrAppSalesFromLbl.Location = new System.Drawing.Point(633, 110);
+            this.MngrAppSalesFromLbl.Location = new System.Drawing.Point(633, 166);
             this.MngrAppSalesFromLbl.Name = "MngrAppSalesFromLbl";
             this.MngrAppSalesFromLbl.Size = new System.Drawing.Size(59, 23);
             this.MngrAppSalesFromLbl.TabIndex = 4;
@@ -1702,7 +1736,7 @@ namespace Enchante
             this.MngrAppSalesToLbl.AutoSize = true;
             this.MngrAppSalesToLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesToLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrAppSalesToLbl.Location = new System.Drawing.Point(633, 176);
+            this.MngrAppSalesToLbl.Location = new System.Drawing.Point(633, 228);
             this.MngrAppSalesToLbl.Name = "MngrAppSalesToLbl";
             this.MngrAppSalesToLbl.Size = new System.Drawing.Size(37, 23);
             this.MngrAppSalesToLbl.TabIndex = 5;
@@ -1713,7 +1747,7 @@ namespace Enchante
             // 
             this.MngrAppSalesIncomeBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesIncomeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MngrAppSalesIncomeBtn.Location = new System.Drawing.Point(283, 333);
+            this.MngrAppSalesIncomeBtn.Location = new System.Drawing.Point(283, 360);
             this.MngrAppSalesIncomeBtn.Name = "MngrAppSalesIncomeBtn";
             this.MngrAppSalesIncomeBtn.Size = new System.Drawing.Size(606, 46);
             this.MngrAppSalesIncomeBtn.TabIndex = 7;
@@ -1726,7 +1760,7 @@ namespace Enchante
             this.MngrAppSalesCatLbl.AutoSize = true;
             this.MngrAppSalesCatLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesCatLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrAppSalesCatLbl.Location = new System.Drawing.Point(279, 180);
+            this.MngrAppSalesCatLbl.Location = new System.Drawing.Point(283, 228);
             this.MngrAppSalesCatLbl.Name = "MngrAppSalesCatLbl";
             this.MngrAppSalesCatLbl.Size = new System.Drawing.Size(158, 23);
             this.MngrAppSalesCatLbl.TabIndex = 6;
@@ -1753,6 +1787,8 @@ namespace Enchante
             // 
             this.MngrWalkinProdSalesPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrInventoryCard.SetCardName(this.MngrWalkinProdSalesPanel, "ProductSales");
+            this.MngrWalkinProdSalesPanel.Controls.Add(this.label7);
+            this.MngrWalkinProdSalesPanel.Controls.Add(this.textBox1);
             this.MngrWalkinProdSalesPanel.Controls.Add(this.trydata);
             this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesToLbl);
             this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesFromLbl);
@@ -1784,9 +1820,9 @@ namespace Enchante
             this.trydata.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.trydata.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
             this.trydata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.trydata.Location = new System.Drawing.Point(917, 381);
+            this.trydata.Location = new System.Drawing.Point(936, 381);
             this.trydata.Name = "trydata";
-            this.trydata.Size = new System.Drawing.Size(541, 313);
+            this.trydata.Size = new System.Drawing.Size(594, 324);
             this.trydata.TabIndex = 26;
             this.trydata.Visible = false;
             // 
@@ -1795,7 +1831,7 @@ namespace Enchante
             this.MngrProductSalesToLbl.AutoSize = true;
             this.MngrProductSalesToLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesToLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrProductSalesToLbl.Location = new System.Drawing.Point(605, 186);
+            this.MngrProductSalesToLbl.Location = new System.Drawing.Point(627, 180);
             this.MngrProductSalesToLbl.Name = "MngrProductSalesToLbl";
             this.MngrProductSalesToLbl.Size = new System.Drawing.Size(37, 23);
             this.MngrProductSalesToLbl.TabIndex = 5;
@@ -1807,7 +1843,7 @@ namespace Enchante
             this.MngrProductSalesFromLbl.AutoSize = true;
             this.MngrProductSalesFromLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesFromLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrProductSalesFromLbl.Location = new System.Drawing.Point(605, 126);
+            this.MngrProductSalesFromLbl.Location = new System.Drawing.Point(627, 110);
             this.MngrProductSalesFromLbl.Name = "MngrProductSalesFromLbl";
             this.MngrProductSalesFromLbl.Size = new System.Drawing.Size(59, 23);
             this.MngrProductSalesFromLbl.TabIndex = 4;
@@ -1816,7 +1852,7 @@ namespace Enchante
             // 
             // MngrProductSalesToDatePicker
             // 
-            this.MngrProductSalesToDatePicker.Location = new System.Drawing.Point(609, 209);
+            this.MngrProductSalesToDatePicker.Location = new System.Drawing.Point(631, 217);
             this.MngrProductSalesToDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.MngrProductSalesToDatePicker.Name = "MngrProductSalesToDatePicker";
             this.MngrProductSalesToDatePicker.Size = new System.Drawing.Size(248, 20);
@@ -1825,7 +1861,7 @@ namespace Enchante
             // 
             // MngrProductSalesFromDatePicker
             // 
-            this.MngrProductSalesFromDatePicker.Location = new System.Drawing.Point(609, 151);
+            this.MngrProductSalesFromDatePicker.Location = new System.Drawing.Point(631, 147);
             this.MngrProductSalesFromDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.MngrProductSalesFromDatePicker.Name = "MngrProductSalesFromDatePicker";
             this.MngrProductSalesFromDatePicker.Size = new System.Drawing.Size(248, 20);
@@ -1838,7 +1874,7 @@ namespace Enchante
             this.MngrProductSalesLineGraph.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.MngrProductSalesLineGraph.Legends.Add(legend2);
-            this.MngrProductSalesLineGraph.Location = new System.Drawing.Point(918, 381);
+            this.MngrProductSalesLineGraph.Location = new System.Drawing.Point(936, 381);
             this.MngrProductSalesLineGraph.Margin = new System.Windows.Forms.Padding(2);
             this.MngrProductSalesLineGraph.Name = "MngrProductSalesLineGraph";
             series2.ChartArea = "ChartArea1";
@@ -1846,7 +1882,7 @@ namespace Enchante
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.MngrProductSalesLineGraph.Series.Add(series2);
-            this.MngrProductSalesLineGraph.Size = new System.Drawing.Size(541, 313);
+            this.MngrProductSalesLineGraph.Size = new System.Drawing.Size(594, 324);
             this.MngrProductSalesLineGraph.TabIndex = 25;
             this.MngrProductSalesLineGraph.Text = "chart1";
             // 
@@ -1856,14 +1892,14 @@ namespace Enchante
             this.MngrProductSalesGraph.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
             this.MngrProductSalesGraph.Legends.Add(legend3);
-            this.MngrProductSalesGraph.Location = new System.Drawing.Point(329, 381);
+            this.MngrProductSalesGraph.Location = new System.Drawing.Point(302, 381);
             this.MngrProductSalesGraph.Name = "MngrProductSalesGraph";
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series3.Legend = "Legend1";
             series3.Name = "Series1";
             this.MngrProductSalesGraph.Series.Add(series3);
-            this.MngrProductSalesGraph.Size = new System.Drawing.Size(528, 313);
+            this.MngrProductSalesGraph.Size = new System.Drawing.Size(594, 324);
             this.MngrProductSalesGraph.TabIndex = 23;
             this.MngrProductSalesGraph.Text = "chart1";
             // 
@@ -1883,7 +1919,7 @@ namespace Enchante
             this.MngrProductSalesTransactionRepLbl.AutoSize = true;
             this.MngrProductSalesTransactionRepLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesTransactionRepLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MngrProductSalesTransactionRepLbl.Location = new System.Drawing.Point(913, 117);
+            this.MngrProductSalesTransactionRepLbl.Location = new System.Drawing.Point(936, 90);
             this.MngrProductSalesTransactionRepLbl.Name = "MngrProductSalesTransactionRepLbl";
             this.MngrProductSalesTransactionRepLbl.Size = new System.Drawing.Size(187, 23);
             this.MngrProductSalesTransactionRepLbl.TabIndex = 12;
@@ -1894,14 +1930,14 @@ namespace Enchante
             this.MngrProductSalesTransRepDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MngrProductSalesTransRepDGV.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
             this.MngrProductSalesTransRepDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MngrProductSalesTransRepDGV.Location = new System.Drawing.Point(917, 148);
+            this.MngrProductSalesTransRepDGV.Location = new System.Drawing.Point(936, 117);
             this.MngrProductSalesTransRepDGV.Margin = new System.Windows.Forms.Padding(2);
             this.MngrProductSalesTransRepDGV.MultiSelect = false;
             this.MngrProductSalesTransRepDGV.Name = "MngrProductSalesTransRepDGV";
             this.MngrProductSalesTransRepDGV.ReadOnly = true;
             this.MngrProductSalesTransRepDGV.RowHeadersWidth = 51;
             this.MngrProductSalesTransRepDGV.RowTemplate.Height = 24;
-            this.MngrProductSalesTransRepDGV.Size = new System.Drawing.Size(542, 206);
+            this.MngrProductSalesTransRepDGV.Size = new System.Drawing.Size(594, 253);
             this.MngrProductSalesTransRepDGV.TabIndex = 10;
             // 
             // MngrProductSalesPeriodLbl
@@ -1909,7 +1945,7 @@ namespace Enchante
             this.MngrProductSalesPeriodLbl.AutoSize = true;
             this.MngrProductSalesPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesPeriodLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrProductSalesPeriodLbl.Location = new System.Drawing.Point(327, 126);
+            this.MngrProductSalesPeriodLbl.Location = new System.Drawing.Point(303, 110);
             this.MngrProductSalesPeriodLbl.Name = "MngrProductSalesPeriodLbl";
             this.MngrProductSalesPeriodLbl.Size = new System.Drawing.Size(197, 23);
             this.MngrProductSalesPeriodLbl.TabIndex = 15;
@@ -1918,16 +1954,16 @@ namespace Enchante
             // MngrProductSalesSelectedPeriodText
             // 
             this.MngrProductSalesSelectedPeriodText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrProductSalesSelectedPeriodText.Location = new System.Drawing.Point(330, 273);
+            this.MngrProductSalesSelectedPeriodText.Location = new System.Drawing.Point(303, 282);
             this.MngrProductSalesSelectedPeriodText.Margin = new System.Windows.Forms.Padding(2);
             this.MngrProductSalesSelectedPeriodText.Name = "MngrProductSalesSelectedPeriodText";
             this.MngrProductSalesSelectedPeriodText.ReadOnly = true;
-            this.MngrProductSalesSelectedPeriodText.Size = new System.Drawing.Size(248, 30);
+            this.MngrProductSalesSelectedPeriodText.Size = new System.Drawing.Size(299, 30);
             this.MngrProductSalesSelectedPeriodText.TabIndex = 18;
             // 
             // MngrProductSalesPeriodCalendar
             // 
-            this.MngrProductSalesPeriodCalendar.Location = new System.Drawing.Point(619, 131);
+            this.MngrProductSalesPeriodCalendar.Location = new System.Drawing.Point(643, 140);
             this.MngrProductSalesPeriodCalendar.Margin = new System.Windows.Forms.Padding(7);
             this.MngrProductSalesPeriodCalendar.Name = "MngrProductSalesPeriodCalendar";
             this.MngrProductSalesPeriodCalendar.TabIndex = 16;
@@ -1939,7 +1975,7 @@ namespace Enchante
             this.MngrProductSalesSelectedPeriodLbl.AutoSize = true;
             this.MngrProductSalesSelectedPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesSelectedPeriodLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrProductSalesSelectedPeriodLbl.Location = new System.Drawing.Point(326, 248);
+            this.MngrProductSalesSelectedPeriodLbl.Location = new System.Drawing.Point(303, 253);
             this.MngrProductSalesSelectedPeriodLbl.Name = "MngrProductSalesSelectedPeriodLbl";
             this.MngrProductSalesSelectedPeriodLbl.Size = new System.Drawing.Size(156, 23);
             this.MngrProductSalesSelectedPeriodLbl.TabIndex = 17;
@@ -1950,10 +1986,10 @@ namespace Enchante
             this.MngrProductSalesPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MngrProductSalesPeriod.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesPeriod.FormattingEnabled = true;
-            this.MngrProductSalesPeriod.Location = new System.Drawing.Point(330, 151);
+            this.MngrProductSalesPeriod.Location = new System.Drawing.Point(303, 140);
             this.MngrProductSalesPeriod.Margin = new System.Windows.Forms.Padding(2);
             this.MngrProductSalesPeriod.Name = "MngrProductSalesPeriod";
-            this.MngrProductSalesPeriod.Size = new System.Drawing.Size(248, 31);
+            this.MngrProductSalesPeriod.Size = new System.Drawing.Size(299, 31);
             this.MngrProductSalesPeriod.TabIndex = 14;
             this.MngrProductSalesPeriod.SelectedIndexChanged += new System.EventHandler(this.MngrProductSalesPeriod_SelectedIndexChanged_1);
             // 
@@ -1962,10 +1998,10 @@ namespace Enchante
             this.MngrProductSalesSelectCatBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MngrProductSalesSelectCatBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesSelectCatBox.FormattingEnabled = true;
-            this.MngrProductSalesSelectCatBox.Location = new System.Drawing.Point(330, 211);
+            this.MngrProductSalesSelectCatBox.Location = new System.Drawing.Point(303, 213);
             this.MngrProductSalesSelectCatBox.Margin = new System.Windows.Forms.Padding(2);
             this.MngrProductSalesSelectCatBox.Name = "MngrProductSalesSelectCatBox";
-            this.MngrProductSalesSelectCatBox.Size = new System.Drawing.Size(248, 31);
+            this.MngrProductSalesSelectCatBox.Size = new System.Drawing.Size(299, 31);
             this.MngrProductSalesSelectCatBox.TabIndex = 2;
             // 
             // MngrProductSalesIncomeBtn
@@ -1973,9 +2009,9 @@ namespace Enchante
             this.MngrProductSalesIncomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MngrProductSalesIncomeBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesIncomeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MngrProductSalesIncomeBtn.Location = new System.Drawing.Point(330, 314);
+            this.MngrProductSalesIncomeBtn.Location = new System.Drawing.Point(302, 330);
             this.MngrProductSalesIncomeBtn.Name = "MngrProductSalesIncomeBtn";
-            this.MngrProductSalesIncomeBtn.Size = new System.Drawing.Size(526, 40);
+            this.MngrProductSalesIncomeBtn.Size = new System.Drawing.Size(594, 40);
             this.MngrProductSalesIncomeBtn.TabIndex = 7;
             this.MngrProductSalesIncomeBtn.Text = "View Income";
             this.MngrProductSalesIncomeBtn.UseVisualStyleBackColor = true;
@@ -1986,7 +2022,7 @@ namespace Enchante
             this.MngrProductSalesCatLbl.AutoSize = true;
             this.MngrProductSalesCatLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesCatLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrProductSalesCatLbl.Location = new System.Drawing.Point(327, 186);
+            this.MngrProductSalesCatLbl.Location = new System.Drawing.Point(303, 180);
             this.MngrProductSalesCatLbl.Name = "MngrProductSalesCatLbl";
             this.MngrProductSalesCatLbl.Size = new System.Drawing.Size(158, 23);
             this.MngrProductSalesCatLbl.TabIndex = 6;
@@ -2013,6 +2049,8 @@ namespace Enchante
             // 
             this.MngrWalkinSalesPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrInventoryCard.SetCardName(this.MngrWalkinSalesPanel, "WALKIN SALES");
+            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesRevenueTextbox);
+            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesTotalRevenueLbl);
             this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesGraphLbl);
             this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesTransServiceHisDGV);
             this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesTransRepDGV);
@@ -2042,6 +2080,29 @@ namespace Enchante
             this.MngrWalkinSalesPanel.Size = new System.Drawing.Size(1797, 749);
             this.MngrWalkinSalesPanel.TabIndex = 28;
             this.MngrWalkinSalesPanel.Visible = false;
+            // 
+            // MngrWalkinSalesRevenueTextbox
+            // 
+            this.MngrWalkinSalesRevenueTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrWalkinSalesRevenueTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrWalkinSalesRevenueTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinSalesRevenueTextbox.Location = new System.Drawing.Point(427, 710);
+            this.MngrWalkinSalesRevenueTextbox.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrWalkinSalesRevenueTextbox.Name = "MngrWalkinSalesRevenueTextbox";
+            this.MngrWalkinSalesRevenueTextbox.ReadOnly = true;
+            this.MngrWalkinSalesRevenueTextbox.Size = new System.Drawing.Size(146, 24);
+            this.MngrWalkinSalesRevenueTextbox.TabIndex = 91;
+            // 
+            // MngrWalkinSalesTotalRevenueLbl
+            // 
+            this.MngrWalkinSalesTotalRevenueLbl.AutoSize = true;
+            this.MngrWalkinSalesTotalRevenueLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrWalkinSalesTotalRevenueLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinSalesTotalRevenueLbl.Location = new System.Drawing.Point(280, 710);
+            this.MngrWalkinSalesTotalRevenueLbl.Name = "MngrWalkinSalesTotalRevenueLbl";
+            this.MngrWalkinSalesTotalRevenueLbl.Size = new System.Drawing.Size(142, 23);
+            this.MngrWalkinSalesTotalRevenueLbl.TabIndex = 90;
+            this.MngrWalkinSalesTotalRevenueLbl.Text = "Total Revenue:";
             // 
             // MngrWalkinSalesGraphLbl
             // 
@@ -2158,7 +2219,7 @@ namespace Enchante
             series4.Legend = "Legend1";
             series4.Name = "Series1";
             this.MngrWalkinSalesGraph.Series.Add(series4);
-            this.MngrWalkinSalesGraph.Size = new System.Drawing.Size(594, 238);
+            this.MngrWalkinSalesGraph.Size = new System.Drawing.Size(594, 263);
             this.MngrWalkinSalesGraph.TabIndex = 23;
             this.MngrWalkinSalesGraph.Text = "Walk-in Sales";
             // 
@@ -2167,7 +2228,7 @@ namespace Enchante
             this.MngrWalkinSalesTransIDShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrWalkinSalesTransIDShow.Font = new System.Drawing.Font("Arial Black", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesTransIDShow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesTransIDShow.Location = new System.Drawing.Point(1371, 400);
+            this.MngrWalkinSalesTransIDShow.Location = new System.Drawing.Point(1371, 410);
             this.MngrWalkinSalesTransIDShow.Margin = new System.Windows.Forms.Padding(2);
             this.MngrWalkinSalesTransIDShow.Name = "MngrWalkinSalesTransIDShow";
             this.MngrWalkinSalesTransIDShow.ReadOnly = true;
@@ -2180,11 +2241,11 @@ namespace Enchante
             this.MngrWalkinSalesSelectedPeriodText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrWalkinSalesSelectedPeriodText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesSelectedPeriodText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesSelectedPeriodText.Location = new System.Drawing.Point(283, 281);
+            this.MngrWalkinSalesSelectedPeriodText.Location = new System.Drawing.Point(283, 297);
             this.MngrWalkinSalesSelectedPeriodText.Margin = new System.Windows.Forms.Padding(2);
             this.MngrWalkinSalesSelectedPeriodText.Name = "MngrWalkinSalesSelectedPeriodText";
             this.MngrWalkinSalesSelectedPeriodText.ReadOnly = true;
-            this.MngrWalkinSalesSelectedPeriodText.Size = new System.Drawing.Size(327, 30);
+            this.MngrWalkinSalesSelectedPeriodText.Size = new System.Drawing.Size(311, 30);
             this.MngrWalkinSalesSelectedPeriodText.TabIndex = 18;
             // 
             // MngrWalkinSalesSelectedPeriodLbl
@@ -2192,7 +2253,7 @@ namespace Enchante
             this.MngrWalkinSalesSelectedPeriodLbl.AutoSize = true;
             this.MngrWalkinSalesSelectedPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesSelectedPeriodLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesSelectedPeriodLbl.Location = new System.Drawing.Point(279, 250);
+            this.MngrWalkinSalesSelectedPeriodLbl.Location = new System.Drawing.Point(283, 263);
             this.MngrWalkinSalesSelectedPeriodLbl.Name = "MngrWalkinSalesSelectedPeriodLbl";
             this.MngrWalkinSalesSelectedPeriodLbl.Size = new System.Drawing.Size(156, 23);
             this.MngrWalkinSalesSelectedPeriodLbl.TabIndex = 17;
@@ -2203,7 +2264,7 @@ namespace Enchante
             this.MngrWalkinSalesPeriodLbl.AutoSize = true;
             this.MngrWalkinSalesPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesPeriodLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesPeriodLbl.Location = new System.Drawing.Point(279, 110);
+            this.MngrWalkinSalesPeriodLbl.Location = new System.Drawing.Point(283, 120);
             this.MngrWalkinSalesPeriodLbl.Name = "MngrWalkinSalesPeriodLbl";
             this.MngrWalkinSalesPeriodLbl.Size = new System.Drawing.Size(197, 23);
             this.MngrWalkinSalesPeriodLbl.TabIndex = 15;
@@ -2216,10 +2277,10 @@ namespace Enchante
             this.MngrWalkinSalesPeriod.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesPeriod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrWalkinSalesPeriod.FormattingEnabled = true;
-            this.MngrWalkinSalesPeriod.Location = new System.Drawing.Point(283, 135);
+            this.MngrWalkinSalesPeriod.Location = new System.Drawing.Point(283, 151);
             this.MngrWalkinSalesPeriod.Margin = new System.Windows.Forms.Padding(2);
             this.MngrWalkinSalesPeriod.Name = "MngrWalkinSalesPeriod";
-            this.MngrWalkinSalesPeriod.Size = new System.Drawing.Size(327, 31);
+            this.MngrWalkinSalesPeriod.Size = new System.Drawing.Size(311, 31);
             this.MngrWalkinSalesPeriod.TabIndex = 14;
             this.MngrWalkinSalesPeriod.SelectedIndexChanged += new System.EventHandler(this.SalePeriod_SelectedIndexChanged);
             // 
@@ -2228,7 +2289,7 @@ namespace Enchante
             this.MngrWalkinSalesTransServiceLbl.AutoSize = true;
             this.MngrWalkinSalesTransServiceLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesTransServiceLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesTransServiceLbl.Location = new System.Drawing.Point(920, 400);
+            this.MngrWalkinSalesTransServiceLbl.Location = new System.Drawing.Point(920, 410);
             this.MngrWalkinSalesTransServiceLbl.Name = "MngrWalkinSalesTransServiceLbl";
             this.MngrWalkinSalesTransServiceLbl.Size = new System.Drawing.Size(401, 23);
             this.MngrWalkinSalesTransServiceLbl.TabIndex = 13;
@@ -2239,7 +2300,7 @@ namespace Enchante
             this.MngrWalkinSalesTransactionRepLbl.AutoSize = true;
             this.MngrWalkinSalesTransactionRepLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesTransactionRepLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesTransactionRepLbl.Location = new System.Drawing.Point(279, 400);
+            this.MngrWalkinSalesTransactionRepLbl.Location = new System.Drawing.Point(280, 410);
             this.MngrWalkinSalesTransactionRepLbl.Name = "MngrWalkinSalesTransactionRepLbl";
             this.MngrWalkinSalesTransactionRepLbl.Size = new System.Drawing.Size(479, 23);
             this.MngrWalkinSalesTransactionRepLbl.TabIndex = 12;
@@ -2250,7 +2311,7 @@ namespace Enchante
             this.MngrWalkinSalesIncomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MngrWalkinSalesIncomeBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesIncomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesIncomeBtn.Location = new System.Drawing.Point(283, 329);
+            this.MngrWalkinSalesIncomeBtn.Location = new System.Drawing.Point(283, 354);
             this.MngrWalkinSalesIncomeBtn.Name = "MngrWalkinSalesIncomeBtn";
             this.MngrWalkinSalesIncomeBtn.Size = new System.Drawing.Size(594, 44);
             this.MngrWalkinSalesIncomeBtn.TabIndex = 7;
@@ -2263,7 +2324,7 @@ namespace Enchante
             this.MngrWalkinSalesCatLbl.AutoSize = true;
             this.MngrWalkinSalesCatLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesCatLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesCatLbl.Location = new System.Drawing.Point(280, 175);
+            this.MngrWalkinSalesCatLbl.Location = new System.Drawing.Point(283, 191);
             this.MngrWalkinSalesCatLbl.Name = "MngrWalkinSalesCatLbl";
             this.MngrWalkinSalesCatLbl.Size = new System.Drawing.Size(158, 23);
             this.MngrWalkinSalesCatLbl.TabIndex = 6;
@@ -2274,7 +2335,7 @@ namespace Enchante
             this.MngrWalkinSalesToLbl.AutoSize = true;
             this.MngrWalkinSalesToLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesToLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesToLbl.Location = new System.Drawing.Point(646, 175);
+            this.MngrWalkinSalesToLbl.Location = new System.Drawing.Point(634, 191);
             this.MngrWalkinSalesToLbl.Name = "MngrWalkinSalesToLbl";
             this.MngrWalkinSalesToLbl.Size = new System.Drawing.Size(37, 23);
             this.MngrWalkinSalesToLbl.TabIndex = 5;
@@ -2286,7 +2347,7 @@ namespace Enchante
             this.MngrWalkinSalesFromLbl.AutoSize = true;
             this.MngrWalkinSalesFromLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesFromLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesFromLbl.Location = new System.Drawing.Point(646, 110);
+            this.MngrWalkinSalesFromLbl.Location = new System.Drawing.Point(634, 120);
             this.MngrWalkinSalesFromLbl.Name = "MngrWalkinSalesFromLbl";
             this.MngrWalkinSalesFromLbl.Size = new System.Drawing.Size(59, 23);
             this.MngrWalkinSalesFromLbl.TabIndex = 4;
@@ -2300,33 +2361,33 @@ namespace Enchante
             this.MngrWalkinSalesSelectCatBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesSelectCatBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrWalkinSalesSelectCatBox.FormattingEnabled = true;
-            this.MngrWalkinSalesSelectCatBox.Location = new System.Drawing.Point(283, 207);
+            this.MngrWalkinSalesSelectCatBox.Location = new System.Drawing.Point(283, 223);
             this.MngrWalkinSalesSelectCatBox.Margin = new System.Windows.Forms.Padding(2);
             this.MngrWalkinSalesSelectCatBox.Name = "MngrWalkinSalesSelectCatBox";
-            this.MngrWalkinSalesSelectCatBox.Size = new System.Drawing.Size(327, 31);
+            this.MngrWalkinSalesSelectCatBox.Size = new System.Drawing.Size(311, 31);
             this.MngrWalkinSalesSelectCatBox.TabIndex = 2;
             // 
             // MngrWalkinSalesToDatePicker
             // 
-            this.MngrWalkinSalesToDatePicker.Location = new System.Drawing.Point(650, 207);
+            this.MngrWalkinSalesToDatePicker.Location = new System.Drawing.Point(638, 228);
             this.MngrWalkinSalesToDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.MngrWalkinSalesToDatePicker.Name = "MngrWalkinSalesToDatePicker";
-            this.MngrWalkinSalesToDatePicker.Size = new System.Drawing.Size(248, 20);
+            this.MngrWalkinSalesToDatePicker.Size = new System.Drawing.Size(239, 20);
             this.MngrWalkinSalesToDatePicker.TabIndex = 1;
             this.MngrWalkinSalesToDatePicker.Visible = false;
             // 
             // MngrWalkinSalesFromDatePicker
             // 
-            this.MngrWalkinSalesFromDatePicker.Location = new System.Drawing.Point(650, 140);
+            this.MngrWalkinSalesFromDatePicker.Location = new System.Drawing.Point(637, 155);
             this.MngrWalkinSalesFromDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.MngrWalkinSalesFromDatePicker.Name = "MngrWalkinSalesFromDatePicker";
-            this.MngrWalkinSalesFromDatePicker.Size = new System.Drawing.Size(248, 20);
+            this.MngrWalkinSalesFromDatePicker.Size = new System.Drawing.Size(239, 20);
             this.MngrWalkinSalesFromDatePicker.TabIndex = 0;
             this.MngrWalkinSalesFromDatePicker.Visible = false;
             // 
             // MngrWalkinSalesPeriodCalendar
             // 
-            this.MngrWalkinSalesPeriodCalendar.Location = new System.Drawing.Point(650, 129);
+            this.MngrWalkinSalesPeriodCalendar.Location = new System.Drawing.Point(637, 155);
             this.MngrWalkinSalesPeriodCalendar.Margin = new System.Windows.Forms.Padding(7);
             this.MngrWalkinSalesPeriodCalendar.Name = "MngrWalkinSalesPeriodCalendar";
             this.MngrWalkinSalesPeriodCalendar.TabIndex = 16;
@@ -4138,7 +4199,7 @@ namespace Enchante
             this.MngrInventoryProductsUpdateBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MngrInventoryProductsUpdateBtn.IconSize = 32;
             this.MngrInventoryProductsUpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrInventoryProductsUpdateBtn.Location = new System.Drawing.Point(1100, 531);
+            this.MngrInventoryProductsUpdateBtn.Location = new System.Drawing.Point(1052, 531);
             this.MngrInventoryProductsUpdateBtn.Name = "MngrInventoryProductsUpdateBtn";
             this.MngrInventoryProductsUpdateBtn.Size = new System.Drawing.Size(296, 60);
             this.MngrInventoryProductsUpdateBtn.TabIndex = 101;
@@ -4224,7 +4285,7 @@ namespace Enchante
             this.MngrNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.MngrNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.MngrNavBarPanel.Name = "MngrNavBarPanel";
-            this.MngrNavBarPanel.Size = new System.Drawing.Size(1370, 150);
+            this.MngrNavBarPanel.Size = new System.Drawing.Size(1924, 150);
             this.MngrNavBarPanel.TabIndex = 3;
             // 
             // MngrUserAccBtn
@@ -4290,7 +4351,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteAdminPage, new System.Drawing.Size(200, 100));
             this.EnchanteAdminPage.Name = "EnchanteAdminPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteAdminPage, new System.Drawing.Size(200, 100));
-            this.EnchanteAdminPage.Size = new System.Drawing.Size(1370, 749);
+            this.EnchanteAdminPage.Size = new System.Drawing.Size(1924, 1061);
             this.EnchanteAdminPage.TabIndex = 5;
             // 
             // AdminScrollPanel
@@ -4303,7 +4364,7 @@ namespace Enchante
             this.AdminScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AdminScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.AdminScrollPanel.Name = "AdminScrollPanel";
-            this.AdminScrollPanel.Size = new System.Drawing.Size(1370, 599);
+            this.AdminScrollPanel.Size = new System.Drawing.Size(1924, 911);
             this.AdminScrollPanel.TabIndex = 20;
             // 
             // AdminUserAccPanel
@@ -5139,7 +5200,7 @@ namespace Enchante
             this.AdminNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.AdminNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.AdminNavBarPanel.Name = "AdminNavBarPanel";
-            this.AdminNavBarPanel.Size = new System.Drawing.Size(1370, 150);
+            this.AdminNavBarPanel.Size = new System.Drawing.Size(1924, 150);
             this.AdminNavBarPanel.TabIndex = 4;
             // 
             // AdminAccUserBtn
@@ -5207,7 +5268,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteHomePage, new System.Drawing.Size(200, 100));
             this.EnchanteHomePage.Name = "EnchanteHomePage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteHomePage, new System.Drawing.Size(200, 100));
-            this.EnchanteHomePage.Size = new System.Drawing.Size(1370, 749);
+            this.EnchanteHomePage.Size = new System.Drawing.Size(1924, 1061);
             this.EnchanteHomePage.TabIndex = 4;
             // 
             // EnchanteHomeScrollPanel
@@ -5220,7 +5281,7 @@ namespace Enchante
             this.EnchanteHomeScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnchanteHomeScrollPanel.Location = new System.Drawing.Point(0, 0);
             this.EnchanteHomeScrollPanel.Name = "EnchanteHomeScrollPanel";
-            this.EnchanteHomeScrollPanel.Size = new System.Drawing.Size(1370, 749);
+            this.EnchanteHomeScrollPanel.Size = new System.Drawing.Size(1924, 1061);
             this.EnchanteHomeScrollPanel.TabIndex = 18;
             this.EnchanteHomeScrollPanel.Click += new System.EventHandler(this.EnchanteHomeScrollPanel_Click);
             // 
@@ -5240,7 +5301,7 @@ namespace Enchante
             this.EnchanteLoginForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnchanteLoginForm.Location = new System.Drawing.Point(1248, 0);
             this.EnchanteLoginForm.Name = "EnchanteLoginForm";
-            this.EnchanteLoginForm.Size = new System.Drawing.Size(128, 732);
+            this.EnchanteLoginForm.Size = new System.Drawing.Size(676, 1061);
             this.EnchanteLoginForm.TabIndex = 21;
             // 
             // LoginPassReqBtn
@@ -5419,7 +5480,7 @@ namespace Enchante
             this.EDP1.Image = global::Enchante.Properties.Resources.Lobby;
             this.EDP1.Location = new System.Drawing.Point(0, 0);
             this.EDP1.Name = "EDP1";
-            this.EDP1.Size = new System.Drawing.Size(1248, 732);
+            this.EDP1.Size = new System.Drawing.Size(1248, 1061);
             this.EDP1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.EDP1.TabIndex = 24;
             this.EDP1.TabStop = false;
@@ -5456,7 +5517,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteReceptionPage, new System.Drawing.Size(200, 100));
             this.EnchanteReceptionPage.Name = "EnchanteReceptionPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteReceptionPage, new System.Drawing.Size(200, 100));
-            this.EnchanteReceptionPage.Size = new System.Drawing.Size(1370, 749);
+            this.EnchanteReceptionPage.Size = new System.Drawing.Size(1924, 1061);
             this.EnchanteReceptionPage.TabIndex = 2;
             // 
             // ReceptionScrollPanel
@@ -5469,7 +5530,7 @@ namespace Enchante
             this.ReceptionScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ReceptionScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.ReceptionScrollPanel.Name = "ReceptionScrollPanel";
-            this.ReceptionScrollPanel.Size = new System.Drawing.Size(1370, 599);
+            this.ReceptionScrollPanel.Size = new System.Drawing.Size(1924, 911);
             this.ReceptionScrollPanel.TabIndex = 20;
             // 
             // ReceptionUserAccPanel
@@ -6009,6 +6070,51 @@ namespace Enchante
             this.RecTransactionCard.SetPreferredSize(this.RecShopProdPanel, new System.Drawing.Size(200, 100));
             this.RecShopProdPanel.Size = new System.Drawing.Size(1633, 728);
             this.RecShopProdPanel.TabIndex = 30;
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.AutoSize = true;
+            this.iconButton2.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Searchengin;
+            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 40;
+            this.iconButton2.Location = new System.Drawing.Point(726, 154);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(46, 46);
+            this.iconButton2.TabIndex = 184;
+            this.iconButton2.UseVisualStyleBackColor = false;
+            // 
+            // RecSearchProductTextBox
+            // 
+            this.RecSearchProductTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecSearchProductTextBox.BorderRadius = 15;
+            this.RecSearchProductTextBox.BorderThickness = 2;
+            this.RecSearchProductTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.RecSearchProductTextBox.DefaultText = "";
+            this.RecSearchProductTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.RecSearchProductTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.RecSearchProductTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.RecSearchProductTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.RecSearchProductTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecSearchProductTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.RecSearchProductTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecSearchProductTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecSearchProductTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.RecSearchProductTextBox.Location = new System.Drawing.Point(114, 159);
+            this.RecSearchProductTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.RecSearchProductTextBox.Name = "RecSearchProductTextBox";
+            this.RecSearchProductTextBox.PasswordChar = '\0';
+            this.RecSearchProductTextBox.PlaceholderText = "";
+            this.RecSearchProductTextBox.SelectedText = "";
+            this.RecSearchProductTextBox.Size = new System.Drawing.Size(613, 34);
+            this.RecSearchProductTextBox.TabIndex = 183;
+            this.RecSearchProductTextBox.TextChanged += new System.EventHandler(this.RecSearchProductTextBox_TextChanged);
             // 
             // RecShopProdProductFlowLayoutPanel
             // 
@@ -9186,6 +9292,36 @@ namespace Enchante
             this.RecWalkinPanel.Size = new System.Drawing.Size(1633, 728);
             this.RecWalkinPanel.TabIndex = 7;
             // 
+            // iconButton1
+            // 
+            this.iconButton1.AutoSize = true;
+            this.iconButton1.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Searchengin;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 40;
+            this.iconButton1.Location = new System.Drawing.Point(772, 1728);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(46, 46);
+            this.iconButton1.TabIndex = 176;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            // 
+            // RecWalkinSearchProductTextBox
+            // 
+            this.RecWalkinSearchProductTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecWalkinSearchProductTextBox.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecWalkinSearchProductTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinSearchProductTextBox.Location = new System.Drawing.Point(106, 1732);
+            this.RecWalkinSearchProductTextBox.Name = "RecWalkinSearchProductTextBox";
+            this.RecWalkinSearchProductTextBox.Size = new System.Drawing.Size(660, 37);
+            this.RecWalkinSearchProductTextBox.TabIndex = 175;
+            this.RecWalkinSearchProductTextBox.TextChanged += new System.EventHandler(this.RecWalkinSearchProductTextBox_TextChanged);
+            // 
             // RecWalkinBookTransactBtn
             // 
             this.RecWalkinBookTransactBtn.AutoRoundedCorners = true;
@@ -10190,7 +10326,7 @@ namespace Enchante
             this.ReceptionNavBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.ReceptionNavBar.Location = new System.Drawing.Point(0, 0);
             this.ReceptionNavBar.Name = "ReceptionNavBar";
-            this.ReceptionNavBar.Size = new System.Drawing.Size(1370, 150);
+            this.ReceptionNavBar.Size = new System.Drawing.Size(1924, 150);
             this.ReceptionNavBar.TabIndex = 2;
             // 
             // RecDateTimeText
@@ -10270,7 +10406,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteStaffPage, new System.Drawing.Size(200, 100));
             this.EnchanteStaffPage.Name = "EnchanteStaffPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteStaffPage, new System.Drawing.Size(200, 100));
-            this.EnchanteStaffPage.Size = new System.Drawing.Size(1370, 749);
+            this.EnchanteStaffPage.Size = new System.Drawing.Size(1924, 1061);
             this.EnchanteStaffPage.TabIndex = 1;
             // 
             // StaffScrollPanel
@@ -10290,7 +10426,7 @@ namespace Enchante
             this.StaffScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StaffScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.StaffScrollPanel.Name = "StaffScrollPanel";
-            this.StaffScrollPanel.Size = new System.Drawing.Size(1370, 599);
+            this.StaffScrollPanel.Size = new System.Drawing.Size(1924, 911);
             this.StaffScrollPanel.TabIndex = 6;
             // 
             // label4
@@ -10741,7 +10877,7 @@ namespace Enchante
             this.StaffNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.StaffNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.StaffNavBarPanel.Name = "StaffNavBarPanel";
-            this.StaffNavBarPanel.Size = new System.Drawing.Size(1370, 150);
+            this.StaffNavBarPanel.Size = new System.Drawing.Size(1924, 150);
             this.StaffNavBarPanel.TabIndex = 5;
             // 
             // StaffUserAccBtn
@@ -10800,7 +10936,7 @@ namespace Enchante
             // 
             this.EnchanteParentCard.ContainerControl = this.EnchanteParentContainer;
             this.EnchanteParentCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.EnchanteParentCard.SelectedCard = "Reception";
+            this.EnchanteParentCard.SelectedCard = "Mngr";
             // 
             // RecTransactionCard
             // 
@@ -10816,7 +10952,7 @@ namespace Enchante
             // 
             this.MngrInventoryCard.ContainerControl = this.MngrInventoryPanel;
             this.MngrInventoryCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.MngrInventoryCard.SelectedCard = "PRODUCTS";
+            this.MngrInventoryCard.SelectedCard = "ProductSales";
             // 
             // PictureSlideTimer
             // 
@@ -10824,87 +10960,58 @@ namespace Enchante
             this.PictureSlideTimer.Interval = 3000;
             this.PictureSlideTimer.Tick += new System.EventHandler(this.PictureSlideTimer_Tick);
             // 
-            // RecWalkinSearchProductTextBox
+            // textBox1
             // 
-            this.RecWalkinSearchProductTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecWalkinSearchProductTextBox.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecWalkinSearchProductTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinSearchProductTextBox.Location = new System.Drawing.Point(106, 1732);
-            this.RecWalkinSearchProductTextBox.Name = "RecWalkinSearchProductTextBox";
-            this.RecWalkinSearchProductTextBox.Size = new System.Drawing.Size(660, 37);
-            this.RecWalkinSearchProductTextBox.TabIndex = 175;
-            this.RecWalkinSearchProductTextBox.TextChanged += new System.EventHandler(this.RecWalkinSearchProductTextBox_TextChanged);
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.textBox1.Location = new System.Drawing.Point(1083, 712);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(146, 24);
+            this.textBox1.TabIndex = 92;
             // 
-            // RecSearchProductTextBox
+            // label7
             // 
-            this.RecSearchProductTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecSearchProductTextBox.BorderRadius = 15;
-            this.RecSearchProductTextBox.BorderThickness = 2;
-            this.RecSearchProductTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.RecSearchProductTextBox.DefaultText = "";
-            this.RecSearchProductTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.RecSearchProductTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.RecSearchProductTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.RecSearchProductTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.RecSearchProductTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecSearchProductTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.RecSearchProductTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecSearchProductTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecSearchProductTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.RecSearchProductTextBox.Location = new System.Drawing.Point(114, 159);
-            this.RecSearchProductTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.RecSearchProductTextBox.Name = "RecSearchProductTextBox";
-            this.RecSearchProductTextBox.PasswordChar = '\0';
-            this.RecSearchProductTextBox.PlaceholderText = "";
-            this.RecSearchProductTextBox.SelectedText = "";
-            this.RecSearchProductTextBox.Size = new System.Drawing.Size(613, 34);
-            this.RecSearchProductTextBox.TabIndex = 183;
-            this.RecSearchProductTextBox.TextChanged += new System.EventHandler(this.RecSearchProductTextBox_TextChanged);
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.label7.Location = new System.Drawing.Point(936, 712);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(142, 23);
+            this.label7.TabIndex = 92;
+            this.label7.Text = "Total Revenue:";
             // 
-            // iconButton1
+            // label8
             // 
-            this.iconButton1.AutoSize = true;
-            this.iconButton1.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Searchengin;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 40;
-            this.iconButton1.Location = new System.Drawing.Point(772, 1728);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(46, 46);
-            this.iconButton1.TabIndex = 176;
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.label8.Location = new System.Drawing.Point(288, 714);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(142, 23);
+            this.label8.TabIndex = 100;
+            this.label8.Text = "Total Revenue:";
             // 
-            // iconButton2
+            // textBox2
             // 
-            this.iconButton2.AutoSize = true;
-            this.iconButton2.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Searchengin;
-            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 40;
-            this.iconButton2.Location = new System.Drawing.Point(726, 154);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(46, 46);
-            this.iconButton2.TabIndex = 184;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.textBox2.Location = new System.Drawing.Point(435, 714);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(146, 24);
+            this.textBox2.TabIndex = 101;
             // 
             // Enchante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1924, 1061);
             this.Controls.Add(this.EnchanteParentContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -11784,6 +11891,14 @@ namespace Enchante
         private Guna.UI2.WinForms.Guna2TextBox RecSearchProductTextBox;
         private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton iconButton2;
+        private System.Windows.Forms.ComboBox MngrAppSalesAppointmentSelect;
+        private System.Windows.Forms.Label MngrAppSalesSelectAppLbl;
+        private System.Windows.Forms.Label MngrWalkinSalesTotalRevenueLbl;
+        private System.Windows.Forms.TextBox MngrWalkinSalesRevenueTextbox;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 
