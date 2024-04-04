@@ -12993,5 +12993,177 @@ namespace Enchante
                 }
             }
         }
+
+        private void RecWalkinSearchProductTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string searchKeyword = RecWalkinSearchProductTextBox.Text.Trim().ToLower();
+
+            if (string.IsNullOrEmpty(searchKeyword))
+            {
+                RecWalkinProductFlowLayoutPanel.Controls.Clear();
+                RecShopProdProductFlowLayoutPanel.Controls.Clear();
+                InitializeProducts();
+                return;
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string query = "SELECT ItemID, ItemName, ItemStock, ItemPrice, ItemStatus, ProductPicture FROM inventory WHERE ProductType = 'Retail Product' AND ItemName LIKE @searchKeyword";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@searchKeyword", "%" + searchKeyword + "%");
+                MySqlDataReader reader = command.ExecuteReader();
+                Size userControlSize = new Size(295, 275);
+
+                RecWalkinProductFlowLayoutPanel.Controls.Clear();
+
+                while (reader.Read())
+                {
+                    string itemID = reader["ItemID"].ToString();
+                    string itemName = reader["ItemName"].ToString();
+                    string itemStock = reader["ItemStock"].ToString();
+                    string itemPrice = reader["ItemPrice"].ToString();
+                    string itemStatus = reader["ItemStatus"].ToString();
+                    byte[] productPicture = (byte[])reader["ProductPicture"];
+
+                    ProductUserControl recwalkinproductusercontrol = new ProductUserControl();
+
+                    // Set the properties of recwalkinproductusercontrol
+                    recwalkinproductusercontrol.ProductItemIDTextBox.Text = itemID;
+                    recwalkinproductusercontrol.ProductNameTextBox.Text = itemName;
+                    recwalkinproductusercontrol.ProductStockTextBox.Text = itemStock;
+                    recwalkinproductusercontrol.ProductPriceTextBox.Text = itemPrice;
+                    recwalkinproductusercontrol.ProductStatusTextBox.Text = itemStatus;
+
+                    if (itemStatus == "Low Stock")
+                    {
+                        recwalkinproductusercontrol.ProductOutOfStockPictureBox.Visible = true;
+                        recwalkinproductusercontrol.Enabled = false;
+                    }
+                    else
+                    {
+                        recwalkinproductusercontrol.ProductOutOfStockPictureBox.Visible = false;
+                        recwalkinproductusercontrol.Enabled = true;
+                    }
+
+                    if (productPicture != null && productPicture.Length > 0)
+                    {
+                        using (MemoryStream ms = new MemoryStream(productPicture))
+                        {
+                            System.Drawing.Image image = System.Drawing.Image.FromStream(ms);
+                            recwalkinproductusercontrol.ProductPicturePictureBox.Image = image;
+                        }
+                    }
+                    else
+                    {
+                        recwalkinproductusercontrol.ProductPicturePictureBox.Image = null;
+                    }
+
+                    foreach (System.Windows.Forms.Control control in recwalkinproductusercontrol.Controls)
+                    {
+                        control.Click += RecWalkinProductControlElement_Click;
+                    }
+
+                    recwalkinproductusercontrol.Click += RecWalkinProductUserControl_Click;
+
+                    RecWalkinProductFlowLayoutPanel.Controls.Add(recwalkinproductusercontrol);
+                }
+
+                reader.Close();
+            }
+        }
+
+        private void RecSearchProductTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string searchKeyword = RecSearchProductTextBox.Text.Trim().ToLower();
+
+            if (string.IsNullOrEmpty(searchKeyword))
+            {
+                RecWalkinProductFlowLayoutPanel.Controls.Clear();
+                RecShopProdProductFlowLayoutPanel.Controls.Clear();
+                InitializeProducts();
+                return;
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string query = "SELECT ItemID, ItemName, ItemStock, ItemPrice, ItemStatus, ProductPicture FROM inventory WHERE ProductType = 'Retail Product' AND ItemName LIKE @searchKeyword";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@searchKeyword", "%" + searchKeyword + "%");
+                MySqlDataReader reader = command.ExecuteReader();
+                Size userControlSize = new Size(295, 275);
+
+                RecWalkinProductFlowLayoutPanel.Controls.Clear();
+                RecShopProdProductFlowLayoutPanel.Controls.Clear();
+
+
+                while (reader.Read())
+                {
+                    string itemID = reader["ItemID"].ToString();
+                    string itemName = reader["ItemName"].ToString();
+                    string itemStock = reader["ItemStock"].ToString();
+                    string itemPrice = reader["ItemPrice"].ToString();
+                    string itemStatus = reader["ItemStatus"].ToString();
+                    byte[] productPicture = (byte[])reader["ProductPicture"];
+
+                    ProductUserControl recshopproductusercontrol = new ProductUserControl();
+
+
+
+                    // Set the properties of recshopproductusercontrol
+                    recshopproductusercontrol.Size = userControlSize;
+                    recshopproductusercontrol.ProductNameTextBox.Size = new Size(235, 33);
+                    recshopproductusercontrol.ProductPriceTextBox.Size = new Size(90, 27);
+                    recshopproductusercontrol.ProductPicturePictureBox.Size = new Size(162, 162);
+                    recshopproductusercontrol.ProductNameTextBox.Location = new Point(12, 190);
+                    recshopproductusercontrol.ProductPriceTextBox.Location = new Point(67, 230);
+                    recshopproductusercontrol.PhpSignLbl.Location = new Point(18, 230);
+                    recshopproductusercontrol.ProductPicturePictureBox.Location = new Point(72, 12);
+                    recshopproductusercontrol.ProductItemIDTextBox.Text = itemID;
+                    recshopproductusercontrol.ProductNameTextBox.Text = itemName;
+                    recshopproductusercontrol.ProductStockTextBox.Text = itemStock;
+                    recshopproductusercontrol.ProductPriceTextBox.Text = itemPrice;
+                    recshopproductusercontrol.ProductStatusTextBox.Text = itemStatus;
+
+                    if (itemStatus == "Low Stock")
+                    {
+                        recshopproductusercontrol.ProductOutOfStockPictureBox.Visible = true;
+                        recshopproductusercontrol.Enabled = false;
+                    }
+                    else
+                    {
+                        recshopproductusercontrol.ProductOutOfStockPictureBox.Visible = false;
+                        recshopproductusercontrol.Enabled = true;
+                    }
+
+                    if (productPicture != null && productPicture.Length > 0)
+                    {
+                        using (MemoryStream ms = new MemoryStream(productPicture))
+                        {
+                            System.Drawing.Image image1 = System.Drawing.Image.FromStream(ms);
+                            recshopproductusercontrol.ProductPicturePictureBox.Image = image1;
+                        }
+                    }
+                    else
+                    {
+                        recshopproductusercontrol.ProductPicturePictureBox.Image = null;
+                    }
+
+                    foreach (System.Windows.Forms.Control control1 in recshopproductusercontrol.Controls)
+                    {
+                        control1.Click += RecShopProductControlElement_Click;
+                    }
+
+                    recshopproductusercontrol.Click += RecShopProdProductUserControl_Click;
+
+                    RecShopProdProductFlowLayoutPanel.Controls.Add(recshopproductusercontrol);
+                }
+
+                reader.Close();
+            }
+        }
     }
 }
