@@ -235,6 +235,7 @@ namespace Enchante
         private void Enchante_Load(object sender, EventArgs e)
         {
             //Reset Panel to Show Default
+            ParentPanelShow.PanelShow(EnchanteHomePage);
             FillRecStaffScheduleViewDataGrid();
             DateTimePickerTimer.Interval = 1000;
             DateTimePickerTimer.Start();
@@ -10292,7 +10293,7 @@ namespace Enchante
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message);
+                    MessageBox.Show("Error: " + ex.Message); // Palagyan ng title yung error 
                 }
             }
         }
