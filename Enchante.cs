@@ -2462,6 +2462,16 @@ namespace Enchante
                     recshopproductusercontrol.ProductPriceTextBox.Location = new Point(67, 230);
                     recshopproductusercontrol.PhpSignLbl.Location = new Point(18, 230);
                     recshopproductusercontrol.ProductPicturePictureBox.Location = new Point(72, 12);
+                    //Border
+                    recshopproductusercontrol.LeftBorder.Size = new Size(10, 275);
+                    recshopproductusercontrol.LeftBorder.Location = new Point(-5, 0);
+                    recshopproductusercontrol.TopBorder.Size = new Size(295, 10);
+                    recshopproductusercontrol.TopBorder.Location = new Point(0, -5);
+                    recshopproductusercontrol.RightBorder.Size = new Size(10, 275);
+                    recshopproductusercontrol.RightBorder.Location = new Point(289, 0);
+                    recshopproductusercontrol.DownBorder.Size = new Size(295, 10);
+                    recshopproductusercontrol.DownBorder.Location = new Point(0, 269);
+
                     recshopproductusercontrol.ProductItemIDTextBox.Text = itemID;
                     recshopproductusercontrol.ProductNameTextBox.Text = itemName;
                     recshopproductusercontrol.ProductStockTextBox.Text = itemStock;

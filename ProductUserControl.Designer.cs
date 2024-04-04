@@ -37,6 +37,10 @@
             this.ProductOutOfStockPictureBox = new Guna.UI2.WinForms.Guna2PictureBox();
             this.ProductPicturePictureBox = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.PhpSignLbl = new System.Windows.Forms.Label();
+            this.RightBorder = new System.Windows.Forms.TextBox();
+            this.LeftBorder = new System.Windows.Forms.TextBox();
+            this.DownBorder = new System.Windows.Forms.TextBox();
+            this.TopBorder = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ProductOutOfStockPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductPicturePictureBox)).BeginInit();
             this.SuspendLayout();
@@ -56,6 +60,7 @@
             this.ProductNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.ProductNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.ProductNameTextBox.Location = new System.Drawing.Point(9, 113);
+            this.ProductNameTextBox.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.ProductNameTextBox.Name = "ProductNameTextBox";
             this.ProductNameTextBox.PasswordChar = '\0';
             this.ProductNameTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
@@ -122,6 +127,7 @@
             this.ProductPriceTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.ProductPriceTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.ProductPriceTextBox.Location = new System.Drawing.Point(51, 130);
+            this.ProductPriceTextBox.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.ProductPriceTextBox.Name = "ProductPriceTextBox";
             this.ProductPriceTextBox.PasswordChar = '\0';
             this.ProductPriceTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
@@ -186,11 +192,62 @@
             this.PhpSignLbl.TabIndex = 7;
             this.PhpSignLbl.Text = "Php. ";
             // 
+            // RightBorder
+            // 
+            this.RightBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RightBorder.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RightBorder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RightBorder.Location = new System.Drawing.Point(174, 0);
+            this.RightBorder.Multiline = true;
+            this.RightBorder.Name = "RightBorder";
+            this.RightBorder.ReadOnly = true;
+            this.RightBorder.Size = new System.Drawing.Size(10, 177);
+            this.RightBorder.TabIndex = 8;
+            // 
+            // LeftBorder
+            // 
+            this.LeftBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.LeftBorder.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.LeftBorder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LeftBorder.Location = new System.Drawing.Point(-7, 0);
+            this.LeftBorder.Multiline = true;
+            this.LeftBorder.Name = "LeftBorder";
+            this.LeftBorder.ReadOnly = true;
+            this.LeftBorder.Size = new System.Drawing.Size(10, 177);
+            this.LeftBorder.TabIndex = 9;
+            // 
+            // DownBorder
+            // 
+            this.DownBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.DownBorder.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DownBorder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DownBorder.Location = new System.Drawing.Point(0, 174);
+            this.DownBorder.Multiline = true;
+            this.DownBorder.Name = "DownBorder";
+            this.DownBorder.ReadOnly = true;
+            this.DownBorder.Size = new System.Drawing.Size(177, 10);
+            this.DownBorder.TabIndex = 10;
+            // 
+            // TopBorder
+            // 
+            this.TopBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.TopBorder.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TopBorder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TopBorder.Location = new System.Drawing.Point(0, -7);
+            this.TopBorder.Multiline = true;
+            this.TopBorder.Name = "TopBorder";
+            this.TopBorder.ReadOnly = true;
+            this.TopBorder.Size = new System.Drawing.Size(177, 10);
+            this.TopBorder.TabIndex = 11;
+            // 
             // ProductUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.TopBorder);
+            this.Controls.Add(this.DownBorder);
+            this.Controls.Add(this.LeftBorder);
+            this.Controls.Add(this.RightBorder);
             this.Controls.Add(this.ProductNameTextBox);
             this.Controls.Add(this.ProductPriceTextBox);
             this.Controls.Add(this.PhpSignLbl);
@@ -201,7 +258,7 @@
             this.Controls.Add(this.ProductOutOfStockPictureBox);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "ProductUserControl";
-            this.Size = new System.Drawing.Size(175, 175);
+            this.Size = new System.Drawing.Size(177, 177);
             ((System.ComponentModel.ISupportInitialize)(this.ProductOutOfStockPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductPicturePictureBox)).EndInit();
             this.ResumeLayout(false);
@@ -219,5 +276,9 @@
         public Guna.UI2.WinForms.Guna2TextBox ProductStockTextBox;
         public Guna.UI2.WinForms.Guna2PictureBox ProductOutOfStockPictureBox;
         public System.Windows.Forms.Label PhpSignLbl;
+        public System.Windows.Forms.TextBox RightBorder;
+        public System.Windows.Forms.TextBox LeftBorder;
+        public System.Windows.Forms.TextBox DownBorder;
+        public System.Windows.Forms.TextBox TopBorder;
     }
 }
