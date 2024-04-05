@@ -208,6 +208,10 @@ namespace Enchante
 
             MngrSVHistoryTransTypeBox.Items.Add("Walk-in Transaction");
             MngrSVHistoryTransTypeBox.Items.Add("Walk-in Appointment Transaction");
+            MngrSVHistoryTransTypeBox.Items.Add("Appointment Transaction");
+
+            MngrAppSalesAppointmentSelect.Items.Add("Walk-in Appointment Transaction");
+            MngrAppSalesAppointmentSelect.Items.Add("Appointment Transaction");
 
             MngrSVHistoryServiceStatusBox.Items.Add("Completed");
             MngrSVHistoryServiceStatusBox.Items.Add("Pending");
@@ -235,6 +239,7 @@ namespace Enchante
         private void Enchante_Load(object sender, EventArgs e)
         {
             //Reset Panel to Show Default
+            ParentPanelShow.PanelShow(EnchanteHomePage);
             FillRecStaffScheduleViewDataGrid();
             DateTimePickerTimer.Interval = 1000;
             DateTimePickerTimer.Start();
@@ -2461,6 +2466,16 @@ namespace Enchante
                     recshopproductusercontrol.ProductPriceTextBox.Location = new Point(67, 230);
                     recshopproductusercontrol.PhpSignLbl.Location = new Point(18, 230);
                     recshopproductusercontrol.ProductPicturePictureBox.Location = new Point(72, 12);
+                    //Border
+                    recshopproductusercontrol.LeftBorder.Size = new Size(10, 275);
+                    recshopproductusercontrol.LeftBorder.Location = new Point(-5, 0);
+                    recshopproductusercontrol.TopBorder.Size = new Size(295, 10);
+                    recshopproductusercontrol.TopBorder.Location = new Point(0, -5);
+                    recshopproductusercontrol.RightBorder.Size = new Size(10, 275);
+                    recshopproductusercontrol.RightBorder.Location = new Point(289, 0);
+                    recshopproductusercontrol.DownBorder.Size = new Size(295, 10);
+                    recshopproductusercontrol.DownBorder.Location = new Point(0, 269);
+
                     recshopproductusercontrol.ProductItemIDTextBox.Text = itemID;
                     recshopproductusercontrol.ProductNameTextBox.Text = itemName;
                     recshopproductusercontrol.ProductStockTextBox.Text = itemStock;
@@ -7489,7 +7504,6 @@ namespace Enchante
 
         private void MngrWalkinProdSalesExitBtn_Click(object sender, EventArgs e)
         {
-
             trydata.Visible = false;
             MngrProductSalesTransRepDGV.DataSource = null;
             trydata.DataSource = null;
@@ -7503,6 +7517,7 @@ namespace Enchante
             MngrProductSalesPeriod.SelectedItem = null;
             MngrProductSalesSelectCatBox.SelectedItem = null;
             MngrProductSalesSelectedPeriodText.Text = "";
+            MngrProductSalesTotalRevBox.Text = "";
             MngrProductSalesLineGraph.Series.Clear();
             MngrProductSalesGraph.Series.Clear();
             Inventory.PanelShow(MngrInventoryTypePanel);
@@ -8778,8 +8793,8 @@ namespace Enchante
                         MessageBox.Show("From date and to date cannot be the same.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    fromDate = MngrWalkinSalesFromDatePicker.Value;
-                    toDate = MngrWalkinSalesToDatePicker.Value;
+                    fromDate = MngrWalkinSalesFromDatePicker.Value.Date;
+                    toDate = MngrWalkinSalesToDatePicker.Value.Date.AddDays(1).AddTicks(-1);
                     break;
                 default:
                     MessageBox.Show("Invalid Sale Period selection.", "Walk-in Services Error Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -8836,6 +8851,7 @@ namespace Enchante
                         MngrWalkinSalesGraph.Legends.Clear();
                         MngrWalkinSalesTransRepDGV.DataSource = null;
                         MngrWalkinSalesTransServiceHisDGV.DataSource = null;
+                        MngrWalkinSalesRevenueTextbox.Text = "";
                         MessageBox.Show("No data available for the selected date range.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
@@ -8899,18 +8915,28 @@ namespace Enchante
                     dt.Columns.Add("AppointmentDate");
                     dt.Columns.Add("TotalServicePrice", typeof(decimal));
 
-                    string transNumQuery = @"SELECT TransactionNumber, AppointmentDate, SUM(CAST(ServicePrice AS DECIMAL(10, 2))) AS TotalServicePrice 
-                    FROM servicehistory 
-                    WHERE ServiceStatus = 'Completed' 
-                    AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y %W') BETWEEN @FromDate AND @ToDate ";
+                    string transNumQuery = @"
+    SELECT TransactionNumber, AppointmentDate, SUM(CAST(ServicePrice AS DECIMAL(10, 2))) AS TotalServicePrice";
+
+                    if (selectedCategory == "All Categories")
+                    {
+                        dt.Columns.Add("ServiceCategory"); // Add ServiceCategory column when "All Categories" is selected
+                        transNumQuery += ", ServiceCategory"; // Include ServiceCategory in the query
+                    }
+
+                    transNumQuery += @"
+    FROM servicehistory 
+    WHERE ServiceStatus = 'Completed' 
+    AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y %W') BETWEEN @FromDate AND @ToDate ";
 
                     if (selectedCategory != "All Categories")
                     {
                         transNumQuery += " AND ServiceCategory = @SelectedCategory";
                     }
 
-                    transNumQuery += " AND TransactionType = 'Walk-in Transaction'";
-                    transNumQuery += " GROUP BY TransactionNumber";
+                    transNumQuery += @"
+    AND TransactionType = 'Walk-in Transaction'
+    GROUP BY TransactionNumber, AppointmentDate"; // Group by both TransactionNumber and AppointmentDate
 
                     MySqlCommand transNumCommand = new MySqlCommand(transNumQuery, connection);
                     transNumCommand.Parameters.AddWithValue("@FromDate", fromDate);
@@ -8929,15 +8955,33 @@ namespace Enchante
                             string appointmentDate = transNumReader["AppointmentDate"].ToString();
                             decimal totalServicePrice = (decimal)transNumReader["TotalServicePrice"];
 
-                            dt.Rows.Add(transactionNumber, appointmentDate, totalServicePrice);
+                            DataRow row = dt.Rows.Add(transactionNumber, appointmentDate, totalServicePrice);
+                            if (selectedCategory == "All Categories")
+                            {
+                                // Only attempt to read ServiceCategory when it's included in the query
+                                if (transNumReader.FieldCount > 3 && !transNumReader.IsDBNull(3))
+                                {
+                                    string serviceCategory = transNumReader["ServiceCategory"].ToString();
+                                    row["ServiceCategory"] = serviceCategory; // Set ServiceCategory value if "All Categories" is selected
+                                }
+                            }
                         }
                     }
 
                     MngrWalkinSalesTransRepDGV.DataSource = dt;
+
+                    decimal totalServicePriceSum = 0;
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        totalServicePriceSum += Convert.ToDecimal(row["TotalServicePrice"]);
+                    }
+                    string formattedTotalServicePrice = "₱" + totalServicePriceSum.ToString("#,##0.00");
+                    MngrWalkinSalesRevenueTextbox.Text = formattedTotalServicePrice;
+
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message, "Walk-in Service Sales Graph Failed");
+                    MessageBox.Show("Error: " + ex.Message);
                 }
             }
         }
@@ -9071,6 +9115,7 @@ namespace Enchante
             MngrWalkinSalesSelectCatBox.SelectedItem = null;
             MngrWalkinSalesSelectedPeriodText.Text = "";
             MngrWalkinSalesTransIDShow.Text = "";
+            MngrWalkinSalesRevenueTextbox.Text = "";
             MngrWalkinSalesTransRepDGV.DataSource = null;
             MngrWalkinSalesTransServiceHisDGV.DataSource = null;
             MngrWalkinSalesGraph.Series.Clear();
@@ -9742,6 +9787,7 @@ namespace Enchante
                     MngrProductSalesGraph.Series[0].Points.Clear();
                     MngrProductSalesLineGraph.Series.Clear();
                     MngrProductSalesLineGraph.Legends.Clear();
+                    MngrProductSalesTotalRevBox.Text = "";
                     return;
                 }
 
@@ -10008,6 +10054,7 @@ namespace Enchante
 
                 Dictionary<string, int> categoryQuantities = new Dictionary<string, int>();
                 Dictionary<string, double> categoryRevenues = new Dictionary<string, double>();
+                double totalRevenue = 0;
 
                 foreach (DataRow row in filteredData.Rows)
                 {
@@ -10025,17 +10072,21 @@ namespace Enchante
                         categoryQuantities[categoryPrefix] += qty;
                         categoryRevenues[categoryPrefix] += itemTotalPrice;
                     }
+                    totalRevenue += itemTotalPrice;
                 }
 
                 foreach (var kvp in categoryQuantities)
                 {
                     string categoryName = GetCategoryName(kvp.Key);
+                    string formattedOverallRevenue = "₱" + categoryRevenues[kvp.Key].ToString("#,##0.00");
                     MngrProductSalesTransRepDGV.Rows.Add(
                         categoryName,
                         kvp.Value,
-                        categoryRevenues[kvp.Key]
+                        formattedOverallRevenue
                     );
                 }
+                string formattedTotalRevenue = "₱" + totalRevenue.ToString("#,##0.00");
+                MngrProductSalesTotalRevBox.Text = formattedTotalRevenue;
             }
             else
             {
@@ -10050,6 +10101,8 @@ namespace Enchante
                 MngrProductSalesTransRepDGV.Columns.Add("ItemPrice", "Price");
                 MngrProductSalesTransRepDGV.Columns.Add("ItemTotalPrice", "Total Price");
 
+                decimal totalRevenue = 0;
+
                 foreach (DataRow row in sortedData.Rows)
                 {
                     MngrProductSalesTransRepDGV.Rows.Add(
@@ -10060,7 +10113,13 @@ namespace Enchante
                         row["ItemPrice"],
                         row["ItemTotalPrice"]
                     );
+                    if (row["ItemTotalPrice"] != DBNull.Value)
+                    {
+                        totalRevenue += Convert.ToDecimal(row["ItemTotalPrice"]);
+                    }
                 }
+                string formattedTotalRevenue = "₱" + totalRevenue.ToString("#,##0.00");
+                MngrProductSalesTotalRevBox.Text = formattedTotalRevenue;
             }
         }
 
@@ -10131,6 +10190,12 @@ namespace Enchante
                 return;
             }
 
+            if (string.IsNullOrEmpty(MngrAppSalesAppointmentSelect.Text))
+            {
+                MessageBox.Show("Please select a type of appointment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+          
             if (MngrAppSalesSelectCatBox.SelectedItem == null || string.IsNullOrEmpty(MngrAppSalesSelectCatBox.SelectedItem.ToString()))
             {
                 MessageBox.Show("Please select a category.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -10140,6 +10205,7 @@ namespace Enchante
             string fromDate = "";
             string toDate = "";
             string selectedCategory = MngrAppSalesSelectCatBox.SelectedItem?.ToString();
+            string selectedAppointmentType = MngrAppSalesAppointmentSelect.SelectedItem?.ToString();
             string salePeriod = MngrAppSalesPeriod.SelectedItem.ToString();
 
             switch (MngrAppSalesPeriod.Text)
@@ -10235,7 +10301,11 @@ namespace Enchante
                         query += " AND ServiceCategory = @SelectedCategory";
                     }
 
-                    query += " AND TransactionType = 'Walk-in Appointment Transaction'";
+                    if (MngrAppSalesAppointmentSelect.SelectedItem != null)
+                    {
+                        query += " AND TransactionType = @SelectedTransactionType";
+                    }
+
                     query += " GROUP BY LEFT(AppointmentDate, 10), ServiceCategory";
 
                     MySqlCommand command = new MySqlCommand(query, connection);
@@ -10245,6 +10315,11 @@ namespace Enchante
                     if (selectedCategory != "All Categories")
                     {
                         command.Parameters.AddWithValue("@SelectedCategory", selectedCategory);
+                    }
+
+                    if (MngrAppSalesAppointmentSelect.SelectedItem != null)
+                    {
+                        command.Parameters.AddWithValue("@SelectedTransactionType", selectedAppointmentType);
                     }
 
                     MySqlDataReader reader = command.ExecuteReader();
@@ -10257,6 +10332,7 @@ namespace Enchante
                         MngrAppSalesTransRepDGV.DataSource = null;
                         MngrAppSalesTransServiceHisDGV.DataSource = null;
                         MngrAppSalesTransIDShow.Text = "";
+                        MngrAppSalesTotalRevBox.Text = "";
                         return;
                     }
 
@@ -10287,7 +10363,7 @@ namespace Enchante
                     }
                     reader.Close();
 
-                    AppointmentServiceBreakdown(selectedCategory, fromDate, toDate, connection);
+                    AppointmentServiceBreakdown(selectedCategory, selectedAppointmentType, fromDate, toDate, connection);
                     DisplayAppointmentLineChart(query, connectionString, categoryRevenues, dates);
                 }
                 catch (Exception ex)
@@ -10334,25 +10410,34 @@ namespace Enchante
             MngrAppSalesGraph.Legends[0].Docking = Docking.Bottom;
         }
 
-        private void AppointmentServiceBreakdown(string selectedCategory, string fromDate, string toDate, MySqlConnection connection)
+        private void AppointmentServiceBreakdown(string selectedCategory, string selectedAppointmentType, string fromDate, string toDate, MySqlConnection connection)
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("TransactionNumber");
             dt.Columns.Add("AppointmentDate");
             dt.Columns.Add("TotalServicePrice", typeof(decimal));
 
+            if (selectedCategory == "All Categories")
+            {
+                dt.Columns.Add("ServiceCategory");
+            }
+
             string transNumQuery = @"
-                    SELECT TransactionNumber, AppointmentDate, SUM(CAST(ServicePrice AS DECIMAL(10, 2))) AS TotalServicePrice 
-                    FROM servicehistory 
-                    WHERE ServiceStatus = 'Completed' 
-                    AND LEFT(AppointmentDate, 10) BETWEEN @FromDate AND @ToDate ";
+            SELECT TransactionNumber, AppointmentDate, ServiceCategory, SUM(CAST(ServicePrice AS DECIMAL(10, 2))) AS TotalServicePrice 
+            FROM servicehistory 
+            WHERE ServiceStatus = 'Completed' 
+            AND LEFT(AppointmentDate, 10) BETWEEN @FromDate AND @ToDate ";
 
             if (selectedCategory != "All Categories")
             {
                 transNumQuery += " AND ServiceCategory = @SelectedCategory";
             }
 
-            transNumQuery += " AND TransactionType = 'Walk-in Appointment Transaction'";
+            if (selectedAppointmentType != null)
+            {
+                transNumQuery += " AND TransactionType = @SelectedTransactionType";
+            }
+
             transNumQuery += " GROUP BY TransactionNumber";
 
             MySqlCommand transNumCommand = new MySqlCommand(transNumQuery, connection);
@@ -10364,6 +10449,11 @@ namespace Enchante
                 transNumCommand.Parameters.AddWithValue("@SelectedCategory", selectedCategory);
             }
 
+            if (selectedAppointmentType != null)
+            {
+                transNumCommand.Parameters.AddWithValue("@SelectedTransactionType", selectedAppointmentType); // Use the parameter here
+            }
+
             using (MySqlDataReader transNumReader = transNumCommand.ExecuteReader())
             {
                 while (transNumReader.Read())
@@ -10372,20 +10462,39 @@ namespace Enchante
                     string appointmentDate = transNumReader["AppointmentDate"].ToString();
                     decimal totalServicePrice = transNumReader.GetDecimal("TotalServicePrice");
 
-                    dt.Rows.Add(transactionNumber, appointmentDate, totalServicePrice);
+                    // Read ServiceCategory from reader only if it's added to the DataTable
+                    string serviceCategory = selectedCategory == "All Categories" ? transNumReader["ServiceCategory"].ToString() : "";
+
+                    // Add ServiceCategory to DataRow only when it's present in the DataTable
+                    if (selectedCategory == "All Categories")
+                    {
+                        dt.Rows.Add(transactionNumber, appointmentDate, totalServicePrice, serviceCategory);
+                    }
+                    else
+                    {
+                        dt.Rows.Add(transactionNumber, appointmentDate, totalServicePrice);
+                    }
                 }
             }
 
             MngrAppSalesTransRepDGV.DataSource = dt;
+
+            decimal totalServicePriceSum = 0;
+            foreach (DataRow row in dt.Rows)
+            {
+                totalServicePriceSum += (decimal)row["TotalServicePrice"];
+            }
+            string formattedTotalServicePrice = "₱" + totalServicePriceSum.ToString("#,##0.00");
+            MngrAppSalesTotalRevBox.Text = formattedTotalServicePrice;
         }
 
         private void MngrAppSalesPeriod_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MngrAppSalesSelectedPeriodText.Text = "";
-            string selectedItem = MngrAppSalesPeriod.SelectedItem?.ToString();
-
-            if (selectedItem != null)
+            if (MngrAppSalesPeriod != null && MngrAppSalesPeriod.SelectedItem != null)
             {
+                MngrAppSalesSelectedPeriodText.Text = "";
+                string selectedItem = MngrAppSalesPeriod.SelectedItem.ToString();
+
                 if (selectedItem == "Day" || selectedItem == "Week" || selectedItem == "Month")
                 {
                     MngrAppSalesPeriodCalendar.Visible = true;
@@ -10396,7 +10505,6 @@ namespace Enchante
                     MngrAppSalesSelectedPeriodLbl.Visible = true;
                     MngrAppSalesSelectedPeriodText.Visible = true;
                 }
-
                 else if (selectedItem == "Specific Date Range")
                 {
                     MngrAppSalesPeriodCalendar.Visible = false;
@@ -10460,11 +10568,11 @@ namespace Enchante
             }
 
             string query = @"
-                    SELECT ServiceCategory, SelectedService, ServicePrice 
-                    FROM servicehistory 
-                    WHERE TransactionNumber = @TransactionNumber 
-                    AND ServiceStatus = 'Completed' 
-                    AND TransactionType = 'Walk-in Appointment Transaction' " + categoryFilter;
+            SELECT ServiceCategory, SelectedService, ServicePrice 
+            FROM servicehistory 
+            WHERE TransactionNumber = @TransactionNumber 
+            AND ServiceStatus = 'Completed' 
+            AND TransactionType = @SelectedTransactionType " + categoryFilter;
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -10473,6 +10581,7 @@ namespace Enchante
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                    command.Parameters.AddWithValue("@SelectedTransactionType", MngrAppSalesAppointmentSelect.SelectedItem?.ToString());
 
                     if (MngrAppSalesSelectCatBox.SelectedItem?.ToString() != "All Categories")
                     {
@@ -12601,8 +12710,10 @@ namespace Enchante
             MngrAppSalesPeriodCalendar.Visible = false;
             MngrAppSalesPeriod.SelectedItem = null;
             MngrAppSalesSelectCatBox.SelectedItem = null;
+            MngrAppSalesAppointmentSelect.SelectedItem = null;
             MngrAppSalesSelectedPeriodText.Text = "";
             MngrAppSalesTransIDShow.Text = "";
+            MngrAppSalesTotalRevBox.Text = "";
             MngrAppSalesTransRepDGV.DataSource = null;
             MngrAppSalesTransServiceHisDGV.DataSource = null;
             MngrAppSalesGraph.Series.Clear();
@@ -12991,6 +13102,178 @@ namespace Enchante
                 {
                     connection.Close();
                 }
+            }
+        }
+
+        private void RecWalkinSearchProductTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string searchKeyword = RecWalkinSearchProductTextBox.Text.Trim().ToLower();
+
+            if (string.IsNullOrEmpty(searchKeyword))
+            {
+                RecWalkinProductFlowLayoutPanel.Controls.Clear();
+                RecShopProdProductFlowLayoutPanel.Controls.Clear();
+                InitializeProducts();
+                return;
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string query = "SELECT ItemID, ItemName, ItemStock, ItemPrice, ItemStatus, ProductPicture FROM inventory WHERE ProductType = 'Retail Product' AND ItemName LIKE @searchKeyword";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@searchKeyword", "%" + searchKeyword + "%");
+                MySqlDataReader reader = command.ExecuteReader();
+                Size userControlSize = new Size(295, 275);
+
+                RecWalkinProductFlowLayoutPanel.Controls.Clear();
+
+                while (reader.Read())
+                {
+                    string itemID = reader["ItemID"].ToString();
+                    string itemName = reader["ItemName"].ToString();
+                    string itemStock = reader["ItemStock"].ToString();
+                    string itemPrice = reader["ItemPrice"].ToString();
+                    string itemStatus = reader["ItemStatus"].ToString();
+                    byte[] productPicture = (byte[])reader["ProductPicture"];
+
+                    ProductUserControl recwalkinproductusercontrol = new ProductUserControl();
+
+                    // Set the properties of recwalkinproductusercontrol
+                    recwalkinproductusercontrol.ProductItemIDTextBox.Text = itemID;
+                    recwalkinproductusercontrol.ProductNameTextBox.Text = itemName;
+                    recwalkinproductusercontrol.ProductStockTextBox.Text = itemStock;
+                    recwalkinproductusercontrol.ProductPriceTextBox.Text = itemPrice;
+                    recwalkinproductusercontrol.ProductStatusTextBox.Text = itemStatus;
+
+                    if (itemStatus == "Low Stock")
+                    {
+                        recwalkinproductusercontrol.ProductOutOfStockPictureBox.Visible = true;
+                        recwalkinproductusercontrol.Enabled = false;
+                    }
+                    else
+                    {
+                        recwalkinproductusercontrol.ProductOutOfStockPictureBox.Visible = false;
+                        recwalkinproductusercontrol.Enabled = true;
+                    }
+
+                    if (productPicture != null && productPicture.Length > 0)
+                    {
+                        using (MemoryStream ms = new MemoryStream(productPicture))
+                        {
+                            System.Drawing.Image image = System.Drawing.Image.FromStream(ms);
+                            recwalkinproductusercontrol.ProductPicturePictureBox.Image = image;
+                        }
+                    }
+                    else
+                    {
+                        recwalkinproductusercontrol.ProductPicturePictureBox.Image = null;
+                    }
+
+                    foreach (System.Windows.Forms.Control control in recwalkinproductusercontrol.Controls)
+                    {
+                        control.Click += RecWalkinProductControlElement_Click;
+                    }
+
+                    recwalkinproductusercontrol.Click += RecWalkinProductUserControl_Click;
+
+                    RecWalkinProductFlowLayoutPanel.Controls.Add(recwalkinproductusercontrol);
+                }
+
+                reader.Close();
+            }
+        }
+
+        private void RecSearchProductTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string searchKeyword = RecSearchProductTextBox.Text.Trim().ToLower();
+
+            if (string.IsNullOrEmpty(searchKeyword))
+            {
+                RecWalkinProductFlowLayoutPanel.Controls.Clear();
+                RecShopProdProductFlowLayoutPanel.Controls.Clear();
+                InitializeProducts();
+                return;
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string query = "SELECT ItemID, ItemName, ItemStock, ItemPrice, ItemStatus, ProductPicture FROM inventory WHERE ProductType = 'Retail Product' AND ItemName LIKE @searchKeyword";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@searchKeyword", "%" + searchKeyword + "%");
+                MySqlDataReader reader = command.ExecuteReader();
+                Size userControlSize = new Size(295, 275);
+
+                RecWalkinProductFlowLayoutPanel.Controls.Clear();
+                RecShopProdProductFlowLayoutPanel.Controls.Clear();
+
+
+                while (reader.Read())
+                {
+                    string itemID = reader["ItemID"].ToString();
+                    string itemName = reader["ItemName"].ToString();
+                    string itemStock = reader["ItemStock"].ToString();
+                    string itemPrice = reader["ItemPrice"].ToString();
+                    string itemStatus = reader["ItemStatus"].ToString();
+                    byte[] productPicture = (byte[])reader["ProductPicture"];
+
+                    ProductUserControl recshopproductusercontrol = new ProductUserControl();
+
+
+
+                    // Set the properties of recshopproductusercontrol
+                    recshopproductusercontrol.Size = userControlSize;
+                    recshopproductusercontrol.ProductNameTextBox.Size = new Size(235, 33);
+                    recshopproductusercontrol.ProductPriceTextBox.Size = new Size(90, 27);
+                    recshopproductusercontrol.ProductPicturePictureBox.Size = new Size(162, 162);
+                    recshopproductusercontrol.ProductNameTextBox.Location = new Point(12, 190);
+                    recshopproductusercontrol.ProductPriceTextBox.Location = new Point(67, 230);
+                    recshopproductusercontrol.PhpSignLbl.Location = new Point(18, 230);
+                    recshopproductusercontrol.ProductPicturePictureBox.Location = new Point(72, 12);
+                    recshopproductusercontrol.ProductItemIDTextBox.Text = itemID;
+                    recshopproductusercontrol.ProductNameTextBox.Text = itemName;
+                    recshopproductusercontrol.ProductStockTextBox.Text = itemStock;
+                    recshopproductusercontrol.ProductPriceTextBox.Text = itemPrice;
+                    recshopproductusercontrol.ProductStatusTextBox.Text = itemStatus;
+
+                    if (itemStatus == "Low Stock")
+                    {
+                        recshopproductusercontrol.ProductOutOfStockPictureBox.Visible = true;
+                        recshopproductusercontrol.Enabled = false;
+                    }
+                    else
+                    {
+                        recshopproductusercontrol.ProductOutOfStockPictureBox.Visible = false;
+                        recshopproductusercontrol.Enabled = true;
+                    }
+
+                    if (productPicture != null && productPicture.Length > 0)
+                    {
+                        using (MemoryStream ms = new MemoryStream(productPicture))
+                        {
+                            System.Drawing.Image image1 = System.Drawing.Image.FromStream(ms);
+                            recshopproductusercontrol.ProductPicturePictureBox.Image = image1;
+                        }
+                    }
+                    else
+                    {
+                        recshopproductusercontrol.ProductPicturePictureBox.Image = null;
+                    }
+
+                    foreach (System.Windows.Forms.Control control1 in recshopproductusercontrol.Controls)
+                    {
+                        control1.Click += RecShopProductControlElement_Click;
+                    }
+
+                    recshopproductusercontrol.Click += RecShopProdProductUserControl_Click;
+
+                    RecShopProdProductFlowLayoutPanel.Controls.Add(recshopproductusercontrol);
+                }
+
+                reader.Close();
             }
         }
     }
