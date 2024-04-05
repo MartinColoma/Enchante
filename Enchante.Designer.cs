@@ -32,9 +32,15 @@ namespace Enchante
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -100,12 +106,6 @@ namespace Enchante
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Enchante));
             this.EnchanteParentContainer = new System.Windows.Forms.Panel();
             this.EnchanteMngrPage = new System.Windows.Forms.Panel();
@@ -143,6 +143,14 @@ namespace Enchante
             this.MngrSVHistoryServiceStatusBox = new System.Windows.Forms.ComboBox();
             this.MngrSVHistoryServiceStatusLbl = new System.Windows.Forms.Label();
             this.MngrApptServicePanel = new System.Windows.Forms.Panel();
+            this.MngrAppSalesDataGraphLbl = new System.Windows.Forms.Label();
+            this.MngrAppSalesPeriod = new System.Windows.Forms.ComboBox();
+            this.MngrAppSalesAppointmentSelect = new System.Windows.Forms.ComboBox();
+            this.MngrAppSalesSelectedPeriodText = new System.Windows.Forms.TextBox();
+            this.MngrAppSalesSelectCatBox = new System.Windows.Forms.ComboBox();
+            this.MngrAppSalesTransServiceHisDGV = new System.Windows.Forms.DataGridView();
+            this.MngrAppSalesTransIDShow = new System.Windows.Forms.TextBox();
+            this.MngrAppSalesTransRepDGV = new System.Windows.Forms.DataGridView();
             this.MngrAppSalesTotalRevLbl = new System.Windows.Forms.Label();
             this.MngrAppSalesSelectAppLbl = new System.Windows.Forms.Label();
             this.MngrAppSalesTotalRevBox = new System.Windows.Forms.TextBox();
@@ -161,6 +169,10 @@ namespace Enchante
             this.MngrAppSalesCatLbl = new System.Windows.Forms.Label();
             this.MngrApptServiceExitBtn = new FontAwesome.Sharp.IconButton();
             this.MngrWalkinProdSalesPanel = new System.Windows.Forms.Panel();
+            this.MngrProductSalesPeriod = new System.Windows.Forms.ComboBox();
+            this.MngrProductSalesTransRepDGV = new System.Windows.Forms.DataGridView();
+            this.MngrProductSalesSelectedPeriodText = new System.Windows.Forms.TextBox();
+            this.MngrProductSalesSelectCatBox = new System.Windows.Forms.ComboBox();
             this.MngrProductSalesTotalRevLbl = new System.Windows.Forms.Label();
             this.MngrProductSalesTotalRevBox = new System.Windows.Forms.TextBox();
             this.trydata = new System.Windows.Forms.DataGridView();
@@ -175,8 +187,6 @@ namespace Enchante
             this.MngrProductSalesPeriodLbl = new System.Windows.Forms.Label();
             this.MngrProductSalesPeriodCalendar = new System.Windows.Forms.MonthCalendar();
             this.MngrProductSalesSelectedPeriodLbl = new System.Windows.Forms.Label();
-            this.MngrProductSalesPeriod = new System.Windows.Forms.ComboBox();
-            this.MngrProductSalesSelectCatBox = new System.Windows.Forms.ComboBox();
             this.MngrProductSalesIncomeBtn = new System.Windows.Forms.Button();
             this.MngrProductSalesCatLbl = new System.Windows.Forms.Label();
             this.MngrWalkinProdSalesExitBtn = new FontAwesome.Sharp.IconButton();
@@ -782,16 +792,6 @@ namespace Enchante
             this.DateTimePickerTimer = new System.Windows.Forms.Timer(this.components);
             this.MngrInventoryCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.PictureSlideTimer = new System.Windows.Forms.Timer(this.components);
-            this.MngrAppSalesTransRepDGV = new System.Windows.Forms.DataGridView();
-            this.MngrAppSalesTransServiceHisDGV = new System.Windows.Forms.DataGridView();
-            this.MngrAppSalesTransIDShow = new System.Windows.Forms.TextBox();
-            this.MngrAppSalesSelectedPeriodText = new System.Windows.Forms.TextBox();
-            this.MngrAppSalesAppointmentSelect = new System.Windows.Forms.ComboBox();
-            this.MngrAppSalesSelectCatBox = new System.Windows.Forms.ComboBox();
-            this.MngrAppSalesPeriod = new System.Windows.Forms.ComboBox();
-            this.MngrAppSalesDataGraphLbl = new System.Windows.Forms.Label();
-            this.MngrProductSalesSelectedPeriodText = new System.Windows.Forms.TextBox();
-            this.MngrProductSalesTransRepDGV = new System.Windows.Forms.DataGridView();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteMngrPage.SuspendLayout();
             this.MngrScrollPanel.SuspendLayout();
@@ -801,8 +801,11 @@ namespace Enchante
             this.MngrServiceHistoryPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrSVHistoryDGV)).BeginInit();
             this.MngrApptServicePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrAppSalesTransServiceHisDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrAppSalesTransRepDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrAppSalesGraph)).BeginInit();
             this.MngrWalkinProdSalesPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrProductSalesTransRepDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trydata)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrProductSalesLineGraph)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrProductSalesGraph)).BeginInit();
@@ -914,9 +917,6 @@ namespace Enchante
             ((System.ComponentModel.ISupportInitialize)(this.EnchanteParentCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecTransactionCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrInventoryCard)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MngrAppSalesTransRepDGV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MngrAppSalesTransServiceHisDGV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MngrProductSalesTransRepDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // EnchanteParentContainer
@@ -1524,6 +1524,158 @@ namespace Enchante
             this.MngrApptServicePanel.TabIndex = 100;
             this.MngrApptServicePanel.Visible = false;
             // 
+            // MngrAppSalesDataGraphLbl
+            // 
+            this.MngrAppSalesDataGraphLbl.AutoSize = true;
+            this.MngrAppSalesDataGraphLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesDataGraphLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrAppSalesDataGraphLbl.Location = new System.Drawing.Point(1160, 110);
+            this.MngrAppSalesDataGraphLbl.Name = "MngrAppSalesDataGraphLbl";
+            this.MngrAppSalesDataGraphLbl.Size = new System.Drawing.Size(122, 23);
+            this.MngrAppSalesDataGraphLbl.TabIndex = 90;
+            this.MngrAppSalesDataGraphLbl.Text = "DATA GRAPH";
+            this.MngrAppSalesDataGraphLbl.Visible = false;
+            // 
+            // MngrAppSalesPeriod
+            // 
+            this.MngrAppSalesPeriod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrAppSalesPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MngrAppSalesPeriod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesPeriod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrAppSalesPeriod.FormattingEnabled = true;
+            this.MngrAppSalesPeriod.Location = new System.Drawing.Point(283, 136);
+            this.MngrAppSalesPeriod.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrAppSalesPeriod.Name = "MngrAppSalesPeriod";
+            this.MngrAppSalesPeriod.Size = new System.Drawing.Size(311, 24);
+            this.MngrAppSalesPeriod.TabIndex = 103;
+            this.MngrAppSalesPeriod.SelectedIndexChanged += new System.EventHandler(this.MngrAppSalesPeriod_SelectedIndexChanged);
+            // 
+            // MngrAppSalesAppointmentSelect
+            // 
+            this.MngrAppSalesAppointmentSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrAppSalesAppointmentSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MngrAppSalesAppointmentSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesAppointmentSelect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrAppSalesAppointmentSelect.FormattingEnabled = true;
+            this.MngrAppSalesAppointmentSelect.Location = new System.Drawing.Point(283, 198);
+            this.MngrAppSalesAppointmentSelect.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrAppSalesAppointmentSelect.Name = "MngrAppSalesAppointmentSelect";
+            this.MngrAppSalesAppointmentSelect.Size = new System.Drawing.Size(311, 24);
+            this.MngrAppSalesAppointmentSelect.TabIndex = 93;
+            // 
+            // MngrAppSalesSelectedPeriodText
+            // 
+            this.MngrAppSalesSelectedPeriodText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrAppSalesSelectedPeriodText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesSelectedPeriodText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrAppSalesSelectedPeriodText.Location = new System.Drawing.Point(283, 320);
+            this.MngrAppSalesSelectedPeriodText.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrAppSalesSelectedPeriodText.Name = "MngrAppSalesSelectedPeriodText";
+            this.MngrAppSalesSelectedPeriodText.ReadOnly = true;
+            this.MngrAppSalesSelectedPeriodText.Size = new System.Drawing.Size(311, 22);
+            this.MngrAppSalesSelectedPeriodText.TabIndex = 92;
+            // 
+            // MngrAppSalesSelectCatBox
+            // 
+            this.MngrAppSalesSelectCatBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrAppSalesSelectCatBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MngrAppSalesSelectCatBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesSelectCatBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrAppSalesSelectCatBox.FormattingEnabled = true;
+            this.MngrAppSalesSelectCatBox.Location = new System.Drawing.Point(283, 260);
+            this.MngrAppSalesSelectCatBox.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrAppSalesSelectCatBox.Name = "MngrAppSalesSelectCatBox";
+            this.MngrAppSalesSelectCatBox.Size = new System.Drawing.Size(311, 24);
+            this.MngrAppSalesSelectCatBox.TabIndex = 92;
+            // 
+            // MngrAppSalesTransServiceHisDGV
+            // 
+            this.MngrAppSalesTransServiceHisDGV.AllowUserToAddRows = false;
+            this.MngrAppSalesTransServiceHisDGV.AllowUserToDeleteRows = false;
+            this.MngrAppSalesTransServiceHisDGV.AllowUserToResizeColumns = false;
+            this.MngrAppSalesTransServiceHisDGV.AllowUserToResizeRows = false;
+            this.MngrAppSalesTransServiceHisDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MngrAppSalesTransServiceHisDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.MngrAppSalesTransServiceHisDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrAppSalesTransServiceHisDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.MngrAppSalesTransServiceHisDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MngrAppSalesTransServiceHisDGV.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrAppSalesTransServiceHisDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            this.MngrAppSalesTransServiceHisDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrAppSalesTransServiceHisDGV.Location = new System.Drawing.Point(924, 444);
+            this.MngrAppSalesTransServiceHisDGV.Name = "MngrAppSalesTransServiceHisDGV";
+            this.MngrAppSalesTransServiceHisDGV.ReadOnly = true;
+            this.MngrAppSalesTransServiceHisDGV.RowHeadersVisible = false;
+            this.MngrAppSalesTransServiceHisDGV.RowHeadersWidth = 51;
+            this.MngrAppSalesTransServiceHisDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MngrAppSalesTransServiceHisDGV.Size = new System.Drawing.Size(594, 258);
+            this.MngrAppSalesTransServiceHisDGV.TabIndex = 102;
+            // 
+            // MngrAppSalesTransIDShow
+            // 
+            this.MngrAppSalesTransIDShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrAppSalesTransIDShow.Font = new System.Drawing.Font("Arial Black", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesTransIDShow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrAppSalesTransIDShow.Location = new System.Drawing.Point(1371, 410);
+            this.MngrAppSalesTransIDShow.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrAppSalesTransIDShow.Name = "MngrAppSalesTransIDShow";
+            this.MngrAppSalesTransIDShow.ReadOnly = true;
+            this.MngrAppSalesTransIDShow.Size = new System.Drawing.Size(146, 29);
+            this.MngrAppSalesTransIDShow.TabIndex = 92;
+            this.MngrAppSalesTransIDShow.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // MngrAppSalesTransRepDGV
+            // 
+            this.MngrAppSalesTransRepDGV.AllowUserToAddRows = false;
+            this.MngrAppSalesTransRepDGV.AllowUserToDeleteRows = false;
+            this.MngrAppSalesTransRepDGV.AllowUserToResizeColumns = false;
+            this.MngrAppSalesTransRepDGV.AllowUserToResizeRows = false;
+            this.MngrAppSalesTransRepDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MngrAppSalesTransRepDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.MngrAppSalesTransRepDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrAppSalesTransRepDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.MngrAppSalesTransRepDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MngrAppSalesTransRepDGV.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrAppSalesTransRepDGV.DefaultCellStyle = dataGridViewCellStyle4;
+            this.MngrAppSalesTransRepDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrAppSalesTransRepDGV.Location = new System.Drawing.Point(283, 444);
+            this.MngrAppSalesTransRepDGV.Name = "MngrAppSalesTransRepDGV";
+            this.MngrAppSalesTransRepDGV.ReadOnly = true;
+            this.MngrAppSalesTransRepDGV.RowHeadersVisible = false;
+            this.MngrAppSalesTransRepDGV.RowHeadersWidth = 51;
+            this.MngrAppSalesTransRepDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MngrAppSalesTransRepDGV.Size = new System.Drawing.Size(594, 258);
+            this.MngrAppSalesTransRepDGV.TabIndex = 92;
+            this.MngrAppSalesTransRepDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MngrAppSalesTransRepDGV_CellContentClick);
+            // 
             // MngrAppSalesTotalRevLbl
             // 
             this.MngrAppSalesTotalRevLbl.AutoSize = true;
@@ -1726,8 +1878,10 @@ namespace Enchante
             // 
             this.MngrWalkinProdSalesPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrInventoryCard.SetCardName(this.MngrWalkinProdSalesPanel, "ProductSales");
+            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesPeriod);
             this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesTransRepDGV);
             this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesSelectedPeriodText);
+            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesSelectCatBox);
             this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesTotalRevLbl);
             this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesTotalRevBox);
             this.MngrWalkinProdSalesPanel.Controls.Add(this.trydata);
@@ -1742,8 +1896,6 @@ namespace Enchante
             this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesPeriodLbl);
             this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesPeriodCalendar);
             this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesSelectedPeriodLbl);
-            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesPeriod);
-            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesSelectCatBox);
             this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesIncomeBtn);
             this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesCatLbl);
             this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrWalkinProdSalesExitBtn);
@@ -1753,6 +1905,82 @@ namespace Enchante
             this.MngrInventoryCard.SetPreferredSize(this.MngrWalkinProdSalesPanel, new System.Drawing.Size(200, 100));
             this.MngrWalkinProdSalesPanel.Size = new System.Drawing.Size(1797, 749);
             this.MngrWalkinProdSalesPanel.TabIndex = 99;
+            // 
+            // MngrProductSalesPeriod
+            // 
+            this.MngrProductSalesPeriod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrProductSalesPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MngrProductSalesPeriod.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrProductSalesPeriod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrProductSalesPeriod.FormattingEnabled = true;
+            this.MngrProductSalesPeriod.Location = new System.Drawing.Point(302, 141);
+            this.MngrProductSalesPeriod.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrProductSalesPeriod.Name = "MngrProductSalesPeriod";
+            this.MngrProductSalesPeriod.Size = new System.Drawing.Size(299, 31);
+            this.MngrProductSalesPeriod.TabIndex = 93;
+            this.MngrProductSalesPeriod.SelectedIndexChanged += new System.EventHandler(this.MngrProductSalesPeriod_SelectedIndexChanged_1);
+            // 
+            // MngrProductSalesTransRepDGV
+            // 
+            this.MngrProductSalesTransRepDGV.AllowUserToAddRows = false;
+            this.MngrProductSalesTransRepDGV.AllowUserToDeleteRows = false;
+            this.MngrProductSalesTransRepDGV.AllowUserToResizeColumns = false;
+            this.MngrProductSalesTransRepDGV.AllowUserToResizeRows = false;
+            this.MngrProductSalesTransRepDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MngrProductSalesTransRepDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.MngrProductSalesTransRepDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrProductSalesTransRepDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.MngrProductSalesTransRepDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MngrProductSalesTransRepDGV.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrProductSalesTransRepDGV.DefaultCellStyle = dataGridViewCellStyle6;
+            this.MngrProductSalesTransRepDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrProductSalesTransRepDGV.Location = new System.Drawing.Point(936, 117);
+            this.MngrProductSalesTransRepDGV.Name = "MngrProductSalesTransRepDGV";
+            this.MngrProductSalesTransRepDGV.ReadOnly = true;
+            this.MngrProductSalesTransRepDGV.RowHeadersVisible = false;
+            this.MngrProductSalesTransRepDGV.RowHeadersWidth = 51;
+            this.MngrProductSalesTransRepDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MngrProductSalesTransRepDGV.Size = new System.Drawing.Size(594, 258);
+            this.MngrProductSalesTransRepDGV.TabIndex = 92;
+            // 
+            // MngrProductSalesSelectedPeriodText
+            // 
+            this.MngrProductSalesSelectedPeriodText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrProductSalesSelectedPeriodText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrProductSalesSelectedPeriodText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrProductSalesSelectedPeriodText.Location = new System.Drawing.Point(302, 285);
+            this.MngrProductSalesSelectedPeriodText.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrProductSalesSelectedPeriodText.Name = "MngrProductSalesSelectedPeriodText";
+            this.MngrProductSalesSelectedPeriodText.ReadOnly = true;
+            this.MngrProductSalesSelectedPeriodText.Size = new System.Drawing.Size(300, 30);
+            this.MngrProductSalesSelectedPeriodText.TabIndex = 92;
+            // 
+            // MngrProductSalesSelectCatBox
+            // 
+            this.MngrProductSalesSelectCatBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrProductSalesSelectCatBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MngrProductSalesSelectCatBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrProductSalesSelectCatBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrProductSalesSelectCatBox.FormattingEnabled = true;
+            this.MngrProductSalesSelectCatBox.Location = new System.Drawing.Point(302, 213);
+            this.MngrProductSalesSelectCatBox.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrProductSalesSelectCatBox.Name = "MngrProductSalesSelectCatBox";
+            this.MngrProductSalesSelectCatBox.Size = new System.Drawing.Size(299, 31);
+            this.MngrProductSalesSelectCatBox.TabIndex = 92;
             // 
             // MngrProductSalesTotalRevLbl
             // 
@@ -1892,7 +2120,7 @@ namespace Enchante
             this.MngrProductSalesPeriodLbl.AutoSize = true;
             this.MngrProductSalesPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesPeriodLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrProductSalesPeriodLbl.Location = new System.Drawing.Point(303, 110);
+            this.MngrProductSalesPeriodLbl.Location = new System.Drawing.Point(302, 110);
             this.MngrProductSalesPeriodLbl.Name = "MngrProductSalesPeriodLbl";
             this.MngrProductSalesPeriodLbl.Size = new System.Drawing.Size(197, 23);
             this.MngrProductSalesPeriodLbl.TabIndex = 15;
@@ -1912,34 +2140,11 @@ namespace Enchante
             this.MngrProductSalesSelectedPeriodLbl.AutoSize = true;
             this.MngrProductSalesSelectedPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesSelectedPeriodLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrProductSalesSelectedPeriodLbl.Location = new System.Drawing.Point(303, 253);
+            this.MngrProductSalesSelectedPeriodLbl.Location = new System.Drawing.Point(302, 253);
             this.MngrProductSalesSelectedPeriodLbl.Name = "MngrProductSalesSelectedPeriodLbl";
             this.MngrProductSalesSelectedPeriodLbl.Size = new System.Drawing.Size(156, 23);
             this.MngrProductSalesSelectedPeriodLbl.TabIndex = 17;
             this.MngrProductSalesSelectedPeriodLbl.Text = "Selected Period:";
-            // 
-            // MngrProductSalesPeriod
-            // 
-            this.MngrProductSalesPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MngrProductSalesPeriod.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrProductSalesPeriod.FormattingEnabled = true;
-            this.MngrProductSalesPeriod.Location = new System.Drawing.Point(303, 140);
-            this.MngrProductSalesPeriod.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrProductSalesPeriod.Name = "MngrProductSalesPeriod";
-            this.MngrProductSalesPeriod.Size = new System.Drawing.Size(299, 31);
-            this.MngrProductSalesPeriod.TabIndex = 14;
-            this.MngrProductSalesPeriod.SelectedIndexChanged += new System.EventHandler(this.MngrProductSalesPeriod_SelectedIndexChanged_1);
-            // 
-            // MngrProductSalesSelectCatBox
-            // 
-            this.MngrProductSalesSelectCatBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MngrProductSalesSelectCatBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrProductSalesSelectCatBox.FormattingEnabled = true;
-            this.MngrProductSalesSelectCatBox.Location = new System.Drawing.Point(303, 213);
-            this.MngrProductSalesSelectCatBox.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrProductSalesSelectCatBox.Name = "MngrProductSalesSelectCatBox";
-            this.MngrProductSalesSelectCatBox.Size = new System.Drawing.Size(299, 31);
-            this.MngrProductSalesSelectCatBox.TabIndex = 2;
             // 
             // MngrProductSalesIncomeBtn
             // 
@@ -1959,7 +2164,7 @@ namespace Enchante
             this.MngrProductSalesCatLbl.AutoSize = true;
             this.MngrProductSalesCatLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesCatLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrProductSalesCatLbl.Location = new System.Drawing.Point(303, 180);
+            this.MngrProductSalesCatLbl.Location = new System.Drawing.Point(302, 180);
             this.MngrProductSalesCatLbl.Name = "MngrProductSalesCatLbl";
             this.MngrProductSalesCatLbl.Size = new System.Drawing.Size(158, 23);
             this.MngrProductSalesCatLbl.TabIndex = 6;
@@ -10897,205 +11102,6 @@ namespace Enchante
             this.PictureSlideTimer.Interval = 3000;
             this.PictureSlideTimer.Tick += new System.EventHandler(this.PictureSlideTimer_Tick);
             // 
-            // MngrAppSalesTransRepDGV
-            // 
-            this.MngrAppSalesTransRepDGV.AllowUserToAddRows = false;
-            this.MngrAppSalesTransRepDGV.AllowUserToDeleteRows = false;
-            this.MngrAppSalesTransRepDGV.AllowUserToResizeColumns = false;
-            this.MngrAppSalesTransRepDGV.AllowUserToResizeRows = false;
-            this.MngrAppSalesTransRepDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.MngrAppSalesTransRepDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.MngrAppSalesTransRepDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrAppSalesTransRepDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.MngrAppSalesTransRepDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MngrAppSalesTransRepDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrAppSalesTransRepDGV.DefaultCellStyle = dataGridViewCellStyle4;
-            this.MngrAppSalesTransRepDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrAppSalesTransRepDGV.Location = new System.Drawing.Point(283, 444);
-            this.MngrAppSalesTransRepDGV.Name = "MngrAppSalesTransRepDGV";
-            this.MngrAppSalesTransRepDGV.ReadOnly = true;
-            this.MngrAppSalesTransRepDGV.RowHeadersVisible = false;
-            this.MngrAppSalesTransRepDGV.RowHeadersWidth = 51;
-            this.MngrAppSalesTransRepDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MngrAppSalesTransRepDGV.Size = new System.Drawing.Size(594, 258);
-            this.MngrAppSalesTransRepDGV.TabIndex = 92;
-            // 
-            // MngrAppSalesTransServiceHisDGV
-            // 
-            this.MngrAppSalesTransServiceHisDGV.AllowUserToAddRows = false;
-            this.MngrAppSalesTransServiceHisDGV.AllowUserToDeleteRows = false;
-            this.MngrAppSalesTransServiceHisDGV.AllowUserToResizeColumns = false;
-            this.MngrAppSalesTransServiceHisDGV.AllowUserToResizeRows = false;
-            this.MngrAppSalesTransServiceHisDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.MngrAppSalesTransServiceHisDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.MngrAppSalesTransServiceHisDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrAppSalesTransServiceHisDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.MngrAppSalesTransServiceHisDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MngrAppSalesTransServiceHisDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrAppSalesTransServiceHisDGV.DefaultCellStyle = dataGridViewCellStyle2;
-            this.MngrAppSalesTransServiceHisDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrAppSalesTransServiceHisDGV.Location = new System.Drawing.Point(924, 444);
-            this.MngrAppSalesTransServiceHisDGV.Name = "MngrAppSalesTransServiceHisDGV";
-            this.MngrAppSalesTransServiceHisDGV.ReadOnly = true;
-            this.MngrAppSalesTransServiceHisDGV.RowHeadersVisible = false;
-            this.MngrAppSalesTransServiceHisDGV.RowHeadersWidth = 51;
-            this.MngrAppSalesTransServiceHisDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MngrAppSalesTransServiceHisDGV.Size = new System.Drawing.Size(594, 258);
-            this.MngrAppSalesTransServiceHisDGV.TabIndex = 102;
-            // 
-            // MngrAppSalesTransIDShow
-            // 
-            this.MngrAppSalesTransIDShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrAppSalesTransIDShow.Font = new System.Drawing.Font("Arial Black", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesTransIDShow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrAppSalesTransIDShow.Location = new System.Drawing.Point(1371, 410);
-            this.MngrAppSalesTransIDShow.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrAppSalesTransIDShow.Name = "MngrAppSalesTransIDShow";
-            this.MngrAppSalesTransIDShow.ReadOnly = true;
-            this.MngrAppSalesTransIDShow.Size = new System.Drawing.Size(146, 29);
-            this.MngrAppSalesTransIDShow.TabIndex = 92;
-            this.MngrAppSalesTransIDShow.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // MngrAppSalesSelectedPeriodText
-            // 
-            this.MngrAppSalesSelectedPeriodText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrAppSalesSelectedPeriodText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesSelectedPeriodText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrAppSalesSelectedPeriodText.Location = new System.Drawing.Point(283, 320);
-            this.MngrAppSalesSelectedPeriodText.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrAppSalesSelectedPeriodText.Name = "MngrAppSalesSelectedPeriodText";
-            this.MngrAppSalesSelectedPeriodText.ReadOnly = true;
-            this.MngrAppSalesSelectedPeriodText.Size = new System.Drawing.Size(311, 22);
-            this.MngrAppSalesSelectedPeriodText.TabIndex = 92;
-            // 
-            // MngrAppSalesAppointmentSelect
-            // 
-            this.MngrAppSalesAppointmentSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrAppSalesAppointmentSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MngrAppSalesAppointmentSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesAppointmentSelect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrAppSalesAppointmentSelect.FormattingEnabled = true;
-            this.MngrAppSalesAppointmentSelect.Location = new System.Drawing.Point(283, 198);
-            this.MngrAppSalesAppointmentSelect.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrAppSalesAppointmentSelect.Name = "MngrAppSalesAppointmentSelect";
-            this.MngrAppSalesAppointmentSelect.Size = new System.Drawing.Size(311, 24);
-            this.MngrAppSalesAppointmentSelect.TabIndex = 93;
-            // 
-            // MngrAppSalesSelectCatBox
-            // 
-            this.MngrAppSalesSelectCatBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrAppSalesSelectCatBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MngrAppSalesSelectCatBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesSelectCatBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrAppSalesSelectCatBox.FormattingEnabled = true;
-            this.MngrAppSalesSelectCatBox.Location = new System.Drawing.Point(283, 260);
-            this.MngrAppSalesSelectCatBox.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrAppSalesSelectCatBox.Name = "MngrAppSalesSelectCatBox";
-            this.MngrAppSalesSelectCatBox.Size = new System.Drawing.Size(311, 24);
-            this.MngrAppSalesSelectCatBox.TabIndex = 92;
-            // 
-            // MngrAppSalesPeriod
-            // 
-            this.MngrAppSalesPeriod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrAppSalesPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MngrAppSalesPeriod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesPeriod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrAppSalesPeriod.FormattingEnabled = true;
-            this.MngrAppSalesPeriod.Location = new System.Drawing.Point(283, 136);
-            this.MngrAppSalesPeriod.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrAppSalesPeriod.Name = "MngrAppSalesPeriod";
-            this.MngrAppSalesPeriod.Size = new System.Drawing.Size(311, 24);
-            this.MngrAppSalesPeriod.TabIndex = 103;
-            // 
-            // MngrAppSalesDataGraphLbl
-            // 
-            this.MngrAppSalesDataGraphLbl.AutoSize = true;
-            this.MngrAppSalesDataGraphLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesDataGraphLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrAppSalesDataGraphLbl.Location = new System.Drawing.Point(1160, 110);
-            this.MngrAppSalesDataGraphLbl.Name = "MngrAppSalesDataGraphLbl";
-            this.MngrAppSalesDataGraphLbl.Size = new System.Drawing.Size(122, 23);
-            this.MngrAppSalesDataGraphLbl.TabIndex = 90;
-            this.MngrAppSalesDataGraphLbl.Text = "DATA GRAPH";
-            this.MngrAppSalesDataGraphLbl.Visible = false;
-            // 
-            // MngrProductSalesSelectedPeriodText
-            // 
-            this.MngrProductSalesSelectedPeriodText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrProductSalesSelectedPeriodText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrProductSalesSelectedPeriodText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrProductSalesSelectedPeriodText.Location = new System.Drawing.Point(302, 285);
-            this.MngrProductSalesSelectedPeriodText.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrProductSalesSelectedPeriodText.Name = "MngrProductSalesSelectedPeriodText";
-            this.MngrProductSalesSelectedPeriodText.ReadOnly = true;
-            this.MngrProductSalesSelectedPeriodText.Size = new System.Drawing.Size(300, 30);
-            this.MngrProductSalesSelectedPeriodText.TabIndex = 92;
-            // 
-            // MngrProductSalesTransRepDGV
-            // 
-            this.MngrProductSalesTransRepDGV.AllowUserToAddRows = false;
-            this.MngrProductSalesTransRepDGV.AllowUserToDeleteRows = false;
-            this.MngrProductSalesTransRepDGV.AllowUserToResizeColumns = false;
-            this.MngrProductSalesTransRepDGV.AllowUserToResizeRows = false;
-            this.MngrProductSalesTransRepDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.MngrProductSalesTransRepDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.MngrProductSalesTransRepDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrProductSalesTransRepDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.MngrProductSalesTransRepDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MngrProductSalesTransRepDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrProductSalesTransRepDGV.DefaultCellStyle = dataGridViewCellStyle6;
-            this.MngrProductSalesTransRepDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrProductSalesTransRepDGV.Location = new System.Drawing.Point(936, 117);
-            this.MngrProductSalesTransRepDGV.Name = "MngrProductSalesTransRepDGV";
-            this.MngrProductSalesTransRepDGV.ReadOnly = true;
-            this.MngrProductSalesTransRepDGV.RowHeadersVisible = false;
-            this.MngrProductSalesTransRepDGV.RowHeadersWidth = 51;
-            this.MngrProductSalesTransRepDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MngrProductSalesTransRepDGV.Size = new System.Drawing.Size(594, 258);
-            this.MngrProductSalesTransRepDGV.TabIndex = 92;
-            // 
             // Enchante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -11123,9 +11129,12 @@ namespace Enchante
             ((System.ComponentModel.ISupportInitialize)(this.MngrSVHistoryDGV)).EndInit();
             this.MngrApptServicePanel.ResumeLayout(false);
             this.MngrApptServicePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrAppSalesTransServiceHisDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrAppSalesTransRepDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrAppSalesGraph)).EndInit();
             this.MngrWalkinProdSalesPanel.ResumeLayout(false);
             this.MngrWalkinProdSalesPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrProductSalesTransRepDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trydata)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrProductSalesLineGraph)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrProductSalesGraph)).EndInit();
@@ -11295,9 +11304,6 @@ namespace Enchante
             ((System.ComponentModel.ISupportInitialize)(this.EnchanteParentCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecTransactionCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrInventoryCard)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MngrAppSalesTransRepDGV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MngrAppSalesTransServiceHisDGV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MngrProductSalesTransRepDGV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -11800,8 +11806,6 @@ namespace Enchante
         private System.Windows.Forms.Label MngrProductSalesSelectedPeriodLbl;
         private System.Windows.Forms.DateTimePicker MngrProductSalesFromDatePicker;
         private System.Windows.Forms.DateTimePicker MngrProductSalesToDatePicker;
-        private System.Windows.Forms.ComboBox MngrProductSalesPeriod;
-        private System.Windows.Forms.ComboBox MngrProductSalesSelectCatBox;
         private System.Windows.Forms.Label MngrProductSalesFromLbl;
         private System.Windows.Forms.Label MngrProductSalesToLbl;
         private System.Windows.Forms.Button MngrProductSalesIncomeBtn;
@@ -11990,6 +11994,8 @@ namespace Enchante
         private System.Windows.Forms.Label MngrAppSalesDataGraphLbl;
         private System.Windows.Forms.DataGridView MngrProductSalesTransRepDGV;
         private System.Windows.Forms.TextBox MngrProductSalesSelectedPeriodText;
+        private System.Windows.Forms.ComboBox MngrProductSalesPeriod;
+        private System.Windows.Forms.ComboBox MngrProductSalesSelectCatBox;
     }
 }
 
