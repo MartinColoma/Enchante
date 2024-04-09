@@ -774,9 +774,9 @@ namespace Enchante
                                     if (passwordMatches)
                                     {
                                         MessageBox.Show($"Welcome back, Manager {name}.", "System User Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        RecNameLbl.Text = name + " " + lastname;
-                                        RecIDNumLbl.Text = ID;
-                                        ReceptionHomePanelReset();
+                                        MngrNameLbl.Text = name + " " + lastname;
+                                        MngrIDNumLbl.Text = ID;
+                                        MngrHomePanelReset();
                                         logincredclear();
 
                                     }
@@ -7674,6 +7674,11 @@ namespace Enchante
                 MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            else if (!IsNumericTwo(MngrServicesPriceText.Text))
+            {
+                MessageBox.Show("Invalid Price Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             else if (!IsValidFormat(numofitem))
             {
                 MessageBox.Show("Value in 'Number of Items' must be a single number or in the format 'num,num,num,...' based on how many selected items on Selected Required Item Field.", 
@@ -7894,6 +7899,11 @@ namespace Enchante
                 || string.IsNullOrEmpty(numofitem))
             {
                 MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (!IsNumericTwo(MngrServicesPriceText.Text))
+            {
+                MessageBox.Show("Invalid Price Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else if (!IsValidFormat(numofitem))
@@ -11310,6 +11320,29 @@ namespace Enchante
             return true;
         }
 
+        private bool IsNumericTwo(string input)
+        {
+            bool hasDecimalPoint = false;
+
+            foreach (char c in input)
+            {
+                if (!char.IsDigit(c))
+                {
+                    if (c == '.' && !hasDecimalPoint)
+                    {
+                        hasDecimalPoint = true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+
         private void AdminCreateAccBtn_Click(object sender, EventArgs e)
         {
             DateTime selectedDate = AdminBdayPicker.Value;
@@ -11592,6 +11625,7 @@ namespace Enchante
                 AdminGenderComboText.Text = AdminGenderComboText.SelectedItem.ToString();
             }
         }
+
         private void PopulateUserInfoDataGrid()
         {
             string connectionString = "Server=localhost;Database=enchante;User=root;Password=;";
@@ -11602,7 +11636,7 @@ namespace Enchante
                 {
                     connection.Open();
 
-                    string query = "SELECT FirstName, LastName, Email, Birthday, Age, Gender, PhoneNumber, EmployeeType, EmployeeCategory, EmployeeCategoryLevel, EmployeeID, HashedPass, HashedFixedSalt, HashedPerUser FROM systemusers";
+                    string query = "SELECT FirstName, LastName, Email, DATE(Birthday) AS Birthday, Age, Gender, PhoneNumber, EmployeeType, EmployeeCategory, EmployeeCategoryLevel, EmployeeID, HashedPass, HashedFixedSalt, HashedPerUser FROM systemusers";
 
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {

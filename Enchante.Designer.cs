@@ -11096,7 +11096,7 @@ namespace Enchante
             // 
             this.MngrInventoryCard.ContainerControl = this.MngrInventoryPanel;
             this.MngrInventoryCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.MngrInventoryCard.SelectedCard = "TYPES";
+            this.MngrInventoryCard.SelectedCard = "SERVICES";
             // 
             // PictureSlideTimer
             // 
