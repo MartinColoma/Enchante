@@ -466,6 +466,7 @@ namespace Enchante
 
         }
 
+        int matchedRowCount = 0;
         public bool CheckIfInventoryIsEnoughForService(string serviceID, DataGridView staffPersonalInventoryDataGrid)
         {
 
@@ -474,6 +475,7 @@ namespace Enchante
                 return false;
             }
             string query = "SELECT RequiredItem, NumOfItems FROM services WHERE ServiceID = @serviceID";
+
 
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
             {
@@ -506,7 +508,7 @@ namespace Enchante
                                 int numOfItem = int.Parse(numOfItemsArray[i].Trim());
                                 requiredItemsDict.Add(requiredItem, numOfItem);
                             }
-                            bool isEnoughInventory = true; // Flag to track inventory sufficiency
+                            bool isEnoughInventory = false; // Flag to track inventory sufficiency
 
                             foreach (DataGridViewRow row in staffPersonalInventoryDataGrid.Rows)
                             {
@@ -518,18 +520,17 @@ namespace Enchante
                                 {
                                     int requiredItemQuantity = requiredItemsDict[staffItemID];
 
-                                    if (requiredItemQuantity > staffItemStock || staffItemStock == 0)
+                                    if (requiredItemQuantity <= staffItemStock && staffItemStock != 0)
                                     {
-                                        isEnoughInventory = false;
+                                        isEnoughInventory = true;
+                                        matchedRowCount++;
                                     }
                                 }
-                                else
-                                {
-                                    isEnoughInventory = false;
-                                }
+
+
                             }
 
-                            if (isEnoughInventory && staffPersonalInventoryDataGrid.Rows.Count == requiredItemsDict.Count)
+                            if (isEnoughInventory && matchedRowCount == requiredItemsDict.Count)
                             {
                                 //MessageBox.Show("Inventory is enough for service");
                                 DeductFromStaffInventory(requiredItemsDict);
@@ -549,6 +550,7 @@ namespace Enchante
         public void DeductFromStaffInventory(Dictionary<string, int> requiredItemsDict)
         {
             string staffID = CurrentStaffID;
+            matchedRowCount = 0;
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
             {
                 connection.Open();
