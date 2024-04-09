@@ -12470,6 +12470,7 @@ namespace Enchante
             InitializeStaffPersonalInventoryDataGrid();
             InitializeStaffInventoryDataGrid();
             StaffItemSelectedCountTextBox.Clear();
+            RefreshFlowLayoutPanel();
         }
 
         public void CheckItemStockPersonalStatus(string ItemID, string staffID)
