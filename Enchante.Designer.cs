@@ -951,6 +951,7 @@ namespace Enchante
             this.MngrScrollPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.MngrScrollPanel.Controls.Add(this.MngrUserAccPanel);
             this.MngrScrollPanel.Controls.Add(this.MngrInventoryPanel);
+            this.MngrScrollPanel.Controls.Add(this.MngrStaffSchedBtn);
             this.MngrScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MngrScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.MngrScrollPanel.Name = "MngrScrollPanel";
@@ -1054,7 +1055,6 @@ namespace Enchante
             this.MngrInventoryTypePanel.Controls.Add(this.MngrInventoryMembershipBtn);
             this.MngrInventoryTypePanel.Controls.Add(this.MngrServicesHistoryBtn);
             this.MngrInventoryTypePanel.Controls.Add(this.MngrInDemandBtn);
-            this.MngrInventoryTypePanel.Controls.Add(this.MngrStaffSchedBtn);
             this.MngrInventoryTypePanel.Controls.Add(this.MngrProductsHistoryBtn);
             this.MngrInventoryTypePanel.Controls.Add(this.MngrWalkinServiceSalesBtn);
             this.MngrInventoryTypePanel.Controls.Add(this.MngrServicesDataBtn);
@@ -1080,7 +1080,7 @@ namespace Enchante
             this.MngrApptServiceBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.MngrApptServiceBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MngrApptServiceBtn.IconSize = 75;
-            this.MngrApptServiceBtn.Location = new System.Drawing.Point(767, 370);
+            this.MngrApptServiceBtn.Location = new System.Drawing.Point(941, 391);
             this.MngrApptServiceBtn.Name = "MngrApptServiceBtn";
             this.MngrApptServiceBtn.Size = new System.Drawing.Size(290, 280);
             this.MngrApptServiceBtn.TabIndex = 97;
@@ -1104,7 +1104,7 @@ namespace Enchante
             this.MngrWalkinProdSalesBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.MngrWalkinProdSalesBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MngrWalkinProdSalesBtn.IconSize = 75;
-            this.MngrWalkinProdSalesBtn.Location = new System.Drawing.Point(428, 370);
+            this.MngrWalkinProdSalesBtn.Location = new System.Drawing.Point(602, 391);
             this.MngrWalkinProdSalesBtn.Name = "MngrWalkinProdSalesBtn";
             this.MngrWalkinProdSalesBtn.Size = new System.Drawing.Size(290, 280);
             this.MngrWalkinProdSalesBtn.TabIndex = 96;
@@ -1174,7 +1174,7 @@ namespace Enchante
             this.MngrInDemandBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.MngrInDemandBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MngrInDemandBtn.IconSize = 75;
-            this.MngrInDemandBtn.Location = new System.Drawing.Point(1110, 370);
+            this.MngrInDemandBtn.Location = new System.Drawing.Point(1284, 391);
             this.MngrInDemandBtn.Name = "MngrInDemandBtn";
             this.MngrInDemandBtn.Size = new System.Drawing.Size(290, 280);
             this.MngrInDemandBtn.TabIndex = 94;
@@ -1198,7 +1198,7 @@ namespace Enchante
             this.MngrStaffSchedBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.MngrStaffSchedBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MngrStaffSchedBtn.IconSize = 75;
-            this.MngrStaffSchedBtn.Location = new System.Drawing.Point(1445, 370);
+            this.MngrStaffSchedBtn.Location = new System.Drawing.Point(1703, 706);
             this.MngrStaffSchedBtn.Name = "MngrStaffSchedBtn";
             this.MngrStaffSchedBtn.Size = new System.Drawing.Size(290, 280);
             this.MngrStaffSchedBtn.TabIndex = 93;
@@ -1206,6 +1206,7 @@ namespace Enchante
             this.MngrStaffSchedBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.MngrStaffSchedBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.MngrStaffSchedBtn.UseVisualStyleBackColor = false;
+            this.MngrStaffSchedBtn.Visible = false;
             this.MngrStaffSchedBtn.Click += new System.EventHandler(this.MngrInventoryStaffSchedBtn_Click);
             // 
             // MngrProductsHistoryBtn
@@ -1245,7 +1246,7 @@ namespace Enchante
             this.MngrWalkinServiceSalesBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.MngrWalkinServiceSalesBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MngrWalkinServiceSalesBtn.IconSize = 75;
-            this.MngrWalkinServiceSalesBtn.Location = new System.Drawing.Point(92, 370);
+            this.MngrWalkinServiceSalesBtn.Location = new System.Drawing.Point(266, 391);
             this.MngrWalkinServiceSalesBtn.Name = "MngrWalkinServiceSalesBtn";
             this.MngrWalkinServiceSalesBtn.Size = new System.Drawing.Size(290, 280);
             this.MngrWalkinServiceSalesBtn.TabIndex = 91;
@@ -3217,7 +3218,7 @@ namespace Enchante
             this.MngrEmployeeIDText.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.MngrEmployeeIDText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrEmployeeIDText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrEmployeeIDText.Location = new System.Drawing.Point(162, 118);
+            this.MngrEmployeeIDText.Location = new System.Drawing.Point(263, 118);
             this.MngrEmployeeIDText.Name = "MngrEmployeeIDText";
             this.MngrEmployeeIDText.Size = new System.Drawing.Size(117, 25);
             this.MngrEmployeeIDText.TabIndex = 17;
@@ -3233,7 +3234,7 @@ namespace Enchante
             "Select Status",
             "Available ",
             "Not Available"});
-            this.MngrStaffAvailabilityComboBox.Location = new System.Drawing.Point(422, 263);
+            this.MngrStaffAvailabilityComboBox.Location = new System.Drawing.Point(615, 263);
             this.MngrStaffAvailabilityComboBox.Name = "MngrStaffAvailabilityComboBox";
             this.MngrStaffAvailabilityComboBox.Size = new System.Drawing.Size(194, 31);
             this.MngrStaffAvailabilityComboBox.TabIndex = 14;
@@ -3261,13 +3262,14 @@ namespace Enchante
             this.MngrStaffAvailabilityLbl.Size = new System.Drawing.Size(107, 23);
             this.MngrStaffAvailabilityLbl.TabIndex = 12;
             this.MngrStaffAvailabilityLbl.Text = "Availability";
+            this.MngrStaffAvailabilityLbl.Visible = false;
             // 
             // MngrChangeStaffSchedBtn
             // 
             this.MngrChangeStaffSchedBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrChangeStaffSchedBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrChangeStaffSchedBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrChangeStaffSchedBtn.Location = new System.Drawing.Point(308, 329);
+            this.MngrChangeStaffSchedBtn.Location = new System.Drawing.Point(551, 318);
             this.MngrChangeStaffSchedBtn.Name = "MngrChangeStaffSchedBtn";
             this.MngrChangeStaffSchedBtn.Size = new System.Drawing.Size(260, 31);
             this.MngrChangeStaffSchedBtn.TabIndex = 10;
@@ -3308,7 +3310,7 @@ namespace Enchante
             this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.label14.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label14.Location = new System.Drawing.Point(202, 266);
+            this.label14.Location = new System.Drawing.Point(412, 263);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(214, 23);
             this.label14.TabIndex = 8;
@@ -3338,7 +3340,7 @@ namespace Enchante
             "Select Time Schedule",
             "AM",
             "PM"});
-            this.MngrStaffSchedComboBox.Location = new System.Drawing.Point(584, 213);
+            this.MngrStaffSchedComboBox.Location = new System.Drawing.Point(615, 210);
             this.MngrStaffSchedComboBox.Name = "MngrStaffSchedComboBox";
             this.MngrStaffSchedComboBox.Size = new System.Drawing.Size(194, 31);
             this.MngrStaffSchedComboBox.TabIndex = 6;
@@ -3350,7 +3352,7 @@ namespace Enchante
             this.MngrEmployeeCategoryLevelText.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.MngrEmployeeCategoryLevelText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrEmployeeCategoryLevelText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrEmployeeCategoryLevelText.Location = new System.Drawing.Point(187, 165);
+            this.MngrEmployeeCategoryLevelText.Location = new System.Drawing.Point(263, 165);
             this.MngrEmployeeCategoryLevelText.Name = "MngrEmployeeCategoryLevelText";
             this.MngrEmployeeCategoryLevelText.Size = new System.Drawing.Size(146, 25);
             this.MngrEmployeeCategoryLevelText.TabIndex = 5;
@@ -3376,7 +3378,7 @@ namespace Enchante
             this.MngrEmployeeLastNameLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.MngrEmployeeLastNameLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrEmployeeLastNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrEmployeeLastNameLbl.Location = new System.Drawing.Point(526, 74);
+            this.MngrEmployeeLastNameLbl.Location = new System.Drawing.Point(615, 74);
             this.MngrEmployeeLastNameLbl.Name = "MngrEmployeeLastNameLbl";
             this.MngrEmployeeLastNameLbl.Size = new System.Drawing.Size(107, 25);
             this.MngrEmployeeLastNameLbl.TabIndex = 3;
@@ -3389,7 +3391,7 @@ namespace Enchante
             this.MngrEmployeeFirstNameLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.MngrEmployeeFirstNameLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrEmployeeFirstNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrEmployeeFirstNameLbl.Location = new System.Drawing.Point(151, 74);
+            this.MngrEmployeeFirstNameLbl.Location = new System.Drawing.Point(263, 74);
             this.MngrEmployeeFirstNameLbl.Name = "MngrEmployeeFirstNameLbl";
             this.MngrEmployeeFirstNameLbl.Size = new System.Drawing.Size(108, 25);
             this.MngrEmployeeFirstNameLbl.TabIndex = 2;
@@ -11094,7 +11096,7 @@ namespace Enchante
             // 
             this.MngrInventoryCard.ContainerControl = this.MngrInventoryPanel;
             this.MngrInventoryCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.MngrInventoryCard.SelectedCard = "ProductSales";
+            this.MngrInventoryCard.SelectedCard = "SERVICES";
             // 
             // PictureSlideTimer
             // 
@@ -11119,6 +11121,7 @@ namespace Enchante
             this.EnchanteParentContainer.ResumeLayout(false);
             this.EnchanteMngrPage.ResumeLayout(false);
             this.MngrScrollPanel.ResumeLayout(false);
+            this.MngrScrollPanel.PerformLayout();
             this.MngrUserAccPanel.ResumeLayout(false);
             this.MngrUserAccPanel.PerformLayout();
             this.MngrInventoryPanel.ResumeLayout(false);
