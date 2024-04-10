@@ -122,7 +122,6 @@ namespace Enchante
             this.MngrInventoryMembershipBtn = new FontAwesome.Sharp.IconButton();
             this.MngrServicesHistoryBtn = new FontAwesome.Sharp.IconButton();
             this.MngrInDemandBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrStaffSchedBtn = new FontAwesome.Sharp.IconButton();
             this.MngrProductsHistoryBtn = new FontAwesome.Sharp.IconButton();
             this.MngrWalkinServiceSalesBtn = new FontAwesome.Sharp.IconButton();
             this.MngrServicesDataBtn = new FontAwesome.Sharp.IconButton();
@@ -346,6 +345,7 @@ namespace Enchante
             this.MngrInventoryProductsInfoEditBtn = new FontAwesome.Sharp.IconButton();
             this.MngrInventoryProductsInsertBtn = new FontAwesome.Sharp.IconButton();
             this.MngrInventoryProductsExitBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrStaffSchedBtn = new FontAwesome.Sharp.IconButton();
             this.MngrNavBarPanel = new System.Windows.Forms.Panel();
             this.MngrUserAccBtn = new FontAwesome.Sharp.IconButton();
             this.MngrHomeBtn = new FontAwesome.Sharp.IconButton();
@@ -930,7 +930,7 @@ namespace Enchante
             this.EnchanteParentContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnchanteParentContainer.Location = new System.Drawing.Point(0, 0);
             this.EnchanteParentContainer.Name = "EnchanteParentContainer";
-            this.EnchanteParentContainer.Size = new System.Drawing.Size(1924, 1061);
+            this.EnchanteParentContainer.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteParentContainer.TabIndex = 0;
             // 
             // EnchanteMngrPage
@@ -942,7 +942,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteMngrPage, new System.Drawing.Size(200, 100));
             this.EnchanteMngrPage.Name = "EnchanteMngrPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteMngrPage, new System.Drawing.Size(200, 100));
-            this.EnchanteMngrPage.Size = new System.Drawing.Size(1924, 1061);
+            this.EnchanteMngrPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteMngrPage.TabIndex = 6;
             // 
             // MngrScrollPanel
@@ -955,7 +955,7 @@ namespace Enchante
             this.MngrScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MngrScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.MngrScrollPanel.Name = "MngrScrollPanel";
-            this.MngrScrollPanel.Size = new System.Drawing.Size(1924, 911);
+            this.MngrScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.MngrScrollPanel.TabIndex = 4;
             // 
             // MngrUserAccPanel
@@ -1183,31 +1183,6 @@ namespace Enchante
             this.MngrInDemandBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.MngrInDemandBtn.UseVisualStyleBackColor = false;
             this.MngrInDemandBtn.Click += new System.EventHandler(this.MngrInventoryInDemandBtn_Click);
-            // 
-            // MngrStaffSchedBtn
-            // 
-            this.MngrStaffSchedBtn.AutoSize = true;
-            this.MngrStaffSchedBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrStaffSchedBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrStaffSchedBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrStaffSchedBtn.FlatAppearance.BorderSize = 3;
-            this.MngrStaffSchedBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrStaffSchedBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrStaffSchedBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrStaffSchedBtn.IconChar = FontAwesome.Sharp.IconChar.Calendar;
-            this.MngrStaffSchedBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrStaffSchedBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrStaffSchedBtn.IconSize = 75;
-            this.MngrStaffSchedBtn.Location = new System.Drawing.Point(1703, 706);
-            this.MngrStaffSchedBtn.Name = "MngrStaffSchedBtn";
-            this.MngrStaffSchedBtn.Size = new System.Drawing.Size(290, 280);
-            this.MngrStaffSchedBtn.TabIndex = 93;
-            this.MngrStaffSchedBtn.Text = "STAFF\r\nSCHEDULE";
-            this.MngrStaffSchedBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.MngrStaffSchedBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.MngrStaffSchedBtn.UseVisualStyleBackColor = false;
-            this.MngrStaffSchedBtn.Visible = false;
-            this.MngrStaffSchedBtn.Click += new System.EventHandler(this.MngrInventoryStaffSchedBtn_Click);
             // 
             // MngrProductsHistoryBtn
             // 
@@ -4419,6 +4394,31 @@ namespace Enchante
             this.MngrInventoryProductsExitBtn.UseVisualStyleBackColor = false;
             this.MngrInventoryProductsExitBtn.Click += new System.EventHandler(this.MngrInventoryProductsExitBtn_Click);
             // 
+            // MngrStaffSchedBtn
+            // 
+            this.MngrStaffSchedBtn.AutoSize = true;
+            this.MngrStaffSchedBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrStaffSchedBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrStaffSchedBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrStaffSchedBtn.FlatAppearance.BorderSize = 3;
+            this.MngrStaffSchedBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrStaffSchedBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrStaffSchedBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrStaffSchedBtn.IconChar = FontAwesome.Sharp.IconChar.Calendar;
+            this.MngrStaffSchedBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrStaffSchedBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrStaffSchedBtn.IconSize = 75;
+            this.MngrStaffSchedBtn.Location = new System.Drawing.Point(1703, 706);
+            this.MngrStaffSchedBtn.Name = "MngrStaffSchedBtn";
+            this.MngrStaffSchedBtn.Size = new System.Drawing.Size(290, 280);
+            this.MngrStaffSchedBtn.TabIndex = 93;
+            this.MngrStaffSchedBtn.Text = "STAFF\r\nSCHEDULE";
+            this.MngrStaffSchedBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.MngrStaffSchedBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.MngrStaffSchedBtn.UseVisualStyleBackColor = false;
+            this.MngrStaffSchedBtn.Visible = false;
+            this.MngrStaffSchedBtn.Click += new System.EventHandler(this.MngrInventoryStaffSchedBtn_Click);
+            // 
             // MngrNavBarPanel
             // 
             this.MngrNavBarPanel.AutoScroll = true;
@@ -4429,7 +4429,7 @@ namespace Enchante
             this.MngrNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.MngrNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.MngrNavBarPanel.Name = "MngrNavBarPanel";
-            this.MngrNavBarPanel.Size = new System.Drawing.Size(1924, 150);
+            this.MngrNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.MngrNavBarPanel.TabIndex = 3;
             // 
             // MngrUserAccBtn
@@ -4495,7 +4495,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteAdminPage, new System.Drawing.Size(200, 100));
             this.EnchanteAdminPage.Name = "EnchanteAdminPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteAdminPage, new System.Drawing.Size(200, 100));
-            this.EnchanteAdminPage.Size = new System.Drawing.Size(1924, 1061);
+            this.EnchanteAdminPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteAdminPage.TabIndex = 5;
             // 
             // AdminScrollPanel
@@ -4508,7 +4508,7 @@ namespace Enchante
             this.AdminScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AdminScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.AdminScrollPanel.Name = "AdminScrollPanel";
-            this.AdminScrollPanel.Size = new System.Drawing.Size(1924, 911);
+            this.AdminScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.AdminScrollPanel.TabIndex = 20;
             // 
             // AdminUserAccPanel
@@ -5344,7 +5344,7 @@ namespace Enchante
             this.AdminNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.AdminNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.AdminNavBarPanel.Name = "AdminNavBarPanel";
-            this.AdminNavBarPanel.Size = new System.Drawing.Size(1924, 150);
+            this.AdminNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.AdminNavBarPanel.TabIndex = 4;
             // 
             // AdminAccUserBtn
@@ -5412,7 +5412,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteHomePage, new System.Drawing.Size(200, 100));
             this.EnchanteHomePage.Name = "EnchanteHomePage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteHomePage, new System.Drawing.Size(200, 100));
-            this.EnchanteHomePage.Size = new System.Drawing.Size(1924, 1061);
+            this.EnchanteHomePage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteHomePage.TabIndex = 4;
             // 
             // EnchanteHomeScrollPanel
@@ -5425,7 +5425,7 @@ namespace Enchante
             this.EnchanteHomeScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnchanteHomeScrollPanel.Location = new System.Drawing.Point(0, 0);
             this.EnchanteHomeScrollPanel.Name = "EnchanteHomeScrollPanel";
-            this.EnchanteHomeScrollPanel.Size = new System.Drawing.Size(1924, 1061);
+            this.EnchanteHomeScrollPanel.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteHomeScrollPanel.TabIndex = 18;
             this.EnchanteHomeScrollPanel.Click += new System.EventHandler(this.EnchanteHomeScrollPanel_Click);
             // 
@@ -5445,7 +5445,7 @@ namespace Enchante
             this.EnchanteLoginForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnchanteLoginForm.Location = new System.Drawing.Point(1248, 0);
             this.EnchanteLoginForm.Name = "EnchanteLoginForm";
-            this.EnchanteLoginForm.Size = new System.Drawing.Size(676, 1061);
+            this.EnchanteLoginForm.Size = new System.Drawing.Size(128, 732);
             this.EnchanteLoginForm.TabIndex = 21;
             // 
             // LoginPassReqBtn
@@ -5624,7 +5624,7 @@ namespace Enchante
             this.EDP1.Image = global::Enchante.Properties.Resources.Lobby;
             this.EDP1.Location = new System.Drawing.Point(0, 0);
             this.EDP1.Name = "EDP1";
-            this.EDP1.Size = new System.Drawing.Size(1248, 1061);
+            this.EDP1.Size = new System.Drawing.Size(1248, 732);
             this.EDP1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.EDP1.TabIndex = 24;
             this.EDP1.TabStop = false;
@@ -5661,7 +5661,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteReceptionPage, new System.Drawing.Size(200, 100));
             this.EnchanteReceptionPage.Name = "EnchanteReceptionPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteReceptionPage, new System.Drawing.Size(200, 100));
-            this.EnchanteReceptionPage.Size = new System.Drawing.Size(1924, 1061);
+            this.EnchanteReceptionPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteReceptionPage.TabIndex = 2;
             // 
             // ReceptionScrollPanel
@@ -5674,7 +5674,7 @@ namespace Enchante
             this.ReceptionScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ReceptionScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.ReceptionScrollPanel.Name = "ReceptionScrollPanel";
-            this.ReceptionScrollPanel.Size = new System.Drawing.Size(1924, 911);
+            this.ReceptionScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.ReceptionScrollPanel.TabIndex = 20;
             // 
             // ReceptionUserAccPanel
@@ -10470,7 +10470,7 @@ namespace Enchante
             this.ReceptionNavBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.ReceptionNavBar.Location = new System.Drawing.Point(0, 0);
             this.ReceptionNavBar.Name = "ReceptionNavBar";
-            this.ReceptionNavBar.Size = new System.Drawing.Size(1924, 150);
+            this.ReceptionNavBar.Size = new System.Drawing.Size(1370, 150);
             this.ReceptionNavBar.TabIndex = 2;
             // 
             // RecDateTimeText
@@ -10550,7 +10550,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteStaffPage, new System.Drawing.Size(200, 100));
             this.EnchanteStaffPage.Name = "EnchanteStaffPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteStaffPage, new System.Drawing.Size(200, 100));
-            this.EnchanteStaffPage.Size = new System.Drawing.Size(1924, 1061);
+            this.EnchanteStaffPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteStaffPage.TabIndex = 1;
             // 
             // StaffScrollPanel
@@ -10570,7 +10570,7 @@ namespace Enchante
             this.StaffScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StaffScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.StaffScrollPanel.Name = "StaffScrollPanel";
-            this.StaffScrollPanel.Size = new System.Drawing.Size(1924, 911);
+            this.StaffScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.StaffScrollPanel.TabIndex = 6;
             // 
             // label4
@@ -11021,7 +11021,7 @@ namespace Enchante
             this.StaffNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.StaffNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.StaffNavBarPanel.Name = "StaffNavBarPanel";
-            this.StaffNavBarPanel.Size = new System.Drawing.Size(1924, 150);
+            this.StaffNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.StaffNavBarPanel.TabIndex = 5;
             // 
             // StaffUserAccBtn
@@ -11080,13 +11080,13 @@ namespace Enchante
             // 
             this.EnchanteParentCard.ContainerControl = this.EnchanteParentContainer;
             this.EnchanteParentCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.EnchanteParentCard.SelectedCard = "Mngr";
+            this.EnchanteParentCard.SelectedCard = "Staff";
             // 
             // RecTransactionCard
             // 
             this.RecTransactionCard.ContainerControl = this.ReceptionCreateTransactPanel;
             this.RecTransactionCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.RecTransactionCard.SelectedCard = "Walk-in";
+            this.RecTransactionCard.SelectedCard = "Types";
             // 
             // DateTimePickerTimer
             // 
@@ -11109,7 +11109,7 @@ namespace Enchante
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.EnchanteParentContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
