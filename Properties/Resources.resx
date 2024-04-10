@@ -124,9 +124,6 @@
   <data name="30 People Are Sharing Seemingly Innocent Questions That Broke Their Heart A " type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\30 People Are Sharing Seemingly Innocent Questions That Broke Their Heart A .jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="download (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\download (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Enchante Logo 275x100" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Enchante Logo 275x100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -150,5 +147,26 @@
   </data>
   <data name="outofstock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\outofstock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="download (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="download" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Enchante_Bldg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Enchante Bldg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Green___Gold_Collection___Salon_Equipment_Centre" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Green &amp; Gold Collection _ Salon Equipment Centre.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hair" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Das Dark Naturalist Salon Design von Comfortel Check more at https___mac1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Olga_Collection" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Olga Collection.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Enchante Logo (200 x 200 px) Green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Enchante Logo (200 x 200 px) Green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

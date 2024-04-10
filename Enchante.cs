@@ -43,6 +43,8 @@ using System.Collections;
 using Mysqlx.Expr;
 using System.Security.Policy;
 using Org.BouncyCastle.Math;
+using Mysqlx.Crud;
+using System.Web.Util;
 
 namespace Enchante
 {
@@ -58,6 +60,7 @@ namespace Enchante
         private ServiceCard Service; //Service Card
         private ReceptionTransactionCard Transaction;
         private MngrInventoryCard Inventory;
+
 
         //tool tip
         private System.Windows.Forms.ToolTip iconToolTip;
@@ -83,6 +86,11 @@ namespace Enchante
         private string[] SalesCategories = { "Hair Styling", "Face & Skin", "Nail Care", "Massage", "Spa", "All Categories" };
         private string[] BestCategories = { "Hair Styling", "Face & Skin", "Nail Care", "Massage", "Spa", "Top Service Category" };
 
+        //picture slide landing page
+        private int currentIndex = 0;
+        private System.Drawing.Image[] images = { Properties.Resources.Enchante_Bldg,  Properties.Resources.Hair,
+                                    Properties.Resources.Olga_Collection, Properties.Resources.download,
+                                    Properties.Resources.Green___Gold_Collection___Salon_Equipment_Centre}; // Replace with your resource names
 
         // public List<AvailableStaff> filteredbyschedstaff;
         // public Guna.UI2.WinForms.Guna2ToggleSwitch AvailableStaffActiveToggleSwitch;
@@ -105,29 +113,22 @@ namespace Enchante
 
             //Rec Walkin Buy Products
             RecWalkinSelectedProdView();
-            RecShopProdSelectedProdView();  
+            RecShopProdSelectedProdView();
 
             //Landing Pages Cardlayout Panel Manager
-            ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteReceptionPage, EnchanteMemberPage, EnchanteAdminPage, EnchanteMngrPage);
-            Registration = new Registration(MembershipPlanPanel, RegularPlanPanel, PremiumPlanPanel, SVIPPlanPanel);
-            Service = new ServiceCard(ServiceType, ServiceHairStyling, ServiceFaceSkin, ServiceNailCare, ServiceSpa, ServiceMassage);
+            ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteReceptionPage, EnchanteAdminPage, EnchanteMngrPage);
             Transaction = new ReceptionTransactionCard(RecTransactionPanel, RecWalkinPanel, RecApptPanel, RecPayServicePanel, RecQueWinPanel, RecShopProdPanel, RecApptConfirmPanel);
             Inventory = new MngrInventoryCard(MngrInventoryTypePanel, MngrServicesPanel, MngrServiceHistoryPanel, MngrInventoryMembershipPanel,
-                                            MngrInventoryProductsPanel, MngrInventoryProductHistoryPanel, MngrSchedPanel, MngrWalkinSalesPanel, MngrIndemandPanel, MngrWalkinProdSalesPanel);
-            
+                                            MngrInventoryProductsPanel, MngrInventoryProductHistoryPanel, MngrSchedPanel, MngrWalkinSalesPanel, MngrIndemandPanel, MngrWalkinProdSalesPanel, MngrApptServicePanel);
+
+
 
 
             //icon tool tip
             iconToolTip = new System.Windows.Forms.ToolTip();
             iconToolTip.IsBalloon = true;
 
-            //gender combobox
-            RegularGenderComboText.Items.AddRange(genders);
-            RegularGenderComboText.DropDownStyle = ComboBoxStyle.DropDownList;
-            SVIPGenderComboText.Items.AddRange(genders);
-            SVIPGenderComboText.DropDownStyle = ComboBoxStyle.DropDownList;
-            PremGenderComboText.Items.AddRange(genders);
-            PremGenderComboText.DropDownStyle = ComboBoxStyle.DropDownList;
+
 
             //Mngr inventory comboboxes
             MngrServicesCategoryComboText.Items.AddRange(Service_Category);
@@ -185,26 +186,60 @@ namespace Enchante
             MngrProductSalesSelectCatBox.Items.Add("Spa");
             MngrProductSalesSelectCatBox.Items.Add("All Categories");
 
+            MngrAppSalesPeriod.Items.Add("Day");
+            MngrAppSalesPeriod.Items.Add("Week");
+            MngrAppSalesPeriod.Items.Add("Month");
+            MngrAppSalesPeriod.Items.Add("Specific Date Range");
+            MngrAppSalesSelectCatBox.Items.Add("Hair Styling");
+            MngrAppSalesSelectCatBox.Items.Add("Face & Skin");
+            MngrAppSalesSelectCatBox.Items.Add("Nail Care");
+            MngrAppSalesSelectCatBox.Items.Add("Massage");
+            MngrAppSalesSelectCatBox.Items.Add("Spa");
+            MngrAppSalesSelectCatBox.Items.Add("All Categories");
 
-            //InitializeAvailableStaffFlowLayout();
+            MngrPDHistoryStatusBox.Items.Add("Paid");
+            MngrPDHistoryStatusBox.Items.Add("Not Paid");
 
-            //RecAppPrefferedTimeAMComboBox.SelectedIndex = 0;
-            //RecAppPrefferedTimePMComboBox.SelectedIndex = 0;
+            MngrPDHistoryItemCatBox.Items.Add("Hair Styling");
+            MngrPDHistoryItemCatBox.Items.Add("Face & Skin");
+            MngrPDHistoryItemCatBox.Items.Add("Nail Care");
+            MngrPDHistoryItemCatBox.Items.Add("Massage");
+            MngrPDHistoryItemCatBox.Items.Add("Spa");
 
-            //RecAppPrefferedTimeAMComboBox.SelectedIndexChanged += RecPrefferedTimeComboBox_SelectedIndexChanged;
-            //RecAppPrefferedTimePMComboBox.SelectedIndexChanged += RecPrefferedTimeComboBox_SelectedIndexChanged;
+            MngrSVHistoryTransTypeBox.Items.Add("Walk-in Transaction");
+            MngrSVHistoryTransTypeBox.Items.Add("Walk-in Appointment Transaction");
+            MngrSVHistoryTransTypeBox.Items.Add("Appointment Transaction");
 
-            //RecAppPrefferedTimeAMComboBox.Enabled = false;
-            //RecAppPrefferedTimePMComboBox.Enabled = false;
+            MngrAppSalesAppointmentSelect.Items.Add("Walk-in Appointment Transaction");
+            MngrAppSalesAppointmentSelect.Items.Add("Appointment Transaction");
 
-            //InitializePendingCustomersForStaff();
+            MngrSVHistoryServiceStatusBox.Items.Add("Completed");
+            MngrSVHistoryServiceStatusBox.Items.Add("Pending");
+            MngrSVHistoryServiceStatusBox.Items.Add("In Session");
+            MngrSVHistoryServiceStatusBox.Items.Add("Cancelled");
+
+            MngrSVHistoryServiceCatBox.Items.Add("Hair Styling");
+            MngrSVHistoryServiceCatBox.Items.Add("Face & Skin");
+            MngrSVHistoryServiceCatBox.Items.Add("Nail Care");
+            MngrSVHistoryServiceCatBox.Items.Add("Massage");
+            MngrSVHistoryServiceCatBox.Items.Add("Spa");
+
+            MngrMemAccMemTypeBox.Items.Add("Regular");
+            MngrMemAccMemTypeBox.Items.Add("PREMIUM");
+            MngrMemAccMemTypeBox.Items.Add("SVIP");
+
+            ProductHistoryShow();
+            ServiceHistoryShow();
+            MemberAccountsShow();
+            PopulateRequiredItemsComboBox();
+
 
         }
 
         private void Enchante_Load(object sender, EventArgs e)
         {
             //Reset Panel to Show Default
-            HomePanelReset();
+            ParentPanelShow.PanelShow(EnchanteHomePage);
             FillRecStaffScheduleViewDataGrid();
             DateTimePickerTimer.Interval = 1000;
             DateTimePickerTimer.Start();
@@ -250,118 +285,7 @@ namespace Enchante
         }
         #endregion
 
-        // ID Generator Methods
-        #region
-        public class RegularClientIDGenerator
-        {
-            private static Random random = new Random();
 
-            public static string GenerateClientID()
-            {
-                // Get the current year and extract the last digit
-                int currentYear = DateTime.Now.Year;
-                int lastDigitOfYear = currentYear % 100;
-
-                // Generate a random 6-digit number
-                string randomPart = GenerateRandomNumber();
-
-                // Format the ClientID
-                string clientID = $"R-{lastDigitOfYear:D2}-{randomPart:D6}";
-
-                return clientID;
-            }
-
-            private static string GenerateRandomNumber()
-            {
-                // Generate a random 6-digit number
-                int randomNumber = random.Next(100000, 999999);
-
-                return randomNumber.ToString();
-            }
-        }
-        private void RegularAccIDGenerator()
-        {
-            RegularMemberIDText.Text = "";
-
-            // Call the GenerateClientID method using the type name
-            string generatedClientID = RegularClientIDGenerator.GenerateClientID();
-
-            RegularMemberIDText.Text = generatedClientID;
-        }
-
-        public class SVIPClientIDGenerator
-        {
-            private static Random random = new Random();
-
-            public static string GenerateClientID()
-            {
-                // Get the current year and extract the last digit
-                int currentYear = DateTime.Now.Year;
-                int lastDigitOfYear = currentYear % 100;
-
-                // Generate a random 6-digit number
-                string randomPart = GenerateRandomNumber();
-
-                // Format the ClientID
-                string clientID = $"SVIP-{lastDigitOfYear:D2}-{randomPart:D6}";
-
-                return clientID;
-            }
-
-            private static string GenerateRandomNumber()
-            {
-                // Generate a random 6-digit number
-                int randomNumber = random.Next(100000, 999999);
-
-                return randomNumber.ToString();
-            }
-        }
-        private void SVIPAccIDGenerator()
-        {
-            SVIPMemberIDText.Text = "";
-
-            // Call the GenerateClientID method using the type name
-            string generatedClientID = SVIPClientIDGenerator.GenerateClientID();
-
-            SVIPMemberIDText.Text = generatedClientID;
-        }
-        public class PremClientIDGenerator
-        {
-            private static Random random = new Random();
-
-            public static string GenerateClientID()
-            {
-                // Get the current year and extract the last digit
-                int currentYear = DateTime.Now.Year;
-                int lastDigitOfYear = currentYear % 100;
-
-                // Generate a random 6-digit number
-                string randomPart = GenerateRandomNumber();
-
-                // Format the ClientID
-                string clientID = $"PREM-{lastDigitOfYear:D2}-{randomPart:D6}";
-
-                return clientID;
-            }
-
-            private static string GenerateRandomNumber()
-            {
-                // Generate a random 6-digit number
-                int randomNumber = random.Next(100000, 999999);
-
-                return randomNumber.ToString();
-            }
-        }
-        private void PremAccIDGenerator()
-        {
-            PremMemberIDText.Text = "";
-
-            // Call the GenerateClientID method using the type name
-            string generatedClientID = PremClientIDGenerator.GenerateClientID();
-
-            PremMemberIDText.Text = generatedClientID;
-        }
-        #endregion
 
         //password hashers
         #region
@@ -519,16 +443,9 @@ namespace Enchante
         private void EnchanteHomeScrollPanel_Click(object sender, EventArgs e)
         {
             //Reset Panel to Show Default
-            HomePanelReset();
         }
 
-        private void HomePanelReset()
-        {
-            ParentPanelShow.PanelShow(EnchanteHomePage);
-            Service.PanelShow(ServiceType);
-            Registration.PanelShow(MembershipPlanPanel);
-
-        }
+        
         private void MngrHomePanelReset()
         {
             ParentPanelShow.PanelShow(EnchanteMngrPage);
@@ -550,11 +467,6 @@ namespace Enchante
             ParentPanelShow.PanelShow(EnchanteAdminPage);
 
         }
-        private void MemberHomePanelReset()
-        {
-            ParentPanelShow.PanelShow(EnchanteMemberPage);
-
-        }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -574,254 +486,27 @@ namespace Enchante
 
             }
         }
+        private void PictureSlideTimer_Tick(object sender, EventArgs e)
+        {
 
+            DisplayNextImage();
+
+        }
+
+        private void DisplayNextImage()
+        {
+            // Load the next image
+            System.Drawing.Image image = images[currentIndex];
+            EDP1.Image = image;
+
+            // Increment the index, looping back to the beginning if necessary
+            currentIndex = (currentIndex + 1) % images.Length;
+        }
         private void ScrollToCoordinates(int x, int y)
         {
             // Set the AutoScrollPosition to the desired coordinates
             EnchanteHomeScrollPanel.AutoScrollPosition = new Point(x, y);
         }
-
-        private void EnchanteAppointBtn_Click(object sender, EventArgs e)
-        {
-            MemberLocationAndColor();
-        }
-
-        private void EnchanteHLoginBtn_Click(object sender, EventArgs e)
-        {
-
-
-            if (EnchanteLoginForm.Visible == false)
-            {
-
-
-                HomeLocationAndColor();
-
-
-                EnchanteLoginForm.Visible = true;
-                return;
-            }
-            else
-            {
-
-
-
-                HomeLocationAndColor();
-
-
-
-                EnchanteLoginForm.Visible = false;
-
-            }
-
-        }
-
-        private void EnchanteHomeBtn_Click(object sender, EventArgs e)
-        {
-            //Reset Panel to Show Default
-            HomePanelReset();
-            HomeLocationAndColor();
-        }
-        private void EnchanteHeaderLogo_Click(object sender, EventArgs e)
-        {
-            //Reset Panel to Show Default
-            HomePanelReset();
-            HomeLocationAndColor();
-        }
-        private void HomeLocationAndColor()
-        {
-            // Scroll to the Home position (0, 0)
-            ScrollToCoordinates(0, 0);
-            //Change color once clicked
-            EnchanteHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-
-            //Change back to original
-            EnchanteServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteMemberBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteReviewBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteTeamBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteAbtUsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-        }
-
-        private void EnchanteServiceBtn_Click(object sender, EventArgs e)
-        {
-            ServiceLocationAndColor();
-        }
-
-        private void ServiceLocationAndColor()
-        {
-            //Reset Panel to Show Default
-            Service.PanelShow(ServiceType);
-
-            int serviceSectionY = 1000;
-            ScrollToCoordinates(0, serviceSectionY);
-            //Change color once clicked
-            EnchanteServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            //Change back to original
-            EnchanteHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteMemberBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteReviewBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteTeamBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteAbtUsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-        }
-
-        private void EnchanteMemberBtn_Click(object sender, EventArgs e)
-        {
-            MemberLocationAndColor();
-        }
-
-        private void MemberLocationAndColor()
-        {
-            //Reset Panel to Show Default
-            Registration.PanelShow(MembershipPlanPanel);
-
-            //location scroll
-            int serviceSectionY = 1800;
-            ScrollToCoordinates(0, serviceSectionY);
-
-            //Change color once clicked
-            EnchanteMemberBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            //Change back to original
-            EnchanteHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteReviewBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteTeamBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteAbtUsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-        }
-        private void EnchanteReviewBtn_Click(object sender, EventArgs e)
-        {
-            ReviewLocationAndColor();
-        }
-
-        private void ReviewLocationAndColor()
-        {
-            //Reset Panel to Show Default
-            HomePanelReset();
-
-            ////location scroll
-            //int serviceSectionY = 1800;
-            //ScrollToCoordinates(0, serviceSectionY);
-
-            //Change color once clicked
-            EnchanteReviewBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            //Change back to original
-            EnchanteHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteMemberBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteTeamBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteAbtUsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-        }
-        private void EnchanteTeamBtn_Click(object sender, EventArgs e)
-        {
-            TeamLocationAndColor();
-        }
-
-        private void TeamLocationAndColor()
-        {
-            //Reset Panel to Show Default
-            HomePanelReset();
-
-            ////location scroll
-            //int serviceSectionY = 1800;
-            //ScrollToCoordinates(0, serviceSectionY);
-
-            //Change color once clicked
-            EnchanteTeamBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            //Change back to original
-            EnchanteHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteMemberBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteReviewBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteAbtUsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-        }
-        private void EnchanteAbtUsBtn_Click(object sender, EventArgs e)
-        {
-            AboutUsLocatonAndColor();
-        }
-
-        private void AboutUsLocatonAndColor()
-        {
-            //Reset Panel to Show Default
-            HomePanelReset();
-
-            ////location scroll
-            //int serviceSectionY = 1800;
-            //ScrollToCoordinates(0, serviceSectionY);
-
-            //Change color once clicked
-            EnchanteAbtUsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            //Change back to original
-            EnchanteHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteMemberBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteReviewBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            EnchanteTeamBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-        }
-        private void EnchanteHomeBtn_MouseHover(object sender, EventArgs e)
-        {
-            iconToolTip.SetToolTip(EnchanteHomeBtn, "Home");
-        }
-
-        private void EnchanteServiceBtn_MouseHover(object sender, EventArgs e)
-        {
-            iconToolTip.SetToolTip(EnchanteServiceBtn, "Service");
-        }
-
-
-        private void EnchanteMemberBtn_MouseHover(object sender, EventArgs e)
-        {
-            iconToolTip.SetToolTip(EnchanteMemberBtn, "Membership");
-        }
-
-        private void EnchanteReviewBtn_MouseHover(object sender, EventArgs e)
-        {
-            iconToolTip.SetToolTip(EnchanteReviewBtn, "Reviews");
-        }
-
-        private void EnchanteTeamBtn_MouseHover(object sender, EventArgs e)
-        {
-            iconToolTip.SetToolTip(EnchanteTeamBtn, "Our Team");
-        }
-        private void EnchanteAbtUsBtn_MouseHover(object sender, EventArgs e)
-        {
-            iconToolTip.SetToolTip(EnchanteAbtUsBtn, "About Us");
-        }
-        private void EnchanteHLoginBtn_MouseHover(object sender, EventArgs e)
-        {
-            iconToolTip.SetToolTip(EnchanteHLoginBtn, "Login");
-        }
-
-        //services part
-
-        private void ServiceHSBtn_Click(object sender, EventArgs e)
-        {
-            Service.PanelShow(ServiceHairStyling);
-
-        }
-
-        private void ServiceFSBtn_Click(object sender, EventArgs e)
-        {
-            Service.PanelShow(ServiceFaceSkin);
-
-        }
-
-        private void ServiceNCBtn_Click(object sender, EventArgs e)
-        {
-            Service.PanelShow(ServiceNailCare);
-
-        }
-
-        private void ServiceSpaBtn_Click(object sender, EventArgs e)
-        {
-            Service.PanelShow(ServiceSpa);
-
-        }
-
-        private void ServiceMBtn_Click(object sender, EventArgs e)
-        {
-            Service.PanelShow(ServiceMassage);
-
-        }
-
 
 
         private void ShowHidePassBtn_Click(object sender, EventArgs e)
@@ -835,11 +520,6 @@ namespace Enchante
             {
                 LoginPassText.UseSystemPasswordChar = true;
                 ShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
-
-
-
-
-
             }
         }
         private void ShowHidePassBtn_MouseHover(object sender, EventArgs e)
@@ -960,6 +640,7 @@ namespace Enchante
                 InitializeProducts();
                 logincredclear();
                 InitializeAppointmentDataGrid();
+                InitializeCustomerServiceListDataGrid();
                 return;
             }
             else if (LoginEmailAddText.Text != "Recept" && LoginPassText.Text == "Recept123")
@@ -986,7 +667,6 @@ namespace Enchante
                 StaffNameLbl.Text = "Staff Tester";
                 StaffIDNumLbl.Text = "ST-0000-0000";
                 logincredclear();
-                Service.PanelShow(ServiceType);
 
                 return;
             }
@@ -1006,37 +686,6 @@ namespace Enchante
                 LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
                 return;
             }
-            else if (LoginEmailAddText.Text == "Member" && LoginPassText.Text == "Member123")
-            {
-                //Test Member
-                LoginEmailAddErrorLbl.Visible = false;
-                LoginPassErrorLbl.Visible = true;
-                MessageBox.Show("Welcome back, Member.", "Login Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                MemberHomePanelReset();
-                MemberNameLbl.Text = "Member Tester";
-                MemberIDNumLbl.Text = "MT-0000-0000";
-                logincredclear();
-
-                return;
-            }
-            else if (LoginEmailAddText.Text != "Member" && LoginPassText.Text == "Member123")
-            {
-                //Test Member
-                LoginEmailAddErrorLbl.Visible = true;
-                LoginPassErrorLbl.Visible = false;
-                LoginEmailAddErrorLbl.Text = "EMAIL ADDRESS DOES NOT EXIST";
-
-                return;
-            }
-            else if (LoginEmailAddText.Text == "Member" && LoginPassText.Text != "Member123")
-            {
-                //Test Member
-                LoginEmailAddErrorLbl.Visible = false;
-                LoginPassErrorLbl.Visible = true;
-                LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
-                return;
-            }
-
             else if (string.IsNullOrEmpty(LoginEmailAddText.Text) && string.IsNullOrEmpty(LoginPassText.Text))
             {
                 //MessageBox.Show("Missing text on required fields.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1067,118 +716,6 @@ namespace Enchante
                 string email = LoginEmailAddText.Text;
                 string password = LoginPassText.Text;
                 string passchecker = HashHelper.HashString(password); // Assuming "enteredPassword" is supposed to be "LoginPassText"
-
-                try //user member login
-                {
-                    connection.Open();
-
-                    string queryApproved = "SELECT FirstName, LastName, MemberIDNumber, MembershipType, HashedPass FROM membershipaccount WHERE EmailAdd = @email";
-
-                    using (MySqlCommand cmdApproved = new MySqlCommand(queryApproved, connection))
-                    {
-                        cmdApproved.Parameters.AddWithValue("@email", email);
-
-                        using (MySqlDataReader readerApproved = cmdApproved.ExecuteReader())
-                        {
-                            if (readerApproved.Read())
-                            {
-                                string name = readerApproved["FirstName"].ToString();
-                                string lastname = readerApproved["LastName"].ToString();
-                                string ID = readerApproved["MemberIDNumber"].ToString();
-                                membertype = readerApproved["MembershipType"].ToString();
-
-                                if (membertype == "Regular")
-                                {
-                                    // Retrieve the HashedPass column
-                                    string hashedPasswordFromDB = readerApproved["HashedPass"].ToString();
-
-                                    // Check if the entered password matches
-                                    bool passwordMatches = hashedPasswordFromDB.Equals(passchecker);
-
-                                    if (passwordMatches)
-                                    {
-                                        MessageBox.Show($"Welcome back, Regular Client {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        MemberSubAccUserBtn.Visible = false;
-                                        MemberNameLbl.Text = name + " " + lastname;
-                                        MemberIDNumLbl.Text = ID;
-                                        MemberHomePanelReset();
-                                        logincredclear();
-
-                                    }
-                                    else
-                                    {
-                                        LoginEmailAddErrorLbl.Visible = false;
-                                        LoginPassErrorLbl.Visible = true;
-                                        LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
-                                    }
-                                    return;
-                                }
-                                else if (membertype == "PREMIUM")
-                                {
-                                    // Retrieve the HashedPass column
-                                    string hashedPasswordFromDB = readerApproved["HashedPass"].ToString();
-
-                                    // Check if the entered password matches
-                                    bool passwordMatches = hashedPasswordFromDB.Equals(passchecker);
-
-                                    if (passwordMatches)
-                                    {
-                                        MessageBox.Show($"Welcome back, Premium Client {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        MemberNameLbl.Text = name + " " + lastname;
-                                        MemberIDNumLbl.Text = ID;
-                                        MemberHomePanelReset();
-                                        logincredclear();
-
-                                    }
-                                    else
-                                    {
-                                        LoginEmailAddErrorLbl.Visible = false;
-                                        LoginPassErrorLbl.Visible = true;
-                                        LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
-                                    }
-                                    return;
-                                }
-                                else if (membertype == "SVIP")
-                                {
-                                    // Retrieve the HashedPass column
-                                    string hashedPasswordFromDB = readerApproved["HashedPass"].ToString();
-
-                                    // Check if the entered password matches
-                                    bool passwordMatches = hashedPasswordFromDB.Equals(passchecker);
-
-                                    if (passwordMatches)
-                                    {
-                                        MessageBox.Show($"Welcome back, SVIP Client {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        MemberNameLbl.Text = name + " " + lastname;
-                                        MemberIDNumLbl.Text = ID;
-                                        MemberHomePanelReset();
-                                        logincredclear();
-
-                                    }
-                                    else
-                                    {
-                                        LoginEmailAddErrorLbl.Visible = false;
-                                        LoginPassErrorLbl.Visible = true;
-                                        LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
-                                    }
-                                    return;
-                                }
-                            }
-
-                        }
-
-
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("An error occurred: " + ex.Message, "Login Verifier", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    connection?.Close();
-                }
 
                 try //admin, staff, reception and manager login
                 {
@@ -1237,9 +774,9 @@ namespace Enchante
                                     if (passwordMatches)
                                     {
                                         MessageBox.Show($"Welcome back, Manager {name}.", "System User Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        RecNameLbl.Text = name + " " + lastname;
-                                        RecIDNumLbl.Text = ID;
-                                        ReceptionHomePanelReset();
+                                        MngrNameLbl.Text = name + " " + lastname;
+                                        MngrIDNumLbl.Text = ID;
+                                        MngrHomePanelReset();
                                         logincredclear();
 
                                     }
@@ -1268,6 +805,7 @@ namespace Enchante
                                         ReceptionHomePanelReset();
                                         logincredclear();
                                         InitializeAppointmentDataGrid();
+                                        InitializeCustomerServiceListDataGrid();
 
                                     }
                                     else
@@ -1297,8 +835,10 @@ namespace Enchante
                                         InitializeStaffPersonalInventoryDataGrid();
                                         StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
                                         StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+                                        StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
                                         InitializePreferredCuePendingCustomersForStaff();
                                         InitializeGeneralCuePendingCustomersForStaff();
+                                        InitializePriorityPendingCustomersForStaff();
                                         RefreshFlowLayoutPanel();
                                         StaffHomePanelReset();
                                         logincredclear();
@@ -1344,6 +884,7 @@ namespace Enchante
             LoginEmailAddErrorLbl.Visible = false;
             LoginPassErrorLbl.Visible = false;
             LoginPassText.UseSystemPasswordChar = true;
+            ShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
 
         }
 
@@ -1382,9 +923,12 @@ namespace Enchante
             DialogResult result = MessageBox.Show("Do you want to logout user?", "Logout Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                EnchanteLoginForm.Visible = false;
                 ParentPanelShow.PanelShow(EnchanteHomePage);
                 StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+                StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+                StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+                RecApptAcceptLateDeclineDGV.Rows.Clear();
+                RecCanceAllServicesDGV.Rows.Clear();
                 membercategory = "";
                 StaffIDNumLbl.Text = string.Empty;
                 StaffMemeberCategoryLbl.Text = string.Empty;
@@ -1393,1440 +937,20 @@ namespace Enchante
                 StaffUserAccPanel.Visible = false;
                 MngrUserAccPanel.Visible = false;
                 AdminUserAccPanel.Visible = false;
-                MemberUserAccPanel.Visible = false;
                 ReceptionUserAccPanel.Visible = false;
             }
         }
 
-        private void LoginRegisterHereLbl_Click(object sender, EventArgs e)
-        {
-            MemberLocationAndColor();
-
-        }
-
-        private void SM_FBBtn_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://www.facebook.com/enchantesalon2024");
-        }
-
-        private void SM_TwitterBtn_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://twitter.com/Enchante2024");
-        }
-
-        private void SM_IGBtn_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://www.instagram.com/enchantesalon2024/");
-        }
-
-        private void SM_GmailBtn_Click(object sender, EventArgs e)
-        {
-            string emailAddress = "enchantesalon2024@gmail.com";
-            string subject = "Subject of your email";
-            string body = "Body of your email";
-
-            string mailtoLink = $"mailto:{emailAddress}?subject={Uri.EscapeDataString(subject)}&body={Uri.EscapeDataString(body)}";
-
-            System.Diagnostics.Process.Start(mailtoLink);
-        }
-
-        private void SM_FBBtn_MouseHover(object sender, EventArgs e)
-        {
-            iconToolTip.SetToolTip(SM_FBBtn, "Facebook");
-
-        }
-
-        private void SM_TwitterBtn_MouseHover(object sender, EventArgs e)
-        {
-            iconToolTip.SetToolTip(SM_TwitterBtn, "Twitter");
-        }
-
-        private void SM_IGBtn_MouseHover(object sender, EventArgs e)
-        {
-            iconToolTip.SetToolTip(SM_IGBtn, "Instagram");
-
-        }
-
-        private void SM_GmailBtn_MouseHover(object sender, EventArgs e)
-        {
-            iconToolTip.SetToolTip(SM_GmailBtn, "Email Us Here");
-        }
-
-        private void RMemberCreateAccBtn_Click(object sender, EventArgs e)
-        {
-            Registration.PanelShow(RegularPlanPanel);
-            RegularAccIDGenerator();
-        }
-
-        private void PMemberCreateAccBtn_Click(object sender, EventArgs e)
-        {
-            Registration.PanelShow(PremiumPlanPanel);
-            PremAccIDGenerator();
-            SetExpirationDate("monthly");
-            PremMonthly();
-        }
-
-        private void SVIPMemberCreateAccBtn_Click(object sender, EventArgs e)
-        {
-            Registration.PanelShow(SVIPPlanPanel);
-            SVIPAccIDGenerator();
-            SetExpirationDate("monthly");
-            SVIPMonthly();
-
-        }
-
-
-        //Regular Member Registration
-        private void RegularExitBtn_Click(object sender, EventArgs e)
-        {
-            Registration.PanelShow(MembershipPlanPanel);
-
-        }
-
-        private void RegularBdayPicker_ValueChanged(object sender, EventArgs e)
-        {
-            DateTime selectedDate = RegularBdayPicker.Value;
-            int age = DateTime.Now.Year - selectedDate.Year;
-
-            if (DateTime.Now < selectedDate.AddYears(age))
-            {
-                age--; // Subtract 1 if the birthday hasn't occurred yet this year
-            }
-
-            RegularAgeText.Text = age.ToString();
-            if (age < 18)
-            {
-                RegularAgeErrorLbl.Visible = true;
-                RegularAgeErrorLbl.Text = "Must be 18 years old and above";
-                return;
-            }
-            else
-            {
-                RegularAgeErrorLbl.Visible = false;
-
-            }
-        }
-
-        private void RegularGenderComboText_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (RegularGenderComboText.SelectedItem != null)
-            {
-                RegularGenderComboText.Text = RegularGenderComboText.SelectedItem.ToString();
-            }
-        }
-
-        private void RegularPassReqBtn_MouseHover(object sender, EventArgs e)
-        {
-            string message = "Must be at least 8 character long.\n";
-            message += "First character must be capital.\n";
-            message += "Must include a special character and a number.";
-
-            iconToolTip.SetToolTip(RegularPassReqBtn, message);
-
-        }
-        private void RegularShowHidePassBtn_Click(object sender, EventArgs e)
-        {
-            if (RegularPassText.UseSystemPasswordChar == true)
-            {
-                RegularPassText.UseSystemPasswordChar = false;
-                RegularShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
-            }
-            else if (RegularPassText.UseSystemPasswordChar == false)
-            {
-                RegularPassText.UseSystemPasswordChar = true;
-                RegularShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
-
-            }
-        }
-        private void RegularConfirmPassText_TextChanged(object sender, EventArgs e)
-        {
-            if (RegularConfirmPassText.Text != RegularPassText.Text)
-            {
-                RegularConfirmPassErrorLbl.Visible = true;
-                RegularConfirmPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
-            }
-            else
-            {
-                RegularConfirmPassErrorLbl.Visible = false;
-            }
-        }
-        private void RegularConfirmShowHidePassBtn_Click(object sender, EventArgs e)
-        {
-            if (RegularConfirmPassText.UseSystemPasswordChar == true)
-            {
-                RegularConfirmPassText.UseSystemPasswordChar = false;
-                RegularConfirmShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
-            }
-            else if (RegularPassText.UseSystemPasswordChar == false)
-            {
-                RegularConfirmPassText.UseSystemPasswordChar = true;
-                RegularConfirmShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
-
-            }
-        }
-
-        private void RegularMemberIDCopyBtn_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(RegularMemberIDText.Text))
-            {
-                RegularMemberIDCopyLbl.Visible = true;
-                RegularMemberIDCopyLbl.Text = "ID Number Copied Successfully";
-                Clipboard.SetText(RegularMemberIDText.Text);
-
-            }
-        }
-        private void RegularCreateAccBtn_Click(object sender, EventArgs e)
-        {
-            DateTime selectedDate = RegularBdayPicker.Value;
-            DateTime currentDate = DateTime.Now;
-
-            string rCreated = currentDate.ToString("MM-dd-yyyy");
-            string rStatus = "Active";
-            string rType = "Regular";
-            string rPlanPeriod = "None";
-            string rFirstname = RegularFirstNameText.Text;
-            string rLastname = RegularLastNameText.Text;
-            string rBday = selectedDate.ToString("MM-dd-yyyy");
-            string rAge = RegularAgeText.Text;
-            string rGender = RegularGenderComboText.Text;
-            string rNumber = RegularMobileNumText.Text;
-            string rEmailAdd = RegularEmailText.Text;
-            string rMemberID = RegularMemberIDText.Text;
-            string rPass = RegularPassText.Text;
-            string rConfirmPass = RegularConfirmPassText.Text;
-
-            Regex nameRegex = new Regex("^[A-Z][a-zA-Z]+(?: [a-zA-Z]+)*$");
-            Regex gmailRegex = new Regex(@"^[A-Za-z0-9._%+-]*\d*@gmail\.com$");
-            Regex passwordRegex = new Regex("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?])[A-Za-z\\d!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]{8,}$");
-
-            string hashedPassword = HashHelper.HashString(rPass);    // Password hashed
-            string fixedSalt = HashHelper_Salt.HashString_Salt("Enchante" + rPass + "2024");    //Fixed Salt
-            string perUserSalt = HashHelper_SaltperUser.HashString_SaltperUser(rPass + rMemberID);    //Per User salt
-
-            int age = DateTime.Now.Year - selectedDate.Year;
-            if (DateTime.Now < selectedDate.AddYears(age))
-            {
-                age--; // Subtract 1 if the birthday hasn't occurred yet this year
-            }
-
-            if (string.IsNullOrEmpty(rFirstname) || string.IsNullOrEmpty(rLastname) || string.IsNullOrEmpty(rAge) ||
-                string.IsNullOrEmpty(rGender) || string.IsNullOrEmpty(rNumber) || string.IsNullOrEmpty(rEmailAdd) ||
-                string.IsNullOrEmpty(rNumber) || string.IsNullOrEmpty(rPass) || string.IsNullOrEmpty(rConfirmPass))
-            {
-                RegularFirstNameErrorLbl.Visible = true;
-                RegularGenderErrorLbl.Visible = true;
-                RegularMobileNumErrorLbl.Visible = true;
-                RegularEmailErrorLbl.Visible = true;
-                RegularPassErrorLbl.Visible = true;
-                RegularConfirmPassErrorLbl.Visible = true;
-                RegularLastNameErrorLbl.Visible = true;
-                RegularAgeErrorLbl.Visible = true;
-
-                RegularFirstNameErrorLbl.Text = "Missing Field";
-                RegularGenderErrorLbl.Text = "Missing Field";
-                RegularMobileNumErrorLbl.Text = "Missing Field";
-                RegularEmailErrorLbl.Text = "Missing Field";
-                RegularPassErrorLbl.Text = "Missing Field";
-                RegularConfirmPassErrorLbl.Text = "Missing Field";
-                RegularLastNameErrorLbl.Text = "Missing Field";
-                RegularAgeErrorLbl.Text = "Missing Field";
-
-            }
-            else if (age < 18)
-            {
-                RegularAgeErrorLbl.Visible = true;
-                RegularAgeErrorLbl.Text = "Must be 18 years old and above";
-                return;
-            }
-            else if (!nameRegex.IsMatch(rFirstname) && !nameRegex.IsMatch(rLastname))
-            {
-                RegularFirstNameErrorLbl.Visible = true;
-                RegularLastNameErrorLbl.Visible = true;
-
-                RegularFirstNameErrorLbl.Text = "First Letter Must Be Capital";
-                RegularLastNameErrorLbl.Text = "First Letter Must Be Capital";
-
-                return;
-            }
-            else if (!gmailRegex.IsMatch(rEmailAdd))
-            {
-                RegularEmailErrorLbl.Visible = true;
-                RegularEmailErrorLbl.Text = "Invalid Email Format";
-                return;
-            }
-            else if (!passwordRegex.IsMatch(rPass))
-            {
-                RegularPassErrorLbl.Visible = true;
-                RegularPassErrorLbl.Text = "Invalid Password Format";
-                return;
-            }
-            else if (rPass != rConfirmPass)
-            {
-                RegularConfirmPassErrorLbl.Visible = true;
-                RegularPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
-                return;
-            }
-            else
-            {
-                try
-                {
-                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-                    {
-                        connection.Open();
-                        // Check if email already exists
-                        string checkEmailQuery = "SELECT COUNT(*) FROM membershipaccount WHERE EmailAdd = @email";
-                        MySqlCommand checkEmailCmd = new MySqlCommand(checkEmailQuery, connection);
-                        checkEmailCmd.Parameters.AddWithValue("@email", rEmailAdd);
-
-                        int emailCount = Convert.ToInt32(checkEmailCmd.ExecuteScalar());
-
-                        if (emailCount > 0)
-                        {
-                            // Email already exists, show a message or take appropriate action
-                            MessageBox.Show("Email already exists. Please use a different email.", "Email Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return; // Exit the method without inserting the new account
-                        }
-                        string insertQuery = "INSERT INTO membershipaccount (MembershipType, MemberIDNumber, AccountStatus, FirstName, " +
-                            "LastName, Birthday, Age, CPNumber, EmailAdd, HashedPass, SaltedPass, UserSaltedPass, PlanPeriod, AccountCreated) " +
-                            "VALUES (@type, @ID, @status, @firstName, @lastName, @bday, @age, @cpnum, @email, @hashedpass, @saltedpass, @usersaltedpass, @period, @created)";
-
-                        MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
-                        cmd.Parameters.AddWithValue("@type", rType);
-                        cmd.Parameters.AddWithValue("@ID", rMemberID);
-                        cmd.Parameters.AddWithValue("@status", rStatus);
-                        cmd.Parameters.AddWithValue("@firstName", rFirstname);
-                        cmd.Parameters.AddWithValue("@lastName", rLastname);
-                        cmd.Parameters.AddWithValue("@bday", rBday);
-                        cmd.Parameters.AddWithValue("@age", rAge);
-                        cmd.Parameters.AddWithValue("@cpnum", rNumber);
-                        cmd.Parameters.AddWithValue("@email", rEmailAdd);
-                        cmd.Parameters.AddWithValue("@hashedpass", hashedPassword);
-                        cmd.Parameters.AddWithValue("@saltedpass", fixedSalt);
-                        cmd.Parameters.AddWithValue("@usersaltedpass", perUserSalt);
-                        cmd.Parameters.AddWithValue("@period", rPlanPeriod);
-                        cmd.Parameters.AddWithValue("@created", rCreated);
-
-                        cmd.ExecuteNonQuery();
-                    }
-
-                    // Successful insertion
-                    MessageBox.Show("Regular Account is successfully created.", "Welcome to Enchanté", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RegularAccIDGenerator();
-                    RegularMembershipBoxClear();
-                    MemberLocationAndColor();
-
-                }
-                catch (MySqlException ex)
-                {
-                    // Handle MySQL database exception
-                    MessageBox.Show("MySQL Error: " + ex.Message, "Creating Regular Account Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    // Make sure to close the connection
-                    connection.Close();
-                }
-            }
-
-
-        }
-        private void RegularMembershipBoxClear()
-        {
-            RegularFirstNameText.Text = "";
-            RegularLastNameText.Text = "";
-            RegularAgeText.Text = "";
-            RegularGenderComboText.SelectedIndex = -1;
-            RegularMobileNumText.Text = "";
-            RegularEmailText.Text = "";
-            RegularMemberIDText.Text = "";
-            RegularPassText.Text = "";
-            RegularConfirmPassText.Text = "";
-            RegularPassText.UseSystemPasswordChar = true;
-            RegularConfirmPassText.UseSystemPasswordChar = true;
-
-        }
-
-        //Super VIP Plan Membership
-        private void SVIPExitBtn_Click(object sender, EventArgs e)
-        {
-            Registration.PanelShow(MembershipPlanPanel);
-        }
-        private void SetExpirationDate(string planType)
-        {
-            DateTime registrationDate = DateTime.Now; // Replace with your actual registration date
-
-            switch (planType.ToLower())
-            {
-                case "monthly":
-                    SVIPPlanExpirationText.Text = CalculateMonthlyExpirationDate(registrationDate);
-                    PremPlanExpirationText.Text = CalculateMonthlyExpirationDate(registrationDate);
-
-                    break;
-
-                case "yearly":
-                    SVIPPlanExpirationText.Text = CalculateYearlyExpirationDate(registrationDate);
-                    PremPlanExpirationText.Text = CalculateMonthlyExpirationDate(registrationDate);
-
-                    break;
-
-                case "biyearly":
-                    SVIPPlanExpirationText.Text = CalculateBiyearlyExpirationDate(registrationDate);
-                    PremPlanExpirationText.Text = CalculateMonthlyExpirationDate(registrationDate);
-
-                    break;
-
-                default:
-                    // Handle invalid plan type
-                    break;
-            }
-        }
-
-        private string CalculateMonthlyExpirationDate(DateTime registrationDate)
-        {
-            DateTime expirationDate = registrationDate.AddMonths(1);
-            return expirationDate.ToString("MM-dd-yyyy");
-        }
-
-        private string CalculateYearlyExpirationDate(DateTime registrationDate)
-        {
-            DateTime expirationDate = registrationDate.AddYears(1);
-            return expirationDate.ToString("MM-dd-yyyy");
-        }
-
-        private string CalculateBiyearlyExpirationDate(DateTime registrationDate)
-        {
-            DateTime expirationDate = registrationDate.AddYears(2);
-            return expirationDate.ToString("MM-dd-yyyy");
-        }
-        private void SVIPMonthlyPlanBtn_Click(object sender, EventArgs e)
-        {
-            SVIPMonthly();
-        }
-        private void SVIPYearlyPlanBtn_Click(object sender, EventArgs e)
-        {
-            SVIPYearly();
-        }
-
-        private void SVIPBiyearlyPlanBtn_Click(object sender, EventArgs e)
-        {
-            SVIPBiyearly();
-        }
-
-        private void SVIPMonthlyPlanRB_CheckedChanged(object sender, EventArgs e)
-        {
-            //SVIPMonthly();
-        }
-
-        private void SVIPYearlyPlanRB_CheckedChanged(object sender, EventArgs e)
-        {
-            //SVIPYearly();
-        }
-
-        private void SVIPBiyearlyPlanRB_CheckedChanged(object sender, EventArgs e)
-        {
-            //SVIPBiyearly();
-        }
-        private void SVIPMonthly()
-        {
-            SetExpirationDate("monthly");
-
-            if (SVIPMonthlyPlanRB.Checked == false)
-            {
-                SVIPMonthlyPlanRB.Visible = true;
-                SVIPMonthlyPlanRB.Checked = true;
-                SVIPPlanPeriodText.Text = "Super VIP Plan - Monthly";
-
-                SVIPOrigPriceText.Visible = false;
-                SVIPOrigPriceText.Text = "Php. 4999.00";
-                SVIPNewPriceText.Text = "Php. 4999.00";
-
-                SVIPYearlyPlanRB.Visible = false;
-                SVIPBiyearlyPlanRB.Visible = false;
-                SVIPYearlyPlanRB.Checked = false;
-                SVIPBiyearlyPlanRB.Checked = false;
-                return;
-            }
-            else if (SVIPMonthlyPlanRB.Checked == true)
-            {
-                SVIPPlanPeriodText.Text = "Super VIP Plan - Monthly";
-
-                SVIPOrigPriceText.Visible = false;
-                SVIPOrigPriceText.Text = "Php. 4999.00";
-                SVIPNewPriceText.Text = "Php. 4999.00";
-
-                SVIPYearlyPlanRB.Visible = false;
-                SVIPBiyearlyPlanRB.Visible = false;
-                SVIPYearlyPlanRB.Checked = false;
-                SVIPBiyearlyPlanRB.Checked = false;
-            }
-        }
-        private void SVIPYearly()
-        {
-            SetExpirationDate("yearly");
-
-            if (SVIPYearlyPlanRB.Checked == false)
-            {
-                SVIPYearlyPlanRB.Visible = true;
-                SVIPYearlyPlanRB.Checked = true;
-                SVIPPlanPeriodText.Text = "Super VIP Plan - 12 Months";
-
-                SVIPOrigPriceText.Visible = true;
-                SVIPOrigPriceText.Text = "Php. 4999.00";
-                SVIPNewPriceText.Text = "Php. 3499.00";
-
-                SVIPMonthlyPlanRB.Visible = false;
-                SVIPBiyearlyPlanRB.Visible = false;
-                SVIPMonthlyPlanRB.Checked = false;
-                SVIPBiyearlyPlanRB.Checked = false;
-            }
-            else
-            {
-                SVIPYearlyPlanRB.Visible = true;
-                SVIPYearlyPlanRB.Checked = true;
-            }
-        }
-        private void SVIPBiyearly()
-        {
-            SetExpirationDate("biyearly");
-
-            if (SVIPBiyearlyPlanRB.Checked == false)
-            {
-                SVIPBiyearlyPlanRB.Visible = true;
-                SVIPBiyearlyPlanRB.Checked = true;
-                SVIPPlanPeriodText.Text = "Super VIP Plan - 24 Months";
-
-                SVIPOrigPriceText.Visible = true;
-                SVIPOrigPriceText.Text = "Php. 4999.00";
-                SVIPNewPriceText.Text = "Php. 2999.00";
-
-                SVIPMonthlyPlanRB.Visible = false;
-                SVIPYearlyPlanRB.Visible = false;
-                SVIPMonthlyPlanRB.Checked = false;
-                SVIPYearlyPlanRB.Checked = false;
-            }
-            else
-            {
-                SVIPBiyearlyPlanRB.Visible = true;
-                SVIPBiyearlyPlanRB.Checked = true;
-            }
-        }
-
-        private void SVIPMemberCopyBtn_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(SVIPMemberIDText.Text))
-            {
-                SVIPMemberIDCopyLbl.Visible = true;
-                SVIPMemberIDCopyLbl.Text = "ID Number Copied Successfully";
-                Clipboard.SetText(SVIPMemberIDText.Text);
-
-            }
-        }
-
-        private void SVIPPassReqBtn_MouseHover(object sender, EventArgs e)
-        {
-            string message = "Must be at least 8 character long.\n";
-            message += "First character must be capital.\n";
-            message += "Must include a special character and a number.";
-
-            iconToolTip.SetToolTip(SVIPPassReqBtn, message);
-        }
-
-        private void SVIPShowHidePassBtn_Click(object sender, EventArgs e)
-        {
-            if (SVIPPassText.UseSystemPasswordChar == true)
-            {
-                SVIPPassText.UseSystemPasswordChar = false;
-                SVIPShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
-            }
-            else if (SVIPPassText.UseSystemPasswordChar == false)
-            {
-                SVIPPassText.UseSystemPasswordChar = true;
-                SVIPShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
-
-            }
-        }
-
-        private void SVIPShowHideConfirmPassBtn_Click(object sender, EventArgs e)
-        {
-            if (SVIPConfirmPassText.UseSystemPasswordChar == true)
-            {
-                SVIPConfirmPassText.UseSystemPasswordChar = false;
-                SVIPShowHideConfirmPassBtn.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
-            }
-            else if (SVIPConfirmPassText.UseSystemPasswordChar == false)
-            {
-                SVIPConfirmPassText.UseSystemPasswordChar = true;
-                SVIPShowHideConfirmPassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
-
-            }
-        }
-
-        private void SVIPBdayPicker_ValueChanged(object sender, EventArgs e)
-        {
-            DateTime selectedDate = SVIPBdayPicker.Value;
-            int age = DateTime.Now.Year - selectedDate.Year;
-
-            if (DateTime.Now < selectedDate.AddYears(age))
-            {
-                age--; // Subtract 1 if the birthday hasn't occurred yet this year
-            }
-            SVIPAgeText.Text = age.ToString();
-            if (age < 18)
-            {
-                SVIPAgeErrorLbl.Visible = true;
-                SVIPAgeErrorLbl.Text = "Must be 18 years old and above";
-                return;
-            }
-            else
-            {
-                SVIPAgeErrorLbl.Visible = false;
-
-            }
-        }
-
-        private void SVIPGenderComboText_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (SVIPGenderComboText.SelectedItem != null)
-            {
-                SVIPGenderComboText.Text = SVIPGenderComboText.SelectedItem.ToString();
-            }
-        }
-
-        private void SVIPCCPaymentBtn_Click(object sender, EventArgs e)
-        {
-            if (SVIPCCPaymentRB.Checked == false)
-            {
-                SVIPCCPaymentRB.Visible = true;
-                SVIPCCPaymentRB.Checked = true;
-                SVIPPaymentTypeText.Text = "Credit Card";
-
-                SVIPPayPPaymentRB.Visible = false;
-                SVIPGCPaymentRB.Visible = false;
-                SVIPPayMPaymentRB.Visible = false;
-                SVIPPayPPaymentRB.Checked = false;
-                SVIPGCPaymentRB.Checked = false;
-                SVIPPayMPaymentRB.Checked = false;
-            }
-            else
-            {
-                SVIPCCPaymentRB.Visible = true;
-                SVIPCCPaymentRB.Checked = true;
-            }
-        }
-
-        private void SVIPPayPPaymentBtn_Click(object sender, EventArgs e)
-        {
-            if (SVIPPayPPaymentRB.Checked == false)
-            {
-                SVIPPayPPaymentRB.Visible = true;
-                SVIPPayPPaymentRB.Checked = true;
-                SVIPPaymentTypeText.Text = "Paypal";
-
-                SVIPCCPaymentRB.Visible = false;
-                SVIPGCPaymentRB.Visible = false;
-                SVIPPayMPaymentRB.Visible = false;
-                SVIPCCPaymentRB.Checked = false;
-                SVIPGCPaymentRB.Checked = false;
-                SVIPPayMPaymentRB.Checked = false;
-            }
-            else
-            {
-                SVIPPayPPaymentRB.Visible = true;
-                SVIPPayPPaymentRB.Checked = true;
-            }
-        }
-
-        private void SVIPGCPaymentBtn_Click(object sender, EventArgs e)
-        {
-            if (SVIPGCPaymentRB.Checked == false)
-            {
-                SVIPGCPaymentRB.Visible = true;
-                SVIPGCPaymentRB.Checked = true;
-                SVIPPaymentTypeText.Text = "GCash";
-
-                SVIPCCPaymentRB.Visible = false;
-                SVIPPayPPaymentRB.Visible = false;
-                SVIPPayMPaymentRB.Visible = false;
-                SVIPCCPaymentRB.Checked = false;
-                SVIPPayPPaymentRB.Checked = false;
-                SVIPPayMPaymentRB.Checked = false;
-            }
-            else
-            {
-                SVIPGCPaymentRB.Visible = true;
-                SVIPGCPaymentRB.Checked = true;
-            }
-        }
-
-        private void SVIPPayMPaymentBtn_Click(object sender, EventArgs e)
-        {
-            if (SVIPPayMPaymentRB.Checked == false)
-            {
-                SVIPPayMPaymentRB.Visible = true;
-                SVIPPayMPaymentRB.Checked = true;
-                SVIPPaymentTypeText.Text = "Paymaya";
-
-
-                SVIPCCPaymentRB.Visible = false;
-                SVIPPayPPaymentRB.Visible = false;
-                SVIPGCPaymentRB.Visible = false;
-                SVIPCCPaymentRB.Checked = false;
-                SVIPPayPPaymentRB.Checked = false;
-                SVIPGCPaymentRB.Checked = false;
-            }
-            else
-            {
-                SVIPPayMPaymentRB.Checked = true;
-            }
-        }
-        private void SVIPConfirmPassText_TextChanged(object sender, EventArgs e)
-        {
-            if (SVIPConfirmPassText.Text != SVIPPassText.Text)
-            {
-                SVIPConfirmPassErrorLbl.Visible = true;
-                SVIPConfirmPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
-            }
-            else
-            {
-                SVIPConfirmPassErrorLbl.Visible = false;
-            }
-        }
-
-        private void SVIPCreateAccBtn_Click(object sender, EventArgs e)
-        {
-            DateTime selectedDate = SVIPBdayPicker.Value;
-            DateTime currentDate = DateTime.Now;
-
-            string SVCreated = currentDate.ToString("MM-dd-yyyy");
-            string SVStatus = "Active";
-            string SVType = "SVIP";
-            string SVFirstname = SVIPFirstNameText.Text;
-            string SVLastname = SVIPLastNameText.Text;
-            string SVBday = selectedDate.ToString("MM-dd-yyyy");
-            string SVAge = SVIPAgeText.Text;
-            string SVGender = SVIPGenderComboText.Text;
-            string SVNumber = SVIPCPNumText.Text;
-            string SVEmailAdd = SVIPEmailText.Text;
-            string SVMemberID = SVIPMemberIDText.Text;
-            string SVPass = SVIPPassText.Text;
-            string SVConfirmPass = SVIPConfirmPassText.Text;
-            string SVPeriod = SVIPPlanPeriodText.Text;
-            string SVPayment = SVIPPaymentTypeText.Text;
-            string SVCardName = SVIPCardNameText.Text;
-            string SVCardNum = SVIPCardNumText.Text;
-            string SVCardExpire = SVIPCardExpireText.Text;
-            string SVcvc = SVIPCardCVCText.Text;
-            string SVPlanExpire = SVIPPlanExpirationText.Text;
-            string SVPlanRenew = "";
-            string SVAmount = SVIPNewPriceText.Text;
-
-
-            Regex nameRegex = new Regex("^[A-Z][a-zA-Z]+(?: [a-zA-Z]+)*$");
-            Regex gmailRegex = new Regex(@"^[A-Za-z0-9._%+-]*\d*@gmail\.com$");
-            Regex passwordRegex = new Regex("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?])[A-Za-z\\d!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]{8,}$");
-
-            string hashedPassword = HashHelper.HashString(SVPass);    // Password hashed
-            string fixedSalt = HashHelper_Salt.HashString_Salt("Enchante" + SVPass + "2024");    //Fixed Salt
-            string perUserSalt = HashHelper_SaltperUser.HashString_SaltperUser(SVPass + SVMemberID);    //Per User salt
-
-            int age = DateTime.Now.Year - selectedDate.Year;
-            if (DateTime.Now < selectedDate.AddYears(age))
-            {
-                age--; // Subtract 1 if the birthday hasn't occurred yet this year
-            }
-
-            if (string.IsNullOrEmpty(SVFirstname) || string.IsNullOrEmpty(SVLastname) || string.IsNullOrEmpty(SVAge) ||
-                string.IsNullOrEmpty(SVGender) || string.IsNullOrEmpty(SVNumber) || string.IsNullOrEmpty(SVEmailAdd) ||
-                string.IsNullOrEmpty(SVNumber) || string.IsNullOrEmpty(SVPass) || string.IsNullOrEmpty(SVConfirmPass) ||
-                string.IsNullOrEmpty(SVPeriod) || string.IsNullOrEmpty(SVPayment) || string.IsNullOrEmpty(SVCardName) ||
-                string.IsNullOrEmpty(SVCardNum) || string.IsNullOrEmpty(SVCardExpire) || string.IsNullOrEmpty(SVcvc) || string.IsNullOrEmpty(SVAmount))
-            {
-                SVIPFirstNameErrorLbl.Visible = true;
-                SVIPGenderErrorLbl.Visible = true;
-                SVIPCPNumErrorLbl.Visible = true;
-                SVIPEmailErrorLbl.Visible = true;
-                SVIPPassErrorLbl.Visible = true;
-                SVIPConfirmPassErrorLbl.Visible = true;
-                SVIPLastNameErrorLbl.Visible = true;
-                SVIPAgeErrorLbl.Visible = true;
-
-
-                SVIPFirstNameErrorLbl.Text = "Missing Field";
-                SVIPGenderErrorLbl.Text = "Missing Field";
-                SVIPCPNumErrorLbl.Text = "Missing Field";
-                SVIPEmailErrorLbl.Text = "Missing Field";
-                SVIPPassErrorLbl.Text = "Missing Field";
-                SVIPConfirmPassErrorLbl.Text = "Missing Field";
-                SVIPLastNameErrorLbl.Text = "Missing Field";
-                SVIPAgeErrorLbl.Text = "Missing Field";
-
-            }
-            else if (age < 18)
-            {
-                SVIPAgeErrorLbl.Visible = true;
-                SVIPAgeErrorLbl.Text = "Must be 18 years old and above";
-                return;
-            }
-            else if (!nameRegex.IsMatch(SVFirstname) && !nameRegex.IsMatch(SVLastname))
-            {
-                SVIPFirstNameErrorLbl.Visible = true;
-                SVIPLastNameErrorLbl.Visible = true;
-
-                SVIPFirstNameErrorLbl.Text = "First Letter Must Be Capital";
-                SVIPLastNameErrorLbl.Text = "First Letter Must Be Capital";
-
-                return;
-            }
-            else if (!gmailRegex.IsMatch(SVEmailAdd))
-            {
-                SVIPEmailErrorLbl.Visible = true;
-                SVIPEmailErrorLbl.Text = "Invalid Email Format";
-                return;
-            }
-            else if (!passwordRegex.IsMatch(SVPass))
-            {
-                SVIPPassErrorLbl.Visible = true;
-                SVIPPassErrorLbl.Text = "Invalid Password Format";
-                return;
-            }
-            else if (SVPass != SVConfirmPass)
-            {
-                SVIPConfirmPassErrorLbl.Visible = true;
-                SVIPPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
-                return;
-            }
-            else
-            {
-                try
-                {
-                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-                    {
-                        connection.Open();
-
-                        // Check if email already exists
-                        string checkEmailQuery = "SELECT COUNT(*) FROM membershipaccount WHERE EmailAdd = @email";
-                        MySqlCommand checkEmailCmd = new MySqlCommand(checkEmailQuery, connection);
-                        checkEmailCmd.Parameters.AddWithValue("@email", SVEmailAdd);
-
-                        int emailCount = Convert.ToInt32(checkEmailCmd.ExecuteScalar());
-
-                        if (emailCount > 0)
-                        {
-                            // Email already exists, show a message or take appropriate action
-                            MessageBox.Show("Email already exists. Please use a different email.", "Email Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return; // Exit the method without inserting the new account
-                        }
-
-                        // Email doesn't exist, proceed with insertion
-                        string insertQuery = "INSERT INTO membershipaccount (MembershipType, MemberIDNumber, AccountStatus, FirstName, " +
-                            "LastName, Birthday, Age, CPNumber, EmailAdd, HashedPass, SaltedPass, UserSaltedPass, PlanPeriod, " +
-                            "PaymentType, CardholderName, CardNumber, CardExpiration, CVCCode, AccountCreated, PlanExpiration, PlanRenewal, AmountPaid) " +
-                            "VALUES (@type, @ID, @status, @firstName, @lastName, @bday, @age, @cpnum, @email, @hashedpass, @saltedpass, @usersaltedpass, " +
-                            "@period, @payment, @cardname, @cardnumber, @cardexpiration, @cvc, @created, @planExpiration, @planRenew, @amount)";
-
-                        MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
-                        cmd.Parameters.AddWithValue("@type", SVType);
-                        cmd.Parameters.AddWithValue("@ID", SVMemberID);
-                        cmd.Parameters.AddWithValue("@status", SVStatus);
-                        cmd.Parameters.AddWithValue("@firstName", SVFirstname);
-                        cmd.Parameters.AddWithValue("@lastName", SVLastname);
-                        cmd.Parameters.AddWithValue("@bday", SVBday);
-                        cmd.Parameters.AddWithValue("@age", SVAge);
-                        cmd.Parameters.AddWithValue("@cpnum", SVNumber);
-                        cmd.Parameters.AddWithValue("@email", SVEmailAdd);
-                        cmd.Parameters.AddWithValue("@hashedpass", hashedPassword);
-                        cmd.Parameters.AddWithValue("@saltedpass", fixedSalt);
-                        cmd.Parameters.AddWithValue("@usersaltedpass", perUserSalt);
-                        cmd.Parameters.AddWithValue("@period", SVPeriod);
-                        cmd.Parameters.AddWithValue("@payment", SVPayment);
-                        cmd.Parameters.AddWithValue("@cardname", SVCardName);
-                        cmd.Parameters.AddWithValue("@cardnumber", SVCardNum);
-                        cmd.Parameters.AddWithValue("@cardexpiration", SVCardExpire);
-                        cmd.Parameters.AddWithValue("@cvc", SVcvc);
-                        cmd.Parameters.AddWithValue("@created", SVCreated);
-                        cmd.Parameters.AddWithValue("@planExpiration", SVPlanExpire);
-                        cmd.Parameters.AddWithValue("@planRenew", SVPlanRenew);
-                        cmd.Parameters.AddWithValue("@amount", SVAmount);
-
-                        cmd.ExecuteNonQuery();
-                    }
-
-                    // Successful insertion
-                    MessageBox.Show("SVIP Account is successfully created.", "Welcome to Enchanté", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    SVIPAccIDGenerator();
-                    SVIPMembershipBoxClear();
-                    MemberLocationAndColor();
-                }
-                catch (MySqlException ex)
-                {
-                    // Handle MySQL database exception
-                    MessageBox.Show("MySQL Error: " + ex.Message, "Creating SVIP Account Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    // No need to close the connection here as it is in a using statement
-                }
-
-
-
-            }
-        }
-        private void SVIPMembershipBoxClear()
-        {
-            SVIPFirstNameText.Text = "";
-            SVIPLastNameText.Text = "";
-            SVIPAgeText.Text = "";
-            SVIPGenderComboText.SelectedIndex = -1;
-            SVIPCPNumText.Text = "";
-            SVIPEmailText.Text = "";
-            SVIPMemberIDText.Text = "";
-            SVIPPassText.Text = "";
-            SVIPConfirmPassText.Text = "";
-            SVIPPassText.UseSystemPasswordChar = true;
-            SVIPConfirmPassText.UseSystemPasswordChar = true;
-            SVIPBdayPicker.Value = DateTime.Now;
-            SVIPCardNameText.Text = "";
-            SVIPPlanPeriodText.Text = "";
-            SVIPPaymentTypeText.Text = "";
-            SVIPCardNumText.Text = "";
-            SVIPCardExpireText.Text = "";
-            SVIPCardCVCText.Text = "";
-            SVIPPlanExpirationText.Text = "";
-            SVIPNewPriceText.Text = "";
-
-        }
-        //PREMIUM REGISTRATION
-        private void PremiumExitBtn_Click(object sender, EventArgs e)
-        {
-            Registration.PanelShow(MembershipPlanPanel);
-        }
-
-        private void PremMonthlyPlanBtn_Click(object sender, EventArgs e)
-        {
-            PremMonthly();
-        }
-
-        private void PremYearlyPlanBtn_Click(object sender, EventArgs e)
-        {
-            PremYearly();
-        }
-
-        private void PremBiyearlyPlanBtn_Click(object sender, EventArgs e)
-        {
-            PremBiyearly();
-        }
-
-        private void PremPassReqBtn_MouseHover(object sender, EventArgs e)
-        {
-            string message = "Must be at least 8 character long.\n";
-            message += "First character must be capital.\n";
-            message += "Must include a special character and a number.";
-
-            iconToolTip.SetToolTip(PremPassReqBtn, message);
-        }
-
-        private void PremShowHidePassBtn_MouseHover(object sender, EventArgs e)
-        {
-            if (PremPassText.UseSystemPasswordChar == true)
-            {
-                iconToolTip.SetToolTip(PremShowHidePassBtn, "Show Password");
-            }
-            else if (PremPassText.UseSystemPasswordChar == false)
-            {
-                iconToolTip.SetToolTip(PremShowHidePassBtn, "Hide Password");
-            }
-        }
-
-        private void PremShowHidePassBtn_Click(object sender, EventArgs e)
-        {
-            if (PremPassText.UseSystemPasswordChar == true)
-            {
-                PremPassText.UseSystemPasswordChar = false;
-                PremShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
-            }
-            else if (SVIPPassText.UseSystemPasswordChar == false)
-            {
-                PremPassText.UseSystemPasswordChar = true;
-                PremShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
-
-            }
-        }
-
-        private void PremShowHideConfirmPassBtn_MouseHover(object sender, EventArgs e)
-        {
-            if (PremConfirmPassText.UseSystemPasswordChar == true)
-            {
-                iconToolTip.SetToolTip(PremShowHideConfirmPassBtn, "Show Password");
-            }
-            else if (PremConfirmPassText.UseSystemPasswordChar == false)
-            {
-                iconToolTip.SetToolTip(PremShowHideConfirmPassBtn, "Hide Password");
-            }
-        }
-
-        private void PremShowHideConfirmPassBtn_Click(object sender, EventArgs e)
-        {
-            if (PremConfirmPassText.UseSystemPasswordChar == true)
-            {
-                PremConfirmPassText.UseSystemPasswordChar = false;
-                PremShowHideConfirmPassBtn.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
-            }
-            else if (SVIPConfirmPassText.UseSystemPasswordChar == false)
-            {
-                PremConfirmPassText.UseSystemPasswordChar = true;
-                PremShowHideConfirmPassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
-
-            }
-        }
-        private void PremConfirmPassText_TextChanged(object sender, EventArgs e)
-        {
-            if (PremConfirmPassText.Text != PremPassText.Text)
-            {
-                PremConfirmPassErrorLbl.Visible = true;
-                PremConfirmPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
-            }
-            else
-            {
-                PremConfirmPassErrorLbl.Visible = false;
-            }
-        }
-        private void PremMemberIDCopyBtn_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(SVIPMemberIDText.Text))
-            {
-                PremMemberIDCopyLbl.Visible = true;
-                PremMemberIDCopyLbl.Text = "ID Number Copied Successfully";
-                Clipboard.SetText(PremMemberIDText.Text);
-
-            }
-        }
-
-        private void PremBdayPicker_ValueChanged(object sender, EventArgs e)
-        {
-            DateTime selectedDate = PremBdayPicker.Value;
-            int age = DateTime.Now.Year - selectedDate.Year;
-
-            if (DateTime.Now < selectedDate.AddYears(age))
-            {
-                age--; // Subtract 1 if the birthday hasn't occurred yet this year
-            }
-            PremAgeText.Text = age.ToString();
-            if (age < 18)
-            {
-                PremAgeErrorLbl.Visible = true;
-                PremAgeErrorLbl.Text = "Must be 18 years old and above";
-                return;
-            }
-            else
-            {
-                PremAgeErrorLbl.Visible = false;
-
-            }
-        }
-
-        private void PremGenderComboText_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (PremGenderComboText.SelectedItem != null)
-            {
-                PremGenderComboText.Text = PremGenderComboText.SelectedItem.ToString();
-            }
-        }
-        private void PremMonthly()
-        {
-            SetExpirationDate("monthly");
-
-            if (PremMonthlyPlanRB.Checked == false)
-            {
-                PremMonthlyPlanRB.Visible = true;
-                PremMonthlyPlanRB.Checked = true;
-                PremPlanPeriodText.Text = "Premium Plan - Monthly";
-
-                PremOrigPriceText.Visible = false;
-                PremOrigPriceText.Text = "Php. 1499.00";
-                PremNewPriceText.Text = "Php. 1499.00";
-
-                PremYearlyPlanRB.Visible = false;
-                PremBiyearlyPlanRB.Visible = false;
-                PremYearlyPlanRB.Checked = false;
-                PremBiyearlyPlanRB.Checked = false;
-                return;
-            }
-            else if (PremMonthlyPlanRB.Checked == true)
-            {
-                PremPlanPeriodText.Text = "Premium Plan - Monthly";
-
-                PremOrigPriceText.Visible = false;
-                PremOrigPriceText.Text = "Php. 1499.00";
-                PremNewPriceText.Text = "Php. 1499.00";
-
-                PremYearlyPlanRB.Visible = false;
-                PremBiyearlyPlanRB.Visible = false;
-                PremYearlyPlanRB.Checked = false;
-                PremBiyearlyPlanRB.Checked = false;
-            }
-        }
-        private void PremYearly()
-        {
-            SetExpirationDate("yearly");
-
-            if (PremYearlyPlanRB.Checked == false)
-            {
-                PremYearlyPlanRB.Visible = true;
-                PremYearlyPlanRB.Checked = true;
-                PremPlanPeriodText.Text = "Premium Plan - 12 Months";
-
-                PremOrigPriceText.Visible = true;
-                PremOrigPriceText.Text = "Php. 1499.00";
-                PremNewPriceText.Text = "Php. 1299.00";
-
-                PremMonthlyPlanRB.Visible = false;
-                PremBiyearlyPlanRB.Visible = false;
-                PremMonthlyPlanRB.Checked = false;
-                PremBiyearlyPlanRB.Checked = false;
-            }
-            else
-            {
-                PremYearlyPlanRB.Visible = true;
-                PremYearlyPlanRB.Checked = true;
-            }
-        }
-        private void PremBiyearly()
-        {
-            SetExpirationDate("biyearly");
-
-            if (PremBiyearlyPlanRB.Checked == false)
-            {
-                PremBiyearlyPlanRB.Visible = true;
-                PremBiyearlyPlanRB.Checked = true;
-                PremPlanPeriodText.Text = "Premium Plan - 24 Months";
-
-                PremOrigPriceText.Visible = true;
-                PremOrigPriceText.Text = "Php. 1499.00";
-                PremNewPriceText.Text = "Php. 999.00";
-
-                PremMonthlyPlanRB.Visible = false;
-                PremYearlyPlanRB.Visible = false;
-                PremMonthlyPlanRB.Checked = false;
-                PremYearlyPlanRB.Checked = false;
-            }
-            else
-            {
-                PremBiyearlyPlanRB.Visible = true;
-                PremBiyearlyPlanRB.Checked = true;
-            }
-        }
-
-
-        private void PremCCPaymentBtn_Click(object sender, EventArgs e)
-        {
-            if (PremCCPaymentRB.Checked == false)
-            {
-                PremCCPaymentRB.Visible = true;
-                PremCCPaymentRB.Checked = true;
-                PremPaymentTypeText.Text = "Credit Card";
-
-                PremPayPPaymentRB.Visible = false;
-                PremGCPaymentRB.Visible = false;
-                PremPayMPaymentRB.Visible = false;
-                PremPayPPaymentRB.Checked = false;
-                PremGCPaymentRB.Checked = false;
-                PremPayMPaymentRB.Checked = false;
-            }
-            else
-            {
-                PremCCPaymentRB.Visible = true;
-                PremCCPaymentRB.Checked = true;
-            }
-        }
-
-        private void PremPayPPaymentBtn_Click(object sender, EventArgs e)
-        {
-            if (PremPayPPaymentRB.Checked == false)
-            {
-                PremPayPPaymentRB.Visible = true;
-                PremPayPPaymentRB.Checked = true;
-                PremPaymentTypeText.Text = "Paypal";
-
-                PremCCPaymentRB.Visible = false;
-                PremGCPaymentRB.Visible = false;
-                PremPayMPaymentRB.Visible = false;
-                PremCCPaymentRB.Checked = false;
-                PremGCPaymentRB.Checked = false;
-                PremPayMPaymentRB.Checked = false;
-            }
-            else
-            {
-                PremPayPPaymentRB.Visible = true;
-                PremPayPPaymentRB.Checked = true;
-            }
-        }
-
-        private void PremGCPaymentBtn_Click(object sender, EventArgs e)
-        {
-            if (PremGCPaymentRB.Checked == false)
-            {
-                PremGCPaymentRB.Visible = true;
-                PremGCPaymentRB.Checked = true;
-                PremPaymentTypeText.Text = "GCash";
-
-                PremCCPaymentRB.Visible = false;
-                PremPayPPaymentRB.Visible = false;
-                PremPayMPaymentRB.Visible = false;
-                PremCCPaymentRB.Checked = false;
-                PremPayPPaymentRB.Checked = false;
-                PremPayMPaymentRB.Checked = false;
-            }
-            else
-            {
-                PremGCPaymentRB.Visible = true;
-                PremGCPaymentRB.Checked = true;
-            }
-        }
-
-        private void PremPayMPaymentBtn_Click(object sender, EventArgs e)
-        {
-            if (PremPayMPaymentRB.Checked == false)
-            {
-                PremPayMPaymentRB.Visible = true;
-                PremPayMPaymentRB.Checked = true;
-                PremPaymentTypeText.Text = "Paymaya";
-
-                PremCCPaymentRB.Visible = false;
-                PremPayPPaymentRB.Visible = false;
-                PremGCPaymentRB.Visible = false;
-                PremCCPaymentRB.Checked = false;
-                PremPayPPaymentRB.Checked = false;
-                PremGCPaymentRB.Checked = false;
-            }
-            else
-            {
-                PremPayMPaymentRB.Checked = true;
-            }
-        }
-
-        private void PremCreateAccBtn_Click(object sender, EventArgs e)
-        {
-            DateTime selectedDate = PremBdayPicker.Value;
-            DateTime currentDate = DateTime.Now;
-
-            string PremCreated = currentDate.ToString("MM-dd-yyyy");
-            string PremStatus = "Active";
-            string PremType = "PREMIUM";
-            string PremFirstname = PremFirstNameText.Text;
-            string PremLastname = PremLastNameText.Text;
-            string PremBday = selectedDate.ToString("MM-dd-yyyy");
-            string PremAge = PremAgeText.Text;
-            string PremGender = PremGenderComboText.Text;
-            string PremNumber = PremCPNumText.Text;
-            string PremEmailAdd = PremEmailText.Text;
-            string PremMemberID = PremMemberIDText.Text;
-            string PremPass = PremPassText.Text;
-            string PremConfirmPass = PremConfirmPassText.Text;
-            string PremPeriod = PremPlanPeriodText.Text;
-            string PremPayment = PremPaymentTypeText.Text;
-            string PremCardName = PremCardNameText.Text;
-            string PremCardNum = PremCardNumText.Text;
-            string PremCardExpire = PremCardExpireText.Text;
-            string Premcvc = PremCardCVCText.Text;
-            string PremPlanExpire = PremPlanExpirationText.Text;
-            string PremPlanRenew = "";
-            string PremAmount = PremNewPriceText.Text;
-
-
-            Regex nameRegex = new Regex("^[A-Z][a-zA-Z]+(?: [a-zA-Z]+)*$");
-            Regex gmailRegex = new Regex(@"^[A-Za-z0-9._%+-]*\d*@gmail\.com$");
-            Regex passwordRegex = new Regex("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?])[A-Za-z\\d!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]{8,}$");
-
-            string hashedPassword = HashHelper.HashString(PremPass);    // Password hashed
-            string fixedSalt = HashHelper_Salt.HashString_Salt("Enchante" + PremPass + "2024");    //Fixed Salt
-            string perUserSalt = HashHelper_SaltperUser.HashString_SaltperUser(PremPass + PremMemberID);    //Per User salt
-
-            int age = DateTime.Now.Year - selectedDate.Year;
-            if (DateTime.Now < selectedDate.AddYears(age))
-            {
-                age--; // Subtract 1 if the birthday hasn't occurred yet this year
-            }
-
-            if (string.IsNullOrEmpty(PremFirstname) || string.IsNullOrEmpty(PremLastname) || string.IsNullOrEmpty(PremAge) ||
-                string.IsNullOrEmpty(PremGender) || string.IsNullOrEmpty(PremNumber) || string.IsNullOrEmpty(PremEmailAdd) ||
-                string.IsNullOrEmpty(PremNumber) || string.IsNullOrEmpty(PremPass) || string.IsNullOrEmpty(PremConfirmPass) ||
-                string.IsNullOrEmpty(PremPeriod) || string.IsNullOrEmpty(PremPayment) || string.IsNullOrEmpty(PremCardName) ||
-                string.IsNullOrEmpty(PremCardNum) || string.IsNullOrEmpty(PremCardExpire) || string.IsNullOrEmpty(Premcvc) || string.IsNullOrEmpty(PremAmount))
-            {
-                PremFirstNameErrorLbl.Visible = true;
-                PremGenderErrorLbl.Visible = true;
-                PremCPNumErrorLbl.Visible = true;
-                PremEmailErrorLbl.Visible = true;
-                PremPassErrorLbl.Visible = true;
-                PremConfirmPassErrorLbl.Visible = true;
-                PremLastNameErrorLbl.Visible = true;
-                PremAgeErrorLbl.Visible = true;
-
-
-                PremFirstNameErrorLbl.Text = "Missing Field";
-                PremGenderErrorLbl.Text = "Missing Field";
-                PremCPNumErrorLbl.Text = "Missing Field";
-                PremEmailErrorLbl.Text = "Missing Field";
-                PremPassErrorLbl.Text = "Missing Field";
-                PremConfirmPassErrorLbl.Text = "Missing Field";
-                PremLastNameErrorLbl.Text = "Missing Field";
-                PremAgeErrorLbl.Text = "Missing Field";
-
-            }
-            else if (age < 18)
-            {
-                PremAgeErrorLbl.Visible = true;
-                PremAgeErrorLbl.Text = "Must be 18 years old and above";
-                return;
-            }
-            else if (!nameRegex.IsMatch(PremFirstname) && !nameRegex.IsMatch(PremLastname))
-            {
-                PremFirstNameErrorLbl.Visible = true;
-                PremLastNameErrorLbl.Visible = true;
-
-                PremFirstNameErrorLbl.Text = "First Letter Must Be Capital";
-                PremLastNameErrorLbl.Text = "First Letter Must Be Capital";
-
-                return;
-            }
-            else if (!gmailRegex.IsMatch(PremEmailAdd))
-            {
-                PremEmailErrorLbl.Visible = true;
-                PremEmailErrorLbl.Text = "Invalid Email Format";
-                return;
-            }
-            else if (!passwordRegex.IsMatch(PremPass))
-            {
-                PremPassErrorLbl.Visible = true;
-                PremPassErrorLbl.Text = "Invalid Password Format";
-                return;
-            }
-            else if (PremPass != PremConfirmPass)
-            {
-                PremConfirmPassErrorLbl.Visible = true;
-                PremConfirmPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
-                return;
-            }
-            else
-            {
-                try
-                {
-                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-                    {
-                        connection.Open();
-
-                        // Check if email already exists
-                        string checkEmailQuery = "SELECT COUNT(*) FROM membershipaccount WHERE EmailAdd = @email";
-                        MySqlCommand checkEmailCmd = new MySqlCommand(checkEmailQuery, connection);
-                        checkEmailCmd.Parameters.AddWithValue("@email", PremEmailAdd);
-
-                        int emailCount = Convert.ToInt32(checkEmailCmd.ExecuteScalar());
-
-                        if (emailCount > 0)
-                        {
-                            // Email already exists, show a message or take appropriate action
-                            MessageBox.Show("Email already exists. Please use a different email.", "Email Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return; // Exit the method without inserting the new account
-                        }
-
-                        // Email doesn't exist, proceed with insertion
-                        string insertQuery = "INSERT INTO membershipaccount (MembershipType, MemberIDNumber, AccountStatus, FirstName, " +
-                            "LastName, Birthday, Age, CPNumber, EmailAdd, HashedPass, SaltedPass, UserSaltedPass, PlanPeriod, " +
-                            "PaymentType, CardholderName, CardNumber, CardExpiration, CVCCode, AccountCreated, PlanExpiration, PlanRenewal, AmountPaid) " +
-                            "VALUES (@type, @ID, @status, @firstName, @lastName, @bday, @age, @cpnum, @email, @hashedpass, @saltedpass, @usersaltedpass, " +
-                            "@period, @payment, @cardname, @cardnumber, @cardexpiration, @cvc, @created, @planExpiration, @planRenew, @amount)";
-
-                        MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
-                        cmd.Parameters.AddWithValue("@type", PremType);
-                        cmd.Parameters.AddWithValue("@ID", PremMemberID);
-                        cmd.Parameters.AddWithValue("@status", PremStatus);
-                        cmd.Parameters.AddWithValue("@firstName", PremFirstname);
-                        cmd.Parameters.AddWithValue("@lastName", PremLastname);
-                        cmd.Parameters.AddWithValue("@bday", PremBday);
-                        cmd.Parameters.AddWithValue("@age", PremAge);
-                        cmd.Parameters.AddWithValue("@cpnum", PremNumber);
-                        cmd.Parameters.AddWithValue("@email", PremEmailAdd);
-                        cmd.Parameters.AddWithValue("@hashedpass", hashedPassword);
-                        cmd.Parameters.AddWithValue("@saltedpass", fixedSalt);
-                        cmd.Parameters.AddWithValue("@usersaltedpass", perUserSalt);
-                        cmd.Parameters.AddWithValue("@period", PremPeriod);
-                        cmd.Parameters.AddWithValue("@payment", PremPayment);
-                        cmd.Parameters.AddWithValue("@cardname", PremCardName);
-                        cmd.Parameters.AddWithValue("@cardnumber", PremCardNum);
-                        cmd.Parameters.AddWithValue("@cardexpiration", PremCardExpire);
-                        cmd.Parameters.AddWithValue("@cvc", Premcvc);
-                        cmd.Parameters.AddWithValue("@created", PremCreated);
-                        cmd.Parameters.AddWithValue("@planExpiration", PremPlanExpire);
-                        cmd.Parameters.AddWithValue("@planRenew", PremPlanRenew);
-                        cmd.Parameters.AddWithValue("@amount", PremAmount);
-
-                        cmd.ExecuteNonQuery();
-                    }
-
-                    // Successful insertion
-                    MessageBox.Show("Premium Account is successfully created.", "Welcome to Enchanté", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    PremAccIDGenerator();
-                    PremMembershipBoxClear();
-                    MemberLocationAndColor();
-                }
-                catch (MySqlException ex)
-                {
-                    // Handle MySQL database exception
-                    MessageBox.Show("MySQL Error: " + ex.Message, "Creating Premium Account Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    // No need to close the connection here as it is in a using statement
-                }
-
-
-
-            }
-        }
-        private void PremMembershipBoxClear()
-        {
-            PremFirstNameText.Text = "";
-            PremLastNameText.Text = "";
-            PremAgeText.Text = "";
-            PremGenderComboText.SelectedIndex = -1;
-            PremCPNumText.Text = "";
-            PremEmailText.Text = "";
-            PremMemberIDText.Text = "";
-            PremPassText.Text = "";
-            PremConfirmPassText.Text = "";
-            PremPassText.UseSystemPasswordChar = true;
-            PremConfirmPassText.UseSystemPasswordChar = true;
-            PremBdayPicker.Value = DateTime.Now;
-            PremCardNameText.Text = "";
-            PremPlanPeriodText.Text = "";
-            PremPaymentTypeText.Text = "";
-            PremCardNumText.Text = "";
-            PremCardExpireText.Text = "";
-            PremCardCVCText.Text = "";
-            PremPlanExpirationText.Text = "";
-            PremNewPriceText.Text = "";
-
-        }
+       
+        
         #endregion
 
-        //Customer Member Dashboard Starts Here
-        #region
-        private void MemberAccUserBtn_Click(object sender, EventArgs e)
-        {
-            if (MemberUserAccPanel.Visible == false)
-            {
-                MemberUserAccPanel.Visible = true;
 
-            }
-            else
-            {
-                MemberUserAccPanel.Visible = false;
-            }
-        }
-        #endregion
 
-        //Receptionist Dashboard Starts Here
-        #region
+
+        #region Receptionist Dashboard Starts Here
+
+        #region Receptionist Misc. Functions
         private void ReceptionLogoutBtn_Click(object sender, EventArgs e)
         {
             LogoutChecker();
@@ -2852,9 +976,12 @@ namespace Enchante
             RecWalkinTransNumText.Text = TransactionNumberGenerator.WalkinGenerateTransNumberDefault();
         }
 
+        //ApptMember
         private void RecAppointmentBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecApptPanel);
+            RecApptBookingTimeComboBox.Items.Clear();
+            LoadBookingTimes();
             RecApptTransNumText.Text = TransactionNumberGenerator.AppointGenerateTransNumberDefault();
             RecApptBookingDatePicker.MinDate = DateTime.Today;
             RecApptClientBdayPicker.MaxDate = DateTime.Today;
@@ -2897,6 +1024,7 @@ namespace Enchante
 
                 return ordersessionNumber;
             }
+            //ApptMember
             public static string AppointGenerateTransNumberInc()
             {
                 string datePart = DateTime.Now.ToString("MMddhhmm");
@@ -2945,6 +1073,8 @@ namespace Enchante
             // Scroll to the Home position (0, 0)
             ScrollToCoordinates(0, 0);
             ReceptionHomePanelReset();
+            RecApptAcceptLateDeclineDGV.Rows.Clear();
+            RecCanceAllServicesDGV.Rows.Clear();
 
             //Change color once clicked
             RecHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
@@ -2961,9 +1091,9 @@ namespace Enchante
         {
             iconToolTip.SetToolTip(RecAccBtn, "Profile");
         }
+        #endregion
 
-        //Receptionist Walk-in Transaction
-        #region
+        #region Receptionist Walk-in Transaction
         private void RecWalkInExitBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecTransactionPanel);
@@ -3192,6 +1322,8 @@ namespace Enchante
                         RecWalkInServiceTypeDGV.Columns[0].Visible = false; //service category
                         RecWalkInServiceTypeDGV.Columns[1].Visible = false; // service type
                         RecWalkInServiceTypeDGV.Columns[2].Visible = false; // service ID
+                        RecWalkInServiceTypeDGV.Columns[7].Visible = false; // required item
+                        RecWalkInServiceTypeDGV.Columns[8].Visible = false; // numofitems
                         RecWalkInServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         RecWalkInServiceTypeDGV.ClearSelection();
                     }
@@ -3231,6 +1363,8 @@ namespace Enchante
                         RecWalkInServiceTypeDGV.Columns[0].Visible = false;
                         RecWalkInServiceTypeDGV.Columns[1].Visible = false;
                         RecWalkInServiceTypeDGV.Columns[2].Visible = false;
+                        RecWalkInServiceTypeDGV.Columns[7].Visible = false; 
+                        RecWalkInServiceTypeDGV.Columns[8].Visible = false;
                         RecWalkInServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         RecWalkInServiceTypeDGV.ClearSelection();
                     }
@@ -3270,6 +1404,8 @@ namespace Enchante
                         RecWalkInServiceTypeDGV.Columns[0].Visible = false;
                         RecWalkInServiceTypeDGV.Columns[1].Visible = false;
                         RecWalkInServiceTypeDGV.Columns[2].Visible = false;
+                        RecWalkInServiceTypeDGV.Columns[7].Visible = false;
+                        RecWalkInServiceTypeDGV.Columns[8].Visible = false;
                         RecWalkInServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         RecWalkInServiceTypeDGV.ClearSelection();
                     }
@@ -3309,6 +1445,8 @@ namespace Enchante
                         RecWalkInServiceTypeDGV.Columns[0].Visible = false;
                         RecWalkInServiceTypeDGV.Columns[1].Visible = false;
                         RecWalkInServiceTypeDGV.Columns[2].Visible = false;
+                        RecWalkInServiceTypeDGV.Columns[7].Visible = false;
+                        RecWalkInServiceTypeDGV.Columns[8].Visible = false;
                         RecWalkInServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         RecWalkInServiceTypeDGV.ClearSelection();
                     }
@@ -3348,6 +1486,8 @@ namespace Enchante
                         RecWalkInServiceTypeDGV.Columns[0].Visible = false;
                         RecWalkInServiceTypeDGV.Columns[1].Visible = false;
                         RecWalkInServiceTypeDGV.Columns[2].Visible = false;
+                        RecWalkInServiceTypeDGV.Columns[7].Visible = false; 
+                        RecWalkInServiceTypeDGV.Columns[8].Visible = false;
                         RecWalkInServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         RecWalkInServiceTypeDGV.ClearSelection();
                     }
@@ -3569,6 +1709,7 @@ namespace Enchante
             }
         }
 
+
         private int GetLargestQueNum(string appointmentDate, string serviceCategory)
         {
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
@@ -3600,6 +1741,7 @@ namespace Enchante
             }
         }
 
+        //ApptMember
         public bool isappointment;
         public void QueTypeIdentifier(DataGridViewCell QueType)
         {
@@ -3742,9 +1884,12 @@ namespace Enchante
             RecWalkinCatMassageRB.Checked = false;
             RecWalkinSelectedServiceDGV.Rows.Clear();
             RecWalkinSelectedProdDGV.Rows.Clear();
-
+            RecWalkinAnyStaffToggleSwitch.Checked = false;
+            RecWalkinPreferredStaffToggleSwitch.Checked = false;
         }
-        private void QueueNumReceiptGenerator()
+
+
+        private void QueueNumReceiptGenerator() // to be discarded
         {
             DateTime currentDate = RecDateTimePicker.Value;
             string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
@@ -3876,7 +2021,7 @@ namespace Enchante
 
                     // Total from your textboxes as decimal
                     decimal netAmount = decimal.Parse(RecPayServiceNetAmountBox.Text);
-                    decimal discount = decimal.Parse(RecWalkinDiscountBox.Text);
+                    decimal discount = decimal.Parse(RecPayServiceDiscountBox.Text);
                     decimal vat = decimal.Parse(RecPayServiceVATBox.Text);
                     decimal grossAmount = decimal.Parse(RecPayServiceGrossAmountBox.Text);
                     decimal cash = decimal.Parse(RecPayServiceCashBox.Text);
@@ -4086,6 +2231,8 @@ namespace Enchante
         {
             DateTime currentDate = RecDateTimePicker.Value;
             string transactionNum = RecWalkinTransNumText.Text;
+            string transactionType = "Walk-in Transaction";
+
             string serviceStatus = "Pending";
 
             //booked values
@@ -4115,14 +2262,15 @@ namespace Enchante
                                 string queNumber = row.Cells["QueNumber"].Value.ToString();
                                 string queType = row.Cells["QueType"].Value.ToString();
 
-                                string insertQuery = "INSERT INTO servicehistory (TransactionNumber, ServiceStatus, AppointmentDate, AppointmentTime, ClientName, " +
+                                string insertQuery = "INSERT INTO servicehistory (TransactionNumber, TransactionType, ServiceStatus, AppointmentDate, AppointmentTime, ClientName, " +
                                                      "ServiceCategory, ServiceID, SelectedService, ServicePrice, PreferredStaff, QueNumber," +
-                                                     "QueType" +
-                                                     ") VALUES (@Transact, @status, @appointDate, @appointTime, @name, @serviceCat, @ID, @serviceName, @servicePrice, " +
+                                                     "QueType) " +
+                                                     "VALUES (@Transact, @type, @status, @appointDate, @appointTime, @name, @serviceCat, @ID, @serviceName, @servicePrice, " +
                                                      "@preferredstaff, @quenumber, @quetype)";
 
                                 MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
                                 cmd.Parameters.AddWithValue("@Transact", transactionNum);
+                                cmd.Parameters.AddWithValue("@type", transactionType);
                                 cmd.Parameters.AddWithValue("@status", serviceStatus);
                                 cmd.Parameters.AddWithValue("@appointDate", bookedDate);
                                 cmd.Parameters.AddWithValue("@appointTime", bookedTime);
@@ -4289,6 +2437,7 @@ namespace Enchante
                 string query = "SELECT ItemID, ItemName, ItemStock, ItemPrice, ItemStatus, ProductPicture FROM inventory WHERE ProductType = 'Retail Product'";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 MySqlDataReader reader = command.ExecuteReader();
+                Size userControlSize = new Size(295, 275);
 
                 while (reader.Read())
                 {
@@ -4309,6 +2458,24 @@ namespace Enchante
                     recwalkinproductusercontrol.ProductPriceTextBox.Text = itemPrice;
                     recwalkinproductusercontrol.ProductStatusTextBox.Text = itemStatus;
                     //recshop product
+                    recshopproductusercontrol.Size = userControlSize;
+                    recshopproductusercontrol.ProductNameTextBox.Size = new Size(235, 33);
+                    recshopproductusercontrol.ProductPriceTextBox.Size = new Size(90, 27);
+                    recshopproductusercontrol.ProductPicturePictureBox.Size = new Size(162, 162);
+                    recshopproductusercontrol.ProductNameTextBox.Location = new Point(12, 190);
+                    recshopproductusercontrol.ProductPriceTextBox.Location = new Point(67, 230);
+                    recshopproductusercontrol.PhpSignLbl.Location = new Point(18, 230);
+                    recshopproductusercontrol.ProductPicturePictureBox.Location = new Point(72, 12);
+                    //Border
+                    recshopproductusercontrol.LeftBorder.Size = new Size(10, 275);
+                    recshopproductusercontrol.LeftBorder.Location = new Point(-5, 0);
+                    recshopproductusercontrol.TopBorder.Size = new Size(295, 10);
+                    recshopproductusercontrol.TopBorder.Location = new Point(0, -5);
+                    recshopproductusercontrol.RightBorder.Size = new Size(10, 275);
+                    recshopproductusercontrol.RightBorder.Location = new Point(289, 0);
+                    recshopproductusercontrol.DownBorder.Size = new Size(295, 10);
+                    recshopproductusercontrol.DownBorder.Location = new Point(0, 269);
+
                     recshopproductusercontrol.ProductItemIDTextBox.Text = itemID;
                     recshopproductusercontrol.ProductNameTextBox.Text = itemName;
                     recshopproductusercontrol.ProductStockTextBox.Text = itemStock;
@@ -4389,7 +2556,7 @@ namespace Enchante
                 if (RecWalkinSelectedProdDGV.Columns[e.ColumnIndex].Name == "Void")
                 {
                     //input dialog messagebox
-                    string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Password Required");
+                    string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Void Product Permission");
 
                     // Hash the entered password
                     string hashedEnteredPassword = HashHelper.HashString(enteredPassword);
@@ -4503,13 +2670,8 @@ namespace Enchante
                 return;
             }
 
-            if (RecWalkinSelectedProdDGV.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Please select a product to void.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             //input dialog messagebox
-            string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Password Required");
+            string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Void Product Permission");
 
             // Hash the entered password
             string hashedEnteredPassword = HashHelper.HashString(enteredPassword);
@@ -4610,6 +2772,8 @@ namespace Enchante
 
                 // Set the fixed size for the form
                 passwordForm.Size = new Size(500, 300);
+                passwordForm.Text = title;
+
                 passwordForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
                 // Disable resizing of the form
                 passwordForm.FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -4635,8 +2799,7 @@ namespace Enchante
 
         #endregion
 
-        //Receptionist Payment Service
-        #region
+        #region Receptionist Payment Service
 
         private void ReceptionCalculateTotalPrice()
         {
@@ -4726,7 +2889,7 @@ namespace Enchante
                     decimal vatAmount = 0;
                     RecPayServiceGrossAmountBox.Text = discountedAmount.ToString("0.00"); // Format to display as currency
                     RecPayServiceNetAmountBox.Text = discountedAmount.ToString("0.00"); // Format to display as currency
-                    RecWalkinDiscountBox.Text = discountAmount.ToString("0.00"); // Display the discount amount
+                    RecPayServiceDiscountBox.Text = discountAmount.ToString("0.00"); // Display the discount amount
                     RecPayServiceVATBox.Text = vatAmount.ToString("0.00");
                     RecPayServiceDiscountPWD.Checked = false;
                     RecPayServiceVATExemptChk.Checked = true;
@@ -4737,7 +2900,7 @@ namespace Enchante
                 {
                     // Unchecked, set MngrGrossAmount to the original value if the discount has been applied before
                     RecPayServiceGrossAmountBox.Text = originalGrossAmount.ToString("0.00");
-                    RecWalkinDiscountBox.Text = "0.00"; // Reset the discount amount display
+                    RecPayServiceDiscountBox.Text = "0.00"; // Reset the discount amount display
                     ReceptionCalculateVATAndNetAmount();
                     RecPayServiceVATExemptChk.Checked = false;
                     RecPayServiceVATExemptChk.Enabled = true;
@@ -4761,18 +2924,18 @@ namespace Enchante
                     decimal vatAmount = 0;
                     RecPayServiceGrossAmountBox.Text = discountedAmount.ToString("0.00"); // Format to display as currency
                     RecPayServiceNetAmountBox.Text = discountedAmount.ToString("0.00"); // Format to display as currency
-                    RecWalkinDiscountBox.Text = discountAmount.ToString("0.00"); // Display the discount amount
+                    RecPayServiceDiscountBox.Text = discountAmount.ToString("0.00"); // Display the discount amount
                     RecPayServiceVATBox.Text = vatAmount.ToString("0.00");
                     RecPayServiceDiscountSenior.Checked = false;
                     RecPayServiceVATExemptChk.Checked = true;
-                    RecPayServiceVATExemptChk.Enabled = false; 
+                    RecPayServiceVATExemptChk.Enabled = false;
                     return;
                 }
-                else 
+                else
                 {
                     // Unchecked, set MngrGrossAmount to the original value if the discount has been applied before
                     RecPayServiceGrossAmountBox.Text = originalGrossAmount.ToString("0.00");
-                    RecWalkinDiscountBox.Text = "0.00"; // Reset the discount amount display
+                    RecPayServiceDiscountBox.Text = "0.00"; // Reset the discount amount display
                     ReceptionCalculateVATAndNetAmount();
                     RecPayServiceVATExemptChk.Checked = false;
                     RecPayServiceVATExemptChk.Enabled = true;
@@ -5053,11 +3216,12 @@ namespace Enchante
                     connection.Open();
 
                     // Modify the SQL query to filter based on TransactNumber and OrderNumber
-                    string sql = "SELECT * FROM `servicehistory` WHERE TransactionNumber = @TransactionNumber";
+                    string sql = "SELECT * FROM `servicehistory` WHERE TransactionNumber = @TransactionNumber AND ServiceStatus = @status";
                     MySqlCommand cmd = new MySqlCommand(sql, connection);
 
                     // Add parameters to the query
                     cmd.Parameters.AddWithValue("@TransactionNumber", transactNumber);
+                    cmd.Parameters.AddWithValue("@status", "Completed");
 
                     System.Data.DataTable dataTable = new System.Data.DataTable();
 
@@ -5083,6 +3247,7 @@ namespace Enchante
                         RecPayServiceAcquiredDGV.Columns[15].Visible = false; // que number
                         RecPayServiceAcquiredDGV.Columns[16].Visible = false; // que type
                         RecPayServiceAcquiredDGV.Columns[17].Visible = false; // prio number
+                        RecPayServiceAcquiredDGV.Columns[18].Visible = false; // prio number
 
                     }
                 }
@@ -5110,11 +3275,12 @@ namespace Enchante
                     connection.Open();
 
                     // Modify the SQL query to filter based on TransactNumber and OrderNumber
-                    string sql = "SELECT * FROM `orderproducthistory` WHERE TransactionNumber = @TransactionNumber";
+                    string sql = "SELECT * FROM `orderproducthistory` WHERE TransactionNumber = @TransactionNumber AND ProductStatus = @status";
                     MySqlCommand cmd = new MySqlCommand(sql, connection);
 
                     // Add parameters to the query
                     cmd.Parameters.AddWithValue("@TransactionNumber", transactNumber);
+                    cmd.Parameters.AddWithValue("@status", "Not Paid");
 
                     System.Data.DataTable dataTable = new System.Data.DataTable();
 
@@ -5158,20 +3324,43 @@ namespace Enchante
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 // Get TransactNumber and OrderNumber from the clicked cell in MngrSalesTable
-                string transactNumber = RecPayServiceCompleteTransDGV.Rows[e.RowIndex].Cells["TransactionNumber"].Value.ToString();
-                string clientName = RecPayServiceCompleteTransDGV.Rows[e.RowIndex].Cells["ClientName"].Value.ToString();
+                string transactNumber = RecPayServiceWalkinCompleteTransDGV.Rows[e.RowIndex].Cells["TransactionNumber"].Value.ToString();
+                string clientName = RecPayServiceWalkinCompleteTransDGV.Rows[e.RowIndex].Cells["ClientName"].Value.ToString();
+
 
                 RecPayServiceTransactNumLbl.Text = transactNumber;
-                RecPayServiceClientNameLbl.Text = $"Client Name: {clientName}";
+                RecPayServiceClientNameLbl.Text = $"{clientName}";
+
                 RecLoadServiceHistoryDB(transactNumber);
                 RecLoadOrderProdHistoryDB(transactNumber);
+
                 ReceptionCalculateTotalPrice();
+                RecPayServiceTransTypeLbl.Text = "Walk-in";
 
             }
         }
 
-        public void RecLoadCompletedTrans()
+        private void RecPayServiceApptCompleteTransDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                string transactNumber1 = RecPayServiceApptCompleteTransDGV.Rows[e.RowIndex].Cells["TransactionNumber"].Value.ToString();
+                string clientName1 = RecPayServiceApptCompleteTransDGV.Rows[e.RowIndex].Cells["ClientName"].Value.ToString();
+
+                RecPayServiceTransactNumLbl.Text = transactNumber1;
+                RecPayServiceClientNameLbl.Text = $"{clientName1}";
+                RecLoadServiceHistoryDB(transactNumber1);
+                RecLoadOrderProdHistoryDB(transactNumber1);
+
+                ReceptionCalculateTotalPrice();
+                RecPayServiceTransTypeLbl.Text = "Appointment";
+
+            }
+        }
+        public void RecLoadCompletedWalkinTrans()
+        {
+            string todayDate = DateTime.Today.ToString("MM-dd-yyyy dddd");
+
             MySqlConnection connection = null;
             try
             {
@@ -5180,53 +3369,153 @@ namespace Enchante
                     connection.Open();
 
                     // Filter and sort the data by FoodType
-                    string sql = "SELECT * FROM `walk_in_appointment` WHERE ServiceStatus = 'Completed' ORDER BY ServiceStatus";
+                    string sql = "SELECT * FROM `walk_in_appointment` WHERE ServiceStatus = 'Completed' AND AppointmentDate = @todayDate ORDER BY ServiceStatus ";
                     MySqlCommand cmd = new MySqlCommand(sql, connection);
                     System.Data.DataTable dataTable = new System.Data.DataTable();
+                    cmd.Parameters.AddWithValue("@todayDate", todayDate);
 
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
                     {
                         adapter.Fill(dataTable);
 
-                        RecPayServiceCompleteTransDGV.Columns.Clear();
+                        RecPayServiceWalkinCompleteTransDGV.Columns.Clear();
 
-                        RecPayServiceCompleteTransDGV.DataSource = dataTable;
+                        RecPayServiceWalkinCompleteTransDGV.DataSource = dataTable;
 
-                        // Ensure the column count before accessing columns
-                        if (RecPayServiceCompleteTransDGV.Columns.Count > 2)
+                        if (RecPayServiceWalkinCompleteTransDGV.Columns.Count > 2)
                         {
-                            RecPayServiceCompleteTransDGV.Columns[2].Visible = false; //appointment date
-                            RecPayServiceCompleteTransDGV.Columns[3].Visible = false; //appointment time
-                                                                                      // Make sure to adjust the column indices based on visibility changes
-                            RecPayServiceCompleteTransDGV.Columns[5].Visible = false; // client cp num
-                            RecPayServiceCompleteTransDGV.Columns[6].Visible = false; // net price
-                            RecPayServiceCompleteTransDGV.Columns[7].Visible = false; // net price
-                            RecPayServiceCompleteTransDGV.Columns[8].Visible = false; // net price
-                            RecPayServiceCompleteTransDGV.Columns[10].Visible = false; // discount amount
-                            RecPayServiceCompleteTransDGV.Columns[11].Visible = false; // discount amount
-                            RecPayServiceCompleteTransDGV.Columns[12].Visible = false; // cash given
-                            RecPayServiceCompleteTransDGV.Columns[13].Visible = false; // due change
-                            RecPayServiceCompleteTransDGV.Columns[14].Visible = false; // payment method
-                            RecPayServiceCompleteTransDGV.Columns[15].Visible = false; // card name
-                            RecPayServiceCompleteTransDGV.Columns[16].Visible = false; // card num
-                            RecPayServiceCompleteTransDGV.Columns[17].Visible = false; // cvc
-                            RecPayServiceCompleteTransDGV.Columns[18].Visible = false; // card expiration
-                            RecPayServiceCompleteTransDGV.Columns[19].Visible = false; // wallet num
-                            RecPayServiceCompleteTransDGV.Columns[20].Visible = false; // wallet PIN
-                            RecPayServiceCompleteTransDGV.Columns[21].Visible = false; // wallet OTP
-                            RecPayServiceCompleteTransDGV.Columns[22].Visible = false; // service duration
-                            RecPayServiceCompleteTransDGV.Columns[23].Visible = false; // booked by
-                            RecPayServiceCompleteTransDGV.Columns[24].Visible = false; // booked date
+                            RecPayServiceWalkinCompleteTransDGV.Columns[2].Visible = false; //appointment date
+                            RecPayServiceWalkinCompleteTransDGV.Columns[3].Visible = false; //appointment time
+                            RecPayServiceWalkinCompleteTransDGV.Columns[5].Visible = false; // client cp num
+                            RecPayServiceWalkinCompleteTransDGV.Columns[6].Visible = false; // net price
+                            RecPayServiceWalkinCompleteTransDGV.Columns[7].Visible = false; // net price
+                            RecPayServiceWalkinCompleteTransDGV.Columns[8].Visible = false; // net price
+                            RecPayServiceWalkinCompleteTransDGV.Columns[9].Visible = false; // net price
+                            RecPayServiceWalkinCompleteTransDGV.Columns[10].Visible = false; // discount amount
+                            RecPayServiceWalkinCompleteTransDGV.Columns[11].Visible = false; // discount amount
+                            RecPayServiceWalkinCompleteTransDGV.Columns[12].Visible = false; // cash given
+                            RecPayServiceWalkinCompleteTransDGV.Columns[13].Visible = false; // due change
+                            RecPayServiceWalkinCompleteTransDGV.Columns[14].Visible = false; // payment method
+                            RecPayServiceWalkinCompleteTransDGV.Columns[15].Visible = false; // card name
+                            RecPayServiceWalkinCompleteTransDGV.Columns[16].Visible = false; // card num
+                            RecPayServiceWalkinCompleteTransDGV.Columns[17].Visible = false; // cvc
+                            RecPayServiceWalkinCompleteTransDGV.Columns[18].Visible = false; // card expiration
+                            RecPayServiceWalkinCompleteTransDGV.Columns[19].Visible = false; // wallet num
+                            RecPayServiceWalkinCompleteTransDGV.Columns[20].Visible = false; // wallet PIN
+                            RecPayServiceWalkinCompleteTransDGV.Columns[21].Visible = false; // wallet OTP
+                            RecPayServiceWalkinCompleteTransDGV.Columns[22].Visible = false; // service duration
+                            RecPayServiceWalkinCompleteTransDGV.Columns[23].Visible = false; // booked by
+                            RecPayServiceWalkinCompleteTransDGV.Columns[24].Visible = false; // booked date
                         }
 
-                        RecPayServiceCompleteTransDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                        RecPayServiceCompleteTransDGV.ClearSelection();
+                        RecPayServiceWalkinCompleteTransDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        RecPayServiceWalkinCompleteTransDGV.ClearSelection();
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show("An error occurred: " + e.Message, "Completed Transaction List Failed to Load");
+                string errorMessage = "An error occurred: " + ex.Message + "\n\n" + ex.StackTrace;
+
+                try
+                {
+                    // Try to copy the error message to the clipboard
+                    Clipboard.SetText(errorMessage);
+
+                    // Show a MessageBox indicating that the error message has been copied to the clipboard
+                    MessageBox.Show("An error occurred. The error message has been copied to the clipboard.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception copyEx)
+                {
+                    // If copying to clipboard fails, display a MessageBox with the error message without copying to clipboard
+                    string copyErrorMessage = "An error occurred while copying the error message to the clipboard:\n" + copyEx.Message;
+                    MessageBox.Show(errorMessage + "\n\n" + copyErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+        }
+        public void RecLoadCompletedAppointmentTrans()
+        {
+            string todayDate = DateTime.Today.ToString("MM-dd-yyyy dddd");
+
+            MySqlConnection connection = null;
+            try
+            {
+                using (connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    // Filter and sort the data by FoodType
+                    string sql = "SELECT * FROM `appointment` WHERE ServiceStatus = 'Completed' AND AppointmentDate = @todayDate ORDER BY ServiceStatus ";
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+                    cmd.Parameters.AddWithValue("@todayDate", todayDate);
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+                        RecPayServiceApptCompleteTransDGV.Columns.Clear();
+
+                        RecPayServiceApptCompleteTransDGV.DataSource = dataTable;
+
+                        if (RecPayServiceWalkinCompleteTransDGV.Columns.Count > 2)
+                        {
+                            RecPayServiceApptCompleteTransDGV.Columns[3].Visible = false; //appointment time
+                            RecPayServiceApptCompleteTransDGV.Columns[4].Visible = false; //appointment time
+                            RecPayServiceApptCompleteTransDGV.Columns[5].Visible = false; // client cp num
+                            RecPayServiceApptCompleteTransDGV.Columns[7].Visible = false; // net price
+                            RecPayServiceApptCompleteTransDGV.Columns[8].Visible = false; // net price
+                            RecPayServiceApptCompleteTransDGV.Columns[9].Visible = false; // net price
+                            RecPayServiceApptCompleteTransDGV.Columns[10].Visible = false; // discount amount
+                            RecPayServiceApptCompleteTransDGV.Columns[11].Visible = false; // discount amount
+                            RecPayServiceApptCompleteTransDGV.Columns[12].Visible = false; // cash given
+                            RecPayServiceApptCompleteTransDGV.Columns[13].Visible = false; // due change
+                            RecPayServiceApptCompleteTransDGV.Columns[14].Visible = false; // payment method
+                            RecPayServiceApptCompleteTransDGV.Columns[15].Visible = false; // card name
+                            RecPayServiceApptCompleteTransDGV.Columns[16].Visible = false; // card num
+                            RecPayServiceApptCompleteTransDGV.Columns[17].Visible = false; // cvc
+                            RecPayServiceApptCompleteTransDGV.Columns[18].Visible = false; // card expiration
+                            RecPayServiceApptCompleteTransDGV.Columns[19].Visible = false; // wallet num
+                            RecPayServiceApptCompleteTransDGV.Columns[20].Visible = false; // wallet PIN
+                            RecPayServiceApptCompleteTransDGV.Columns[21].Visible = false; // wallet OTP
+                            RecPayServiceApptCompleteTransDGV.Columns[22].Visible = false; // service duration
+                            RecPayServiceApptCompleteTransDGV.Columns[23].Visible = false; // booked by
+                            RecPayServiceApptCompleteTransDGV.Columns[24].Visible = false; // booked date
+                            RecPayServiceApptCompleteTransDGV.Columns[25].Visible = false; // booked date
+                            RecPayServiceApptCompleteTransDGV.Columns[26].Visible = false; // booked date
+
+                        }
+
+                        RecPayServiceApptCompleteTransDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        RecPayServiceApptCompleteTransDGV.ClearSelection();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string errorMessage = "An error occurred: " + ex.Message + "\n\n" + ex.StackTrace;
+
+                try
+                {
+                    // Try to copy the error message to the clipboard
+                    Clipboard.SetText(errorMessage);
+
+                    // Show a MessageBox indicating that the error message has been copied to the clipboard
+                    MessageBox.Show("An error occurred. The error message has been copied to the clipboard.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception copyEx)
+                {
+                    // If copying to clipboard fails, display a MessageBox with the error message without copying to clipboard
+                    string copyErrorMessage = "An error occurred while copying the error message to the clipboard:\n" + copyEx.Message;
+                    MessageBox.Show(errorMessage + "\n\n" + copyErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             finally
             {
@@ -5237,17 +3526,17 @@ namespace Enchante
             }
         }
 
-        private bool RecPayServiceUpdateWalk_in_AppointmentDB()
+        private bool RecPayServiceUpdateWalkin_And_ApptDB()
         {
             // cash values
             string netAmount = RecPayServiceNetAmountBox.Text; // net amount
             string vat = RecPayServiceVATBox.Text; // vat 
-            string discount = RecWalkinDiscountBox.Text; // discount
+            string discount = RecPayServiceDiscountBox.Text; // discount
             string grossAmount = RecPayServiceGrossAmountBox.Text; // gross amount
             string cash = RecPayServiceCashBox.Text; // cash given
             string change = RecPayServiceChangeBox.Text; // due change
             string paymentMethod = RecPayServiceTypeText.Text; // payment method
-            string mngr = MngrNameLbl.Text;
+            string mngr = RecNameLbl.Text;
             string transactNum = RecPayServiceTransactNumLbl.Text;
 
             // bank & wallet details
@@ -5377,21 +3666,37 @@ namespace Enchante
                             return false;
                         }
                     }
-                    string cashPayment = "UPDATE walk_in_appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
+
+                    //walk-in transactions
+                    string cashPaymentWalkin = "UPDATE walk_in_appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
                                         "GrossAmount = @gross, CashGiven = @cash, DueChange = @change, PaymentMethod = @payment, CheckedOutBy = @mngr " +
                                         "WHERE TransactionNumber = @transactNum"; // cash query
-                    string bankPayment = "UPDATE walk_in_appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
+                    string bankPaymentWalkin = "UPDATE walk_in_appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
                                         "GrossAmount = @gross, PaymentMethod = @payment, CardName = @cardname, CardNumber = @cardNum, " +
                                         "CVC = @cvc, CardExpiration = @expiration, CheckedOutBy = @mngr " +
                                         "WHERE TransactionNumber = @transactNum"; // credit card and paypal query
-                    string walletPayment = "UPDATE walk_in_appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
+                    string walletPaymentWalkin = "UPDATE walk_in_appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
                                         "GrossAmount = @gross, PaymentMethod = @payment, WalletNumber = @walletNum, WalletPIN = @walletPin, WalletOTP = @walletOTP, CheckedOutBy = @mngr " +
                                         "WHERE TransactionNumber = @transactNum"; // gcash and paymaya query
-                    string productPayment = "UPDATE orderproducthistory SET ProductStatus = @status WHERE TransactionNumber = @transactNum";
+                    string productPaymentWalkin = "UPDATE orderproducthistory SET ProductStatus = @status WHERE TransactionNumber = @transactNum";
 
-                    if (RecPayServiceCashPaymentRB.Checked == true)
+                    //appointment transactions
+                    string cashPaymentAppt = "UPDATE appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
+                                        "GrossAmount = @gross, CashGiven = @cash, DueChange = @change, PaymentMethod = @payment, CheckedOutBy = @mngr " +
+                                        "WHERE TransactionNumber = @transactNum"; // cash query
+                    string bankPaymentAppt = "UPDATE appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
+                                        "GrossAmount = @gross, PaymentMethod = @payment, CardName = @cardname, CardNumber = @cardNum, " +
+                                        "CVC = @cvc, CardExpiration = @expiration, CheckedOutBy = @mngr " +
+                                        "WHERE TransactionNumber = @transactNum"; // credit card and paypal query
+                    string walletPaymentAppt = "UPDATE appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
+                                        "GrossAmount = @gross, PaymentMethod = @payment, WalletNumber = @walletNum, WalletPIN = @walletPin, WalletOTP = @walletOTP, CheckedOutBy = @mngr " +
+                                        "WHERE TransactionNumber = @transactNum"; // gcash and paymaya query
+                    string productPaymentAppt = "UPDATE orderproducthistory SET ProductStatus = @status WHERE TransactionNumber = @transactNum";
+
+
+                    if (RecPayServiceCashPaymentRB.Checked == true && RecPayServiceTransTypeLbl.Text == "Walk-in")
                     {
-                        MySqlCommand cmd = new MySqlCommand(cashPayment, connection);
+                        MySqlCommand cmd = new MySqlCommand(cashPaymentWalkin, connection);
                         cmd.Parameters.AddWithValue("@status", "Paid");
                         cmd.Parameters.AddWithValue("@net", netAmount);
                         cmd.Parameters.AddWithValue("@vat", vat);
@@ -5406,11 +3711,10 @@ namespace Enchante
                         cmd.ExecuteNonQuery();
                         // Successful update
                         MessageBox.Show("Service successfully been paid through cash.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Inventory.PanelShow(MngrInventoryTypePanel);
                     }
-                    else if (RecPayServiceCCPaymentRB.Checked == true || RecPayServicePPPaymentRB.Checked == true)
+                    else if ((RecPayServiceCCPaymentRB.Checked == true || RecPayServicePPPaymentRB.Checked == true) && RecPayServiceTransTypeLbl.Text == "Walk-in")
                     {
-                        MySqlCommand cmd = new MySqlCommand(bankPayment, connection);
+                        MySqlCommand cmd = new MySqlCommand(bankPaymentWalkin, connection);
                         cmd.Parameters.AddWithValue("@status", "Paid");
                         cmd.Parameters.AddWithValue("@net", netAmount);
                         cmd.Parameters.AddWithValue("@vat", vat);
@@ -5427,11 +3731,67 @@ namespace Enchante
                         cmd.ExecuteNonQuery();
                         // Successful update
                         MessageBox.Show("Service successfully been paid through bank.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Inventory.PanelShow(MngrInventoryTypePanel);
                     }
-                    else if (RecPayServiceGCPaymentRB.Checked == true || RecPayServicePMPaymentRB.Checked == true)
+                    else if ((RecPayServiceGCPaymentRB.Checked == true || RecPayServicePMPaymentRB.Checked == true) && RecPayServiceTransTypeLbl.Text == "Walk-in")
                     {
-                        MySqlCommand cmd = new MySqlCommand(walletPayment, connection);
+                        MySqlCommand cmd = new MySqlCommand(walletPaymentWalkin, connection);
+                        cmd.Parameters.AddWithValue("@status", "Paid");
+                        cmd.Parameters.AddWithValue("@net", netAmount);
+                        cmd.Parameters.AddWithValue("@vat", vat);
+                        cmd.Parameters.AddWithValue("@discount", discount);
+                        cmd.Parameters.AddWithValue("@gross", grossAmount);
+                        cmd.Parameters.AddWithValue("@payment", paymentMethod);
+                        cmd.Parameters.AddWithValue("@walletNum", walletNum);
+                        cmd.Parameters.AddWithValue("@walletPin", walletPIN);
+                        cmd.Parameters.AddWithValue("@walletOTP", walletOTP);
+                        cmd.Parameters.AddWithValue("@mngr", mngr);
+                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
+
+                        cmd.ExecuteNonQuery();
+                        // Successful update
+                        MessageBox.Show("Service successfully been paid through online wallet.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (RecPayServiceCashPaymentRB.Checked == true && RecPayServiceTransTypeLbl.Text == "Appointment")
+                    {
+                        MySqlCommand cmd = new MySqlCommand(cashPaymentAppt, connection);
+                        cmd.Parameters.AddWithValue("@status", "Paid");
+                        cmd.Parameters.AddWithValue("@net", netAmount);
+                        cmd.Parameters.AddWithValue("@vat", vat);
+                        cmd.Parameters.AddWithValue("@discount", discount);
+                        cmd.Parameters.AddWithValue("@gross", grossAmount);
+                        cmd.Parameters.AddWithValue("@cash", cash);
+                        cmd.Parameters.AddWithValue("@change", change);
+                        cmd.Parameters.AddWithValue("@payment", paymentMethod);
+                        cmd.Parameters.AddWithValue("@mngr", mngr);
+                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
+
+                        cmd.ExecuteNonQuery();
+                        // Successful update
+                        MessageBox.Show("Service successfully been paid through cash.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if ((RecPayServiceCCPaymentRB.Checked == true || RecPayServicePPPaymentRB.Checked == true) && RecPayServiceTransTypeLbl.Text == "Appointment")
+                    {
+                        MySqlCommand cmd = new MySqlCommand(bankPaymentAppt, connection);
+                        cmd.Parameters.AddWithValue("@status", "Paid");
+                        cmd.Parameters.AddWithValue("@net", netAmount);
+                        cmd.Parameters.AddWithValue("@vat", vat);
+                        cmd.Parameters.AddWithValue("@discount", discount);
+                        cmd.Parameters.AddWithValue("@gross", grossAmount);
+                        cmd.Parameters.AddWithValue("@payment", paymentMethod);
+                        cmd.Parameters.AddWithValue("@cardname", cardName);
+                        cmd.Parameters.AddWithValue("@cardNum", cardNum);
+                        cmd.Parameters.AddWithValue("@cvc", CVC);
+                        cmd.Parameters.AddWithValue("@expiration", expire);
+                        cmd.Parameters.AddWithValue("@mngr", mngr);
+                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
+
+                        cmd.ExecuteNonQuery();
+                        // Successful update
+                        MessageBox.Show("Service successfully been paid through bank.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if ((RecPayServiceGCPaymentRB.Checked == true || RecPayServicePMPaymentRB.Checked == true) && RecPayServiceTransTypeLbl.Text == "Appointment")
+                    {
+                        MySqlCommand cmd = new MySqlCommand(walletPaymentAppt, connection);
                         cmd.Parameters.AddWithValue("@status", "Paid");
                         cmd.Parameters.AddWithValue("@net", netAmount);
                         cmd.Parameters.AddWithValue("@vat", vat);
@@ -5450,38 +3810,66 @@ namespace Enchante
                         Inventory.PanelShow(MngrInventoryTypePanel);
                     }
 
-                    if (RecPayServiceCashPaymentRB.Checked == true)
+                    if (RecPayServiceCashPaymentRB.Checked == true && RecPayServiceTransTypeLbl.Text == "Walk-in")
                     {
-                        MySqlCommand cmd = new MySqlCommand(productPayment, connection);
+                        MySqlCommand cmd = new MySqlCommand(productPaymentWalkin, connection);
                         cmd.Parameters.AddWithValue("@status", "Paid");
                         cmd.Parameters.AddWithValue("@transactNum", transactNum);
 
 
                         cmd.ExecuteNonQuery();
                         // Successful update
-                        //MessageBox.Show("Service successfully been paid through cash.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Inventory.PanelShow(MngrInventoryTypePanel);
                     }
-                    else if (RecPayServiceCCPaymentRB.Checked == true || RecPayServicePPPaymentRB.Checked == true)
+                    else if ((RecPayServiceCCPaymentRB.Checked == true || RecPayServicePPPaymentRB.Checked == true) && RecPayServiceTransTypeLbl.Text == "Walk-in")
                     {
-                        MySqlCommand cmd = new MySqlCommand(productPayment, connection);
+                        MySqlCommand cmd = new MySqlCommand(productPaymentWalkin, connection);
                         cmd.Parameters.AddWithValue("@status", "Paid");
                         cmd.Parameters.AddWithValue("@transactNum", transactNum);
 
                         cmd.ExecuteNonQuery();
                         // Successful update
-                        //MessageBox.Show("Service successfully been paid through bank.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Inventory.PanelShow(MngrInventoryTypePanel);
                     }
-                    else if (RecPayServiceGCPaymentRB.Checked == true || RecPayServicePMPaymentRB.Checked == true)
+                    else if ((RecPayServiceGCPaymentRB.Checked == true || RecPayServicePMPaymentRB.Checked == true) && RecPayServiceTransTypeLbl.Text == "Walk-in")
                     {
-                        MySqlCommand cmd = new MySqlCommand(productPayment, connection);
+                        MySqlCommand cmd = new MySqlCommand(productPaymentWalkin, connection);
                         cmd.Parameters.AddWithValue("@status", "Paid");
                         cmd.Parameters.AddWithValue("@transactNum", transactNum);
 
                         cmd.ExecuteNonQuery();
                         // Successful update
-                        //MessageBox.Show("Service successfully been paid through online wallet.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Inventory.PanelShow(MngrInventoryTypePanel);
+                    }
+                    else if (RecPayServiceCashPaymentRB.Checked == true && RecPayServiceTransTypeLbl.Text == "Appointment")
+                    {
+                        MySqlCommand cmd = new MySqlCommand(productPaymentAppt, connection);
+                        cmd.Parameters.AddWithValue("@status", "Paid");
+                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
+
+
+                        cmd.ExecuteNonQuery();
+                        // Successful update
+                        Inventory.PanelShow(MngrInventoryTypePanel);
+                    }
+                    else if ((RecPayServiceCCPaymentRB.Checked == true || RecPayServicePPPaymentRB.Checked == true) && RecPayServiceTransTypeLbl.Text == "Appointment")
+                    {
+                        MySqlCommand cmd = new MySqlCommand(productPaymentAppt, connection);
+                        cmd.Parameters.AddWithValue("@status", "Paid");
+                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
+
+                        cmd.ExecuteNonQuery();
+                        // Successful update
+                        Inventory.PanelShow(MngrInventoryTypePanel);
+                    }
+                    else if ((RecPayServiceGCPaymentRB.Checked == true || RecPayServicePMPaymentRB.Checked == true) && RecPayServiceTransTypeLbl.Text == "Appointment")
+                    {
+                        MySqlCommand cmd = new MySqlCommand(productPaymentAppt, connection);
+                        cmd.Parameters.AddWithValue("@status", "Paid");
+                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
+
+                        cmd.ExecuteNonQuery();
+                        // Successful update
                         Inventory.PanelShow(MngrInventoryTypePanel);
                     }
                 }
@@ -5500,7 +3888,7 @@ namespace Enchante
             return true;
         }
 
-        private void MngrPayServicePaymentButton_Click(object sender, EventArgs e)
+        private void RecPayServicePaymentButton_Click(object sender, EventArgs e)
         {
             if (!RecPayServiceCashPaymentRB.Checked &&
                 !RecPayServiceCCPaymentRB.Checked &&
@@ -5512,11 +3900,47 @@ namespace Enchante
                 return;
             }
 
-            if (RecPayServiceUpdateWalk_in_AppointmentDB())
+            if (RecPayServiceUpdateWalkin_And_ApptDB())
             {
-                RecPayServiceClearAllField();
-                RecLoadCompletedTrans();
+                RecPayServiceUpdateQtyInventory(RecPayServiceCOProdDGV);
+                RecLoadCompletedWalkinTrans();
+                RecLoadCompletedAppointmentTrans();
                 RecPayServiceInvoiceReceiptGenerator();
+                RecPayServiceClearAllField();
+                Transaction.PanelShow(RecTransactionPanel);
+
+            }
+        }
+
+        private void RecPayServiceUpdateQtyInventory(DataGridView dgv)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+                    string updateQuery = "UPDATE inventory SET ItemStock = ItemStock - @Qty WHERE ItemID = @ItemID";
+
+                    foreach (DataGridViewRow row in RecPayServiceCOProdDGV.Rows)
+                    {
+                        string itemID = row.Cells["ItemID"].Value.ToString();
+                        int qty = Convert.ToInt32(row.Cells["Qty"].Value);
+
+                        MySqlCommand command = new MySqlCommand(updateQuery, connection);
+                        command.Parameters.AddWithValue("@Qty", qty);
+                        command.Parameters.AddWithValue("@ItemID", itemID);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string errorMessage = "An error occurred: " + ex.Message + "\n\n" + ex.StackTrace;
+                MessageBox.Show(errorMessage, "Product Qty Failed Inserting to Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -5524,7 +3948,7 @@ namespace Enchante
         {
             RecPayServiceNetAmountBox.Text = "0.00";
             RecPayServiceVATBox.Text = "0.00";
-            RecWalkinDiscountBox.Text = "0.00";
+            RecPayServiceDiscountBox.Text = "0.00";
             RecPayServiceGrossAmountBox.Text = "0.00";
             RecPayServiceCashBox.Text = "0";
             RecPayServiceChangeBox.Text = "0.00";
@@ -5539,12 +3963,22 @@ namespace Enchante
             RecPayServiceWalletOTPText.Text = "";
 
             RecPayServiceClientNameLbl.Text = "";
+            RecPayServiceTransTypeLbl.Text = "";
+            // Clear rows from RecPayServiceAcquiredDGV
+            RecPayServiceAcquiredDGV.DataSource = null; // Set data source to null
+            RecPayServiceAcquiredDGV.Rows.Clear(); // Clear any remaining rows
+
+            // Clear rows from RecPayServiceCOProdDGV
+            RecPayServiceCOProdDGV.DataSource = null; // Set data source to null
+            RecPayServiceCOProdDGV.Rows.Clear(); // Clear any remaining rows
+
         }
 
         private void RecPayServiceBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecPayServicePanel);
-            RecLoadCompletedTrans();
+            RecLoadCompletedWalkinTrans();
+            RecLoadCompletedAppointmentTrans();
         }
 
         private void RecWalkinAttendingStaffComboText_SelectedIndexChanged(object sender, EventArgs e)
@@ -5626,23 +4060,17 @@ namespace Enchante
                     //}
 
                     // Load the image from project resources
-                    byte[] imageBytes = GetImageBytesFromResource("Enchante.Resources.Enchante Logo (200 x 200 px) (1).png");
-
-                    if (imageBytes != null)
-                    {
-                        iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imageBytes);
-                        logo.ScaleAbsolute(50f, 50f);
-                        logo.Alignment = Element.ALIGN_CENTER;
-                        doc.Add(logo);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error loading image from resources.", "Manager Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    };
+                    Bitmap imagepath = Properties.Resources.Enchante_Logo__200_x_200_px__Green;
+                    iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imagepath, System.Drawing.Imaging.ImageFormat.Png);
+                    logo.Alignment = Element.ALIGN_CENTER;
+                    logo.ScaleAbsolute(100f, 100f);
+                    logo.Alignment = Element.ALIGN_CENTER;
+                    doc.Add(logo);
 
                     iTextSharp.text.Font headerFont = FontFactory.GetFont("Courier", 16, iTextSharp.text.Font.BOLD);
                     iTextSharp.text.Font boldfont = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.BOLD);
                     iTextSharp.text.Font font = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.NORMAL);
+                    iTextSharp.text.Font italic = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.ITALIC);
 
                     // Create a centered alignment for text
                     iTextSharp.text.Paragraph centerAligned = new Paragraph();
@@ -5710,7 +4138,7 @@ namespace Enchante
                             MessageBox.Show("An error occurred: " + ex.Message, "Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                    
+
                     foreach (DataGridViewRow row in RecPayServiceCOProdDGV.Rows)
                     {
                         try
@@ -5753,11 +4181,12 @@ namespace Enchante
 
                     // Total from your textboxes as decimal
                     decimal netAmount = decimal.Parse(RecPayServiceNetAmountBox.Text);
-                    decimal discount = decimal.Parse(RecWalkinDiscountBox.Text);
+                    decimal discount = decimal.Parse(RecPayServiceDiscountBox.Text);
                     decimal vat = decimal.Parse(RecPayServiceVATBox.Text);
                     decimal grossAmount = decimal.Parse(RecPayServiceGrossAmountBox.Text);
                     decimal cash = decimal.Parse(RecPayServiceCashBox.Text);
                     decimal change = decimal.Parse(RecPayServiceChangeBox.Text);
+                    string paymentMethod = RecPayServiceTypeText.Text;
 
                     // Create a new table for the "Total" section
                     PdfPTable totalTable = new PdfPTable(2); // 2 columns for the "Total" table
@@ -5773,7 +4202,8 @@ namespace Enchante
                     totalTable.AddCell(new Phrase($"Php {cash:F2}", font));
                     totalTable.AddCell(new Phrase($"Change", font));
                     totalTable.AddCell(new Phrase($"Php {change:F2}", font));
-
+                    totalTable.AddCell(new Phrase($"Payment Method:", font));
+                    totalTable.AddCell(new Phrase($"{paymentMethod:F2}", font));
 
                     // Add the "Total" table to the document
                     doc.Add(totalTable);
@@ -5798,12 +4228,12 @@ namespace Enchante
 
                     // Add the "Served To" section
                     doc.Add(new Chunk("\n")); // New line
-                    doc.Add(new Paragraph($"Served To: {clientName}", font));
-                    doc.Add(new Paragraph("Address:_______________________________", font));
-                    doc.Add(new Paragraph("TIN No.:_______________________________", font));
+                    doc.Add(new Paragraph($"Served To: {clientName}", italic));
+                    doc.Add(new Paragraph("Address:_______________________________", italic));
+                    doc.Add(new Paragraph("TIN No.:_______________________________", italic));
 
                     // Add the legal string with center alignment
-                    Paragraph paragraph_footer = new Paragraph($"\n\n{legal}", font);
+                    Paragraph paragraph_footer = new Paragraph($"\n\n{legal}", italic);
                     paragraph_footer.Alignment = Element.ALIGN_CENTER;
                     doc.Add(paragraph_footer);
                 }
@@ -5827,6 +4257,7 @@ namespace Enchante
 
         public void LoadPreferredStaffComboBox()
         {
+
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
             {
                 connection.Open();
@@ -5839,8 +4270,6 @@ namespace Enchante
                 {
                     RecWalkinAttendingStaffSelectedComboBox.Items.Clear();
                     RecWalkinAttendingStaffSelectedComboBox.Items.Add("Select a Preferred Staff"); // Kung babaguhin to babaguhin yung line 4942 messagebox
-                    RecApptAttendingStaffSelectedComboBox.Items.Clear();
-                    RecApptAttendingStaffSelectedComboBox.Items.Add("Select a Preferred Staff"); // Kung babaguhin to babaguhin yung line 4942 messagebox
                     while (reader.Read())
                     {
                         string employeeID = reader.GetString("EmployeeID");
@@ -5851,13 +4280,74 @@ namespace Enchante
                         string comboBoxItem = $"{employeeID}-{gender}-{lastName}, {firstName}";
 
                         RecWalkinAttendingStaffSelectedComboBox.Items.Add(comboBoxItem);
-                        RecApptAttendingStaffSelectedComboBox.Items.Add(comboBoxItem);
-
                     }
                 }
             }
             RecWalkinAttendingStaffSelectedComboBox.SelectedIndex = 0;
-            RecApptAttendingStaffSelectedComboBox.SelectedIndex = 0;
+        }
+
+        //ApptMember
+        public void LoadAppointmentPreferredStaffComboBox()
+        {
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                string bookedtime = RecApptBookingTimeComboBox.SelectedItem.ToString();
+                string appointmentDate = RecApptBookingDatePicker.Value.ToString("MM-dd-yyyy dddd");
+
+                connection.Open();
+
+                string query = "SELECT EmployeeID, Gender, LastName, FirstName FROM systemusers WHERE EmployeeCategory = @FilterValue";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@FilterValue", filterstaffbyservicecategory);
+
+                List<string> employeeIDs = new List<string>();
+                List<string> genders = new List<string>();
+                List<string> lastNames = new List<string>();
+                List<string> firstNames = new List<string>();
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string employeeID = reader.GetString("EmployeeID");
+                        string gender = reader.GetString("Gender");
+                        string lastName = reader.GetString("LastName");
+                        string firstName = reader.GetString("FirstName");
+
+                        employeeIDs.Add(employeeID);
+                        genders.Add(gender);
+                        lastNames.Add(lastName);
+                        firstNames.Add(firstName);
+                    }
+                }
+
+                RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
+                RecApptAvailableAttendingStaffSelectedComboBox.Items.Add("Select a Preferred Staff");
+
+                for (int i = 0; i < employeeIDs.Count; i++)
+                {
+                    string employeeID = employeeIDs[i];
+                    string gender = genders[i];
+                    string lastName = lastNames[i];
+                    string firstName = firstNames[i];
+
+                    string comboBoxItem = $"{employeeID}-{gender}-{lastName}, {firstName}";
+
+                    string scheduleQuery = "SELECT 1 FROM staffappointmentschedule WHERE EmployeeID = @EmployeeID AND AppointmentDate = @AppointmentDate AND AppointmentTime = @AppointmentTime LIMIT 1";
+                    MySqlCommand scheduleCommand = new MySqlCommand(scheduleQuery, connection);
+                    scheduleCommand.Parameters.AddWithValue("@EmployeeID", employeeID);
+                    scheduleCommand.Parameters.AddWithValue("@AppointmentDate", appointmentDate);
+                    scheduleCommand.Parameters.AddWithValue("@AppointmentTime", bookedtime);
+                    object result = scheduleCommand.ExecuteScalar();
+
+                    if (result == null)
+                    {
+                        RecApptAvailableAttendingStaffSelectedComboBox.Items.Add(comboBoxItem);
+                    }
+                }
+            }
+
+            RecApptAvailableAttendingStaffSelectedComboBox.SelectedIndex = 0;
         }
 
         private void RecWalkinAnyStaffToggleSwitch_CheckedChanged(object sender, EventArgs e)
@@ -5920,6 +4410,7 @@ namespace Enchante
 
         }
 
+        //ApptMember
         private void ShowNoServiceCategoryChosenWarningMessage()
         {
             RecWalkinNoServiceCategoryChosenWarningLbl.Visible = true;
@@ -5939,6 +4430,8 @@ namespace Enchante
             timer.Start();
         }
 
+
+        //ApptMember
         private void AnimateShakeEffect(System.Windows.Forms.Control control)
         {
             int originalX = control.Location.X;
@@ -5958,6 +4451,16 @@ namespace Enchante
             if (RecWalkinAttendingStaffSelectedComboBox.SelectedItem != null)
             {
                 string selectedValue = RecWalkinAttendingStaffSelectedComboBox.SelectedItem.ToString();
+                selectedStaffID = selectedValue.Substring(0, 11);
+            }
+        }
+
+        //ApptMember
+        private void RecApptAvailableAttendingStaffSelectedComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (RecApptAvailableAttendingStaffSelectedComboBox.SelectedItem != null)
+            {
+                string selectedValue = RecApptAvailableAttendingStaffSelectedComboBox.SelectedItem.ToString();
                 selectedStaffID = selectedValue.Substring(0, 11);
             }
         }
@@ -5991,9 +4494,7 @@ namespace Enchante
         }
         #endregion
 
-
-        //Receptionist Queue Window
-        #region
+        #region Receptionist Queue Window
         private void RecQueWinBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecQueWinPanel);
@@ -6032,6 +4533,8 @@ namespace Enchante
 
 
                         RecQueWinStaffListDGV.DataSource = dataTable;
+                        RecQueWinStaffListDGV.Columns[0].Visible = false;
+                        RecQueWinStaffListDGV.Columns[1].Visible = false;
                         RecQueWinStaffListDGV.Columns[2].Visible = false;
                         RecQueWinStaffListDGV.Columns[3].Visible = false;
                         RecQueWinStaffListDGV.Columns[4].Visible = false;
@@ -6082,6 +4585,8 @@ namespace Enchante
 
 
                         RecQueWinStaffListDGV.DataSource = dataTable;
+                        RecQueWinStaffListDGV.Columns[0].Visible = false;
+                        RecQueWinStaffListDGV.Columns[1].Visible = false;
                         RecQueWinStaffListDGV.Columns[2].Visible = false;
                         RecQueWinStaffListDGV.Columns[3].Visible = false;
                         RecQueWinStaffListDGV.Columns[4].Visible = false;
@@ -6123,7 +4628,7 @@ namespace Enchante
                 {
                     connection.Open();
 
-                    string sql = "SELECT * FROM `servicehistory` WHERE QueType = 'GeneralQue' AND ServiceStatus = 'Pending' AND AppointmentDate = @todayDate";
+                    string sql = "SELECT * FROM `servicehistory` WHERE (QueType = 'GeneralQue' OR QueType = 'AnyonePriority') AND ServiceStatus = 'Pending' AND AppointmentDate = @todayDate";
                     MySqlCommand cmd = new MySqlCommand(sql, connection);
                     System.Data.DataTable dataTable = new System.Data.DataTable();
                     cmd.Parameters.AddWithValue("@todayDate", todayDate);
@@ -6135,18 +4640,18 @@ namespace Enchante
 
                         RecQueWinNextCustomerDGV.DataSource = dataTable;
 
-                        RecQueWinNextCustomerDGV.Columns[0].Visible = false; //transact number
-                        RecQueWinNextCustomerDGV.Columns[2].Visible = false; //appointment date
+                        RecQueWinNextCustomerDGV.Columns[1].Visible = false; //appointment time
                         RecQueWinNextCustomerDGV.Columns[3].Visible = false; //appointment time
                         RecQueWinNextCustomerDGV.Columns[5].Visible = false; //service category
                         RecQueWinNextCustomerDGV.Columns[6].Visible = false; //attending staff
-                        RecQueWinNextCustomerDGV.Columns[7].Visible = false; //service ID
+                        RecQueWinNextCustomerDGV.Columns[7].Visible = false; //attending staff
+                        RecQueWinNextCustomerDGV.Columns[8].Visible = false; //attending staff
                         RecQueWinNextCustomerDGV.Columns[10].Visible = false; //service start
                         RecQueWinNextCustomerDGV.Columns[11].Visible = false; //service end
                         RecQueWinNextCustomerDGV.Columns[12].Visible = false; //service duration
-                        RecQueWinNextCustomerDGV.Columns[13].Visible = false; //customization
-                        RecQueWinNextCustomerDGV.Columns[15].Visible = false; //customization
-                        RecQueWinNextCustomerDGV.Columns[16].Visible = false; //customization
+                        RecQueWinNextCustomerDGV.Columns[13].Visible = false; //service duration
+                        RecQueWinNextCustomerDGV.Columns[14].Visible = false; //service duration
+                        RecQueWinNextCustomerDGV.Columns[18].Visible = false; // que type
 
                     }
                 }
@@ -6174,8 +4679,7 @@ namespace Enchante
                 {
                     connection.Open();
 
-                    string sql = "SELECT * FROM `servicehistory` WHERE QueType = 'GeneralQue' AND ServiceStatus = 'Pending' " +
-                        "AND AppointmentDate = @todayDate AND ServiceCategory = @category";
+                    string sql = "SELECT * FROM `servicehistory` WHERE (QueType = 'GeneralQue' OR QueType = 'AnyonePriority') AND ServiceStatus = 'Pending' AND AppointmentDate = @todayDate AND ServiceCategory = @category";
                     MySqlCommand cmd = new MySqlCommand(sql, connection);
                     System.Data.DataTable dataTable = new System.Data.DataTable();
                     cmd.Parameters.AddWithValue("@todayDate", todayDate);
@@ -6188,18 +4692,18 @@ namespace Enchante
 
                         RecQueWinNextCustomerDGV.DataSource = dataTable;
 
-                        RecQueWinNextCustomerDGV.Columns[0].Visible = false; //transact number
-                        RecQueWinNextCustomerDGV.Columns[2].Visible = false; //appointment date
+                        RecQueWinNextCustomerDGV.Columns[1].Visible = false; //appointment time
                         RecQueWinNextCustomerDGV.Columns[3].Visible = false; //appointment time
                         RecQueWinNextCustomerDGV.Columns[5].Visible = false; //service category
                         RecQueWinNextCustomerDGV.Columns[6].Visible = false; //attending staff
-                        RecQueWinNextCustomerDGV.Columns[7].Visible = false; //service ID
+                        RecQueWinNextCustomerDGV.Columns[7].Visible = false; //attending staff
+                        RecQueWinNextCustomerDGV.Columns[8].Visible = false; //attending staff
                         RecQueWinNextCustomerDGV.Columns[10].Visible = false; //service start
                         RecQueWinNextCustomerDGV.Columns[11].Visible = false; //service end
                         RecQueWinNextCustomerDGV.Columns[12].Visible = false; //service duration
-                        RecQueWinNextCustomerDGV.Columns[13].Visible = false; //customization
-                        RecQueWinNextCustomerDGV.Columns[15].Visible = false; // preferred staff
-                        RecQueWinNextCustomerDGV.Columns[16].Visible = false; // preferred staff
+                        RecQueWinNextCustomerDGV.Columns[13].Visible = false; //service duration
+                        RecQueWinNextCustomerDGV.Columns[14].Visible = false; //service duration
+                        RecQueWinNextCustomerDGV.Columns[18].Visible = false; // que type
                     }
                 }
             }
@@ -6227,8 +4731,7 @@ namespace Enchante
 
                 RecQueWinEmplIDLbl.Text = ID;
                 RecLoadQueuedClient(ID);
-                RecQueWinNextCustomerLbl.Text = $"| NEXT IN LINE [Staff: {emplFName} {emplLName}]";
-                RecQueWinGenCatComboText.Visible = false;
+                RecQueWinNextCustomerLbl.Text = $"| Queue Line for {emplFName} {emplLName}";
             }
             else
             {
@@ -6245,7 +4748,8 @@ namespace Enchante
                 {
                     connection.Open();
 
-                    string sql = "SELECT * FROM `servicehistory` WHERE PreferredStaff = @emplID AND ServiceStatus = 'Pending' AND AppointmentDate = @todayDate";
+                    string sql = "SELECT * FROM `servicehistory` WHERE PreferredStaff = @emplID AND ServiceStatus = 'Pending' AND " +
+                        "(QueType = 'Preferred' OR QueType = 'PreferredPriority') AND AppointmentDate = @todayDate";
                     MySqlCommand cmd = new MySqlCommand(sql, connection);
 
                     // Add parameters to the query
@@ -6259,19 +4763,19 @@ namespace Enchante
                     {
                         adapter.Fill(dataTable);
 
-                        RecQueWinNextCustomerDGV.DataSource = dataTable;
-
-                        RecQueWinNextCustomerDGV.Columns[0].Visible = false; //transact number
-                        RecQueWinNextCustomerDGV.Columns[2].Visible = false; //appointment date
-                        RecQueWinNextCustomerDGV.Columns[3].Visible = false; //appointment time
-                        RecQueWinNextCustomerDGV.Columns[5].Visible = false; //service category
-                        RecQueWinNextCustomerDGV.Columns[6].Visible = false; //attending staff
-                        RecQueWinNextCustomerDGV.Columns[7].Visible = false; //service ID
-                        RecQueWinNextCustomerDGV.Columns[10].Visible = false; //service start
-                        RecQueWinNextCustomerDGV.Columns[11].Visible = false; //service end
-                        RecQueWinNextCustomerDGV.Columns[12].Visible = false; //service duration
-                        RecQueWinNextCustomerDGV.Columns[15].Visible = false; // que type
-                        RecQueWinNextCustomerDGV.Columns[16].Visible = false; // que type
+                        RecQueWinPrefNextCustomerDGV.DataSource = dataTable;
+                        RecQueWinPrefNextCustomerDGV.Columns[1].Visible = false; //appointment time
+                        RecQueWinPrefNextCustomerDGV.Columns[3].Visible = false; //appointment time
+                        RecQueWinPrefNextCustomerDGV.Columns[5].Visible = false; //service category
+                        RecQueWinPrefNextCustomerDGV.Columns[6].Visible = false; //attending staff
+                        RecQueWinPrefNextCustomerDGV.Columns[7].Visible = false; //attending staff
+                        RecQueWinPrefNextCustomerDGV.Columns[8].Visible = false; //attending staff
+                        RecQueWinPrefNextCustomerDGV.Columns[10].Visible = false; //service start
+                        RecQueWinPrefNextCustomerDGV.Columns[11].Visible = false; //service end
+                        RecQueWinPrefNextCustomerDGV.Columns[12].Visible = false; //service duration
+                        RecQueWinPrefNextCustomerDGV.Columns[13].Visible = false; //service duration
+                        RecQueWinPrefNextCustomerDGV.Columns[14].Visible = false; //service duration
+                        RecQueWinPrefNextCustomerDGV.Columns[18].Visible = false; // que type
 
 
                     }
@@ -6321,10 +4825,7 @@ namespace Enchante
             else if (RecQueWinStaffCatComboText.Text == "All Categories")
             {
                 RecQuePreferredStaffLoadData();
-                RecQueWinNextCustomerLbl.Text = "| NEXT IN LINE [GENERAL QUEUE]";
-                RecQueWinGenCatComboText.Visible = true;
-                RecQueGeneralStaffLoadData();
-                ;
+                
                 return;
             }
 
@@ -6365,14 +4866,15 @@ namespace Enchante
         }
         #endregion
 
-        //Receptionsit Appointment
-        #region
+        #region Receptionsit Walk-in Appointment
 
+        //ApptMember
         private void RecApptPanelExitBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecTransactionPanel);
         }
 
+        //ApptMember
         private void RecApptClientBdayPicker_ValueChanged(object sender, EventArgs e)
         {
             DateTime selectedDate = RecApptClientBdayPicker.Value;
@@ -6396,79 +4898,85 @@ namespace Enchante
             }
         }
 
+        //ApptMember
         string[] bookingTimes = new string[]
         {
             "Select a booking time", "08:00 am", "08:30 am", "09:00 am",
-            "09:30 am", "10:00 am", "10:30 am", "11:00 am", "11:30 am", 
+            "09:30 am", "10:00 am", "10:30 am", "11:00 am", "11:30 am",
             "01:00 pm", "01:30 pm", "02:00 pm", "02:30 pm", "03:00 pm",
         };
+
+        //ApptMember
         private void RecApptCatHSBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Hair Styling";
             haschosenacategory = true;
             if (RecApptPreferredStaffToggleSwitch.Checked == true)
             {
-                RecApptAttendingStaffSelectedComboBox.Items.Clear();
-                LoadPreferredStaffComboBox();
+                RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
+                LoadAppointmentPreferredStaffComboBox();
             }
             LoadBookingTimes();
             RecApptHairStyle();
         }
 
+        //ApptMember
         private void RecApptCatFSBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Face & Skin";
             haschosenacategory = true;
             if (RecApptPreferredStaffToggleSwitch.Checked == true)
             {
-                RecApptAttendingStaffSelectedComboBox.Items.Clear();
-                LoadPreferredStaffComboBox();
+                RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
+                LoadAppointmentPreferredStaffComboBox();
             }
             LoadBookingTimes();
             RecApptFace();
         }
 
+        //ApptMember
         private void RecApptCatNCBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Nail Care";
             haschosenacategory = true;
             if (RecApptPreferredStaffToggleSwitch.Checked == true)
             {
-                RecApptAttendingStaffSelectedComboBox.Items.Clear();
-                LoadPreferredStaffComboBox();
+                RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
+                LoadAppointmentPreferredStaffComboBox();
             }
             LoadBookingTimes();
-
             RecApptNail();
         }
 
+        //ApptMember
         private void RecApptCatSpaBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Spa";
             haschosenacategory = true;
             if (RecApptPreferredStaffToggleSwitch.Checked == true)
             {
-                RecApptAttendingStaffSelectedComboBox.Items.Clear();
-                LoadPreferredStaffComboBox();
+                RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
+                LoadAppointmentPreferredStaffComboBox();
             }
             LoadBookingTimes();
-
             RecApptSpa();
         }
 
+        //ApptMember
         private void RecApptCatMassBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Massage";
             haschosenacategory = true;
             if (RecApptPreferredStaffToggleSwitch.Checked == true)
             {
-                RecApptAttendingStaffSelectedComboBox.Items.Clear();
-                LoadPreferredStaffComboBox();
+                RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
+                LoadAppointmentPreferredStaffComboBox();
             }
             LoadBookingTimes();
-
             RecApptMassage();
         }
+
+        //ApptMember
         private void RecApptHairStyle()
         {
             if (RecApptCatHSRB.Checked == false)
@@ -6503,6 +5011,7 @@ namespace Enchante
                 RecApptCatMassRB.Checked = false;
             }
         }
+        //ApptMember
         private void RecApptFace()
         {
             if (RecApptCatFSRB.Checked == false)
@@ -6527,6 +5036,7 @@ namespace Enchante
                 RecApptCatFSRB.Checked = true;
             }
         }
+        //ApptMember
         private void RecApptNail()
         {
             if (RecApptCatNCRB.Checked == false)
@@ -6551,6 +5061,7 @@ namespace Enchante
                 RecApptCatNCRB.Checked = true;
             }
         }
+        //ApptMember
         private void RecApptSpa()
         {
             if (RecApptCatSpaRB.Checked == false)
@@ -6575,6 +5086,7 @@ namespace Enchante
                 RecApptCatSpaRB.Checked = true;
             }
         }
+        //ApptMember
         private void RecApptMassage()
         {
             if (RecApptCatMassRB.Checked == false)
@@ -6599,6 +5111,8 @@ namespace Enchante
                 RecApptCatMassRB.Checked = true;
             }
         }
+
+        //ApptMember
         public void RecApptLoadHairStyleType()
         {
             try
@@ -6624,6 +5138,8 @@ namespace Enchante
                         RecApptServiceTypeDGV.Columns[0].Visible = false; //service category
                         RecApptServiceTypeDGV.Columns[1].Visible = false; // service type
                         RecApptServiceTypeDGV.Columns[2].Visible = false; // service ID
+                        RecApptServiceTypeDGV.Columns[7].Visible = false; // required item
+                        RecApptServiceTypeDGV.Columns[8].Visible = false; // numofitems
                         RecApptServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         RecApptServiceTypeDGV.ClearSelection();
                     }
@@ -6663,6 +5179,8 @@ namespace Enchante
                         RecApptServiceTypeDGV.Columns[0].Visible = false;
                         RecApptServiceTypeDGV.Columns[1].Visible = false;
                         RecApptServiceTypeDGV.Columns[2].Visible = false;
+                        RecApptServiceTypeDGV.Columns[7].Visible = false;
+                        RecApptServiceTypeDGV.Columns[8].Visible = false;
                         RecApptServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         RecApptServiceTypeDGV.ClearSelection();
                     }
@@ -6677,6 +5195,8 @@ namespace Enchante
                 connection.Close();
             }
         }
+
+        //ApptMember
         public void RecApptNailCareType()
         {
             try
@@ -6702,6 +5222,8 @@ namespace Enchante
                         RecApptServiceTypeDGV.Columns[0].Visible = false;
                         RecApptServiceTypeDGV.Columns[1].Visible = false;
                         RecApptServiceTypeDGV.Columns[2].Visible = false;
+                        RecApptServiceTypeDGV.Columns[7].Visible = false;
+                        RecApptServiceTypeDGV.Columns[8].Visible = false;
                         RecApptServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         RecApptServiceTypeDGV.ClearSelection();
                     }
@@ -6716,6 +5238,8 @@ namespace Enchante
                 connection.Close();
             }
         }
+
+        //ApptMember
         public void RecApptSpaType()
         {
             try
@@ -6741,6 +5265,8 @@ namespace Enchante
                         RecApptServiceTypeDGV.Columns[0].Visible = false;
                         RecApptServiceTypeDGV.Columns[1].Visible = false;
                         RecApptServiceTypeDGV.Columns[2].Visible = false;
+                        RecApptServiceTypeDGV.Columns[7].Visible = false;
+                        RecApptServiceTypeDGV.Columns[8].Visible = false;
                         RecApptServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         RecApptServiceTypeDGV.ClearSelection();
                     }
@@ -6755,6 +5281,8 @@ namespace Enchante
                 connection.Close();
             }
         }
+
+        //ApptMember
         public void RecApptMassageType()
         {
             try
@@ -6780,6 +5308,8 @@ namespace Enchante
                         RecApptServiceTypeDGV.Columns[0].Visible = false;
                         RecApptServiceTypeDGV.Columns[1].Visible = false;
                         RecApptServiceTypeDGV.Columns[2].Visible = false;
+                        RecApptServiceTypeDGV.Columns[7].Visible = false;
+                        RecApptServiceTypeDGV.Columns[8].Visible = false;
                         RecApptServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         RecApptServiceTypeDGV.ClearSelection();
                     }
@@ -6794,6 +5324,8 @@ namespace Enchante
                 connection.Close();
             }
         }
+
+        //ApptMember
         private void RecApptLoadServiceTypeComboBox(string selectedCategory)
         {
             // Filter and add the relevant service types based on the selected category
@@ -6819,6 +5351,8 @@ namespace Enchante
             }
 
         }
+
+        //ApptMember
         private void RecApptAddService()
         {
 
@@ -6833,13 +5367,18 @@ namespace Enchante
                 MessageBox.Show("Please select a prefered staff or toggle anyone ", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            if (RecApptBookingTimeComboBox.SelectedIndex == 0 || RecApptBookingTimeComboBox.SelectedItem == null || RecApptBookingTimeComboBox.SelectedItem.ToString() == "Cutoff Time")
+            {
+                MessageBox.Show("Please select a booking time", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             DataGridViewRow selectedRow = RecApptServiceTypeDGV.SelectedRows[0];
 
             string SelectedCategory = selectedRow.Cells[0].Value.ToString();
             string ServiceID = selectedRow.Cells[2].Value.ToString();
             string ServiceName = selectedRow.Cells[3].Value.ToString();
             string ServicePrice = selectedRow.Cells[6].Value.ToString();
-
+            string ServiceTime = RecApptBookingTimeComboBox.SelectedItem.ToString();
             string serviceID = selectedRow.Cells[2]?.Value?.ToString(); // Use null-conditional operator to avoid NullReferenceException
 
             // ... (existing code)
@@ -6862,7 +5401,7 @@ namespace Enchante
                 return;
             }
 
-            if (RecApptAttendingStaffSelectedComboBox.SelectedItem?.ToString() == "Select a Preferred Staff") // 4942
+            if (RecApptAvailableAttendingStaffSelectedComboBox.SelectedItem?.ToString() == "Select a Preferred Staff") // 4942
             {
                 MessageBox.Show("Please select a preferred staff or toggle anyone.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -6896,6 +5435,7 @@ namespace Enchante
                 NewSelectedServiceRow.Cells["RecApptServiceCategory"].Value = SelectedCategory;
                 NewSelectedServiceRow.Cells["RecApptSelectedService"].Value = ServiceName;
                 NewSelectedServiceRow.Cells["RecApptServiceID"].Value = ServiceID;
+                NewSelectedServiceRow.Cells["RecApptTimeSelected"].Value = ServiceTime;
                 NewSelectedServiceRow.Cells["RecApptPriorityNumber"].Value = latestprioritynumber;
                 NewSelectedServiceRow.Cells["RecApptStaffSelected"].Value = selectedStaffID;
                 QueTypeIdentifier(NewSelectedServiceRow.Cells["RecApptQueType"]);
@@ -6910,11 +5450,13 @@ namespace Enchante
             RecApptAddService();
         }
 
+        //ApptMember
         private void RecApptSelectServiceAndStaffBtn_Click(object sender, EventArgs e)
         {
             RecApptAddService();
         }
 
+        //ApptMember
         private void RecApptAnyStaffToggleSwitch_CheckedChanged(object sender, EventArgs e)
         {
             if (haschosenacategory == false)
@@ -6923,7 +5465,7 @@ namespace Enchante
                 RecApptAnyStaffToggleSwitch.CheckedChanged -= RecApptAnyStaffToggleSwitch_CheckedChanged;
                 RecApptAnyStaffToggleSwitch.Checked = false;
                 RecApptAttendingStaffLbl.Visible = false;
-                RecApptAttendingStaffSelectedComboBox.Visible = false;
+                RecApptAvailableAttendingStaffSelectedComboBox.Visible = false;
                 RecApptAnyStaffToggleSwitch.CheckedChanged += RecApptAnyStaffToggleSwitch_CheckedChanged;
                 return;
             }
@@ -6932,15 +5474,16 @@ namespace Enchante
                 if (RecApptAnyStaffToggleSwitch.Checked)
                 {
                     RecApptPreferredStaffToggleSwitch.Checked = false;
-                    RecApptAttendingStaffSelectedComboBox.Enabled = false;
+                    RecApptAvailableAttendingStaffSelectedComboBox.Enabled = false;
                     RecApptAttendingStaffLbl.Visible = false;
-                    RecApptAttendingStaffSelectedComboBox.Visible = false;
+                    RecApptAvailableAttendingStaffSelectedComboBox.Visible = false;
                     selectedStaffID = "Anyone";
-                    RecApptAttendingStaffSelectedComboBox.Items.Clear();
+                    RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
                 }
             }
         }
 
+        //ApptMember
         private void RecApptPreferredStaffToggleSwitch_CheckedChanged(object sender, EventArgs e)
         {
             if (haschosenacategory == false)
@@ -6949,40 +5492,37 @@ namespace Enchante
                 RecApptPreferredStaffToggleSwitch.CheckedChanged -= RecApptPreferredStaffToggleSwitch_CheckedChanged;
                 RecApptPreferredStaffToggleSwitch.Checked = false;
                 RecApptAttendingStaffLbl.Visible = false;
-                RecApptAttendingStaffSelectedComboBox.Visible = false;
+                RecApptAvailableAttendingStaffSelectedComboBox.Visible = false;
                 RecApptPreferredStaffToggleSwitch.CheckedChanged += RecApptPreferredStaffToggleSwitch_CheckedChanged;
                 return;
             }
             else
             {
-                if (RecApptPreferredStaffToggleSwitch.Checked && RecApptAttendingStaffSelectedComboBox.SelectedText != "Select a Preferred Staff")
+                if (RecApptPreferredStaffToggleSwitch.Checked && RecApptAvailableAttendingStaffSelectedComboBox.SelectedText != "Select a Preferred Staff")
                 {
                     RecApptAnyStaffToggleSwitch.Checked = false;
-                    RecApptAttendingStaffSelectedComboBox.Enabled = true;
+                    RecApptAvailableAttendingStaffSelectedComboBox.Enabled = true;
                     RecApptAttendingStaffLbl.Visible = true;
-                    RecApptAttendingStaffSelectedComboBox.Visible = true;
-                    LoadPreferredStaffComboBox();
+                    RecApptAvailableAttendingStaffSelectedComboBox.Visible = true;
+                    LoadAppointmentPreferredStaffComboBox();
                 }
                 else
                 {
                     selectedStaffID = "Anyone";
-                    RecApptAttendingStaffSelectedComboBox.Enabled = false;
+                    RecApptAvailableAttendingStaffSelectedComboBox.Enabled = false;
                     RecApptAttendingStaffLbl.Visible = false;
-                    RecApptAttendingStaffSelectedComboBox.Visible = false;
-                    RecApptAttendingStaffSelectedComboBox.Items.Clear();
+                    RecApptAvailableAttendingStaffSelectedComboBox.Visible = false;
+                    RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
                 }
             }
         }
 
         private void RecApptAttendingStaffSelectedComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (RecWalkinAttendingStaffSelectedComboBox.SelectedItem != null)
-            {
-                string selectedValue = RecWalkinAttendingStaffSelectedComboBox.SelectedItem.ToString();
-                selectedStaffID = selectedValue.Substring(0, 11);
-            }
+
         }
 
+        //ApptMember
         private void RecApptDeleteSelectedServiceAndStaffBtn_Click(object sender, EventArgs e)
         {
             if (RecApptSelectedServiceDGV.SelectedRows.Count > 0)
@@ -6997,6 +5537,8 @@ namespace Enchante
             }
         }
 
+
+        //ApptMember
         private void RecApptBookTransactBtn_Click(object sender, EventArgs e)
         {
             DateTime selectedDate = RecApptBookingDatePicker.Value.Date;
@@ -7058,16 +5600,16 @@ namespace Enchante
             }
         }
 
+        //ApptMember
         private void RecApptServiceHistoryDB(DataGridView RecApptSelectedServiceDGV)
         {
-            DateTime currentDate = RecApptBookingDatePicker.Value;
+            DateTime pickedDate = RecApptBookingDatePicker.Value;
             string transactionNum = RecApptTransNumText.Text;
-            string transactionType = "Walk-in Appointment";
+            string transactionType = "Walk-in Appointment Transaction";
             string serviceStatus = "Pending";
 
             //booked values
-            string bookedDate = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
-            string bookedTime = RecApptBookingTimeComboBox.SelectedItem?.ToString();//appointmenttime
+            string bookedDate = pickedDate.ToString("MM-dd-yyyy dddd"); //bookedDate
 
             //basic info
             string CustomerName = RecApptFNameText.Text + " " + RecApptLNameText.Text; //client name
@@ -7091,6 +5633,7 @@ namespace Enchante
                                 string selectedStaff = row.Cells["RecApptStaffSelected"].Value.ToString();
                                 string quepriorityNumber = row.Cells["RecApptPriorityNumber"].Value.ToString();
                                 string queType = row.Cells["RecApptQueType"].Value.ToString();
+                                string bookedTime = row.Cells["RecApptTimeSelected"].Value.ToString();
 
                                 string insertQuery = "INSERT INTO servicehistory (TransactionNumber, TransactionType, ServiceStatus, AppointmentDate, AppointmentTime, ClientName, " +
                                                      "ServiceCategory, ServiceID, SelectedService, ServicePrice, PreferredStaff, PriorityNumber," +
@@ -7114,6 +5657,21 @@ namespace Enchante
                                 cmd.Parameters.AddWithValue("@quetype", queType);
 
                                 cmd.ExecuteNonQuery();
+
+                                if (selectedStaff != "Anyone")
+                                {
+                                    string insertScheduleQuery = "INSERT INTO staffappointmentschedule (EmployeeID, AppointmentDate, AppointmentTime,TransactionNumber,ServiceName,ServiceCategory,ServiceID) VALUES (@EmployeeID, @AppointmentDate, @AppointmentTime, @Transact, " +
+                                                                 "@serviceName, @serviceCat, @ID )";
+                                    MySqlCommand insertScheduleCommand = new MySqlCommand(insertScheduleQuery, connection);
+                                    insertScheduleCommand.Parameters.AddWithValue("@EmployeeID", selectedStaff);
+                                    insertScheduleCommand.Parameters.AddWithValue("@AppointmentDate", bookedDate);
+                                    insertScheduleCommand.Parameters.AddWithValue("@AppointmentTime", bookedTime);
+                                    insertScheduleCommand.Parameters.AddWithValue("@Transact", transactionNum);
+                                    insertScheduleCommand.Parameters.AddWithValue("@serviceName", serviceName);
+                                    insertScheduleCommand.Parameters.AddWithValue("@serviceCat", serviceCat);
+                                    insertScheduleCommand.Parameters.AddWithValue("@ID", serviceID);
+                                    insertScheduleCommand.ExecuteNonQuery();
+                                }
                             }
                         }
                     }
@@ -7134,6 +5692,7 @@ namespace Enchante
 
         }
 
+        //ApptMember
         private void ReceptionistAppointmentDB()
         {
             DateTime appointmentdate = RecApptBookingDatePicker.Value;
@@ -7197,6 +5756,7 @@ namespace Enchante
             }
         }
 
+        //ApptMember
         private int GetLargestPriorityNum(string appointmentDate, string serviceCategory)
         {
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
@@ -7229,12 +5789,13 @@ namespace Enchante
         }
 
 
-
+        //ApptMember
         private void RecApptTransactNumRefresh()
         {
             RecApptTransNumText.Text = TransactionNumberGenerator.AppointGenerateTransNumberInc();
         }
 
+        //ApptMember
         private void RecApptTransactionClear()
         {
             RecApptFNameText.Text = "";
@@ -7247,15 +5808,21 @@ namespace Enchante
             RecApptCatMassRB.Checked = false;
             RecApptSelectedServiceDGV.Rows.Clear();
             RecApptBookingTimeComboBox.Items.Clear();
+            RecApptClientBdayPicker.Value = DateTime.Today;
+            RecApptClientAgeText.Text = "Age";
+            RecApptBookingDatePicker.Value = DateTime.Today;
+            RecApptPreferredStaffToggleSwitch.Checked = false;
+            RecApptAnyStaffToggleSwitch.Checked = false;
             isappointment = false;
         }
 
+        //ApptMember
         private void RecApptBookingDatePicker_ValueChanged(object sender, EventArgs e)
         {
             LoadBookingTimes();
-
         }
 
+        //ApptMember
         private void LoadBookingTimes()
         {
             DateTime selectedDate = RecApptBookingDatePicker.Value.Date;
@@ -7310,6 +5877,7 @@ namespace Enchante
             }
         }
 
+        //ApptMember
         private List<string> RetrieveMatchingAppointmentTimes(string selectedDate, string serviceCategory)
         {
             List<string> matchingTimes = new List<string>();
@@ -7346,8 +5914,17 @@ namespace Enchante
             {
                 connection.Open();
 
-                string query = "SELECT TransactionNumber AS TransactionID FROM appointment WHERE ServiceStatus = 'Pending' AND AppointmentStatus = 'Unconfirmed'";
+                string currentDate = DateTime.Now.ToString("MM-dd-yyyy");
+
+                string query = "SELECT a.TransactionNumber AS TransactionID, a.AppointmentDate, GROUP_CONCAT(DISTINCT sh.AppointmentTime SEPARATOR ', ') AS AppointmentTime " +
+                               "FROM appointment a " +
+                               "LEFT JOIN servicehistory sh ON a.TransactionNumber = sh.TransactionNumber " +
+                               "WHERE a.ServiceStatus = 'Pending' AND a.AppointmentStatus = 'Unconfirmed' AND " +
+                               "STR_TO_DATE(a.AppointmentDate, '%m-%d-%Y') >= STR_TO_DATE(@currentDate, '%m-%d-%Y') " +
+                               "GROUP BY a.TransactionNumber, a.AppointmentDate";
+
                 MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@currentDate", currentDate);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
@@ -7356,7 +5933,7 @@ namespace Enchante
                 {
                     foreach (DataRow row in dataTable.Rows)
                     {
-                        RecApptAcceptLateDeclineDGV.Rows.Add(row["TransactionID"]);
+                        RecApptAcceptLateDeclineDGV.Rows.Add(row["TransactionID"], row["AppointmentDate"], row["AppointmentTime"]);
                     }
                 }
             }
@@ -7414,13 +5991,30 @@ namespace Enchante
                                 queNumber++;
                                 string updateQueNumberQuery = $"UPDATE servicehistory SET QueNumber = {queNumber} WHERE TransactionNumber = '{transactionID}' AND ServiceStatus = 'Pending' AND ServiceCategory = '{serviceCategory}'";
                                 ExecuteQuery(updateQueNumberQuery);
-                                MessageBox.Show("Appointment Accepted");
 
-                                string updateAppointmentStatusQuery = $"UPDATE appointment SET AppointmentStatus = 'Confirmed' WHERE TransactionNumber = '{transactionID}'";
-                                ExecuteQuery(updateAppointmentStatusQuery);
+                                // Ask for confirmation before confirming the appointment
+                                DialogResult result = MessageBox.Show("Are you sure you want to confirm the appointment?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                                RecApptAcceptLateDeclineDGV.Rows.Clear();
-                                InitializeAppointmentDataGrid();
+                                if (result == DialogResult.Yes)
+                                {
+                                    // User confirmed, proceed with appointment confirmation
+                                    string updateAppointmentStatusQuery = $"UPDATE appointment SET AppointmentStatus = 'Confirmed' WHERE TransactionNumber = '{transactionID}'";
+                                    ExecuteQuery(updateAppointmentStatusQuery);
+
+                                    MessageBox.Show("Appointment Confirmed");
+
+                                    RecApptAcceptLateDeclineDGV.Rows.Clear();
+                                    RecCanceAllServicesDGV.Rows.Clear();
+                                    RecCancelServicesDGV.Rows.Clear();
+                                    InitializeAppointmentDataGrid();
+                                    InitializeCustomerServiceListDataGrid();
+
+                                }
+                                else
+                                {
+                                    // User cancelled the operation
+                                    MessageBox.Show("Appointment confirmation cancelled");
+                                }
                             }
                             else
                             {
@@ -7428,13 +6022,30 @@ namespace Enchante
                                 queNumber++;
                                 string updateQueNumberQuery = $"UPDATE servicehistory SET QueNumber = {queNumber} WHERE TransactionNumber = '{transactionID}' AND ServiceStatus = 'Pending' AND ServiceCategory = '{serviceCategory}'";
                                 ExecuteQuery(updateQueNumberQuery);
-                                MessageBox.Show("Appointment Accepted");
 
-                                string updateAppointmentStatusQuery = $"UPDATE appointment SET AppointmentStatus = 'Confirmed' WHERE TransactionNumber = '{transactionID}'";
-                                ExecuteQuery(updateAppointmentStatusQuery);
+                                // Ask for confirmation before confirming the appointment
+                                DialogResult result = MessageBox.Show("Are you sure you want to confirm the appointment?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                                RecApptAcceptLateDeclineDGV.Rows.Clear();
-                                InitializeAppointmentDataGrid();
+                                if (result == DialogResult.Yes)
+                                {
+                                    // User confirmed, proceed with appointment confirmation
+                                    string updateAppointmentStatusQuery = $"UPDATE appointment SET AppointmentStatus = 'Confirmed' WHERE TransactionNumber = '{transactionID}'";
+                                    ExecuteQuery(updateAppointmentStatusQuery);
+
+                                    MessageBox.Show("Appointment Confirmed");
+
+                                    RecApptAcceptLateDeclineDGV.Rows.Clear();
+                                    RecCanceAllServicesDGV.Rows.Clear();
+                                    RecCancelServicesDGV.Rows.Clear();
+                                    InitializeAppointmentDataGrid();
+                                    InitializeCustomerServiceListDataGrid();
+
+                                }
+                                else
+                                {
+                                    // User cancelled the operation
+                                    MessageBox.Show("Appointment confirmation cancelled by user.");
+                                }
                             }
                         }
                     }
@@ -7445,6 +6056,7 @@ namespace Enchante
                 MessageBox.Show("Please select a transaction number.");
             }
         }
+
 
         private int GetLargestQueNumberFromDatabase(string serviceCategory)
         {
@@ -7484,15 +6096,1314 @@ namespace Enchante
 
         #endregion
 
+        #region Reception Walk-in Shop
+        private void RecAppointmentExitBtn_Click(object sender, EventArgs e)
+        {
 
-        //Receptionist Shop Product 
-        #region
+        }
+        private void RecWalkinSelectedServiceDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //di ko alam kung ituloy ko pa
+            //selected discount per service itey
+            //walkin itey pang discount ng selected service
+        }
+        private void RecApptConfirmBtn_Click(object sender, EventArgs e)
+        {
+            Transaction.PanelShow(RecApptConfirmPanel);
+            RecApptAcceptLateDeclineDGV.Rows.Clear();
+            RecCanceAllServicesDGV.Rows.Clear();
+            InitializeAppointmentDataGrid();
+            InitializeCustomerServiceListDataGrid();
+        }
+        private void RecApptConfirmExitBtn_Click(object sender, EventArgs e)
+        {
+            Transaction.PanelShow(RecTransactionPanel);
+
+        }
+        private void RecShopProdBtn_Click(object sender, EventArgs e)
+        {
+            Transaction.PanelShow(RecShopProdPanel);
+            RecShopProdTransNumText.Text = TransactionNumberGenerator.ShopProdGenerateTransNumberDefault();
+
+        }
+
+        private void RecShopProdExitBtn_Click(object sender, EventArgs e)
+        {
+            Transaction.PanelShow(RecTransactionPanel);
+
+        }
+        private void RecShopProdTransactNumRefresh()
+        {
+            RecShopProdTransNumText.Text = TransactionNumberGenerator.ShopProdGenerateTransNumberInc();
+        }
+
+        private void RecShopProdSelectedProdDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && RecShopProdSelectedProdDGV.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+                {
+                    DataGridView dgv = (DataGridView)sender;
+
+                    if (dgv.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+                    {
+                        if (RecShopProdSelectedProdDGV.Columns[e.ColumnIndex].Name == "Void")
+                        {
+                            //input dialog messagebox
+                            string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Void Product Permission");
+
+                            // Hash the entered password
+                            string hashedEnteredPassword = HashHelper.HashString(enteredPassword);
+                            DialogResult result;
+
+                            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                            {
+                                connection.Open();
+
+                                string query = "SELECT EmployeeType FROM systemusers WHERE HashedPass = @Password";
+                                using (MySqlCommand command = new MySqlCommand(query, connection))
+                                {
+                                    command.Parameters.AddWithValue("@Password", hashedEnteredPassword);
+
+                                    // Execute the query
+                                    using (MySqlDataReader reader = command.ExecuteReader())
+                                    {
+                                        if (reader.Read())
+                                        {
+                                            string position = reader["EmployeeType"].ToString();
+                                            if (position == "Manager")
+                                            {
+                                                result = MessageBox.Show("Do you want to remove this item?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                                                if (result == DialogResult.Yes)
+                                                {
+                                                    // Remove the selected row
+                                                    RecShopProdSelectedProdDGV.Rows.RemoveAt(e.RowIndex);
+                                                    MessageBox.Show("Item removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                                return;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                            return;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else if (RecShopProdSelectedProdDGV.Columns[e.ColumnIndex].Name == "-")
+                        {
+                            string quantityString = RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value?.ToString();
+                            if (!string.IsNullOrEmpty(quantityString) && int.TryParse(quantityString, out int quantity))
+                            {
+                                decimal itemCost = decimal.Parse(RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value?.ToString());
+
+                                // Calculate the cost per item
+                                decimal costPerItem = itemCost / quantity;
+
+                                // Decrease quantity
+                                if (quantity > 1)
+                                {
+                                    quantity--;
+
+                                    // Calculate updated item cost (reset to original price)
+                                    decimal updatedCost = costPerItem * quantity;
+
+                                    // Update Qty and ItemCost in the DataGridView
+                                    RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value = quantity.ToString();
+                                    RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = updatedCost.ToString("F2"); // Format to two decimal places
+
+                                }
+                            }
+                            else
+                            {
+                                // Handle the case where quantityString is empty or not a valid integer
+                                // For example, show an error message or set a default value
+                            }
+                        }
+                        else if (RecShopProdSelectedProdDGV.Columns[e.ColumnIndex].Name == "+")
+                        {
+                            string quantityString = RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value?.ToString();
+                            if (!string.IsNullOrEmpty(quantityString) && int.TryParse(quantityString, out int quantity))
+                            {
+                                decimal itemCost = decimal.Parse(RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value?.ToString());
+
+                                // Calculate the cost per item
+                                decimal costPerItem = itemCost / quantity;
+
+                                // Increase quantity
+                                quantity++;
+
+                                // Calculate updated item cost
+                                decimal updatedCost = costPerItem * quantity;
+
+                                // Update Qty and ItemCost in the DataGridView
+                                RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value = quantity.ToString();
+                                RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = updatedCost.ToString("F2"); // Format to two decimal places
+
+                            }
+                            else
+                            {
+                                // Handle the case where quantityString is empty or not a valid integer
+                                // For example, show an error message or set a default value
+                            }
+                        }
+                    }
+
+                    else
+                    {
+
+                    }
+                }
+                else if (RecShopProdSelectedProdDGV.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn &&
+                RecShopProdSelectedProdDGV.Columns[e.ColumnIndex].Name == "CheckBoxColumn")
+                {
+                    // Dictionary to store the discounted amounts for each row
+                    Dictionary<int, decimal> discountedAmounts = new Dictionary<int, decimal>();
+                    // Get the checkbox cell value
+                    DataGridViewCheckBoxCell cell = RecShopProdSelectedProdDGV[e.ColumnIndex, e.RowIndex] as DataGridViewCheckBoxCell;
+                    RecShopProdSelectedProdDGV.CurrentCell = null;
+                    // Check if the checkbox is checked
+                    bool isChecked = (bool)cell.Value;
+
+                    // Calculate total amount and apply discount based on checkbox state
+                    if (isChecked)
+                    {
+                        // Get the quantity and amount from the corresponding cells
+                        int quantity = Convert.ToInt32(RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value);
+                        decimal amount = Convert.ToDecimal(RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Unit Price"].Value);
+
+                        // Calculate the total amount
+                        decimal total = quantity * amount;
+
+                        // Apply discount (for example, 20% discount)
+                        decimal discount = 0.2m; // 20% discount
+                        decimal discountedTotal = total * (1 - discount);
+
+                        // Add or update the discounted amount in the dictionary
+                        RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["RecShopProdDiscountAmount"].Value = total - discountedTotal;
+
+                        // Update the total cell with the discounted total
+                        RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = discountedTotal.ToString();
+                        RecShopProdSelectedDiscount();
+
+                    }
+                    else
+                    {
+                        // Clear the discounted amount and update the amount cell with the original value
+                        RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = (Convert.ToDecimal(RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Unit Price"].Value) * Convert.ToInt32(RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value)).ToString();
+                        RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["RecShopProdDiscountAmount"].Value = "0.00";
+                        RecShopProdSelectedDiscount();
+
+                        //int discountpriceColumnIndex = RecShopProdSelectedProdDGV.Columns["CheckBoxColumn"].Index;
+
+                        //foreach (DataGridViewRow row in RecShopProdSelectedProdDGV.Rows)
+                        //{
+                        //    if (row.Cells[discountpriceColumnIndex].Value == null)
+                        //    {
+                        //        RecShopProdCalculateTotalPrice();
+                        //    }
+                        //}
+                    }
+
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "ShopProdSelectedDGV Cell Content Click Error");
+            }
+        }
+
+        private void RecShopProdSelectedDiscount()
+        {
+            decimal totalDiscountedAmount = 0;
+            decimal total2 = 0;
+
+            decimal price1;
+            decimal price2;
+
+            int discountpriceColumnIndex = RecShopProdSelectedProdDGV.Columns["RecShopProdDiscountAmount"].Index;
+            int totalpriceColumnIndex = RecShopProdSelectedProdDGV.Columns["Total Price"].Index;
+
+            foreach (DataGridViewRow row in RecShopProdSelectedProdDGV.Rows)
+            {
+                if (row.Cells[discountpriceColumnIndex].Value != null)
+                {
+                    if (decimal.TryParse(row.Cells[discountpriceColumnIndex].Value.ToString(), out price1))
+                    {
+                        totalDiscountedAmount += price1;
+                    }
+                    else
+                    {
+                        // Handle invalid numeric value
+                        // For example, you can skip this row or display an error message
+                    }
+                }
+
+            }
+            foreach (DataGridViewRow row in RecShopProdSelectedProdDGV.Rows)
+            {
+                if (row.Cells[totalpriceColumnIndex].Value != null)
+                {
+                    if (decimal.TryParse(row.Cells[totalpriceColumnIndex].Value.ToString(), out price2))
+                    {
+                        total2 += price2;
+                    }
+                    else
+                    {
+                        // Handle invalid numeric value
+                        // For example, you can skip this row or display an error message
+                    }
+                }
+            }
+            RecShopProdGrossAmountBox.Text = total2.ToString("0.00");
+            RecShopProdDiscountBox.Text = totalDiscountedAmount.ToString("0.00");
+
+            if (decimal.TryParse(RecShopProdGrossAmountBox.Text, out decimal grossAmount))
+            {
+                originalGrossAmount = grossAmount; // Store the original value
+                decimal discountAmount = Convert.ToDecimal(RecShopProdDiscountBox.Text); // Calculate the discount amount
+                decimal vatAmount = 0;
+                RecShopProdNetAmountBox.Text = grossAmount.ToString("0.00"); // Format to display as currency
+                RecShopProdVATBox.Text = vatAmount.ToString("0.00");
+
+            }
+
+        }
+
+        private void RecShopProdCalculateTotalPrice()
+        {
+            decimal total1 = 0;
+
+            int servicepriceColumnIndex = RecShopProdSelectedProdDGV.Columns["Total Price"].Index;
+
+            foreach (DataGridViewRow row in RecShopProdSelectedProdDGV.Rows)
+            {
+                if (row.Cells[servicepriceColumnIndex].Value != null)
+                {
+                    decimal price;
+                    if (decimal.TryParse(row.Cells[servicepriceColumnIndex].Value.ToString(), out price))
+                    {
+                        total1 += price;
+                    }
+                    else
+                    {
+                        // Handle invalid numeric value
+                        // For example, you can skip this row or display an error message
+                    }
+                }
+            }
+            RecShopProdGrossAmountBox.Text = total1.ToString("F2");
+
+            RecShopProdCalculateVATAndNetAmount();
+        }
+
+        public void RecShopProdCalculateVATAndNetAmount()
+        {
+            // Get the Gross Amount from the TextBox (MngrGrossAmountBox)
+            if (decimal.TryParse(RecShopProdGrossAmountBox.Text, out decimal grossAmount))
+            {
+                // Fixed VAT rate of 12%
+                decimal rate = 12;
+
+                // Calculate the VAT Amount
+                decimal netAmount = grossAmount / ((rate / 100) + 1);
+
+                // Calculate the Net Amount 
+                decimal vatAmount = grossAmount - netAmount;
+
+                // Display the calculated values in TextBoxes
+                RecShopProdVATBox.Text = vatAmount.ToString("0.00");
+                RecShopProdNetAmountBox.Text = netAmount.ToString("0.00");
+                RecShopProdVATBox.Text = vatAmount.ToString("0.00");
+                RecShopProdNetAmountBox.Text = netAmount.ToString("0.00");
+            }
+
+        }
+        private void RecShopProdCashPaymentChk_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RecShopProdCashPaymentChk.Checked)
+            {
+                RecShopProdCashPaymentChk.Checked = true;
+                RecShopProdTypeText.Text = "Cash";
+
+                RecShopProdCashLbl.Visible = true;
+                RecShopProdCashBox.Visible = true;
+                RecShopProdChangeLbl.Visible = true;
+                RecShopProdChangeBox.Visible = true;
+
+                //disable other payment panel
+                RecShopProdBankPaymentPanel.Visible = false;
+                RecShopProdWalletPaymentPanel.Visible = false;
+
+                RecShopProdCCPaymentChk.Checked = false;
+                RecShopProdPPPaymentChk.Checked = false;
+                RecShopProdGCPaymentChk.Checked = false;
+                RecShopProdPMPaymentChk.Checked = false;
+
+                RecShopProdCardNameText.Text = "";
+                RecShopProdCardNumText.Text = "";
+                RecShopProdCVCText.Text = "";
+                RecShopProdCardExpText.Text = "MM/YY";
+                RecShopProdWalletNumText.Text = "";
+                RecShopProdWalletPINText.Text = "";
+                RecShopProdWalletOTPText.Text = "";
+                RecShopProdCashBox.Text = "0";
+                RecShopProdChangeBox.Text = "0.00";
+            }
+            else
+            {
+                RecShopProdCashPaymentChk.Checked = false;
+                RecShopProdCashLbl.Visible = false;
+                RecShopProdCashBox.Visible = false;
+                RecShopProdChangeLbl.Visible = false;
+                RecShopProdChangeBox.Visible = false;
+            }
+        }
+
+        private void RecShopProdCCPaymentChk_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RecShopProdCCPaymentChk.Checked)
+            {
+                RecShopProdCCPaymentChk.Checked = true;
+                RecShopProdTypeText.Text = "Credit Card";
+
+                RecShopProdCashLbl.Visible = false;
+                RecShopProdCashBox.Visible = false;
+                RecShopProdChangeLbl.Visible = false;
+                RecShopProdChangeBox.Visible = false;
+
+                //disable other payment panel
+                RecShopProdBankPaymentPanel.Visible = true;
+                RecShopProdWalletPaymentPanel.Visible = false;
+
+                RecShopProdCashPaymentChk.Checked = false;
+                RecShopProdPPPaymentChk.Checked = false;
+                RecShopProdGCPaymentChk.Checked = false;
+                RecShopProdPMPaymentChk.Checked = false;
+
+                RecShopProdCardNameText.Text = "";
+                RecShopProdCardNumText.Text = "";
+                RecShopProdCVCText.Text = "";
+                RecShopProdCardExpText.Text = "MM/YY";
+                RecShopProdWalletNumText.Text = "";
+                RecShopProdWalletPINText.Text = "";
+                RecShopProdWalletOTPText.Text = "";
+                RecShopProdCashBox.Text = "0";
+                RecShopProdChangeBox.Text = "0.00";
+            }
+            else if (RecShopProdCCPaymentChk.Checked || RecShopProdPPPaymentChk.Checked)
+            {
+                RecShopProdBankPaymentPanel.Visible = true;
+                RecShopProdWalletPaymentPanel.Visible = false;
+
+            }
+            else
+            {
+                RecShopProdCCPaymentChk.Checked = false;
+                RecShopProdBankPaymentPanel.Visible = false;
+                RecShopProdCardNameText.Text = "";
+                RecShopProdCardNumText.Text = "";
+                RecShopProdCVCText.Text = "";
+                RecShopProdCardExpText.Text = "MM/YY";
+            }
+
+        }
+
+        private void RecShopProdPPPaymentChk_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RecShopProdPPPaymentChk.Checked)
+            {
+                RecShopProdPPPaymentChk.Checked = true;
+                RecShopProdTypeText.Text = "Paypal";
+
+                RecShopProdCashLbl.Visible = false;
+                RecShopProdCashBox.Visible = false;
+                RecShopProdChangeLbl.Visible = false;
+                RecShopProdChangeBox.Visible = false;
+
+                //disable other payment panel
+                RecShopProdBankPaymentPanel.Visible = true;
+                RecShopProdWalletPaymentPanel.Visible = false;
+
+                RecShopProdCashPaymentChk.Checked = false;
+                RecShopProdCCPaymentChk.Checked = false;
+                RecShopProdGCPaymentChk.Checked = false;
+                RecShopProdPMPaymentChk.Checked = false;
+
+                RecShopProdCardNameText.Text = "";
+                RecShopProdCardNumText.Text = "";
+                RecShopProdCVCText.Text = "";
+                RecShopProdCardExpText.Text = "MM/YY";
+                RecShopProdWalletNumText.Text = "";
+                RecShopProdWalletPINText.Text = "";
+                RecShopProdWalletOTPText.Text = "";
+                RecShopProdCashBox.Text = "0";
+                RecShopProdChangeBox.Text = "0.00";
+            }
+            else if (RecShopProdCCPaymentChk.Checked || RecShopProdPPPaymentChk.Checked)
+            {
+                RecShopProdBankPaymentPanel.Visible = true;
+                RecShopProdWalletPaymentPanel.Visible = false;
+
+            }
+            else
+            {
+                RecShopProdPPPaymentChk.Checked = false;
+                RecShopProdBankPaymentPanel.Visible = false;
+                RecShopProdCardNameText.Text = "";
+                RecShopProdCardNumText.Text = "";
+                RecShopProdCVCText.Text = "";
+                RecShopProdCardExpText.Text = "MM/YY";
+            }
+
+        }
+
+        private void RecShopProdGCPaymentChk_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RecShopProdGCPaymentChk.Checked)
+            {
+                RecShopProdGCPaymentChk.Checked = true;
+                RecShopProdTypeText.Text = "GCash";
+
+                RecShopProdCashLbl.Visible = false;
+                RecShopProdCashBox.Visible = false;
+                RecShopProdChangeLbl.Visible = false;
+                RecShopProdChangeBox.Visible = false;
+
+                //disable other payment panel
+                RecShopProdBankPaymentPanel.Visible = false;
+                RecShopProdWalletPaymentPanel.Visible = true;
+
+                RecShopProdCashPaymentChk.Checked = false;
+                RecShopProdCCPaymentChk.Checked = false;
+                RecShopProdPPPaymentChk.Checked = false;
+                RecShopProdPMPaymentChk.Checked = false;
+
+                RecShopProdCardNameText.Text = "";
+                RecShopProdCardNumText.Text = "";
+                RecShopProdCVCText.Text = "";
+                RecShopProdCardExpText.Text = "MM/YY";
+                RecShopProdWalletNumText.Text = "";
+                RecShopProdWalletPINText.Text = "";
+                RecShopProdWalletOTPText.Text = "";
+                RecShopProdCashBox.Text = "0";
+                RecShopProdChangeBox.Text = "0.00";
+            }
+            else if (RecShopProdGCPaymentChk.Checked || RecShopProdPMPaymentChk.Checked)
+            {
+                RecShopProdBankPaymentPanel.Visible = false;
+                RecShopProdWalletPaymentPanel.Visible = true;
+
+            }
+            else
+            {
+                RecShopProdGCPaymentChk.Checked = false;
+                RecShopProdWalletPaymentPanel.Visible = false;
+                RecShopProdWalletNumText.Text = "";
+                RecShopProdWalletPINText.Text = "";
+                RecShopProdWalletOTPText.Text = "";
+            }
+        }
+
+        private void RecShopProdPMPaymentChk_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RecShopProdPMPaymentChk.Checked)
+            {
+                RecShopProdPMPaymentChk.Checked = true;
+                RecShopProdTypeText.Text = "Paymaya";
+
+                RecShopProdCashLbl.Visible = false;
+                RecShopProdCashBox.Visible = false;
+                RecShopProdChangeLbl.Visible = false;
+                RecShopProdChangeBox.Visible = false;
+
+                //disable other payment panel
+                RecShopProdBankPaymentPanel.Visible = false;
+                RecShopProdWalletPaymentPanel.Visible = true;
+
+                RecShopProdCashPaymentChk.Checked = false;
+                RecShopProdCCPaymentChk.Checked = false;
+                RecShopProdPPPaymentChk.Checked = false;
+                RecShopProdGCPaymentChk.Checked = false;
+
+                RecShopProdCardNameText.Text = "";
+                RecShopProdCardNumText.Text = "";
+                RecShopProdCVCText.Text = "";
+                RecShopProdCardExpText.Text = "MM/YY";
+                RecShopProdWalletNumText.Text = "";
+                RecShopProdWalletPINText.Text = "";
+                RecShopProdWalletOTPText.Text = "";
+                RecShopProdCashBox.Text = "0";
+                RecShopProdChangeBox.Text = "0.00";
+            }
+            else if (RecShopProdGCPaymentChk.Checked || RecShopProdPMPaymentChk.Checked)
+            {
+                RecShopProdBankPaymentPanel.Visible = false;
+                RecShopProdWalletPaymentPanel.Visible = true;
+
+            }
+            else
+            {
+                RecShopProdPMPaymentChk.Checked = false;
+                RecShopProdWalletPaymentPanel.Visible = false;
+                RecShopProdWalletNumText.Text = "";
+                RecShopProdWalletPINText.Text = "";
+                RecShopProdWalletOTPText.Text = "";
+            }
+        }
+
+        private void RecShopProdDiscountPWD_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RecShopProdVATExemptChk_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RecShopProdPaymentButton_Click(object sender, EventArgs e)
+        {
+            if (!RecShopProdCashPaymentChk.Checked &&
+                !RecShopProdCCPaymentChk.Checked &&
+                !RecShopProdPPPaymentChk.Checked &&
+                !RecShopProdGCPaymentChk.Checked &&
+                !RecShopProdPMPaymentChk.Checked)
+            {
+                MessageBox.Show("Please select a payment method.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (RecShopProdInsertOrderDB())
+            {
+                RecShopProdUpdateQtyInventory(RecShopProdSelectedProdDGV);
+                RecShopProdOrderProdHistoryDB(RecShopProdSelectedProdDGV);
+                RecShopProdInvoiceReceiptGenerator();
+                RecShopProdClearAllField();
+                Transaction.PanelShow(RecTransactionPanel);
+            }
+        }
+        private void RecShopProdClearAllField()
+        {
+
+            RecShopProdNetAmountBox.Text = "0.00";
+            RecShopProdVATBox.Text = "0.00";
+            RecShopProdDiscountBox.Text = "0.00";
+            RecShopProdGrossAmountBox.Text = "0.00";
+            RecShopProdCashBox.Text = "0";
+            RecShopProdChangeBox.Text = "0.00";
+            RecShopProdTypeText.Text = "";
+
+            RecShopProdCardNameText.Text = "";
+            RecShopProdCardNumText.Text = "";
+            RecShopProdCVCText.Text = "";
+            RecShopProdCardExpText.Text = "MM/YY";
+            RecShopProdWalletNumText.Text = "";
+            RecShopProdWalletPINText.Text = "";
+            RecShopProdWalletOTPText.Text = "";
+            RecShopProdSelectedProdDGV.Rows.Clear();
+            RecShopProdClientNameText.Text = "";
+            RecShopProdClientCPNumText.Text = "";
+
+            RecShopProdCashPaymentChk.Checked = false;
+            RecShopProdCCPaymentChk.Checked = false;
+            RecShopProdPPPaymentChk.Checked = false;
+            RecShopProdGCPaymentChk.Checked = false;
+            RecShopProdPMPaymentChk.Checked = false;
+
+        }
+        private void RecShopProdUpdateQtyInventory(DataGridView dgv)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+                    string updateQuery = "UPDATE inventory SET ItemStock = ItemStock - @Qty WHERE ItemID = @ItemID";
+
+                    foreach (DataGridViewRow row in RecShopProdSelectedProdDGV.Rows)
+                    {
+                        string itemID = row.Cells["RecShopProdItemID"].Value.ToString();
+                        int qty = Convert.ToInt32(row.Cells["Qty"].Value);
+
+                        MySqlCommand command = new MySqlCommand(updateQuery, connection);
+                        command.Parameters.AddWithValue("@Qty", qty);
+                        command.Parameters.AddWithValue("@ItemID", itemID);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string errorMessage = "An error occurred: " + ex.Message + "\n\n" + ex.StackTrace;
+                MessageBox.Show(errorMessage, "Product Qty Failed Inserting to Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        private bool RecShopProdInsertOrderDB()
+        {
+            DateTime currentDate = RecDateTimePicker.Value;
+            string clientName = RecShopProdClientNameText.Text;
+            string clientCPNum = RecShopProdClientCPNumText.Text;
+
+            // cash values
+            string netAmount = RecShopProdNetAmountBox.Text; // net amount
+            string vat = RecShopProdVATBox.Text; // vat 
+            string discount = RecShopProdDiscountBox.Text; // discount
+            string grossAmount = RecShopProdGrossAmountBox.Text; // gross amount
+            string cash = RecShopProdCashBox.Text; // cash given
+            string change = RecShopProdChangeBox.Text; // due change
+            string paymentMethod = RecShopProdTypeText.Text; // payment method
+            string rec = RecNameLbl.Text;
+            string transactNum = RecShopProdTransNumText.Text;
+            //booked values
+            string Date = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
+            string Time = currentDate.ToString("hh:mm tt"); //bookedTime
+            // bank & wallet details
+            string cardName = RecShopProdCardNameText.Text;
+            string cardNum = RecShopProdCardNumText.Text;
+            string CVC = RecShopProdCVCText.Text;
+            string expire = RecShopProdCardExpText.Text;
+            string walletNum = RecShopProdWalletNumText.Text;
+            string walletPIN = RecShopProdWalletPINText.Text;
+            string walletOTP = RecShopProdWalletOTPText.Text;
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+
+                    if (RecShopProdCashPaymentChk.Checked)
+                    {
+                        if (grossAmount == "0.00")
+                        {
+                            MessageBox.Show("Please select a transaction to pay.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (string.IsNullOrWhiteSpace(cash))
+                        {
+                            MessageBox.Show("Please enter a cash amount.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (!IsNumeric(cash))
+                        {
+                            MessageBox.Show("Cash amount must be in numbers only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (Convert.ToDecimal(cash) < Convert.ToDecimal(grossAmount))
+                        {
+                            MessageBox.Show("Insufficient amount. Please provide enough cash to cover the transaction.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+
+                    }
+                    else if (RecShopProdCCPaymentChk.Checked || RecShopProdPPPaymentChk.Checked)
+                    {
+                        if (grossAmount == "0.00")
+                        {
+                            MessageBox.Show("Please select a transaction to pay.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (string.IsNullOrWhiteSpace(RecShopProdCardNameText.Text))
+                        {
+                            MessageBox.Show("Please enter a cardholder name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (!IsCardNameValid(RecShopProdCardNameText.Text))
+                        {
+                            MessageBox.Show("Please enter a valid name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (string.IsNullOrWhiteSpace(cardNum))
+                        {
+                            MessageBox.Show("Please enter a card number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (cardNum.Length != 16 || !IsNumeric(cardNum))
+                        {
+                            MessageBox.Show("Please enter a valid 16-digit card number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (string.IsNullOrWhiteSpace(CVC))
+                        {
+                            MessageBox.Show("Please enter a CVC code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (CVC.Length != 3 || !IsNumeric(CVC))
+                        {
+                            MessageBox.Show("Please enter a valid 3-digit CVC code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (string.IsNullOrWhiteSpace(expire))
+                        {
+                            MessageBox.Show("Please enter an expiration date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        if (!Regex.IsMatch(expire, @"^(0[1-9]|1[0-2])\/\d{2}$"))
+                        {
+                            MessageBox.Show("Please enter the expiration date in MM/YY format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                    }
+
+                    else if (RecShopProdGCPaymentChk.Checked || RecShopProdPMPaymentChk.Checked)
+                    {
+                        if (grossAmount == "0.00")
+                        {
+                            MessageBox.Show("Please select a transaction to pay.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (string.IsNullOrWhiteSpace(walletNum))
+                        {
+                            MessageBox.Show("Please enter your wallet number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (!IsNumeric(walletNum))
+                        {
+                            MessageBox.Show("Invalid wallet number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (string.IsNullOrWhiteSpace(walletPIN))
+                        {
+                            MessageBox.Show("Please enter your PIN.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (!IsNumeric(walletPIN) || walletPIN.Length != 6)
+                        {
+                            MessageBox.Show("Wallet PIN should be a 6-digit numeric code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (string.IsNullOrWhiteSpace(walletOTP))
+                        {
+                            MessageBox.Show("Please enter your OTP.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else if (!IsNumeric(walletOTP) || walletOTP.Length != 6)
+                        {
+                            MessageBox.Show("OTP should be a 6-digit numeric code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                    }
+                    string cashPayment = "INSERT INTO orders (TransactionNumber, TransactionType, ProductStatus, Date, Time, CheckedOutBy, ClientName, ClientCPNum, NetPrice, VatAmount, DiscountAmount, GrossAmount, CashGiven, DueChange, PaymentMethod) " +
+                                        "VALUES (@transactNum, @transactType, @status, @date, @time, @rec, @name, @cpNum, @net, @vat, @discount, @gross, @cash, @change, @payment)";
+
+
+                    string bankPayment = "INSERT INTO orders (TransactionNumber, TransactionType, ProductStatus, Date, Time, CheckedOutBy, ClientName, ClientCPNum, NetPrice, VatAmount, DiscountAmount, GrossAmount, PaymentMethod, CardName, CardNumber, CVC, CardExpiration) " +
+                                        "VALUES (@transactNum, @transactType, @status, @date, @time, @rec, @name, @cpNum, @net, @vat, @discount, @gross, @payment, @cardname, @cardNum, @cvc, @expiration)";
+
+
+                    string walletPayment = "INSERT INTO orders (TransactionNumber, TransactionType, ProductStatus, Date, Time, CheckedOutBy, ClientName, ClientCPNum, NetPrice, VatAmount, DiscountAmount, GrossAmount, PaymentMethod, WalletNumber, WalletPIN, WalletOTP) " +
+                                        "VALUES (@transactNum, @transactType, @status, @date, @time, @rec, @name, @cpNum, @net, @vat, @discount, @gross, @payment, @walletNum, @walletPin, @walletOTP)";
+
+                    if (RecShopProdCashPaymentChk.Checked == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand(cashPayment, connection);
+                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
+                        cmd.Parameters.AddWithValue("@transactType", "Walk-in Checked Out");
+                        cmd.Parameters.AddWithValue("@status", "Paid");
+                        cmd.Parameters.AddWithValue("@date", Date);
+                        cmd.Parameters.AddWithValue("@time", Time);
+                        cmd.Parameters.AddWithValue("@rec", rec);
+                        cmd.Parameters.AddWithValue("@name", clientName);
+                        cmd.Parameters.AddWithValue("@cpNum", clientCPNum);
+                        cmd.Parameters.AddWithValue("@net", netAmount);
+                        cmd.Parameters.AddWithValue("@vat", vat);
+                        cmd.Parameters.AddWithValue("@discount", discount);
+                        cmd.Parameters.AddWithValue("@gross", grossAmount);
+                        cmd.Parameters.AddWithValue("@cash", cash);
+                        cmd.Parameters.AddWithValue("@change", change);
+                        cmd.Parameters.AddWithValue("@payment", paymentMethod);
+
+                        cmd.ExecuteNonQuery();
+                        // Successful update
+                        MessageBox.Show("Service successfully been paid through cash.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (RecShopProdCCPaymentChk.Checked == true || RecShopProdPPPaymentChk.Checked == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand(bankPayment, connection);
+                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
+                        cmd.Parameters.AddWithValue("@transactType", "Walk-in Checked Out");
+                        cmd.Parameters.AddWithValue("@status", "Paid");
+                        cmd.Parameters.AddWithValue("@date", Date);
+                        cmd.Parameters.AddWithValue("@time", Time);
+                        cmd.Parameters.AddWithValue("@rec", rec);
+                        cmd.Parameters.AddWithValue("@name", clientName);
+                        cmd.Parameters.AddWithValue("@cpNum", clientCPNum);
+                        cmd.Parameters.AddWithValue("@net", netAmount);
+                        cmd.Parameters.AddWithValue("@vat", vat);
+                        cmd.Parameters.AddWithValue("@discount", discount);
+                        cmd.Parameters.AddWithValue("@gross", grossAmount);
+                        cmd.Parameters.AddWithValue("@payment", paymentMethod);
+                        cmd.Parameters.AddWithValue("@cardname", cardName);
+                        cmd.Parameters.AddWithValue("@cardNum", cardNum);
+                        cmd.Parameters.AddWithValue("@cvc", CVC);
+                        cmd.Parameters.AddWithValue("@expiration", expire);
+
+                        cmd.ExecuteNonQuery();
+                        // Successful update
+                        MessageBox.Show("Service successfully been paid through bank.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (RecShopProdGCPaymentChk.Checked == true || RecShopProdPMPaymentChk.Checked == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand(walletPayment, connection);
+                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
+                        cmd.Parameters.AddWithValue("@transactType", "Walk-in Checked Out");
+                        cmd.Parameters.AddWithValue("@status", "Paid");
+                        cmd.Parameters.AddWithValue("@date", Date);
+                        cmd.Parameters.AddWithValue("@time", Time);
+                        cmd.Parameters.AddWithValue("@rec", rec);
+                        cmd.Parameters.AddWithValue("@name", clientName);
+                        cmd.Parameters.AddWithValue("@cpNum", clientCPNum);
+                        cmd.Parameters.AddWithValue("@net", netAmount);
+                        cmd.Parameters.AddWithValue("@vat", vat);
+                        cmd.Parameters.AddWithValue("@discount", discount);
+                        cmd.Parameters.AddWithValue("@gross", grossAmount);
+                        cmd.Parameters.AddWithValue("@payment", paymentMethod);
+                        cmd.Parameters.AddWithValue("@walletNum", walletNum);
+                        cmd.Parameters.AddWithValue("@walletPin", walletPIN);
+                        cmd.Parameters.AddWithValue("@walletOTP", walletOTP);
+
+                        cmd.ExecuteNonQuery();
+                        // Successful update
+                        MessageBox.Show("Service successfully been paid through online wallet.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                // Handle MySQL database exception
+                string errorMessage = "An error occurred: " + ex.Message + "\n\n" + ex.StackTrace;
+                MessageBox.Show("An error occurred: " + errorMessage, "Shop Product Payment Transaction Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false; // Return false in case of an exception
+            }
+            finally
+            {
+                // Make sure to close the connection
+                connection.Close();
+            }
+            return true;
+        }
+        private void RecShopProdOrderProdHistoryDB(DataGridView RecShopProdSelectedProdDGV)
+        {
+            DateTime currentDate = RecDateTimePicker.Value;
+            string transactionNum = RecShopProdTransNumText.Text;
+            string status = "Paid";
+
+            //basic info
+            string clientName = RecShopProdClientNameText.Text;
+            string clientCPNum = RecShopProdClientCPNumText.Text;
+
+            //booked values
+            string bookedDate = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
+            string bookedTime = currentDate.ToString("hh:mm tt"); //bookedTime
+            string bookedBy = RecNameLbl.Text; //booked by
+
+            string yes = "Yes";
+            string no = "No";
+            if (RecShopProdSelectedProdDGV.Rows.Count > 0)
+            {
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    {
+                        connection.Open();
+
+                        foreach (DataGridViewRow row in RecShopProdSelectedProdDGV.Rows)
+                        {
+                            if (row.Cells["Item Name"].Value != null)
+                            {
+                                string itemName = row.Cells["Item Name"].Value.ToString();
+                                int qty = Convert.ToInt32(row.Cells["Qty"].Value);
+                                decimal itemPrice = Convert.ToDecimal(row.Cells["Unit Price"].Value);
+                                decimal itemTotalPrice = Convert.ToDecimal(row.Cells["Total Price"].Value);
+                                string itemID = row.Cells["RecShopProdItemID"].Value.ToString();
+
+
+                                string query = "INSERT INTO orderproducthistory (TransactionNumber, ProductStatus, CheckedOutDate, CheckedOutTime, CheckedOutBy, ClientName, ItemID, ItemName, Qty, ItemPrice, ItemTotalPrice, CheckedOut, Voided) " +
+                                                 "VALUES (@Transact, @status, @date, @time, @OrderedBy, @client, @ID, @ItemName, @Qty, @ItemPrice, @ItemTotalPrice, @Yes, @No)";
+
+                                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                                {
+                                    cmd.Parameters.AddWithValue("@Transact", transactionNum);
+                                    cmd.Parameters.AddWithValue("@status", status);
+                                    cmd.Parameters.AddWithValue("@date", bookedDate);
+                                    cmd.Parameters.AddWithValue("@time", bookedTime);
+                                    cmd.Parameters.AddWithValue("@OrderedBy", bookedBy);
+                                    cmd.Parameters.AddWithValue("@client", clientName);
+                                    cmd.Parameters.AddWithValue("@ID", itemID);
+                                    cmd.Parameters.AddWithValue("@ItemName", itemName);
+                                    cmd.Parameters.AddWithValue("@Qty", qty);
+                                    cmd.Parameters.AddWithValue("@ItemPrice", itemPrice);
+                                    cmd.Parameters.AddWithValue("@ItemTotalPrice", itemTotalPrice);
+                                    cmd.Parameters.AddWithValue("@Yes", yes);
+                                    cmd.Parameters.AddWithValue("@No", no);
+
+                                    cmd.ExecuteNonQuery();
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    string errorMessage = "An error occurred: " + ex.Message + "\n\n" + ex.StackTrace;
+                    MessageBox.Show(errorMessage, "Product Data Failed Inserting to Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("No products bought.", "Product");
+            }
+
+        }
+        private void RecShopProdInvoiceReceiptGenerator()
+        {
+            DateTime currentDate = RecDateTimePicker.Value;
+            string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
+            string timePrinted = currentDate.ToString("hh:mm tt");
+            string timePrintedFile = currentDate.ToString("hh-mm-ss");
+            string transactNum = RecShopProdTransNumText.Text;
+            string clientName = RecShopProdClientNameText.Text;
+            string receptionName = RecNameLbl.Text;
+            string legal = "Thank you for trusting Enchanté Salon for your beauty needs." +
+                " This receipt will serve as your sales invoice of any services done in Enchanté Salon." +
+                " Any concerns about your services please ask and show this receipt in the frontdesk of Enchanté Salon.";
+            // Increment the file name
+
+            // Generate a unique filename for the PDF
+            string fileName = $"Enchanté-Receipt-{transactNum}-{timePrintedFile}.pdf";
+
+            // Create a SaveFileDialog to choose the save location
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF Files|*.pdf";
+            saveFileDialog.FileName = fileName;
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = saveFileDialog.FileName;
+
+                // Create a new document with custom page size (8.5"x4.25" in landscape mode)
+                Document doc = new Document(new iTextSharp.text.Rectangle(Utilities.MillimetersToPoints(133f), Utilities.MillimetersToPoints(203f)));
+
+                try
+                {
+                    // Create a PdfWriter instance
+                    PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(filePath, FileMode.Create));
+
+                    // Open the document for writing
+                    doc.Open();
+
+                    //string imagePath = "C:\\Users\\Pepper\\source\\repos\\Enchante\\Resources\\Enchante Logo (200 x 200 px) (1).png"; // Replace with the path to your logo image
+                    // Load the image from project resources
+                    //if (File.Exists(imagePath))
+                    //{
+                    //    //iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imagePath);
+                    //}
+
+                    // Load the image from project resources
+                    Bitmap imagepath = Properties.Resources.Enchante_Logo__200_x_200_px__Green;
+                    iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imagepath, System.Drawing.Imaging.ImageFormat.Png);
+                    logo.Alignment = Element.ALIGN_CENTER;
+                    logo.ScaleAbsolute(100f, 100f);
+                    logo.Alignment = Element.ALIGN_CENTER;
+                    doc.Add(logo);
+
+                    iTextSharp.text.Font headerFont = FontFactory.GetFont("Courier", 16, iTextSharp.text.Font.BOLD);
+                    iTextSharp.text.Font boldfont = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.BOLD);
+                    iTextSharp.text.Font font = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.NORMAL);
+                    iTextSharp.text.Font italic = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.ITALIC);
+
+                    // Create a centered alignment for text
+                    iTextSharp.text.Paragraph centerAligned = new Paragraph();
+                    centerAligned.Alignment = Element.ALIGN_CENTER;
+
+                    // Add centered content to the centerAligned Paragraph
+                    centerAligned.Add(new Chunk("Enchanté Salon", headerFont));
+                    centerAligned.Add(new Chunk("\n69th flr. Enchanté Bldg. Ortigas Extension Ave. \nManggahan, Pasig City 1611 Philippines", font));
+                    centerAligned.Add(new Chunk("\nTel. No.: (1101) 111-1010", font));
+                    centerAligned.Add(new Chunk($"\nDate: {datetoday} Time: {timePrinted}", font));
+
+                    // Add the centered content to the document
+                    doc.Add(centerAligned);
+                    doc.Add(new Chunk("\n")); // New line
+
+                    doc.Add(new Paragraph($"Transaction No.: {transactNum}", font));
+                    //doc.Add(new Paragraph($"Order Date: {today}", font));
+                    doc.Add(new Paragraph($"Reception Name: {receptionName}", font));
+                    doc.Add(new Chunk("\n")); // New line
+
+                    doc.Add(new LineSeparator()); // Dotted line
+                    PdfPTable columnHeaderTable = new PdfPTable(5);
+                    columnHeaderTable.SetWidths(new float[] { 10f, 10f, 5f, 5f, 5f }); // Column widths
+                    columnHeaderTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+                    columnHeaderTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                    columnHeaderTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    columnHeaderTable.AddCell(new Phrase("Product ID", boldfont));
+                    columnHeaderTable.AddCell(new Phrase("Product Name", boldfont));
+                    columnHeaderTable.AddCell(new Phrase("Qty.", boldfont));
+                    columnHeaderTable.AddCell(new Phrase("Unit Price", boldfont));
+                    columnHeaderTable.AddCell(new Phrase("Total Price", boldfont));
+                    doc.Add(columnHeaderTable);
+                    doc.Add(new LineSeparator()); // Dotted line
+                    // Iterate through the rows of your 
+
+
+                    foreach (DataGridViewRow row in RecShopProdSelectedProdDGV.Rows)
+                    {
+                        try
+                        {
+                            string itemName = row.Cells["Item Name"].Value?.ToString();
+                            if (string.IsNullOrEmpty(itemName))
+                            {
+                                continue; // Skip empty rows
+                            }
+                            string itemID = row.Cells["RecShopProdItemID"].Value?.ToString();
+                            string qty = row.Cells["Qty"].Value?.ToString();
+                            string itemCost = row.Cells["Unit Price"].Value?.ToString();
+                            string itemTotalcost = row.Cells["Total Price"].Value?.ToString();
+
+                            // Add cells to the item table
+                            PdfPTable productTable = new PdfPTable(5);
+                            productTable.SetWidths(new float[] { 5f, 5f, 3f, 3f, 3f }); // Column widths
+                            productTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+                            productTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                            productTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                            productTable.AddCell(new Phrase(itemID, font));
+                            productTable.AddCell(new Phrase(itemName, font));
+                            productTable.AddCell(new Phrase(qty, font));
+                            productTable.AddCell(new Phrase(itemCost, font));
+                            productTable.AddCell(new Phrase(itemTotalcost, font));
+
+                            // Add the item table to the document
+                            doc.Add(productTable);
+                        }
+                        catch (Exception ex)
+                        {
+                            // Handle or log any exceptions that occur while processing DataGridView data
+                            MessageBox.Show("An error occurred: " + ex.Message, "Shop Product Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+
+
+                    doc.Add(new Chunk("\n")); // New line
+                    doc.Add(new LineSeparator()); // Dotted line
+                    doc.Add(new Chunk("\n")); // New line
+
+                    // Total from your textboxes as decimal
+                    decimal netAmount = decimal.Parse(RecShopProdNetAmountBox.Text);
+                    decimal discount = decimal.Parse(RecShopProdDiscountBox.Text);
+                    decimal vat = decimal.Parse(RecShopProdVATBox.Text);
+                    decimal grossAmount = decimal.Parse(RecShopProdGrossAmountBox.Text);
+                    decimal cash = decimal.Parse(RecShopProdCashBox.Text);
+                    decimal change = decimal.Parse(RecShopProdChangeBox.Text);
+                    string paymentMethod = RecShopProdTypeText.Text;
+
+                    // Create a new table for the "Total" section
+                    PdfPTable totalTable = new PdfPTable(2); // 2 columns for the "Total" table
+                    totalTable.SetWidths(new float[] { 5f, 3f }); // Column widths
+                    totalTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+
+                    int totalRowCount = RecShopProdSelectedProdDGV.Rows.Count;
+
+                    // Add cells to the "Total" table
+                    totalTable.AddCell(new Phrase($"Total # of Products ({totalRowCount})", font));
+                    totalTable.AddCell(new Phrase($"Php {grossAmount:F2}", font));
+                    totalTable.AddCell(new Phrase($"Cash Given", font));
+                    totalTable.AddCell(new Phrase($"Php {cash:F2}", font));
+                    totalTable.AddCell(new Phrase($"Change", font));
+                    totalTable.AddCell(new Phrase($"Php {change:F2}", font));
+                    totalTable.AddCell(new Phrase($"Payment Method:", font));
+                    totalTable.AddCell(new Phrase($"{paymentMethod:F2}", font));
+
+                    // Add the "Total" table to the document
+                    doc.Add(totalTable);
+                    doc.Add(new Chunk("\n")); // New line
+
+                    // Create a new table for the "VATable" section
+                    PdfPTable vatTable = new PdfPTable(2); // 2 columns for the "VATable" table
+                    vatTable.SetWidths(new float[] { 5f, 3f }); // Column widths
+                    vatTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+
+                    // Add cells to the "VATable" table
+                    vatTable.AddCell(new Phrase("VATable ", font));
+                    vatTable.AddCell(new Phrase($"Php {netAmount:F2}", font));
+                    vatTable.AddCell(new Phrase("VAT Tax (12%)", font));
+                    vatTable.AddCell(new Phrase($"Php {vat:F2}", font));
+                    vatTable.AddCell(new Phrase("Discount (20%)", font));
+                    vatTable.AddCell(new Phrase($"Php {discount:F2}", font));
+
+                    // Add the "VATable" table to the document
+                    doc.Add(vatTable);
+
+
+                    // Add the "Served To" section
+                    doc.Add(new Chunk("\n")); // New line
+                    doc.Add(new Paragraph($"Served To: {clientName}", italic));
+                    doc.Add(new Paragraph("Address:_______________________________", italic));
+                    doc.Add(new Paragraph("TIN No.:_______________________________", italic));
+
+                    // Add the legal string with center alignment
+                    Paragraph paragraph_footer = new Paragraph($"\n\n{legal}", italic);
+                    paragraph_footer.Alignment = Element.ALIGN_CENTER;
+                    doc.Add(paragraph_footer);
+                }
+                catch (DocumentException de)
+                {
+                    MessageBox.Show("An error occurred: " + de.Message, "Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (IOException ioe)
+                {
+                    MessageBox.Show("An error occurred: " + ioe.Message, "Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    // Close the document
+                    doc.Close();
+                }
+
+                //MessageBox.Show($"Receipt saved as {filePath}", "Receipt Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void RecShopProdGrossAmountBox_TextChanged(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(RecShopProdGrossAmountBox.Text, out decimal grossAmount))
+            {
+                // Get the Cash Amount from the TextBox (MngrCashBox)
+                if (decimal.TryParse(RecShopProdCashBox.Text, out decimal cashAmount))
+                {
+                    // Calculate the Change
+                    decimal change = cashAmount - grossAmount;
+
+                    // Display the calculated change value in the MngrChangeBox
+                    RecShopProdChangeBox.Text = change.ToString("0.00");
+                }
+                else
+                {
+                    // Handle invalid input in MngrCashBox, e.g., display an error message
+                    RecShopProdChangeBox.Text = "0.00";
+                }
+            }
+            else
+            {
+                // Handle invalid input in MngrGrossAmountBox, e.g., display an error message
+                RecShopProdChangeBox.Text = "0.00";
+            }
+        }
+
+        private void RecShopProdCashBox_TextChanged(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(RecShopProdGrossAmountBox.Text, out decimal grossAmount))
+            {
+                // Get the Cash Amount from the TextBox (MngrCashBox)
+                if (decimal.TryParse(RecShopProdCashBox.Text, out decimal cashAmount))
+                {
+                    // Calculate the Change
+                    decimal change = cashAmount - grossAmount;
+
+                    // Display the calculated change value in the MngrChangeBox
+                    RecShopProdChangeBox.Text = change.ToString("0.00");
+                }
+                else
+                {
+                    // Handle invalid input in MngrCashBox, e.g., display an error message
+                    RecShopProdChangeBox.Text = "0.00";
+                }
+            }
+            else
+            {
+                // Handle invalid input in MngrGrossAmountBox, e.g., display an error message
+                RecShopProdChangeBox.Text = "0.00";
+            }
+        }
+
+        private void RecShopProdSelectedProdVoidBtn_Click(object sender, EventArgs e)
+        {
+            if (RecShopProdSelectedProdDGV.Rows.Count == 0)
+            {
+                MessageBox.Show("The product list is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //input dialog messagebox
+            string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Void Product Permission");
+
+            // Hash the entered password
+            string hashedEnteredPassword = HashHelper.HashString(enteredPassword);
+            DialogResult result;
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string query = "SELECT EmployeeType FROM systemusers WHERE HashedPass = @Password";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Password", hashedEnteredPassword);
+
+                    // Execute the query
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string position = reader["EmployeeType"].ToString();
+                            if (position == "Manager")
+                            {
+                                result = MessageBox.Show("Do you want to remove this item?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                                if (result == DialogResult.Yes)
+                                {
+
+                                    RecShopProdSelectedProdDGV.Rows.Clear();
+
+
+                                    MessageBox.Show("Item removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            //MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            //return;
+                        }
+                    }
+                }
+            }
+        }
 
         #endregion
 
         #endregion
-        //Manager dashboard starts here
-        #region
+
+        #region Manager dashboard starts here
+        #region Manager Misc. Functions
         private void MngrSignOutBtn_Click_1(object sender, EventArgs e)
         {
             LogoutChecker();
@@ -7530,10 +7441,10 @@ namespace Enchante
             Inventory.PanelShow(MngrInventoryTypePanel);
         }
 
-        private void MngrPayServiceExitBtn_Click(object sender, EventArgs e)
+        private void RecPayServiceExitBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecTransactionPanel);
-
+            RecPayServiceClearAllField();
         }
 
         private void MngrInventoryWalkinSalesBtn_Click(object sender, EventArgs e)
@@ -7592,12 +7503,15 @@ namespace Enchante
             MngrProductSalesPeriod.SelectedItem = null;
             MngrProductSalesSelectCatBox.SelectedItem = null;
             MngrProductSalesSelectedPeriodText.Text = "";
+            MngrProductSalesTotalRevBox.Text = "";
             MngrProductSalesLineGraph.Series.Clear();
             MngrProductSalesGraph.Series.Clear();
             Inventory.PanelShow(MngrInventoryTypePanel);
         }
-        //Services Data
-        #region
+        #endregion
+
+        //
+        #region Mngr Services Data
         private void RecInventoryServicesBtn_Click_1(object sender, EventArgs e)
         {
             Inventory.PanelShow(MngrServicesPanel);
@@ -7619,6 +7533,10 @@ namespace Enchante
                 MngrServicesCategoryComboText.Text = MngrServicesCategoryComboText.SelectedItem.ToString();
                 UpdateServiceTypeComboBox();
                 GenerateServiceID();
+            }
+            if (MngrServicesCategoryComboText.SelectedItem != null)
+            {
+                PopulateRequiredItemsComboBox();
             }
         }
 
@@ -7671,6 +7589,7 @@ namespace Enchante
 
             }
         }
+
         public class DynamicIDGenerator
         {
             private static Random random = new Random();
@@ -7701,7 +7620,6 @@ namespace Enchante
             }
         }
 
-
         private void GenerateServiceID()
         {
             if (MngrServicesCategoryComboText.SelectedIndex >= 0 && MngrServicesTypeComboText.SelectedIndex >= 0)
@@ -7727,19 +7645,33 @@ namespace Enchante
             string duration = MngrServicesDurationText.Text;
             string price = MngrServicesPriceText.Text;
             string ID = MngrServicesIDNumText.Text;
+            string reqitem = MngrServicesSelectedReqItemText.Text;
+            string numofitem = MngrServicesNumOfItems.Text;
 
             if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(type) && string.IsNullOrEmpty(category) && string.IsNullOrEmpty(describe)
-                && string.IsNullOrEmpty(duration) && string.IsNullOrEmpty(price))
+                && string.IsNullOrEmpty(duration) && string.IsNullOrEmpty(price) && string.IsNullOrEmpty(reqitem) && string.IsNullOrEmpty(numofitem))
             {
                 MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(category) || string.IsNullOrEmpty(describe)
-                || string.IsNullOrEmpty(duration) || string.IsNullOrEmpty(price))
+                || string.IsNullOrEmpty(duration) || string.IsNullOrEmpty(price) || string.IsNullOrEmpty(reqitem) || string.IsNullOrEmpty(numofitem))
             {
                 MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            else if (!IsNumericTwo(MngrServicesPriceText.Text))
+            {
+                MessageBox.Show("Invalid Price Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (!IsValidFormat(numofitem))
+            {
+                MessageBox.Show("Value in 'Number of Items' must be a single number or in the format 'num,num,num,...' based on how many selected items on Selected Required Item Field.", 
+                    "Invalid Format", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             else
             {
 
@@ -7761,8 +7693,8 @@ namespace Enchante
                             MessageBox.Show("Service ID already exists. Please use a different ID Number.", "Salon Service Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return; // Exit the method without inserting the new account
                         }
-                        string insertQuery = "INSERT INTO services (Category, Type, ServiceID, Name, Description, Duration, Price)" +
-                            "VALUES (@category, @type, @ID, @name, @describe, @duration, @price)";
+                        string insertQuery = "INSERT INTO services (Category, Type, ServiceID, Name, Description, Duration, Price, RequiredItem, NumOfItems)" +
+                            "VALUES (@category, @type, @ID, @name, @describe, @duration, @price, @reqitem, @numofitem)";
 
                         MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
                         cmd.Parameters.AddWithValue("@category", category);
@@ -7772,6 +7704,8 @@ namespace Enchante
                         cmd.Parameters.AddWithValue("@describe", describe);
                         cmd.Parameters.AddWithValue("@duration", duration);
                         cmd.Parameters.AddWithValue("@price", price);
+                        cmd.Parameters.AddWithValue("@reqitem", reqitem);
+                        cmd.Parameters.AddWithValue("@numofitem", numofitem);
 
                         cmd.ExecuteNonQuery();
                     }
@@ -7781,7 +7715,7 @@ namespace Enchante
                     ServiceBoxClear();
                     ReceptionLoadServices();
                     GenerateServiceID();
-
+                    selectedItems.Clear();
 
                 }
                 catch (MySqlException ex)
@@ -7795,8 +7729,24 @@ namespace Enchante
                     connection.Close();
                 }
             }
-
         }
+
+        private bool IsValidFormat(string input)
+        {
+            // Split the input by commas
+            string[] parts = input.Split(',');
+
+            // Check if each part is a valid number
+            foreach (string part in parts)
+            {
+                if (!IsNumeric(part.Trim())) // Trim to remove leading/trailing spaces
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         private void ServiceBoxClear()
         {
             MngrServicesCreateBtn.Visible = true;
@@ -7805,6 +7755,7 @@ namespace Enchante
             MngrServicesTypeComboText.Enabled = true;
             MngrServicesCategoryComboText.SelectedIndex = -1;
             MngrServicesTypeComboText.SelectedIndex = -1;
+            MngrServicesRequiredItemBox.SelectedIndex = -1;
             MngrServicesCategoryComboText.Text = "";
             MngrServicesTypeComboText.Text = "";
             MngrServicesNameText.Text = "";
@@ -7812,7 +7763,8 @@ namespace Enchante
             MngrServicesDurationText.Text = "";
             MngrServicesPriceText.Text = "";
             MngrServicesIDNumText.Text = "";
-
+            MngrServicesSelectedReqItemText.Text = "";
+            MngrServicesNumOfItems.Text = "";
         }
 
         private void RecServicesUpdateInfoBtn_Click(object sender, EventArgs e)
@@ -7831,9 +7783,11 @@ namespace Enchante
                             //// Re data into the database
                             RetrieveServiceDataFromDB(selectedRow);
                             MngrServicesUpdateBtn.Visible = true;
+                            MngrServicesCancelButton.Visible = true;
                             MngrServicesCreateBtn.Visible = false;
                             MngrServicesCategoryComboText.Enabled = false;
                             MngrServicesTypeComboText.Enabled = false;
+                            selectedItems.Clear();
                         }
                         catch (Exception ex)
                         {
@@ -7854,6 +7808,7 @@ namespace Enchante
                 MessageBox.Show("Select a table row first.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
+
         private void RetrieveServiceDataFromDB(DataGridViewRow selectedRow)
         {
             try
@@ -7879,6 +7834,8 @@ namespace Enchante
                             string serviceDescribe = reader["Description"].ToString();
                             string serviceDuration = reader["Duration"].ToString();
                             string servicePrice = reader["Price"].ToString();
+                            string reqItem = reader["RequiredItem"].ToString();
+                            string numofItems = reader["NumOfItems"].ToString();
 
                             MngrServicesCategoryComboText.Text = serviceCategory;
                             MngrServicesTypeComboText.Text = serviceType;
@@ -7887,6 +7844,8 @@ namespace Enchante
                             MngrServicesDescriptionText.Text = serviceDescribe;
                             MngrServicesDurationText.Text = serviceDuration;
                             MngrServicesPriceText.Text = servicePrice;
+                            MngrServicesSelectedReqItemText.Text = reqItem;
+                            MngrServicesNumOfItems.Text = numofItems;
                         }
                     }
                 }
@@ -7902,7 +7861,6 @@ namespace Enchante
             }
         }
 
-
         private void RecServicesUpdateBtn_Click(object sender, EventArgs e)
         {
             string category = MngrServicesCategoryComboText.Text;
@@ -7912,19 +7870,35 @@ namespace Enchante
             string duration = MngrServicesDurationText.Text;
             string price = MngrServicesPriceText.Text;
             string ID = MngrServicesIDNumText.Text;
+            string reqitem = MngrServicesSelectedReqItemText.Text;
+            string numofitem = MngrServicesNumOfItems.Text;
 
             if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(type) && string.IsNullOrEmpty(category) && string.IsNullOrEmpty(describe)
-                && string.IsNullOrEmpty(duration) && string.IsNullOrEmpty(price))
+                && string.IsNullOrEmpty(duration) && string.IsNullOrEmpty(price) && string.IsNullOrEmpty(ID) && string.IsNullOrEmpty(reqitem)
+                && string.IsNullOrEmpty(numofitem))
             {
                 MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(type) || string.IsNullOrEmpty(category) || string.IsNullOrEmpty(describe)
-                || string.IsNullOrEmpty(duration) || string.IsNullOrEmpty(price))
+                || string.IsNullOrEmpty(duration) || string.IsNullOrEmpty(price) || string.IsNullOrEmpty(ID) || string.IsNullOrEmpty(reqitem)
+                || string.IsNullOrEmpty(numofitem))
             {
                 MessageBox.Show("Missing text on required fields.", "Missing Text", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            else if (!IsNumericTwo(MngrServicesPriceText.Text))
+            {
+                MessageBox.Show("Invalid Price Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (!IsValidFormat(numofitem))
+            {
+                MessageBox.Show("Value in 'Number of Items' must be a single number or in the format 'num,num,num,...' based on how many selected items on Selected Required Item Field.",
+                    "Invalid Format", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             else
             {
                 try
@@ -7944,11 +7918,11 @@ namespace Enchante
                             MessageBox.Show("Service with the provided ID does not exist in the database.", "Service Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
-
-
                         // Update without image
-                        string updateQuery = "UPDATE services SET Category = @category, Type = @type, Name = @name, Description = @describe, Duration = @duration, Price = @price " +
+                        string updateQuery = "UPDATE services SET Category = @category, Type = @type, Name = @name, Description = @describe, Duration = @duration, Price = @price, " +
+                            "RequiredItem = @reqitem, NumOfItems = @numofitem " +
                             "WHERE ServiceID = @ID";
+
                         MySqlCommand updateCmd = new MySqlCommand(updateQuery, connection);
                         updateCmd.Parameters.AddWithValue("@category", category);
                         updateCmd.Parameters.AddWithValue("@type", type);
@@ -7957,6 +7931,8 @@ namespace Enchante
                         updateCmd.Parameters.AddWithValue("@describe", describe);
                         updateCmd.Parameters.AddWithValue("@duration", duration);
                         updateCmd.Parameters.AddWithValue("@price", price);
+                        updateCmd.Parameters.AddWithValue("@reqitem", reqitem);
+                        updateCmd.Parameters.AddWithValue("@numofitem", numofitem);
 
                         updateCmd.ExecuteNonQuery();
 
@@ -7964,11 +7940,10 @@ namespace Enchante
 
                     // Successful update
                     MessageBox.Show("Service information has been successfully updated.", "Service Info Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    MngrServicesCancelButton.Visible = false;
                     ServiceBoxClear();
                     ReceptionLoadServices();
-
-
+                    selectedItems.Clear();
                 }
                 catch (MySqlException ex)
                 {
@@ -7980,12 +7955,113 @@ namespace Enchante
                     connection.Close();
                 }
             }
+        }
 
+
+        private void MngrServicesCancelButton_Click(object sender, EventArgs e)
+        {
+            ServiceBoxClear();
+            selectedItems.Clear();
+            MngrServicesCancelButton.Visible = false;
+        }
+
+        private void PopulateRequiredItemsComboBox()
+        {
+            MngrServicesRequiredItemBox.Items.Clear();
+
+            string selectedCategory = MngrServicesCategoryComboText.SelectedItem?.ToString();
+
+            string connectionString = "Server=localhost;Database=enchante;User=root;Password=;";
+            string query = "SELECT ItemName FROM inventory WHERE ProductType = 'Service Product' AND ProductCategory = @Category";
+
+            if (selectedCategory != null)
+            { 
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+            
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@Category", selectedCategory);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string itemName = reader["ItemName"].ToString();
+                            MngrServicesRequiredItemBox.Items.Add(itemName);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private HashSet<string> selectedItems = new HashSet<string>();
+
+        private void MngrServicesRequiredItemBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (MngrServicesRequiredItemBox.SelectedItem != null)
+            {
+                string selectedCategory = MngrServicesCategoryComboText.SelectedItem?.ToString();
+                string selectedItemName = MngrServicesRequiredItemBox.SelectedItem.ToString();
+
+                if (selectedItems.Contains(selectedItemName))
+                {
+                    MessageBox.Show("You have already selected this item.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                string connectionString = "Server=localhost;Database=enchante;User=root;Password=;";
+                string query = "SELECT ItemID FROM inventory WHERE ProductType = 'Service Product' AND ProductCategory = @Category AND ItemName = @ItemName";
+
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+                        MySqlCommand command = new MySqlCommand(query, connection);
+                        command.Parameters.AddWithValue("@Category", selectedCategory);
+                        command.Parameters.AddWithValue("@ItemName", selectedItemName);
+
+                        object result = command.ExecuteScalar();
+                        if (result != null)
+                        {
+                            if (!string.IsNullOrEmpty(MngrServicesSelectedReqItemText.Text))
+                            {
+                                MngrServicesSelectedReqItemText.Text += "," + result.ToString();
+                            }
+                            else
+                            {
+                                MngrServicesSelectedReqItemText.Text = result.ToString();
+                            }
+                            selectedItems.Add(selectedItemName);
+                            MngrServicesRequiredItemBox.SelectedIndex = -1;
+                        }
+                        else
+                        {
+                            MessageBox.Show("ItemID not found for the selected item.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void MngrServicesDeleteBtn_Click(object sender, EventArgs e)
+        {
+            MngrServicesSelectedReqItemText.Text = "";
+            selectedItems.Clear();
         }
         #endregion
 
-        //Product Data
-        #region
+        #region Mngr. Product Data
 
         private void MngrInventoryProductsExitBtn_Click(object sender, EventArgs e)
         {
@@ -7998,8 +8074,6 @@ namespace Enchante
             MngrInventoryProductsCatComboText.Enabled = true;
             MngrInventoryProductsTypeComboText.Enabled = true;
         }
-
-
 
         private void MngrInventoryProductData()
         {
@@ -8430,7 +8504,7 @@ namespace Enchante
                 {
                     PDImage.Visible = false;
                     ProductImagePictureBox.Visible = false;
-                    SelectImage.Visible = false;
+                    SelectImage.Visible = false;               
                 }
                 else if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product")
                 {
@@ -8543,8 +8617,7 @@ namespace Enchante
 
         #endregion
 
-        //Staff Schedule 
-        #region
+        #region Mngr. Staff Schedule 
 
         private void RecEditSchedBtn_Click(object sender, EventArgs e)
         {
@@ -8664,8 +8737,7 @@ namespace Enchante
         }
         #endregion
 
-        //PANEL OF WALK-IN REVENUE
-        #region
+        #region Mngr. PANEL OF WALK-IN Services REVENUE
         private void IncomeBtn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(MngrWalkinSalesPeriod.Text))
@@ -8717,8 +8789,8 @@ namespace Enchante
                         MessageBox.Show("From date and to date cannot be the same.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    fromDate = MngrWalkinSalesFromDatePicker.Value;
-                    toDate = MngrWalkinSalesToDatePicker.Value;
+                    fromDate = MngrWalkinSalesFromDatePicker.Value.Date;
+                    toDate = MngrWalkinSalesToDatePicker.Value.Date.AddDays(1).AddTicks(-1);
                     break;
                 default:
                     MessageBox.Show("Invalid Sale Period selection.", "Walk-in Services Error Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -8755,6 +8827,7 @@ namespace Enchante
                         query += " AND ServiceCategory = @SelectedCategory";
                     }
 
+                    query += " AND TransactionType = 'Walk-in Transaction'";
                     query += " GROUP BY AppointmentDay, ServiceCategory";
 
                     MySqlCommand command = new MySqlCommand(query, connection);
@@ -8774,6 +8847,7 @@ namespace Enchante
                         MngrWalkinSalesGraph.Legends.Clear();
                         MngrWalkinSalesTransRepDGV.DataSource = null;
                         MngrWalkinSalesTransServiceHisDGV.DataSource = null;
+                        MngrWalkinSalesRevenueTextbox.Text = "";
                         MessageBox.Show("No data available for the selected date range.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
@@ -8837,17 +8911,28 @@ namespace Enchante
                     dt.Columns.Add("AppointmentDate");
                     dt.Columns.Add("TotalServicePrice", typeof(decimal));
 
-                    string transNumQuery = @"SELECT TransactionNumber, AppointmentDate, SUM(CAST(ServicePrice AS DECIMAL(10, 2))) AS TotalServicePrice 
-                    FROM servicehistory 
-                    WHERE ServiceStatus = 'Completed' 
-                    AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y %W') BETWEEN @FromDate AND @ToDate ";
+                    string transNumQuery = @"
+    SELECT TransactionNumber, AppointmentDate, SUM(CAST(ServicePrice AS DECIMAL(10, 2))) AS TotalServicePrice";
+
+                    if (selectedCategory == "All Categories")
+                    {
+                        dt.Columns.Add("ServiceCategory"); // Add ServiceCategory column when "All Categories" is selected
+                        transNumQuery += ", ServiceCategory"; // Include ServiceCategory in the query
+                    }
+
+                    transNumQuery += @"
+    FROM servicehistory 
+    WHERE ServiceStatus = 'Completed' 
+    AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y %W') BETWEEN @FromDate AND @ToDate ";
 
                     if (selectedCategory != "All Categories")
                     {
                         transNumQuery += " AND ServiceCategory = @SelectedCategory";
                     }
 
-                    transNumQuery += " GROUP BY TransactionNumber";
+                    transNumQuery += @"
+    AND TransactionType = 'Walk-in Transaction'
+    GROUP BY TransactionNumber, AppointmentDate"; // Group by both TransactionNumber and AppointmentDate
 
                     MySqlCommand transNumCommand = new MySqlCommand(transNumQuery, connection);
                     transNumCommand.Parameters.AddWithValue("@FromDate", fromDate);
@@ -8866,15 +8951,33 @@ namespace Enchante
                             string appointmentDate = transNumReader["AppointmentDate"].ToString();
                             decimal totalServicePrice = (decimal)transNumReader["TotalServicePrice"];
 
-                            dt.Rows.Add(transactionNumber, appointmentDate, totalServicePrice);
+                            DataRow row = dt.Rows.Add(transactionNumber, appointmentDate, totalServicePrice);
+                            if (selectedCategory == "All Categories")
+                            {
+                                // Only attempt to read ServiceCategory when it's included in the query
+                                if (transNumReader.FieldCount > 3 && !transNumReader.IsDBNull(3))
+                                {
+                                    string serviceCategory = transNumReader["ServiceCategory"].ToString();
+                                    row["ServiceCategory"] = serviceCategory; // Set ServiceCategory value if "All Categories" is selected
+                                }
+                            }
                         }
                     }
 
                     MngrWalkinSalesTransRepDGV.DataSource = dt;
+
+                    decimal totalServicePriceSum = 0;
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        totalServicePriceSum += Convert.ToDecimal(row["TotalServicePrice"]);
+                    }
+                    string formattedTotalServicePrice = "₱" + totalServicePriceSum.ToString("#,##0.00");
+                    MngrWalkinSalesRevenueTextbox.Text = formattedTotalServicePrice;
+
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message, "Walk-in Service Sales Graph Failed");
+                    MessageBox.Show("Error: " + ex.Message);
                 }
             }
         }
@@ -8883,7 +8986,7 @@ namespace Enchante
         {
             MngrWalkinSalesSelectedPeriodText.Text = "";
 
-            string selectedItem = MngrWalkinSalesPeriod.SelectedItem?.ToString(); // Use null-conditional operator to handle null case
+            string selectedItem = MngrWalkinSalesPeriod.SelectedItem?.ToString();
 
             if (selectedItem != null)
             {
@@ -8984,7 +9087,6 @@ namespace Enchante
 
                     MngrWalkinSalesTransServiceHisDGV.DataSource = dataTable;
 
-                    // Display the TransactionNumber in the TextBox
                     MngrWalkinSalesTransIDShow.Text = transactionNumber;
                 }
                 connection.Close();
@@ -9008,6 +9110,8 @@ namespace Enchante
             MngrWalkinSalesPeriod.SelectedItem = null;
             MngrWalkinSalesSelectCatBox.SelectedItem = null;
             MngrWalkinSalesSelectedPeriodText.Text = "";
+            MngrWalkinSalesTransIDShow.Text = "";
+            MngrWalkinSalesRevenueTextbox.Text = "";
             MngrWalkinSalesTransRepDGV.DataSource = null;
             MngrWalkinSalesTransServiceHisDGV.DataSource = null;
             MngrWalkinSalesGraph.Series.Clear();
@@ -9017,8 +9121,7 @@ namespace Enchante
 
         #endregion
 
-        //PANEL OF SERVICE DEMAND
-        #region
+        #region Mngr. PANEL OF SERVICE DEMAND
         private void ServiceHistoryBtn_Click(object sender, EventArgs e)
         {
             try
@@ -9092,12 +9195,13 @@ namespace Enchante
                         SELECT 
                             ServiceCategory,
                             AttendingStaff,
-                        COUNT(*) AS CategoryCount
+                            StarRating,
+                            COUNT(*) AS CategoryCount
                         FROM 
                             servicehistory 
                         WHERE 
                             ServiceStatus = 'Completed' 
-                            AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y') BETWEEN @FromDate AND @ToDate 
+                            AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y') BETWEEN @FromDate AND @ToDate
                         GROUP BY
                             ServiceCategory, AttendingStaff";
                     counts = new Dictionary<string, int>();
@@ -9106,10 +9210,11 @@ namespace Enchante
                 {
                     query = @"
                         SELECT 
-                            AttendingStaff,
+                            AttendingStaff,                   
                             STR_TO_DATE(AppointmentDate, '%m-%d-%Y') AS AppointmentDay, 
                             ServiceCategory,
-                            SelectedService
+                            SelectedService,
+                            StarRating
                         FROM 
                             servicehistory 
                         WHERE 
@@ -9131,6 +9236,8 @@ namespace Enchante
 
                         Dictionary<string, int> serviceCounts = new Dictionary<string, int>();
                         Dictionary<string, int> staffCounts = new Dictionary<string, int>();
+                        Dictionary<string, int> staffRatings = new Dictionary<string, int>();
+                        Dictionary<string, double> staffFinalRatings = new Dictionary<string, double>();
 
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
@@ -9196,13 +9303,64 @@ namespace Enchante
                             }
                         }
 
+                        using (MySqlCommand ratingCommand = new MySqlCommand(query, connection))
+                        {
+                            ratingCommand.Parameters.AddWithValue("@FromDate", fromDate.ToString("yyyy-MM-dd"));
+                            ratingCommand.Parameters.AddWithValue("@ToDate", toDate.ToString("yyyy-MM-dd"));
+                            ratingCommand.Parameters.AddWithValue("@SelectedCategory", selectedCategory);
+
+                            using (MySqlDataReader staffReader = ratingCommand.ExecuteReader())
+                            {
+                                while (staffReader.Read())
+                                {
+                                    string attendingStaff = staffReader.GetString("AttendingStaff");
+                                    int starRating = staffReader.GetInt32("StarRating");
+
+                                    if (selectedCategory == "Top Service Category")
+                                    {
+                                        if (staffRatings.ContainsKey(attendingStaff))
+                                        {
+                                            staffRatings[attendingStaff] += starRating;
+                                        }
+                                        else
+                                        {
+                                            staffRatings[attendingStaff] = starRating;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (staffRatings.ContainsKey(attendingStaff))
+                                        {
+                                            staffRatings[attendingStaff] += starRating;
+                                        }
+                                        else
+                                        {
+                                            staffRatings[attendingStaff] = starRating;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        foreach (var staffName in staffCounts.Keys)
+                        {
+                            if (staffCounts.ContainsKey(staffName) && staffCounts[staffName] != 0)
+                            {
+                                double finalRating = (double)staffRatings[staffName] / staffCounts[staffName];
+                                staffFinalRatings[staffName] = finalRating;
+                            }
+                            else
+                            {
+                                staffFinalRatings[staffName] = 0;
+                            }
+                        }
+
                         if (selectedCategory == "Top Service Category")
                         {
                             MngrIndemandServiceGraph.Series.Clear();
                             var series = MngrIndemandServiceGraph.Series.Add("ServiceCount");
                             series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
 
-                            // Set pie chart appearance properties
                             series["PieLabelStyle"] = "Inside";
                             series["PieLineColor"] = "Black";
                             series["PieDrawingStyle"] = "Concave";
@@ -9220,23 +9378,15 @@ namespace Enchante
                             var title = MngrIndemandServiceGraph.Titles.Add("Top Service");
                             title.Font = new System.Drawing.Font("Arial", 12f, System.Drawing.FontStyle.Bold);
 
-                            DataTable serviceCategoryTable = new DataTable();
-                            serviceCategoryTable.Columns.Add("Service Category");
-                            serviceCategoryTable.Columns.Add("Top Service Count");
-
-                            foreach (var kvp in serviceCounts)
-                            {
-                                serviceCategoryTable.Rows.Add(kvp.Key, kvp.Value);
-                            }
-
-                            MngrIndemandServiceSelection.DataSource = serviceCategoryTable;
+                            PopulateServiceSelectionGrid(fromDate.ToString("yyyy-MM-dd"), toDate.ToString("yyyy-MM-dd"));
 
                             DataTable staffTable = new DataTable();
                             staffTable.Columns.Add("Rank");
                             staffTable.Columns.Add("ID");
                             staffTable.Columns.Add("First Name");
                             staffTable.Columns.Add("Last Name");
-                            staffTable.Columns.Add("# of Services Done");
+                            staffTable.Columns.Add("Services Done");
+                            //staffTable.Columns.Add("Rating");
 
                             List<KeyValuePair<string, int>> sortedStaffCounts = staffCounts.ToList();
                             sortedStaffCounts.Sort((x, y) => y.Value.CompareTo(x.Value));
@@ -9257,13 +9407,18 @@ namespace Enchante
                                             firstName = userReader.GetString("FirstName");
                                             lastName = userReader.GetString("LastName");
 
-                                            staffTable.Rows.Add(rank, employeeID, firstName, lastName, kvp.Value);
+                                            //double rating = staffFinalRatings.ContainsKey(employeeID) ? staffFinalRatings[employeeID] : 0;
+
+                                            staffTable.Rows.Add(rank, employeeID, firstName, lastName, kvp.Value); //rating);
                                             rank++;
                                         }
                                     }
                                 }
                             }
                             MngrIndemandBestEmployee.DataSource = staffTable;
+                            MngrIndemandBestEmployee.Columns["Rank"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                            MngrIndemandBestEmployee.Columns["Services Done"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                            //MngrIndemandBestEmployee.Columns["Rating"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                         }
                         else
                         {
@@ -9283,13 +9438,15 @@ namespace Enchante
                             staffTable.Columns.Add("ID");
                             staffTable.Columns.Add("First Name");
                             staffTable.Columns.Add("Last Name");
-                            staffTable.Columns.Add("# of Services Done");
+                            staffTable.Columns.Add("Services Done");
+                            staffTable.Columns.Add("Rating");
 
-                            List<KeyValuePair<string, int>> sortedStaffCounts = staffCounts.ToList();
-                            sortedStaffCounts.Sort((x, y) => y.Value.CompareTo(x.Value));
+                            List<KeyValuePair<string, double>> sortedStaffRatings = staffFinalRatings.ToList();
+                            sortedStaffRatings.Sort((x, y) => y.Value.CompareTo(x.Value));
+
                             int rank = 1;
 
-                            foreach (var kvp in sortedStaffCounts)
+                            foreach (var kvp in sortedStaffRatings)
                             {
                                 string employeeID = kvp.Key;
                                 string firstName, lastName;
@@ -9304,7 +9461,10 @@ namespace Enchante
                                             firstName = userReader.GetString("FirstName");
                                             lastName = userReader.GetString("LastName");
 
-                                            staffTable.Rows.Add(rank, employeeID, firstName, lastName, kvp.Value);
+                                            int servicesDone = staffCounts.ContainsKey(employeeID) ? staffCounts[employeeID] : 0;
+                                            string formattedRating = kvp.Value.ToString("0.0");
+
+                                            staffTable.Rows.Add(rank, employeeID, firstName, lastName, servicesDone, formattedRating);
                                             rank++;
                                         }
                                     }
@@ -9312,8 +9472,11 @@ namespace Enchante
                             }
 
                             DataView dv = staffTable.DefaultView;
-                            dv.Sort = "# of Services Done DESC";
+                            dv.Sort = "Rating DESC";
                             MngrIndemandBestEmployee.DataSource = dv.ToTable();
+                            MngrIndemandBestEmployee.Columns["Rank"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                            MngrIndemandBestEmployee.Columns["Services Done"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                            MngrIndemandBestEmployee.Columns["Rating"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                             MngrIndemandServiceGraph.Series.Clear();
                             var pieSeries = MngrIndemandServiceGraph.Series.Add("ServiceCount");
@@ -9342,6 +9505,58 @@ namespace Enchante
             {
                 MessageBox.Show("Error: " + ex.Message, "In Demand Services Graph Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void PopulateServiceSelectionGrid(string fromDate, string toDate)
+        {
+            string query = @"
+        SELECT 
+            ServiceCategory,
+            COUNT(*) AS CategoryCount
+        FROM 
+            servicehistory 
+        WHERE 
+            ServiceStatus = 'Completed' 
+            AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y') BETWEEN @FromDate AND @ToDate
+        GROUP BY
+            ServiceCategory";
+
+            Dictionary<string, int> serviceCounts = new Dictionary<string, int>();
+
+            using (MySqlConnection connection = new MySqlConnection("Server=localhost;Database=enchante;Uid=root;Pwd=;"))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@FromDate", fromDate);
+                    command.Parameters.AddWithValue("@ToDate", toDate);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string serviceCategory = reader.GetString("ServiceCategory");
+                            int categoryCount = reader.GetInt32("CategoryCount");
+                            serviceCounts[serviceCategory] = categoryCount;
+                        }
+                    }
+                }
+            }
+
+            DataTable serviceTable = new DataTable();
+            serviceTable.Columns.Add("Service Category");
+            serviceTable.Columns.Add("Service Count");
+
+            foreach (string category in new List<string> { "Hair Styling", "Massage", "Nail Care", "Face & Skin", "Spa" })
+            {
+                int count = serviceCounts.ContainsKey(category) ? serviceCounts[category] : 0;
+                serviceTable.Rows.Add(category, count);
+            }
+            serviceTable.DefaultView.Sort = "Service Count DESC";
+            serviceTable = serviceTable.DefaultView.ToTable();
+
+            MngrIndemandServiceSelection.DataSource = serviceTable;
         }
 
         private void ServiceHistoryPeriod_SelectedIndexChanged(object sender, EventArgs e)
@@ -9420,8 +9635,7 @@ namespace Enchante
 
         #endregion
 
-        //PANEL OF WALK-IN PRODUCT SALES
-        #region
+        #region Mngr. PANEL OF WALK-IN PRODUCT SALES
         private void MngrProductSalesIncomeBtn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(MngrProductSalesPeriod.Text))
@@ -9566,9 +9780,10 @@ namespace Enchante
                 if (filteredData.Rows.Count == 0)
                 {
                     MessageBox.Show("No data available for the selected date range.", "Walk-in Products Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    MngrProductSalesGraph.Series["Sales"].Points.Clear();
+                    MngrProductSalesGraph.Series[0].Points.Clear();
                     MngrProductSalesLineGraph.Series.Clear();
                     MngrProductSalesLineGraph.Legends.Clear();
+                    MngrProductSalesTotalRevBox.Text = "";
                     return;
                 }
 
@@ -9613,25 +9828,25 @@ namespace Enchante
                                       };
                     }
 
-                    if (!MngrProductSalesGraph.Series.Any(s => s.Name == "Sales"))
+                    if (!MngrProductSalesGraph.Series.Any())
                     {
-                        MngrProductSalesGraph.Series.Add("Sales");
+                        MngrProductSalesGraph.Series.Add(new Series());
                     }
 
-                    MngrProductSalesGraph.Series["Sales"].Points.Clear();
+                    MngrProductSalesGraph.Series[0].Points.Clear();
 
                     foreach (var group in groupedRows)
                     {
                         DataPoint dataPoint = new DataPoint();
                         dataPoint.SetValueY(group.TotalQty);
                         dataPoint.LegendText = (MngrProductSalesSelectCatBox.Text == "All Categories") ? GetCategoryName(group.ItemName) : group.ItemName;
-                        MngrProductSalesGraph.Series["Sales"].Points.Add(dataPoint);
+                        MngrProductSalesGraph.Series[0].Points.Add(dataPoint);
                     }
 
-                    MngrProductSalesGraph.Series["Sales"].ChartType = SeriesChartType.Pie;
-                    MngrProductSalesGraph.Series["Sales"]["PieLabelStyle"] = "Inside";
-                    MngrProductSalesGraph.Series["Sales"]["PieLineColor"] = "Black";
-                    MngrProductSalesGraph.Series["Sales"]["PieDrawingStyle"] = "Concave";
+                    MngrProductSalesGraph.Series[0].ChartType = SeriesChartType.Pie;
+                    MngrProductSalesGraph.Series[0]["PieLabelStyle"] = "Inside";
+                    MngrProductSalesGraph.Series[0]["PieLineColor"] = "Black";
+                    MngrProductSalesGraph.Series[0]["PieDrawingStyle"] = "Concave";
 
                     MngrProductSalesGraph.Titles.Clear();
                     MngrProductSalesGraph.Titles.Add("Quantity Sold Distribution").Font = new System.Drawing.Font("Arial", 12, FontStyle.Bold | FontStyle.Italic);
@@ -9835,6 +10050,7 @@ namespace Enchante
 
                 Dictionary<string, int> categoryQuantities = new Dictionary<string, int>();
                 Dictionary<string, double> categoryRevenues = new Dictionary<string, double>();
+                double totalRevenue = 0;
 
                 foreach (DataRow row in filteredData.Rows)
                 {
@@ -9852,17 +10068,21 @@ namespace Enchante
                         categoryQuantities[categoryPrefix] += qty;
                         categoryRevenues[categoryPrefix] += itemTotalPrice;
                     }
+                    totalRevenue += itemTotalPrice;
                 }
 
                 foreach (var kvp in categoryQuantities)
                 {
                     string categoryName = GetCategoryName(kvp.Key);
+                    string formattedOverallRevenue = "₱" + categoryRevenues[kvp.Key].ToString("#,##0.00");
                     MngrProductSalesTransRepDGV.Rows.Add(
                         categoryName,
                         kvp.Value,
-                        categoryRevenues[kvp.Key]
+                        formattedOverallRevenue
                     );
                 }
+                string formattedTotalRevenue = "₱" + totalRevenue.ToString("#,##0.00");
+                MngrProductSalesTotalRevBox.Text = formattedTotalRevenue;
             }
             else
             {
@@ -9877,6 +10097,8 @@ namespace Enchante
                 MngrProductSalesTransRepDGV.Columns.Add("ItemPrice", "Price");
                 MngrProductSalesTransRepDGV.Columns.Add("ItemTotalPrice", "Total Price");
 
+                decimal totalRevenue = 0;
+
                 foreach (DataRow row in sortedData.Rows)
                 {
                     MngrProductSalesTransRepDGV.Rows.Add(
@@ -9887,7 +10109,13 @@ namespace Enchante
                         row["ItemPrice"],
                         row["ItemTotalPrice"]
                     );
+                    if (row["ItemTotalPrice"] != DBNull.Value)
+                    {
+                        totalRevenue += Convert.ToDecimal(row["ItemTotalPrice"]);
+                    }
                 }
+                string formattedTotalRevenue = "₱" + totalRevenue.ToString("#,##0.00");
+                MngrProductSalesTotalRevBox.Text = formattedTotalRevenue;
             }
         }
 
@@ -9949,13 +10177,890 @@ namespace Enchante
 
         #endregion
 
+        #region Mngr. PANEL OF APPOINTMENT Services REVENUE
+        private void MngrAppSalesIncomeBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(MngrAppSalesPeriod.Text))
+            {
+                MessageBox.Show("Please select a sale period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            if (string.IsNullOrEmpty(MngrAppSalesAppointmentSelect.Text))
+            {
+                MessageBox.Show("Please select a type of appointment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+          
+            if (MngrAppSalesSelectCatBox.SelectedItem == null || string.IsNullOrEmpty(MngrAppSalesSelectCatBox.SelectedItem.ToString()))
+            {
+                MessageBox.Show("Please select a category.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string fromDate = "";
+            string toDate = "";
+            string selectedCategory = MngrAppSalesSelectCatBox.SelectedItem?.ToString();
+            string selectedAppointmentType = MngrAppSalesAppointmentSelect.SelectedItem?.ToString();
+            string salePeriod = MngrAppSalesPeriod.SelectedItem.ToString();
+
+            switch (MngrAppSalesPeriod.Text)
+            {
+                case "Day":
+
+                    if (string.IsNullOrEmpty(MngrAppSalesSelectedPeriodText.Text))
+                    {
+                        MessageBox.Show("Please select a valid date for the day period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    string inputValue = MngrAppSalesSelectedPeriodText.Text;
+                    fromDate = inputValue;
+                    toDate = inputValue;
+                    break;
+
+                case "Week":
+
+                    if (string.IsNullOrEmpty(MngrAppSalesSelectedPeriodText.Text))
+                    {
+                        MessageBox.Show("Please select a date range for the week period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    string[] weekDates = MngrAppSalesSelectedPeriodText.Text.Split(new char[] { ' ', 't', 'o', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    fromDate = weekDates[0];
+                    toDate = weekDates[1];
+                    break;
+
+                case "Month":
+
+                    if (string.IsNullOrEmpty(MngrAppSalesSelectedPeriodText.Text))
+                    {
+                        MessageBox.Show("Please select a month for the month period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    string[] monthYear = MngrAppSalesSelectedPeriodText.Text.Split('-');
+                    int month = DateTime.ParseExact(monthYear[0], "MMMM", CultureInfo.InvariantCulture).Month;
+                    int year = int.Parse(monthYear[1]);
+                    fromDate = new DateTime(year, month, 1).ToString("MM-dd-yyyy");
+                    toDate = new DateTime(year, month, DateTime.DaysInMonth(year, month)).ToString("MM-dd-yyyy");
+                    break;
+
+                case "Specific Date Range":
+
+                    if (MngrAppSalesFromDatePicker.Value > MngrAppSalesToDatePicker.Value)
+                    {
+                        MessageBox.Show("Invalid date range. Please make sure the From date is before the To date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    if (MngrAppSalesFromDatePicker.Value.Date == MngrAppSalesToDatePicker.Value.Date)
+                    {
+                        MessageBox.Show("From date and to date cannot be the same.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    fromDate = MngrAppSalesFromDatePicker.Value.ToString("MM-dd-yyyy");
+                    toDate = MngrAppSalesToDatePicker.Value.ToString("MM-dd-yyyy");
+                    break;
+
+                default:
+                    MessageBox.Show("Invalid selection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+            }
+
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+
+            List<DateTime> dates = new List<DateTime>();
+            Dictionary<string, List<decimal>> categoryRevenues = new Dictionary<string, List<decimal>>();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string query = @"
+                        SELECT 
+                            LEFT(AppointmentDate, 10) AS AppointmentDay, 
+                            ServiceCategory,
+                            SUM(CAST(ServicePrice AS DECIMAL(10, 2))) AS TotalRevenue 
+                        FROM 
+                            servicehistory 
+                        WHERE 
+                            ServiceStatus = 'Completed' 
+                            AND LEFT(AppointmentDate, 10) BETWEEN @FromDate AND @ToDate ";
+
+                    if (selectedCategory != "All Categories")
+                    {
+                        query += " AND ServiceCategory = @SelectedCategory";
+                    }
+
+                    if (MngrAppSalesAppointmentSelect.SelectedItem != null)
+                    {
+                        query += " AND TransactionType = @SelectedTransactionType";
+                    }
+
+                    query += " GROUP BY LEFT(AppointmentDate, 10), ServiceCategory";
+
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@FromDate", fromDate);
+                    command.Parameters.AddWithValue("@ToDate", toDate);
+
+                    if (selectedCategory != "All Categories")
+                    {
+                        command.Parameters.AddWithValue("@SelectedCategory", selectedCategory);
+                    }
+
+                    if (MngrAppSalesAppointmentSelect.SelectedItem != null)
+                    {
+                        command.Parameters.AddWithValue("@SelectedTransactionType", selectedAppointmentType);
+                    }
+
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    if (!reader.HasRows)
+                    {
+                        MessageBox.Show("No data available for the selected date range.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MngrAppSalesGraph.Series.Clear();
+                        MngrAppSalesGraph.Legends.Clear();
+                        MngrAppSalesTransRepDGV.DataSource = null;
+                        MngrAppSalesTransServiceHisDGV.DataSource = null;
+                        MngrAppSalesTransIDShow.Text = "";
+                        MngrAppSalesTotalRevBox.Text = "";
+                        return;
+                    }
+
+                    while (reader.Read())
+                    {
+                        string appointmentDayString = reader["AppointmentDay"].ToString().Substring(0, 10);
+                        DateTime appointmentDay;
+                        if (!DateTime.TryParseExact(appointmentDayString, "MM-dd-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out appointmentDay))
+                        {
+                            MessageBox.Show($"Error parsing date: {appointmentDayString}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            continue;
+                        }
+
+                        string category = (string)reader["ServiceCategory"];
+                        decimal totalRevenue = (decimal)reader["TotalRevenue"];
+
+                        if (!categoryRevenues.ContainsKey(category))
+                        {
+                            categoryRevenues[category] = new List<decimal>();
+                        }
+
+                        categoryRevenues[category].Add(totalRevenue);
+
+                        if (!dates.Contains(appointmentDay))
+                        {
+                            dates.Add(appointmentDay);
+                        }
+                    }
+                    reader.Close();
+
+                    AppointmentServiceBreakdown(selectedCategory, selectedAppointmentType, fromDate, toDate, connection);
+                    DisplayAppointmentLineChart(query, connectionString, categoryRevenues, dates);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
+        private void DisplayAppointmentLineChart(string query, string connectionString, Dictionary<string, List<decimal>> categoryRevenues, List<DateTime> dates)
+        {
+            MngrAppSalesGraph.Series.Clear();
+            MngrAppSalesGraph.Legends.Clear();
+
+            foreach (var category in categoryRevenues.Keys)
+            {
+                Series series = MngrAppSalesGraph.Series.Add($"{category} Revenue");
+                series.ChartType = SeriesChartType.Line;
+                series.BorderWidth = 3;
+
+                for (int i = 0; i < dates.Count; i++)
+                {
+                    string dateString = dates[i].ToShortDateString();
+                    if (categoryRevenues[category].Count > i)
+                    {
+                        series.Points.AddXY(dateString, categoryRevenues[category][i]);
+                        series.Points[i].MarkerStyle = MarkerStyle.Circle;
+                        series.Points[i].MarkerSize = 8;
+                    }
+                    else
+                    {
+                        series.Points.AddXY(dateString, 0);
+                    }
+                }
+            }
+
+            MngrAppSalesGraph.ChartAreas[0].AxisX.Title = "Dates";
+            MngrAppSalesGraph.ChartAreas[0].AxisX.TitleFont = new System.Drawing.Font("Arial", 10, System.Drawing.FontStyle.Bold);
+            MngrAppSalesGraph.ChartAreas[0].AxisY.Title = "Revenue";
+            MngrAppSalesGraph.ChartAreas[0].AxisY.TitleFont = new System.Drawing.Font("Arial", 10, System.Drawing.FontStyle.Bold);
+
+            MngrAppSalesGraph.Legends.Add("Legend1");
+            MngrAppSalesGraph.Legends[0].Enabled = true;
+            MngrAppSalesGraph.Legends[0].Docking = Docking.Bottom;
+        }
+
+        private void AppointmentServiceBreakdown(string selectedCategory, string selectedAppointmentType, string fromDate, string toDate, MySqlConnection connection)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("TransactionNumber");
+            dt.Columns.Add("AppointmentDate");
+            dt.Columns.Add("TotalServicePrice", typeof(decimal));
+
+            if (selectedCategory == "All Categories")
+            {
+                dt.Columns.Add("ServiceCategory");
+            }
+
+            string transNumQuery = @"
+            SELECT TransactionNumber, AppointmentDate, ServiceCategory, SUM(CAST(ServicePrice AS DECIMAL(10, 2))) AS TotalServicePrice 
+            FROM servicehistory 
+            WHERE ServiceStatus = 'Completed' 
+            AND LEFT(AppointmentDate, 10) BETWEEN @FromDate AND @ToDate ";
+
+            if (selectedCategory != "All Categories")
+            {
+                transNumQuery += " AND ServiceCategory = @SelectedCategory";
+            }
+
+            if (selectedAppointmentType != null)
+            {
+                transNumQuery += " AND TransactionType = @SelectedTransactionType";
+            }
+
+            transNumQuery += " GROUP BY TransactionNumber";
+
+            MySqlCommand transNumCommand = new MySqlCommand(transNumQuery, connection);
+            transNumCommand.Parameters.AddWithValue("@FromDate", fromDate);
+            transNumCommand.Parameters.AddWithValue("@ToDate", toDate);
+
+            if (selectedCategory != "All Categories")
+            {
+                transNumCommand.Parameters.AddWithValue("@SelectedCategory", selectedCategory);
+            }
+
+            if (selectedAppointmentType != null)
+            {
+                transNumCommand.Parameters.AddWithValue("@SelectedTransactionType", selectedAppointmentType); // Use the parameter here
+            }
+
+            using (MySqlDataReader transNumReader = transNumCommand.ExecuteReader())
+            {
+                while (transNumReader.Read())
+                {
+                    string transactionNumber = transNumReader["TransactionNumber"].ToString();
+                    string appointmentDate = transNumReader["AppointmentDate"].ToString();
+                    decimal totalServicePrice = transNumReader.GetDecimal("TotalServicePrice");
+
+                    // Read ServiceCategory from reader only if it's added to the DataTable
+                    string serviceCategory = selectedCategory == "All Categories" ? transNumReader["ServiceCategory"].ToString() : "";
+
+                    // Add ServiceCategory to DataRow only when it's present in the DataTable
+                    if (selectedCategory == "All Categories")
+                    {
+                        dt.Rows.Add(transactionNumber, appointmentDate, totalServicePrice, serviceCategory);
+                    }
+                    else
+                    {
+                        dt.Rows.Add(transactionNumber, appointmentDate, totalServicePrice);
+                    }
+                }
+            }
+
+            MngrAppSalesTransRepDGV.DataSource = dt;
+
+            decimal totalServicePriceSum = 0;
+            foreach (DataRow row in dt.Rows)
+            {
+                totalServicePriceSum += (decimal)row["TotalServicePrice"];
+            }
+            string formattedTotalServicePrice = "₱" + totalServicePriceSum.ToString("#,##0.00");
+            MngrAppSalesTotalRevBox.Text = formattedTotalServicePrice;
+        }
+
+        private void MngrAppSalesPeriod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (MngrAppSalesPeriod != null && MngrAppSalesPeriod.SelectedItem != null)
+            {
+                MngrAppSalesSelectedPeriodText.Text = "";
+                string selectedItem = MngrAppSalesPeriod.SelectedItem.ToString();
+
+                if (selectedItem == "Day" || selectedItem == "Week" || selectedItem == "Month")
+                {
+                    MngrAppSalesPeriodCalendar.Visible = true;
+                    MngrAppSalesFromLbl.Visible = false;
+                    MngrAppSalesToLbl.Visible = false;
+                    MngrAppSalesFromDatePicker.Visible = false;
+                    MngrAppSalesToDatePicker.Visible = false;
+                    MngrAppSalesSelectedPeriodLbl.Visible = true;
+                    MngrAppSalesSelectedPeriodText.Visible = true;
+                }
+                else if (selectedItem == "Specific Date Range")
+                {
+                    MngrAppSalesPeriodCalendar.Visible = false;
+                    MngrAppSalesFromLbl.Visible = true;
+                    MngrAppSalesToLbl.Visible = true;
+                    MngrAppSalesFromDatePicker.Visible = true;
+                    MngrAppSalesToDatePicker.Visible = true;
+                    MngrAppSalesSelectedPeriodLbl.Visible = false;
+                    MngrAppSalesSelectedPeriodText.Visible = false;
+                }
+            }
+        }
+
+        private void MngrAppSalesPeriodCalendar_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            DateTime selectedDate = MngrAppSalesPeriodCalendar.SelectionStart;
+            string selectedPeriod = "";
+            string salePeriod = MngrAppSalesPeriod.SelectedItem.ToString();
+
+            switch (salePeriod)
+            {
+                case "Day":
+                    selectedPeriod = selectedDate.ToString("MM-dd-yyyy");
+                    break;
+                case "Week":
+                    DateTime monday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + (int)DayOfWeek.Monday);
+                    DateTime sunday = monday.AddDays(6);
+                    selectedPeriod = monday.ToString("MM-dd-yyyy") + " to " + sunday.ToString("MM-dd-yyyy");
+                    break;
+                case "Month":
+                    selectedPeriod = selectedDate.ToString("MMMM-yyyy");
+                    break;
+                default:
+                    break;
+            }
+            MngrAppSalesSelectedPeriodText.Text = selectedPeriod;
+        }
+
+        private void MngrAppSalesTransRepDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+
+            if (MngrAppSalesTransRepDGV == null || MngrAppSalesTransRepDGV.SelectedRows.Count == 0 || MngrAppSalesTransRepDGV.SelectedRows[0].Cells["TransactionNumber"] == null)
+            {
+                MessageBox.Show("Please select a row to view.", "No Row Selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string transactionNumber = MngrAppSalesTransRepDGV.SelectedRows[0].Cells["TransactionNumber"].Value?.ToString();
+
+            if (string.IsNullOrEmpty(transactionNumber))
+            {
+                MessageBox.Show("TransactionNumber is null or empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string categoryFilter = "";
+            if (MngrAppSalesSelectCatBox.SelectedItem?.ToString() != "All Categories")
+            {
+                categoryFilter = "AND ServiceCategory = @ServiceCategory";
+            }
+
+            string query = @"
+            SELECT ServiceCategory, SelectedService, ServicePrice 
+            FROM servicehistory 
+            WHERE TransactionNumber = @TransactionNumber 
+            AND ServiceStatus = 'Completed' 
+            AND TransactionType = @SelectedTransactionType " + categoryFilter;
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                    command.Parameters.AddWithValue("@SelectedTransactionType", MngrAppSalesAppointmentSelect.SelectedItem?.ToString());
+
+                    if (MngrAppSalesSelectCatBox.SelectedItem?.ToString() != "All Categories")
+                    {
+                        command.Parameters.AddWithValue("@ServiceCategory", MngrAppSalesSelectCatBox.SelectedItem?.ToString());
+                    }
+
+                    DataTable dataTable = new DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        adapter.Fill(dataTable);
+                    }
+                    MngrAppSalesTransServiceHisDGV.DataSource = dataTable;
+                    MngrAppSalesTransIDShow.Text = transactionNumber;
+                }
+                connection.Close();
+            }
+        }
         #endregion
 
+        #region PANEL OF PRODUCT HISTORY
 
-        //Admin Dashboard Starts Here
-        #region
-        private void AdminSignOutBtn_Click_1(object sender, EventArgs e)
+        private void ProductHistoryShow()
+        {
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "SELECT TransactionNumber, ProductStatus, CheckedOutDate, ClientName, ItemName, " +
+                                    "ItemID, Qty, ItemPrice, ItemTotalPrice FROM orderproducthistory";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+                    adapter.Fill(dataTable);
+
+                    MngrPDHistoryDGV.DataSource = dataTable;
+
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private bool considerDateFilter = false;
+
+        private string GetCombinedFilter()
+        {
+            string statusFilter = GetStatusFilter();
+            string categoryFilter = GetCategoryFilter();
+            string dateFilter = considerDateFilter ? GetDateFilter() : string.Empty;
+
+            List<string> filters = new List<string>();
+
+            if (!string.IsNullOrEmpty(statusFilter))
+                filters.Add(statusFilter);
+
+            if (!string.IsNullOrEmpty(categoryFilter))
+                filters.Add(categoryFilter);
+
+            if (!string.IsNullOrEmpty(dateFilter))
+                filters.Add(dateFilter);
+
+            if (filters.Count == 1)
+                return filters[0];
+
+            string combinedFilter = string.Join(" AND ", filters);
+
+            return combinedFilter;
+        }
+
+        private string GetStatusFilter()
+        {
+            if (MngrPDHistoryStatusBox.SelectedItem != null)
+            {
+                string selectedStatus = MngrPDHistoryStatusBox.SelectedItem.ToString();
+                if (selectedStatus == "Paid")
+                {
+                    return "ProductStatus = 'Paid'";
+                }
+                else if (selectedStatus == "Not Paid")
+                {
+                    return "ProductStatus = 'Not Paid'";
+                }
+            }
+            return string.Empty;
+        }
+
+        private string GetCategoryFilter()
+        {
+            if (MngrPDHistoryItemCatBox.SelectedItem != null)
+            {
+                string selectedCategory = MngrPDHistoryItemCatBox.SelectedItem.ToString();
+                switch (selectedCategory)
+                {
+                    case "Hair Styling":
+                        return "SUBSTRING(ItemID, 1, 2) = 'HS'";
+                    case "Face & Skin":
+                        return "SUBSTRING(ItemID, 1, 2) = 'FS'";
+                    case "Nail Care":
+                        return "SUBSTRING(ItemID, 1, 2) = 'NC'";
+                    case "Massage":
+                        return "SUBSTRING(ItemID, 1, 2) = 'MS'";
+                    case "Spa":
+                        return "SUBSTRING(ItemID, 1, 2) = 'SP'";
+                }
+            }
+            return string.Empty;
+        }
+
+        private string GetDateFilter()
+        {
+            DateTime fromDate = MngrPDHistoryDatePickFrom.Value.Date;
+            DateTime toDate = MngrPDHistoryDatePickTo.Value.Date;
+
+            if (fromDate > toDate && fromDate != DateTime.Now.Date && toDate != DateTime.Now.Date)
+            {
+                MessageBox.Show("From date should not be ahead of To date.", "Invalid Date Range", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return null;
+            }
+
+            toDate = toDate.AddDays(1);
+
+            if (fromDate == toDate)
+            {
+                string dateString = fromDate.ToString("MM-dd-yyyy");
+                return $"CONVERT(CheckedOutDate, 'System.String') LIKE '{dateString}%'";
+            }
+            else
+            {
+                string fromDateString = fromDate.ToString("MM-dd-yyyy");
+                string toDateString = toDate.ToString("MM-dd-yyyy");
+
+                return $"CONVERT(CheckedOutDate, 'System.String') >= '{fromDateString}' AND CONVERT(CheckedOutDate, 'System.String') <= '{toDateString}'";
+            }
+        }
+
+        private void ApplyCombinedFilter()
+        {
+            string combinedFilter = GetCombinedFilter();
+
+            DataView dv = ((DataTable)MngrPDHistoryDGV.DataSource).DefaultView;
+            dv.RowFilter = combinedFilter;
+        }
+
+        private void MngrPDHistoryStatusBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplyCombinedFilter();
+        }
+
+        private void MngrPDHistoryItemCatBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplyCombinedFilter();
+        }
+
+        private void MngrPDHistoryDatePickFrom_ValueChanged(object sender, EventArgs e)
+        {
+            considerDateFilter = true;
+            ApplyCombinedFilter();
+        }
+
+        private void MngrPDHistoryDatePickTo_ValueChanged(object sender, EventArgs e)
+        {
+            considerDateFilter = true;
+            ApplyCombinedFilter();
+        }
+
+        private void MngrPDHistoryResetBtn_Click(object sender, EventArgs e)
+        {
+            MngrPDHistoryStatusBox.SelectedIndex = -1;
+            MngrPDHistoryItemCatBox.SelectedIndex = -1;
+            MngrPDHistoryDatePickFrom.Value = DateTime.Now;
+            MngrPDHistoryDatePickTo.Value = DateTime.Now;
+            considerDateFilter = false;
+
+            DataView dv = ((DataTable)MngrPDHistoryDGV.DataSource).DefaultView;
+            dv.RowFilter = string.Empty;
+        }
+        #endregion
+
+        #region PANEL OF SERVICE HISTORY
+        private void ServiceHistoryShow()
+        {
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "SELECT TransactionNumber, TransactionType, ServiceStatus, AppointmentDate, ClientName, " +
+                                    "ServiceCategory, AttendingStaff, ServiceID, SelectedService, ServicePrice, StarRating FROM servicehistory";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+                    adapter.Fill(dataTable);
+
+                    MngrSVHistoryDGV.DataSource = dataTable;
+
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private bool ConsiderDateFilter = false;
+
+        private string GetCombined_Filter()
+        {
+            string transactionTypeFilter = GetTransactionTypeFilter();
+            string serviceStatusFilter = GetServiceStatusFilter();
+            string serviceCategoryFilter = GetServiceCategoryFilter();
+            string dateFilter = ConsiderDateFilter ? FilterRowByDateRange() : string.Empty;
+
+            List<string> filters = new List<string>();
+
+            if (!string.IsNullOrEmpty(transactionTypeFilter))
+                filters.Add(transactionTypeFilter);
+
+            if (!string.IsNullOrEmpty(serviceStatusFilter))
+                filters.Add(serviceStatusFilter);
+
+            if (!string.IsNullOrEmpty(serviceCategoryFilter))
+                filters.Add(serviceCategoryFilter);
+
+            if (!string.IsNullOrEmpty(dateFilter))
+                filters.Add(dateFilter);
+
+            if (filters.Count == 1)
+                return filters[0];
+
+            string combinedFilter = string.Join(" AND ", filters);
+
+            return combinedFilter;
+        }
+
+        private string GetTransactionTypeFilter()
+        {
+            if (MngrSVHistoryTransTypeBox.SelectedItem != null)
+            {
+                string selectedTransactionType = MngrSVHistoryTransTypeBox.SelectedItem.ToString();
+                return $"TransactionType = '{selectedTransactionType}'";
+            }
+            return string.Empty;
+        }
+
+        private string GetServiceStatusFilter()
+        {
+            if (MngrSVHistoryServiceStatusBox.SelectedItem != null)
+            {
+                string selectedServiceStatus = MngrSVHistoryServiceStatusBox.SelectedItem.ToString();
+                return $"ServiceStatus = '{selectedServiceStatus}'";
+            }
+            return string.Empty;
+        }
+
+        private string GetServiceCategoryFilter()
+        {
+            if (MngrSVHistoryServiceCatBox.SelectedItem != null)
+            {
+                string selectedServiceCategory = MngrSVHistoryServiceCatBox.SelectedItem.ToString();
+                return $"ServiceCategory = '{selectedServiceCategory}'";
+            }
+            return string.Empty;
+        }
+
+        private void Apply_CombinedFilter()
+        {
+            string combinedFilter = GetCombined_Filter();
+
+            DataView dv = ((DataTable)MngrSVHistoryDGV.DataSource).DefaultView;
+            dv.RowFilter = combinedFilter;
+        }
+
+        private string FilterRowByDateRange()
+        {
+            DateTime fromDate = MngrSVHistoryDatePickFrom.Value.Date;
+            DateTime toDate = MngrSVHistoryDatePickTo.Value.Date;
+
+            if (fromDate > toDate && fromDate != DateTime.Now.Date && toDate != DateTime.Now.Date)
+            {
+                MessageBox.Show("From date should not be ahead of To date.", "Invalid Date Range", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
+            }
+
+            toDate = toDate.AddDays(1);
+
+            if (fromDate == toDate)
+            {
+                string dateString = fromDate.ToString("MM-dd-yyyy");
+                return $"CONVERT(AppointmentDate, 'System.String') LIKE '{dateString}%'";
+            }
+            else
+            {
+                string fromDateString = fromDate.ToString("MM-dd-yyyy");
+                string toDateString = toDate.ToString("MM-dd-yyyy");
+
+                return $"CONVERT(AppointmentDate, 'System.String') >= '{fromDateString}' AND CONVERT(AppointmentDate, 'System.String') <= '{toDateString}'";
+            }
+        }
+
+        private void MngrSVHistoryTransTypeBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Apply_CombinedFilter();
+        }
+
+        private void MngrSVHistoryServiceStatusBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Apply_CombinedFilter();
+        }
+
+        private void MngrSVHistoryServiceCatBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Apply_CombinedFilter();
+        }
+
+        private void MngrSVHistoryDatePickFrom_ValueChanged(object sender, EventArgs e)
+        {
+            ConsiderDateFilter = true;
+            Apply_CombinedFilter();
+        }
+
+        private void MngrSVHistoryDatePickTo_ValueChanged(object sender, EventArgs e)
+        {
+            ConsiderDateFilter = true;
+            Apply_CombinedFilter();
+        }
+
+        private void MngrSVHistoryResetBtn_Click(object sender, EventArgs e)
+        {
+            MngrSVHistoryTransTypeBox.SelectedIndex = -1;
+            MngrSVHistoryServiceStatusBox.SelectedIndex = -1;
+            MngrSVHistoryServiceCatBox.SelectedIndex = -1;
+            MngrSVHistoryDatePickFrom.Value = DateTime.Now;
+            MngrSVHistoryDatePickTo.Value = DateTime.Now;
+            ConsiderDateFilter = false;
+
+            DataView dv = ((DataTable)MngrSVHistoryDGV.DataSource).DefaultView;
+            dv.RowFilter = string.Empty;
+        }
+        #endregion
+
+        #region PANEL OF MEMBER ACCOUNTS
+        private void MemberAccountsShow()
+        {
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "SELECT MembershipType, MemberIDNumber, AccountStatus, FirstName, LastName, " +
+                                    "Birthday, CPNumber, EmailAdd, AccountCreated FROM membershipaccount";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+                    adapter.Fill(dataTable);
+
+                    MngrMemAccDGV.DataSource = dataTable;
+
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private bool considerDateFilter_MngrMemAcc = false;
+
+        private string GetCombinedFilter_MngrMemAcc()
+        {
+            string membershipTypeFilter = GetMembershipTypeFilter();
+            string dateFilter = considerDateFilter_MngrMemAcc ? FilterRowByDateCreated() : string.Empty;
+
+            List<string> filters = new List<string>();
+
+            if (!string.IsNullOrEmpty(membershipTypeFilter))
+                filters.Add(membershipTypeFilter);
+
+            if (!string.IsNullOrEmpty(dateFilter))
+                filters.Add(dateFilter);
+
+            if (filters.Count == 1)
+                return filters[0];
+
+            string combinedFilter = string.Join(" AND ", filters);
+
+            return combinedFilter;
+        }
+
+        private string GetMembershipTypeFilter()
+        {
+            if (MngrMemAccMemTypeBox.SelectedItem != null)
+            {
+                string selectedMembershipType = MngrMemAccMemTypeBox.SelectedItem.ToString();
+                return $"MembershipType = '{selectedMembershipType}'";
+            }
+            return string.Empty;
+        }
+
+        private void ApplyCombinedFilter_MngrMemAcc()
+        {
+            string combinedFilter = GetCombinedFilter_MngrMemAcc();
+
+            DataView dv = ((DataTable)MngrMemAccDGV.DataSource).DefaultView;
+            dv.RowFilter = combinedFilter;
+        }
+
+        private string FilterRowByDateCreated()
+        {
+            DateTime fromDate = MngrMemAccDatePickFrom.Value.Date;
+            DateTime toDate = MngrMemAccDatePickTo.Value.Date;
+
+            if (fromDate > toDate && fromDate != DateTime.Now.Date && toDate != DateTime.Now.Date)
+            {
+                MessageBox.Show("From date should not be ahead of To date.", "Invalid Date Range", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null;
+            }
+
+            toDate = toDate.AddDays(1);
+
+            if (fromDate == toDate)
+            {
+                string dateString = fromDate.ToString("MM-dd-yyyy");
+                return $"CONVERT(AccountCreated, 'System.String') LIKE '{dateString}%'";
+            }
+            else
+            {
+                string fromDateString = fromDate.ToString("MM-dd-yyyy");
+                string toDateString = toDate.ToString("MM-dd-yyyy");
+
+                return $"CONVERT(AccountCreated, 'System.String') >= '{fromDateString}' AND CONVERT(AccountCreated, 'System.String') <= '{toDateString}'";
+            }
+        }
+
+        private void MngrMemAccMemTypeBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplyCombinedFilter_MngrMemAcc();
+        }
+
+        private void MngrMemAccDatePickFrom_ValueChanged(object sender, EventArgs e)
+        {
+            considerDateFilter_MngrMemAcc = true;
+            ApplyCombinedFilter_MngrMemAcc();
+        }
+
+        private void MngrMemAccDatePickTo_ValueChanged(object sender, EventArgs e)
+        {
+            considerDateFilter_MngrMemAcc = true;
+            ApplyCombinedFilter_MngrMemAcc();
+        }
+
+        private void MngrMemAccResetBtn_Click(object sender, EventArgs e)
+        {
+            MngrMemAccMemTypeBox.SelectedIndex = -1;
+            MngrMemAccDatePickFrom.Value = DateTime.Now;
+            MngrMemAccDatePickTo.Value = DateTime.Now;
+            considerDateFilter_MngrMemAcc = false;
+
+            DataView dv = ((DataTable)MngrMemAccDGV.DataSource).DefaultView;
+            dv.RowFilter = string.Empty;
+        }   
+    #endregion
+
+
+    #endregion
+
+
+    //Admin Dashboard Starts Here
+    #region
+    private void AdminSignOutBtn_Click_1(object sender, EventArgs e)
         {
             LogoutChecker();
 
@@ -10005,7 +11110,7 @@ namespace Enchante
 
         private void AdminEditAccBtn_Click(object sender, EventArgs e)
         {
-            DateTime selectedDate = RegularBdayPicker.Value;
+            DateTime selectedDate = AdminBdayPicker.Value;
             DateTime currentDate = DateTime.Now;
 
             string fname = AdminFirstNameText.Text;
@@ -10075,6 +11180,7 @@ namespace Enchante
                 selectedHashedPerUser = selectedRow.Cells["HashedPerUser"].Value?.ToString();
                 AdminEmplTypeComboText.Enabled = false;
                 AdminEmplCatComboText.Enabled = false;
+                AdminEmplIDText.Enabled = false;
                 AdminCreateAccBtn.Visible = false;
                 AdminUpdateAccBtn.Visible = true;
                 AdminCancelEditBtn.Visible = true;
@@ -10118,6 +11224,7 @@ namespace Enchante
             AdminCancelEditBtn.Visible = false;
             AdminEmplTypeComboText.Enabled = true;
             AdminEmplCatComboText.Enabled = true;
+            AdminEmplIDText.Enabled = true;
             AdminClearFields();
         }
 
@@ -10181,10 +11288,12 @@ namespace Enchante
                 AdminConfirmPassErrorLbl.Visible = false;
             }
         }
+
         private bool ContainsNumbers(string input)
         {
             return input.Any(char.IsDigit);
         }
+
         private bool IsNumeric(string input)
         {
             foreach (char c in input)
@@ -10196,9 +11305,33 @@ namespace Enchante
             }
             return true;
         }
+
+        private bool IsNumericTwo(string input)
+        {
+            bool hasDecimalPoint = false;
+
+            foreach (char c in input)
+            {
+                if (!char.IsDigit(c))
+                {
+                    if (c == '.' && !hasDecimalPoint)
+                    {
+                        hasDecimalPoint = true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+
         private void AdminCreateAccBtn_Click(object sender, EventArgs e)
         {
-            DateTime selectedDate = RegularBdayPicker.Value;
+            DateTime selectedDate = AdminBdayPicker.Value;
             DateTime currentDate = DateTime.Now;
 
             string fname = AdminFirstNameText.Text;
@@ -10478,6 +11611,7 @@ namespace Enchante
                 AdminGenderComboText.Text = AdminGenderComboText.SelectedItem.ToString();
             }
         }
+
         private void PopulateUserInfoDataGrid()
         {
             string connectionString = "Server=localhost;Database=enchante;User=root;Password=;";
@@ -10488,7 +11622,7 @@ namespace Enchante
                 {
                     connection.Open();
 
-                    string query = "SELECT FirstName, LastName, Email, Birthday, Age, Gender, PhoneNumber, EmployeeType, EmployeeCategory, EmployeeCategoryLevel, EmployeeID, HashedPass, HashedFixedSalt, HashedPerUser FROM systemusers";
+                    string query = "SELECT FirstName, LastName, Email, DATE(Birthday) AS Birthday, Age, Gender, PhoneNumber, EmployeeType, EmployeeCategory, EmployeeCategoryLevel, EmployeeID, HashedPass, HashedFixedSalt, HashedPerUser FROM systemusers";
 
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
@@ -10564,8 +11698,8 @@ namespace Enchante
         #endregion
 
 
-        //Staff Dashboard Starts Here
-        #region
+
+        #region Staff Dashboard Starts Here
         private void StaffUserAccBtn_Click(object sender, EventArgs e)
         {
             if (StaffUserAccPanel.Visible == false)
@@ -10578,8 +11712,8 @@ namespace Enchante
             }
 
         }
-        //general and preferred queue
-        #region
+
+        #region general and preferred queue
         public class PendingCustomers
         {
             public string TransactionNumber { get; set; }
@@ -10587,7 +11721,6 @@ namespace Enchante
             public string ServiceID { get; set; }
             public string ServiceName { get; set; }
             public string ServiceStatus { get; set; }
-
             public string QueNumber { get; set; }
         }
         public int generalsmallestquenumber;
@@ -10628,6 +11761,8 @@ namespace Enchante
                 availablecustomersusercontrol.ExpandUserControlButtonClicked += AvailableCustomersUserControl_ExpandCollapseButtonClicked;
                 availablecustomersusercontrol.StartServiceButtonClicked += AvailableCustomersUserControl_StartServiceButtonClicked;
                 availablecustomersusercontrol.StaffEndServiceBtnClicked += AvailableCustomersUserControl_EndServiceButtonClicked;
+                availablecustomersusercontrol.StaffCancelServiceBtnClicked += AvailableCustomerUserControl_CancelServiceButtonClicked;
+                availablecustomersusercontrol.StaffQueTypeTextBox.Visible = false;
                 StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(availablecustomersusercontrol);
                 availablecustomersusercontrol.CurrentStaffID = StaffIDNumLbl.Text;
 
@@ -10704,6 +11839,16 @@ namespace Enchante
                     }
                 }
             }
+            if (StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Count > 0 && !StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
+            {
+                foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
+                {
+                    if (control is StaffCurrentAvailableCustomersUserControl userControl)
+                    {
+                        userControl.StaffStartServiceBtn.Enabled = false;
+                    }
+                }
+            }
         }
 
         private void AvailableCustomersUserControl_ExpandCollapseButtonClicked(object sender, EventArgs e)
@@ -10742,10 +11887,19 @@ namespace Enchante
                     string generalquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber 
                                                      FROM servicehistory sh 
                                                      INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber 
-                                                     WHERE sh.ServiceStatus = 'Pending' 
+                                                     WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')
                                                      AND sh.ServiceCategory = @membercategory 
                                                      AND sh.QueType = 'GeneralQue' 
-                                                     AND wa.ServiceStatus = 'Pending' 
+                                                     AND (wa.ServiceStatus = 'Pending' OR wa.ServiceStatus = 'Pending Paid')
+                                                     AND sh.AppointmentDate = @datetoday";
+
+                    string generalquependingcustomersquery2 = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber 
+                                                     FROM servicehistory sh 
+                                                     INNER JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber 
+                                                     WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')
+                                                     AND sh.ServiceCategory = @membercategory 
+                                                     AND sh.QueType = 'GeneralQue' 
+                                                     AND (app.ServiceStatus = 'Pending' OR app.ServiceStatus = 'Pending Paid')
                                                      AND sh.AppointmentDate = @datetoday";
 
                     MySqlCommand command = new MySqlCommand(generalquependingcustomersquery, connection);
@@ -10753,6 +11907,28 @@ namespace Enchante
                     command.Parameters.AddWithValue("@datetoday", datetoday);
 
                     using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            PendingCustomers generalquependingcustomers = new PendingCustomers
+                            {
+                                TransactionNumber = reader["TransactionNumber"] as string,
+                                ClientName = reader["ClientName"] as string,
+                                ServiceStatus = reader["ServiceStatus"] as string,
+                                ServiceName = reader["SelectedService"] as string,
+                                ServiceID = reader["ServiceID"] as string,
+                                QueNumber = reader["QueNumber"] as string
+                            };
+
+                            result.Add(generalquependingcustomers);
+                        }
+                    }
+
+                    MySqlCommand command2 = new MySqlCommand(generalquependingcustomersquery2, connection);
+                    command2.Parameters.AddWithValue("@membercategory", membercategory);
+                    command2.Parameters.AddWithValue("@datetoday", datetoday);
+
+                    using (MySqlDataReader reader = command2.ExecuteReader())
                     {
                         while (reader.Read())
                         {
@@ -10802,6 +11978,11 @@ namespace Enchante
             TimeSpan elapsedTime = clickedUserControl.GetElapsedTime();
         }
 
+        private void AvailableCustomerUserControl_CancelServiceButtonClicked(object sender, EventArgs e)
+        {
+            StaffCurrentAvailableCustomersUserControl clickedUserControl = (StaffCurrentAvailableCustomersUserControl)sender;
+        }
+
         public void RefreshFlowLayoutPanel()
         {
             foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
@@ -10814,8 +11995,11 @@ namespace Enchante
             }
             StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
             StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+            StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+            InitializePriorityPendingCustomersForStaff();
             InitializeGeneralCuePendingCustomersForStaff();
             InitializePreferredCuePendingCustomersForStaff();
+
 
             bool hasNoCustomerControl = StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any()
                || StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any();
@@ -10854,6 +12038,14 @@ namespace Enchante
                     control.Dispose();
                 }
             }
+            foreach (System.Windows.Forms.Control control in StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<StaffCurrentAvailableCustomersUserControl>().ToList())
+            {
+                if (control != selectedControl)
+                {
+                    StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Remove(control);
+                    control.Dispose();
+                }
+            }
         }
 
 
@@ -10880,14 +12072,42 @@ namespace Enchante
 
                     string preferredquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber
                        FROM servicehistory sh INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber
-                       WHERE sh.ServiceStatus = 'Pending' AND sh.ServiceCategory = @membercategory AND sh.PreferredStaff = @preferredstaff AND wa.ServiceStatus = 'Pending' AND sh.AppointmentDate = @datetoday";
+                       WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid') AND sh.ServiceCategory = @membercategory AND sh.PreferredStaff = @preferredstaff AND (wa.ServiceStatus = 'Pending' OR wa.ServiceStatus = 'Pending Paid') AND sh.AppointmentDate = @datetoday";
 
+
+                    string preferredquependingcustomersquery2 = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber
+                       FROM servicehistory sh INNER JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber
+                       WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')  AND sh.QueType = 'Preferred' AND sh.ServiceCategory = @membercategory AND sh.PreferredStaff = @preferredstaff AND (app.ServiceStatus = 'Pending' OR app.ServiceStatus = 'Pending Paid') AND sh.AppointmentDate = @datetoday";
+                    
                     MySqlCommand command = new MySqlCommand(preferredquependingcustomersquery, connection);
                     command.Parameters.AddWithValue("@membercategory", membercategory);
                     command.Parameters.AddWithValue("@preferredstaff", staffID);
                     command.Parameters.AddWithValue("@datetoday", datetoday);
 
+                    MySqlCommand command2 = new MySqlCommand(preferredquependingcustomersquery2, connection);
+                    command2.Parameters.AddWithValue("@membercategory", membercategory);
+                    command2.Parameters.AddWithValue("@preferredstaff", staffID);
+                    command2.Parameters.AddWithValue("@datetoday", datetoday);
+
                     using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            PendingCustomers preferredquependingcustomers = new PendingCustomers
+                            {
+                                TransactionNumber = reader.IsDBNull(reader.GetOrdinal("TransactionNumber")) ? string.Empty : reader.GetString("TransactionNumber"),
+                                ClientName = reader.IsDBNull(reader.GetOrdinal("ClientName")) ? string.Empty : reader.GetString("ClientName"),
+                                ServiceStatus = reader.IsDBNull(reader.GetOrdinal("ServiceStatus")) ? string.Empty : reader.GetString("ServiceStatus"),
+                                ServiceName = reader.IsDBNull(reader.GetOrdinal("SelectedService")) ? string.Empty : reader.GetString("SelectedService"),
+                                ServiceID = reader.IsDBNull(reader.GetOrdinal("ServiceID")) ? string.Empty : reader.GetString("ServiceID"),
+                                QueNumber = reader.IsDBNull(reader.GetOrdinal("QueNumber")) ? string.Empty : reader.GetString("QueNumber")
+                            };
+
+                            result.Add(preferredquependingcustomers);
+                        }
+                    }
+
+                    using (MySqlDataReader reader = command2.ExecuteReader())
                     {
                         while (reader.Read())
                         {
@@ -10957,6 +12177,8 @@ namespace Enchante
                 availablecustomersusercontrol.ExpandUserControlButtonClicked += AvailableCustomersUserControl_ExpandCollapseButtonClicked;
                 availablecustomersusercontrol.StartServiceButtonClicked += AvailableCustomersUserControl_StartServiceButtonClicked;
                 availablecustomersusercontrol.StaffEndServiceBtnClicked += AvailableCustomersUserControl_EndServiceButtonClicked;
+                availablecustomersusercontrol.StaffCancelServiceBtnClicked += AvailableCustomerUserControl_CancelServiceButtonClicked;
+                availablecustomersusercontrol.StaffQueTypeTextBox.Visible = false;
                 StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(availablecustomersusercontrol);
                 availablecustomersusercontrol.CurrentStaffID = StaffIDNumLbl.Text;
 
@@ -11032,6 +12254,16 @@ namespace Enchante
                     }
                 }
             }
+            if (StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Count > 0 && !StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
+            {
+                foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
+                {
+                    if (control is StaffCurrentAvailableCustomersUserControl userControl)
+                    {
+                        userControl.StaffStartServiceBtn.Enabled = false;
+                    }
+                }
+            }
         }
 
 
@@ -11039,8 +12271,8 @@ namespace Enchante
 
         #endregion
 
-        //staff inventory
-        #region
+
+        #region staff inventory
         public void InitializeStaffInventoryDataGrid()
         {
             StaffInventoryDataGrid.Rows.Clear();
@@ -11158,6 +12390,12 @@ namespace Enchante
                         int currentStock = Convert.ToInt32(dataTable.Rows[0]["ItemStock"]);
                         int newStock = currentStock + itemStockToBeAdded;
 
+                        if (currentStock + itemStockToBeAdded > 40)
+                        {
+                            MessageBox.Show("You can only have a maximum stock of 40.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
                         string updateQuery = "UPDATE staff_inventory SET ItemStock = @NewStock WHERE ItemID = @ItemID AND EmployeeID = @EmployeeID";
                         using (MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection))
                         {
@@ -11211,1289 +12449,852 @@ namespace Enchante
                     int currentStock = Convert.ToInt32(checkStockCommand.ExecuteScalar());
                 }
 
-                InitializeStaffPersonalInventoryDataGrid();
-                InitializeStaffInventoryDataGrid();
-                StaffItemSelectedCountTextBox.Clear();
+
+            }
+
+            CheckItemStockPersonalStatus(itemID, staffID);
+            InitializeStaffPersonalInventoryDataGrid();
+            InitializeStaffInventoryDataGrid();
+            StaffItemSelectedCountTextBox.Clear();
+            RefreshFlowLayoutPanel();
+        }
+
+        public void CheckItemStockPersonalStatus(string ItemID, string staffID)
+        {
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string selectQuery = "SELECT ItemStock, ItemStatus, ItemName FROM staff_inventory " +
+                                     "WHERE EmployeeID = @staffID AND ItemID = @ItemID";
+
+                MySqlCommand selectCommand = new MySqlCommand(selectQuery, connection);
+                selectCommand.Parameters.AddWithValue("@staffID", staffID);
+                selectCommand.Parameters.AddWithValue("@ItemID", ItemID);
+
+                using (MySqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        int itemStock = int.Parse(reader["ItemStock"].ToString());
+                        string itemStatus = reader["ItemStatus"].ToString();
+                        string itemName = reader["ItemName"].ToString();
+
+                        reader.Close(); // Close the data reader before executing the update query
+
+                        if (itemStock >= 8 && itemStatus == "High Stock")
+                        {
+                            // Don't update
+                        }
+                        else if (itemStock >= 8 && itemStatus == "Low Stock")
+                        {
+                            string updateQuery = "UPDATE staff_inventory " +
+                                                 "SET ItemStatus = 'High Stock' " +
+                                                 "WHERE EmployeeID = @staffID AND ItemID = @ItemID";
+
+                            MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection);
+                            updateCommand.Parameters.AddWithValue("@staffID", staffID);
+                            updateCommand.Parameters.AddWithValue("@ItemID", ItemID);
+                            updateCommand.ExecuteNonQuery();
+                        }
+                        else if (itemStock < 8 && itemStatus == "High Stock")
+                        {
+                            string updateQuery = "UPDATE staff_inventory " +
+                                                 "SET ItemStatus = 'Low Stock' " +
+                                                 "WHERE EmployeeID = @staffID AND ItemID = @ItemID";
+
+                            MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection);
+                            updateCommand.Parameters.AddWithValue("@staffID", staffID);
+                            updateCommand.Parameters.AddWithValue("@ItemID", ItemID);
+                            updateCommand.ExecuteNonQuery();
+
+                            MessageBox.Show($"{itemName} is at Low Stock");
+                        }
+                        else if (itemStatus == "Low Stock")
+                        {
+                            // Don't update
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Item not found in staff inventory");
+                    }
+                }
+            }
+        }
+    
+
+        #endregion
+
+        #region Paid Appointment Queue 
+        public class PriorityPendingCustomers
+        {
+            public string TransactionNumber { get; set; }
+            public string ClientName { get; set; }
+            public string ServiceID { get; set; }
+            public string ServiceName { get; set; }
+            public string ServiceStatus { get; set; }
+            public string QueType { get; set; }
+            public string QueNumber { get; set; }
+        }
+
+        private List<PriorityPendingCustomers> RetrievePriorityGeneralAndPreferredQuePendingCustomersFromDB()
+        {
+            string staffID = StaffIDNumLbl.Text;
+            DateTime currentDate = DateTime.Today;
+            string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
+            List<PriorityPendingCustomers> result = new List<PriorityPendingCustomers>();
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string priorityquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber, sh.QueType 
+                                                                 FROM servicehistory sh 
+                                                                 INNER JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber 
+                                                                 WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')
+                                                                 AND sh.ServiceCategory = @membercategory 
+                                                                 AND (sh.QueType = 'AnyonePriority' OR sh.QueType = 'AnyoneSPriority' OR sh.PreferredStaff = @preferredstaff)
+                                                                 AND (app.ServiceStatus = 'Pending' OR app.ServiceStatus = 'Pending Paid')
+                                                                 AND app.AppointmentStatus = 'Confirmed'
+                                                                 AND sh.AppointmentDate = @datetoday";
+
+                    MySqlCommand command = new MySqlCommand(priorityquependingcustomersquery, connection);
+                    command.Parameters.AddWithValue("@membercategory", membercategory);
+                    command.Parameters.AddWithValue("@preferredstaff", staffID);
+                    command.Parameters.AddWithValue("@datetoday", datetoday);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            PriorityPendingCustomers priorityquependingcustomers = new PriorityPendingCustomers
+                            {
+                                TransactionNumber = reader["TransactionNumber"] as string,
+                                ClientName = reader["ClientName"] as string,
+                                ServiceStatus = reader["ServiceStatus"] as string,
+                                ServiceName = reader["SelectedService"] as string,
+                                ServiceID = reader["ServiceID"] as string,
+                                QueType = reader["QueType"] as string,
+                                QueNumber = reader["QueNumber"] as string
+                            };
+
+                            result.Add(priorityquependingcustomers);
+                        }
+                    }
+                    if (result.Count == 0)
+                    {
+                        //MessageBox.Show("No customers in the queue.", "Empty Queue", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred: " + ex.Message);
+                }
+            }
+
+            return result;
+        }
+
+        public int sprioritycount;
+        bool ThereIsSvip = false;
+        public void InitializePriorityPendingCustomersForStaff()
+        {
+            List<PriorityPendingCustomers> priorityqueuependingcustomers = RetrievePriorityGeneralAndPreferredQuePendingCustomersFromDB();
+
+            if (priorityqueuependingcustomers.Count == 0)
+            {
+                NoCustomerInQueueUserControl nocustomerusercontrol = new NoCustomerInQueueUserControl();
+                StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(nocustomerusercontrol);
+
+            }
+
+            int smallestQueNumber2 = int.MaxValue;
+            int smallestQueNumberAnyonePreferred = int.MaxValue;
+
+
+            foreach (PriorityPendingCustomers customer in priorityqueuependingcustomers)
+            {
+                StaffCurrentAvailableCustomersUserControl availablecustomersusercontrol = new StaffCurrentAvailableCustomersUserControl(this);
+                availablecustomersusercontrol.AvailablePriorityCustomerSetData(customer);
+                availablecustomersusercontrol.ExpandUserControlButtonClicked += AvailableCustomersUserControl_ExpandCollapseButtonClicked;
+                availablecustomersusercontrol.StartServiceButtonClicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+                availablecustomersusercontrol.StaffEndServiceBtnClicked += AvailableCustomersUserControl_EndServiceButtonClicked;
+                availablecustomersusercontrol.StaffCancelServiceBtnClicked += AvailableCustomerUserControl_CancelServiceButtonClicked;
+                StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(availablecustomersusercontrol);
+                availablecustomersusercontrol.CurrentStaffID = StaffIDNumLbl.Text;
+
+                string queNumberText = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
+                if (int.TryParse(queNumberText, out int queNumber))
+                {
+                    if (queNumber < smallestQueNumber2)
+                    {
+                        smallestQueNumber2 = queNumber;
+                    }
+
+                }
+
+                string queNumberText2 = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
+                if (int.TryParse(queNumberText2, out int queNumber2))
+                {
+                    if (customer.QueType == "AnyoneSPriority" || customer.QueType == "PreferredSPriority")
+                    {
+                        if (queNumber2 < smallestQueNumberAnyonePreferred)
+                        {
+                            smallestQueNumberAnyonePreferred = queNumber2;
+                        }
+                        ThereIsSvip = true;
+                        sprioritycount++;
+                    }
+
+                }
+            }
+
+
+            if (!ThereIsSvip && sprioritycount == 0)
+            {
+                ThereIsSvip = false;
+            }
+            UpdateStartServiceButtonStatusPriority(priorityqueuependingcustomers, smallestQueNumber2, smallestQueNumberAnyonePreferred);
+
+        }
+
+        private void UpdateStartServiceButtonStatusPriority(List<PriorityPendingCustomers> priorityqueuependingcustomers, int smallestQueNumber, int smallestQueNumberAnyonePreferred)
+        {
+            bool hasAnyoneSPriorityOrPreferredSPriority = priorityqueuependingcustomers
+                .Any(customer => customer.QueType == "AnyoneSPriority" || customer.QueType == "PreferredSPriority");
+            if (ThereIsSvip == true)
+            {
+
+                foreach (System.Windows.Forms.Control control in StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls)
+                {
+                    if (control is StaffCurrentAvailableCustomersUserControl userControl)
+                    {
+                        int queNumber;
+                        int.TryParse(userControl.StaffQueNumberTextBox.Text, out queNumber);
+                        if (userControl.StaffQueTypeTextBox.Text == "AnyoneSPriority" || userControl.StaffQueTypeTextBox.Text == "PreferredSPriority")
+                        {
+                            userControl.StaffStartServiceBtn.Enabled = (queNumber == smallestQueNumberAnyonePreferred);
+                        }
+                        else
+                        {
+                            userControl.StaffStartServiceBtn.Enabled = false;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (System.Windows.Forms.Control control in StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls)
+                {
+                    if (control is StaffCurrentAvailableCustomersUserControl userControl)
+                    {
+                        int queNumber;
+                        int.TryParse(userControl.StaffQueNumberTextBox.Text, out queNumber);
+                        userControl.StaffStartServiceBtn.Enabled = (queNumber == smallestQueNumber);
+
+                    }
+                }
             }
         }
         #endregion
 
+
+
+
+
         #endregion
 
 
 
-        private void RecAppointmentExitBtn_Click(object sender, EventArgs e)
+
+        private void StaffServiceRateTestBtn_Click(object sender, EventArgs e)
         {
 
         }
-        private void RecWalkinSelectedServiceDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //di ko alam kung ituloy ko pa
-            //selected discount per service itey
-            //walkin itey pang discount ng selected service
-        }
-        private void RecApptConfirmBtn_Click(object sender, EventArgs e)
-        {
-            Transaction.PanelShow(RecApptConfirmPanel);
-        }
-        private void RecApptConfirmExitBtn_Click(object sender, EventArgs e)
-        {
-            Transaction.PanelShow(RecTransactionPanel);
 
-        }
-        private void RecShopProdBtn_Click(object sender, EventArgs e)
+        private void MngrApptServiceBtn_Click(object sender, EventArgs e)
         {
-            Transaction.PanelShow(RecShopProdPanel);
-            RecShopProdTransNumText.Text = TransactionNumberGenerator.ShopProdGenerateTransNumberDefault();
-
+            Inventory.PanelShow(MngrApptServicePanel);
         }
 
-        private void RecShopProdExitBtn_Click(object sender, EventArgs e)
+        private void MngrApptServiceExitBtn_Click(object sender, EventArgs e)
         {
-            Transaction.PanelShow(RecTransactionPanel);
+            MngrAppSalesSelectedPeriodLbl.Visible = true;
+            MngrAppSalesSelectedPeriodText.Visible = true;
+            MngrAppSalesFromLbl.Visible = false;
+            MngrAppSalesFromDatePicker.Visible = false;
+            MngrAppSalesToLbl.Visible = false;
+            MngrAppSalesToDatePicker.Visible = false;
+            MngrAppSalesPeriodCalendar.Visible = false;
+            MngrAppSalesPeriod.SelectedItem = null;
+            MngrAppSalesSelectCatBox.SelectedItem = null;
+            MngrAppSalesAppointmentSelect.SelectedItem = null;
+            MngrAppSalesSelectedPeriodText.Text = "";
+            MngrAppSalesTransIDShow.Text = "";
+            MngrAppSalesTotalRevBox.Text = "";
+            MngrAppSalesTransRepDGV.DataSource = null;
+            MngrAppSalesTransServiceHisDGV.DataSource = null;
+            MngrAppSalesGraph.Series.Clear();
+            MngrAppSalesGraph.Legends.Clear();
+            Inventory.PanelShow(MngrInventoryTypePanel);
 
         }
-        private void RecShopProdTransactNumRefresh()
-        {
-            RecShopProdTransNumText.Text = TransactionNumberGenerator.ShopProdGenerateTransNumberInc();
-        }
 
-        private void RecShopProdSelectedProdDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void RecCanceltApptTransactionBtn_Click(object sender, EventArgs e)
         {
-            try
+            if (RecApptAcceptLateDeclineDGV.SelectedRows.Count > 0)
             {
-                if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && RecShopProdSelectedProdDGV.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+                // Get the selected transaction ID from the DataGridView
+                string transactionID = RecApptAcceptLateDeclineDGV.SelectedRows[0].Cells["TransactionID"].Value.ToString();
+
+                // Ask for confirmation before canceling the appointment
+                DialogResult result = MessageBox.Show("Are you sure you want to cancel the appointment?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
                 {
-                    DataGridView dgv = (DataGridView)sender;
-
-                    if (dgv.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+                    // User confirmed, proceed with cancellation
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
                     {
-                        if (RecShopProdSelectedProdDGV.Columns[e.ColumnIndex].Name == "Void")
+                        connection.Open();
+
+                        string updateQuery = $"UPDATE appointment SET AppointmentStatus = 'Cancelled', ServiceStatus = 'Cancelled' WHERE TransactionNumber = '{transactionID}'";
+                        string updateQuery2 = $"UPDATE servicehistory SET ServiceStatus = 'Cancelled' WHERE TransactionNumber = '{transactionID}'";
+                        MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection);
+                        int rowsAffected = updateCommand.ExecuteNonQuery();
+                        MySqlCommand updateCommand2 = new MySqlCommand(updateQuery2, connection);
+                        int rowsAffected2 = updateCommand2.ExecuteNonQuery();
+
+                        if (rowsAffected > 0 && rowsAffected2 > 0)
                         {
-                            //input dialog messagebox
-                            string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Password Required");
+                            RecApptAcceptLateDeclineDGV.Rows.Clear();
+                            InitializeAppointmentDataGrid();
+                            MessageBox.Show("Appointment successfully cancelled.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to cancel appointment. Please try again.");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Appointment cancellation cancelled.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a transaction number.");
+            }
+        }
 
-                            // Hash the entered password
-                            string hashedEnteredPassword = HashHelper.HashString(enteredPassword);
-                            DialogResult result;
+        public void InitializeCustomerServiceListDataGrid()
+        {
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
 
-                            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                string currentDate = DateTime.Now.ToString("MM-dd-yyyy dddd");
+
+                string query = "SELECT a.TransactionNumber, a.AppointmentDate, a.ClientName " +
+               "FROM appointment a " +
+               "LEFT JOIN servicehistory sh ON a.TransactionNumber = sh.TransactionNumber " +
+               "WHERE (a.ServiceStatus = 'Pending' OR a.ServiceStatus = 'Pending Paid')  AND " +
+               "a.AppointmentDate = @currentDate AND a.AppointmentStatus = 'Confirmed' " +
+               "GROUP BY a.TransactionNumber, a.AppointmentDate, a.ClientName " +
+               "UNION " +
+               "SELECT w.TransactionNumber, w.AppointmentDate, w.ClientName " +
+               "FROM walk_in_appointment w " +
+               "LEFT JOIN servicehistory sh ON w.TransactionNumber = sh.TransactionNumber " +
+               "WHERE (w.ServiceStatus = 'Pending' OR w.ServiceStatus = 'Pending Paid') AND " +
+               "w.AppointmentDate = @currentDate " +
+               "GROUP BY w.TransactionNumber, w.AppointmentDate, w.ClientName";
+
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@currentDate", currentDate);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count > 0)
+                {
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        RecCanceAllServicesDGV.Rows.Add(row["TransactionNumber"], row["AppointmentDate"], row["ClientName"]);
+                    }
+                }
+            }
+        }
+
+        private void RecCanceAllServicesDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = RecCanceAllServicesDGV.Rows[e.RowIndex];
+                string transactionNumber = selectedRow.Cells["ServiceTransactionID"].Value.ToString();
+                string serviceHistoryQuery = "SELECT TransactionNumber, ServiceCategory, ServiceID, SelectedService " +
+                                             "FROM servicehistory " +
+                                             "WHERE TransactionNumber = @transactionNumber AND (ServiceStatus = 'Pending' OR ServiceStatus = 'PendingPaid')";
+
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    MySqlCommand command = new MySqlCommand(serviceHistoryQuery, connection);
+                    command.Parameters.AddWithValue("@transactionNumber", transactionNumber);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                    DataTable serviceHistoryTable = new DataTable();
+                    adapter.Fill(serviceHistoryTable);
+
+                    RecCancelServicesDGV.Rows.Clear();
+                    if (serviceHistoryTable.Rows.Count > 0)
+                    {
+                        foreach (DataRow serviceHistoryRow in serviceHistoryTable.Rows)
+                        {
+                            RecCancelServicesDGV.Rows.Add(
+                                serviceHistoryRow["TransactionNumber"],
+                                serviceHistoryRow["ServiceCategory"],
+                                serviceHistoryRow["ServiceID"],
+                                serviceHistoryRow["SelectedService"]
+                            );
+                        }
+                    }
+                }
+            }
+        }
+
+        private void RecCancelAllServiceBtn_Click(object sender, EventArgs e)
+        {
+            // Check if any row is selected
+            if (RecCanceAllServicesDGV.SelectedRows.Count > 0)
+            {
+                // Confirm with the user if they want to continue canceling the services
+                DialogResult result = MessageBox.Show("Are you sure you want to cancel the selected services?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    foreach (DataGridViewRow selectedRow in RecCanceAllServicesDGV.SelectedRows)
+                    {
+                        // Get the TransactionNumber from the selected row
+                        string transactionNumber = selectedRow.Cells["ServiceTransactionID"].Value.ToString();
+
+                        // Update walk_in_appointment table
+                        string updateWalkInQuery = "UPDATE walk_in_appointment SET ServiceStatus = 'Cancelled' WHERE TransactionNumber = @transactionNumber";
+
+                        // Update servicehistory table
+                        string updateServiceHistoryQuery = "UPDATE servicehistory SET ServiceStatus = 'Cancelled' WHERE TransactionNumber = @transactionNumber";
+
+                        // Update appointment table
+                        string updateAppointmentQuery = "UPDATE appointment SET ServiceStatus = 'Cancelled' WHERE TransactionNumber = @transactionNumber";
+
+                        using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                        {
+                            connection.Open();
+
+                            // Update walk_in_appointment table
+                            MySqlCommand updateWalkInCommand = new MySqlCommand(updateWalkInQuery, connection);
+                            updateWalkInCommand.Parameters.AddWithValue("@transactionNumber", transactionNumber);
+                            updateWalkInCommand.ExecuteNonQuery();
+
+                            // Update servicehistory table
+                            MySqlCommand updateServiceHistoryCommand = new MySqlCommand(updateServiceHistoryQuery, connection);
+                            updateServiceHistoryCommand.Parameters.AddWithValue("@transactionNumber", transactionNumber);
+                            updateServiceHistoryCommand.ExecuteNonQuery();
+
+                            // Update appointment table
+                            MySqlCommand updateAppointmentCommand = new MySqlCommand(updateAppointmentQuery, connection);
+                            updateAppointmentCommand.Parameters.AddWithValue("@transactionNumber", transactionNumber);
+                            updateAppointmentCommand.ExecuteNonQuery();
+                        }
+                    }
+
+                    // Display a success message
+                    MessageBox.Show("Services have been cancelled successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RecCanceAllServicesDGV.Rows.Clear();
+                    InitializeCustomerServiceListDataGrid();
+                }
+            }
+            else
+            {
+                // No rows selected
+                MessageBox.Show("Please select services to cancel.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void RecCancelServiceBtn_Click(object sender, EventArgs e)
+        {
+            if (RecCancelServicesDGV.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = RecCancelServicesDGV.SelectedRows[0];
+
+                string transactionNumber = selectedRow.Cells["RecServiceTransactionID"].Value.ToString();
+                string serviceID = selectedRow.Cells["RecServiceServiceID"].Value.ToString();
+
+                DialogResult confirmationResult = MessageBox.Show("Are you sure you want to cancel the selected service?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (confirmationResult == DialogResult.Yes)
+                {
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    {
+
+                        connection.Open();
+
+                        string updateQuery1 = "UPDATE servicehistory SET ServiceStatus = 'Cancelled' WHERE TransactionNumber = @TransactionNumber AND ServiceID = @ServiceID";
+                        string updateQuery3 = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus WHERE TransactionNumber = @TransactionNumber";
+                        string updateQuery4 = "UPDATE appointment SET ServiceStatus = @ServiceStatus WHERE TransactionNumber = @TransactionNumber";
+
+                        using (MySqlCommand command = new MySqlCommand(updateQuery1, connection))
+                        {
+                            command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                            command.Parameters.AddWithValue("@ServiceID", serviceID);
+                            command.ExecuteNonQuery();
+                        }
+
+                        string countQuery = "SELECT COUNT(*) FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND (ServiceStatus = 'Pending Paid' OR ServiceStatus = 'Pending') ";
+                        int matchCount;
+                        string serviceStatus = null;
+
+                        using (MySqlCommand command = new MySqlCommand(countQuery, connection))
+                        {
+                            command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                            matchCount = Convert.ToInt32(command.ExecuteScalar());
+
+                            if (matchCount == 0)
                             {
-                                connection.Open();
+                                string completedStatusQuery = "SELECT ServiceStatus FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND (ServiceStatus = 'Completed' OR ServiceStatus = 'Completed Paid')";
 
-                                string query = "SELECT EmployeeType FROM systemusers WHERE HashedPass = @Password";
-                                using (MySqlCommand command = new MySqlCommand(query, connection))
+                                using (MySqlCommand completedStatusCommand = new MySqlCommand(completedStatusQuery, connection))
                                 {
-                                    command.Parameters.AddWithValue("@Password", hashedEnteredPassword);
+                                    completedStatusCommand.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                                    object completedStatusResult = completedStatusCommand.ExecuteScalar();
 
-                                    // Execute the query
-                                    using (MySqlDataReader reader = command.ExecuteReader())
+                                    if (completedStatusResult != null)
                                     {
-                                        if (reader.Read())
-                                        {
-                                            string position = reader["EmployeeType"].ToString();
-                                            if (position == "Manager")
-                                            {
-                                                result = MessageBox.Show("Do you want to remove this item?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                        string statusQuery = "SELECT ServiceStatus FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND (ServiceStatus = 'Completed' OR ServiceStatus = 'Completed Paid')";
 
-                                                if (result == DialogResult.Yes)
-                                                {
-                                                    // Remove the selected row
-                                                    RecShopProdSelectedProdDGV.Rows.RemoveAt(e.RowIndex);
-                                                    MessageBox.Show("Item removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                }
-                                            }
-                                            else
-                                            {
-                                                MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                                return;
-                                            }
-                                        }
-                                        else
+                                        using (MySqlCommand statusCommand = new MySqlCommand(statusQuery, connection))
                                         {
-                                            MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                            return;
+                                            statusCommand.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                                            object result = statusCommand.ExecuteScalar();
+
+                                            if (result != null)
+                                            {
+                                                serviceStatus = result.ToString();
+                                            }
                                         }
+                                    }
+                                    else
+                                    {
+                                        serviceStatus = "Cancelled";
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                string statusQuery = "SELECT ServiceStatus FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND (ServiceStatus = 'Pending' OR ServiceStatus = 'Pending Paid')";
+
+                                using (MySqlCommand statusCommand = new MySqlCommand(statusQuery, connection))
+                                {
+                                    statusCommand.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                                    object result = statusCommand.ExecuteScalar();
+
+                                    if (result != null)
+                                    {
+                                        serviceStatus = result.ToString();
                                     }
                                 }
                             }
                         }
-                        else if (RecShopProdSelectedProdDGV.Columns[e.ColumnIndex].Name == "-")
+                        using (MySqlCommand command = new MySqlCommand(updateQuery3, connection))
                         {
-                            string quantityString = RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value?.ToString();
-                            if (!string.IsNullOrEmpty(quantityString) && int.TryParse(quantityString, out int quantity))
-                            {
-                                decimal itemCost = decimal.Parse(RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value?.ToString());
-
-                                // Calculate the cost per item
-                                decimal costPerItem = itemCost / quantity;
-
-                                // Decrease quantity
-                                if (quantity > 1)
-                                {
-                                    quantity--;
-
-                                    // Calculate updated item cost (reset to original price)
-                                    decimal updatedCost = costPerItem * quantity;
-
-                                    // Update Qty and ItemCost in the DataGridView
-                                    RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value = quantity.ToString();
-                                    RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = updatedCost.ToString("F2"); // Format to two decimal places
-
-                                }
-                            }
-                            else
-                            {
-                                // Handle the case where quantityString is empty or not a valid integer
-                                // For example, show an error message or set a default value
-                            }
+                            command.Parameters.AddWithValue("@ServiceStatus", serviceStatus);
+                            command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                            command.ExecuteNonQuery();
                         }
-                        else if (RecShopProdSelectedProdDGV.Columns[e.ColumnIndex].Name == "+")
+
+                        using (MySqlCommand command = new MySqlCommand(updateQuery4, connection))
                         {
-                            string quantityString = RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value?.ToString();
-                            if (!string.IsNullOrEmpty(quantityString) && int.TryParse(quantityString, out int quantity))
-                            {
-                                decimal itemCost = decimal.Parse(RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value?.ToString());
-
-                                // Calculate the cost per item
-                                decimal costPerItem = itemCost / quantity;
-
-                                // Increase quantity
-                                quantity++;
-
-                                // Calculate updated item cost
-                                decimal updatedCost = costPerItem * quantity;
-
-                                // Update Qty and ItemCost in the DataGridView
-                                RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value = quantity.ToString();
-                                RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = updatedCost.ToString("F2"); // Format to two decimal places
-
-                            }
-                            else
-                            {
-                                // Handle the case where quantityString is empty or not a valid integer
-                                // For example, show an error message or set a default value
-                            }
+                            command.Parameters.AddWithValue("@ServiceStatus", serviceStatus);
+                            command.Parameters.AddWithValue("@TransactionNumber", transactionNumber);
+                            command.ExecuteNonQuery();
                         }
-                    }
 
-                    else
-                    {
-
-                    }
-                }
-                else if (RecShopProdSelectedProdDGV.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn &&
-                RecShopProdSelectedProdDGV.Columns[e.ColumnIndex].Name == "CheckBoxColumn")
-                {                    
-                    // Dictionary to store the discounted amounts for each row
-                    Dictionary<int, decimal> discountedAmounts = new Dictionary<int, decimal>();
-                    // Get the checkbox cell value
-                    DataGridViewCheckBoxCell cell = RecShopProdSelectedProdDGV[e.ColumnIndex, e.RowIndex] as DataGridViewCheckBoxCell;
-                    RecShopProdSelectedProdDGV.CurrentCell = null;
-                    // Check if the checkbox is checked
-                    bool isChecked = (bool)cell.Value;
-
-                    // Calculate total amount and apply discount based on checkbox state
-                    if (isChecked)
-                    {
-                        // Get the quantity and amount from the corresponding cells
-                        int quantity = Convert.ToInt32(RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value);
-                        decimal amount = Convert.ToDecimal(RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Unit Price"].Value);
-
-                        // Calculate the total amount
-                        decimal total = quantity * amount;
-
-                        // Apply discount (for example, 20% discount)
-                        decimal discount = 0.2m; // 20% discount
-                        decimal discountedTotal = total * (1 - discount);
-
-                        // Add or update the discounted amount in the dictionary
-                        RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["RecShopProdDiscountAmount"].Value = total - discountedTotal;
-
-                        // Update the total cell with the discounted total
-                        RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = discountedTotal.ToString();
-                        RecShopProdSelectedDiscount();
-
-                    }
-                    else
-                    {
-                        // Clear the discounted amount and update the amount cell with the original value
-                        RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = (Convert.ToDecimal(RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Unit Price"].Value) * Convert.ToInt32(RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value)).ToString();
-                        RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["RecShopProdDiscountAmount"].Value = "0.00";
-                        RecShopProdSelectedDiscount();
-
-                        //int discountpriceColumnIndex = RecShopProdSelectedProdDGV.Columns["CheckBoxColumn"].Index;
-
-                        //foreach (DataGridViewRow row in RecShopProdSelectedProdDGV.Rows)
-                        //{
-                        //    if (row.Cells[discountpriceColumnIndex].Value == null)
-                        //    {
-                        //        RecShopProdCalculateTotalPrice();
-                        //    }
-                        //}
-                    }
-
-
-
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message, "ShopProdSelectedDGV Cell Content Click Error");
-            }
-        }
-
-        private void RecShopProdSelectedDiscount()
-        {
-            decimal totalDiscountedAmount = 0; 
-            decimal total2 = 0;
-
-            decimal price1;
-            decimal price2;
-
-            int discountpriceColumnIndex = RecShopProdSelectedProdDGV.Columns["RecShopProdDiscountAmount"].Index;
-            int totalpriceColumnIndex = RecShopProdSelectedProdDGV.Columns["Total Price"].Index;
-
-            foreach (DataGridViewRow row in RecShopProdSelectedProdDGV.Rows)
-            {
-                if (row.Cells[discountpriceColumnIndex].Value != null)
-                {
-                    if (decimal.TryParse(row.Cells[discountpriceColumnIndex].Value.ToString(), out price1))
-                    {
-                        totalDiscountedAmount += price1;
-                    }
-                    else
-                    {
-                        // Handle invalid numeric value
-                        // For example, you can skip this row or display an error message
-                    }
-                }
-
-            }
-            foreach (DataGridViewRow row in RecShopProdSelectedProdDGV.Rows)
-            {
-                if (row.Cells[totalpriceColumnIndex].Value != null)
-                {
-                    if (decimal.TryParse(row.Cells[totalpriceColumnIndex].Value.ToString(), out price2))
-                    {
-                        total2 += price2;
-                    }
-                    else
-                    {
-                        // Handle invalid numeric value
-                        // For example, you can skip this row or display an error message
+                        MessageBox.Show("Service has been cancelled successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        RecCanceAllServicesDGV.Rows.Clear();
+                        RecCancelServicesDGV.Rows.Clear();
+                        InitializeCustomerServiceListDataGrid();
                     }
                 }
             }
-            RecShopProdGrossAmountBox.Text = total2.ToString("0.00");
-            RecShopProdDiscountBox.Text = totalDiscountedAmount.ToString("0.00");
-
-            if (decimal.TryParse(RecShopProdGrossAmountBox.Text, out decimal grossAmount))
-            {
-                originalGrossAmount = grossAmount; // Store the original value
-                decimal discountAmount = Convert.ToDecimal(RecShopProdDiscountBox.Text); // Calculate the discount amount
-                decimal vatAmount = 0;
-                RecShopProdNetAmountBox.Text = grossAmount.ToString("0.00"); // Format to display as currency
-                RecShopProdVATBox.Text = vatAmount.ToString("0.00");
-
-            }
-
-        }
-
-        private void RecShopProdCalculateTotalPrice()
-        {
-            decimal total1 = 0;
-
-            int servicepriceColumnIndex = RecShopProdSelectedProdDGV.Columns["Total Price"].Index;
-
-            foreach (DataGridViewRow row in RecShopProdSelectedProdDGV.Rows)
-            {
-                if (row.Cells[servicepriceColumnIndex].Value != null)
-                {
-                    decimal price;
-                    if (decimal.TryParse(row.Cells[servicepriceColumnIndex].Value.ToString(), out price))
-                    {
-                        total1 += price;
-                    }
-                    else
-                    {
-                        // Handle invalid numeric value
-                        // For example, you can skip this row or display an error message
-                    }
-                }
-            }
-            RecShopProdGrossAmountBox.Text = total1.ToString("F2");
-
-            RecShopProdCalculateVATAndNetAmount();
-        }
-
-        public void RecShopProdCalculateVATAndNetAmount()
-        {
-            // Get the Gross Amount from the TextBox (MngrGrossAmountBox)
-            if (decimal.TryParse(RecShopProdGrossAmountBox.Text, out decimal grossAmount))
-            {
-                // Fixed VAT rate of 12%
-                decimal rate = 12;
-
-                // Calculate the VAT Amount
-                decimal netAmount = grossAmount / ((rate / 100) + 1);
-
-                // Calculate the Net Amount 
-                decimal vatAmount = grossAmount - netAmount;
-
-                // Display the calculated values in TextBoxes
-                RecShopProdVATBox.Text = vatAmount.ToString("0.00");
-                RecShopProdNetAmountBox.Text = netAmount.ToString("0.00");
-                RecShopProdVATBox.Text = vatAmount.ToString("0.00");
-                RecShopProdNetAmountBox.Text = netAmount.ToString("0.00");
-            }
-
-        }
-        private void RecShopProdCashPaymentChk_CheckedChanged(object sender, EventArgs e)
-        {
-            if (RecShopProdCashPaymentChk.Checked)
-            {
-                RecShopProdCashPaymentChk.Checked = true;
-                RecShopProdTypeText.Text = "Cash";
-                
-                RecShopProdCashLbl.Visible = true;
-                RecShopProdCashBox.Visible = true;
-                RecShopProdChangeLbl.Visible = true;
-                RecShopProdChangeBox.Visible = true;
-
-                //disable other payment panel
-                RecShopProdBankPaymentPanel.Visible = false;
-                RecShopProdWalletPaymentPanel.Visible = false;
-
-                RecShopProdCCPaymentChk.Checked = false;
-                RecShopProdPPPaymentChk.Checked = false;
-                RecShopProdGCPaymentChk.Checked = false;
-                RecShopProdPMPaymentChk.Checked = false;
-                
-                RecShopProdCardNameText.Text = "";
-                RecShopProdCardNumText.Text = "";
-                RecShopProdCVCText.Text = "";
-                RecShopProdCardExpText.Text = "MM/YY";
-                RecShopProdWalletNumText.Text = "";
-                RecShopProdWalletPINText.Text = "";
-                RecShopProdWalletOTPText.Text = "";
-                RecShopProdCashBox.Text = "0";
-                RecShopProdChangeBox.Text = "0.00";
-            }
             else
             {
-                RecShopProdCashPaymentChk.Checked = false; 
-                RecShopProdCashLbl.Visible = false;
-                RecShopProdCashBox.Visible = false;
-                RecShopProdChangeLbl.Visible = false;
-                RecShopProdChangeBox.Visible = false;
+                MessageBox.Show("Please select a service to cancel.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        private void RecShopProdCCPaymentChk_CheckedChanged(object sender, EventArgs e)
+        private void RecApptSearchServiceTypeText_TextChanged(object sender, EventArgs e)
         {
-            if (RecShopProdCCPaymentChk.Checked)
-            {
-                RecShopProdCCPaymentChk.Checked = true;
-                RecShopProdTypeText.Text = "Credit Card";
-                
-                RecShopProdCashLbl.Visible = false;
-                RecShopProdCashBox.Visible = false;
-                RecShopProdChangeLbl.Visible = false;
-                RecShopProdChangeBox.Visible = false;
-
-                //disable other payment panel
-                RecShopProdBankPaymentPanel.Visible = true;
-                RecShopProdWalletPaymentPanel.Visible = false;
-
-                RecShopProdCashPaymentChk.Checked = false;
-                RecShopProdPPPaymentChk.Checked = false;
-                RecShopProdGCPaymentChk.Checked = false;
-                RecShopProdPMPaymentChk.Checked = false;
-                
-                RecShopProdCardNameText.Text = "";
-                RecShopProdCardNumText.Text = "";
-                RecShopProdCVCText.Text = "";
-                RecShopProdCardExpText.Text = "MM/YY";
-                RecShopProdWalletNumText.Text = "";
-                RecShopProdWalletPINText.Text = "";
-                RecShopProdWalletOTPText.Text = "";
-                RecShopProdCashBox.Text = "0";
-                RecShopProdChangeBox.Text = "0.00";
-            }
-            else if(RecShopProdCCPaymentChk.Checked || RecShopProdPPPaymentChk.Checked)
-            {
-                RecShopProdBankPaymentPanel.Visible = true;
-                RecShopProdWalletPaymentPanel.Visible = false;
-
-            }
-            else
-            {
-                RecShopProdCCPaymentChk.Checked = false;
-                RecShopProdBankPaymentPanel.Visible = false;
-                RecShopProdCardNameText.Text = "";
-                RecShopProdCardNumText.Text = "";
-                RecShopProdCVCText.Text = "";
-                RecShopProdCardExpText.Text = "MM/YY";
-            }
-
+            RecApptSearchServicePerCat();
         }
 
-        private void RecShopProdPPPaymentChk_CheckedChanged(object sender, EventArgs e)
+        private void RecApptSearchServicePerCat()
         {
-            if (RecShopProdPPPaymentChk.Checked)
+            string searchText = RecApptSearchServiceTypeText.Text;
+            if (RecApptCatHSRB.Checked)
             {
-                RecShopProdPPPaymentChk.Checked = true;
-                RecShopProdTypeText.Text = "Paypal";
-                
-                RecShopProdCashLbl.Visible = false;
-                RecShopProdCashBox.Visible = false;
-                RecShopProdChangeLbl.Visible = false;
-                RecShopProdChangeBox.Visible = false;
-
-                //disable other payment panel
-                RecShopProdBankPaymentPanel.Visible = true;
-                RecShopProdWalletPaymentPanel.Visible = false;
-
-                RecShopProdCashPaymentChk.Checked = false;
-                RecShopProdCCPaymentChk.Checked = false;
-                RecShopProdGCPaymentChk.Checked = false;
-                RecShopProdPMPaymentChk.Checked = false;
-
-                RecShopProdCardNameText.Text = "";
-                RecShopProdCardNumText.Text = "";
-                RecShopProdCVCText.Text = "";
-                RecShopProdCardExpText.Text = "MM/YY";
-                RecShopProdWalletNumText.Text = "";
-                RecShopProdWalletPINText.Text = "";
-                RecShopProdWalletOTPText.Text = "";
-                RecShopProdCashBox.Text = "0";
-                RecShopProdChangeBox.Text = "0.00";
-            }
-            else if (RecShopProdCCPaymentChk.Checked || RecShopProdPPPaymentChk.Checked)
-            {
-                RecShopProdBankPaymentPanel.Visible = true;
-                RecShopProdWalletPaymentPanel.Visible = false;
-
-            }
-            else
-            {
-                RecShopProdPPPaymentChk.Checked = false;
-                RecShopProdBankPaymentPanel.Visible = false;
-                RecShopProdCardNameText.Text = "";
-                RecShopProdCardNumText.Text = "";
-                RecShopProdCVCText.Text = "";
-                RecShopProdCardExpText.Text = "MM/YY";
-            }
-
-        }
-
-        private void RecShopProdGCPaymentChk_CheckedChanged(object sender, EventArgs e)
-        {
-            if (RecShopProdGCPaymentChk.Checked)
-            {
-                RecShopProdGCPaymentChk.Checked = true;
-                RecShopProdTypeText.Text = "GCash";
-
-                RecShopProdCashLbl.Visible = false;
-                RecShopProdCashBox.Visible = false;
-                RecShopProdChangeLbl.Visible = false;
-                RecShopProdChangeBox.Visible = false;
-
-                //disable other payment panel
-                RecShopProdBankPaymentPanel.Visible = false;
-                RecShopProdWalletPaymentPanel.Visible = true;
-
-                RecShopProdCashPaymentChk.Checked = false;
-                RecShopProdCCPaymentChk.Checked = false;
-                RecShopProdPPPaymentChk.Checked = false;
-                RecShopProdPMPaymentChk.Checked = false;
-
-                RecShopProdCardNameText.Text = "";
-                RecShopProdCardNumText.Text = "";
-                RecShopProdCVCText.Text = "";
-                RecShopProdCardExpText.Text = "MM/YY";
-                RecShopProdWalletNumText.Text = "";
-                RecShopProdWalletPINText.Text = "";
-                RecShopProdWalletOTPText.Text = "";
-                RecShopProdCashBox.Text = "0";
-                RecShopProdChangeBox.Text = "0.00";
-            }
-            else if (RecShopProdGCPaymentChk.Checked || RecShopProdPMPaymentChk.Checked)
-            {
-                RecShopProdBankPaymentPanel.Visible = false;
-                RecShopProdWalletPaymentPanel.Visible = true;
-
-            }
-            else
-            {
-                RecShopProdGCPaymentChk.Checked = false;
-                RecShopProdWalletPaymentPanel.Visible = false;
-                RecShopProdWalletNumText.Text = "";
-                RecShopProdWalletPINText.Text = "";
-                RecShopProdWalletOTPText.Text = "";
-            }
-        }
-
-        private void RecShopProdPMPaymentChk_CheckedChanged(object sender, EventArgs e)
-        {
-            if (RecShopProdPMPaymentChk.Checked)
-            {
-                RecShopProdPMPaymentChk.Checked = true;
-                RecShopProdTypeText.Text = "Paymaya";
-
-                RecShopProdCashLbl.Visible = false;
-                RecShopProdCashBox.Visible = false;
-                RecShopProdChangeLbl.Visible = false;
-                RecShopProdChangeBox.Visible = false;
-
-                //disable other payment panel
-                RecShopProdBankPaymentPanel.Visible = false;
-                RecShopProdWalletPaymentPanel.Visible = true;
-
-                RecShopProdCashPaymentChk.Checked = false;
-                RecShopProdCCPaymentChk.Checked = false;
-                RecShopProdPPPaymentChk.Checked = false;
-                RecShopProdGCPaymentChk.Checked = false;
-
-                RecShopProdCardNameText.Text = "";
-                RecShopProdCardNumText.Text = "";
-                RecShopProdCVCText.Text = "";
-                RecShopProdCardExpText.Text = "MM/YY";
-                RecShopProdWalletNumText.Text = "";
-                RecShopProdWalletPINText.Text = "";
-                RecShopProdWalletOTPText.Text = "";
-                RecShopProdCashBox.Text = "0";
-                RecShopProdChangeBox.Text = "0.00";
-            }
-            else if (RecShopProdGCPaymentChk.Checked || RecShopProdPMPaymentChk.Checked)
-            {
-                RecShopProdBankPaymentPanel.Visible = false;
-                RecShopProdWalletPaymentPanel.Visible = true;
-
-            }
-            else
-            {
-                RecShopProdPMPaymentChk.Checked = false;
-                RecShopProdWalletPaymentPanel.Visible = false;
-                RecShopProdWalletNumText.Text = "";
-                RecShopProdWalletPINText.Text = "";
-                RecShopProdWalletOTPText.Text = "";
-            }
-        }
-
-        private void RecShopProdDiscountPWD_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RecShopProdVATExemptChk_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RecShopProdPaymentButton_Click(object sender, EventArgs e)
-        {
-            if (!RecShopProdCashPaymentChk.Checked &&
-                !RecShopProdCCPaymentChk.Checked &&
-                !RecShopProdPPPaymentChk.Checked &&
-                !RecShopProdGCPaymentChk.Checked &&
-                !RecShopProdPMPaymentChk.Checked)
-            {
-                MessageBox.Show("Please select a payment method.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                SearchApptAcrossCategories(searchText, "Hair Styling");
                 return;
             }
-            if (RecShopProdInsertOrderDB())
+            else if (RecApptCatFSRB.Checked)
             {
-                RecShopProdOrderProdHistoryDB(RecShopProdSelectedProdDGV);
-                RecShopProdInvoiceReceiptGenerator();
-                RecShopProdClearAllField();
-                Transaction.PanelShow(RecTransactionPanel);
+                SearchApptAcrossCategories(searchText, "Face & Skin");
+                return;
+            }
+            else if (RecApptCatNCRB.Checked)
+            {
+                SearchApptAcrossCategories(searchText, "Nail Care");
+                return;
+            }
+            else if (RecApptCatSpaRB.Checked)
+            {
+                SearchApptAcrossCategories(searchText, "Spa");
+                return;
+            }
+            else if (RecApptCatMassRB.Checked)
+            {
+                SearchApptAcrossCategories(searchText, "Massage");
+                return;
             }
         }
-        private void RecShopProdClearAllField()
+
+        private void RecApptSearchServiceTypeBtn_Click(object sender, EventArgs e)
         {
-
-            RecShopProdNetAmountBox.Text = "0.00";
-            RecShopProdVATBox.Text = "0.00";
-            RecShopProdDiscountBox.Text = "0.00";
-            RecShopProdGrossAmountBox.Text = "0.00";
-            RecShopProdCashBox.Text = "0";
-            RecShopProdChangeBox.Text = "0.00";
-            RecShopProdTypeText.Text = "";
-
-            RecShopProdCardNameText.Text = "";
-            RecShopProdCardNumText.Text = "";
-            RecShopProdCVCText.Text = "";
-            RecShopProdCardExpText.Text = "MM/YY";
-            RecShopProdWalletNumText.Text = "";
-            RecShopProdWalletPINText.Text = "";
-            RecShopProdWalletOTPText.Text = "";
-            RecShopProdSelectedProdDGV.Rows.Clear();
-            RecShopProdClientNameText.Text = "";
-            RecShopProdClientCPNumText.Text = "";
-
-            RecShopProdCashPaymentChk.Checked = false;
-            RecShopProdCCPaymentChk.Checked = false;
-            RecShopProdPPPaymentChk.Checked = false;
-            RecShopProdGCPaymentChk.Checked = false;
-            RecShopProdPMPaymentChk.Checked = false;
-
+            RecApptSearchServicePerCat();
         }
-        private bool RecShopProdInsertOrderDB()
+
+        private void SearchApptAcrossCategories(string searchText, string category)
         {
-            DateTime currentDate = RecDateTimePicker.Value;
-            string clientName = RecShopProdClientNameText.Text;
-            string clientCPNum = RecShopProdClientCPNumText.Text;
-
-            // cash values
-            string netAmount = RecShopProdNetAmountBox.Text; // net amount
-            string vat = RecShopProdVATBox.Text; // vat 
-            string discount = RecShopProdDiscountBox.Text; // discount
-            string grossAmount = RecShopProdGrossAmountBox.Text; // gross amount
-            string cash = RecShopProdCashBox.Text; // cash given
-            string change = RecShopProdChangeBox.Text; // due change
-            string paymentMethod = RecShopProdTypeText.Text; // payment method
-            string rec = RecNameLbl.Text;
-            string transactNum = RecShopProdTransNumText.Text;
-            //booked values
-            string Date = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
-            string Time = currentDate.ToString("hh:mm tt"); //bookedTime
-            // bank & wallet details
-            string cardName = RecShopProdCardNameText.Text;
-            string cardNum = RecShopProdCardNumText.Text;
-            string CVC = RecShopProdCVCText.Text;
-            string expire = RecShopProdCardExpText.Text;
-            string walletNum = RecShopProdWalletNumText.Text;
-            string walletPIN = RecShopProdWalletPINText.Text;
-            string walletOTP = RecShopProdWalletOTPText.Text;
-
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(mysqlconn))
                 {
                     connection.Open();
 
+                    // Modify the query to search for the specified text in a specific category
+                    string sql = "SELECT * FROM `services` WHERE Category = @category AND " +
+                                 "(Name LIKE @searchText OR " +
+                                 "Description LIKE @searchText OR " +
+                                 "Duration LIKE @searchText OR " +
+                                 "Price LIKE @searchText)";
 
-                    if (RecShopProdCashPaymentChk.Checked)
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+                    cmd.Parameters.AddWithValue("@searchText", "%" + searchText + "%");
+                    cmd.Parameters.AddWithValue("@category", category);
+
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
                     {
-                        if (grossAmount == "0.00")
-                        {
-                            MessageBox.Show("Please select a transaction to pay.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (string.IsNullOrWhiteSpace(cash))
-                        {
-                            MessageBox.Show("Please enter a cash amount.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (!IsNumeric(cash))
-                        {
-                            MessageBox.Show("Cash amount must be in numbers only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (Convert.ToDecimal(cash) < Convert.ToDecimal(grossAmount))
-                        {
-                            MessageBox.Show("Insufficient amount. Please provide enough cash to cover the transaction.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
+                        adapter.Fill(dataTable);
 
+                        RecApptServiceTypeDGV.Columns.Clear();
+
+                        RecApptServiceTypeDGV.DataSource = dataTable;
+
+                        // Adjust column visibility and sizing as needed
+                        RecApptServiceTypeDGV.Columns[0].Visible = false;
+                        RecApptServiceTypeDGV.Columns[1].Visible = false;
+                        RecApptServiceTypeDGV.Columns[2].Visible = false;
+                        RecApptServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        RecApptServiceTypeDGV.ClearSelection();
                     }
-                    else if (RecShopProdCCPaymentChk.Checked || RecShopProdPPPaymentChk.Checked)
-                    {
-                        if (grossAmount == "0.00")
-                        {
-                            MessageBox.Show("Please select a transaction to pay.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (string.IsNullOrWhiteSpace(RecShopProdCardNameText.Text))
-                        {
-                            MessageBox.Show("Please enter a cardholder name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (!IsCardNameValid(RecShopProdCardNameText.Text))
-                        {
-                            MessageBox.Show("Please enter a valid name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (string.IsNullOrWhiteSpace(cardNum))
-                        {
-                            MessageBox.Show("Please enter a card number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (cardNum.Length != 16 || !IsNumeric(cardNum))
-                        {
-                            MessageBox.Show("Please enter a valid 16-digit card number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (string.IsNullOrWhiteSpace(CVC))
-                        {
-                            MessageBox.Show("Please enter a CVC code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (CVC.Length != 3 || !IsNumeric(CVC))
-                        {
-                            MessageBox.Show("Please enter a valid 3-digit CVC code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (string.IsNullOrWhiteSpace(expire))
-                        {
-                            MessageBox.Show("Please enter an expiration date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        if (!Regex.IsMatch(expire, @"^(0[1-9]|1[0-2])\/\d{2}$"))
-                        {
-                            MessageBox.Show("Please enter the expiration date in MM/YY format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                    }
-
-                    else if (RecShopProdGCPaymentChk.Checked || RecShopProdPMPaymentChk.Checked)
-                    {
-                        if (grossAmount == "0.00")
-                        {
-                            MessageBox.Show("Please select a transaction to pay.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (string.IsNullOrWhiteSpace(walletNum))
-                        {
-                            MessageBox.Show("Please enter your wallet number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (!IsNumeric(walletNum))
-                        {
-                            MessageBox.Show("Invalid wallet number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (string.IsNullOrWhiteSpace(walletPIN))
-                        {
-                            MessageBox.Show("Please enter your PIN.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (!IsNumeric(walletPIN) || walletPIN.Length != 6)
-                        {
-                            MessageBox.Show("Wallet PIN should be a 6-digit numeric code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (string.IsNullOrWhiteSpace(walletOTP))
-                        {
-                            MessageBox.Show("Please enter your OTP.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (!IsNumeric(walletOTP) || walletOTP.Length != 6)
-                        {
-                            MessageBox.Show("OTP should be a 6-digit numeric code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                    }
-                    string cashPayment = "INSERT INTO orders (TransactionNumber, TransactionType, ProductStatus, Date, Time, CheckedOutBy, ClientName, ClientCPNum, NetPrice, VatAmount, DiscountAmount, GrossAmount, CashGiven, DueChange, PaymentMethod) " +
-                                        "VALUES (@transactNum, @transactType, @status, @date, @time, @rec, @name, @cpNum, @net, @vat, @discount, @gross, @cash, @change, @payment)";
-                    
-                    
-                    string bankPayment = "INSERT INTO orders (TransactionNumber, TransactionType, ProductStatus, Date, Time, CheckedOutBy, ClientName, ClientCPNum, NetPrice, VatAmount, DiscountAmount, GrossAmount, PaymentMethod, CardName, CardNumber, CVC, CardExpiration) " +
-                                        "VALUES (@transactNum, @transactType, @status, @date, @time, @rec, @name, @cpNum, @net, @vat, @discount, @gross, @payment, @cardname, @cardNum, @cvc, @expiration)";
-                    
-                    
-                    string walletPayment = "INSERT INTO orders (TransactionNumber, TransactionType, ProductStatus, Date, Time, CheckedOutBy, ClientName, ClientCPNum, NetPrice, VatAmount, DiscountAmount, GrossAmount, PaymentMethod, WalletNumber, WalletPIN, WalletOTP) " +
-                                        "VALUES (@transactNum, @transactType, @status, @date, @time, @rec, @name, @cpNum, @net, @vat, @discount, @gross, @payment, @walletNum, @walletPin, @walletOTP)";
-
-                    if (RecShopProdCashPaymentChk.Checked == true)
-                    {
-                        MySqlCommand cmd = new MySqlCommand(cashPayment, connection);
-                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
-                        cmd.Parameters.AddWithValue("@transactType", "Walk-in Checked Out"); 
-                        cmd.Parameters.AddWithValue("@status", "Paid");
-                        cmd.Parameters.AddWithValue("@date", Date);
-                        cmd.Parameters.AddWithValue("@time", Time);
-                        cmd.Parameters.AddWithValue("@rec", rec);
-                        cmd.Parameters.AddWithValue("@name", clientName);
-                        cmd.Parameters.AddWithValue("@cpNum", clientCPNum);
-                        cmd.Parameters.AddWithValue("@net", netAmount);
-                        cmd.Parameters.AddWithValue("@vat", vat);
-                        cmd.Parameters.AddWithValue("@discount", discount);
-                        cmd.Parameters.AddWithValue("@gross", grossAmount);
-                        cmd.Parameters.AddWithValue("@cash", cash);
-                        cmd.Parameters.AddWithValue("@change", change);
-                        cmd.Parameters.AddWithValue("@payment", paymentMethod);
-
-                        cmd.ExecuteNonQuery();
-                        // Successful update
-                        MessageBox.Show("Service successfully been paid through cash.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else if (RecShopProdCCPaymentChk.Checked == true || RecShopProdPPPaymentChk.Checked == true)
-                    {
-                        MySqlCommand cmd = new MySqlCommand(bankPayment, connection);
-                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
-                        cmd.Parameters.AddWithValue("@transactType", "Walk-in Checked Out");
-                        cmd.Parameters.AddWithValue("@status", "Paid");
-                        cmd.Parameters.AddWithValue("@date", Date);
-                        cmd.Parameters.AddWithValue("@time", Time);
-                        cmd.Parameters.AddWithValue("@rec", rec);
-                        cmd.Parameters.AddWithValue("@name", clientName);
-                        cmd.Parameters.AddWithValue("@cpNum", clientCPNum);
-                        cmd.Parameters.AddWithValue("@net", netAmount);
-                        cmd.Parameters.AddWithValue("@vat", vat);
-                        cmd.Parameters.AddWithValue("@discount", discount);
-                        cmd.Parameters.AddWithValue("@gross", grossAmount);
-                        cmd.Parameters.AddWithValue("@payment", paymentMethod);
-                        cmd.Parameters.AddWithValue("@cardname", cardName);
-                        cmd.Parameters.AddWithValue("@cardNum", cardNum);
-                        cmd.Parameters.AddWithValue("@cvc", CVC);
-                        cmd.Parameters.AddWithValue("@expiration", expire);
-
-                        cmd.ExecuteNonQuery();
-                        // Successful update
-                        MessageBox.Show("Service successfully been paid through bank.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else if (RecShopProdGCPaymentChk.Checked == true || RecShopProdPMPaymentChk.Checked == true)
-                    {
-                        MySqlCommand cmd = new MySqlCommand(walletPayment, connection);
-                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
-                        cmd.Parameters.AddWithValue("@transactType", "Walk-in Checked Out");
-                        cmd.Parameters.AddWithValue("@status", "Paid");
-                        cmd.Parameters.AddWithValue("@date", Date);
-                        cmd.Parameters.AddWithValue("@time", Time);
-                        cmd.Parameters.AddWithValue("@rec", rec);
-                        cmd.Parameters.AddWithValue("@name", clientName);
-                        cmd.Parameters.AddWithValue("@cpNum", clientCPNum);
-                        cmd.Parameters.AddWithValue("@net", netAmount);
-                        cmd.Parameters.AddWithValue("@vat", vat);
-                        cmd.Parameters.AddWithValue("@discount", discount);
-                        cmd.Parameters.AddWithValue("@gross", grossAmount);
-                        cmd.Parameters.AddWithValue("@payment", paymentMethod);
-                        cmd.Parameters.AddWithValue("@walletNum", walletNum);
-                        cmd.Parameters.AddWithValue("@walletPin", walletPIN);
-                        cmd.Parameters.AddWithValue("@walletOTP", walletOTP);
-
-                        cmd.ExecuteNonQuery();
-                        // Successful update
-                        MessageBox.Show("Service successfully been paid through online wallet.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-
                 }
             }
-            catch (MySqlException ex)
+            catch (Exception e)
             {
-                // Handle MySQL database exception
-                string errorMessage = "An error occurred: " + ex.Message + "\n\n" + ex.StackTrace;
-                MessageBox.Show("An error occurred: " + errorMessage, "Shop Product Payment Transaction Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false; // Return false in case of an exception
+                MessageBox.Show("An error occurred: " + e.Message, "Error");
             }
             finally
             {
-                // Make sure to close the connection
-                connection.Close();
-            }
-            return true;
-        }
-        private void RecShopProdOrderProdHistoryDB(DataGridView RecShopProdSelectedProdDGV)
-        {
-            DateTime currentDate = RecDateTimePicker.Value;
-            string transactionNum = RecShopProdTransNumText.Text;
-            string status = "Paid";
-
-            //basic info
-            string clientName = RecShopProdClientNameText.Text;
-            string clientCPNum = RecShopProdClientCPNumText.Text;
-
-            //booked values
-            string bookedDate = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
-            string bookedTime = currentDate.ToString("hh:mm tt"); //bookedTime
-            string bookedBy = RecNameLbl.Text; //booked by
-
-            string yes = "Yes";
-            string no = "No";
-            if (RecShopProdSelectedProdDGV.Rows.Count > 0)
-            {
-                try
-                {
-                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-                    {
-                        connection.Open();
-
-                        foreach (DataGridViewRow row in RecShopProdSelectedProdDGV.Rows)
-                        {
-                            if (row.Cells["Item Name"].Value != null)
-                            {
-                                string itemName = row.Cells["Item Name"].Value.ToString();
-                                int qty = Convert.ToInt32(row.Cells["Qty"].Value);
-                                decimal itemPrice = Convert.ToDecimal(row.Cells["Unit Price"].Value);
-                                decimal itemTotalPrice = Convert.ToDecimal(row.Cells["Total Price"].Value);
-                                string itemID = row.Cells["RecShopProdItemID"].Value.ToString();
-
-
-                                string query = "INSERT INTO orderproducthistory (TransactionNumber, ProductStatus, CheckedOutDate, CheckedOutTime, CheckedOutBy, ClientName, ItemID, ItemName, Qty, ItemPrice, ItemTotalPrice, CheckedOut, Voided) " +
-                                                 "VALUES (@Transact, @status, @date, @time, @OrderedBy, @client, @ID, @ItemName, @Qty, @ItemPrice, @ItemTotalPrice, @Yes, @No)";
-
-                                using (MySqlCommand cmd = new MySqlCommand(query, connection))
-                                {
-                                    cmd.Parameters.AddWithValue("@Transact", transactionNum);
-                                    cmd.Parameters.AddWithValue("@status", status);
-                                    cmd.Parameters.AddWithValue("@date", bookedDate);
-                                    cmd.Parameters.AddWithValue("@time", bookedTime);
-                                    cmd.Parameters.AddWithValue("@OrderedBy", bookedBy);
-                                    cmd.Parameters.AddWithValue("@client", clientName);
-                                    cmd.Parameters.AddWithValue("@ID", itemID);
-                                    cmd.Parameters.AddWithValue("@ItemName", itemName);
-                                    cmd.Parameters.AddWithValue("@Qty", qty);
-                                    cmd.Parameters.AddWithValue("@ItemPrice", itemPrice);
-                                    cmd.Parameters.AddWithValue("@ItemTotalPrice", itemTotalPrice);
-                                    cmd.Parameters.AddWithValue("@Yes", yes);
-                                    cmd.Parameters.AddWithValue("@No", no);
-
-                                    cmd.ExecuteNonQuery();
-                                }
-
-                            }
-                        }
-
-                    }
-                }
-                catch (Exception ex)
-                {
-                    string errorMessage = "An error occurred: " + ex.Message + "\n\n" + ex.StackTrace;
-                    MessageBox.Show(errorMessage, "Product Data Failed Inserting to Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
+                // Ensure the connection is closed even in case of an exception
+                if (connection.State == ConnectionState.Open)
                 {
                     connection.Close();
                 }
             }
-            else
-            {
-                MessageBox.Show("No products bought.", "Product");
-            }
-
-        }
-        private void RecShopProdInvoiceReceiptGenerator()
-        {
-            DateTime currentDate = RecDateTimePicker.Value;
-            string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
-            string timePrinted = currentDate.ToString("hh:mm tt");
-            string timePrintedFile = currentDate.ToString("hh-mm-ss");
-            string transactNum = RecShopProdTransNumText.Text;
-            string clientName = RecShopProdClientNameText.Text;
-            string receptionName = RecNameLbl.Text;
-            string legal = "Thank you for trusting Enchanté Salon for your beauty needs." +
-                " This receipt will serve as your sales invoice of any services done in Enchanté Salon." +
-                " Any concerns about your services please ask and show this receipt in the frontdesk of Enchanté Salon.";
-            // Increment the file name
-
-            // Generate a unique filename for the PDF
-            string fileName = $"Enchanté-Receipt-{transactNum}-{timePrintedFile}.pdf";
-
-            // Create a SaveFileDialog to choose the save location
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "PDF Files|*.pdf";
-            saveFileDialog.FileName = fileName;
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                string filePath = saveFileDialog.FileName;
-
-                // Create a new document with custom page size (8.5"x4.25" in landscape mode)
-                Document doc = new Document(new iTextSharp.text.Rectangle(Utilities.MillimetersToPoints(133f), Utilities.MillimetersToPoints(203f)));
-
-                try
-                {
-                    // Create a PdfWriter instance
-                    PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(filePath, FileMode.Create));
-
-                    // Open the document for writing
-                    doc.Open();
-
-                    //string imagePath = "C:\\Users\\Pepper\\source\\repos\\Enchante\\Resources\\Enchante Logo (200 x 200 px) (1).png"; // Replace with the path to your logo image
-                    // Load the image from project resources
-                    //if (File.Exists(imagePath))
-                    //{
-                    //    //iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imagePath);
-                    //}
-
-                    // Load the image from project resources
-                    byte[] imageBytes = GetImageBytesFromResource("Enchante.Resources.Enchante Logo (200 x 200 px) (1).png");
-
-                    if (imageBytes != null)
-                    {
-                        iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imageBytes);
-                        logo.ScaleAbsolute(50f, 50f);
-                        logo.Alignment = Element.ALIGN_CENTER;
-                        doc.Add(logo);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error loading image from resources.", "Manager Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    };
-
-                    iTextSharp.text.Font headerFont = FontFactory.GetFont("Courier", 16, iTextSharp.text.Font.BOLD);
-                    iTextSharp.text.Font boldfont = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.BOLD);
-                    iTextSharp.text.Font font = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.NORMAL);
-                    iTextSharp.text.Font italic = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.ITALIC);
-
-                    // Create a centered alignment for text
-                    iTextSharp.text.Paragraph centerAligned = new Paragraph();
-                    centerAligned.Alignment = Element.ALIGN_CENTER;
-
-                    // Add centered content to the centerAligned Paragraph
-                    centerAligned.Add(new Chunk("Enchanté Salon", headerFont));
-                    centerAligned.Add(new Chunk("\n69th flr. Enchanté Bldg. Ortigas Extension Ave. \nManggahan, Pasig City 1611 Philippines", font));
-                    centerAligned.Add(new Chunk("\nTel. No.: (1101) 111-1010", font));
-                    centerAligned.Add(new Chunk($"\nDate: {datetoday} Time: {timePrinted}", font));
-
-                    // Add the centered content to the document
-                    doc.Add(centerAligned);
-                    doc.Add(new Chunk("\n")); // New line
-
-                    doc.Add(new Paragraph($"Transaction No.: {transactNum}", font));
-                    //doc.Add(new Paragraph($"Order Date: {today}", font));
-                    doc.Add(new Paragraph($"Reception Name: {receptionName}", font));
-                    doc.Add(new Chunk("\n")); // New line
-
-                    doc.Add(new LineSeparator()); // Dotted line
-                    PdfPTable columnHeaderTable = new PdfPTable(5);
-                    columnHeaderTable.SetWidths(new float[] { 10f, 10f, 5f, 5f, 5f }); // Column widths
-                    columnHeaderTable.DefaultCell.Border = PdfPCell.NO_BORDER;
-                    columnHeaderTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
-                    columnHeaderTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
-                    columnHeaderTable.AddCell(new Phrase("Product ID", boldfont));
-                    columnHeaderTable.AddCell(new Phrase("Product Name", boldfont));
-                    columnHeaderTable.AddCell(new Phrase("Qty.", boldfont));
-                    columnHeaderTable.AddCell(new Phrase("Unit Price", boldfont));
-                    columnHeaderTable.AddCell(new Phrase("Total Price", boldfont));
-                    doc.Add(columnHeaderTable);
-                    doc.Add(new LineSeparator()); // Dotted line
-                    // Iterate through the rows of your 
-
-
-                    foreach (DataGridViewRow row in RecShopProdSelectedProdDGV.Rows)
-                    {
-                        try
-                        {
-                            string itemName = row.Cells["Item Name"].Value?.ToString();
-                            if (string.IsNullOrEmpty(itemName))
-                            {
-                                continue; // Skip empty rows
-                            }
-                            string itemID = row.Cells["RecShopProdItemID"].Value?.ToString();
-                            string qty = row.Cells["Qty"].Value?.ToString();
-                            string itemCost = row.Cells["Unit Price"].Value?.ToString();
-                            string itemTotalcost = row.Cells["Total Price"].Value?.ToString();
-
-                            // Add cells to the item table
-                            PdfPTable productTable = new PdfPTable(5);
-                            productTable.SetWidths(new float[] { 5f, 5f, 3f, 3f, 3f }); // Column widths
-                            productTable.DefaultCell.Border = PdfPCell.NO_BORDER;
-                            productTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
-                            productTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
-
-                            productTable.AddCell(new Phrase(itemID, font));
-                            productTable.AddCell(new Phrase(itemName, font));
-                            productTable.AddCell(new Phrase(qty, font));
-                            productTable.AddCell(new Phrase(itemCost, font));
-                            productTable.AddCell(new Phrase(itemTotalcost, font));
-
-                            // Add the item table to the document
-                            doc.Add(productTable);
-                        }
-                        catch (Exception ex)
-                        {
-                            // Handle or log any exceptions that occur while processing DataGridView data
-                            MessageBox.Show("An error occurred: " + ex.Message, "Shop Product Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-
-
-
-                    doc.Add(new Chunk("\n")); // New line
-                    doc.Add(new LineSeparator()); // Dotted line
-                    doc.Add(new Chunk("\n")); // New line
-
-                    // Total from your textboxes as decimal
-                    decimal netAmount = decimal.Parse(RecShopProdNetAmountBox.Text);
-                    decimal discount = decimal.Parse(RecShopProdDiscountBox.Text);
-                    decimal vat = decimal.Parse(RecShopProdVATBox.Text);
-                    decimal grossAmount = decimal.Parse(RecShopProdGrossAmountBox.Text);
-                    decimal cash = decimal.Parse(RecShopProdCashBox.Text);
-                    decimal change = decimal.Parse(RecShopProdChangeBox.Text);
-
-                    // Create a new table for the "Total" section
-                    PdfPTable totalTable = new PdfPTable(2); // 2 columns for the "Total" table
-                    totalTable.SetWidths(new float[] { 5f, 3f }); // Column widths
-                    totalTable.DefaultCell.Border = PdfPCell.NO_BORDER;
-
-                    int totalRowCount = RecShopProdSelectedProdDGV.Rows.Count;
-
-                    // Add cells to the "Total" table
-                    totalTable.AddCell(new Phrase($"Total # of Products ({totalRowCount})", font));
-                    totalTable.AddCell(new Phrase($"Php {grossAmount:F2}", font));
-                    totalTable.AddCell(new Phrase($"Cash Given", font));
-                    totalTable.AddCell(new Phrase($"Php {cash:F2}", font));
-                    totalTable.AddCell(new Phrase($"Change", font));
-                    totalTable.AddCell(new Phrase($"Php {change:F2}", font));
-
-
-                    // Add the "Total" table to the document
-                    doc.Add(totalTable);
-                    doc.Add(new Chunk("\n")); // New line
-
-                    // Create a new table for the "VATable" section
-                    PdfPTable vatTable = new PdfPTable(2); // 2 columns for the "VATable" table
-                    vatTable.SetWidths(new float[] { 5f, 3f }); // Column widths
-                    vatTable.DefaultCell.Border = PdfPCell.NO_BORDER;
-
-                    // Add cells to the "VATable" table
-                    vatTable.AddCell(new Phrase("VATable ", font));
-                    vatTable.AddCell(new Phrase($"Php {netAmount:F2}", font));
-                    vatTable.AddCell(new Phrase("VAT Tax (12%)", font));
-                    vatTable.AddCell(new Phrase($"Php {vat:F2}", font));
-                    vatTable.AddCell(new Phrase("Discount (20%)", font));
-                    vatTable.AddCell(new Phrase($"Php {discount:F2}", font));
-
-                    // Add the "VATable" table to the document
-                    doc.Add(vatTable);
-
-
-                    // Add the "Served To" section
-                    doc.Add(new Chunk("\n")); // New line
-                    doc.Add(new Paragraph($"Served To: {clientName}", italic));
-                    doc.Add(new Paragraph("Address:_______________________________", italic));
-                    doc.Add(new Paragraph("TIN No.:_______________________________", italic));
-
-                    // Add the legal string with center alignment
-                    Paragraph paragraph_footer = new Paragraph($"\n\n{legal}", italic);
-                    paragraph_footer.Alignment = Element.ALIGN_CENTER;
-                    doc.Add(paragraph_footer);
-                }
-                catch (DocumentException de)
-                {
-                    MessageBox.Show("An error occurred: " + de.Message, "Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (IOException ioe)
-                {
-                    MessageBox.Show("An error occurred: " + ioe.Message, "Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    // Close the document
-                    doc.Close();
-                }
-
-                //MessageBox.Show($"Receipt saved as {filePath}", "Receipt Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
 
-        private void RecShopProdGrossAmountBox_TextChanged(object sender, EventArgs e)
+        private void RecWalkinSearchProductTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (decimal.TryParse(RecShopProdGrossAmountBox.Text, out decimal grossAmount))
-            {
-                // Get the Cash Amount from the TextBox (MngrCashBox)
-                if (decimal.TryParse(RecShopProdCashBox.Text, out decimal cashAmount))
-                {
-                    // Calculate the Change
-                    decimal change = cashAmount - grossAmount;
+            string searchKeyword = RecWalkinSearchProductTextBox.Text.Trim().ToLower();
 
-                    // Display the calculated change value in the MngrChangeBox
-                    RecShopProdChangeBox.Text = change.ToString("0.00");
-                }
-                else
-                {
-                    // Handle invalid input in MngrCashBox, e.g., display an error message
-                    RecShopProdChangeBox.Text = "0.00";
-                }
-            }
-            else
+            if (string.IsNullOrEmpty(searchKeyword))
             {
-                // Handle invalid input in MngrGrossAmountBox, e.g., display an error message
-                RecShopProdChangeBox.Text = "0.00";
-            }
-        }
-
-        private void RecShopProdCashBox_TextChanged(object sender, EventArgs e)
-        {
-            if (decimal.TryParse(RecShopProdGrossAmountBox.Text, out decimal grossAmount))
-            {
-                // Get the Cash Amount from the TextBox (MngrCashBox)
-                if (decimal.TryParse(RecShopProdCashBox.Text, out decimal cashAmount))
-                {
-                    // Calculate the Change
-                    decimal change = cashAmount - grossAmount;
-
-                    // Display the calculated change value in the MngrChangeBox
-                    RecShopProdChangeBox.Text = change.ToString("0.00");
-                }
-                else
-                {
-                    // Handle invalid input in MngrCashBox, e.g., display an error message
-                    RecShopProdChangeBox.Text = "0.00";
-                }
-            }
-            else
-            {
-                // Handle invalid input in MngrGrossAmountBox, e.g., display an error message
-                RecShopProdChangeBox.Text = "0.00";
-            }
-        }
-
-        private void RecShopProdSelectedProdVoidBtn_Click(object sender, EventArgs e)
-        {
-            if (RecShopProdSelectedProdDGV.Rows.Count == 0)
-            {
-                MessageBox.Show("The product list is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                RecWalkinProductFlowLayoutPanel.Controls.Clear();
+                RecShopProdProductFlowLayoutPanel.Controls.Clear();
+                InitializeProducts();
                 return;
             }
-
-            if (RecShopProdSelectedProdDGV.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Please select a product to void.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            //input dialog messagebox
-            string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Password Required");
-
-            // Hash the entered password
-            string hashedEnteredPassword = HashHelper.HashString(enteredPassword);
-            DialogResult result;
 
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
             {
                 connection.Open();
 
-                string query = "SELECT EmployeeType FROM systemusers WHERE HashedPass = @Password";
-                using (MySqlCommand command = new MySqlCommand(query, connection))
+                string query = "SELECT ItemID, ItemName, ItemStock, ItemPrice, ItemStatus, ProductPicture FROM inventory WHERE ProductType = 'Retail Product' AND ItemName LIKE @searchKeyword";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@searchKeyword", "%" + searchKeyword + "%");
+                MySqlDataReader reader = command.ExecuteReader();
+                Size userControlSize = new Size(295, 275);
+
+                RecWalkinProductFlowLayoutPanel.Controls.Clear();
+
+                while (reader.Read())
                 {
-                    command.Parameters.AddWithValue("@Password", hashedEnteredPassword);
+                    string itemID = reader["ItemID"].ToString();
+                    string itemName = reader["ItemName"].ToString();
+                    string itemStock = reader["ItemStock"].ToString();
+                    string itemPrice = reader["ItemPrice"].ToString();
+                    string itemStatus = reader["ItemStatus"].ToString();
+                    byte[] productPicture = (byte[])reader["ProductPicture"];
 
-                    // Execute the query
-                    using (MySqlDataReader reader = command.ExecuteReader())
+                    ProductUserControl recwalkinproductusercontrol = new ProductUserControl();
+
+                    // Set the properties of recwalkinproductusercontrol
+                    recwalkinproductusercontrol.ProductItemIDTextBox.Text = itemID;
+                    recwalkinproductusercontrol.ProductNameTextBox.Text = itemName;
+                    recwalkinproductusercontrol.ProductStockTextBox.Text = itemStock;
+                    recwalkinproductusercontrol.ProductPriceTextBox.Text = itemPrice;
+                    recwalkinproductusercontrol.ProductStatusTextBox.Text = itemStatus;
+
+                    if (itemStatus == "Low Stock")
                     {
-                        if (reader.Read())
-                        {
-                            string position = reader["EmployeeType"].ToString();
-                            if (position == "Manager")
-                            {
-                                result = MessageBox.Show("Do you want to remove this item?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        recwalkinproductusercontrol.ProductOutOfStockPictureBox.Visible = true;
+                        recwalkinproductusercontrol.Enabled = false;
+                    }
+                    else
+                    {
+                        recwalkinproductusercontrol.ProductOutOfStockPictureBox.Visible = false;
+                        recwalkinproductusercontrol.Enabled = true;
+                    }
 
-                                if (result == DialogResult.Yes)
-                                {
-                                    
-                                        RecShopProdSelectedProdDGV.Rows.Clear();
-                                    
-
-                                    MessageBox.Show("Item removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                return;
-                            }
-                        }
-                        else
+                    if (productPicture != null && productPicture.Length > 0)
+                    {
+                        using (MemoryStream ms = new MemoryStream(productPicture))
                         {
-                            //MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            //return;
+                            System.Drawing.Image image = System.Drawing.Image.FromStream(ms);
+                            recwalkinproductusercontrol.ProductPicturePictureBox.Image = image;
                         }
                     }
+                    else
+                    {
+                        recwalkinproductusercontrol.ProductPicturePictureBox.Image = null;
+                    }
+
+                    foreach (System.Windows.Forms.Control control in recwalkinproductusercontrol.Controls)
+                    {
+                        control.Click += RecWalkinProductControlElement_Click;
+                    }
+
+                    recwalkinproductusercontrol.Click += RecWalkinProductUserControl_Click;
+
+                    RecWalkinProductFlowLayoutPanel.Controls.Add(recwalkinproductusercontrol);
                 }
+
+                reader.Close();
+            }
+        }
+
+        private void RecSearchProductTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string searchKeyword = RecSearchProductTextBox.Text.Trim().ToLower();
+
+            if (string.IsNullOrEmpty(searchKeyword))
+            {
+                RecWalkinProductFlowLayoutPanel.Controls.Clear();
+                RecShopProdProductFlowLayoutPanel.Controls.Clear();
+                InitializeProducts();
+                return;
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string query = "SELECT ItemID, ItemName, ItemStock, ItemPrice, ItemStatus, ProductPicture FROM inventory WHERE ProductType = 'Retail Product' AND ItemName LIKE @searchKeyword";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@searchKeyword", "%" + searchKeyword + "%");
+                MySqlDataReader reader = command.ExecuteReader();
+                Size userControlSize = new Size(295, 275);
+
+                RecWalkinProductFlowLayoutPanel.Controls.Clear();
+                RecShopProdProductFlowLayoutPanel.Controls.Clear();
+
+
+                while (reader.Read())
+                {
+                    string itemID = reader["ItemID"].ToString();
+                    string itemName = reader["ItemName"].ToString();
+                    string itemStock = reader["ItemStock"].ToString();
+                    string itemPrice = reader["ItemPrice"].ToString();
+                    string itemStatus = reader["ItemStatus"].ToString();
+                    byte[] productPicture = (byte[])reader["ProductPicture"];
+
+                    ProductUserControl recshopproductusercontrol = new ProductUserControl();
+
+
+
+                    // Set the properties of recshopproductusercontrol
+                    recshopproductusercontrol.Size = userControlSize;
+                    recshopproductusercontrol.ProductNameTextBox.Size = new Size(235, 33);
+                    recshopproductusercontrol.ProductPriceTextBox.Size = new Size(90, 27);
+                    recshopproductusercontrol.ProductPicturePictureBox.Size = new Size(162, 162);
+                    recshopproductusercontrol.ProductNameTextBox.Location = new Point(12, 190);
+                    recshopproductusercontrol.ProductPriceTextBox.Location = new Point(67, 230);
+                    recshopproductusercontrol.PhpSignLbl.Location = new Point(18, 230);
+                    recshopproductusercontrol.ProductPicturePictureBox.Location = new Point(72, 12);
+                    recshopproductusercontrol.ProductItemIDTextBox.Text = itemID;
+                    recshopproductusercontrol.ProductNameTextBox.Text = itemName;
+                    recshopproductusercontrol.ProductStockTextBox.Text = itemStock;
+                    recshopproductusercontrol.ProductPriceTextBox.Text = itemPrice;
+                    recshopproductusercontrol.ProductStatusTextBox.Text = itemStatus;
+
+                    if (itemStatus == "Low Stock")
+                    {
+                        recshopproductusercontrol.ProductOutOfStockPictureBox.Visible = true;
+                        recshopproductusercontrol.Enabled = false;
+                    }
+                    else
+                    {
+                        recshopproductusercontrol.ProductOutOfStockPictureBox.Visible = false;
+                        recshopproductusercontrol.Enabled = true;
+                    }
+
+                    if (productPicture != null && productPicture.Length > 0)
+                    {
+                        using (MemoryStream ms = new MemoryStream(productPicture))
+                        {
+                            System.Drawing.Image image1 = System.Drawing.Image.FromStream(ms);
+                            recshopproductusercontrol.ProductPicturePictureBox.Image = image1;
+                        }
+                    }
+                    else
+                    {
+                        recshopproductusercontrol.ProductPicturePictureBox.Image = null;
+                    }
+
+                    foreach (System.Windows.Forms.Control control1 in recshopproductusercontrol.Controls)
+                    {
+                        control1.Click += RecShopProductControlElement_Click;
+                    }
+
+                    recshopproductusercontrol.Click += RecShopProdProductUserControl_Click;
+
+                    RecShopProdProductFlowLayoutPanel.Controls.Add(recshopproductusercontrol);
+                }
+
+                reader.Close();
             }
         }
     }
