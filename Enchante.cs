@@ -3329,7 +3329,7 @@ namespace Enchante
 
 
                 RecPayServiceTransactNumLbl.Text = transactNumber;
-                RecPayServiceClientNameLbl.Text = $"Client Name: {clientName}";
+                RecPayServiceClientNameLbl.Text = $"{clientName}";
 
                 RecLoadServiceHistoryDB(transactNumber);
                 RecLoadOrderProdHistoryDB(transactNumber);
@@ -3348,7 +3348,7 @@ namespace Enchante
                 string clientName1 = RecPayServiceApptCompleteTransDGV.Rows[e.RowIndex].Cells["ClientName"].Value.ToString();
 
                 RecPayServiceTransactNumLbl.Text = transactNumber1;
-                RecPayServiceClientNameLbl.Text = $"Client Name: {clientName1}";
+                RecPayServiceClientNameLbl.Text = $"{clientName1}";
                 RecLoadServiceHistoryDB(transactNumber1);
                 RecLoadOrderProdHistoryDB(transactNumber1);
 
@@ -4533,6 +4533,8 @@ namespace Enchante
 
 
                         RecQueWinStaffListDGV.DataSource = dataTable;
+                        RecQueWinStaffListDGV.Columns[0].Visible = false;
+                        RecQueWinStaffListDGV.Columns[1].Visible = false;
                         RecQueWinStaffListDGV.Columns[2].Visible = false;
                         RecQueWinStaffListDGV.Columns[3].Visible = false;
                         RecQueWinStaffListDGV.Columns[4].Visible = false;
@@ -4583,6 +4585,8 @@ namespace Enchante
 
 
                         RecQueWinStaffListDGV.DataSource = dataTable;
+                        RecQueWinStaffListDGV.Columns[0].Visible = false;
+                        RecQueWinStaffListDGV.Columns[1].Visible = false;
                         RecQueWinStaffListDGV.Columns[2].Visible = false;
                         RecQueWinStaffListDGV.Columns[3].Visible = false;
                         RecQueWinStaffListDGV.Columns[4].Visible = false;
@@ -4624,7 +4628,7 @@ namespace Enchante
                 {
                     connection.Open();
 
-                    string sql = "SELECT * FROM `servicehistory` WHERE QueType = 'GeneralQue' AND ServiceStatus = 'Pending' AND AppointmentDate = @todayDate";
+                    string sql = "SELECT * FROM `servicehistory` WHERE (QueType = 'GeneralQue' OR QueType = 'AnyonePriority') AND ServiceStatus = 'Pending' AND AppointmentDate = @todayDate";
                     MySqlCommand cmd = new MySqlCommand(sql, connection);
                     System.Data.DataTable dataTable = new System.Data.DataTable();
                     cmd.Parameters.AddWithValue("@todayDate", todayDate);
@@ -4636,18 +4640,18 @@ namespace Enchante
 
                         RecQueWinNextCustomerDGV.DataSource = dataTable;
 
-                        RecQueWinNextCustomerDGV.Columns[0].Visible = false; //transact number
-                        RecQueWinNextCustomerDGV.Columns[2].Visible = false; //appointment date
+                        RecQueWinNextCustomerDGV.Columns[1].Visible = false; //appointment time
                         RecQueWinNextCustomerDGV.Columns[3].Visible = false; //appointment time
                         RecQueWinNextCustomerDGV.Columns[5].Visible = false; //service category
                         RecQueWinNextCustomerDGV.Columns[6].Visible = false; //attending staff
-                        RecQueWinNextCustomerDGV.Columns[7].Visible = false; //service ID
+                        RecQueWinNextCustomerDGV.Columns[7].Visible = false; //attending staff
+                        RecQueWinNextCustomerDGV.Columns[8].Visible = false; //attending staff
                         RecQueWinNextCustomerDGV.Columns[10].Visible = false; //service start
                         RecQueWinNextCustomerDGV.Columns[11].Visible = false; //service end
                         RecQueWinNextCustomerDGV.Columns[12].Visible = false; //service duration
-                        RecQueWinNextCustomerDGV.Columns[13].Visible = false; //customization
-                        RecQueWinNextCustomerDGV.Columns[15].Visible = false; //customization
-                        RecQueWinNextCustomerDGV.Columns[16].Visible = false; //customization
+                        RecQueWinNextCustomerDGV.Columns[13].Visible = false; //service duration
+                        RecQueWinNextCustomerDGV.Columns[14].Visible = false; //service duration
+                        RecQueWinNextCustomerDGV.Columns[18].Visible = false; // que type
 
                     }
                 }
@@ -4675,8 +4679,7 @@ namespace Enchante
                 {
                     connection.Open();
 
-                    string sql = "SELECT * FROM `servicehistory` WHERE QueType = 'GeneralQue' AND ServiceStatus = 'Pending' " +
-                        "AND AppointmentDate = @todayDate AND ServiceCategory = @category";
+                    string sql = "SELECT * FROM `servicehistory` WHERE (QueType = 'GeneralQue' OR QueType = 'AnyonePriority') AND ServiceStatus = 'Pending' AND AppointmentDate = @todayDate AND ServiceCategory = @category";
                     MySqlCommand cmd = new MySqlCommand(sql, connection);
                     System.Data.DataTable dataTable = new System.Data.DataTable();
                     cmd.Parameters.AddWithValue("@todayDate", todayDate);
@@ -4689,18 +4692,18 @@ namespace Enchante
 
                         RecQueWinNextCustomerDGV.DataSource = dataTable;
 
-                        RecQueWinNextCustomerDGV.Columns[0].Visible = false; //transact number
-                        RecQueWinNextCustomerDGV.Columns[2].Visible = false; //appointment date
+                        RecQueWinNextCustomerDGV.Columns[1].Visible = false; //appointment time
                         RecQueWinNextCustomerDGV.Columns[3].Visible = false; //appointment time
                         RecQueWinNextCustomerDGV.Columns[5].Visible = false; //service category
                         RecQueWinNextCustomerDGV.Columns[6].Visible = false; //attending staff
-                        RecQueWinNextCustomerDGV.Columns[7].Visible = false; //service ID
+                        RecQueWinNextCustomerDGV.Columns[7].Visible = false; //attending staff
+                        RecQueWinNextCustomerDGV.Columns[8].Visible = false; //attending staff
                         RecQueWinNextCustomerDGV.Columns[10].Visible = false; //service start
                         RecQueWinNextCustomerDGV.Columns[11].Visible = false; //service end
                         RecQueWinNextCustomerDGV.Columns[12].Visible = false; //service duration
-                        RecQueWinNextCustomerDGV.Columns[13].Visible = false; //customization
-                        RecQueWinNextCustomerDGV.Columns[15].Visible = false; // preferred staff
-                        RecQueWinNextCustomerDGV.Columns[16].Visible = false; // preferred staff
+                        RecQueWinNextCustomerDGV.Columns[13].Visible = false; //service duration
+                        RecQueWinNextCustomerDGV.Columns[14].Visible = false; //service duration
+                        RecQueWinNextCustomerDGV.Columns[18].Visible = false; // que type
                     }
                 }
             }
@@ -4728,8 +4731,7 @@ namespace Enchante
 
                 RecQueWinEmplIDLbl.Text = ID;
                 RecLoadQueuedClient(ID);
-                RecQueWinNextCustomerLbl.Text = $"| NEXT IN LINE [Staff: {emplFName} {emplLName}]";
-                RecQueWinGenCatComboText.Visible = false;
+                RecQueWinNextCustomerLbl.Text = $"| Queue Line for {emplFName} {emplLName}";
             }
             else
             {
@@ -4746,7 +4748,8 @@ namespace Enchante
                 {
                     connection.Open();
 
-                    string sql = "SELECT * FROM `servicehistory` WHERE PreferredStaff = @emplID AND ServiceStatus = 'Pending' AND AppointmentDate = @todayDate";
+                    string sql = "SELECT * FROM `servicehistory` WHERE PreferredStaff = @emplID AND ServiceStatus = 'Pending' AND " +
+                        "(QueType = 'Preferred' OR QueType = 'PreferredPriority') AND AppointmentDate = @todayDate";
                     MySqlCommand cmd = new MySqlCommand(sql, connection);
 
                     // Add parameters to the query
@@ -4760,19 +4763,19 @@ namespace Enchante
                     {
                         adapter.Fill(dataTable);
 
-                        RecQueWinNextCustomerDGV.DataSource = dataTable;
-
-                        RecQueWinNextCustomerDGV.Columns[0].Visible = false; //transact number
-                        RecQueWinNextCustomerDGV.Columns[2].Visible = false; //appointment date
-                        RecQueWinNextCustomerDGV.Columns[3].Visible = false; //appointment time
-                        RecQueWinNextCustomerDGV.Columns[5].Visible = false; //service category
-                        RecQueWinNextCustomerDGV.Columns[6].Visible = false; //attending staff
-                        RecQueWinNextCustomerDGV.Columns[7].Visible = false; //service ID
-                        RecQueWinNextCustomerDGV.Columns[10].Visible = false; //service start
-                        RecQueWinNextCustomerDGV.Columns[11].Visible = false; //service end
-                        RecQueWinNextCustomerDGV.Columns[12].Visible = false; //service duration
-                        RecQueWinNextCustomerDGV.Columns[15].Visible = false; // que type
-                        RecQueWinNextCustomerDGV.Columns[16].Visible = false; // que type
+                        RecQueWinPrefNextCustomerDGV.DataSource = dataTable;
+                        RecQueWinPrefNextCustomerDGV.Columns[1].Visible = false; //appointment time
+                        RecQueWinPrefNextCustomerDGV.Columns[3].Visible = false; //appointment time
+                        RecQueWinPrefNextCustomerDGV.Columns[5].Visible = false; //service category
+                        RecQueWinPrefNextCustomerDGV.Columns[6].Visible = false; //attending staff
+                        RecQueWinPrefNextCustomerDGV.Columns[7].Visible = false; //attending staff
+                        RecQueWinPrefNextCustomerDGV.Columns[8].Visible = false; //attending staff
+                        RecQueWinPrefNextCustomerDGV.Columns[10].Visible = false; //service start
+                        RecQueWinPrefNextCustomerDGV.Columns[11].Visible = false; //service end
+                        RecQueWinPrefNextCustomerDGV.Columns[12].Visible = false; //service duration
+                        RecQueWinPrefNextCustomerDGV.Columns[13].Visible = false; //service duration
+                        RecQueWinPrefNextCustomerDGV.Columns[14].Visible = false; //service duration
+                        RecQueWinPrefNextCustomerDGV.Columns[18].Visible = false; // que type
 
 
                     }
@@ -4822,10 +4825,7 @@ namespace Enchante
             else if (RecQueWinStaffCatComboText.Text == "All Categories")
             {
                 RecQuePreferredStaffLoadData();
-                RecQueWinNextCustomerLbl.Text = "| NEXT IN LINE [GENERAL QUEUE]";
-                RecQueWinGenCatComboText.Visible = true;
-                RecQueGeneralStaffLoadData();
-                ;
+                
                 return;
             }
 
