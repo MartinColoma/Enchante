@@ -1889,7 +1889,7 @@ namespace Enchante
         }
 
 
-        private void QueueNumReceiptGenerator()
+        private void QueueNumReceiptGenerator() // to be discarded
         {
             DateTime currentDate = RecDateTimePicker.Value;
             string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
@@ -4060,19 +4060,12 @@ namespace Enchante
                     //}
 
                     // Load the image from project resources
-                    byte[] imageBytes = GetImageBytesFromResource("Enchante.Resources.Enchante Logo (200 x 200 px) (1).png");
-
-                    if (imageBytes != null)
-                    {
-                        iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imageBytes);
-                        logo.ScaleAbsolute(50f, 50f);
-                        logo.Alignment = Element.ALIGN_CENTER;
-                        doc.Add(logo);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error loading image from resources.", "Manager Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    };
+                    Bitmap imagepath = Properties.Resources.Enchante_Logo__200_x_200_px__Green;
+                    iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imagepath, System.Drawing.Imaging.ImageFormat.Png);
+                    logo.Alignment = Element.ALIGN_CENTER;
+                    logo.ScaleAbsolute(100f, 100f);
+                    logo.Alignment = Element.ALIGN_CENTER;
+                    doc.Add(logo);
 
                     iTextSharp.text.Font headerFont = FontFactory.GetFont("Courier", 16, iTextSharp.text.Font.BOLD);
                     iTextSharp.text.Font boldfont = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.BOLD);
@@ -7129,19 +7122,12 @@ namespace Enchante
                     //}
 
                     // Load the image from project resources
-                    byte[] imageBytes = GetImageBytesFromResource("Enchante.Resources.Enchante Logo (200 x 200 px) (1).png");
-
-                    if (imageBytes != null)
-                    {
-                        iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imageBytes);
-                        logo.ScaleAbsolute(50f, 50f);
-                        logo.Alignment = Element.ALIGN_CENTER;
-                        doc.Add(logo);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error loading image from resources.", "Manager Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    };
+                    Bitmap imagepath = Properties.Resources.Enchante_Logo__200_x_200_px__Green;
+                    iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imagepath, System.Drawing.Imaging.ImageFormat.Png);
+                    logo.Alignment = Element.ALIGN_CENTER;
+                    logo.ScaleAbsolute(100f, 100f);
+                    logo.Alignment = Element.ALIGN_CENTER;
+                    doc.Add(logo);
 
                     iTextSharp.text.Font headerFont = FontFactory.GetFont("Courier", 16, iTextSharp.text.Font.BOLD);
                     iTextSharp.text.Font boldfont = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.BOLD);
