@@ -82,6 +82,8 @@ namespace Enchante
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -106,8 +108,6 @@ namespace Enchante
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Enchante));
             this.EnchanteParentContainer = new System.Windows.Forms.Panel();
             this.EnchanteMngrPage = new System.Windows.Forms.Panel();
@@ -594,6 +594,10 @@ namespace Enchante
             this.RecApptSearchServiceTypeBtn = new FontAwesome.Sharp.IconButton();
             this.RecApptPanelExitBtn = new FontAwesome.Sharp.IconButton();
             this.RecQueWinPanel = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.RecQueWinPrefNextCustomerDGV = new System.Windows.Forms.DataGridView();
+            this.RecQueWinFooterStopperPanel = new System.Windows.Forms.Panel();
+            this.RecQueWinFooterStopperLbl = new System.Windows.Forms.Label();
             this.RecQueWinGenCatComboText = new Guna.UI2.WinForms.Guna2ComboBox();
             this.RecQueWinStaffCatComboText = new Guna.UI2.WinForms.Guna2ComboBox();
             this.RecQueWinEmplIDLbl = new System.Windows.Forms.Label();
@@ -794,10 +798,6 @@ namespace Enchante
             this.DateTimePickerTimer = new System.Windows.Forms.Timer(this.components);
             this.MngrInventoryCard = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.PictureSlideTimer = new System.Windows.Forms.Timer(this.components);
-            this.RecQueWinFooterStopperPanel = new System.Windows.Forms.Panel();
-            this.RecQueWinFooterStopperLbl = new System.Windows.Forms.Label();
-            this.RecQueWinPrefNextCustomerDGV = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteMngrPage.SuspendLayout();
             this.MngrScrollPanel.SuspendLayout();
@@ -881,6 +881,8 @@ namespace Enchante
             this.RecApptCatHSPanel.SuspendLayout();
             this.RecApptFooterStopperPanel.SuspendLayout();
             this.RecQueWinPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RecQueWinPrefNextCustomerDGV)).BeginInit();
+            this.RecQueWinFooterStopperPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecQueWinNextCustomerDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecQueWinStaffListDGV)).BeginInit();
             this.RecPayServicePanel.SuspendLayout();
@@ -923,8 +925,6 @@ namespace Enchante
             ((System.ComponentModel.ISupportInitialize)(this.EnchanteParentCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecTransactionCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrInventoryCard)).BeginInit();
-            this.RecQueWinFooterStopperPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RecQueWinPrefNextCustomerDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // EnchanteParentContainer
@@ -938,7 +938,7 @@ namespace Enchante
             this.EnchanteParentContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnchanteParentContainer.Location = new System.Drawing.Point(0, 0);
             this.EnchanteParentContainer.Name = "EnchanteParentContainer";
-            this.EnchanteParentContainer.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteParentContainer.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteParentContainer.TabIndex = 0;
             // 
             // EnchanteMngrPage
@@ -950,7 +950,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteMngrPage, new System.Drawing.Size(200, 100));
             this.EnchanteMngrPage.Name = "EnchanteMngrPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteMngrPage, new System.Drawing.Size(200, 100));
-            this.EnchanteMngrPage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteMngrPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteMngrPage.TabIndex = 6;
             // 
             // MngrScrollPanel
@@ -963,7 +963,7 @@ namespace Enchante
             this.MngrScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MngrScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.MngrScrollPanel.Name = "MngrScrollPanel";
-            this.MngrScrollPanel.Size = new System.Drawing.Size(1904, 891);
+            this.MngrScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.MngrScrollPanel.TabIndex = 4;
             // 
             // MngrUserAccPanel
@@ -3499,7 +3499,7 @@ namespace Enchante
             this.MngrServicesNumOfItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrServicesNumOfItems.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrServicesNumOfItems.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesNumOfItems.Location = new System.Drawing.Point(1326, 618);
+            this.MngrServicesNumOfItems.Location = new System.Drawing.Point(1326, 607);
             this.MngrServicesNumOfItems.Name = "MngrServicesNumOfItems";
             this.MngrServicesNumOfItems.Size = new System.Drawing.Size(407, 30);
             this.MngrServicesNumOfItems.TabIndex = 112;
@@ -3594,6 +3594,7 @@ namespace Enchante
             this.MngrServicesIDNumText.ReadOnly = true;
             this.MngrServicesIDNumText.Size = new System.Drawing.Size(407, 30);
             this.MngrServicesIDNumText.TabIndex = 80;
+            this.MngrServicesIDNumText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrServicesIDNumText_KeyPress);
             // 
             // MngrServicesTypeComboText
             // 
@@ -3628,6 +3629,7 @@ namespace Enchante
             this.MngrServicesPriceText.Name = "MngrServicesPriceText";
             this.MngrServicesPriceText.Size = new System.Drawing.Size(407, 30);
             this.MngrServicesPriceText.TabIndex = 75;
+            this.MngrServicesPriceText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrServicesPriceText_KeyPress);
             // 
             // MngrServicesCategoryComboText
             // 
@@ -3662,6 +3664,7 @@ namespace Enchante
             this.MngrServicesDurationText.Name = "MngrServicesDurationText";
             this.MngrServicesDurationText.Size = new System.Drawing.Size(407, 30);
             this.MngrServicesDurationText.TabIndex = 72;
+            this.MngrServicesDurationText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrServicesDurationText_KeyPress);
             // 
             // MngrServicesDescriptionLbl
             // 
@@ -3685,6 +3688,7 @@ namespace Enchante
             this.MngrServicesDescriptionText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.MngrServicesDescriptionText.Size = new System.Drawing.Size(407, 129);
             this.MngrServicesDescriptionText.TabIndex = 70;
+            this.MngrServicesDescriptionText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrServicesDescriptionText_KeyPress);
             // 
             // MngrServicesNameLbl
             // 
@@ -3706,6 +3710,7 @@ namespace Enchante
             this.MngrServicesNameText.Name = "MngrServicesNameText";
             this.MngrServicesNameText.Size = new System.Drawing.Size(407, 30);
             this.MngrServicesNameText.TabIndex = 68;
+            this.MngrServicesNameText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrServicesNameText_KeyPress);
             // 
             // MngrServicesTypeLbl
             // 
@@ -4039,10 +4044,10 @@ namespace Enchante
             this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsTable);
             this.MngrInventoryProductsPanel.Controls.Add(this.CancelEdit);
             this.MngrInventoryProductsPanel.Controls.Add(this.ProductImagePictureBox);
-            this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsUpdateBtn);
             this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsInfoEditBtn);
-            this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsInsertBtn);
             this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsExitBtn);
+            this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsUpdateBtn);
+            this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsInsertBtn);
             this.MngrInventoryProductsPanel.Location = new System.Drawing.Point(0, 0);
             this.MngrInventoryCard.SetMinimumSize(this.MngrInventoryProductsPanel, new System.Drawing.Size(200, 100));
             this.MngrInventoryProductsPanel.Name = "MngrInventoryProductsPanel";
@@ -4115,6 +4120,7 @@ namespace Enchante
             this.MngrInventoryProductsIDText.ReadOnly = true;
             this.MngrInventoryProductsIDText.Size = new System.Drawing.Size(296, 30);
             this.MngrInventoryProductsIDText.TabIndex = 99;
+            this.MngrInventoryProductsIDText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrInventoryProductsIDText_KeyPress);
             // 
             // MngrInventoryProductsTypeComboText
             // 
@@ -4149,6 +4155,7 @@ namespace Enchante
             this.MngrInventoryProductsPriceText.Name = "MngrInventoryProductsPriceText";
             this.MngrInventoryProductsPriceText.Size = new System.Drawing.Size(296, 30);
             this.MngrInventoryProductsPriceText.TabIndex = 94;
+            this.MngrInventoryProductsPriceText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrInventoryProductsPriceText_KeyPress);
             // 
             // MngrInventoryProductsCatComboText
             // 
@@ -4184,6 +4191,7 @@ namespace Enchante
             this.MngrInventoryProductsStockText.Size = new System.Drawing.Size(296, 30);
             this.MngrInventoryProductsStockText.TabIndex = 91;
             this.MngrInventoryProductsStockText.TextChanged += new System.EventHandler(this.MngrInventoryProductsStockText_TextChanged);
+            this.MngrInventoryProductsStockText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrInventoryProductsStockText_KeyPress);
             // 
             // MngrInventoryProductsStatusLbl
             // 
@@ -4216,6 +4224,7 @@ namespace Enchante
             this.MngrInventoryProductsNameText.Name = "MngrInventoryProductsNameText";
             this.MngrInventoryProductsNameText.Size = new System.Drawing.Size(296, 30);
             this.MngrInventoryProductsNameText.TabIndex = 87;
+            this.MngrInventoryProductsNameText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrInventoryProductsNameText_KeyPress);
             // 
             // MngrInventoryProductsTypeLbl
             // 
@@ -4437,7 +4446,7 @@ namespace Enchante
             this.MngrNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.MngrNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.MngrNavBarPanel.Name = "MngrNavBarPanel";
-            this.MngrNavBarPanel.Size = new System.Drawing.Size(1904, 150);
+            this.MngrNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.MngrNavBarPanel.TabIndex = 3;
             // 
             // MngrUserAccBtn
@@ -4503,7 +4512,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteAdminPage, new System.Drawing.Size(200, 100));
             this.EnchanteAdminPage.Name = "EnchanteAdminPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteAdminPage, new System.Drawing.Size(200, 100));
-            this.EnchanteAdminPage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteAdminPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteAdminPage.TabIndex = 5;
             // 
             // AdminScrollPanel
@@ -4516,7 +4525,7 @@ namespace Enchante
             this.AdminScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AdminScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.AdminScrollPanel.Name = "AdminScrollPanel";
-            this.AdminScrollPanel.Size = new System.Drawing.Size(1904, 891);
+            this.AdminScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.AdminScrollPanel.TabIndex = 20;
             // 
             // AdminUserAccPanel
@@ -4799,6 +4808,7 @@ namespace Enchante
             this.AdminEmailText.Name = "AdminEmailText";
             this.AdminEmailText.Size = new System.Drawing.Size(829, 34);
             this.AdminEmailText.TabIndex = 115;
+            this.AdminEmailText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AdminEmailText_KeyPress);
             // 
             // AdminEmailLbl
             // 
@@ -4855,6 +4865,7 @@ namespace Enchante
             this.AdminConfirmPassText.TabIndex = 25;
             this.AdminConfirmPassText.UseSystemPasswordChar = true;
             this.AdminConfirmPassText.TextChanged += new System.EventHandler(this.AdminConfirmPassText_TextChanged);
+            this.AdminConfirmPassText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AdminConfirmPassText_KeyPress);
             // 
             // AdminConfirmPassErrorLbl
             // 
@@ -4924,6 +4935,7 @@ namespace Enchante
             this.AdminPassText.Size = new System.Drawing.Size(364, 34);
             this.AdminPassText.TabIndex = 25;
             this.AdminPassText.UseSystemPasswordChar = true;
+            this.AdminPassText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AdminPassText_KeyPress);
             // 
             // AdminPassErrorLbl
             // 
@@ -5070,6 +5082,7 @@ namespace Enchante
             this.AdminCPNumText.Name = "AdminCPNumText";
             this.AdminCPNumText.Size = new System.Drawing.Size(407, 34);
             this.AdminCPNumText.TabIndex = 98;
+            this.AdminCPNumText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AdminCPNumText_KeyPress);
             // 
             // AdminCPNumLbl
             // 
@@ -5137,6 +5150,7 @@ namespace Enchante
             this.AdminAgeText.ReadOnly = true;
             this.AdminAgeText.Size = new System.Drawing.Size(407, 34);
             this.AdminAgeText.TabIndex = 91;
+            this.AdminAgeText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AdminAgeText_KeyPress);
             // 
             // AdminAgeLbl
             // 
@@ -5197,6 +5211,7 @@ namespace Enchante
             this.AdminLastNameText.Name = "AdminLastNameText";
             this.AdminLastNameText.Size = new System.Drawing.Size(407, 34);
             this.AdminLastNameText.TabIndex = 86;
+            this.AdminLastNameText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AdminLastNameText_KeyPress);
             // 
             // AdminLastNameLbl
             // 
@@ -5218,6 +5233,7 @@ namespace Enchante
             this.AdminFirstNameText.Name = "AdminFirstNameText";
             this.AdminFirstNameText.Size = new System.Drawing.Size(407, 34);
             this.AdminFirstNameText.TabIndex = 84;
+            this.AdminFirstNameText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AdminFirstNameText_KeyPress);
             // 
             // AdminFirstNameLbl
             // 
@@ -5352,7 +5368,7 @@ namespace Enchante
             this.AdminNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.AdminNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.AdminNavBarPanel.Name = "AdminNavBarPanel";
-            this.AdminNavBarPanel.Size = new System.Drawing.Size(1904, 150);
+            this.AdminNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.AdminNavBarPanel.TabIndex = 4;
             // 
             // AdminAccUserBtn
@@ -5420,7 +5436,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteHomePage, new System.Drawing.Size(200, 100));
             this.EnchanteHomePage.Name = "EnchanteHomePage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteHomePage, new System.Drawing.Size(200, 100));
-            this.EnchanteHomePage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteHomePage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteHomePage.TabIndex = 4;
             // 
             // EnchanteHomeScrollPanel
@@ -5433,7 +5449,7 @@ namespace Enchante
             this.EnchanteHomeScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnchanteHomeScrollPanel.Location = new System.Drawing.Point(0, 0);
             this.EnchanteHomeScrollPanel.Name = "EnchanteHomeScrollPanel";
-            this.EnchanteHomeScrollPanel.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteHomeScrollPanel.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteHomeScrollPanel.TabIndex = 18;
             this.EnchanteHomeScrollPanel.Click += new System.EventHandler(this.EnchanteHomeScrollPanel_Click);
             // 
@@ -5453,7 +5469,7 @@ namespace Enchante
             this.EnchanteLoginForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnchanteLoginForm.Location = new System.Drawing.Point(1248, 0);
             this.EnchanteLoginForm.Name = "EnchanteLoginForm";
-            this.EnchanteLoginForm.Size = new System.Drawing.Size(656, 1041);
+            this.EnchanteLoginForm.Size = new System.Drawing.Size(128, 732);
             this.EnchanteLoginForm.TabIndex = 21;
             // 
             // LoginPassReqBtn
@@ -5520,6 +5536,7 @@ namespace Enchante
             this.LoginPassText.TabIndex = 25;
             this.LoginPassText.UseSystemPasswordChar = true;
             this.LoginPassText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginPassText_KeyDown);
+            this.LoginPassText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LoginPassText_KeyPress);
             // 
             // LoginBtn
             // 
@@ -5632,7 +5649,7 @@ namespace Enchante
             this.EDP1.Image = global::Enchante.Properties.Resources.Lobby;
             this.EDP1.Location = new System.Drawing.Point(0, 0);
             this.EDP1.Name = "EDP1";
-            this.EDP1.Size = new System.Drawing.Size(1248, 1041);
+            this.EDP1.Size = new System.Drawing.Size(1248, 732);
             this.EDP1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.EDP1.TabIndex = 24;
             this.EDP1.TabStop = false;
@@ -5669,7 +5686,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteReceptionPage, new System.Drawing.Size(200, 100));
             this.EnchanteReceptionPage.Name = "EnchanteReceptionPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteReceptionPage, new System.Drawing.Size(200, 100));
-            this.EnchanteReceptionPage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteReceptionPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteReceptionPage.TabIndex = 2;
             // 
             // ReceptionScrollPanel
@@ -5682,7 +5699,7 @@ namespace Enchante
             this.ReceptionScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ReceptionScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.ReceptionScrollPanel.Name = "ReceptionScrollPanel";
-            this.ReceptionScrollPanel.Size = new System.Drawing.Size(1904, 891);
+            this.ReceptionScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.ReceptionScrollPanel.TabIndex = 20;
             // 
             // ReceptionUserAccPanel
@@ -6267,6 +6284,7 @@ namespace Enchante
             this.RecSearchProductTextBox.Size = new System.Drawing.Size(613, 34);
             this.RecSearchProductTextBox.TabIndex = 183;
             this.RecSearchProductTextBox.TextChanged += new System.EventHandler(this.RecSearchProductTextBox_TextChanged);
+            this.RecSearchProductTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecSearchProductTextBox_KeyPress);
             // 
             // RecShopProdProductFlowLayoutPanel
             // 
@@ -6328,6 +6346,7 @@ namespace Enchante
             this.RecShopProdClientCPNumText.Name = "RecShopProdClientCPNumText";
             this.RecShopProdClientCPNumText.Size = new System.Drawing.Size(214, 30);
             this.RecShopProdClientCPNumText.TabIndex = 154;
+            this.RecShopProdClientCPNumText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecShopProdClientCPNumText_KeyPress);
             // 
             // RecShopProdClientNameText
             // 
@@ -6338,6 +6357,7 @@ namespace Enchante
             this.RecShopProdClientNameText.Name = "RecShopProdClientNameText";
             this.RecShopProdClientNameText.Size = new System.Drawing.Size(214, 30);
             this.RecShopProdClientNameText.TabIndex = 154;
+            this.RecShopProdClientNameText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecShopProdClientNameText_KeyPress);
             // 
             // RecShopProdClientCPNumLbl
             // 
@@ -6496,6 +6516,7 @@ namespace Enchante
             this.RecShopProdWalletNumText.Name = "RecShopProdWalletNumText";
             this.RecShopProdWalletNumText.Size = new System.Drawing.Size(438, 30);
             this.RecShopProdWalletNumText.TabIndex = 93;
+            this.RecShopProdWalletNumText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecShopProdWalletNumText_KeyPress);
             // 
             // RecShopProdWalletPINLbl
             // 
@@ -6517,6 +6538,7 @@ namespace Enchante
             this.RecShopProdWalletPINText.Name = "RecShopProdWalletPINText";
             this.RecShopProdWalletPINText.Size = new System.Drawing.Size(207, 30);
             this.RecShopProdWalletPINText.TabIndex = 100;
+            this.RecShopProdWalletPINText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecShopProdWalletPINText_KeyPress);
             // 
             // RecShopProdWalletOTPLbl
             // 
@@ -6538,6 +6560,7 @@ namespace Enchante
             this.RecShopProdWalletOTPText.Name = "RecShopProdWalletOTPText";
             this.RecShopProdWalletOTPText.Size = new System.Drawing.Size(211, 30);
             this.RecShopProdWalletOTPText.TabIndex = 103;
+            this.RecShopProdWalletOTPText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecShopProdWalletOTPText_KeyPress);
             // 
             // RecShopProdCash1PaymentPanel
             // 
@@ -7158,6 +7181,7 @@ namespace Enchante
             this.RecApptSearchServiceTypeText.Size = new System.Drawing.Size(666, 30);
             this.RecApptSearchServiceTypeText.TabIndex = 190;
             this.RecApptSearchServiceTypeText.TextChanged += new System.EventHandler(this.RecApptSearchServiceTypeText_TextChanged);
+            this.RecApptSearchServiceTypeText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecApptSearchServiceTypeText_KeyPress);
             // 
             // RecApptClientAgeErrorLbl
             // 
@@ -7338,6 +7362,7 @@ namespace Enchante
             this.RecApptCPNumText.SelectedText = "";
             this.RecApptCPNumText.Size = new System.Drawing.Size(376, 30);
             this.RecApptCPNumText.TabIndex = 178;
+            this.RecApptCPNumText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecApptCPNumText_KeyPress);
             // 
             // RecApptLNameText
             // 
@@ -7360,6 +7385,7 @@ namespace Enchante
             this.RecApptLNameText.SelectedText = "";
             this.RecApptLNameText.Size = new System.Drawing.Size(376, 30);
             this.RecApptLNameText.TabIndex = 177;
+            this.RecApptLNameText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecApptLNameText_KeyPress);
             // 
             // RecApptFNameText
             // 
@@ -7382,6 +7408,7 @@ namespace Enchante
             this.RecApptFNameText.SelectedText = "";
             this.RecApptFNameText.Size = new System.Drawing.Size(376, 30);
             this.RecApptFNameText.TabIndex = 176;
+            this.RecApptFNameText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecApptFNameText_KeyPress);
             // 
             // RecApptBookTransactBtn
             // 
@@ -8092,6 +8119,76 @@ namespace Enchante
             this.RecQueWinPanel.Size = new System.Drawing.Size(1633, 728);
             this.RecQueWinPanel.TabIndex = 28;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("TechnicBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.label7.Location = new System.Drawing.Point(82, 113);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(148, 20);
+            this.label7.TabIndex = 147;
+            this.label7.Text = "| General Queue";
+            // 
+            // RecQueWinPrefNextCustomerDGV
+            // 
+            this.RecQueWinPrefNextCustomerDGV.AllowUserToAddRows = false;
+            this.RecQueWinPrefNextCustomerDGV.AllowUserToDeleteRows = false;
+            this.RecQueWinPrefNextCustomerDGV.AllowUserToResizeColumns = false;
+            this.RecQueWinPrefNextCustomerDGV.AllowUserToResizeRows = false;
+            this.RecQueWinPrefNextCustomerDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.RecQueWinPrefNextCustomerDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.RecQueWinPrefNextCustomerDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecQueWinPrefNextCustomerDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle36;
+            this.RecQueWinPrefNextCustomerDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RecQueWinPrefNextCustomerDGV.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecQueWinPrefNextCustomerDGV.DefaultCellStyle = dataGridViewCellStyle37;
+            this.RecQueWinPrefNextCustomerDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecQueWinPrefNextCustomerDGV.Location = new System.Drawing.Point(89, 727);
+            this.RecQueWinPrefNextCustomerDGV.Name = "RecQueWinPrefNextCustomerDGV";
+            this.RecQueWinPrefNextCustomerDGV.ReadOnly = true;
+            this.RecQueWinPrefNextCustomerDGV.RowHeadersVisible = false;
+            this.RecQueWinPrefNextCustomerDGV.RowHeadersWidth = 51;
+            this.RecQueWinPrefNextCustomerDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.RecQueWinPrefNextCustomerDGV.Size = new System.Drawing.Size(1445, 174);
+            this.RecQueWinPrefNextCustomerDGV.TabIndex = 146;
+            // 
+            // RecQueWinFooterStopperPanel
+            // 
+            this.RecQueWinFooterStopperPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecQueWinFooterStopperPanel.Controls.Add(this.RecQueWinFooterStopperLbl);
+            this.RecQueWinFooterStopperPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.RecQueWinFooterStopperPanel.Location = new System.Drawing.Point(406, 1035);
+            this.RecQueWinFooterStopperPanel.Name = "RecQueWinFooterStopperPanel";
+            this.RecQueWinFooterStopperPanel.Size = new System.Drawing.Size(804, 52);
+            this.RecQueWinFooterStopperPanel.TabIndex = 145;
+            // 
+            // RecQueWinFooterStopperLbl
+            // 
+            this.RecQueWinFooterStopperLbl.AutoSize = true;
+            this.RecQueWinFooterStopperLbl.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecQueWinFooterStopperLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.RecQueWinFooterStopperLbl.Location = new System.Drawing.Point(206, 29);
+            this.RecQueWinFooterStopperLbl.Name = "RecQueWinFooterStopperLbl";
+            this.RecQueWinFooterStopperLbl.Size = new System.Drawing.Size(362, 51);
+            this.RecQueWinFooterStopperLbl.TabIndex = 20;
+            this.RecQueWinFooterStopperLbl.Text = "Footer Stopper";
+            this.RecQueWinFooterStopperLbl.Visible = false;
+            // 
             // RecQueWinGenCatComboText
             // 
             this.RecQueWinGenCatComboText.AutoRoundedCorners = true;
@@ -8159,6 +8256,7 @@ namespace Enchante
             this.RecQueWinSearchText.Size = new System.Drawing.Size(707, 37);
             this.RecQueWinSearchText.TabIndex = 141;
             this.RecQueWinSearchText.Visible = false;
+            this.RecQueWinSearchText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecQueWinSearchText_KeyPress);
             // 
             // RecQueWinStaffLbl
             // 
@@ -8572,6 +8670,7 @@ namespace Enchante
             this.RecPayServiceWalletNumText.Name = "RecPayServiceWalletNumText";
             this.RecPayServiceWalletNumText.Size = new System.Drawing.Size(438, 30);
             this.RecPayServiceWalletNumText.TabIndex = 93;
+            this.RecPayServiceWalletNumText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecPayServiceWalletNumText_KeyPress);
             // 
             // RecPayServiceWalletNumErrorLbl
             // 
@@ -8607,6 +8706,7 @@ namespace Enchante
             this.RecPayServiceWalletPINText.Name = "RecPayServiceWalletPINText";
             this.RecPayServiceWalletPINText.Size = new System.Drawing.Size(207, 30);
             this.RecPayServiceWalletPINText.TabIndex = 100;
+            this.RecPayServiceWalletPINText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecPayServiceWalletPINText_KeyPress);
             // 
             // RecPayServiceWalletPINErrorLbl
             // 
@@ -8656,6 +8756,7 @@ namespace Enchante
             this.RecPayServiceWalletOTPText.Name = "RecPayServiceWalletOTPText";
             this.RecPayServiceWalletOTPText.Size = new System.Drawing.Size(211, 30);
             this.RecPayServiceWalletOTPText.TabIndex = 103;
+            this.RecPayServiceWalletOTPText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecPayServiceWalletOTPText_KeyPress);
             // 
             // RecPayServiceCash1PaymentPanel
             // 
@@ -9478,6 +9579,7 @@ namespace Enchante
             this.RecWalkinSearchProductTextBox.Size = new System.Drawing.Size(660, 37);
             this.RecWalkinSearchProductTextBox.TabIndex = 175;
             this.RecWalkinSearchProductTextBox.TextChanged += new System.EventHandler(this.RecWalkinSearchProductTextBox_TextChanged);
+            this.RecWalkinSearchProductTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecWalkinSearchProductTextBox_KeyPress);
             // 
             // RecWalkinBookTransactBtn
             // 
@@ -9827,6 +9929,7 @@ namespace Enchante
             this.RecWalkinSearchServiceTypeText.Size = new System.Drawing.Size(660, 37);
             this.RecWalkinSearchServiceTypeText.TabIndex = 132;
             this.RecWalkinSearchServiceTypeText.TextChanged += new System.EventHandler(this.RecWalkInSearchServiceTypeText_TextChanged);
+            this.RecWalkinSearchServiceTypeText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecWalkinSearchServiceTypeText_KeyPress);
             // 
             // RecWalkInServiceTypeDGV
             // 
@@ -10171,6 +10274,7 @@ namespace Enchante
             this.RecWalkinCPNumText.Name = "RecWalkinCPNumText";
             this.RecWalkinCPNumText.Size = new System.Drawing.Size(373, 30);
             this.RecWalkinCPNumText.TabIndex = 58;
+            this.RecWalkinCPNumText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecWalkinCPNumText_KeyPress);
             // 
             // RecWalkinCPNumLbl
             // 
@@ -10214,6 +10318,7 @@ namespace Enchante
             this.RecWalkinLNameText.Name = "RecWalkinLNameText";
             this.RecWalkinLNameText.Size = new System.Drawing.Size(376, 30);
             this.RecWalkinLNameText.TabIndex = 47;
+            this.RecWalkinLNameText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecWalkinLNameText_KeyPress);
             // 
             // RecWalkinLNameLbl
             // 
@@ -10235,6 +10340,7 @@ namespace Enchante
             this.RecWalkinFNameText.Name = "RecWalkinFNameText";
             this.RecWalkinFNameText.Size = new System.Drawing.Size(376, 30);
             this.RecWalkinFNameText.TabIndex = 45;
+            this.RecWalkinFNameText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecWalkinFNameText_KeyPress);
             // 
             // RecWalkinFNameLbl
             // 
@@ -10483,7 +10589,7 @@ namespace Enchante
             this.ReceptionNavBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.ReceptionNavBar.Location = new System.Drawing.Point(0, 0);
             this.ReceptionNavBar.Name = "ReceptionNavBar";
-            this.ReceptionNavBar.Size = new System.Drawing.Size(1904, 150);
+            this.ReceptionNavBar.Size = new System.Drawing.Size(1370, 150);
             this.ReceptionNavBar.TabIndex = 2;
             // 
             // RecDateTimeText
@@ -10563,7 +10669,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteStaffPage, new System.Drawing.Size(200, 100));
             this.EnchanteStaffPage.Name = "EnchanteStaffPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteStaffPage, new System.Drawing.Size(200, 100));
-            this.EnchanteStaffPage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteStaffPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteStaffPage.TabIndex = 1;
             // 
             // StaffScrollPanel
@@ -10583,7 +10689,7 @@ namespace Enchante
             this.StaffScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StaffScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.StaffScrollPanel.Name = "StaffScrollPanel";
-            this.StaffScrollPanel.Size = new System.Drawing.Size(1904, 891);
+            this.StaffScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.StaffScrollPanel.TabIndex = 6;
             // 
             // label4
@@ -10833,6 +10939,7 @@ namespace Enchante
             this.guna2TextBox1.SelectedText = "";
             this.guna2TextBox1.Size = new System.Drawing.Size(152, 19);
             this.guna2TextBox1.TabIndex = 4;
+            this.guna2TextBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBox1_KeyPress);
             // 
             // StaffAddToInventoryButton
             // 
@@ -11034,7 +11141,7 @@ namespace Enchante
             this.StaffNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.StaffNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.StaffNavBarPanel.Name = "StaffNavBarPanel";
-            this.StaffNavBarPanel.Size = new System.Drawing.Size(1904, 150);
+            this.StaffNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.StaffNavBarPanel.TabIndex = 5;
             // 
             // StaffUserAccBtn
@@ -11093,13 +11200,13 @@ namespace Enchante
             // 
             this.EnchanteParentCard.ContainerControl = this.EnchanteParentContainer;
             this.EnchanteParentCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.EnchanteParentCard.SelectedCard = "Reception";
+            this.EnchanteParentCard.SelectedCard = "AdminPage";
             // 
             // RecTransactionCard
             // 
             this.RecTransactionCard.ContainerControl = this.ReceptionCreateTransactPanel;
             this.RecTransactionCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.RecTransactionCard.SelectedCard = "Types";
+            this.RecTransactionCard.SelectedCard = "Walk-in";
             // 
             // DateTimePickerTimer
             // 
@@ -11109,7 +11216,7 @@ namespace Enchante
             // 
             this.MngrInventoryCard.ContainerControl = this.MngrInventoryPanel;
             this.MngrInventoryCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.MngrInventoryCard.SelectedCard = "SERVICES";
+            this.MngrInventoryCard.SelectedCard = "PRODUCTS";
             // 
             // PictureSlideTimer
             // 
@@ -11117,82 +11224,12 @@ namespace Enchante
             this.PictureSlideTimer.Interval = 3000;
             this.PictureSlideTimer.Tick += new System.EventHandler(this.PictureSlideTimer_Tick);
             // 
-            // RecQueWinFooterStopperPanel
-            // 
-            this.RecQueWinFooterStopperPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecQueWinFooterStopperPanel.Controls.Add(this.RecQueWinFooterStopperLbl);
-            this.RecQueWinFooterStopperPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.RecQueWinFooterStopperPanel.Location = new System.Drawing.Point(406, 1035);
-            this.RecQueWinFooterStopperPanel.Name = "RecQueWinFooterStopperPanel";
-            this.RecQueWinFooterStopperPanel.Size = new System.Drawing.Size(804, 52);
-            this.RecQueWinFooterStopperPanel.TabIndex = 145;
-            // 
-            // RecQueWinFooterStopperLbl
-            // 
-            this.RecQueWinFooterStopperLbl.AutoSize = true;
-            this.RecQueWinFooterStopperLbl.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecQueWinFooterStopperLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.RecQueWinFooterStopperLbl.Location = new System.Drawing.Point(206, 29);
-            this.RecQueWinFooterStopperLbl.Name = "RecQueWinFooterStopperLbl";
-            this.RecQueWinFooterStopperLbl.Size = new System.Drawing.Size(362, 51);
-            this.RecQueWinFooterStopperLbl.TabIndex = 20;
-            this.RecQueWinFooterStopperLbl.Text = "Footer Stopper";
-            this.RecQueWinFooterStopperLbl.Visible = false;
-            // 
-            // RecQueWinPrefNextCustomerDGV
-            // 
-            this.RecQueWinPrefNextCustomerDGV.AllowUserToAddRows = false;
-            this.RecQueWinPrefNextCustomerDGV.AllowUserToDeleteRows = false;
-            this.RecQueWinPrefNextCustomerDGV.AllowUserToResizeColumns = false;
-            this.RecQueWinPrefNextCustomerDGV.AllowUserToResizeRows = false;
-            this.RecQueWinPrefNextCustomerDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.RecQueWinPrefNextCustomerDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.RecQueWinPrefNextCustomerDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecQueWinPrefNextCustomerDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle36;
-            this.RecQueWinPrefNextCustomerDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RecQueWinPrefNextCustomerDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecQueWinPrefNextCustomerDGV.DefaultCellStyle = dataGridViewCellStyle37;
-            this.RecQueWinPrefNextCustomerDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecQueWinPrefNextCustomerDGV.Location = new System.Drawing.Point(89, 727);
-            this.RecQueWinPrefNextCustomerDGV.Name = "RecQueWinPrefNextCustomerDGV";
-            this.RecQueWinPrefNextCustomerDGV.ReadOnly = true;
-            this.RecQueWinPrefNextCustomerDGV.RowHeadersVisible = false;
-            this.RecQueWinPrefNextCustomerDGV.RowHeadersWidth = 51;
-            this.RecQueWinPrefNextCustomerDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.RecQueWinPrefNextCustomerDGV.Size = new System.Drawing.Size(1445, 174);
-            this.RecQueWinPrefNextCustomerDGV.TabIndex = 146;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("TechnicBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label7.Location = new System.Drawing.Point(82, 113);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(148, 20);
-            this.label7.TabIndex = 147;
-            this.label7.Text = "| General Queue";
-            // 
             // Enchante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.EnchanteParentContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -11325,6 +11362,9 @@ namespace Enchante
             this.RecApptFooterStopperPanel.PerformLayout();
             this.RecQueWinPanel.ResumeLayout(false);
             this.RecQueWinPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RecQueWinPrefNextCustomerDGV)).EndInit();
+            this.RecQueWinFooterStopperPanel.ResumeLayout(false);
+            this.RecQueWinFooterStopperPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecQueWinNextCustomerDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecQueWinStaffListDGV)).EndInit();
             this.RecPayServicePanel.ResumeLayout(false);
@@ -11390,9 +11430,6 @@ namespace Enchante
             ((System.ComponentModel.ISupportInitialize)(this.EnchanteParentCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecTransactionCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrInventoryCard)).EndInit();
-            this.RecQueWinFooterStopperPanel.ResumeLayout(false);
-            this.RecQueWinFooterStopperPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RecQueWinPrefNextCustomerDGV)).EndInit();
             this.ResumeLayout(false);
 
         }
