@@ -13254,6 +13254,17 @@ namespace Enchante
                     recshopproductusercontrol.ProductPriceTextBox.Location = new Point(67, 230);
                     recshopproductusercontrol.PhpSignLbl.Location = new Point(18, 230);
                     recshopproductusercontrol.ProductPicturePictureBox.Location = new Point(72, 12);
+                    //Border
+                    recshopproductusercontrol.LeftBorder.Size = new Size(10, 275);
+                    recshopproductusercontrol.LeftBorder.Location = new Point(-5, 0);
+                    recshopproductusercontrol.TopBorder.Size = new Size(295, 10);
+                    recshopproductusercontrol.TopBorder.Location = new Point(0, -5);
+                    recshopproductusercontrol.RightBorder.Size = new Size(10, 275);
+                    recshopproductusercontrol.RightBorder.Location = new Point(289, 0);
+                    recshopproductusercontrol.DownBorder.Size = new Size(295, 10);
+                    recshopproductusercontrol.DownBorder.Location = new Point(0, 269);
+
+
                     recshopproductusercontrol.ProductItemIDTextBox.Text = itemID;
                     recshopproductusercontrol.ProductNameTextBox.Text = itemName;
                     recshopproductusercontrol.ProductStockTextBox.Text = itemStock;
@@ -13295,6 +13306,450 @@ namespace Enchante
                 }
 
                 reader.Close();
+            }
+        }
+
+        private void guna2TextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (guna2TextBox1.Text.Length >= 100 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(guna2TextBox1.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void LoginPassText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (LoginPassText.Text.Length >= 100 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(LoginPassText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void RecSearchProductTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (RecSearchProductTextBox.Text.Length >= 50 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecSearchProductTextBox.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void RecShopProdClientNameText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != '\'' && e.KeyChar != ' ' && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (RecShopProdClientNameText.Text.Length >= 100 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecShopProdClientNameText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void RecShopProdClientCPNumText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '+' && e.KeyChar != '\b' || (RecShopProdClientCPNumText.Text.Contains("+") 
+                && RecShopProdClientCPNumText.Text.Length >= 13 && e.KeyChar != '\b') || (!RecShopProdClientCPNumText.Text.Contains("+") 
+                && RecShopProdClientCPNumText.Text.Length >= 11 && e.KeyChar != '\b'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void RecShopProdWalletNumText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (RecShopProdWalletNumText.Text.Length >= 50 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecShopProdWalletNumText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void RecShopProdWalletPINText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (RecShopProdWalletPINText.Text.Length >= 50 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecShopProdWalletPINText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void RecShopProdWalletOTPText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (RecShopProdWalletOTPText.Text.Length >= 50 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecShopProdWalletOTPText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void RecApptCPNumText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '+' && e.KeyChar != '\b' || (RecApptCPNumText.Text.Contains("+")
+                && RecApptCPNumText.Text.Length >= 13 && e.KeyChar != '\b') || (!RecApptCPNumText.Text.Contains("+")
+                && RecApptCPNumText.Text.Length >= 11 && e.KeyChar != '\b'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void RecApptLNameText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (RecApptLNameText.Text.Length >= 100 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecApptLNameText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void RecApptFNameText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (RecApptFNameText.Text.Length >= 100 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecApptFNameText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void RecApptSearchServiceTypeText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (RecApptSearchServiceTypeText.Text.Length >= 100 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecApptSearchServiceTypeText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void RecQueWinSearchText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (RecQueWinSearchText.Text.Length >= 100 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecQueWinSearchText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void RecPayServiceWalletNumText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (RecPayServiceWalletNumText.Text.Length >= 50 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecPayServiceWalletNumText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void RecPayServiceWalletPINText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (RecPayServiceWalletPINText.Text.Length >= 50 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecPayServiceWalletPINText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void RecPayServiceWalletOTPText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (RecPayServiceWalletOTPText.Text.Length >= 50 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecPayServiceWalletOTPText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void RecWalkinCPNumText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '+' && e.KeyChar != '\b' || (RecWalkinCPNumText.Text.Contains("+")
+                && RecWalkinCPNumText.Text.Length >= 13 && e.KeyChar != '\b') || (!RecWalkinCPNumText.Text.Contains("+")
+                && RecWalkinCPNumText.Text.Length >= 11 && e.KeyChar != '\b'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void RecWalkinLNameText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (RecWalkinLNameText.Text.Length >= 100 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecWalkinLNameText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void RecWalkinFNameText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (RecWalkinFNameText.Text.Length >= 100 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecWalkinFNameText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void RecWalkinSearchServiceTypeText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (RecWalkinSearchServiceTypeText.Text.Length >= 50 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecWalkinSearchServiceTypeText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void RecWalkinSearchProductTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (RecWalkinSearchProductTextBox.Text.Length >= 50 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecWalkinSearchProductTextBox.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void MngrServicesNameText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (MngrServicesNameText.Text.Length >= 100 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(MngrServicesNameText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void MngrServicesIDNumText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (MngrServicesIDNumText.Text.Length >= 100 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(MngrServicesIDNumText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void MngrServicesDurationText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (MngrServicesDurationText.Text.Length >= 50 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(MngrServicesDurationText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void MngrInventoryProductsNameText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (MngrInventoryProductsNameText.Text.Length >= 50 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(MngrInventoryProductsNameText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void MngrInventoryProductsIDText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (MngrInventoryProductsIDText.Text.Length >= 50 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(MngrInventoryProductsIDText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void MngrInventoryProductsStockText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (MngrInventoryProductsStockText.Text.Length >= 50 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(MngrInventoryProductsStockText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void MngrInventoryProductsPriceText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (MngrInventoryProductsPriceText.Text.Length >= 50 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(MngrInventoryProductsPriceText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void MngrServicesPriceText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (MngrServicesPriceText.Text.Length >= 50 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(MngrServicesPriceText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void MngrServicesDescriptionText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (MngrServicesDescriptionText.Text.Length >= 200 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(MngrServicesDescriptionText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void AdminLastNameText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != '\'' && e.KeyChar != ' ' && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (AdminLastNameText.Text.Length >= 100 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(AdminLastNameText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void AdminAgeText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) || AdminAgeText.Text.Length >= 3)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void AdminCPNumText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '+' && e.KeyChar != '\b' || (AdminCPNumText.Text.Contains("+") 
+                && AdminCPNumText.Text.Length >= 13 && e.KeyChar != '\b') || (!AdminCPNumText.Text.Contains("+") 
+                && AdminCPNumText.Text.Length >= 11 && e.KeyChar != '\b'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void AdminFirstNameText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != '\'' && e.KeyChar != ' ' && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (AdminFirstNameText.Text.Length >= 100 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(AdminFirstNameText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void AdminEmailText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (AdminEmailText.Text.Length >= 200 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(AdminEmailText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void AdminConfirmPassText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (AdminConfirmPassText.Text.Length >= 100 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(AdminConfirmPassText.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void AdminPassText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (AdminPassText.Text.Length >= 200 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ' ' && string.IsNullOrEmpty(AdminPassText.Text))
+            {
+                e.Handled = true;
             }
         }
     }
