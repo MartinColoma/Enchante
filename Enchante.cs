@@ -8352,6 +8352,30 @@ namespace Enchante
                 }
             }
 
+            System.Drawing.Image storedImage = ProductImagePictureBox.Image;
+
+            // Get the current image from the PictureBox
+            System.Drawing.Image currentImage = null;
+            if (ProductImagePictureBox.Image != null)
+            {
+                currentImage = (System.Drawing.Image)ProductImagePictureBox.Image.Clone();
+            }
+
+            // Compare the images
+            bool imagesAreEqual = ImagesAreEqual(storedImage, currentImage);
+
+            // Check if the images are equal
+            bool imagewillnotupdate = true;
+            if (imagesAreEqual)
+            {
+                imagewillnotupdate = true;
+            }
+            else
+            {
+                imagewillnotupdate = false;
+            }
+
+
             if (!IsNumeric(MngrInventoryProductsStockText.Text))
             {
                 MessageBox.Show("Invalid Stock.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -8377,15 +8401,30 @@ namespace Enchante
             }
 
             string connectionString = "server=localhost;user=root;database=enchante;password=";
-            string query = @"UPDATE inventory 
+            string query;
+            if (!imagewillnotupdate)
+            {
+                query = @"UPDATE inventory 
                             SET ItemName = @ItemName, 
                                 ItemPrice = @ItemPrice, 
                                 ItemStock = @ItemStock, 
                                 ProductCategory = @ProductCategory, 
                                 ProductType = @ProductType, 
                                 ItemStatus = @ItemStatus,
-                                ProductPicture = @ProductPicture 
+                                ProductPicture = @ProductPicture
                             WHERE ItemID = @ItemID";
+            }
+            else
+            {
+                query = @"UPDATE inventory 
+                            SET ItemName = @ItemName, 
+                                ItemPrice = @ItemPrice, 
+                                ItemStock = @ItemStock, 
+                                ProductCategory = @ProductCategory, 
+                                ProductType = @ProductType, 
+                                ItemStatus = @ItemStatus
+                                WHERE ItemID = @ItemID";
+            }
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -8399,13 +8438,13 @@ namespace Enchante
                     command.Parameters.AddWithValue("@ProductType", MngrInventoryProductsTypeComboText.SelectedItem.ToString());
                     command.Parameters.AddWithValue("@ItemStatus", MngrInventoryProductsStatusComboText.SelectedItem.ToString());
 
-                    if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product" && ProductImagePictureBox.Image != null)
+                    if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product" && ProductImagePictureBox.Image != null && imagewillnotupdate == false)
                     {
                         MemoryStream ms = new MemoryStream();
                         ProductImagePictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                         byte[] imageData = ms.ToArray();
                         command.Parameters.AddWithValue("@ProductPicture", imageData);
-                    }
+                    }   
                     else
                     {
                         // If it's a Service Product or no image is selected, set the parameter to null
@@ -8480,6 +8519,42 @@ namespace Enchante
                     }
                 }
             }
+        }
+
+        private bool ImagesAreEqual(System.Drawing.Image image1, System.Drawing.Image image2)
+        {
+            if (image1 == null && image2 == null)
+            {
+                return true;
+            }
+            else if (image1 == null || image2 == null)
+            {
+                return false;
+            }
+
+            if (image1.Width != image2.Width || image1.Height != image2.Height)
+            {
+                return false;
+            }
+
+            Bitmap bitmap1 = new Bitmap(image1);
+            Bitmap bitmap2 = new Bitmap(image2);
+
+            for (int x = 0; x < bitmap1.Width; x++)
+            {
+                for (int y = 0; y < bitmap1.Height; y++)
+                {
+                    Color color1 = bitmap1.GetPixel(x, y);
+                    Color color2 = bitmap2.GetPixel(x, y);
+
+                    if (color1 != color2)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
         }
 
         private void MngrProductClearFields()
