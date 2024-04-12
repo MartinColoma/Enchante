@@ -10758,6 +10758,7 @@ namespace Enchante
             MngrPDHistoryDatePickFrom.Value = DateTime.Now;
             MngrPDHistoryDatePickTo.Value = DateTime.Now;
             considerDateFilter = false;
+            ProductHistoryShow();
 
             DataView dv = ((DataTable)MngrPDHistoryDGV.DataSource).DefaultView;
             dv.RowFilter = string.Empty;
@@ -10923,6 +10924,7 @@ namespace Enchante
             MngrSVHistoryDatePickFrom.Value = DateTime.Now;
             MngrSVHistoryDatePickTo.Value = DateTime.Now;
             ConsiderDateFilter = false;
+            ServiceHistoryShow();
 
             DataView dv = ((DataTable)MngrSVHistoryDGV.DataSource).DefaultView;
             dv.RowFilter = string.Empty;
@@ -11048,6 +11050,7 @@ namespace Enchante
             MngrMemAccDatePickFrom.Value = DateTime.Now;
             MngrMemAccDatePickTo.Value = DateTime.Now;
             considerDateFilter_MngrMemAcc = false;
+            MemberAccountsShow();
 
             DataView dv = ((DataTable)MngrMemAccDGV.DataSource).DefaultView;
             dv.RowFilter = string.Empty;
@@ -11171,10 +11174,6 @@ namespace Enchante
                 else if (string.IsNullOrEmpty(birthdayString))
                 {
                     AdminBdayPicker.Value = DateTime.Today;
-                }
-                else
-                {
-                    MessageBox.Show("Invalid date format in the 'Birthday' column.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 selectedHashedPerUser = selectedRow.Cells["HashedPerUser"].Value?.ToString();
