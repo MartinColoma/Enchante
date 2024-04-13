@@ -8249,6 +8249,8 @@ namespace Enchante
             }
         }
 
+        public System.Drawing.Image firststoredImage;
+
         private void MngrInventoryProductsInfoEditBtn_Click(object sender, EventArgs e)
         {
             if (MngrInventoryProductsTable.SelectedRows.Count > 0)
@@ -8294,6 +8296,7 @@ namespace Enchante
                                     using (MemoryStream ms = new MemoryStream(imageData))
                                     {
                                         ProductImagePictureBox.Image = System.Drawing.Image.FromStream(ms);
+                                        firststoredImage = ProductImagePictureBox.Image;
                                     }
                                 }
                                 else
@@ -8352,7 +8355,7 @@ namespace Enchante
                 }
             }
 
-            System.Drawing.Image storedImage = ProductImagePictureBox.Image;
+            System.Drawing.Image storedImage = firststoredImage;
 
             // Get the current image from the PictureBox
             System.Drawing.Image currentImage = null;
@@ -8405,19 +8408,19 @@ namespace Enchante
             if (!imagewillnotupdate)
             {
                 query = @"UPDATE inventory 
-                            SET ItemName = @ItemName, 
+                                SET ItemName = @ItemName, 
                                 ItemPrice = @ItemPrice, 
                                 ItemStock = @ItemStock, 
                                 ProductCategory = @ProductCategory, 
                                 ProductType = @ProductType, 
                                 ItemStatus = @ItemStatus,
                                 ProductPicture = @ProductPicture
-                            WHERE ItemID = @ItemID";
+                                WHERE ItemID = @ItemID";
             }
             else
             {
                 query = @"UPDATE inventory 
-                            SET ItemName = @ItemName, 
+                                SET ItemName = @ItemName, 
                                 ItemPrice = @ItemPrice, 
                                 ItemStock = @ItemStock, 
                                 ProductCategory = @ProductCategory, 
@@ -8445,11 +8448,7 @@ namespace Enchante
                         byte[] imageData = ms.ToArray();
                         command.Parameters.AddWithValue("@ProductPicture", imageData);
                     }   
-                    else
-                    {
-                        // If it's a Service Product or no image is selected, set the parameter to null
-                        command.Parameters.AddWithValue("@ProductPicture", DBNull.Value);
-                    }
+                    
 
                     try
                     {
