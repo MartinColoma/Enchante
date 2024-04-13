@@ -474,6 +474,7 @@ namespace Enchante
             {
                 return false;
             }
+
             string query = "SELECT RequiredItem, NumOfItems FROM services WHERE ServiceID = @serviceID";
 
 
@@ -532,15 +533,21 @@ namespace Enchante
 
                             if (isEnoughInventory && matchedRowCount == requiredItemsDict.Count)
                             {
-                                //MessageBox.Show("Inventory is enough for service");
                                 DeductFromStaffInventory(requiredItemsDict);
                                 return true;
                             }
                             else
                             {
+                                string requiredItemsMessage = "Required Items:\n";
+                                foreach (var item in requiredItemsDict)
+                                {
+                                    requiredItemsMessage += $"{item.Key}: {item.Value}\n";
+                                }
+                                MessageBox.Show(requiredItemsMessage, "Inventory Insufficient", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 return false;
                             }
                         }
+
                     }
                 }
             }
