@@ -5914,13 +5914,13 @@ namespace Enchante
             {
                 connection.Open();
 
-                string currentDate = DateTime.Now.ToString("MM-dd-yyyy");
+                string currentDate = DateTime.Now.ToString("MM-dd-yyyy dddd");
 
                 string query = "SELECT a.TransactionNumber AS TransactionID, a.AppointmentDate, GROUP_CONCAT(DISTINCT sh.AppointmentTime SEPARATOR ', ') AS AppointmentTime " +
                                "FROM appointment a " +
                                "LEFT JOIN servicehistory sh ON a.TransactionNumber = sh.TransactionNumber " +
                                "WHERE a.ServiceStatus = 'Pending' AND a.AppointmentStatus = 'Unconfirmed' AND " +
-                               "STR_TO_DATE(a.AppointmentDate, '%m-%d-%Y') >= STR_TO_DATE(@currentDate, '%m-%d-%Y') " +
+                               "a.AppointmentDate = @currentDate " +
                                "GROUP BY a.TransactionNumber, a.AppointmentDate";
 
                 MySqlCommand command = new MySqlCommand(query, connection);
