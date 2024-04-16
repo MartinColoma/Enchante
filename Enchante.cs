@@ -117,9 +117,9 @@ namespace Enchante
 
             //Landing Pages Cardlayout Panel Manager
             ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteReceptionPage, EnchanteAdminPage, EnchanteMngrPage);
-            Transaction = new ReceptionTransactionCard(RecTransactionPanel, RecWalkinPanel, RecApptPanel, RecPayServicePanel, RecQueWinPanel, RecShopProdPanel, RecApptConfirmPanel);
+            Transaction = new ReceptionTransactionCard(RecQueStartPanel, RecWalkinPanel, RecApptPanel, RecPayServicePanel, RecQueWinPanel, RecShopProdPanel, RecApptConfirmPanel);
             Inventory = new MngrInventoryCard(MngrInventoryTypePanel, MngrServicesPanel, MngrServiceHistoryPanel, MngrInventoryMembershipPanel,
-                                            MngrInventoryProductsPanel, MngrInventoryProductHistoryPanel, MngrSchedPanel, MngrWalkinSalesPanel, MngrIndemandPanel, MngrWalkinProdSalesPanel, MngrApptServicePanel);
+                                            MngrInventoryProductsPanel, MngrInventoryProductHistoryPanel, MngrPromoPanel, MngrWalkinSalesPanel, MngrIndemandPanel, MngrWalkinProdSalesPanel, MngrApptServicePanel);
 
 
 
@@ -991,7 +991,7 @@ namespace Enchante
 
             RecQueBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             RecQueWinBtn.Visible = false;
-            RecStartQueBtn.Visible = false;
+            RecQueStartBtn.Visible = false;
 
             RecWalkInBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             RecWalkInBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
@@ -1233,7 +1233,7 @@ namespace Enchante
         #region Receptionist Walk-in Transaction
         private void RecWalkInExitBtn_Click(object sender, EventArgs e)
         {
-            Transaction.PanelShow(RecTransactionPanel);
+            Transaction.PanelShow(RecQueStartPanel);
             RecWalkinTransactionClear();
 
         }
@@ -2349,7 +2349,7 @@ namespace Enchante
 
                 // Successful insertion
                 MessageBox.Show("Service successfully booked.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Transaction.PanelShow(RecTransactionPanel);
+                Transaction.PanelShow(RecQueStartPanel);
                 //RecWalkinServiceHistoryDB();
             }
             catch (MySqlException ex)
@@ -4044,7 +4044,7 @@ namespace Enchante
                 RecLoadCompletedAppointmentTrans();
                 RecPayServiceInvoiceReceiptGenerator();
                 RecPayServiceClearAllField();
-                Transaction.PanelShow(RecTransactionPanel);
+                Transaction.PanelShow(RecQueStartPanel);
 
             }
         }
@@ -4634,7 +4634,7 @@ namespace Enchante
         #region Receptionist Queue Window
         private void RecQueWinBtn_Click(object sender, EventArgs e)
         {
-            Transaction.PanelShow(RecQueWinPanel);
+            RecQueWinColor();
             RecQuePreferredStaffLoadData();
             RecQueGeneralStaffLoadData();
             RecQueWinNextCustomerLbl.Text = "| NEXT IN LINE [GENERAL QUEUE]";
@@ -4646,7 +4646,7 @@ namespace Enchante
 
         private void RecQueWinExitBtn_Click(object sender, EventArgs e)
         {
-            Transaction.PanelShow(RecTransactionPanel);
+            Transaction.PanelShow(RecQueStartPanel);
             RecQueWinGenCatComboText.SelectedIndex = -1;
             RecQueWinStaffCatComboText.SelectedIndex = -1;
 
@@ -5008,7 +5008,7 @@ namespace Enchante
         //ApptMember
         private void RecApptPanelExitBtn_Click(object sender, EventArgs e)
         {
-            Transaction.PanelShow(RecTransactionPanel);
+            Transaction.PanelShow(RecQueStartPanel);
         }
 
         //ApptMember
@@ -5878,7 +5878,7 @@ namespace Enchante
                     cmd.ExecuteNonQuery();
                 }
                 MessageBox.Show("Service successfully booked.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Transaction.PanelShow(RecTransactionPanel);
+                Transaction.PanelShow(RecQueStartPanel);
                 //RecWalkinServiceHistoryDB();
             }
             catch (MySqlException ex)
@@ -6254,7 +6254,7 @@ namespace Enchante
         }
         private void RecApptConfirmExitBtn_Click(object sender, EventArgs e)
         {
-            Transaction.PanelShow(RecTransactionPanel);
+            Transaction.PanelShow(RecQueStartPanel);
 
         }
         private void RecShopProdBtn_Click(object sender, EventArgs e)
@@ -6265,7 +6265,7 @@ namespace Enchante
 
         private void RecShopProdExitBtn_Click(object sender, EventArgs e)
         {
-            Transaction.PanelShow(RecTransactionPanel);
+            Transaction.PanelShow(RecQueStartPanel);
 
         }
         private void RecShopProdTransactNumRefresh()
@@ -6824,7 +6824,7 @@ namespace Enchante
                 RecShopProdOrderProdHistoryDB(RecShopProdSelectedProdDGV);
                 RecShopProdInvoiceReceiptGenerator();
                 RecShopProdClearAllField();
-                Transaction.PanelShow(RecTransactionPanel);
+                Transaction.PanelShow(RecQueStartPanel);
             }
         }
         private void RecShopProdClearAllField()
@@ -7579,7 +7579,7 @@ namespace Enchante
 
         private void RecPayServiceExitBtn_Click(object sender, EventArgs e)
         {
-            Transaction.PanelShow(RecTransactionPanel);
+            Transaction.PanelShow(RecQueStartPanel);
             RecPayServiceClearAllField();
         }
 
@@ -7596,7 +7596,7 @@ namespace Enchante
 
         private void MngrInventoryStaffSchedBtn_Click(object sender, EventArgs e)
         {
-            Inventory.PanelShow(MngrSchedPanel);
+            Inventory.PanelShow(MngrPromoPanel);
         }
 
         private void MngrInventoryMembershipExitBtn_Click(object sender, EventArgs e)
@@ -13969,9 +13969,10 @@ namespace Enchante
 
         private void RecQueBtn_Click(object sender, EventArgs e)
         {
+            RecQueStartColor();
             RecQueBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             RecQueWinBtn.Visible = true;
-            RecStartQueBtn.Visible = true;
+            RecQueStartBtn.Visible = true;
 
             RecTransBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             RecWalkInBtn.Visible = false;
@@ -13981,5 +13982,39 @@ namespace Enchante
             RecShopProdBtn.Visible = false;
 
         }
+
+        private void RecQueStartBtn_Click(object sender, EventArgs e)
+        {
+            RecQueStartColor();
+        }
+
+        private void RecQueStartColor()
+        {
+            Transaction.PanelShow(RecQueStartPanel);
+
+            RecQueStartBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecQueStartBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            RecQueStartBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+            RecQueWinBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecQueWinBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecQueWinBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+        }
+
+        private void RecQueWinColor()
+        {
+            Transaction.PanelShow(RecQueWinPanel);
+
+            RecQueWinBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecQueWinBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            RecQueWinBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+            RecQueStartBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecQueStartBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecQueStartBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+        }
+
     }
 }
