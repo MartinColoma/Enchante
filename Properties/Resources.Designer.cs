@@ -123,6 +123,16 @@ namespace Enchante.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Enchante_GCash_QR {
+            get {
+                object obj = ResourceManager.GetObject("Enchante_GCash_QR", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Enchante_Logo__200_x_200_px___1_ {
             get {
                 object obj = ResourceManager.GetObject("Enchante Logo (200 x 200 px) (1)", resourceCulture);

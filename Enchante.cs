@@ -117,9 +117,9 @@ namespace Enchante
 
             //Landing Pages Cardlayout Panel Manager
             ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteReceptionPage, EnchanteAdminPage, EnchanteMngrPage);
-            Transaction = new ReceptionTransactionCard(RecTransactionPanel, RecWalkinPanel, RecApptPanel, RecPayServicePanel, RecQueWinPanel, RecShopProdPanel, RecApptConfirmPanel);
+            Transaction = new ReceptionTransactionCard(RecQueStartPanel, RecWalkinPanel, RecApptPanel, RecPayServicePanel, RecQueWinPanel, RecShopProdPanel, RecApptConfirmPanel);
             Inventory = new MngrInventoryCard(MngrInventoryTypePanel, MngrServicesPanel, MngrServiceHistoryPanel, MngrInventoryMembershipPanel,
-                                            MngrInventoryProductsPanel, MngrInventoryProductHistoryPanel, MngrSchedPanel, MngrWalkinSalesPanel, MngrIndemandPanel, MngrWalkinProdSalesPanel, MngrApptServicePanel);
+                                            MngrInventoryProductsPanel, MngrInventoryProductHistoryPanel, MngrPromoPanel, MngrWalkinSalesPanel, MngrIndemandPanel, MngrWalkinProdSalesPanel, MngrApptServicePanel);
 
 
 
@@ -454,7 +454,7 @@ namespace Enchante
         private void ReceptionHomePanelReset()
         {
             ParentPanelShow.PanelShow(EnchanteReceptionPage);
-            Transaction.PanelShow(RecTransactionPanel);
+            InitialWalkinTransColor();
         }
 
         private void StaffHomePanelReset()
@@ -659,33 +659,33 @@ namespace Enchante
                 LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
                 return;
             }
-            else if (LoginEmailAddText.Text == "Staff" && LoginPassText.Text == "Staff123")
-            {
-                //Test Staff
-                MessageBox.Show("Welcome back, Staff.", "Login Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                StaffHomePanelReset();
-                StaffNameLbl.Text = "Staff Tester";
-                StaffIDNumLbl.Text = "ST-0000-0000";
-                logincredclear();
+            //else if (LoginEmailAddText.Text == "Staff" && LoginPassText.Text == "Staff123")
+            //{
+            //    //Test Staff
+            //    MessageBox.Show("Welcome back, Staff.", "Login Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    StaffHomePanelReset();
+            //    StaffNameLbl.Text = "Staff Tester";
+            //    StaffIDNumLbl.Text = "ST-0000-0000";
+            //    logincredclear();
 
-                return;
-            }
-            else if (LoginEmailAddText.Text != "Staff" && LoginPassText.Text == "Staff123")
-            {
-                //Test Staff
-                LoginEmailAddErrorLbl.Visible = true;
-                LoginPassErrorLbl.Visible = false;
-                LoginEmailAddErrorLbl.Text = "EMAIL ADDRESS DOES NOT EXIST";
-                return;
-            }
-            else if (LoginEmailAddText.Text == "Staff" && LoginPassText.Text != "Staff123")
-            {
-                //Test Staff
-                LoginEmailAddErrorLbl.Visible = false;
-                LoginPassErrorLbl.Visible = true;
-                LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
-                return;
-            }
+            //    return;
+            //}
+            //else if (LoginEmailAddText.Text != "Staff" && LoginPassText.Text == "Staff123")
+            //{
+            //    //Test Staff
+            //    LoginEmailAddErrorLbl.Visible = true;
+            //    LoginPassErrorLbl.Visible = false;
+            //    LoginEmailAddErrorLbl.Text = "EMAIL ADDRESS DOES NOT EXIST";
+            //    return;
+            //}
+            //else if (LoginEmailAddText.Text == "Staff" && LoginPassText.Text != "Staff123")
+            //{
+            //    //Test Staff
+            //    LoginEmailAddErrorLbl.Visible = false;
+            //    LoginPassErrorLbl.Visible = true;
+            //    LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
+            //    return;
+            //}
             else if (string.IsNullOrEmpty(LoginEmailAddText.Text) && string.IsNullOrEmpty(LoginPassText.Text))
             {
                 //MessageBox.Show("Missing text on required fields.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -816,42 +816,42 @@ namespace Enchante
                                     }
                                     return;
                                 }
-                                else if (membertype == "Staff")
-                                {
-                                    // Retrieve the HashedPass column
-                                    string hashedPasswordFromDB = readerApproved["HashedPass"].ToString();
+                                //else if (membertype == "Staff")
+                                //{
+                                //    // Retrieve the HashedPass column
+                                //    string hashedPasswordFromDB = readerApproved["HashedPass"].ToString();
 
-                                    // Check if the entered password matches
-                                    bool passwordMatches = hashedPasswordFromDB.Equals(passchecker);
+                                //    // Check if the entered password matches
+                                //    bool passwordMatches = hashedPasswordFromDB.Equals(passchecker);
 
-                                    if (passwordMatches)
-                                    {
-                                        MessageBox.Show($"Welcome back, Staff {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        StaffNameLbl.Text = name + " " + lastname;
-                                        StaffIDNumLbl.Text = ID;
-                                        StaffMemeberCategoryLbl.Text = category;
-                                        membercategory = category;
-                                        InitializeStaffInventoryDataGrid();
-                                        InitializeStaffPersonalInventoryDataGrid();
-                                        StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
-                                        StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
-                                        StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
-                                        InitializePreferredCuePendingCustomersForStaff();
-                                        InitializeGeneralCuePendingCustomersForStaff();
-                                        InitializePriorityPendingCustomersForStaff();
-                                        RefreshFlowLayoutPanel();
-                                        StaffHomePanelReset();
-                                        logincredclear();
+                                //    if (passwordMatches)
+                                //    {
+                                //        MessageBox.Show($"Welcome back, Staff {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                //        StaffNameLbl.Text = name + " " + lastname;
+                                //        StaffIDNumLbl.Text = ID;
+                                //        StaffMemeberCategoryLbl.Text = category;
+                                //        membercategory = category;
+                                //        InitializeStaffInventoryDataGrid();
+                                //        InitializeStaffPersonalInventoryDataGrid();
+                                //        StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+                                //        StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+                                //        StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+                                //        InitializePreferredCuePendingCustomersForStaff();
+                                //        InitializeGeneralCuePendingCustomersForStaff();
+                                //        InitializePriorityPendingCustomersForStaff();
+                                //        RefreshFlowLayoutPanel();
+                                //        StaffHomePanelReset();
+                                //        logincredclear();
 
-                                    }
-                                    else
-                                    {
-                                        LoginEmailAddErrorLbl.Visible = false;
-                                        LoginPassErrorLbl.Visible = true;
-                                        LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
-                                    }
-                                    return;
-                                }
+                                //    }
+                                //    else
+                                //    {
+                                //        LoginEmailAddErrorLbl.Visible = false;
+                                //        LoginPassErrorLbl.Visible = true;
+                                //        LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
+                                //    }
+                                //    return;
+                                //}
                             }
 
                         }
@@ -937,7 +937,7 @@ namespace Enchante
                 StaffUserAccPanel.Visible = false;
                 MngrUserAccPanel.Visible = false;
                 AdminUserAccPanel.Visible = false;
-                ReceptionUserAccPanel.Visible = false;
+                //ReceptionUserAccPanel.Visible = false;
             }
         }
 
@@ -959,30 +959,167 @@ namespace Enchante
 
         private void ReceptionAccBtn_Click(object sender, EventArgs e)
         {
-            if (ReceptionUserAccPanel.Visible == false)
-            {
-                ReceptionUserAccPanel.Visible = true;
+            //if (ReceptionUserAccPanel.Visible == false)
+            //{
+            //    ReceptionUserAccPanel.Visible = true;
 
-            }
-            else
-            {
-                ReceptionUserAccPanel.Visible = false;
-            }
+            //}
+            //else
+            //{
+            //    ReceptionUserAccPanel.Visible = false;
+            //}
         }
 
         private void RecWalkInBtn_Click(object sender, EventArgs e)
         {
-            Transaction.PanelShow(RecWalkinPanel);
-            RecWalkinTransNumText.Text = TransactionNumberGenerator.WalkinGenerateTransNumberDefault();
+            InitialWalkinTransColor();
         }
 
+        private void InitialWalkinTransColor()
+        {
+            Transaction.PanelShow(RecWalkinPanel);
+            RecWalkinTransNumText.Text = TransactionNumberGenerator.WalkinGenerateTransNumberDefault();
+            Transaction.PanelShow(RecWalkinPanel);
+            RecTransBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+
+
+            RecWalkInBtn.Visible = true;
+            RecAppointmentBtn.Visible = true;
+            RecApptConfirmBtn.Visible = true;
+            RecPayServiceBtn.Visible = true;
+            RecShopProdBtn.Visible = true;
+
+            RecQueBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            RecQueWinBtn.Visible = false;
+            RecQueStartBtn.Visible = false;
+
+            RecWalkInBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecWalkInBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            RecWalkInBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+            RecAppointmentBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecAppointmentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecAppointmentBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            RecApptConfirmBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecApptConfirmBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecApptConfirmBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            RecPayServiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecPayServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecPayServiceBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            RecShopProdBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecShopProdBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecShopProdBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+        } //216, 213, 178 89, 136, 82
+
+        private void ApptTransColor()
+        {
+            Transaction.PanelShow(RecApptPanel);
+            RecApptTransNumText.Text = TransactionNumberGenerator.AppointGenerateTransNumberDefault();
+
+            RecAppointmentBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecAppointmentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            RecAppointmentBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+            RecWalkInBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecWalkInBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecWalkInBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            RecApptConfirmBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecApptConfirmBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecApptConfirmBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            RecPayServiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecPayServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecPayServiceBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            RecShopProdBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecShopProdBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecShopProdBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+        }
+        private void ApptConfirmTransColor()
+        {
+            Transaction.PanelShow(RecApptConfirmPanel);
+            RecWalkinTransNumText.Text = TransactionNumberGenerator.WalkinGenerateTransNumberDefault();
+
+            RecApptConfirmBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecApptConfirmBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            RecApptConfirmBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+            RecWalkInBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecWalkInBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecWalkInBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            RecAppointmentBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecAppointmentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecAppointmentBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            RecPayServiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecPayServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecPayServiceBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            RecShopProdBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecShopProdBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecShopProdBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+        }
+        private void PaymentTransColor()
+        {
+            Transaction.PanelShow(RecPayServicePanel);
+            RecWalkinTransNumText.Text = TransactionNumberGenerator.WalkinGenerateTransNumberDefault();
+
+            RecPayServiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecPayServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            RecPayServiceBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+            RecWalkInBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecWalkInBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecWalkInBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            RecAppointmentBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecAppointmentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecAppointmentBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            RecApptConfirmBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecApptConfirmBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecApptConfirmBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            RecShopProdBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecShopProdBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecShopProdBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+        }
+        private void ShopProdTransColor()
+        {
+            Transaction.PanelShow(RecShopProdPanel);
+            RecShopProdTransNumText.Text = TransactionNumberGenerator.ShopProdGenerateTransNumberDefault();
+
+            RecShopProdBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecShopProdBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            RecShopProdBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+            RecWalkInBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecWalkInBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecWalkInBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            RecAppointmentBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecAppointmentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecAppointmentBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            RecApptConfirmBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecApptConfirmBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecApptConfirmBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            RecPayServiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecPayServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecPayServiceBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+        }
         //ApptMember
         private void RecAppointmentBtn_Click(object sender, EventArgs e)
         {
-            Transaction.PanelShow(RecApptPanel);
+            ApptTransColor();
             RecApptBookingTimeComboBox.Items.Clear();
             LoadBookingTimes();
-            RecApptTransNumText.Text = TransactionNumberGenerator.AppointGenerateTransNumberDefault();
             RecApptBookingDatePicker.MinDate = DateTime.Today;
             RecApptClientBdayPicker.MaxDate = DateTime.Today;
             isappointment = true;
@@ -1096,7 +1233,7 @@ namespace Enchante
         #region Receptionist Walk-in Transaction
         private void RecWalkInExitBtn_Click(object sender, EventArgs e)
         {
-            Transaction.PanelShow(RecTransactionPanel);
+            Transaction.PanelShow(RecQueStartPanel);
             RecWalkinTransactionClear();
 
         }
@@ -2212,7 +2349,7 @@ namespace Enchante
 
                 // Successful insertion
                 MessageBox.Show("Service successfully booked.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Transaction.PanelShow(RecTransactionPanel);
+                Transaction.PanelShow(RecQueStartPanel);
                 //RecWalkinServiceHistoryDB();
             }
             catch (MySqlException ex)
@@ -3907,7 +4044,7 @@ namespace Enchante
                 RecLoadCompletedAppointmentTrans();
                 RecPayServiceInvoiceReceiptGenerator();
                 RecPayServiceClearAllField();
-                Transaction.PanelShow(RecTransactionPanel);
+                Transaction.PanelShow(RecQueStartPanel);
 
             }
         }
@@ -3976,7 +4113,7 @@ namespace Enchante
 
         private void RecPayServiceBtn_Click(object sender, EventArgs e)
         {
-            Transaction.PanelShow(RecPayServicePanel);
+            PaymentTransColor();
             RecLoadCompletedWalkinTrans();
             RecLoadCompletedAppointmentTrans();
         }
@@ -4497,7 +4634,7 @@ namespace Enchante
         #region Receptionist Queue Window
         private void RecQueWinBtn_Click(object sender, EventArgs e)
         {
-            Transaction.PanelShow(RecQueWinPanel);
+            RecQueWinColor();
             RecQuePreferredStaffLoadData();
             RecQueGeneralStaffLoadData();
             RecQueWinNextCustomerLbl.Text = "| NEXT IN LINE [GENERAL QUEUE]";
@@ -4509,7 +4646,7 @@ namespace Enchante
 
         private void RecQueWinExitBtn_Click(object sender, EventArgs e)
         {
-            Transaction.PanelShow(RecTransactionPanel);
+            Transaction.PanelShow(RecQueStartPanel);
             RecQueWinGenCatComboText.SelectedIndex = -1;
             RecQueWinStaffCatComboText.SelectedIndex = -1;
 
@@ -4871,7 +5008,7 @@ namespace Enchante
         //ApptMember
         private void RecApptPanelExitBtn_Click(object sender, EventArgs e)
         {
-            Transaction.PanelShow(RecTransactionPanel);
+            Transaction.PanelShow(RecQueStartPanel);
         }
 
         //ApptMember
@@ -5741,7 +5878,7 @@ namespace Enchante
                     cmd.ExecuteNonQuery();
                 }
                 MessageBox.Show("Service successfully booked.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Transaction.PanelShow(RecTransactionPanel);
+                Transaction.PanelShow(RecQueStartPanel);
                 //RecWalkinServiceHistoryDB();
             }
             catch (MySqlException ex)
@@ -5914,13 +6051,13 @@ namespace Enchante
             {
                 connection.Open();
 
-                string currentDate = DateTime.Now.ToString("MM-dd-yyyy");
+                string currentDate = DateTime.Now.ToString("MM-dd-yyyy dddd");
 
                 string query = "SELECT a.TransactionNumber AS TransactionID, a.AppointmentDate, GROUP_CONCAT(DISTINCT sh.AppointmentTime SEPARATOR ', ') AS AppointmentTime " +
                                "FROM appointment a " +
                                "LEFT JOIN servicehistory sh ON a.TransactionNumber = sh.TransactionNumber " +
                                "WHERE a.ServiceStatus = 'Pending' AND a.AppointmentStatus = 'Unconfirmed' AND " +
-                               "STR_TO_DATE(a.AppointmentDate, '%m-%d-%Y') >= STR_TO_DATE(@currentDate, '%m-%d-%Y') " +
+                               "a.AppointmentDate = @currentDate " +
                                "GROUP BY a.TransactionNumber, a.AppointmentDate";
 
                 MySqlCommand command = new MySqlCommand(query, connection);
@@ -6109,7 +6246,7 @@ namespace Enchante
         }
         private void RecApptConfirmBtn_Click(object sender, EventArgs e)
         {
-            Transaction.PanelShow(RecApptConfirmPanel);
+            ApptConfirmTransColor();
             RecApptAcceptLateDeclineDGV.Rows.Clear();
             RecCanceAllServicesDGV.Rows.Clear();
             InitializeAppointmentDataGrid();
@@ -6117,19 +6254,18 @@ namespace Enchante
         }
         private void RecApptConfirmExitBtn_Click(object sender, EventArgs e)
         {
-            Transaction.PanelShow(RecTransactionPanel);
+            Transaction.PanelShow(RecQueStartPanel);
 
         }
         private void RecShopProdBtn_Click(object sender, EventArgs e)
         {
-            Transaction.PanelShow(RecShopProdPanel);
-            RecShopProdTransNumText.Text = TransactionNumberGenerator.ShopProdGenerateTransNumberDefault();
+            ShopProdTransColor();
 
         }
 
         private void RecShopProdExitBtn_Click(object sender, EventArgs e)
         {
-            Transaction.PanelShow(RecTransactionPanel);
+            Transaction.PanelShow(RecQueStartPanel);
 
         }
         private void RecShopProdTransactNumRefresh()
@@ -6688,7 +6824,7 @@ namespace Enchante
                 RecShopProdOrderProdHistoryDB(RecShopProdSelectedProdDGV);
                 RecShopProdInvoiceReceiptGenerator();
                 RecShopProdClearAllField();
-                Transaction.PanelShow(RecTransactionPanel);
+                Transaction.PanelShow(RecQueStartPanel);
             }
         }
         private void RecShopProdClearAllField()
@@ -7443,7 +7579,7 @@ namespace Enchante
 
         private void RecPayServiceExitBtn_Click(object sender, EventArgs e)
         {
-            Transaction.PanelShow(RecTransactionPanel);
+            Transaction.PanelShow(RecQueStartPanel);
             RecPayServiceClearAllField();
         }
 
@@ -7460,7 +7596,7 @@ namespace Enchante
 
         private void MngrInventoryStaffSchedBtn_Click(object sender, EventArgs e)
         {
-            Inventory.PanelShow(MngrSchedPanel);
+            Inventory.PanelShow(MngrPromoPanel);
         }
 
         private void MngrInventoryMembershipExitBtn_Click(object sender, EventArgs e)
@@ -13825,5 +13961,60 @@ namespace Enchante
                 e.Handled = true;
             }
         }
+
+        private void RecTransBtn_Click(object sender, EventArgs e)
+        {
+            InitialWalkinTransColor();
+        }
+
+        private void RecQueBtn_Click(object sender, EventArgs e)
+        {
+            RecQueStartColor();
+            RecQueBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            RecQueWinBtn.Visible = true;
+            RecQueStartBtn.Visible = true;
+
+            RecTransBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            RecWalkInBtn.Visible = false;
+            RecAppointmentBtn.Visible = false;
+            RecApptConfirmBtn.Visible = false;
+            RecPayServiceBtn.Visible = false;
+            RecShopProdBtn.Visible = false;
+
+        }
+
+        private void RecQueStartBtn_Click(object sender, EventArgs e)
+        {
+            RecQueStartColor();
+        }
+
+        private void RecQueStartColor()
+        {
+            Transaction.PanelShow(RecQueStartPanel);
+
+            RecQueStartBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecQueStartBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            RecQueStartBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+            RecQueWinBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecQueWinBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecQueWinBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+        }
+
+        private void RecQueWinColor()
+        {
+            Transaction.PanelShow(RecQueWinPanel);
+
+            RecQueWinBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecQueWinBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            RecQueWinBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+            RecQueStartBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecQueStartBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecQueStartBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+        }
+
     }
 }
