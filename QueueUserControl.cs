@@ -3,37 +3,36 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Documents.Serialization;
 using System.Windows.Forms;
 
 namespace Enchante
 {
-    public partial class StaffCurrentAvailableCustomersUserControl : UserControl
+    public partial class QueueUserControl : UserControl
     {
         public static string mysqlconn = "server=localhost;user=root;database=enchante;password=";
         public event EventHandler StartServiceButtonClicked;
-        public event EventHandler ExpandUserControlButtonClicked;
-        public event EventHandler StaffEndServiceBtnClicked;
+
+        // startting service
+        public event EventHandler QueueUserControl_Clicked;
+        public event EventHandler StaffQueNumberTextBox_Clicked;
+        public event EventHandler StaffCustomerNameTextBox_Clicked;
+        public event EventHandler StaffElapsedTimeTextBox_Clicked;
+        public event EventHandler StaffTransactionIDTextBox_Clicked;
+
+
         public event EventHandler StaffCancelServiceBtnClicked;
-        private System.Windows.Forms.Timer timer;
-        private TimeSpan elapsedTime = TimeSpan.Zero;
-        private TimeSpan lastElapsedTime;
-        private System.Diagnostics.Stopwatch stopwatch;
         private bool viewing = false;
         private Enchante EnchanteForm;
 
-        public StaffCurrentAvailableCustomersUserControl(Enchante EnchanteForm)
+        public QueueUserControl(Enchante EnchanteForm)
         {
             InitializeComponent();
-            StaffEndServiceBtn.Enabled = false;
             this.EnchanteForm = EnchanteForm;
         }
-
 
         public bool Viewing
         {
@@ -41,18 +40,14 @@ namespace Enchante
             set { viewing = value; }
         }
 
-        public TimeSpan GetElapsedTime()
-        {
-            return elapsedTime;
-        }
 
         public void AvailableCustomerSetData(Enchante.PendingCustomers customer)
         {
             StaffTransactionIDTextBox.Text = customer.TransactionNumber;
             StaffCustomerServiceNameSelectedTextBox.Text = customer.ServiceName;
             StaffCustomerServiceStatusTextBox.Text = customer.ServiceStatus;
-            StaffCustomerNameTextBox.Text = "Client Name: " + customer.ClientName;
-
+            StaffCustomerNameTextBox.Text = customer.ClientName;
+            StaffQueTypeTextBox.Text = customer.QueType;
             StaffServiceIDTextBox.Text = customer.ServiceID;
             StaffQueNumberTextBox.Text = customer.QueNumber;
         }
@@ -62,46 +57,16 @@ namespace Enchante
             StaffTransactionIDTextBox.Text = customer.TransactionNumber;
             StaffCustomerServiceNameSelectedTextBox.Text = customer.ServiceName;
             StaffCustomerServiceStatusTextBox.Text = customer.ServiceStatus;
-            StaffCustomerNameTextBox.Text = "Client Name: " + customer.ClientName;
+            StaffCustomerNameTextBox.Text = customer.ClientName;
             StaffQueTypeTextBox.Text = customer.QueType;
             StaffServiceIDTextBox.Text = customer.ServiceID;
             StaffQueNumberTextBox.Text = customer.QueNumber;
         }
 
+
         public string CurrentStaffID { get; set; }
 
-        public void StartTimer()
-        {
-            stopwatch = new System.Diagnostics.Stopwatch();
-            stopwatch.Start();
-            timer = new Timer();
-            timer.Interval = 1000;
-            timer.Tick += Timer_Tick;
-            if (StaffCustomerServiceStatusTextBox.Text == "Pending")
-            {
-                StaffCustomerServiceStatusTextBox.Text = "In Session";
-            }
-            else if (StaffCustomerServiceStatusTextBox.Text == "Pending Paid")
-            {
-                StaffCustomerServiceStatusTextBox.Text = "In Session Paid";
-            }
-            StaffStartServiceBtn.Enabled = false;
-            StaffUpdateServiceStatusOfCustomerinDB(StaffCustomerServiceStatusTextBox.Text);
-            timer.Start();
-        }
-        private void StopTimer()
-        {
-            if (timer != null && timer.Enabled)
-            {
-                timer.Tick -= Timer_Tick;
-                timer.Stop();
-                timer.Dispose();
-                stopwatch.Stop();
-                lastElapsedTime = elapsedTime;
-                timer = null;
-                stopwatch = null;
-            }
-        }
+
 
 
 
@@ -152,114 +117,6 @@ namespace Enchante
                         command.Parameters.AddWithValue("@EmployeeID", attenidingStaff);
                         command.Parameters.AddWithValue("@CurrentCustomerName", customerName);
                         command.Parameters.AddWithValue("@CurrentCustomerQueNumber", customerQueNumber);
-                        command.ExecuteNonQuery();
-                    }
-                }
-                else if (UpdatedServiceStatus == "Completed")
-                {
-                    string updateQuery1 = "UPDATE servicehistory SET ServiceStatus = @ServiceStatus, ServiceEnd = @ServiceEnd, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber AND ServiceID = @ServiceID";
-                    string updateQuery2 = "UPDATE systemusers SET Availability = 'Available', CurrentCustomerName = '', CurrentCustomerQueNumber = '' WHERE EmployeeID = @EmployeeID";
-                    string updateQuery3 = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
-                    string updateQuery4 = "UPDATE appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
-
-                    using (MySqlCommand command = new MySqlCommand(updateQuery1, connection))
-                    {
-                        command.Parameters.AddWithValue("@ServiceStatus", UpdatedServiceStatus);
-                        command.Parameters.AddWithValue("@TransactionNumber", transactionID);
-                        command.Parameters.AddWithValue("@ServiceID", serviceID);
-                        command.Parameters.AddWithValue("@ServiceEnd", DateTime.Now.ToString("HH:mm:ss"));
-                        command.Parameters.AddWithValue("@ServiceDuration", timeElapsed);
-
-                        command.ExecuteNonQuery();
-                    }
-
-                    string countQuery = "SELECT COUNT(*) FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND ServiceStatus = 'Pending' ";
-                    int matchCount;
-
-                    using (MySqlCommand command = new MySqlCommand(countQuery, connection))
-                    {
-                        command.Parameters.AddWithValue("@TransactionNumber", transactionID);
-                        matchCount = Convert.ToInt32(command.ExecuteScalar());
-                    }
-
-                    string serviceStatus = (matchCount == 0) ? "Completed" : "Pending";
-
-                    using (MySqlCommand command = new MySqlCommand(updateQuery3, connection))
-                    {
-                        command.Parameters.AddWithValue("@ServiceStatus", serviceStatus);
-                        command.Parameters.AddWithValue("@TransactionNumber", transactionID);
-                        command.Parameters.AddWithValue("@ServiceDuration", timeElapsed);
-
-                        command.ExecuteNonQuery();
-                    }
-
-                    using (MySqlCommand command = new MySqlCommand(updateQuery4, connection))
-                    {
-                        command.Parameters.AddWithValue("@ServiceStatus", serviceStatus);
-                        command.Parameters.AddWithValue("@TransactionNumber", transactionID);
-                        command.Parameters.AddWithValue("@ServiceDuration", timeElapsed);
-
-                        command.ExecuteNonQuery();
-                    }
-
-
-                    using (MySqlCommand command = new MySqlCommand(updateQuery2, connection))
-                    {
-                        command.Parameters.AddWithValue("@EmployeeID", attenidingStaff);
-                        command.ExecuteNonQuery();
-                    }
-                }
-                else if (UpdatedServiceStatus == "Completed Paid")
-                {
-                    string updateQuery1 = "UPDATE servicehistory SET ServiceStatus = @ServiceStatus, ServiceEnd = @ServiceEnd, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber AND ServiceID = @ServiceID";
-                    string updateQuery2 = "UPDATE systemusers SET Availability = 'Available', CurrentCustomerName = '', CurrentCustomerQueNumber = '' WHERE EmployeeID = @EmployeeID";
-                    string updateQuery3 = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
-                    string updateQuery4 = "UPDATE appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
-
-                    using (MySqlCommand command = new MySqlCommand(updateQuery1, connection))
-                    {
-                        command.Parameters.AddWithValue("@ServiceStatus", UpdatedServiceStatus);
-                        command.Parameters.AddWithValue("@TransactionNumber", transactionID);
-                        command.Parameters.AddWithValue("@ServiceID", serviceID);
-                        command.Parameters.AddWithValue("@ServiceEnd", DateTime.Now.ToString("HH:mm:ss"));
-                        command.Parameters.AddWithValue("@ServiceDuration", timeElapsed);
-
-                        command.ExecuteNonQuery();
-                    }
-
-                    string countQuery = "SELECT COUNT(*) FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND ServiceStatus = 'Pending Paid' ";
-                    int matchCount;
-
-                    using (MySqlCommand command = new MySqlCommand(countQuery, connection))
-                    {
-                        command.Parameters.AddWithValue("@TransactionNumber", transactionID);
-                        matchCount = Convert.ToInt32(command.ExecuteScalar());
-                    }
-
-                    string serviceStatus = (matchCount == 0) ? "Paid" : "Pending Paid";
-
-                    using (MySqlCommand command = new MySqlCommand(updateQuery3, connection))
-                    {
-                        command.Parameters.AddWithValue("@ServiceStatus", serviceStatus);
-                        command.Parameters.AddWithValue("@TransactionNumber", transactionID);
-                        command.Parameters.AddWithValue("@ServiceDuration", timeElapsed);
-
-                        command.ExecuteNonQuery();
-                    }
-
-                    using (MySqlCommand command = new MySqlCommand(updateQuery4, connection))
-                    {
-                        command.Parameters.AddWithValue("@ServiceStatus", serviceStatus);
-                        command.Parameters.AddWithValue("@TransactionNumber", transactionID);
-                        command.Parameters.AddWithValue("@ServiceDuration", timeElapsed);
-
-                        command.ExecuteNonQuery();
-                    }
-
-
-                    using (MySqlCommand command = new MySqlCommand(updateQuery2, connection))
-                    {
-                        command.Parameters.AddWithValue("@EmployeeID", attenidingStaff);
                         command.ExecuteNonQuery();
                     }
                 }
@@ -368,109 +225,39 @@ namespace Enchante
             }
         }
 
-        
-
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            if (timer == null || timer.Enabled == false)
-            {
-                return; // Timer is already disposed or stopped
-            }
-
-            elapsedTime = elapsedTime.Add(TimeSpan.FromSeconds(1));
-
-            // Display the updated elapsed time in the textbox
-            if (StaffElapsedTimeTextBox.InvokeRequired)
-            {
-                StaffElapsedTimeTextBox.Invoke(new Action(() =>
-                {
-                    StaffElapsedTimeTextBox.Text = elapsedTime.ToString(@"hh\:mm\:ss");
-                }));
-            }
-            else
-            {
-                StaffElapsedTimeTextBox.Text = elapsedTime.ToString(@"hh\:mm\:ss");
-            }
-        }
-
-        private void StaffEndServiceBtn_Click(object sender, EventArgs e)
-        {
-            StopTimer();
-            StaffElapsedTimeTextBox.Text = lastElapsedTime.ToString(@"hh\:mm\:ss");
-            if (StaffCustomerServiceStatusTextBox.Text == "In Session Paid")
-            {
-                StaffCustomerServiceStatusTextBox.Text = "Completed Paid";
-            }
-            else if (StaffCustomerServiceStatusTextBox.Text == "In Session")
-            {
-                StaffCustomerServiceStatusTextBox.Text = "Completed";
-            }
-            StaffEndServiceBtn.Enabled = false;
-            StaffUpdateServiceStatusOfCustomerinDB(StaffCustomerServiceStatusTextBox.Text);
-            if (Parent != null)
-            {
-                Parent.Controls.Remove(this);
-            }
-            string customerName = StaffCustomerNameTextBox.Text;
-            string serviceID = StaffServiceIDTextBox.Text;
-            string transactionID = StaffTransactionIDTextBox.Text;
-            string staffID = CurrentStaffID;
-            RateMyService rateForm = new RateMyService(EnchanteForm, transactionID, staffID, customerName, serviceID);
-            rateForm.FormClosed += RateForm_FormClosed;
-
-            // Set the transactionID property of rateForm
-            rateForm.TransactionID = transactionID;
-            rateForm.StaffID = staffID;
-            rateForm.CustomerName = customerName;
-            rateForm.ServiceID = serviceID;
-
-            // Show the RateMyService form
-            rateForm.Show();
-            EnchanteForm.RefreshFlowLayoutPanel();
-        }
-
-        private void RateForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            RateMyService rateForm = sender as RateMyService;
-            if (rateForm != null)
-            {
-                rateForm.Dispose(); 
-                rateForm = null;
-            }
-        }
 
         private void StaffCancelServiceBtn_Click(object sender, EventArgs e)
         {
-            StaffUpdateServiceStatusOfCustomerinDB("Cancelled");
-            if (Parent != null)
+            DialogResult result = MessageBox.Show("Do you want to cancel this service?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
             {
-                Parent.Controls.Remove(this);
+                StaffUpdateServiceStatusOfCustomerinDB("Cancelled");
+                if (Parent != null)
+                {
+                    Parent.Controls.Remove(this);
+                }
+                EnchanteForm.RefreshFlowLayoutPanel();
+                EnchanteForm.RefreshAvailableStaff();
             }
-            EnchanteForm.RefreshFlowLayoutPanel();
+            else
+            {
+                return;
+            }
         }
 
 
         private void StaffStartServiceBtn_Click(object sender, EventArgs e)
         {
-            string serviceID = StaffServiceIDTextBox.Text;
-            if (CheckIfInventoryIsEnoughForService(serviceID, EnchanteForm.StaffPersonalInventoryDataGrid) == true)
-            {
-                StartServiceButtonClicked?.Invoke(this, EventArgs.Empty);
-                StaffEndServiceBtn.Enabled = true;
-                EnchanteForm.RemovePendingUserControls(this);
-            }
-            else
-            {
-                MessageBox.Show("You don't have enough stock to perform this service");
-            }
+
 
         }
 
         int matchedRowCount = 0;
-        public bool CheckIfInventoryIsEnoughForService(string serviceID, DataGridView staffPersonalInventoryDataGrid)
+        public bool CheckIfInventoryIsEnoughForService(string serviceID, DataGridView RecQueStartInventoryDGV)
         {
 
-            if (staffPersonalInventoryDataGrid.Rows.Count == 0)
+            if (RecQueStartInventoryDGV.Rows.Count == 0)
             {
                 return false;
             }
@@ -511,10 +298,10 @@ namespace Enchante
                             }
                             bool isEnoughInventory = false; // Flag to track inventory sufficiency
 
-                            foreach (DataGridViewRow row in staffPersonalInventoryDataGrid.Rows)
+                            foreach (DataGridViewRow row in RecQueStartInventoryDGV.Rows)
                             {
-                                string staffItemID = row.Cells["StaffItemID"].Value.ToString();
-                                int staffItemStock = int.Parse(row.Cells["StaffItemStock"].Value.ToString());
+                                string staffItemID = row.Cells["RecStaffItemID"].Value.ToString();
+                                int staffItemStock = int.Parse(row.Cells["RecStaffItemStock"].Value.ToString());
 
 
                                 if (requiredItemsDict.ContainsKey(staffItemID))
@@ -566,8 +353,8 @@ namespace Enchante
                 {
                     int requiredItemQuantity = requiredItemsDict[staffItemID];
 
-                    string selectQuery = "SELECT ItemStock FROM staff_inventory " +
-                                         "WHERE EmployeeID = @CurrentStaffID AND ItemID = @StaffItemID";
+                    string selectQuery = "SELECT ItemStock FROM inventory " +
+                                         "WHERE ItemID = @StaffItemID";
 
                     MySqlCommand selectCommand = new MySqlCommand(selectQuery, connection);
                     selectCommand.Parameters.AddWithValue("@CurrentStaffID", CurrentStaffID);
@@ -579,9 +366,9 @@ namespace Enchante
                     {
                         if (int.TryParse(staffItemStock, out int stock) && requiredItemQuantity <= stock)
                         {
-                            string updateQuery = $"UPDATE staff_inventory " +
+                            string updateQuery = $"UPDATE inventory " +
                                                  $"SET ItemStock = @NewStock " +
-                                                 $"WHERE EmployeeID = @CurrentStaffID AND ItemID = @StaffItemID";
+                                                 $"WHERE ItemID = @StaffItemID";
 
                             MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection);
                             updateCommand.Parameters.AddWithValue("@NewStock", (stock - requiredItemQuantity).ToString());
@@ -591,10 +378,10 @@ namespace Enchante
                             int rowsAffected = updateCommand.ExecuteNonQuery();
                             if (rowsAffected > 0)
                             {
-                                //MessageBox.Show($"Deducted {requiredItemQuantity} items from staff item: {staffItemID}");
+                                MessageBox.Show($"Deducted {requiredItemQuantity} items from staff item: {staffItemID}");
                                 EnchanteForm.CheckItemStockPersonalStatus(staffItemID, staffID);
-                                EnchanteForm.StaffPersonalInventoryDataGrid.Rows.Clear();
-                                EnchanteForm.InitializeStaffPersonalInventoryDataGrid();
+                                EnchanteForm.RecQueStartInventoryDGV.Rows.Clear();
+                                EnchanteForm.InitializeMainInventory();
                             }
                             else
                             {
@@ -613,5 +400,235 @@ namespace Enchante
                 }
             }
         }
+
+        public void QueueUserControl_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to start this service?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                string serviceID = StaffServiceIDTextBox.Text;
+                if (CheckIfInventoryIsEnoughForService(serviceID, EnchanteForm.RecQueStartInventoryDGV) == true)
+                {
+                    StartServiceButtonClicked?.Invoke(this, EventArgs.Empty);
+                    if (StaffCustomerServiceStatusTextBox.Text == "Pending")
+                    {
+                        StaffCustomerServiceStatusTextBox.Text = "In Session";
+                    }
+                    else if (StaffCustomerServiceStatusTextBox.Text == "Pending Paid")
+                    {
+                        StaffCustomerServiceStatusTextBox.Text = "In Session Paid";
+                    }
+                    StaffUpdateServiceStatusOfCustomerinDB(StaffCustomerServiceStatusTextBox.Text);
+                    if (Parent != null)
+                    {
+                        Parent.Controls.Remove(this);
+                    }
+                    EnchanteForm.RefreshFlowLayoutPanel();
+                    EnchanteForm.InitializeInSessionCustomers();
+                    EnchanteForm.RefreshAvailableStaff();
+                }
+                else
+                {
+                    MessageBox.Show("You don't have enough stock to perform this service");
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void StaffElapsedTimeTextBox_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to start this service?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                string serviceID = StaffServiceIDTextBox.Text;
+                if (CheckIfInventoryIsEnoughForService(serviceID, EnchanteForm.RecQueStartInventoryDGV) == true)
+                {
+                    StartServiceButtonClicked?.Invoke(this, EventArgs.Empty);
+                    if (StaffCustomerServiceStatusTextBox.Text == "Pending")
+                    {
+                        StaffCustomerServiceStatusTextBox.Text = "In Session";
+                    }
+                    else if (StaffCustomerServiceStatusTextBox.Text == "Pending Paid")
+                    {
+                        StaffCustomerServiceStatusTextBox.Text = "In Session Paid";
+                    }
+                    StaffUpdateServiceStatusOfCustomerinDB(StaffCustomerServiceStatusTextBox.Text);
+                    if (Parent != null)
+                    {
+                        Parent.Controls.Remove(this);
+                    }
+                    EnchanteForm.RefreshFlowLayoutPanel();
+                    EnchanteForm.InitializeInSessionCustomers();
+                    EnchanteForm.RefreshAvailableStaff();
+                }
+                else
+                {
+                    MessageBox.Show("You don't have enough stock to perform this service");
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void StaffQueNumberTextBox_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to start this service?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                string serviceID = StaffServiceIDTextBox.Text;
+                if (CheckIfInventoryIsEnoughForService(serviceID, EnchanteForm.RecQueStartInventoryDGV) == true)
+                {
+                    StartServiceButtonClicked?.Invoke(this, EventArgs.Empty);
+                    if (StaffCustomerServiceStatusTextBox.Text == "Pending")
+                    {
+                        StaffCustomerServiceStatusTextBox.Text = "In Session";
+                    }
+                    else if (StaffCustomerServiceStatusTextBox.Text == "Pending Paid")
+                    {
+                        StaffCustomerServiceStatusTextBox.Text = "In Session Paid";
+                    }
+                    StaffUpdateServiceStatusOfCustomerinDB(StaffCustomerServiceStatusTextBox.Text);
+                    if (Parent != null)
+                    {
+                        Parent.Controls.Remove(this);
+                    }
+                    EnchanteForm.RefreshFlowLayoutPanel();
+                    EnchanteForm.InitializeInSessionCustomers();
+                    EnchanteForm.RefreshAvailableStaff();
+                }
+                else
+                {
+                    MessageBox.Show("You don't have enough stock to perform this service");
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void StaffCustomerNameTextBox_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to start this service?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                string serviceID = StaffServiceIDTextBox.Text;
+                if (CheckIfInventoryIsEnoughForService(serviceID, EnchanteForm.RecQueStartInventoryDGV) == true)
+                {
+                    StartServiceButtonClicked?.Invoke(this, EventArgs.Empty);
+                    if (StaffCustomerServiceStatusTextBox.Text == "Pending")
+                    {
+                        StaffCustomerServiceStatusTextBox.Text = "In Session";
+                    }
+                    else if (StaffCustomerServiceStatusTextBox.Text == "Pending Paid")
+                    {
+                        StaffCustomerServiceStatusTextBox.Text = "In Session Paid";
+                    }
+                    StaffUpdateServiceStatusOfCustomerinDB(StaffCustomerServiceStatusTextBox.Text);
+                    if (Parent != null)
+                    {
+                        Parent.Controls.Remove(this);
+                    }
+                    EnchanteForm.RefreshFlowLayoutPanel();
+                    EnchanteForm.InitializeInSessionCustomers();
+                    EnchanteForm.RefreshAvailableStaff();
+                }
+                else
+                {
+                    MessageBox.Show("You don't have enough stock to perform this service");
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void StaffTransactionIDTextBox_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to start this service?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                string serviceID = StaffServiceIDTextBox.Text;
+                if (CheckIfInventoryIsEnoughForService(serviceID, EnchanteForm.RecQueStartInventoryDGV) == true)
+                {
+                    StartServiceButtonClicked?.Invoke(this, EventArgs.Empty);
+                    if (StaffCustomerServiceStatusTextBox.Text == "Pending")
+                    {
+                        StaffCustomerServiceStatusTextBox.Text = "In Session";
+                    }
+                    else if (StaffCustomerServiceStatusTextBox.Text == "Pending Paid")
+                    {
+                        StaffCustomerServiceStatusTextBox.Text = "In Session Paid";
+                    }
+                    StaffUpdateServiceStatusOfCustomerinDB(StaffCustomerServiceStatusTextBox.Text);
+                    if (Parent != null)
+                    {
+                        Parent.Controls.Remove(this);
+                    }
+                    EnchanteForm.RefreshFlowLayoutPanel();
+                    EnchanteForm.InitializeInSessionCustomers();
+                    EnchanteForm.RefreshAvailableStaff();
+                }
+                else
+                {
+                    MessageBox.Show("You don't have enough stock to perform this service");
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void StaffQueTypeTextBox_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to start this service?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                string serviceID = StaffServiceIDTextBox.Text;
+                if (CheckIfInventoryIsEnoughForService(serviceID, EnchanteForm.RecQueStartInventoryDGV) == true)
+                {
+                    StartServiceButtonClicked?.Invoke(this, EventArgs.Empty);
+                    if (StaffCustomerServiceStatusTextBox.Text == "Pending")
+                    {
+                        StaffCustomerServiceStatusTextBox.Text = "In Session";
+                    }
+                    else if (StaffCustomerServiceStatusTextBox.Text == "Pending Paid")
+                    {
+                        StaffCustomerServiceStatusTextBox.Text = "In Session Paid";
+                    }
+                    StaffUpdateServiceStatusOfCustomerinDB(StaffCustomerServiceStatusTextBox.Text);
+                    if (Parent != null)
+                    {
+                        Parent.Controls.Remove(this);
+                    }
+                    EnchanteForm.RefreshFlowLayoutPanel();
+                    EnchanteForm.InitializeInSessionCustomers();
+                    EnchanteForm.RefreshAvailableStaff();
+                }
+                else
+                {
+                    MessageBox.Show("You don't have enough stock to perform this service");
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        
     }
 }
