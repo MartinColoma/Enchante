@@ -226,12 +226,19 @@ namespace Enchante
             MngrMemAccMemTypeBox.Items.Add("PREMIUM");
             MngrMemAccMemTypeBox.Items.Add("SVIP");
 
+            MngrVoucherPromoCategoryComboBox.Items.Add("Hair Styling");
+            MngrVoucherPromoCategoryComboBox.Items.Add("Face & Skin");
+            MngrVoucherPromoCategoryComboBox.Items.Add("Nail Care");
+            MngrVoucherPromoCategoryComboBox.Items.Add("Massage");
+            MngrVoucherPromoCategoryComboBox.Items.Add("Spa");
+            MngrVoucherPromoCategoryComboBox.Items.Add("All Categories");
+
             ProductHistoryShow();
             ServiceHistoryShow();
             MemberAccountsShow();
             PopulateRequiredItemsComboBox();
-
-
+            VouchersShow();
+            PromoCodeGenerator();
         }
 
         private void Enchante_Load(object sender, EventArgs e)
@@ -13939,6 +13946,671 @@ namespace Enchante
             }
 
             return result;
+        }
+
+        private void VouchersShow()
+        {
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string countQuery = "SELECT COUNT(*) FROM voucher";
+                    MySqlCommand countCommand = new MySqlCommand(countQuery, connection);
+                    int totalRows = Convert.ToInt32(countCommand.ExecuteScalar());
+
+                    string query = "SELECT DateStart, DateEnd, PromoName, PromoCategory, PromoCode, PromoDiscount, " +
+                                    "AvailableNumber, PromoCreated FROM voucher " +
+                                    "ORDER BY PromoCreated DESC " +
+                                    "LIMIT 10";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+                    adapter.Fill(dataTable);
+
+                    if (!dataTable.Columns.Contains("Status"))
+                    {
+                        dataTable.Columns.Add("Status", typeof(string));
+                    }
+
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        string promoCode = row["PromoCode"].ToString();
+                        DateTime dateStart = Convert.ToDateTime(row["DateStart"]);
+                        DateTime dateEnd = Convert.ToDateTime(row["DateEnd"]);
+                        int availableNumber = Convert.ToInt32(row["AvailableNumber"]);
+
+                        DateTime currentDate = DateTime.Now;
+                        string status = "";
+
+                        if (availableNumber == 0)
+                        {
+                            status = "Fully Claimed";
+                        }
+                        else if (currentDate > dateEnd)
+                        {
+                            status = "Expired";
+                        }
+                        else if (currentDate >= dateStart && currentDate <= dateEnd)
+                        {
+                            status = "Ongoing";
+                        }
+                        else
+                        {
+                            status = "Pending";
+                        }
+
+                        string updateStatusQuery = "UPDATE voucher SET Status = @Status WHERE PromoCode = @PromoCode";
+                        MySqlCommand updateStatusCommand = new MySqlCommand(updateStatusQuery, connection);
+                        updateStatusCommand.Parameters.AddWithValue("@Status", status);
+                        updateStatusCommand.Parameters.AddWithValue("@PromoCode", promoCode);
+                        updateStatusCommand.ExecuteNonQuery();
+
+                        row["Status"] = status;
+                    }
+
+                    MngrVoucherDGV.DataSource = dataTable;
+
+                    int currentBatch = totalRows > 0 ? 1 : 0;
+                    int totalBatches = (int)Math.Ceiling((double)totalRows / 10);
+
+                    MngrVoucherCurrentRecordLbl.Text = $"{currentBatch} of {totalBatches}";
+
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void MngrVoucherInsertBtn_Click(object sender, EventArgs e)
+        {
+            DateTime dateStart = MngrVoucherDatePickerStart.Value;
+            DateTime dateEnd = MngrVoucherDatePickerEnd.Value;
+            string promoName = MngrVoucherPromoNameTextBox.Text;
+            string promoCode = MngrVoucherPromoCodeTextBox.Text;
+            string promoDiscount = MngrVoucherPromoDiscTextBox.Text;
+            string promoCategory = MngrVoucherSelectCatTextBox.Text;
+            string availableNumber = MngrVoucherAvailNumTextBox.Text;
+            DateTime promoCreated = DateTime.Now;
+
+            if (string.IsNullOrWhiteSpace(promoName) || string.IsNullOrWhiteSpace(promoDiscount)
+                || string.IsNullOrWhiteSpace(availableNumber) || string.IsNullOrWhiteSpace(promoCategory))
+            {
+                MessageBox.Show("Please fill in all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (dateStart > dateEnd && dateStart.Date != dateEnd.Date)
+            {
+                MessageBox.Show("Start date cannot be ahead of end date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!promoDiscount.EndsWith("%"))
+            {
+                MessageBox.Show("Promo discount must end with '%'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!int.TryParse(availableNumber, out _))
+            {
+                MessageBox.Show("Please enter a valid number for Available Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string formattedDateStart = dateStart.ToString("MMMM d, yyyy");
+            string formattedDateEnd = dateEnd.ToString("MMMM d, yyyy");
+            string formattedPromoCreated = promoCreated.ToString("MMMM d, yyyy HH:mm:ss");
+
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            string query = "INSERT INTO voucher (DateStart, DateEnd, PromoName, PromoCategory, PromoCode, PromoDiscount, AvailableNumber, PromoCreated) " +
+                           "VALUES (@DateStart, @DateEnd, @PromoName, @PromoCategory, @PromoCode, @PromoDiscount, @AvailableNumber, @PromoCreated)";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@DateStart", formattedDateStart);
+                    command.Parameters.AddWithValue("@DateEnd", formattedDateEnd);
+                    command.Parameters.AddWithValue("@PromoName", promoName);
+                    command.Parameters.AddWithValue("@PromoCategory", promoCategory);
+                    command.Parameters.AddWithValue("@PromoCode", promoCode);
+                    command.Parameters.AddWithValue("@PromoDiscount", promoDiscount);
+                    command.Parameters.AddWithValue("@AvailableNumber", availableNumber);
+                    command.Parameters.AddWithValue("@PromoCreated", formattedPromoCreated);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+
+            MessageBox.Show("Voucher inserted successfully!", "Information");
+            VouchersShow();
+            ClearFields();
+            PromoCodeGenerator();
+        }
+
+        private void PromoCodeGenerator()
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            StringBuilder codeBuilder = new StringBuilder();
+            Random random = new Random();
+
+            for (int i = 0; i < 10; i++)
+            {
+                codeBuilder.Append(chars[random.Next(chars.Length)]);
+            }
+
+            MngrVoucherPromoCodeTextBox.Text = codeBuilder.ToString();
+        }
+
+        private void ClearFields()
+        {
+            MngrVoucherDatePickerStart.Value = DateTime.Today;
+            MngrVoucherDatePickerEnd.Value = DateTime.Today;
+            MngrVoucherPromoNameTextBox.Text = string.Empty;
+            MngrVoucherPromoCodeTextBox.Text = string.Empty;
+            MngrVoucherPromoDiscTextBox.Text = string.Empty;
+            MngrVoucherAvailNumTextBox.Text = string.Empty;
+            MngrVoucherSelectCatTextBox.Text = string.Empty;
+        }
+
+        private void MngrVoucherEditBtn_Click(object sender, EventArgs e)
+        {
+            if (MngrVoucherDGV.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = MngrVoucherDGV.SelectedRows[0];
+
+                DateTime dateStart = Convert.ToDateTime(selectedRow.Cells["DateStart"].Value);
+                DateTime dateEnd = Convert.ToDateTime(selectedRow.Cells["DateEnd"].Value);
+                string promoName = Convert.ToString(selectedRow.Cells["PromoName"].Value);
+                string promoCategory = Convert.ToString(selectedRow.Cells["PromoCategory"].Value);
+                string promoCode = Convert.ToString(selectedRow.Cells["PromoCode"].Value);
+                string promoDiscount = Convert.ToString(selectedRow.Cells["PromoDiscount"].Value);
+                int availableNumber = Convert.ToInt32(selectedRow.Cells["AvailableNumber"].Value);
+
+                MngrVoucherDatePickerStart.Value = dateStart;
+                MngrVoucherDatePickerEnd.Value = dateEnd;
+                MngrVoucherPromoNameTextBox.Text = promoName;
+                MngrVoucherPromoCodeTextBox.Text = promoCode;
+                MngrVoucherPromoDiscTextBox.Text = promoDiscount;
+                MngrVoucherSelectCatTextBox.Text = promoCategory;
+                MngrVoucherAvailNumTextBox.Text = availableNumber.ToString();
+
+                MngrVoucherDGV.ClearSelection();
+                MngrVoucherEditBtn.Visible = false;
+                MngrVoucherInsertBtn.Visible = false;
+                MngrVoucherUpdateBtn.Visible = true;
+                MngrVoucherCancelBtn.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to edit.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void MngrVoucherCancelBtn_Click(object sender, EventArgs e)
+        {
+            ClearFields();
+            PromoCodeGenerator();
+            MngrVoucherEditBtn.Visible = true;
+            MngrVoucherInsertBtn.Visible = true;
+            MngrVoucherUpdateBtn.Visible = false;
+            MngrVoucherCancelBtn.Visible = false;
+        }
+
+        private void MngrVoucherUpdateBtn_Click(object sender, EventArgs e)
+        {
+            DateTime updatedDateStart = MngrVoucherDatePickerStart.Value;
+            DateTime updatedDateEnd = MngrVoucherDatePickerEnd.Value;
+            string updatedPromoName = MngrVoucherPromoNameTextBox.Text;
+            string updatedPromoCode = MngrVoucherPromoCodeTextBox.Text;
+            string updatedPromoDiscount = MngrVoucherPromoDiscTextBox.Text;
+            string updatedAvailableNumber = MngrVoucherAvailNumTextBox.Text;
+            string updatedPromoCategory = MngrVoucherSelectCatTextBox.Text;
+
+            if (string.IsNullOrWhiteSpace(updatedPromoName) || string.IsNullOrWhiteSpace(updatedPromoDiscount)
+                || string.IsNullOrWhiteSpace(updatedAvailableNumber) || string.IsNullOrEmpty(updatedPromoCategory))
+            {
+                MessageBox.Show("Please fill in all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (updatedDateStart > updatedDateEnd && updatedDateStart.Date != updatedDateEnd.Date)
+            {
+                MessageBox.Show("Start date cannot be ahead of end date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!updatedPromoDiscount.EndsWith("%"))
+            {
+                MessageBox.Show("Promo discount must end with '%'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!int.TryParse(updatedAvailableNumber, out _))
+            {
+                MessageBox.Show("Please enter a valid number for Available Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string formattedDateStart = updatedDateStart.ToString("MMMM d, yyyy");
+            string formattedDateEnd = updatedDateEnd.ToString("MMMM d, yyyy");
+
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            string updateQuery = "UPDATE voucher SET DateStart = @DateStart, DateEnd = @DateEnd, " +
+                                 "PromoName = @PromoName, PromoCategory = @PromoCategory, PromoDiscount = @PromoDiscount, " +
+                                 "AvailableNumber = @AvailableNumber " +
+                                 "WHERE PromoCode = @PromoCode";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                using (MySqlCommand command = new MySqlCommand(updateQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@DateStart", formattedDateStart);
+                    command.Parameters.AddWithValue("@DateEnd", formattedDateEnd);
+                    command.Parameters.AddWithValue("@PromoName", updatedPromoName);
+                    command.Parameters.AddWithValue("@PromoCategory", updatedPromoCategory);
+                    command.Parameters.AddWithValue("@PromoDiscount", updatedPromoDiscount);
+                    command.Parameters.AddWithValue("@AvailableNumber", updatedAvailableNumber);
+                    command.Parameters.AddWithValue("@PromoCode", updatedPromoCode);
+
+                    try
+                    {
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Update successful.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            VouchersShow();
+                            ClearFields();
+                            PromoCodeGenerator();
+                            UpdateDataGridViewAndLabel();
+                            MngrVoucherEditBtn.Visible = true;
+                            MngrVoucherInsertBtn.Visible = true;
+                            MngrVoucherUpdateBtn.Visible = false;
+                            MngrVoucherCancelBtn.Visible = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Promo code not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error updating voucher: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private int currentBatch = 1;
+
+        private void MngrVoucherNextBtn_Click(object sender, EventArgs e)
+        {
+            int totalBatches = string.IsNullOrEmpty(MngrVoucherSearchTextBox.Text.Trim())
+                                ? (int)Math.Ceiling((double)GetTotalRows() / 10)
+                                : (int)Math.Ceiling((double)GetFilteredTotalRows() / 10);
+
+            if (currentBatch >= totalBatches)
+            {
+                MessageBox.Show("No more data to show.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            currentBatch++;
+
+            UpdateDataGridViewAndLabel();
+        }
+
+        private void MngrVoucherPreviousBtn_Click(object sender, EventArgs e)
+        {
+            if (currentBatch <= 1)
+            {
+                MessageBox.Show("No more previous data to show.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            currentBatch--;
+
+            UpdateDataGridViewAndLabel();
+        }
+
+        private void UpdateDataGridViewAndLabel()
+        {
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string countQuery = string.IsNullOrEmpty(MngrVoucherSearchTextBox.Text.Trim())
+                                        ? "SELECT COUNT(*) FROM voucher"
+                                        : $"SELECT COUNT(*) FROM voucher WHERE {GetFilterExpression()}";
+
+                    MySqlCommand countCommand = new MySqlCommand(countQuery, connection);
+                    int totalRows = Convert.ToInt32(countCommand.ExecuteScalar());
+
+                    if (totalRows == 0)
+                    {
+                        MessageBox.Show("No matching data found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MngrVoucherCurrentRecordLbl.Text = "0 of 0";
+                        return;
+                    }
+
+                    int totalBatches = (int)Math.Ceiling((double)totalRows / 10);
+
+                    currentBatch = Math.Min(currentBatch, totalBatches);
+
+                    string query = string.IsNullOrEmpty(MngrVoucherSearchTextBox.Text.Trim())
+                                    ? GetRegularQuery()
+                                    : GetFilteredQuery();
+
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+                    adapter.Fill(dataTable);
+
+                    if (!dataTable.Columns.Contains("Status"))
+                    {
+                        dataTable.Columns.Add("Status", typeof(string));
+                    }
+
+                    if (!dataTable.Columns.Contains("PromoCategory"))
+                    {
+                        dataTable.Columns.Add("PromoCategory", typeof(string));
+                    }
+
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        string promoCode = row["PromoCode"].ToString();
+                        DateTime dateStart = Convert.ToDateTime(row["DateStart"]);
+                        DateTime dateEnd = Convert.ToDateTime(row["DateEnd"]);
+                        int availableNumber = Convert.ToInt32(row["AvailableNumber"]);
+
+                        DateTime currentDate = DateTime.Now;
+                        string status = "";
+
+                        if (availableNumber == 0)
+                        {
+                            status = "Fully Claimed";
+                        }
+                        else if (currentDate > dateEnd)
+                        {
+                            status = "Expired";
+                        }
+                        else if (currentDate >= dateStart && currentDate <= dateEnd)
+                        {
+                            status = "Ongoing";
+                        }
+                        else
+                        {
+                            status = "Pending";
+                        }
+
+                        row["Status"] = status;
+                    }
+
+                    foreach (DataColumn column in dataTable.Columns)
+                    {
+                        if (!MngrVoucherDGV.Columns.Contains(column.ColumnName))
+                        {
+                            MngrVoucherDGV.Columns.Add(column.ColumnName, column.ColumnName);
+                        }
+                    }
+
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        string promoCode = row["PromoCode"].ToString();
+
+                        string promoCategory = GetPromoCategoryFromDatabase(promoCode);
+
+                        row["PromoCategory"] = promoCategory;
+                    }
+
+                    MngrVoucherDGV.DataSource = dataTable;
+
+                    MngrVoucherCurrentRecordLbl.Text = $"{currentBatch} of {totalBatches}";
+
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private string GetPromoCategoryFromDatabase(string promoCode)
+        {
+            string promoCategory = "";
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            string query = "SELECT PromoCategory FROM voucher WHERE PromoCode = @PromoCode";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@PromoCode", promoCode);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            promoCategory = reader["PromoCategory"].ToString();
+                        }
+                    }
+                }
+
+                connection.Close();
+            }
+
+            return promoCategory;
+        }
+
+        private string GetRegularQuery()
+        {
+            int startIndex = (currentBatch - 1) * 10;
+            return $"SELECT DateStart, DateEnd, PromoName, PromoCode, PromoDiscount, " +
+                    $"AvailableNumber, PromoCreated FROM voucher " +
+                    $"ORDER BY PromoCreated DESC LIMIT {startIndex}, 10";
+        }
+
+        private string GetFilteredQuery()
+        {
+            string filterExpression = GetFilterExpression();
+            int startIndex = (currentBatch - 1) * 10;
+            return $"SELECT DateStart, DateEnd, PromoName, PromoCode, PromoDiscount, " +
+                    $"AvailableNumber, PromoCreated FROM voucher " +
+                    $"WHERE {filterExpression} " +
+                    $"ORDER BY PromoCreated DESC LIMIT {startIndex}, 10";
+        }
+
+        private string GetFilterExpression()
+        {
+            string searchText = MngrVoucherSearchTextBox.Text.Trim();
+            return string.Join(" OR ", ((DataTable)MngrVoucherDGV.DataSource).Columns.Cast<DataColumn>()
+                                .Select(col => $"{col.ColumnName} LIKE '%{searchText}%'"));
+        }
+
+        private int GetTotalRows()
+        {
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string countQuery = "SELECT COUNT(*) FROM voucher";
+                    MySqlCommand countCommand = new MySqlCommand(countQuery, connection);
+                    int totalRows = Convert.ToInt32(countCommand.ExecuteScalar());
+                    connection.Close();
+                    return totalRows;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return 0;
+            }
+        }
+
+        private int GetFilteredTotalRows()
+        {
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = $"SELECT COUNT(*) FROM voucher WHERE {GetFilterExpression()}";
+                    MySqlCommand countCommand = new MySqlCommand(query, connection);
+                    int totalRows = Convert.ToInt32(countCommand.ExecuteScalar());
+                    connection.Close();
+                    return totalRows;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return 0;
+            }
+        }
+
+        private void MngrVoucherSearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = MngrVoucherSearchTextBox.Text.Trim();
+
+            DataView dv = ((DataTable)MngrVoucherDGV.DataSource).DefaultView;
+
+            if (string.IsNullOrEmpty(searchText))
+            {
+                dv.RowFilter = string.Empty;
+            }
+            else
+            {
+                string filterExpression = string.Join(" OR ", ((DataTable)MngrVoucherDGV.DataSource).Columns.Cast<DataColumn>()
+                                                    .Select(col => $"{col.ColumnName} LIKE '{searchText}%'"));
+                dv.RowFilter = filterExpression;
+            }
+
+            UpdateDataGridViewAndLabel();
+        }
+
+        private void MngrVoucherPromoCategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (MngrVoucherPromoCategoryComboBox.SelectedItem != null)
+            {
+                string selectedItem = MngrVoucherPromoCategoryComboBox.SelectedItem.ToString();
+
+                if (selectedItem == "All Categories")
+                {
+                    MngrVoucherSelectCatTextBox.Text = "All Categories";
+                }
+                else
+                {
+                    if (MngrVoucherSelectCatTextBox.Text.Contains(selectedItem))
+                    {
+                        MessageBox.Show("This category has already been selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (MngrVoucherSelectCatTextBox.Text == "All Categories")
+                    {
+                        MessageBox.Show("Cannot add other categories when 'All Categories' is selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        if (!string.IsNullOrEmpty(MngrVoucherSelectCatTextBox.Text))
+                        {
+                            MngrVoucherSelectCatTextBox.Text += "," + selectedItem;
+                        }
+                        else
+                        {
+                            MngrVoucherSelectCatTextBox.Text = selectedItem;
+                        }
+                    }
+                }
+
+                MngrVoucherPromoCategoryComboBox.SelectedIndex = -1;
+            }
+        }
+
+        private void MngrVoucherXBtn_Click(object sender, EventArgs e)
+        {
+            MngrVoucherSelectCatTextBox.Text = "";
+        }
+
+        private void MngrVoucherPromoNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ' ' && MngrVoucherPromoNameTextBox.Text.Length == 0)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (MngrVoucherPromoNameTextBox.Text.Length >= 100)
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void MngrVoucherPromoDiscTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ' ' && MngrVoucherPromoDiscTextBox.Text.Length == 0)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (MngrVoucherPromoDiscTextBox.Text.Length >= 3 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '%' && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (e.KeyChar == '%' && MngrVoucherPromoDiscTextBox.Text.Length > 0 && MngrVoucherPromoDiscTextBox.Text.Length < 2)
+            {
+                return;
+            }
+
+            e.Handled = false;
+        }
+
+        private void MngrVoucherAvailNumTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ' ' && MngrVoucherAvailNumTextBox.Text.Length == 0)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (MngrVoucherAvailNumTextBox.Text.Length >= 4 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
