@@ -171,9 +171,7 @@ namespace Enchante
             RecQueWinGenCatComboText.DropDownStyle = ComboBoxStyle.DropDownList;
             RecApptBookingTimeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            RecEditSchedBtn.Click += RecEditSchedBtn_Click;
-            MngrStaffAvailabilityComboBox.SelectedIndex = 0;
-            MngrStaffSchedComboBox.SelectedIndex = 0;
+
 
             MngrProductSalesPeriod.Items.Add("Day");
             MngrProductSalesPeriod.Items.Add("Week");
@@ -228,19 +226,25 @@ namespace Enchante
             MngrMemAccMemTypeBox.Items.Add("PREMIUM");
             MngrMemAccMemTypeBox.Items.Add("SVIP");
 
+            MngrVoucherPromoCategoryComboBox.Items.Add("Hair Styling");
+            MngrVoucherPromoCategoryComboBox.Items.Add("Face & Skin");
+            MngrVoucherPromoCategoryComboBox.Items.Add("Nail Care");
+            MngrVoucherPromoCategoryComboBox.Items.Add("Massage");
+            MngrVoucherPromoCategoryComboBox.Items.Add("Spa");
+            MngrVoucherPromoCategoryComboBox.Items.Add("All Categories");
+
             ProductHistoryShow();
             ServiceHistoryShow();
             MemberAccountsShow();
             PopulateRequiredItemsComboBox();
-
-
+            VouchersShow();
+            PromoCodeGenerator();
         }
 
         private void Enchante_Load(object sender, EventArgs e)
         {
             //Reset Panel to Show Default
             ParentPanelShow.PanelShow(EnchanteHomePage);
-            FillRecStaffScheduleViewDataGrid();
             DateTimePickerTimer.Interval = 1000;
             DateTimePickerTimer.Start();
         }
@@ -445,7 +449,7 @@ namespace Enchante
             //Reset Panel to Show Default
         }
 
-        
+
         private void MngrHomePanelReset()
         {
             ParentPanelShow.PanelShow(EnchanteMngrPage);
@@ -833,9 +837,9 @@ namespace Enchante
                                 //        membercategory = category;
                                 //        InitializeStaffInventoryDataGrid();
                                 //        InitializeStaffPersonalInventoryDataGrid();
-                                //        StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
-                                //        StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
-                                //        StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+                                //        RecQueStartGenQuePanel.Controls.Clear();
+                                //        RecQueStartPrefQuePanel.Controls.Clear();
+                                //        RecQueStartPrioQuePanel.Controls.Clear();
                                 //        InitializePreferredCuePendingCustomersForStaff();
                                 //        InitializeGeneralCuePendingCustomersForStaff();
                                 //        InitializePriorityPendingCustomersForStaff();
@@ -900,16 +904,6 @@ namespace Enchante
 
         private void StaffSignOutBtn_Click(object sender, EventArgs e)
         {
-            foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
-            {
-                if (control is StaffCurrentAvailableCustomersUserControl userControl &&
-                    userControl.StaffCustomerServiceStatusTextBox.Text == "In Session")
-                {
-                    MessageBox.Show("Service Currently In Session");
-                    return;
-                }
-
-            }
             LogoutChecker();
         }
 
@@ -924,9 +918,9 @@ namespace Enchante
             if (result == DialogResult.Yes)
             {
                 ParentPanelShow.PanelShow(EnchanteHomePage);
-                StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
-                StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
-                StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
+                RecQueStartGenQuePanel.Controls.Clear();
+                RecQueStartPrefQuePanel.Controls.Clear();
+                RecQueStartPrioQuePanel.Controls.Clear();
                 RecApptAcceptLateDeclineDGV.Rows.Clear();
                 RecCanceAllServicesDGV.Rows.Clear();
                 membercategory = "";
@@ -941,8 +935,8 @@ namespace Enchante
             }
         }
 
-       
-        
+
+
         #endregion
 
 
@@ -1500,7 +1494,7 @@ namespace Enchante
                         RecWalkInServiceTypeDGV.Columns[0].Visible = false;
                         RecWalkInServiceTypeDGV.Columns[1].Visible = false;
                         RecWalkInServiceTypeDGV.Columns[2].Visible = false;
-                        RecWalkInServiceTypeDGV.Columns[7].Visible = false; 
+                        RecWalkInServiceTypeDGV.Columns[7].Visible = false;
                         RecWalkInServiceTypeDGV.Columns[8].Visible = false;
                         RecWalkInServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         RecWalkInServiceTypeDGV.ClearSelection();
@@ -1623,7 +1617,7 @@ namespace Enchante
                         RecWalkInServiceTypeDGV.Columns[0].Visible = false;
                         RecWalkInServiceTypeDGV.Columns[1].Visible = false;
                         RecWalkInServiceTypeDGV.Columns[2].Visible = false;
-                        RecWalkInServiceTypeDGV.Columns[7].Visible = false; 
+                        RecWalkInServiceTypeDGV.Columns[7].Visible = false;
                         RecWalkInServiceTypeDGV.Columns[8].Visible = false;
                         RecWalkInServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         RecWalkInServiceTypeDGV.ClearSelection();
@@ -4962,7 +4956,7 @@ namespace Enchante
             else if (RecQueWinStaffCatComboText.Text == "All Categories")
             {
                 RecQuePreferredStaffLoadData();
-                
+
                 return;
             }
 
@@ -7803,7 +7797,7 @@ namespace Enchante
             }
             else if (!IsValidFormat(numofitem))
             {
-                MessageBox.Show("Value in 'Number of Items' must be a single number or in the format 'num,num,num,...' based on how many selected items on Selected Required Item Field.", 
+                MessageBox.Show("Value in 'Number of Items' must be a single number or in the format 'num,num,num,...' based on how many selected items on Selected Required Item Field.",
                     "Invalid Format", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -8111,28 +8105,28 @@ namespace Enchante
             string query = "SELECT ItemName FROM inventory WHERE ProductType = 'Service Product' AND ProductCategory = @Category";
 
             if (selectedCategory != null)
-            { 
+            {
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
-            
-                try
-                {
-                    connection.Open();
-                    MySqlCommand command = new MySqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@Category", selectedCategory);
 
-                    using (MySqlDataReader reader = command.ExecuteReader())
+                    try
                     {
-                        while (reader.Read())
+                        connection.Open();
+                        MySqlCommand command = new MySqlCommand(query, connection);
+                        command.Parameters.AddWithValue("@Category", selectedCategory);
+
+                        using (MySqlDataReader reader = command.ExecuteReader())
                         {
-                            string itemName = reader["ItemName"].ToString();
-                            MngrServicesRequiredItemBox.Items.Add(itemName);
+                            while (reader.Read())
+                            {
+                                string itemName = reader["ItemName"].ToString();
+                                MngrServicesRequiredItemBox.Items.Add(itemName);
+                            }
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
             }
         }
 
@@ -8583,8 +8577,8 @@ namespace Enchante
                         ProductImagePictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                         byte[] imageData = ms.ToArray();
                         command.Parameters.AddWithValue("@ProductPicture", imageData);
-                    }   
-                    
+                    }
+
 
                     try
                     {
@@ -8714,7 +8708,7 @@ namespace Enchante
                 {
                     PDImage.Visible = false;
                     ProductImagePictureBox.Visible = false;
-                    SelectImage.Visible = false;               
+                    SelectImage.Visible = false;
                 }
                 else if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product")
                 {
@@ -8827,125 +8821,8 @@ namespace Enchante
 
         #endregion
 
-        #region Mngr. Staff Schedule 
-
-        private void RecEditSchedBtn_Click(object sender, EventArgs e)
-        {
 
 
-        }
-
-        private void FillRecStaffScheduleViewDataGrid()
-        {
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-            {
-                string query = "SELECT EmployeeID, FirstName, LastName, EmployeeCategory, EmployeeCategoryLevel, Schedule, Availability FROM systemusers WHERE EmployeeType = 'Staff'";
-                MySqlCommand command = new MySqlCommand(query, connection);
-                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-
-                MngrStaffSchedViewDataGrid.Rows.Clear(); // Clear existing rows
-
-                foreach (DataRow row in dataTable.Rows)
-                {
-                    int index = MngrStaffSchedViewDataGrid.Rows.Add(); // Add a new row to the DataGridView
-
-                    // Fill the existing columns with data
-                    MngrStaffSchedViewDataGrid.Rows[index].Cells["EmployeeID"].Value = row["EmployeeID"];
-                    MngrStaffSchedViewDataGrid.Rows[index].Cells["FirstName"].Value = row["FirstName"];
-                    MngrStaffSchedViewDataGrid.Rows[index].Cells["LastName"].Value = row["LastName"];
-                    MngrStaffSchedViewDataGrid.Rows[index].Cells["EmployeeCategory"].Value = row["EmployeeCategory"];
-                    MngrStaffSchedViewDataGrid.Rows[index].Cells["CategoryLevel"].Value = row["EmployeeCategoryLevel"];
-                    MngrStaffSchedViewDataGrid.Rows[index].Cells["Schedule"].Value = row["Schedule"];
-                    MngrStaffSchedViewDataGrid.Rows[index].Cells["Availability"].Value = row["Availability"];
-                }
-            }
-        }
-
-        private void RecEditStaffSchedBtn_Click(object sender, EventArgs e)
-        {
-            if (MngrStaffSchedViewDataGrid.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = MngrStaffSchedViewDataGrid.SelectedRows[0];
-
-                string EmployeeIDValue = selectedRow.Cells["EmployeeID"].Value.ToString();
-                string FirstNameValue = selectedRow.Cells["FirstName"].Value.ToString();
-                string LastNameValue = selectedRow.Cells["LastName"].Value.ToString();
-                string EmployeeCategoryValue = selectedRow.Cells["EmployeeCategory"].Value.ToString();
-                string CategoryLevelValue = selectedRow.Cells["CategoryLevel"].Value.ToString();
-                string ScheduleValue = selectedRow.Cells["Schedule"].Value.ToString();
-                string AvailabilityValue = selectedRow.Cells["Availability"].Value.ToString();
-
-                MngrEmployeeIDText.Text = EmployeeIDValue;
-                MngrEmployeeFirstNameLbl.Text = FirstNameValue;
-                MngrEmployeeLastNameLbl.Text = LastNameValue;
-                MngrEmployeeCategoryText.Text = EmployeeCategoryValue;
-                MngrEmployeeCategoryLevelText.Text = CategoryLevelValue;
-                MngrCurrentSchedText.Text = ScheduleValue;
-                MngrCurrentAvailabilityText.Text = AvailabilityValue;
-            }
-        }
-
-        private void RecChangeStaffSchedBtn_Click(object sender, EventArgs e)
-        {
-            string EmployeeIDValue = MngrEmployeeIDText.Text;
-            string EmployeeAvailabilityValue = MngrStaffAvailabilityComboBox.SelectedItem.ToString();
-            string EmployeeTimeScheduleValue = MngrStaffSchedComboBox.SelectedItem.ToString();
-
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-            {
-                connection.Open();
-
-                bool availabilityUpdated = false;
-                bool scheduleUpdated = false;
-
-                if (MngrStaffAvailabilityComboBox.SelectedIndex != 0)
-                {
-                    string updateAvailabilityQuery = "UPDATE systemusers SET Availability = @Availability WHERE EmployeeID = @EmployeeID";
-                    MySqlCommand availabilityCommand = new MySqlCommand(updateAvailabilityQuery, connection);
-                    availabilityCommand.Parameters.AddWithValue("@Availability", EmployeeAvailabilityValue);
-                    availabilityCommand.Parameters.AddWithValue("@EmployeeID", EmployeeIDValue);
-                    int availabilityRowsAffected = availabilityCommand.ExecuteNonQuery();
-
-                    if (availabilityRowsAffected > 0)
-                    {
-                        availabilityUpdated = true;
-                    }
-                }
-
-                if (MngrStaffSchedComboBox.SelectedIndex != 0)
-                {
-                    string updateScheduleQuery = "UPDATE systemusers SET Schedule = @Schedule WHERE EmployeeID = @EmployeeID";
-                    MySqlCommand scheduleCommand = new MySqlCommand(updateScheduleQuery, connection);
-                    scheduleCommand.Parameters.AddWithValue("@Schedule", EmployeeTimeScheduleValue);
-                    scheduleCommand.Parameters.AddWithValue("@EmployeeID", EmployeeIDValue);
-                    int scheduleRowsAffected = scheduleCommand.ExecuteNonQuery();
-
-                    if (scheduleRowsAffected > 0)
-                    {
-                        scheduleUpdated = true;
-                    }
-                }
-
-                if (availabilityUpdated && scheduleUpdated)
-                {
-                    MessageBox.Show("Availability and schedule updated.");
-                }
-                else if (availabilityUpdated || scheduleUpdated)
-                {
-                    MessageBox.Show("Availability or schedule was updated.");
-                }
-                else if (!availabilityUpdated && !scheduleUpdated)
-                {
-                    MessageBox.Show("No updates were made.");
-                }
-            }
-
-            //InitializeAvailableStaffFlowLayout();
-            FillRecStaffScheduleViewDataGrid();
-        }
-        #endregion
 
         #region Mngr. PANEL OF WALK-IN Services REVENUE
         private void IncomeBtn_Click(object sender, EventArgs e)
@@ -10401,7 +10278,7 @@ namespace Enchante
                 MessageBox.Show("Please select a type of appointment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-          
+
             if (MngrAppSalesSelectCatBox.SelectedItem == null || string.IsNullOrEmpty(MngrAppSalesSelectCatBox.SelectedItem.ToString()))
             {
                 MessageBox.Show("Please select a category.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -11264,16 +11141,16 @@ namespace Enchante
 
             DataView dv = ((DataTable)MngrMemAccDGV.DataSource).DefaultView;
             dv.RowFilter = string.Empty;
-        }   
-    #endregion
+        }
+        #endregion
 
 
-    #endregion
+        #endregion
 
 
-    //Admin Dashboard Starts Here
-    #region
-    private void AdminSignOutBtn_Click_1(object sender, EventArgs e)
+        //Admin Dashboard Starts Here
+        #region
+        private void AdminSignOutBtn_Click_1(object sender, EventArgs e)
         {
             LogoutChecker();
 
@@ -11922,1000 +11799,9 @@ namespace Enchante
 
         }
 
-        #region general and preferred queue
-        public class PendingCustomers
-        {
-            public string TransactionNumber { get; set; }
-            public string ClientName { get; set; }
-            public string ServiceID { get; set; }
-            public string ServiceName { get; set; }
-            public string ServiceStatus { get; set; }
-            public string QueNumber { get; set; }
-        }
-        public int generalsmallestquenumber;
-
-        protected void InitializeGeneralCuePendingCustomersForStaff()
-        {
-            List<PendingCustomers> generalquependingcustomers = RetrieveGeneralQuePendingCustomersFromDB();
-
-            if (generalquependingcustomers.Count == 0)
-            {
-                NoCustomerInQueueUserControl nocustomerusercontrol = new NoCustomerInQueueUserControl();
-                StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(nocustomerusercontrol);
-
-                List<PendingCustomers> preferredquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
-                int smallestQueNumber = int.MaxValue;
-
-                foreach (PendingCustomers customer in preferredquependingcustomers)
-                {
-                    StaffCurrentAvailableCustomersUserControl customer2 = new StaffCurrentAvailableCustomersUserControl(this);
-                    string queNumberText = customer2.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText, out int queNumber))
-                    {
-                        if (queNumber < smallestQueNumber)
-                        {
-                            preferredsmallestquenumber = queNumber;
-                        }
-                    }
-                }
-                return;
-            }
-
-            int smallestQueNumber2 = int.MaxValue;
-
-            foreach (PendingCustomers customer in generalquependingcustomers)
-            {
-                StaffCurrentAvailableCustomersUserControl availablecustomersusercontrol = new StaffCurrentAvailableCustomersUserControl(this);
-                availablecustomersusercontrol.AvailableCustomerSetData(customer);
-                availablecustomersusercontrol.ExpandUserControlButtonClicked += AvailableCustomersUserControl_ExpandCollapseButtonClicked;
-                availablecustomersusercontrol.StartServiceButtonClicked += AvailableCustomersUserControl_StartServiceButtonClicked;
-                availablecustomersusercontrol.StaffEndServiceBtnClicked += AvailableCustomersUserControl_EndServiceButtonClicked;
-                availablecustomersusercontrol.StaffCancelServiceBtnClicked += AvailableCustomerUserControl_CancelServiceButtonClicked;
-                availablecustomersusercontrol.StaffQueTypeTextBox.Visible = false;
-                StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(availablecustomersusercontrol);
-                availablecustomersusercontrol.CurrentStaffID = StaffIDNumLbl.Text;
-
-                string queNumberText = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
-                if (int.TryParse(queNumberText, out int queNumber))
-                {
-                    if (queNumber < smallestQueNumber2)
-                    {
-                        smallestQueNumber2 = queNumber;
-                    }
-                }
-            }
-
-            UpdateStartServiceButtonStatusGeneral(generalquependingcustomers, smallestQueNumber2);
-            generalsmallestquenumber = smallestQueNumber2;
-        }
-        private void UpdateStartServiceButtonStatusGeneral(List<PendingCustomers> generalquependingcustomers, int smallestQueNumber)
-        {
-            if (StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Count > 0 && !StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls)
-                {
-                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText, out int queNumber))
-                    {
-                        if (queNumber < smallestQueNumber)
-                        {
-                            smallestQueNumber = queNumber;
-                        }
-                    }
-                }
-            }
-
-            if (StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Count > 0 && !StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
-                {
-                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText, out int queNumber))
-                    {
-                        if (queNumber < smallestQueNumber)
-                        {
-                            smallestQueNumber = queNumber;
-                        }
-                    }
-                }
-            }
-
-            if (generalquependingcustomers.Count > 0 && !StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
-                {
-                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText, out int queNumber))
-                    {
-                        if (queNumber == smallestQueNumber)
-                        {
-                            userControl.StaffStartServiceBtn.Enabled = true;
-                        }
-                        else
-                        {
-                            userControl.StaffStartServiceBtn.Enabled = false;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
-                {
-                    if (control is StaffCurrentAvailableCustomersUserControl userControl)
-                    {
-                        userControl.StaffStartServiceBtn.Enabled = false;
-                    }
-                }
-            }
-            if (StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Count > 0 && !StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
-                {
-                    if (control is StaffCurrentAvailableCustomersUserControl userControl)
-                    {
-                        userControl.StaffStartServiceBtn.Enabled = false;
-                    }
-                }
-            }
-        }
-
-        private void AvailableCustomersUserControl_ExpandCollapseButtonClicked(object sender, EventArgs e)
-        {
-            StaffCurrentAvailableCustomersUserControl availablecustomersusercontrol = (StaffCurrentAvailableCustomersUserControl)sender;
-
-            if (availablecustomersusercontrol != null)
-            {
-                if (!availablecustomersusercontrol.Viewing)
-                {
-                    availablecustomersusercontrol.Size = new System.Drawing.Size(875, 350);
-                    //StaffCurrentServicesDropDownBtn.IconChar = FontAwesome.Sharp.IconChar.SquareCaretUp;
-                }
-                else
-                {
-                    availablecustomersusercontrol.Size = new System.Drawing.Size(875, 200);
-                    //StaffCurrentServicesDropDownBtn.IconChar = FontAwesome.Sharp.IconChar.SquareCaretDown;
-
-                }
-            }
-
-        }
-
-        private List<PendingCustomers> RetrieveGeneralQuePendingCustomersFromDB()
-        {
-            DateTime currentDate = DateTime.Today;
-            string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
-            List<PendingCustomers> result = new List<PendingCustomers>();
-
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-            {
-                try
-                {
-                    connection.Open();
-
-                    string generalquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber 
-                                                     FROM servicehistory sh 
-                                                     INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber 
-                                                     WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')
-                                                     AND sh.ServiceCategory = @membercategory 
-                                                     AND sh.QueType = 'GeneralQue' 
-                                                     AND (wa.ServiceStatus = 'Pending' OR wa.ServiceStatus = 'Pending Paid')
-                                                     AND sh.AppointmentDate = @datetoday";
-
-                    string generalquependingcustomersquery2 = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber 
-                                                     FROM servicehistory sh 
-                                                     INNER JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber 
-                                                     WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')
-                                                     AND sh.ServiceCategory = @membercategory 
-                                                     AND sh.QueType = 'GeneralQue' 
-                                                     AND (app.ServiceStatus = 'Pending' OR app.ServiceStatus = 'Pending Paid')
-                                                     AND sh.AppointmentDate = @datetoday";
-
-                    MySqlCommand command = new MySqlCommand(generalquependingcustomersquery, connection);
-                    command.Parameters.AddWithValue("@membercategory", membercategory);
-                    command.Parameters.AddWithValue("@datetoday", datetoday);
-
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            PendingCustomers generalquependingcustomers = new PendingCustomers
-                            {
-                                TransactionNumber = reader["TransactionNumber"] as string,
-                                ClientName = reader["ClientName"] as string,
-                                ServiceStatus = reader["ServiceStatus"] as string,
-                                ServiceName = reader["SelectedService"] as string,
-                                ServiceID = reader["ServiceID"] as string,
-                                QueNumber = reader["QueNumber"] as string
-                            };
-
-                            result.Add(generalquependingcustomers);
-                        }
-                    }
-
-                    MySqlCommand command2 = new MySqlCommand(generalquependingcustomersquery2, connection);
-                    command2.Parameters.AddWithValue("@membercategory", membercategory);
-                    command2.Parameters.AddWithValue("@datetoday", datetoday);
-
-                    using (MySqlDataReader reader = command2.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            PendingCustomers generalquependingcustomers = new PendingCustomers
-                            {
-                                TransactionNumber = reader["TransactionNumber"] as string,
-                                ClientName = reader["ClientName"] as string,
-                                ServiceStatus = reader["ServiceStatus"] as string,
-                                ServiceName = reader["SelectedService"] as string,
-                                ServiceID = reader["ServiceID"] as string,
-                                QueNumber = reader["QueNumber"] as string
-                            };
-
-                            result.Add(generalquependingcustomers);
-                        }
-                    }
-                    if (result.Count == 0)
-                    {
-                        //MessageBox.Show("No customers in the queue.", "Empty Queue", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("An error occurred: " + ex.Message);
-                }
-            }
-
-            return result;
-        }
-
-
-
-
-        private void AvailableCustomersUserControl_StartServiceButtonClicked(object sender, EventArgs e)
-        {
-            StaffCurrentAvailableCustomersUserControl insessioncustomerusercontrol = (StaffCurrentAvailableCustomersUserControl)sender;
-
-            if (insessioncustomerusercontrol != null)
-            {
-                insessioncustomerusercontrol.StartTimer();
-            }
-
-        }
-        private void AvailableCustomersUserControl_EndServiceButtonClicked(object sender, EventArgs e)
-        {
-            StaffCurrentAvailableCustomersUserControl clickedUserControl = (StaffCurrentAvailableCustomersUserControl)sender;
-            TimeSpan elapsedTime = clickedUserControl.GetElapsedTime();
-        }
-
-        private void AvailableCustomerUserControl_CancelServiceButtonClicked(object sender, EventArgs e)
-        {
-            StaffCurrentAvailableCustomersUserControl clickedUserControl = (StaffCurrentAvailableCustomersUserControl)sender;
-        }
-
-        public void RefreshFlowLayoutPanel()
-        {
-            foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
-            {
-                if (control is StaffCurrentAvailableCustomersUserControl userControl &&
-                    userControl.StaffCustomerServiceStatusTextBox.Text == "In Session")
-                {
-                    return;
-                }
-            }
-            StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
-            StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
-            StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Clear();
-            InitializePriorityPendingCustomersForStaff();
-            InitializeGeneralCuePendingCustomersForStaff();
-            InitializePreferredCuePendingCustomersForStaff();
-
-
-            bool hasNoCustomerControl = StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any()
-               || StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any();
-
-            if (!hasNoCustomerControl)
-            {
-                List<PendingCustomers> generalquependingcustomers = RetrieveGeneralQuePendingCustomersFromDB();
-                int smallestQueNumber2 = generalsmallestquenumber;
-                UpdateStartServiceButtonStatusGeneral(generalquependingcustomers, smallestQueNumber2);
-
-                List<PendingCustomers> preferredquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
-                int smallestQueNumber = preferredsmallestquenumber;
-                UpdateStartServiceButtonStatusPreferred(preferredquependingcustomers, smallestQueNumber);
-            }
-
-        }
-
-
-
-
-        public void RemovePendingUserControls(StaffCurrentAvailableCustomersUserControl selectedControl)
-        {
-            foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<StaffCurrentAvailableCustomersUserControl>().ToList())
-            {
-                if (control != selectedControl)
-                {
-                    StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Remove(control);
-                    control.Dispose();
-                }
-            }
-            foreach (System.Windows.Forms.Control control in StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<StaffCurrentAvailableCustomersUserControl>().ToList())
-            {
-                if (control != selectedControl)
-                {
-                    StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Remove(control);
-                    control.Dispose();
-                }
-            }
-            foreach (System.Windows.Forms.Control control in StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<StaffCurrentAvailableCustomersUserControl>().ToList())
-            {
-                if (control != selectedControl)
-                {
-                    StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Remove(control);
-                    control.Dispose();
-                }
-            }
-        }
-
-
-
-        private void StaffRefreshAvailableCustomersBtn_Click(object sender, EventArgs e)
-        {
-
-            RefreshFlowLayoutPanel();
-        }
-
-
-        private List<PendingCustomers> RetrievePreferredQuePendingCustomersFromDB()
-        {
-            string staffID = StaffIDNumLbl.Text;
-            DateTime currentDate = DateTime.Today;
-            string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
-            List<PendingCustomers> result = new List<PendingCustomers>();
-
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-            {
-                try
-                {
-                    connection.Open();
-
-                    string preferredquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber
-                       FROM servicehistory sh INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber
-                       WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid') AND sh.ServiceCategory = @membercategory AND sh.PreferredStaff = @preferredstaff AND (wa.ServiceStatus = 'Pending' OR wa.ServiceStatus = 'Pending Paid') AND sh.AppointmentDate = @datetoday";
-
-
-                    string preferredquependingcustomersquery2 = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber
-                       FROM servicehistory sh INNER JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber
-                       WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')  AND sh.QueType = 'Preferred' AND sh.ServiceCategory = @membercategory AND sh.PreferredStaff = @preferredstaff AND (app.ServiceStatus = 'Pending' OR app.ServiceStatus = 'Pending Paid') AND sh.AppointmentDate = @datetoday";
-                    
-                    MySqlCommand command = new MySqlCommand(preferredquependingcustomersquery, connection);
-                    command.Parameters.AddWithValue("@membercategory", membercategory);
-                    command.Parameters.AddWithValue("@preferredstaff", staffID);
-                    command.Parameters.AddWithValue("@datetoday", datetoday);
-
-                    MySqlCommand command2 = new MySqlCommand(preferredquependingcustomersquery2, connection);
-                    command2.Parameters.AddWithValue("@membercategory", membercategory);
-                    command2.Parameters.AddWithValue("@preferredstaff", staffID);
-                    command2.Parameters.AddWithValue("@datetoday", datetoday);
-
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            PendingCustomers preferredquependingcustomers = new PendingCustomers
-                            {
-                                TransactionNumber = reader.IsDBNull(reader.GetOrdinal("TransactionNumber")) ? string.Empty : reader.GetString("TransactionNumber"),
-                                ClientName = reader.IsDBNull(reader.GetOrdinal("ClientName")) ? string.Empty : reader.GetString("ClientName"),
-                                ServiceStatus = reader.IsDBNull(reader.GetOrdinal("ServiceStatus")) ? string.Empty : reader.GetString("ServiceStatus"),
-                                ServiceName = reader.IsDBNull(reader.GetOrdinal("SelectedService")) ? string.Empty : reader.GetString("SelectedService"),
-                                ServiceID = reader.IsDBNull(reader.GetOrdinal("ServiceID")) ? string.Empty : reader.GetString("ServiceID"),
-                                QueNumber = reader.IsDBNull(reader.GetOrdinal("QueNumber")) ? string.Empty : reader.GetString("QueNumber")
-                            };
-
-                            result.Add(preferredquependingcustomers);
-                        }
-                    }
-
-                    using (MySqlDataReader reader = command2.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            PendingCustomers preferredquependingcustomers = new PendingCustomers
-                            {
-                                TransactionNumber = reader.IsDBNull(reader.GetOrdinal("TransactionNumber")) ? string.Empty : reader.GetString("TransactionNumber"),
-                                ClientName = reader.IsDBNull(reader.GetOrdinal("ClientName")) ? string.Empty : reader.GetString("ClientName"),
-                                ServiceStatus = reader.IsDBNull(reader.GetOrdinal("ServiceStatus")) ? string.Empty : reader.GetString("ServiceStatus"),
-                                ServiceName = reader.IsDBNull(reader.GetOrdinal("SelectedService")) ? string.Empty : reader.GetString("SelectedService"),
-                                ServiceID = reader.IsDBNull(reader.GetOrdinal("ServiceID")) ? string.Empty : reader.GetString("ServiceID"),
-                                QueNumber = reader.IsDBNull(reader.GetOrdinal("QueNumber")) ? string.Empty : reader.GetString("QueNumber")
-                            };
-
-                            result.Add(preferredquependingcustomers);
-                        }
-                    }
-
-                    if (result.Count == 0)
-                    {
-                        //MessageBox.Show("No customers in the preferred queue.", "Empty Queue", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("An error occurred: " + ex.Message);
-                }
-            }
-
-            return result;
-        }
-
-        public int preferredsmallestquenumber;
-
-        protected void InitializePreferredCuePendingCustomersForStaff()
-        {
-            List<PendingCustomers> preferredquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
-
-            if (preferredquependingcustomers.Count == 0)
-            {
-                NoCustomerInQueueUserControl nocustomerusercontrol = new NoCustomerInQueueUserControl();
-                StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(nocustomerusercontrol);
-                generalsmallestquenumber = preferredsmallestquenumber;
-
-                List<PendingCustomers> generalquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
-                int smallestQueNumber3 = int.MaxValue;
-
-                foreach (PendingCustomers customer in generalquependingcustomers)
-                {
-                    StaffCurrentAvailableCustomersUserControl customer2 = new StaffCurrentAvailableCustomersUserControl(this);
-                    string queNumberText2 = customer2.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText2, out int queNumber2))
-                    {
-                        if (queNumber2 < smallestQueNumber3)
-                        {
-                            generalsmallestquenumber = queNumber2;
-                        }
-                    }
-                }
-                return;
-            }
-            int smallestQueNumber = int.MaxValue;
-
-            foreach (PendingCustomers customer in preferredquependingcustomers)
-            {
-                StaffCurrentAvailableCustomersUserControl availablecustomersusercontrol = new StaffCurrentAvailableCustomersUserControl(this);
-                availablecustomersusercontrol.AvailableCustomerSetData(customer);
-                availablecustomersusercontrol.ExpandUserControlButtonClicked += AvailableCustomersUserControl_ExpandCollapseButtonClicked;
-                availablecustomersusercontrol.StartServiceButtonClicked += AvailableCustomersUserControl_StartServiceButtonClicked;
-                availablecustomersusercontrol.StaffEndServiceBtnClicked += AvailableCustomersUserControl_EndServiceButtonClicked;
-                availablecustomersusercontrol.StaffCancelServiceBtnClicked += AvailableCustomerUserControl_CancelServiceButtonClicked;
-                availablecustomersusercontrol.StaffQueTypeTextBox.Visible = false;
-                StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(availablecustomersusercontrol);
-                availablecustomersusercontrol.CurrentStaffID = StaffIDNumLbl.Text;
-
-                string queNumberText = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
-                if (int.TryParse(queNumberText, out int queNumber))
-                {
-                    if (queNumber < smallestQueNumber)
-                    {
-                        smallestQueNumber = queNumber;
-                    }
-                }
-            }
-            UpdateStartServiceButtonStatusPreferred(preferredquependingcustomers, smallestQueNumber);
-            preferredsmallestquenumber = smallestQueNumber;
-        }
-
-        private void UpdateStartServiceButtonStatusPreferred(List<PendingCustomers> preferredquependingcustomers, int smallestQueNumber)
-        {
-            if (StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.Count > 0 && !StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
-                {
-                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText, out int queNumber))
-                    {
-                        if (queNumber < smallestQueNumber)
-                        {
-                            smallestQueNumber = queNumber;
-                        }
-                    }
-                }
-            }
-            if (StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.Count > 0 && !StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls)
-                {
-                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText, out int queNumber))
-                    {
-                        if (queNumber < smallestQueNumber)
-                        {
-                            smallestQueNumber = queNumber;
-                        }
-                    }
-                }
-            }
-
-            if (preferredquependingcustomers.Count > 0 && !StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (StaffCurrentAvailableCustomersUserControl userControl in StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls)
-                {
-                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText, out int queNumber))
-                    {
-                        if (queNumber == smallestQueNumber)
-                        {
-                            userControl.StaffStartServiceBtn.Enabled = true;
-                        }
-                        else
-                        {
-                            userControl.StaffStartServiceBtn.Enabled = false;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                foreach (System.Windows.Forms.Control control in StaffPersonalCueCurrentCustomersStatusFlowLayoutPanel.Controls)
-                {
-                    if (control is StaffCurrentAvailableCustomersUserControl userControl)
-                    {
-                        userControl.StaffStartServiceBtn.Enabled = false;
-                    }
-                }
-            }
-            if (StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Count > 0 && !StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (System.Windows.Forms.Control control in StaffGeneralCueCurrentCustomersStatusFlowLayoutPanel.Controls)
-                {
-                    if (control is StaffCurrentAvailableCustomersUserControl userControl)
-                    {
-                        userControl.StaffStartServiceBtn.Enabled = false;
-                    }
-                }
-            }
-        }
-
-
 
 
         #endregion
-
-
-        #region staff inventory
-        public void InitializeStaffInventoryDataGrid()
-        {
-            StaffInventoryDataGrid.Rows.Clear();
-
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-            {
-                connection.Open();
-
-                string inventoryquery = "SELECT ItemID, ItemName, ItemStock, ItemPrice, ItemStatus FROM inventory WHERE ProductType = 'Service Product' AND ProductCategory = @ProductCategory";
-
-                using (MySqlCommand command = new MySqlCommand(inventoryquery, connection))
-                {
-                    command.Parameters.AddWithValue("@ProductCategory", membercategory);
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            object[] rowData = new object[4];
-                            rowData[0] = reader["ItemID"];
-                            rowData[1] = reader["ItemName"];
-                            rowData[2] = reader["ItemStock"];
-                            rowData[3] = reader["ItemStatus"];
-
-                            StaffInventoryDataGrid.Rows.Add(rowData);
-                        }
-                    }
-                }
-
-            }
-
-        }
-
-        public void InitializeStaffPersonalInventoryDataGrid()
-        {
-            StaffPersonalInventoryDataGrid.Rows.Clear();
-            string staffID = StaffIDNumLbl.Text;
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-            {
-                connection.Open();
-
-                string personalinventoryquery = "SELECT ItemID, ItemName, ItemStock, ItemStatus FROM staff_inventory WHERE EmployeeID = @EmployeeID";
-
-                using (MySqlCommand command = new MySqlCommand(personalinventoryquery, connection))
-                {
-                    command.Parameters.AddWithValue("@EmployeeID", staffID);
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            object[] rowData = new object[4];
-                            rowData[0] = reader["ItemID"];
-                            rowData[1] = reader["ItemName"];
-                            rowData[2] = reader["ItemStock"];
-                            rowData[3] = reader["ItemStatus"];
-
-                            StaffPersonalInventoryDataGrid.Rows.Add(rowData);
-                        }
-                    }
-                }
-
-            }
-
-        }
-
-        private void StaffAddToInventoryButton_Click(object sender, EventArgs e)
-        {
-            if (StaffInventoryDataGrid.CurrentRow == null)
-            {
-                MessageBox.Show("Please select a row.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (string.IsNullOrEmpty(StaffItemSelectedCountTextBox.Text))
-            {
-                MessageBox.Show("Please enter the number of items to add.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (!int.TryParse(StaffItemSelectedCountTextBox.Text, out int itemStockToBeAdded) || itemStockToBeAdded <= 0)
-            {
-                MessageBox.Show("Invalid number of items to add.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (itemStockToBeAdded > 20)
-            {
-                MessageBox.Show("You can't take more than 20 items.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            string itemID = StaffInventoryDataGrid.SelectedRows[0].Cells["ItemID"].Value.ToString();
-            string itemName = StaffInventoryDataGrid.SelectedRows[0].Cells["ItemName"].Value.ToString();
-            int itemStock = Convert.ToInt32(StaffInventoryDataGrid.SelectedRows[0].Cells["ItemStock"].Value);
-            string itemStatus = StaffInventoryDataGrid.SelectedRows[0].Cells["ItemStatus"].Value.ToString();
-            string staffID = StaffIDNumLbl.Text;
-
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-            {
-                connection.Open();
-
-                string selectQuery = "SELECT * FROM staff_inventory WHERE ItemID = @ItemID AND EmployeeID = @EmployeeID";
-                using (MySqlCommand selectCommand = new MySqlCommand(selectQuery, connection))
-                {
-                    selectCommand.Parameters.AddWithValue("@ItemID", itemID);
-                    selectCommand.Parameters.AddWithValue("@EmployeeID", staffID);
-
-                    DataTable dataTable = new DataTable();
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(selectCommand))
-                    {
-                        adapter.Fill(dataTable);
-                    }
-
-                    if (dataTable.Rows.Count > 0)
-                    {
-                        int currentStock = Convert.ToInt32(dataTable.Rows[0]["ItemStock"]);
-                        int newStock = currentStock + itemStockToBeAdded;
-
-                        if (currentStock + itemStockToBeAdded > 40)
-                        {
-                            MessageBox.Show("You can only have a maximum stock of 40.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-
-                        string updateQuery = "UPDATE staff_inventory SET ItemStock = @NewStock WHERE ItemID = @ItemID AND EmployeeID = @EmployeeID";
-                        using (MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection))
-                        {
-                            updateCommand.Parameters.AddWithValue("@NewStock", newStock);
-                            updateCommand.Parameters.AddWithValue("@ItemID", itemID);
-                            updateCommand.Parameters.AddWithValue("@EmployeeID", staffID);
-                            updateCommand.ExecuteNonQuery();
-                        }
-                    }
-                    else
-                    {
-                        string insertQuery = "INSERT INTO staff_inventory (ItemID, ItemName, ItemStock, ItemStatus, EmployeeID) " +
-                                             "VALUES (@ItemID, @ItemName, @ItemStock, @ItemStatus, @EmployeeID)";
-                        using (MySqlCommand insertCommand = new MySqlCommand(insertQuery, connection))
-                        {
-                            insertCommand.Parameters.AddWithValue("@ItemID", itemID);
-                            insertCommand.Parameters.AddWithValue("@ItemName", itemName);
-                            insertCommand.Parameters.AddWithValue("@ItemStock", itemStockToBeAdded);
-                            insertCommand.Parameters.AddWithValue("@ItemStatus", itemStatus);
-                            insertCommand.Parameters.AddWithValue("@EmployeeID", staffID);
-                            insertCommand.ExecuteNonQuery();
-                        }
-                    }
-                }
-
-                string deductQuery = "UPDATE inventory SET ItemStock = ItemStock - @SelectedCount WHERE ItemID = @ItemID AND ItemStock - @SelectedCount >= 40";
-                using (MySqlCommand deductCommand = new MySqlCommand(deductQuery, connection))
-                {
-                    deductCommand.Parameters.AddWithValue("@SelectedCount", itemStockToBeAdded);
-                    deductCommand.Parameters.AddWithValue("@ItemID", itemID);
-                    int rowsAffected = deductCommand.ExecuteNonQuery();
-
-                    if (rowsAffected == 0)
-                    {
-                        MessageBox.Show("Cannot deduct from this item as it would result in stock below 40. Please refill your inventory to continue operations.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
-                }
-
-                string updateStatusQuery = "UPDATE inventory SET ItemStatus = 'Low Stock' WHERE ItemID = @ItemID AND ItemStock >= 40 AND ItemStock <= 50";
-                using (MySqlCommand updateStatusCommand = new MySqlCommand(updateStatusQuery, connection))
-                {
-                    updateStatusCommand.Parameters.AddWithValue("@ItemID", itemID);
-                    updateStatusCommand.ExecuteNonQuery();
-                }
-
-                string checkStockQuery = "SELECT ItemStock FROM inventory WHERE ItemID = @ItemID";
-                using (MySqlCommand checkStockCommand = new MySqlCommand(checkStockQuery, connection))
-                {
-                    checkStockCommand.Parameters.AddWithValue("@ItemID", itemID);
-                    int currentStock = Convert.ToInt32(checkStockCommand.ExecuteScalar());
-                }
-
-
-            }
-
-            CheckItemStockPersonalStatus(itemID, staffID);
-            InitializeStaffPersonalInventoryDataGrid();
-            InitializeStaffInventoryDataGrid();
-            StaffItemSelectedCountTextBox.Clear();
-            RefreshFlowLayoutPanel();
-        }
-
-        public void CheckItemStockPersonalStatus(string ItemID, string staffID)
-        {
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-            {
-                connection.Open();
-
-                string selectQuery = "SELECT ItemStock, ItemStatus, ItemName FROM staff_inventory " +
-                                     "WHERE EmployeeID = @staffID AND ItemID = @ItemID";
-
-                MySqlCommand selectCommand = new MySqlCommand(selectQuery, connection);
-                selectCommand.Parameters.AddWithValue("@staffID", staffID);
-                selectCommand.Parameters.AddWithValue("@ItemID", ItemID);
-
-                using (MySqlDataReader reader = selectCommand.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        int itemStock = int.Parse(reader["ItemStock"].ToString());
-                        string itemStatus = reader["ItemStatus"].ToString();
-                        string itemName = reader["ItemName"].ToString();
-
-                        reader.Close(); // Close the data reader before executing the update query
-
-                        if (itemStock >= 8 && itemStatus == "High Stock")
-                        {
-                            // Don't update
-                        }
-                        else if (itemStock >= 8 && itemStatus == "Low Stock")
-                        {
-                            string updateQuery = "UPDATE staff_inventory " +
-                                                 "SET ItemStatus = 'High Stock' " +
-                                                 "WHERE EmployeeID = @staffID AND ItemID = @ItemID";
-
-                            MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection);
-                            updateCommand.Parameters.AddWithValue("@staffID", staffID);
-                            updateCommand.Parameters.AddWithValue("@ItemID", ItemID);
-                            updateCommand.ExecuteNonQuery();
-                        }
-                        else if (itemStock < 8 && itemStatus == "High Stock")
-                        {
-                            string updateQuery = "UPDATE staff_inventory " +
-                                                 "SET ItemStatus = 'Low Stock' " +
-                                                 "WHERE EmployeeID = @staffID AND ItemID = @ItemID";
-
-                            MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection);
-                            updateCommand.Parameters.AddWithValue("@staffID", staffID);
-                            updateCommand.Parameters.AddWithValue("@ItemID", ItemID);
-                            updateCommand.ExecuteNonQuery();
-
-                            MessageBox.Show($"{itemName} is at Low Stock");
-                        }
-                        else if (itemStatus == "Low Stock")
-                        {
-                            // Don't update
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Item not found in staff inventory");
-                    }
-                }
-            }
-        }
-    
-
-        #endregion
-
-        #region Paid Appointment Queue 
-        public class PriorityPendingCustomers
-        {
-            public string TransactionNumber { get; set; }
-            public string ClientName { get; set; }
-            public string ServiceID { get; set; }
-            public string ServiceName { get; set; }
-            public string ServiceStatus { get; set; }
-            public string QueType { get; set; }
-            public string QueNumber { get; set; }
-        }
-
-        private List<PriorityPendingCustomers> RetrievePriorityGeneralAndPreferredQuePendingCustomersFromDB()
-        {
-            string staffID = StaffIDNumLbl.Text;
-            DateTime currentDate = DateTime.Today;
-            string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
-            List<PriorityPendingCustomers> result = new List<PriorityPendingCustomers>();
-
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-            {
-                try
-                {
-                    connection.Open();
-
-                    string priorityquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber, sh.QueType 
-                                                                 FROM servicehistory sh 
-                                                                 INNER JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber 
-                                                                 WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')
-                                                                 AND sh.ServiceCategory = @membercategory 
-                                                                 AND (sh.QueType = 'AnyonePriority' OR sh.QueType = 'AnyoneSPriority' OR sh.PreferredStaff = @preferredstaff)
-                                                                 AND (app.ServiceStatus = 'Pending' OR app.ServiceStatus = 'Pending Paid')
-                                                                 AND app.AppointmentStatus = 'Confirmed'
-                                                                 AND sh.AppointmentDate = @datetoday";
-
-                    MySqlCommand command = new MySqlCommand(priorityquependingcustomersquery, connection);
-                    command.Parameters.AddWithValue("@membercategory", membercategory);
-                    command.Parameters.AddWithValue("@preferredstaff", staffID);
-                    command.Parameters.AddWithValue("@datetoday", datetoday);
-
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            PriorityPendingCustomers priorityquependingcustomers = new PriorityPendingCustomers
-                            {
-                                TransactionNumber = reader["TransactionNumber"] as string,
-                                ClientName = reader["ClientName"] as string,
-                                ServiceStatus = reader["ServiceStatus"] as string,
-                                ServiceName = reader["SelectedService"] as string,
-                                ServiceID = reader["ServiceID"] as string,
-                                QueType = reader["QueType"] as string,
-                                QueNumber = reader["QueNumber"] as string
-                            };
-
-                            result.Add(priorityquependingcustomers);
-                        }
-                    }
-                    if (result.Count == 0)
-                    {
-                        //MessageBox.Show("No customers in the queue.", "Empty Queue", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("An error occurred: " + ex.Message);
-                }
-            }
-
-            return result;
-        }
-
-        public int sprioritycount;
-        bool ThereIsSvip = false;
-        public void InitializePriorityPendingCustomersForStaff()
-        {
-            List<PriorityPendingCustomers> priorityqueuependingcustomers = RetrievePriorityGeneralAndPreferredQuePendingCustomersFromDB();
-
-            if (priorityqueuependingcustomers.Count == 0)
-            {
-                NoCustomerInQueueUserControl nocustomerusercontrol = new NoCustomerInQueueUserControl();
-                StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(nocustomerusercontrol);
-
-            }
-
-            int smallestQueNumber2 = int.MaxValue;
-            int smallestQueNumberAnyonePreferred = int.MaxValue;
-
-
-            foreach (PriorityPendingCustomers customer in priorityqueuependingcustomers)
-            {
-                StaffCurrentAvailableCustomersUserControl availablecustomersusercontrol = new StaffCurrentAvailableCustomersUserControl(this);
-                availablecustomersusercontrol.AvailablePriorityCustomerSetData(customer);
-                availablecustomersusercontrol.ExpandUserControlButtonClicked += AvailableCustomersUserControl_ExpandCollapseButtonClicked;
-                availablecustomersusercontrol.StartServiceButtonClicked += AvailableCustomersUserControl_StartServiceButtonClicked;
-                availablecustomersusercontrol.StaffEndServiceBtnClicked += AvailableCustomersUserControl_EndServiceButtonClicked;
-                availablecustomersusercontrol.StaffCancelServiceBtnClicked += AvailableCustomerUserControl_CancelServiceButtonClicked;
-                StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls.Add(availablecustomersusercontrol);
-                availablecustomersusercontrol.CurrentStaffID = StaffIDNumLbl.Text;
-
-                string queNumberText = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
-                if (int.TryParse(queNumberText, out int queNumber))
-                {
-                    if (queNumber < smallestQueNumber2)
-                    {
-                        smallestQueNumber2 = queNumber;
-                    }
-
-                }
-
-                string queNumberText2 = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
-                if (int.TryParse(queNumberText2, out int queNumber2))
-                {
-                    if (customer.QueType == "AnyoneSPriority" || customer.QueType == "PreferredSPriority")
-                    {
-                        if (queNumber2 < smallestQueNumberAnyonePreferred)
-                        {
-                            smallestQueNumberAnyonePreferred = queNumber2;
-                        }
-                        ThereIsSvip = true;
-                        sprioritycount++;
-                    }
-
-                }
-            }
-
-
-            if (!ThereIsSvip && sprioritycount == 0)
-            {
-                ThereIsSvip = false;
-            }
-            UpdateStartServiceButtonStatusPriority(priorityqueuependingcustomers, smallestQueNumber2, smallestQueNumberAnyonePreferred);
-
-        }
-
-        private void UpdateStartServiceButtonStatusPriority(List<PriorityPendingCustomers> priorityqueuependingcustomers, int smallestQueNumber, int smallestQueNumberAnyonePreferred)
-        {
-            bool hasAnyoneSPriorityOrPreferredSPriority = priorityqueuependingcustomers
-                .Any(customer => customer.QueType == "AnyoneSPriority" || customer.QueType == "PreferredSPriority");
-            if (ThereIsSvip == true)
-            {
-
-                foreach (System.Windows.Forms.Control control in StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls)
-                {
-                    if (control is StaffCurrentAvailableCustomersUserControl userControl)
-                    {
-                        int queNumber;
-                        int.TryParse(userControl.StaffQueNumberTextBox.Text, out queNumber);
-                        if (userControl.StaffQueTypeTextBox.Text == "AnyoneSPriority" || userControl.StaffQueTypeTextBox.Text == "PreferredSPriority")
-                        {
-                            userControl.StaffStartServiceBtn.Enabled = (queNumber == smallestQueNumberAnyonePreferred);
-                        }
-                        else
-                        {
-                            userControl.StaffStartServiceBtn.Enabled = false;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                foreach (System.Windows.Forms.Control control in StaffPriorityQueueCurrentCustomersStatusFlowLayoutPanel.Controls)
-                {
-                    if (control is StaffCurrentAvailableCustomersUserControl userControl)
-                    {
-                        int queNumber;
-                        int.TryParse(userControl.StaffQueNumberTextBox.Text, out queNumber);
-                        userControl.StaffStartServiceBtn.Enabled = (queNumber == smallestQueNumber);
-
-                    }
-                }
-            }
-        }
-        #endregion
-
-
-
-
-
-        #endregion
-
 
 
 
@@ -13572,8 +12458,8 @@ namespace Enchante
 
         private void RecShopProdClientCPNumText_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '+' && e.KeyChar != '\b' || (RecShopProdClientCPNumText.Text.Contains("+") 
-                && RecShopProdClientCPNumText.Text.Length >= 13 && e.KeyChar != '\b') || (!RecShopProdClientCPNumText.Text.Contains("+") 
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '+' && e.KeyChar != '\b' || (RecShopProdClientCPNumText.Text.Contains("+")
+                && RecShopProdClientCPNumText.Text.Length >= 13 && e.KeyChar != '\b') || (!RecShopProdClientCPNumText.Text.Contains("+")
                 && RecShopProdClientCPNumText.Text.Length >= 11 && e.KeyChar != '\b'))
             {
                 e.Handled = true;
@@ -13902,8 +12788,8 @@ namespace Enchante
 
         private void AdminCPNumText_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '+' && e.KeyChar != '\b' || (AdminCPNumText.Text.Contains("+") 
-                && AdminCPNumText.Text.Length >= 13 && e.KeyChar != '\b') || (!AdminCPNumText.Text.Contains("+") 
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '+' && e.KeyChar != '\b' || (AdminCPNumText.Text.Contains("+")
+                && AdminCPNumText.Text.Length >= 13 && e.KeyChar != '\b') || (!AdminCPNumText.Text.Contains("+")
                 && AdminCPNumText.Text.Length >= 11 && e.KeyChar != '\b'))
             {
                 e.Handled = true;
@@ -13980,6 +12866,11 @@ namespace Enchante
             RecApptConfirmBtn.Visible = false;
             RecPayServiceBtn.Visible = false;
             RecShopProdBtn.Visible = false;
+            RecQueStartStaffDGV.Rows.Clear();
+            RecQueStartInventoryDGV.Rows.Clear();
+            InitializeAvailableStaff();
+            InitializeMainInventory();
+            InitializeInSessionCustomers();
 
         }
 
@@ -14016,5 +12907,1710 @@ namespace Enchante
 
         }
 
+
+        private void InitializeAvailableStaff()
+        {
+            string query = "SELECT FirstName, LastName, Gender, EmployeeCategory, EmployeeID FROM systemusers " +
+                           "WHERE EmployeeType = 'Staff' AND Availability = 'Available'";
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    try
+                    {
+                        connection.Open();
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+
+                        RecQueStartStaffDGV.Rows.Clear(); // Clear existing rows in the DataGridView
+
+                        foreach (DataRow row in dataTable.Rows)
+                        {
+                            string firstName = row["FirstName"].ToString();
+                            string lastName = row["LastName"].ToString();
+                            string gender = row["Gender"].ToString();
+                            string employeecategory = row["EmployeeCategory"].ToString();
+                            string employeeID = row["EmployeeID"].ToString();
+
+                            // Add a new row to the DataGridView
+                            int rowIndex = RecQueStartStaffDGV.Rows.Add();
+
+                            // Set the values of cells in the DataGridView
+                            RecQueStartStaffDGV.Rows[rowIndex].Cells["StaffName"].Value = firstName + " " + lastName;
+                            RecQueStartStaffDGV.Rows[rowIndex].Cells["StaffCategory"].Value = employeecategory;
+                            RecQueStartStaffDGV.Rows[rowIndex].Cells["StaffGender"].Value = gender;
+                            RecQueStartStaffDGV.Rows[rowIndex].Cells["StaffEmployeeID"].Value = employeeID;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        public void RefreshAvailableStaff()
+        {
+            RecQueStartStaffDGV.Rows.Clear();
+            InitializeAvailableStaff();
+        }
+
+        public string CurrentStaffID;
+
+        private string selectedmembercategory;
+        private string selectedstaffemployeeid;
+
+        private void RecQueStartStaffDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Make sure a valid row index is clicked
+            {
+                preferredsmallestquenumber = 0;
+                generalsmallestquenumber = 0;
+                DataGridViewRow selectedRow = RecQueStartStaffDGV.Rows[e.RowIndex];
+                selectedmembercategory = selectedRow.Cells["StaffCategory"].Value.ToString();
+                selectedstaffemployeeid = selectedRow.Cells["StaffEmployeeID"].Value.ToString();
+                CurrentStaffID = selectedstaffemployeeid;
+                RecQueStartGenQuePanel.Controls.Clear();
+                RecQueStartPrefQuePanel.Controls.Clear();
+                RecQueStartPrioQuePanel.Controls.Clear();
+                InitializePriorityPendingCustomersForStaff();
+                InitializeGeneralCuePendingCustomersForStaff();
+                InitializePreferredCuePendingCustomersForStaff();
+                RefreshFlowLayoutPanel();
+            }
+        }
+
+        public void RefreshFlowLayoutPanel()
+        {
+            foreach (System.Windows.Forms.Control control in RecQueStartGenQuePanel.Controls)
+            {
+                if (control is QueueUserControl userControl &&
+                    userControl.StaffCustomerServiceStatusTextBox.Text == "In Session")
+                {
+                    return;
+                }
+            }
+            RecQueStartGenQuePanel.Controls.Clear();
+            RecQueStartPrefQuePanel.Controls.Clear();
+            RecQueStartPrioQuePanel.Controls.Clear();
+            InitializePriorityPendingCustomersForStaff();
+            InitializeGeneralCuePendingCustomersForStaff();
+            InitializePreferredCuePendingCustomersForStaff();
+
+
+            bool hasNoCustomerControl = RecQueStartGenQuePanel.Controls.OfType<NoCustomerInQueueUserControl>().Any()
+               || RecQueStartPrefQuePanel.Controls.OfType<NoCustomerInQueueUserControl>().Any();
+
+            if (!hasNoCustomerControl)
+            {
+                List<PendingCustomers> generalquependingcustomers = RetrieveGeneralQuePendingCustomersFromDB();
+                int smallestQueNumber2 = generalsmallestquenumber;
+                UpdateStartServiceButtonStatusGeneral(generalquependingcustomers, smallestQueNumber2);
+
+                List<PendingCustomers> preferredquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
+                int smallestQueNumber = preferredsmallestquenumber;
+                UpdateStartServiceButtonStatusPreferred(preferredquependingcustomers, smallestQueNumber);
+            }
+
+        }
+
+        private void AvailableCustomersUserControl_StartServiceButtonClicked(object sender, EventArgs e)
+        {
+            InSessionUserControl insessioncustomerusercontrol = (InSessionUserControl)sender;
+
+            if (insessioncustomerusercontrol != null)
+            {
+                insessioncustomerusercontrol.StartTimer();
+            }
+
+        }
+
+
+        private void AvailableCustomerUserControl_CancelServiceButtonClicked(object sender, EventArgs e)
+        {
+            QueueUserControl clickedUserControl = (QueueUserControl)sender;
+        }
+
+        public class PendingCustomers
+        {
+            public string TransactionNumber { get; set; }
+            public string ClientName { get; set; }
+            public string ServiceID { get; set; }
+            public string ServiceName { get; set; }
+            public string ServiceStatus { get; set; }
+            public string QueType { get; set; }
+            public string QueNumber { get; set; }
+        }
+
+        public int generalsmallestquenumber;
+
+        protected void InitializeGeneralCuePendingCustomersForStaff()
+        {
+            List<PendingCustomers> generalquependingcustomers = RetrieveGeneralQuePendingCustomersFromDB();
+
+            if (generalquependingcustomers.Count == 0)
+            {
+                NoCustomerInQueueUserControl nocustomerusercontrol = new NoCustomerInQueueUserControl();
+                RecQueStartGenQuePanel.Controls.Add(nocustomerusercontrol);
+
+                List<PendingCustomers> preferredquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
+                int smallestQueNumber = int.MaxValue;
+
+                foreach (PendingCustomers customer in preferredquependingcustomers)
+                {
+                    QueueUserControl customer2 = new QueueUserControl(this);
+                    string queNumberText = customer2.StaffQueNumberTextBox.Text;
+                    if (int.TryParse(queNumberText, out int queNumber))
+                    {
+                        if (queNumber < smallestQueNumber)
+                        {
+                            preferredsmallestquenumber = queNumber;
+                        }
+                    }
+                }
+                return;
+            }
+
+            int smallestQueNumber2 = int.MaxValue;
+
+            foreach (PendingCustomers customer in generalquependingcustomers)
+            {
+                QueueUserControl availablecustomersusercontrol = new QueueUserControl(this);
+                availablecustomersusercontrol.AvailableCustomerSetData(customer);
+                // usercontrol click event add
+                availablecustomersusercontrol.QueueUserControl_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+                // add event on elements
+                availablecustomersusercontrol.StaffQueNumberTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+                availablecustomersusercontrol.StaffCustomerNameTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+                availablecustomersusercontrol.StaffElapsedTimeTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+                availablecustomersusercontrol.StaffTransactionIDTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+
+                availablecustomersusercontrol.StaffCancelServiceBtnClicked += AvailableCustomerUserControl_CancelServiceButtonClicked;
+                availablecustomersusercontrol.StaffQueTypeTextBox.Visible = false;
+                RecQueStartGenQuePanel.Controls.Add(availablecustomersusercontrol);
+                availablecustomersusercontrol.CurrentStaffID = selectedstaffemployeeid;
+
+                string queNumberText = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
+                if (int.TryParse(queNumberText, out int queNumber))
+                {
+                    if (queNumber < smallestQueNumber2)
+                    {
+                        smallestQueNumber2 = queNumber;
+                    }
+                }
+            }
+
+            UpdateStartServiceButtonStatusGeneral(generalquependingcustomers, smallestQueNumber2);
+            generalsmallestquenumber = smallestQueNumber2;
+        }
+
+        private List<PendingCustomers> RetrieveGeneralQuePendingCustomersFromDB()
+        {
+            DateTime currentDate = DateTime.Today;
+            string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
+            List<PendingCustomers> result = new List<PendingCustomers>();
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string generalquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber, sh.QueType 
+                                                     FROM servicehistory sh 
+                                                     INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber 
+                                                     WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')
+                                                     AND sh.ServiceCategory = @membercategory 
+                                                     AND sh.QueType = 'GeneralQue' 
+                                                     AND (wa.ServiceStatus = 'Pending' OR wa.ServiceStatus = 'Pending Paid')
+                                                     AND sh.AppointmentDate = @datetoday";
+
+                    string generalquependingcustomersquery2 = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber, sh.QueType
+                                                     FROM servicehistory sh 
+                                                     INNER JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber 
+                                                     WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')
+                                                     AND sh.ServiceCategory = @membercategory 
+                                                     AND sh.QueType = 'GeneralQue' 
+                                                     AND (app.ServiceStatus = 'Pending' OR app.ServiceStatus = 'Pending Paid')
+                                                     AND sh.AppointmentDate = @datetoday";
+
+                    MySqlCommand command = new MySqlCommand(generalquependingcustomersquery, connection);
+                    command.Parameters.AddWithValue("@membercategory", selectedmembercategory);
+                    command.Parameters.AddWithValue("@datetoday", datetoday);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            PendingCustomers generalquependingcustomers = new PendingCustomers
+                            {
+                                TransactionNumber = reader["TransactionNumber"] as string,
+                                ClientName = reader["ClientName"] as string,
+                                ServiceStatus = reader["ServiceStatus"] as string,
+                                ServiceName = reader["SelectedService"] as string,
+                                ServiceID = reader["ServiceID"] as string,
+                                QueType = reader["QueType"] as string,
+                                QueNumber = reader["QueNumber"] as string
+                            };
+
+                            result.Add(generalquependingcustomers);
+                        }
+                    }
+
+                    MySqlCommand command2 = new MySqlCommand(generalquependingcustomersquery2, connection);
+                    command2.Parameters.AddWithValue("@membercategory", selectedmembercategory);
+                    command2.Parameters.AddWithValue("@datetoday", datetoday);
+
+                    using (MySqlDataReader reader = command2.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            PendingCustomers generalquependingcustomers = new PendingCustomers
+                            {
+                                TransactionNumber = reader["TransactionNumber"] as string,
+                                ClientName = reader["ClientName"] as string,
+                                ServiceStatus = reader["ServiceStatus"] as string,
+                                ServiceName = reader["SelectedService"] as string,
+                                ServiceID = reader["ServiceID"] as string,
+                                QueType = reader["QueType"] as string,
+                                QueNumber = reader["QueNumber"] as string
+                            };
+
+                            result.Add(generalquependingcustomers);
+                        }
+                    }
+                    if (result.Count == 0)
+                    {
+                        //MessageBox.Show("No customers in the queue.", "Empty Queue", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
+
+            return result;
+        }
+
+        private void UpdateStartServiceButtonStatusGeneral(List<PendingCustomers> generalquependingcustomers, int smallestQueNumber)
+        {
+            if (RecQueStartPrefQuePanel.Controls.Count > 0 && !RecQueStartPrefQuePanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
+            {
+                foreach (QueueUserControl userControl in RecQueStartPrefQuePanel.Controls)
+                {
+                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
+                    if (int.TryParse(queNumberText, out int queNumber))
+                    {
+                        if (queNumber < smallestQueNumber)
+                        {
+                            smallestQueNumber = queNumber;
+                        }
+                    }
+                }
+            }
+
+            if (RecQueStartGenQuePanel.Controls.Count > 0 && !RecQueStartGenQuePanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
+            {
+                foreach (QueueUserControl userControl in RecQueStartGenQuePanel.Controls)
+                {
+                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
+                    if (int.TryParse(queNumberText, out int queNumber))
+                    {
+                        if (queNumber < smallestQueNumber)
+                        {
+                            smallestQueNumber = queNumber;
+                        }
+                    }
+                }
+            }
+
+            if (generalquependingcustomers.Count > 0 && !RecQueStartGenQuePanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
+            {
+                foreach (QueueUserControl userControl in RecQueStartGenQuePanel.Controls)
+                {
+                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
+                    if (int.TryParse(queNumberText, out int queNumber))
+                    {
+                        if (queNumber == smallestQueNumber)
+                        {
+                            userControl.Enabled = true;
+                        }
+                        else
+                        {
+                            userControl.Enabled = false;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (System.Windows.Forms.Control control in RecQueStartGenQuePanel.Controls)
+                {
+                    if (control is QueueUserControl userControl)
+                    {
+                        userControl.Enabled = false;
+                    }
+                }
+            }
+            if (RecQueStartPrioQuePanel.Controls.Count > 0 && !RecQueStartPrioQuePanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
+            {
+                foreach (System.Windows.Forms.Control control in RecQueStartGenQuePanel.Controls)
+                {
+                    if (control is QueueUserControl userControl)
+                    {
+                        userControl.Enabled = false;
+                    }
+                }
+            }
+        }
+
+        private List<PendingCustomers> RetrievePreferredQuePendingCustomersFromDB()
+        {
+            string staffID = selectedstaffemployeeid;
+            DateTime currentDate = DateTime.Today;
+            string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
+            List<PendingCustomers> result = new List<PendingCustomers>();
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string preferredquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber, sh.QueType
+                       FROM servicehistory sh INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber
+                       WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid') AND sh.ServiceCategory = @membercategory AND sh.PreferredStaff = @preferredstaff AND (wa.ServiceStatus = 'Pending' OR wa.ServiceStatus = 'Pending Paid') AND sh.AppointmentDate = @datetoday";
+
+
+                    string preferredquependingcustomersquery2 = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber, sh.QueType
+                       FROM servicehistory sh INNER JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber
+                       WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')  AND sh.QueType = 'Preferred' AND sh.ServiceCategory = @membercategory AND sh.PreferredStaff = @preferredstaff AND (app.ServiceStatus = 'Pending' OR app.ServiceStatus = 'Pending Paid') AND sh.AppointmentDate = @datetoday";
+
+                    MySqlCommand command = new MySqlCommand(preferredquependingcustomersquery, connection);
+                    command.Parameters.AddWithValue("@membercategory", selectedmembercategory);
+                    command.Parameters.AddWithValue("@preferredstaff", staffID);
+                    command.Parameters.AddWithValue("@datetoday", datetoday);
+
+                    MySqlCommand command2 = new MySqlCommand(preferredquependingcustomersquery2, connection);
+                    command2.Parameters.AddWithValue("@membercategory", selectedmembercategory);
+                    command2.Parameters.AddWithValue("@preferredstaff", staffID);
+                    command2.Parameters.AddWithValue("@datetoday", datetoday);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            PendingCustomers preferredquependingcustomers = new PendingCustomers
+                            {
+                                TransactionNumber = reader.IsDBNull(reader.GetOrdinal("TransactionNumber")) ? string.Empty : reader.GetString("TransactionNumber"),
+                                ClientName = reader.IsDBNull(reader.GetOrdinal("ClientName")) ? string.Empty : reader.GetString("ClientName"),
+                                ServiceStatus = reader.IsDBNull(reader.GetOrdinal("ServiceStatus")) ? string.Empty : reader.GetString("ServiceStatus"),
+                                ServiceName = reader.IsDBNull(reader.GetOrdinal("SelectedService")) ? string.Empty : reader.GetString("SelectedService"),
+                                ServiceID = reader.IsDBNull(reader.GetOrdinal("ServiceID")) ? string.Empty : reader.GetString("ServiceID"),
+                                QueType = reader.IsDBNull(reader.GetOrdinal("QueType")) ? string.Empty : reader.GetString("QueType"),
+                                QueNumber = reader.IsDBNull(reader.GetOrdinal("QueNumber")) ? string.Empty : reader.GetString("QueNumber")
+                            };
+
+                            result.Add(preferredquependingcustomers);
+                        }
+                    }
+
+                    using (MySqlDataReader reader = command2.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            PendingCustomers preferredquependingcustomers = new PendingCustomers
+                            {
+                                TransactionNumber = reader.IsDBNull(reader.GetOrdinal("TransactionNumber")) ? string.Empty : reader.GetString("TransactionNumber"),
+                                ClientName = reader.IsDBNull(reader.GetOrdinal("ClientName")) ? string.Empty : reader.GetString("ClientName"),
+                                ServiceStatus = reader.IsDBNull(reader.GetOrdinal("ServiceStatus")) ? string.Empty : reader.GetString("ServiceStatus"),
+                                ServiceName = reader.IsDBNull(reader.GetOrdinal("SelectedService")) ? string.Empty : reader.GetString("SelectedService"),
+                                ServiceID = reader.IsDBNull(reader.GetOrdinal("ServiceID")) ? string.Empty : reader.GetString("ServiceID"),
+                                QueType = reader.IsDBNull(reader.GetOrdinal("QueType")) ? string.Empty : reader.GetString("QueType"),
+                                QueNumber = reader.IsDBNull(reader.GetOrdinal("QueNumber")) ? string.Empty : reader.GetString("QueNumber")
+                            };
+
+                            result.Add(preferredquependingcustomers);
+                        }
+                    }
+
+                    if (result.Count == 0)
+                    {
+                        //MessageBox.Show("No customers in the preferred queue.", "Empty Queue", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
+
+            return result;
+        }
+
+        public int preferredsmallestquenumber;
+
+        protected void InitializePreferredCuePendingCustomersForStaff()
+        {
+            List<PendingCustomers> preferredquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
+
+            if (preferredquependingcustomers.Count == 0)
+            {
+                NoCustomerInQueueUserControl nocustomerusercontrol = new NoCustomerInQueueUserControl();
+                RecQueStartPrefQuePanel.Controls.Add(nocustomerusercontrol);
+                generalsmallestquenumber = preferredsmallestquenumber;
+
+                List<PendingCustomers> generalquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
+                int smallestQueNumber3 = int.MaxValue;
+
+                foreach (PendingCustomers customer in generalquependingcustomers)
+                {
+                    QueueUserControl customer2 = new QueueUserControl(this);
+                    string queNumberText2 = customer2.StaffQueNumberTextBox.Text;
+                    if (int.TryParse(queNumberText2, out int queNumber2))
+                    {
+                        if (queNumber2 < smallestQueNumber3)
+                        {
+                            generalsmallestquenumber = queNumber2;
+                        }
+                    }
+                }
+                return;
+            }
+            int smallestQueNumber = int.MaxValue;
+
+            foreach (PendingCustomers customer in preferredquependingcustomers)
+            {
+                QueueUserControl availablecustomersusercontrol = new QueueUserControl(this);
+                availablecustomersusercontrol.AvailableCustomerSetData(customer);
+                // usercontrol click event add
+                availablecustomersusercontrol.QueueUserControl_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+                // add event on elements
+                availablecustomersusercontrol.StaffQueNumberTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+                availablecustomersusercontrol.StaffCustomerNameTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+                availablecustomersusercontrol.StaffElapsedTimeTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+                availablecustomersusercontrol.StaffTransactionIDTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+
+                availablecustomersusercontrol.StaffCancelServiceBtnClicked += AvailableCustomerUserControl_CancelServiceButtonClicked;
+                availablecustomersusercontrol.StaffQueTypeTextBox.Visible = false;
+                RecQueStartPrefQuePanel.Controls.Add(availablecustomersusercontrol);
+                availablecustomersusercontrol.CurrentStaffID = selectedstaffemployeeid;
+
+                string queNumberText = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
+                if (int.TryParse(queNumberText, out int queNumber))
+                {
+                    if (queNumber < smallestQueNumber)
+                    {
+                        smallestQueNumber = queNumber;
+                    }
+                }
+            }
+            UpdateStartServiceButtonStatusPreferred(preferredquependingcustomers, smallestQueNumber);
+            preferredsmallestquenumber = smallestQueNumber;
+        }
+
+        private void UpdateStartServiceButtonStatusPreferred(List<PendingCustomers> preferredquependingcustomers, int smallestQueNumber)
+        {
+            if (RecQueStartGenQuePanel.Controls.Count > 0 && !RecQueStartGenQuePanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
+            {
+                foreach (QueueUserControl userControl in RecQueStartGenQuePanel.Controls)
+                {
+                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
+                    if (int.TryParse(queNumberText, out int queNumber))
+                    {
+                        if (queNumber < smallestQueNumber)
+                        {
+                            smallestQueNumber = queNumber;
+                        }
+                    }
+                }
+            }
+            if (RecQueStartPrefQuePanel.Controls.Count > 0 && !RecQueStartPrefQuePanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
+            {
+                foreach (QueueUserControl userControl in RecQueStartPrefQuePanel.Controls)
+                {
+                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
+                    if (int.TryParse(queNumberText, out int queNumber))
+                    {
+                        if (queNumber < smallestQueNumber)
+                        {
+                            smallestQueNumber = queNumber;
+                        }
+                    }
+                }
+            }
+
+            if (preferredquependingcustomers.Count > 0 && !RecQueStartPrefQuePanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
+            {
+                foreach (QueueUserControl userControl in RecQueStartPrefQuePanel.Controls)
+                {
+                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
+                    if (int.TryParse(queNumberText, out int queNumber))
+                    {
+                        if (queNumber == smallestQueNumber)
+                        {
+                            userControl.Enabled = true;
+                        }
+                        else
+                        {
+                            userControl.Enabled = false;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (System.Windows.Forms.Control control in RecQueStartPrefQuePanel.Controls)
+                {
+                    if (control is QueueUserControl userControl)
+                    {
+                        userControl.Enabled = false;
+                    }
+                }
+            }
+            if (RecQueStartPrioQuePanel.Controls.Count > 0 && !RecQueStartPrioQuePanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
+            {
+                foreach (System.Windows.Forms.Control control in RecQueStartGenQuePanel.Controls)
+                {
+                    if (control is QueueUserControl userControl)
+                    {
+                        userControl.Enabled = false;
+                    }
+                }
+            }
+        }
+
+        public class PriorityPendingCustomers
+        {
+            public string TransactionNumber { get; set; }
+            public string ClientName { get; set; }
+            public string ServiceID { get; set; }
+            public string ServiceName { get; set; }
+            public string ServiceStatus { get; set; }
+            public string QueType { get; set; }
+            public string QueNumber { get; set; }
+        }
+
+        private List<PriorityPendingCustomers> RetrievePriorityGeneralAndPreferredQuePendingCustomersFromDB()
+        {
+            string staffID = selectedstaffemployeeid;
+            DateTime currentDate = DateTime.Today;
+            string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
+            List<PriorityPendingCustomers> result = new List<PriorityPendingCustomers>();
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string priorityquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber, sh.QueType 
+                                                                 FROM servicehistory sh 
+                                                                 INNER JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber 
+                                                                 WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')
+                                                                 AND sh.ServiceCategory = @membercategory 
+                                                                 AND (sh.QueType = 'AnyonePriority' OR sh.QueType = 'AnyoneSPriority' OR sh.PreferredStaff = @preferredstaff)
+                                                                 AND (app.ServiceStatus = 'Pending' OR app.ServiceStatus = 'Pending Paid')
+                                                                 AND app.AppointmentStatus = 'Confirmed'
+                                                                 AND sh.AppointmentDate = @datetoday";
+
+                    MySqlCommand command = new MySqlCommand(priorityquependingcustomersquery, connection);
+                    command.Parameters.AddWithValue("@membercategory", selectedmembercategory);
+                    command.Parameters.AddWithValue("@preferredstaff", staffID);
+                    command.Parameters.AddWithValue("@datetoday", datetoday);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            PriorityPendingCustomers priorityquependingcustomers = new PriorityPendingCustomers
+                            {
+                                TransactionNumber = reader["TransactionNumber"] as string,
+                                ClientName = reader["ClientName"] as string,
+                                ServiceStatus = reader["ServiceStatus"] as string,
+                                ServiceName = reader["SelectedService"] as string,
+                                ServiceID = reader["ServiceID"] as string,
+                                QueType = reader["QueType"] as string,
+                                QueNumber = reader["QueNumber"] as string
+                            };
+
+                            result.Add(priorityquependingcustomers);
+                        }
+                    }
+                    if (result.Count == 0)
+                    {
+                        //MessageBox.Show("No customers in the queue.", "Empty Queue", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred: " + ex.Message);
+                }
+            }
+
+            return result;
+        }
+
+        public int sprioritycount;
+        bool ThereIsSvip = false;
+        public void InitializePriorityPendingCustomersForStaff()
+        {
+            List<PriorityPendingCustomers> priorityqueuependingcustomers = RetrievePriorityGeneralAndPreferredQuePendingCustomersFromDB();
+
+            if (priorityqueuependingcustomers.Count == 0)
+            {
+                NoCustomerInQueueUserControl nocustomerusercontrol = new NoCustomerInQueueUserControl();
+                RecQueStartPrioQuePanel.Controls.Add(nocustomerusercontrol);
+
+            }
+
+            int smallestQueNumber2 = int.MaxValue;
+            int smallestQueNumberAnyonePreferred = int.MaxValue;
+
+
+            foreach (PriorityPendingCustomers customer in priorityqueuependingcustomers)
+            {
+                QueueUserControl availablecustomersusercontrol = new QueueUserControl(this);
+                // usercontrol click event add
+                availablecustomersusercontrol.QueueUserControl_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+                // add event on elements
+                availablecustomersusercontrol.StaffQueNumberTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+                availablecustomersusercontrol.StaffCustomerNameTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+                availablecustomersusercontrol.StaffElapsedTimeTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+                availablecustomersusercontrol.StaffTransactionIDTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+
+                availablecustomersusercontrol.StaffCancelServiceBtnClicked += AvailableCustomerUserControl_CancelServiceButtonClicked;
+                RecQueStartPrioQuePanel.Controls.Add(availablecustomersusercontrol);
+                availablecustomersusercontrol.CurrentStaffID = selectedstaffemployeeid;
+
+                string queNumberText = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
+                if (int.TryParse(queNumberText, out int queNumber))
+                {
+                    if (queNumber < smallestQueNumber2)
+                    {
+                        smallestQueNumber2 = queNumber;
+                    }
+
+                }
+
+                string queNumberText2 = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
+                if (int.TryParse(queNumberText2, out int queNumber2))
+                {
+                    if (customer.QueType == "AnyoneSPriority" || customer.QueType == "PreferredSPriority")
+                    {
+                        if (queNumber2 < smallestQueNumberAnyonePreferred)
+                        {
+                            smallestQueNumberAnyonePreferred = queNumber2;
+                        }
+                        ThereIsSvip = true;
+                        sprioritycount++;
+                    }
+
+                }
+            }
+
+
+            if (!ThereIsSvip && sprioritycount == 0)
+            {
+                ThereIsSvip = false;
+            }
+            UpdateStartServiceButtonStatusPriority(priorityqueuependingcustomers, smallestQueNumber2, smallestQueNumberAnyonePreferred);
+
+        }
+
+        private void UpdateStartServiceButtonStatusPriority(List<PriorityPendingCustomers> priorityqueuependingcustomers, int smallestQueNumber, int smallestQueNumberAnyonePreferred)
+        {
+            bool hasAnyoneSPriorityOrPreferredSPriority = priorityqueuependingcustomers
+                .Any(customer => customer.QueType == "AnyoneSPriority" || customer.QueType == "PreferredSPriority");
+            if (ThereIsSvip == true)
+            {
+
+                foreach (System.Windows.Forms.Control control in RecQueStartPrioQuePanel.Controls)
+                {
+                    if (control is QueueUserControl userControl)
+                    {
+                        int queNumber;
+                        int.TryParse(userControl.StaffQueNumberTextBox.Text, out queNumber);
+                        if (userControl.StaffQueTypeTextBox.Text == "AnyoneSPriority" || userControl.StaffQueTypeTextBox.Text == "PreferredSPriority")
+                        {
+                            userControl.Enabled = (queNumber == smallestQueNumberAnyonePreferred);
+                        }
+                        else
+                        {
+                            userControl.Enabled = false;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (System.Windows.Forms.Control control in RecQueStartPrioQuePanel.Controls)
+                {
+                    if (control is QueueUserControl userControl)
+                    {
+                        int queNumber;
+                        int.TryParse(userControl.StaffQueNumberTextBox.Text, out queNumber);
+                        userControl.Enabled = (queNumber == smallestQueNumber);
+
+                    }
+                }
+            }
+        }
+
+        private void TransferAndStartTimer(InSessionUserControl queueControl)
+        {
+            // Check each FlowLayoutPanel for the user control
+            if (RecQueStartCurrentCustPanel.Controls.Contains(queueControl))
+            {
+                RecQueStartGenQuePanel.Controls.Remove(queueControl);
+                RecQueStartCurrentCustPanel.Controls.Add(queueControl);
+                queueControl.StartTimer();
+            }
+            else if (RecQueStartPrioQuePanel.Controls.Contains(queueControl))
+            {
+                RecQueStartPrefQuePanel.Controls.Remove(queueControl);
+                RecQueStartCurrentCustPanel.Controls.Add(queueControl);
+                queueControl.StartTimer(); // Start timer in the user control
+            }
+            else if (RecQueStartPrioQuePanel.Controls.Contains(queueControl))
+            {
+                RecQueStartPrioQuePanel.Controls.Remove(queueControl);
+                RecQueStartCurrentCustPanel.Controls.Add(queueControl);
+                queueControl.StartTimer(); // Start timer in the user control
+            }
+            else
+            {
+                MessageBox.Show("User control not found.");
+            }
+        }
+
+        public void InitializeMainInventory()
+        {
+            string query = "SELECT ItemID, ProductCategory, ItemName, ItemStock, ItemStatus FROM inventory " +
+                           "WHERE ProductType = 'Service Product'";
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    try
+                    {
+                        connection.Open();
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+
+                        RecQueStartInventoryDGV.Rows.Clear(); // Clear existing rows in the DataGridView
+
+                        foreach (DataRow row in dataTable.Rows)
+                        {
+                            string itemid = row["ItemID"].ToString();
+                            string productcategory = row["ProductCategory"].ToString();
+                            string itemname = row["ItemName"].ToString();
+                            string itemstock = row["ItemStock"].ToString();
+                            string itemstatus = row["ItemStatus"].ToString();
+
+                            // Add a new row to the DataGridView
+                            int rowIndex = RecQueStartInventoryDGV.Rows.Add();
+
+                            // Set the values of cells in the DataGridView
+                            RecQueStartInventoryDGV.Rows[rowIndex].Cells["RecStaffItemID"].Value = itemid;
+                            RecQueStartInventoryDGV.Rows[rowIndex].Cells["RecStaffProductCategory"].Value = productcategory;
+                            RecQueStartInventoryDGV.Rows[rowIndex].Cells["RecStaffItemName"].Value = itemname;
+                            RecQueStartInventoryDGV.Rows[rowIndex].Cells["RecStaffItemStock"].Value = itemstock;
+                            RecQueStartInventoryDGV.Rows[rowIndex].Cells["RecStaffItemStatus"].Value = itemstatus;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        public void CheckItemStockPersonalStatus(string ItemID, string staffID)
+        {
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string selectQuery = "SELECT ItemStock, ItemStatus, ItemName FROM inventory " +
+                                     "WHERE ItemID = @ItemID";
+
+                MySqlCommand selectCommand = new MySqlCommand(selectQuery, connection);
+                selectCommand.Parameters.AddWithValue("@staffID", staffID);
+                selectCommand.Parameters.AddWithValue("@ItemID", ItemID);
+
+                using (MySqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        int itemStock = int.Parse(reader["ItemStock"].ToString());
+                        string itemStatus = reader["ItemStatus"].ToString();
+                        string itemName = reader["ItemName"].ToString();
+
+                        reader.Close(); // Close the data reader before executing the update query
+
+                        if (itemStock >= 40 && itemStatus == "High Stock")
+                        {
+                            // Don't update
+                        }
+                        else if (itemStock >= 40 && itemStatus == "Low Stock")
+                        {
+                            string updateQuery = "UPDATE inventory " +
+                                                 "SET ItemStatus = 'High Stock' " +
+                                                 "WHERE  ItemID = @ItemID";
+
+                            MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection);
+                            updateCommand.Parameters.AddWithValue("@staffID", staffID);
+                            updateCommand.Parameters.AddWithValue("@ItemID", ItemID);
+                            updateCommand.ExecuteNonQuery();
+                        }
+                        else if (itemStock < 8 && itemStatus == "High Stock")
+                        {
+                            string updateQuery = "UPDATE inventory " +
+                                                 "SET ItemStatus = 'Low Stock' " +
+                                                 "WHERE ItemID = @ItemID";
+
+                            MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection);
+                            updateCommand.Parameters.AddWithValue("@staffID", staffID);
+                            updateCommand.Parameters.AddWithValue("@ItemID", ItemID);
+                            updateCommand.ExecuteNonQuery();
+
+                            MessageBox.Show($"{itemName} is at Low Stock");
+                        }
+                        else if (itemStatus == "Low Stock")
+                        {
+                            // Don't update
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Item not found in staff inventory");
+                    }
+                }
+            }
+        }
+
+        private void AvailableCustomersUserControl_EndServiceButtonClicked(object sender, EventArgs e)
+        {
+            InSessionUserControl clickedUserControl = (InSessionUserControl)sender;
+            TimeSpan elapsedTime = clickedUserControl.GetElapsedTime();
+
+        }
+
+        public class InSessionCustomers
+        {
+            public string TransactionNumber { get; set; }
+            public string ClientName { get; set; }
+            public string ServiceID { get; set; }
+            public string ServiceName { get; set; }
+            public string ServiceStatus { get; set; }
+            public string QueType { get; set; }
+            public string QueNumber { get; set; }
+            public string AttendingStaff { get; set; }
+        }
+        // Define a dictionary to store the existing user controls
+        Dictionary<string, InSessionUserControl> existingUserControls = new Dictionary<string, InSessionUserControl>();
+
+        public void InitializeInSessionCustomers()
+        {
+            List<InSessionCustomers> insessioncustomers = RetrieveInSessionCustomersFromDB();
+
+            foreach (InSessionCustomers customer in insessioncustomers)
+            {
+                // Generate a unique identifier for the user control
+                string controlID = GenerateControlID(customer);
+
+                // Check if the user control already exists in the FlowLayoutPanel or in the existingUserControls dictionary
+                bool userControlExists = RecQueStartCurrentCustPanel.Controls
+                    .OfType<InSessionUserControl>()
+                    .Any(control => control.ControlID == controlID) || existingUserControls.ContainsKey(controlID);
+
+                if (!userControlExists)
+                {
+                    InSessionUserControl availableinsessionusercontrol = new InSessionUserControl(this);
+                    availableinsessionusercontrol.ControlID = controlID;
+                    availableinsessionusercontrol.AvailableCustomerSetData(customer);
+                    // Add event handlers
+                    availableinsessionusercontrol.QueueUserControlEnd_Clicked += AvailableCustomersUserControl_EndServiceButtonClicked;
+                    availableinsessionusercontrol.StaffQueNumberTextBoxEnd_Clicked += AvailableCustomersUserControl_EndServiceButtonClicked;
+                    availableinsessionusercontrol.StaffCustomerNameTextBoxEnd_Clicked += AvailableCustomersUserControl_EndServiceButtonClicked;
+                    availableinsessionusercontrol.StaffElapsedTimeTextBoxEnd_Clicked += AvailableCustomersUserControl_EndServiceButtonClicked;
+                    availableinsessionusercontrol.StaffTransactionIDTextBoxEnd_Clicked += AvailableCustomersUserControl_EndServiceButtonClicked;
+                    availableinsessionusercontrol.StaffCancelServiceBtnClicked += AvailableCustomerUserControl_CancelServiceButtonClicked;
+
+                    availableinsessionusercontrol.StartTimer();
+                    availableinsessionusercontrol.StaffQueTypeTextBox.Visible = true;
+                    RecQueStartCurrentCustPanel.Controls.Add(availableinsessionusercontrol);
+
+                    // Add the user control to the existingUserControls dictionary
+                    existingUserControls.Add(controlID, availableinsessionusercontrol);
+                }
+            }
+        }
+
+        // Generate a unique identifier for the user control based on the customer information
+        private string GenerateControlID(InSessionCustomers customer)
+        {
+            // Customize the logic to generate a suitable unique identifier based on the customer information
+            return $"{customer.TransactionNumber}_{customer.ServiceID}_{customer.ClientName}";
+        }
+
+
+        private List<InSessionCustomers> RetrieveInSessionCustomersFromDB()
+        {
+            DateTime currentDate = DateTime.Today;
+            string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
+            List<InSessionCustomers> result = new List<InSessionCustomers>();
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string insessionquerywalkin = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber, sh.QueType, sh.AttendingStaff
+                                                     FROM servicehistory sh 
+                                                     INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber 
+                                                     WHERE (sh.ServiceStatus = 'In Session' OR sh.ServiceStatus = 'In Session Paid')
+                                                     AND (wa.ServiceStatus = 'In Session' OR wa.ServiceStatus = 'In Session Paid')
+                                                     AND sh.AppointmentDate = @datetoday";
+
+                    string insessionquertappointment = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber, sh.QueType, sh.AttendingStaff
+                                                     FROM servicehistory sh 
+                                                     INNER JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber 
+                                                     WHERE (sh.ServiceStatus = 'In Session' OR sh.ServiceStatus = 'In Session Paid')
+                                                     AND (app.ServiceStatus = 'In Session' OR app.ServiceStatus = 'In Session Paid')
+                                                     AND sh.AppointmentDate = @datetoday";
+
+                    MySqlCommand command = new MySqlCommand(insessionquerywalkin, connection);
+                    command.Parameters.AddWithValue("@datetoday", datetoday);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            InSessionCustomers insessionustomers = new InSessionCustomers
+                            {
+                                TransactionNumber = reader["TransactionNumber"] as string,
+                                ClientName = reader["ClientName"] as string,
+                                ServiceStatus = reader["ServiceStatus"] as string,
+                                ServiceName = reader["SelectedService"] as string,
+                                ServiceID = reader["ServiceID"] as string,
+                                QueType = reader["QueType"] as string,
+                                QueNumber = reader["QueNumber"] as string,
+                                AttendingStaff = reader["AttendingStaff"] as string
+                            };
+
+                            result.Add(insessionustomers);
+                        }
+                    }
+
+                    MySqlCommand command2 = new MySqlCommand(insessionquertappointment, connection);
+                    command2.Parameters.AddWithValue("@datetoday", datetoday);
+
+                    using (MySqlDataReader reader = command2.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            InSessionCustomers insessionustomers = new InSessionCustomers
+                            {
+                                TransactionNumber = reader["TransactionNumber"] as string,
+                                ClientName = reader["ClientName"] as string,
+                                ServiceStatus = reader["ServiceStatus"] as string,
+                                ServiceName = reader["SelectedService"] as string,
+                                ServiceID = reader["ServiceID"] as string,
+                                QueType = reader["QueType"] as string,
+                                QueNumber = reader["QueNumber"] as string,
+                                AttendingStaff = reader["AttendingStaff"] as string
+                            };
+
+                            result.Add(insessionustomers);
+                        }
+                    }
+                    if (result.Count == 0)
+                    {
+                        //MessageBox.Show("No customers in the queue.", "Empty Queue", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
+
+            return result;
+        }
+
+        private void VouchersShow()
+        {
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string countQuery = "SELECT COUNT(*) FROM voucher";
+                    MySqlCommand countCommand = new MySqlCommand(countQuery, connection);
+                    int totalRows = Convert.ToInt32(countCommand.ExecuteScalar());
+
+                    string query = "SELECT DateStart, DateEnd, PromoName, PromoCategory, PromoCode, PromoDiscount, " +
+                                    "AvailableNumber, PromoCreated FROM voucher " +
+                                    "ORDER BY PromoCreated DESC " +
+                                    "LIMIT 10";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+                    adapter.Fill(dataTable);
+
+                    if (!dataTable.Columns.Contains("Status"))
+                    {
+                        dataTable.Columns.Add("Status", typeof(string));
+                    }
+
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        string promoCode = row["PromoCode"].ToString();
+                        DateTime dateStart = Convert.ToDateTime(row["DateStart"]);
+                        DateTime dateEnd = Convert.ToDateTime(row["DateEnd"]);
+                        int availableNumber = Convert.ToInt32(row["AvailableNumber"]);
+
+                        DateTime currentDate = DateTime.Now;
+                        string status = "";
+
+                        if (availableNumber == 0)
+                        {
+                            status = "Fully Claimed";
+                        }
+                        else if (currentDate > dateEnd)
+                        {
+                            status = "Expired";
+                        }
+                        else if (currentDate >= dateStart && currentDate <= dateEnd)
+                        {
+                            status = "Ongoing";
+                        }
+                        else
+                        {
+                            status = "Pending";
+                        }
+
+                        string updateStatusQuery = "UPDATE voucher SET Status = @Status WHERE PromoCode = @PromoCode";
+                        MySqlCommand updateStatusCommand = new MySqlCommand(updateStatusQuery, connection);
+                        updateStatusCommand.Parameters.AddWithValue("@Status", status);
+                        updateStatusCommand.Parameters.AddWithValue("@PromoCode", promoCode);
+                        updateStatusCommand.ExecuteNonQuery();
+
+                        row["Status"] = status;
+                    }
+
+                    MngrVoucherDGV.DataSource = dataTable;
+
+                    int currentBatch = totalRows > 0 ? 1 : 0;
+                    int totalBatches = (int)Math.Ceiling((double)totalRows / 10);
+
+                    MngrVoucherCurrentRecordLbl.Text = $"{currentBatch} of {totalBatches}";
+
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void MngrVoucherInsertBtn_Click(object sender, EventArgs e)
+        {
+            DateTime dateStart = MngrVoucherDatePickerStart.Value;
+            DateTime dateEnd = MngrVoucherDatePickerEnd.Value;
+            string promoName = MngrVoucherPromoNameTextBox.Text;
+            string promoCode = MngrVoucherPromoCodeTextBox.Text;
+            string promoDiscount = MngrVoucherPromoDiscTextBox.Text;
+            string promoCategory = MngrVoucherSelectCatTextBox.Text;
+            string availableNumber = MngrVoucherAvailNumTextBox.Text;
+            DateTime promoCreated = DateTime.Now;
+
+            if (string.IsNullOrWhiteSpace(promoName) || string.IsNullOrWhiteSpace(promoDiscount)
+                || string.IsNullOrWhiteSpace(availableNumber) || string.IsNullOrWhiteSpace(promoCategory))
+            {
+                MessageBox.Show("Please fill in all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (dateStart > dateEnd && dateStart.Date != dateEnd.Date)
+            {
+                MessageBox.Show("Start date cannot be ahead of end date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!promoDiscount.EndsWith("%"))
+            {
+                MessageBox.Show("Promo discount must end with '%'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!int.TryParse(availableNumber, out _))
+            {
+                MessageBox.Show("Please enter a valid number for Available Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string formattedDateStart = dateStart.ToString("MMMM d, yyyy");
+            string formattedDateEnd = dateEnd.ToString("MMMM d, yyyy");
+            string formattedPromoCreated = promoCreated.ToString("MMMM d, yyyy HH:mm:ss");
+
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            string query = "INSERT INTO voucher (DateStart, DateEnd, PromoName, PromoCategory, PromoCode, PromoDiscount, AvailableNumber, PromoCreated) " +
+                           "VALUES (@DateStart, @DateEnd, @PromoName, @PromoCategory, @PromoCode, @PromoDiscount, @AvailableNumber, @PromoCreated)";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@DateStart", formattedDateStart);
+                    command.Parameters.AddWithValue("@DateEnd", formattedDateEnd);
+                    command.Parameters.AddWithValue("@PromoName", promoName);
+                    command.Parameters.AddWithValue("@PromoCategory", promoCategory);
+                    command.Parameters.AddWithValue("@PromoCode", promoCode);
+                    command.Parameters.AddWithValue("@PromoDiscount", promoDiscount);
+                    command.Parameters.AddWithValue("@AvailableNumber", availableNumber);
+                    command.Parameters.AddWithValue("@PromoCreated", formattedPromoCreated);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+
+            MessageBox.Show("Voucher inserted successfully!", "Information");
+            VouchersShow();
+            ClearFields();
+            PromoCodeGenerator();
+        }
+
+        private void PromoCodeGenerator()
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            StringBuilder codeBuilder = new StringBuilder();
+            Random random = new Random();
+
+            for (int i = 0; i < 10; i++)
+            {
+                codeBuilder.Append(chars[random.Next(chars.Length)]);
+            }
+
+            MngrVoucherPromoCodeTextBox.Text = codeBuilder.ToString();
+        }
+
+        private void ClearFields()
+        {
+            MngrVoucherDatePickerStart.Value = DateTime.Today;
+            MngrVoucherDatePickerEnd.Value = DateTime.Today;
+            MngrVoucherPromoNameTextBox.Text = string.Empty;
+            MngrVoucherPromoCodeTextBox.Text = string.Empty;
+            MngrVoucherPromoDiscTextBox.Text = string.Empty;
+            MngrVoucherAvailNumTextBox.Text = string.Empty;
+            MngrVoucherSelectCatTextBox.Text = string.Empty;
+        }
+
+        private void MngrVoucherEditBtn_Click(object sender, EventArgs e)
+        {
+            if (MngrVoucherDGV.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = MngrVoucherDGV.SelectedRows[0];
+
+                DateTime dateStart = Convert.ToDateTime(selectedRow.Cells["DateStart"].Value);
+                DateTime dateEnd = Convert.ToDateTime(selectedRow.Cells["DateEnd"].Value);
+                string promoName = Convert.ToString(selectedRow.Cells["PromoName"].Value);
+                string promoCategory = Convert.ToString(selectedRow.Cells["PromoCategory"].Value);
+                string promoCode = Convert.ToString(selectedRow.Cells["PromoCode"].Value);
+                string promoDiscount = Convert.ToString(selectedRow.Cells["PromoDiscount"].Value);
+                int availableNumber = Convert.ToInt32(selectedRow.Cells["AvailableNumber"].Value);
+
+                MngrVoucherDatePickerStart.Value = dateStart;
+                MngrVoucherDatePickerEnd.Value = dateEnd;
+                MngrVoucherPromoNameTextBox.Text = promoName;
+                MngrVoucherPromoCodeTextBox.Text = promoCode;
+                MngrVoucherPromoDiscTextBox.Text = promoDiscount;
+                MngrVoucherSelectCatTextBox.Text = promoCategory;
+                MngrVoucherAvailNumTextBox.Text = availableNumber.ToString();
+
+                MngrVoucherDGV.ClearSelection();
+                MngrVoucherEditBtn.Visible = false;
+                MngrVoucherInsertBtn.Visible = false;
+                MngrVoucherUpdateBtn.Visible = true;
+                MngrVoucherCancelBtn.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to edit.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void MngrVoucherCancelBtn_Click(object sender, EventArgs e)
+        {
+            ClearFields();
+            PromoCodeGenerator();
+            MngrVoucherEditBtn.Visible = true;
+            MngrVoucherInsertBtn.Visible = true;
+            MngrVoucherUpdateBtn.Visible = false;
+            MngrVoucherCancelBtn.Visible = false;
+        }
+
+        private void MngrVoucherUpdateBtn_Click(object sender, EventArgs e)
+        {
+            DateTime updatedDateStart = MngrVoucherDatePickerStart.Value;
+            DateTime updatedDateEnd = MngrVoucherDatePickerEnd.Value;
+            string updatedPromoName = MngrVoucherPromoNameTextBox.Text;
+            string updatedPromoCode = MngrVoucherPromoCodeTextBox.Text;
+            string updatedPromoDiscount = MngrVoucherPromoDiscTextBox.Text;
+            string updatedAvailableNumber = MngrVoucherAvailNumTextBox.Text;
+            string updatedPromoCategory = MngrVoucherSelectCatTextBox.Text;
+
+            if (string.IsNullOrWhiteSpace(updatedPromoName) || string.IsNullOrWhiteSpace(updatedPromoDiscount)
+                || string.IsNullOrWhiteSpace(updatedAvailableNumber) || string.IsNullOrEmpty(updatedPromoCategory))
+            {
+                MessageBox.Show("Please fill in all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (updatedDateStart > updatedDateEnd && updatedDateStart.Date != updatedDateEnd.Date)
+            {
+                MessageBox.Show("Start date cannot be ahead of end date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!updatedPromoDiscount.EndsWith("%"))
+            {
+                MessageBox.Show("Promo discount must end with '%'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!int.TryParse(updatedAvailableNumber, out _))
+            {
+                MessageBox.Show("Please enter a valid number for Available Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string formattedDateStart = updatedDateStart.ToString("MMMM d, yyyy");
+            string formattedDateEnd = updatedDateEnd.ToString("MMMM d, yyyy");
+
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            string updateQuery = "UPDATE voucher SET DateStart = @DateStart, DateEnd = @DateEnd, " +
+                                 "PromoName = @PromoName, PromoCategory = @PromoCategory, PromoDiscount = @PromoDiscount, " +
+                                 "AvailableNumber = @AvailableNumber " +
+                                 "WHERE PromoCode = @PromoCode";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                using (MySqlCommand command = new MySqlCommand(updateQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@DateStart", formattedDateStart);
+                    command.Parameters.AddWithValue("@DateEnd", formattedDateEnd);
+                    command.Parameters.AddWithValue("@PromoName", updatedPromoName);
+                    command.Parameters.AddWithValue("@PromoCategory", updatedPromoCategory);
+                    command.Parameters.AddWithValue("@PromoDiscount", updatedPromoDiscount);
+                    command.Parameters.AddWithValue("@AvailableNumber", updatedAvailableNumber);
+                    command.Parameters.AddWithValue("@PromoCode", updatedPromoCode);
+
+                    try
+                    {
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Update successful.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            VouchersShow();
+                            ClearFields();
+                            PromoCodeGenerator();
+                            UpdateDataGridViewAndLabel();
+                            MngrVoucherEditBtn.Visible = true;
+                            MngrVoucherInsertBtn.Visible = true;
+                            MngrVoucherUpdateBtn.Visible = false;
+                            MngrVoucherCancelBtn.Visible = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Promo code not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error updating voucher: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private int currentBatch = 1;
+
+        private void MngrVoucherNextBtn_Click(object sender, EventArgs e)
+        {
+            int totalBatches = string.IsNullOrEmpty(MngrVoucherSearchTextBox.Text.Trim())
+                                ? (int)Math.Ceiling((double)GetTotalRows() / 10)
+                                : (int)Math.Ceiling((double)GetFilteredTotalRows() / 10);
+
+            if (currentBatch >= totalBatches)
+            {
+                MessageBox.Show("No more data to show.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            currentBatch++;
+
+            UpdateDataGridViewAndLabel();
+        }
+
+        private void MngrVoucherPreviousBtn_Click(object sender, EventArgs e)
+        {
+            if (currentBatch <= 1)
+            {
+                MessageBox.Show("No more previous data to show.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            currentBatch--;
+
+            UpdateDataGridViewAndLabel();
+        }
+
+        private void UpdateDataGridViewAndLabel()
+        {
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string countQuery = string.IsNullOrEmpty(MngrVoucherSearchTextBox.Text.Trim())
+                                        ? "SELECT COUNT(*) FROM voucher"
+                                        : $"SELECT COUNT(*) FROM voucher WHERE {GetFilterExpression()}";
+
+                    MySqlCommand countCommand = new MySqlCommand(countQuery, connection);
+                    int totalRows = Convert.ToInt32(countCommand.ExecuteScalar());
+
+                    if (totalRows == 0)
+                    {
+                        MessageBox.Show("No matching data found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MngrVoucherCurrentRecordLbl.Text = "0 of 0";
+                        return;
+                    }
+
+                    int totalBatches = (int)Math.Ceiling((double)totalRows / 10);
+
+                    currentBatch = Math.Min(currentBatch, totalBatches);
+
+                    string query = string.IsNullOrEmpty(MngrVoucherSearchTextBox.Text.Trim())
+                                    ? GetRegularQuery()
+                                    : GetFilteredQuery();
+
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+                    adapter.Fill(dataTable);
+
+                    if (!dataTable.Columns.Contains("Status"))
+                    {
+                        dataTable.Columns.Add("Status", typeof(string));
+                    }
+
+                    if (!dataTable.Columns.Contains("PromoCategory"))
+                    {
+                        dataTable.Columns.Add("PromoCategory", typeof(string));
+                    }
+
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        string promoCode = row["PromoCode"].ToString();
+                        DateTime dateStart = Convert.ToDateTime(row["DateStart"]);
+                        DateTime dateEnd = Convert.ToDateTime(row["DateEnd"]);
+                        int availableNumber = Convert.ToInt32(row["AvailableNumber"]);
+
+                        DateTime currentDate = DateTime.Now;
+                        string status = "";
+
+                        if (availableNumber == 0)
+                        {
+                            status = "Fully Claimed";
+                        }
+                        else if (currentDate > dateEnd)
+                        {
+                            status = "Expired";
+                        }
+                        else if (currentDate >= dateStart && currentDate <= dateEnd)
+                        {
+                            status = "Ongoing";
+                        }
+                        else
+                        {
+                            status = "Pending";
+                        }
+
+                        row["Status"] = status;
+                    }
+
+                    foreach (DataColumn column in dataTable.Columns)
+                    {
+                        if (!MngrVoucherDGV.Columns.Contains(column.ColumnName))
+                        {
+                            MngrVoucherDGV.Columns.Add(column.ColumnName, column.ColumnName);
+                        }
+                    }
+
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        string promoCode = row["PromoCode"].ToString();
+
+                        string promoCategory = GetPromoCategoryFromDatabase(promoCode);
+
+                        row["PromoCategory"] = promoCategory;
+                    }
+
+                    MngrVoucherDGV.DataSource = dataTable;
+
+                    MngrVoucherCurrentRecordLbl.Text = $"{currentBatch} of {totalBatches}";
+
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private string GetPromoCategoryFromDatabase(string promoCode)
+        {
+            string promoCategory = "";
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            string query = "SELECT PromoCategory FROM voucher WHERE PromoCode = @PromoCode";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@PromoCode", promoCode);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            promoCategory = reader["PromoCategory"].ToString();
+                        }
+                    }
+                }
+
+                connection.Close();
+            }
+
+            return promoCategory;
+        }
+
+        private string GetRegularQuery()
+        {
+            int startIndex = (currentBatch - 1) * 10;
+            return $"SELECT DateStart, DateEnd, PromoName, PromoCode, PromoDiscount, " +
+                    $"AvailableNumber, PromoCreated FROM voucher " +
+                    $"ORDER BY PromoCreated DESC LIMIT {startIndex}, 10";
+        }
+
+        private string GetFilteredQuery()
+        {
+            string filterExpression = GetFilterExpression();
+            int startIndex = (currentBatch - 1) * 10;
+            return $"SELECT DateStart, DateEnd, PromoName, PromoCode, PromoDiscount, " +
+                    $"AvailableNumber, PromoCreated FROM voucher " +
+                    $"WHERE {filterExpression} " +
+                    $"ORDER BY PromoCreated DESC LIMIT {startIndex}, 10";
+        }
+
+        private string GetFilterExpression()
+        {
+            string searchText = MngrVoucherSearchTextBox.Text.Trim();
+            return string.Join(" OR ", ((DataTable)MngrVoucherDGV.DataSource).Columns.Cast<DataColumn>()
+                                .Select(col => $"{col.ColumnName} LIKE '%{searchText}%'"));
+        }
+
+        private int GetTotalRows()
+        {
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string countQuery = "SELECT COUNT(*) FROM voucher";
+                    MySqlCommand countCommand = new MySqlCommand(countQuery, connection);
+                    int totalRows = Convert.ToInt32(countCommand.ExecuteScalar());
+                    connection.Close();
+                    return totalRows;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return 0;
+            }
+        }
+
+        private int GetFilteredTotalRows()
+        {
+            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = $"SELECT COUNT(*) FROM voucher WHERE {GetFilterExpression()}";
+                    MySqlCommand countCommand = new MySqlCommand(query, connection);
+                    int totalRows = Convert.ToInt32(countCommand.ExecuteScalar());
+                    connection.Close();
+                    return totalRows;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return 0;
+            }
+        }
+
+        private void MngrVoucherSearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = MngrVoucherSearchTextBox.Text.Trim();
+
+            DataView dv = ((DataTable)MngrVoucherDGV.DataSource).DefaultView;
+
+            if (string.IsNullOrEmpty(searchText))
+            {
+                dv.RowFilter = string.Empty;
+            }
+            else
+            {
+                string filterExpression = string.Join(" OR ", ((DataTable)MngrVoucherDGV.DataSource).Columns.Cast<DataColumn>()
+                                                    .Select(col => $"{col.ColumnName} LIKE '{searchText}%'"));
+                dv.RowFilter = filterExpression;
+            }
+
+            UpdateDataGridViewAndLabel();
+        }
+
+        private void MngrVoucherPromoCategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (MngrVoucherPromoCategoryComboBox.SelectedItem != null)
+            {
+                string selectedItem = MngrVoucherPromoCategoryComboBox.SelectedItem.ToString();
+
+                if (selectedItem == "All Categories")
+                {
+                    MngrVoucherSelectCatTextBox.Text = "All Categories";
+                }
+                else
+                {
+                    if (MngrVoucherSelectCatTextBox.Text.Contains(selectedItem))
+                    {
+                        MessageBox.Show("This category has already been selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (MngrVoucherSelectCatTextBox.Text == "All Categories")
+                    {
+                        MessageBox.Show("Cannot add other categories when 'All Categories' is selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        if (!string.IsNullOrEmpty(MngrVoucherSelectCatTextBox.Text))
+                        {
+                            MngrVoucherSelectCatTextBox.Text += "," + selectedItem;
+                        }
+                        else
+                        {
+                            MngrVoucherSelectCatTextBox.Text = selectedItem;
+                        }
+                    }
+                }
+
+                MngrVoucherPromoCategoryComboBox.SelectedIndex = -1;
+            }
+        }
+
+        private void MngrVoucherXBtn_Click(object sender, EventArgs e)
+        {
+            MngrVoucherSelectCatTextBox.Text = "";
+        }
+
+        private void MngrVoucherPromoNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ' ' && MngrVoucherPromoNameTextBox.Text.Length == 0)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (MngrVoucherPromoNameTextBox.Text.Length >= 100)
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void MngrVoucherPromoDiscTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ' ' && MngrVoucherPromoDiscTextBox.Text.Length == 0)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (MngrVoucherPromoDiscTextBox.Text.Length >= 3 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '%' && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (e.KeyChar == '%' && MngrVoucherPromoDiscTextBox.Text.Length > 0 && MngrVoucherPromoDiscTextBox.Text.Length < 2)
+            {
+                return;
+            }
+
+            e.Handled = false;
+        }
+
+        private void MngrVoucherAvailNumTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ' ' && MngrVoucherAvailNumTextBox.Text.Length == 0)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (MngrVoucherAvailNumTextBox.Text.Length >= 4 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
