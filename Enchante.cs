@@ -1969,6 +1969,8 @@ namespace Enchante
             RecWalkinFNameText.Text = "";
             RecWalkinLNameText.Text = "";
             RecWalkinCPNumText.Text = "";
+            RecWalkinAgeBox.Text = "";
+            RecWalkinBdayPicker.Value = DateTime.Today;
             RecWalkinCatHSRB.Checked = false;
             RecWalkinCatFSRB.Checked = false;
             RecWalkinCatNCRB.Checked = false;
@@ -2445,6 +2447,7 @@ namespace Enchante
                         // Update Qty and ItemCost in the DataGridView
                         RecWalkinSelectedProdDGV.Rows[existingRowIndex].Cells["Qty"].Value = quantity.ToString();
                         RecWalkinSelectedProdDGV.Rows[existingRowIndex].Cells["Total Price"].Value = updatedCost.ToString("F2"); // Format to two decimal places
+                        RecWalkinProdCalculateTotalPrice();
                     }
 
                     else
@@ -2456,6 +2459,7 @@ namespace Enchante
                 else
                 {
                     RecWalkinSelectedProdDGV.Rows.Add(itemID, "x", itemName, "-", "1", "+", itemPrice, itemPrice, false);
+                    RecWalkinProdCalculateTotalPrice();
 
                 }
             }
@@ -2647,53 +2651,16 @@ namespace Enchante
                 // Handle the Bin column
                 if (RecWalkinSelectedProdDGV.Columns[e.ColumnIndex].Name == "Void")
                 {
-                    //input dialog messagebox
-                    string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Void Product Permission");
-
-                    // Hash the entered password
-                    string hashedEnteredPassword = HashHelper.HashString(enteredPassword);
                     DialogResult result;
+                    result = MessageBox.Show("Do you want to remove this item?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    if (result == DialogResult.Yes)
                     {
-                        connection.Open();
-
-                        string query = "SELECT EmployeeType FROM systemusers WHERE HashedPass = @Password";
-                        using (MySqlCommand command = new MySqlCommand(query, connection))
-                        {
-                            command.Parameters.AddWithValue("@Password", hashedEnteredPassword);
-
-                            // Execute the query
-                            using (MySqlDataReader reader = command.ExecuteReader())
-                            {
-                                if (reader.Read())
-                                {
-                                    string position = reader["EmployeeType"].ToString();
-                                    if (position == "Manager")
-                                    {
-                                        result = MessageBox.Show("Do you want to remove this item?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                                        if (result == DialogResult.Yes)
-                                        {
-                                            // Remove the selected row
-                                            RecWalkinSelectedProdDGV.Rows.RemoveAt(e.RowIndex);
-                                            MessageBox.Show("Item removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        }
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                        return;
-                                    }
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                    return;
-                                }
-                            }
-                        }
+                        // Remove the selected row
+                        RecWalkinSelectedProdDGV.Rows.RemoveAt(e.RowIndex);
+                        MessageBox.Show("Item removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+                    
                 }
                 else if (RecWalkinSelectedProdDGV.Columns[e.ColumnIndex].Name == "-")
                 {
@@ -2716,6 +2683,7 @@ namespace Enchante
                             // Update Qty and ItemCost in the DataGridView
                             RecWalkinSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value = quantity.ToString();
                             RecWalkinSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = updatedCost.ToString("F2"); // Format to two decimal places
+                            RecWalkinProdCalculateTotalPrice();
 
                         }
                     }
@@ -2744,6 +2712,7 @@ namespace Enchante
                         // Update Qty and ItemCost in the DataGridView
                         RecWalkinSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value = quantity.ToString();
                         RecWalkinSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = updatedCost.ToString("F2"); // Format to two decimal places
+                        RecWalkinProdCalculateTotalPrice();
 
                     }
                     else
@@ -14757,6 +14726,31 @@ namespace Enchante
                 RecWalkinAgeErrorLbl.Visible = false;
 
             }
+        }
+        private void RecWalkinProdCalculateTotalPrice()
+        {
+            decimal total1 = 0;
+
+            int servicepriceColumnIndex = RecWalkinSelectedProdDGV.Columns["Total Price"].Index;
+
+            foreach (DataGridViewRow row in RecWalkinSelectedProdDGV.Rows)
+            {
+                if (row.Cells[servicepriceColumnIndex].Value != null)
+                {
+                    decimal price;
+                    if (decimal.TryParse(row.Cells[servicepriceColumnIndex].Value.ToString(), out price))
+                    {
+                        total1 += price;
+                    }
+                    else
+                    {
+                        // Handle invalid numeric value
+                        // For example, you can skip this row or display an error message
+                    }
+                }
+            }
+            RecWalkinTotalAmountLblText.Text = total1.ToString("F2");
+
         }
     }
 }
