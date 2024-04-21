@@ -173,27 +173,12 @@ namespace Enchante
 
 
 
-            MngrProductSalesPeriod.Items.Add("Day");
-            MngrProductSalesPeriod.Items.Add("Week");
-            MngrProductSalesPeriod.Items.Add("Month");
-            MngrProductSalesPeriod.Items.Add("Specific Date Range");
-            MngrProductSalesSelectCatBox.Items.Add("Hair Styling");
-            MngrProductSalesSelectCatBox.Items.Add("Face & Skin");
-            MngrProductSalesSelectCatBox.Items.Add("Nail Care");
-            MngrProductSalesSelectCatBox.Items.Add("Massage");
-            MngrProductSalesSelectCatBox.Items.Add("Spa");
-            MngrProductSalesSelectCatBox.Items.Add("All Categories");
+            MngrProductSalesPeriod.Items.AddRange(SalesDatePeriod);
+            MngrProductSalesSelectCatBox.Items.AddRange(SalesCategories);
 
-            MngrAppSalesPeriod.Items.Add("Day");
-            MngrAppSalesPeriod.Items.Add("Week");
-            MngrAppSalesPeriod.Items.Add("Month");
-            MngrAppSalesPeriod.Items.Add("Specific Date Range");
-            MngrAppSalesSelectCatBox.Items.Add("Hair Styling");
-            MngrAppSalesSelectCatBox.Items.Add("Face & Skin");
-            MngrAppSalesSelectCatBox.Items.Add("Nail Care");
-            MngrAppSalesSelectCatBox.Items.Add("Massage");
-            MngrAppSalesSelectCatBox.Items.Add("Spa");
-            MngrAppSalesSelectCatBox.Items.Add("All Categories");
+            MngrAppSalesPeriod.Items.AddRange(SalesDatePeriod);
+            MngrAppSalesSelectCatBox.Items.AddRange(SalesCategories);
+
 
             MngrPDHistoryStatusBox.Items.Add("Paid");
             MngrPDHistoryStatusBox.Items.Add("Not Paid");
@@ -216,7 +201,7 @@ namespace Enchante
             MngrSVHistoryServiceStatusBox.Items.Add("In Session");
             MngrSVHistoryServiceStatusBox.Items.Add("Cancelled");
 
-            MngrSVHistoryServiceCatBox.Items.Add("Hair Styling");
+            MngrSVHistoryServiceCatBox.Items.AddRange(Service_Category);
             MngrSVHistoryServiceCatBox.Items.Add("Face & Skin");
             MngrSVHistoryServiceCatBox.Items.Add("Nail Care");
             MngrSVHistoryServiceCatBox.Items.Add("Massage");
@@ -226,12 +211,8 @@ namespace Enchante
             MngrMemAccMemTypeBox.Items.Add("PREMIUM");
             MngrMemAccMemTypeBox.Items.Add("SVIP");
 
-            MngrVoucherPromoCategoryComboBox.Items.Add("Hair Styling");
-            MngrVoucherPromoCategoryComboBox.Items.Add("Face & Skin");
-            MngrVoucherPromoCategoryComboBox.Items.Add("Nail Care");
-            MngrVoucherPromoCategoryComboBox.Items.Add("Massage");
-            MngrVoucherPromoCategoryComboBox.Items.Add("Spa");
-            MngrVoucherPromoCategoryComboBox.Items.Add("All Categories");
+            MngrVoucherPromoCategoryComboBox.Items.AddRange(SalesCategories);
+
 
             ProductHistoryShow();
             ServiceHistoryShow();
@@ -239,6 +220,13 @@ namespace Enchante
             PopulateRequiredItemsComboBox();
             VouchersShow();
             PromoCodeGenerator();
+
+
+            //Tab Header remover
+            WalkinTabs.SizeMode = TabSizeMode.Fixed;
+            WalkinTabs.ItemSize = new Size(0, 1);
+
+
         }
 
         private void Enchante_Load(object sender, EventArgs e)
@@ -459,6 +447,7 @@ namespace Enchante
         {
             ParentPanelShow.PanelShow(EnchanteReceptionPage);
             InitialWalkinTransColor();
+            RecTransTimer.Start();
         }
 
         private void StaffHomePanelReset()
@@ -973,20 +962,8 @@ namespace Enchante
         {
             Transaction.PanelShow(RecWalkinPanel);
             RecWalkinTransNumText.Text = TransactionNumberGenerator.WalkinGenerateTransNumberDefault();
-            Transaction.PanelShow(RecWalkinPanel);
-            RecTransBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
 
-
-            RecWalkInBtn.Visible = true;
-            RecAppointmentBtn.Visible = true;
-            RecApptConfirmBtn.Visible = true;
-            RecPayServiceBtn.Visible = true;
-            RecShopProdBtn.Visible = true;
-
-            RecQueBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            RecQueWinBtn.Visible = false;
-            RecQueStartBtn.Visible = false;
-
+            //light yellow bg, green text and fg
             RecWalkInBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             RecWalkInBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             RecWalkInBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
@@ -1006,7 +983,33 @@ namespace Enchante
             RecShopProdBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             RecShopProdBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             RecShopProdBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            RecQueBtnResetColor();
+
         } //216, 213, 178 89, 136, 82
+
+        private void RecTransBtnResetColor()
+        {
+            RecWalkInBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecWalkInBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecWalkInBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            RecAppointmentBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecAppointmentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecAppointmentBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            RecApptConfirmBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecApptConfirmBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecApptConfirmBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            RecPayServiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecPayServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecPayServiceBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            RecShopProdBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecShopProdBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecShopProdBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+        }
 
         private void ApptTransColor()
         {
@@ -1032,6 +1035,7 @@ namespace Enchante
             RecShopProdBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             RecShopProdBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             RecShopProdBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecQueBtnResetColor();
         }
         private void ApptConfirmTransColor()
         {
@@ -1057,6 +1061,7 @@ namespace Enchante
             RecShopProdBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             RecShopProdBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             RecShopProdBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecQueBtnResetColor();
         }
         private void PaymentTransColor()
         {
@@ -1082,6 +1087,7 @@ namespace Enchante
             RecShopProdBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             RecShopProdBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             RecShopProdBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecQueBtnResetColor();
         }
         private void ShopProdTransColor()
         {
@@ -1107,6 +1113,7 @@ namespace Enchante
             RecPayServiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             RecPayServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             RecPayServiceBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecQueBtnResetColor();
         }
         //ApptMember
         private void RecAppointmentBtn_Click(object sender, EventArgs e)
@@ -1117,6 +1124,7 @@ namespace Enchante
             RecApptBookingDatePicker.MinDate = DateTime.Today;
             RecApptClientBdayPicker.MaxDate = DateTime.Today;
             isappointment = true;
+            RecQueBtnResetColor();
         }
         public class TransactionNumberGenerator
         {
@@ -1199,29 +1207,7 @@ namespace Enchante
             RecWalkinTransNumText.Text = TransactionNumberGenerator.WalkinGenerateTransNumberInc();
 
         }
-        private void RecHomeBtn_Click(object sender, EventArgs e)
-        {
-            // Scroll to the Home position (0, 0)
-            ScrollToCoordinates(0, 0);
-            ReceptionHomePanelReset();
-            RecApptAcceptLateDeclineDGV.Rows.Clear();
-            RecCanceAllServicesDGV.Rows.Clear();
-
-            //Change color once clicked
-            RecHomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-
-        }
-
-        private void RecHomeBtn_MouseHover(object sender, EventArgs e)
-        {
-            iconToolTip.SetToolTip(RecHomeBtn, "Home");
-        }
-
-
-        private void ReceptionAccBtn_MouseHover(object sender, EventArgs e)
-        {
-            iconToolTip.SetToolTip(RecAccBtn, "Profile");
-        }
+        
         #endregion
 
         #region Receptionist Walk-in Transaction
@@ -12850,28 +12836,32 @@ namespace Enchante
 
         private void RecTransBtn_Click(object sender, EventArgs e)
         {
-            InitialWalkinTransColor();
+            //InitialWalkinTransColor();
+            RecTransTimer.Start();
         }
 
         private void RecQueBtn_Click(object sender, EventArgs e)
         {
-            RecQueStartColor();
-            RecQueBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            RecQueWinBtn.Visible = true;
-            RecQueStartBtn.Visible = true;
+            //RecQueStartColor();
+            RecQueTimer.Start();
 
-            RecTransBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            RecWalkInBtn.Visible = false;
-            RecAppointmentBtn.Visible = false;
-            RecApptConfirmBtn.Visible = false;
-            RecPayServiceBtn.Visible = false;
-            RecShopProdBtn.Visible = false;
             RecQueStartStaffDGV.Rows.Clear();
             RecQueStartInventoryDGV.Rows.Clear();
             InitializeAvailableStaff();
             InitializeMainInventory();
             InitializeInSessionCustomers();
 
+        }
+
+        private void RecQueBtnResetColor()
+        {
+            RecQueStartBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecQueStartBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecQueStartBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            RecQueWinBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecQueWinBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            RecQueWinBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
         }
 
         private void RecQueStartBtn_Click(object sender, EventArgs e)
@@ -12891,6 +12881,7 @@ namespace Enchante
             RecQueWinBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             RecQueWinBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
 
+            RecTransBtnResetColor();
         }
 
         private void RecQueWinColor()
@@ -12898,13 +12889,13 @@ namespace Enchante
             Transaction.PanelShow(RecQueWinPanel);
 
             RecQueWinBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            RecQueWinBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            RecQueWinBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            RecQueWinBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            RecQueWinBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
 
             RecQueStartBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             RecQueStartBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             RecQueStartBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-
+            RecTransBtnResetColor();
         }
 
 
@@ -14612,5 +14603,85 @@ namespace Enchante
                 e.Handled = true;
             }
         }
+
+        private void ReceptionScrollPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        bool expand = false;
+
+        private void RecTransTimer_Tick(object sender, EventArgs e)
+        {
+            
+            if (expand == false)
+            {
+                RecTransBtnFlowPanel.Height += 15;
+                RecTransBtn.IconChar = FontAwesome.Sharp.IconChar.CaretUp;
+                RecTransBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+                RecTransBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+                RecTransBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+                // Check if any panel is still visible, if so, don't stop the timer
+                if (RecTransBtnFlowPanel.Height >= RecTransBtnFlowPanel.MaximumSize.Height)
+                {
+                    RecTransTimer.Stop();
+                    expand = true;
+                }
+            }
+            else
+            {
+                RecTransBtnFlowPanel.Height -= 15;
+                RecTransBtn.IconChar = FontAwesome.Sharp.IconChar.CaretDown;
+                RecTransBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+                RecTransBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+                RecTransBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+                //RecTransBtnResetColor();
+
+                // Check if any panel is still visible, if so, don't stop the timer
+                if (RecTransBtnFlowPanel.Height <= RecTransBtnFlowPanel.MinimumSize.Height)
+                {
+                    RecTransTimer.Stop();
+                    expand = false;
+                }
+            }
+        }
+
+        bool expand1 = false;
+
+        private void RecQueTimer_Tick(object sender, EventArgs e)
+        {
+            if (expand1 == false)
+            {
+                RecQueBtnFlowPanel.Height += 15;
+                RecQueBtn.IconChar = FontAwesome.Sharp.IconChar.CaretUp;
+                RecQueBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+                RecQueBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+                RecQueBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+                // Check if any panel is still visible, if so, don't stop the timer
+                if (RecQueBtnFlowPanel.Height >= RecQueBtnFlowPanel.MaximumSize.Height)
+                {
+                    RecQueTimer.Stop();
+                    expand1 = true;
+                }
+            }
+            else
+            {
+                RecQueBtnFlowPanel.Height -= 15;
+                RecQueBtn.IconChar = FontAwesome.Sharp.IconChar.CaretDown;
+                RecQueBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+                RecQueBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+                RecQueBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+                //RecQueBtnResetColor();
+
+                // Check if any panel is still visible, if so, don't stop the timer
+                if (RecQueBtnFlowPanel.Height <= RecQueBtnFlowPanel.MinimumSize.Height)
+                {
+                    RecQueTimer.Stop();
+                    expand1 = false;
+                }
+            }
+        }
+
     }
 }
