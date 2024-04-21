@@ -700,26 +700,19 @@ namespace Enchante
             this.RecPayServiceWalkinCompleteTransDGV = new System.Windows.Forms.DataGridView();
             this.RecPayServiceExitBtn = new FontAwesome.Sharp.IconButton();
             this.RecWalkinPanel = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.RecWalkinSearchProductBtn = new FontAwesome.Sharp.IconButton();
             this.RecWalkinSearchServiceTypeBtn = new FontAwesome.Sharp.IconButton();
             this.RecWalkinSearchProductTextBox = new System.Windows.Forms.TextBox();
             this.RecWalkinBookTransactBtn = new Guna.UI2.WinForms.Guna2Button();
             this.RecWalkinSelectServiceAndStaffBtn = new Guna.UI2.WinForms.Guna2Button();
             this.RecWalkinDeleteSelectedServiceAndStaffBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.RecWalkinProdLbl = new System.Windows.Forms.Label();
             this.RecWalkinSelectedProdDGV = new System.Windows.Forms.DataGridView();
             this.OrderProdItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecWalkinSelectedProdVoidButton = new Guna.UI2.WinForms.Guna2Button();
             this.RecWalkinProductFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.RecWalkInStaffSelectLbl = new System.Windows.Forms.Label();
             this.RecWalkinSelectedServiceDGV = new System.Windows.Forms.DataGridView();
-            this.SelectedService = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ServicePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ServiceCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ServiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StaffSelected = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QueNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QueType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecWalkinNoServiceCategoryChosenWarningLbl = new System.Windows.Forms.Label();
             this.RecWalkinAttendingStaffSelectedComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.RecWalkinAnyStaffLbl = new System.Windows.Forms.Label();
@@ -749,19 +742,13 @@ namespace Enchante
             this.RecWalkinFNameErrorLbl = new System.Windows.Forms.Label();
             this.RecWalkinCPNumErrorLbl = new System.Windows.Forms.Label();
             this.RecWalkinAttendingStaffLbl = new System.Windows.Forms.Label();
-            this.RecWalkinCPNumText = new System.Windows.Forms.TextBox();
             this.RecWalkinCPNumLbl = new System.Windows.Forms.Label();
-            this.RecWalkInFooterStopperPanel = new System.Windows.Forms.Panel();
-            this.RecWalkInFooterStopperLbl = new System.Windows.Forms.Label();
-            this.RecWalkinLNameText = new System.Windows.Forms.TextBox();
             this.RecWalkinLNameLbl = new System.Windows.Forms.Label();
-            this.RecWalkinFNameText = new System.Windows.Forms.TextBox();
             this.RecWalkinFNameLbl = new System.Windows.Forms.Label();
             this.RecWalkinServiceCategoryLbl = new System.Windows.Forms.Label();
-            this.RecWalkinTransNumText = new System.Windows.Forms.TextBox();
             this.RecWalkinTransNumLbl = new System.Windows.Forms.Label();
             this.RecWalkinLbl = new System.Windows.Forms.Label();
-            this.RecWalkInExitBtn = new FontAwesome.Sharp.IconButton();
+            this.RecWalkinServicePrevBtn = new FontAwesome.Sharp.IconButton();
             this.RecQueStartPanel = new System.Windows.Forms.Panel();
             this.RecQueStartFooterStopperPanel = new System.Windows.Forms.Panel();
             this.RecQueStartFooterStopperLbl = new System.Windows.Forms.Label();
@@ -830,22 +817,30 @@ namespace Enchante
             this.WalkinBasicInfo = new System.Windows.Forms.TabPage();
             this.WalkinServiceCatNStaff = new System.Windows.Forms.TabPage();
             this.RecWalkinBasicInfoNxtBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.guna2TextBox4 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox5 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.RecWalkinFNameText1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.RecWalkinFNameLbl1 = new System.Windows.Forms.Label();
-            this.WalkinAcquireService = new System.Windows.Forms.TabPage();
+            this.RecWalkinAgeErrorLbl = new System.Windows.Forms.Label();
+            this.RecWalkinAgeBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.RecWalkinAgeLbl = new System.Windows.Forms.Label();
+            this.RecWalkinBdayLbl = new System.Windows.Forms.Label();
+            this.RecWalkinBdayPicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.RecWalkinCPNumText = new Guna.UI2.WinForms.Guna2TextBox();
+            this.RecWalkinLNameText = new Guna.UI2.WinForms.Guna2TextBox();
+            this.RecWalkinFNameText = new Guna.UI2.WinForms.Guna2TextBox();
             this.WalkinProducts = new System.Windows.Forms.TabPage();
+            this.RecWalkinBasicInfoPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.RecWalkinTransNumText = new System.Windows.Forms.Label();
+            this.RecWalkinServicePanel = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.RecWalkinProdCOBtn = new System.Windows.Forms.Label();
+            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.RecWalkinCheckoutBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.RecWalkinProdPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.WalkinServiceVoid = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.SelectedService = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ServicePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ServiceCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ServiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StaffSelected = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QueNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QueType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteMngrPage.SuspendLayout();
             this.MngrScrollPanel.SuspendLayout();
@@ -960,7 +955,6 @@ namespace Enchante
             this.RecWalkinCatNCPanel.SuspendLayout();
             this.RecWalkinCatFSPanel.SuspendLayout();
             this.RecWalkinCatHSPanel.SuspendLayout();
-            this.RecWalkInFooterStopperPanel.SuspendLayout();
             this.RecQueStartPanel.SuspendLayout();
             this.RecQueStartFooterStopperPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecQueStartInventoryDGV)).BeginInit();
@@ -980,8 +974,10 @@ namespace Enchante
             this.WalkinTabs.SuspendLayout();
             this.WalkinBasicInfo.SuspendLayout();
             this.WalkinServiceCatNStaff.SuspendLayout();
-            this.WalkinAcquireService.SuspendLayout();
             this.WalkinProducts.SuspendLayout();
+            this.RecWalkinBasicInfoPanel.SuspendLayout();
+            this.RecWalkinServicePanel.SuspendLayout();
+            this.RecWalkinProdPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // EnchanteParentContainer
@@ -9778,8 +9774,6 @@ namespace Enchante
             this.RecWalkinPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecWalkinPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RecTransactionCard.SetCardName(this.RecWalkinPanel, "Walkin");
-            this.RecWalkinPanel.Controls.Add(this.RecWalkInFooterStopperPanel);
-            this.RecWalkinPanel.Controls.Add(this.RecWalkInExitBtn);
             this.RecWalkinPanel.Controls.Add(this.WalkinTabs);
             this.RecWalkinPanel.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecWalkinPanel.Location = new System.Drawing.Point(0, 0);
@@ -9789,24 +9783,24 @@ namespace Enchante
             this.RecWalkinPanel.Size = new System.Drawing.Size(1598, 1061);
             this.RecWalkinPanel.TabIndex = 7;
             // 
-            // iconButton1
+            // RecWalkinSearchProductBtn
             // 
-            this.iconButton1.AutoSize = true;
-            this.iconButton1.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Searchengin;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 24;
-            this.iconButton1.Location = new System.Drawing.Point(687, 86);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(30, 30);
-            this.iconButton1.TabIndex = 176;
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.RecWalkinSearchProductBtn.AutoSize = true;
+            this.RecWalkinSearchProductBtn.BackColor = System.Drawing.Color.Transparent;
+            this.RecWalkinSearchProductBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecWalkinSearchProductBtn.FlatAppearance.BorderSize = 0;
+            this.RecWalkinSearchProductBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecWalkinSearchProductBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecWalkinSearchProductBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecWalkinSearchProductBtn.IconChar = FontAwesome.Sharp.IconChar.Searchengin;
+            this.RecWalkinSearchProductBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinSearchProductBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecWalkinSearchProductBtn.IconSize = 24;
+            this.RecWalkinSearchProductBtn.Location = new System.Drawing.Point(707, 165);
+            this.RecWalkinSearchProductBtn.Name = "RecWalkinSearchProductBtn";
+            this.RecWalkinSearchProductBtn.Size = new System.Drawing.Size(30, 30);
+            this.RecWalkinSearchProductBtn.TabIndex = 176;
+            this.RecWalkinSearchProductBtn.UseVisualStyleBackColor = false;
             // 
             // RecWalkinSearchServiceTypeBtn
             // 
@@ -9821,7 +9815,7 @@ namespace Enchante
             this.RecWalkinSearchServiceTypeBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.RecWalkinSearchServiceTypeBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.RecWalkinSearchServiceTypeBtn.IconSize = 25;
-            this.RecWalkinSearchServiceTypeBtn.Location = new System.Drawing.Point(671, 90);
+            this.RecWalkinSearchServiceTypeBtn.Location = new System.Drawing.Point(673, 484);
             this.RecWalkinSearchServiceTypeBtn.Name = "RecWalkinSearchServiceTypeBtn";
             this.RecWalkinSearchServiceTypeBtn.Size = new System.Drawing.Size(35, 31);
             this.RecWalkinSearchServiceTypeBtn.TabIndex = 133;
@@ -9833,7 +9827,7 @@ namespace Enchante
             this.RecWalkinSearchProductTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecWalkinSearchProductTextBox.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecWalkinSearchProductTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinSearchProductTextBox.Location = new System.Drawing.Point(21, 83);
+            this.RecWalkinSearchProductTextBox.Location = new System.Drawing.Point(46, 162);
             this.RecWalkinSearchProductTextBox.Name = "RecWalkinSearchProductTextBox";
             this.RecWalkinSearchProductTextBox.Size = new System.Drawing.Size(701, 37);
             this.RecWalkinSearchProductTextBox.TabIndex = 175;
@@ -9844,7 +9838,7 @@ namespace Enchante
             // 
             this.RecWalkinBookTransactBtn.AutoRoundedCorners = true;
             this.RecWalkinBookTransactBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecWalkinBookTransactBtn.BorderRadius = 31;
+            this.RecWalkinBookTransactBtn.BorderRadius = 22;
             this.RecWalkinBookTransactBtn.BorderThickness = 2;
             this.RecWalkinBookTransactBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.RecWalkinBookTransactBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -9855,10 +9849,10 @@ namespace Enchante
             this.RecWalkinBookTransactBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecWalkinBookTransactBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecWalkinBookTransactBtn.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinBookTransactBtn.Location = new System.Drawing.Point(759, 512);
+            this.RecWalkinBookTransactBtn.Location = new System.Drawing.Point(604, 818);
             this.RecWalkinBookTransactBtn.Name = "RecWalkinBookTransactBtn";
             this.RecWalkinBookTransactBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinBookTransactBtn.Size = new System.Drawing.Size(309, 65);
+            this.RecWalkinBookTransactBtn.Size = new System.Drawing.Size(309, 47);
             this.RecWalkinBookTransactBtn.TabIndex = 174;
             this.RecWalkinBookTransactBtn.Text = "Book Services && Products";
             this.RecWalkinBookTransactBtn.Click += new System.EventHandler(this.RecWalkinBookTransactBtn_Click);
@@ -9875,7 +9869,7 @@ namespace Enchante
             this.RecWalkinSelectServiceAndStaffBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecWalkinSelectServiceAndStaffBtn.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecWalkinSelectServiceAndStaffBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinSelectServiceAndStaffBtn.Location = new System.Drawing.Point(606, 612);
+            this.RecWalkinSelectServiceAndStaffBtn.Location = new System.Drawing.Point(109, 769);
             this.RecWalkinSelectServiceAndStaffBtn.Name = "RecWalkinSelectServiceAndStaffBtn";
             this.RecWalkinSelectServiceAndStaffBtn.Size = new System.Drawing.Size(100, 47);
             this.RecWalkinSelectServiceAndStaffBtn.TabIndex = 173;
@@ -9894,23 +9888,23 @@ namespace Enchante
             this.RecWalkinDeleteSelectedServiceAndStaffBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecWalkinDeleteSelectedServiceAndStaffBtn.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecWalkinDeleteSelectedServiceAndStaffBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinDeleteSelectedServiceAndStaffBtn.Location = new System.Drawing.Point(1299, 612);
+            this.RecWalkinDeleteSelectedServiceAndStaffBtn.Location = new System.Drawing.Point(1279, 769);
             this.RecWalkinDeleteSelectedServiceAndStaffBtn.Name = "RecWalkinDeleteSelectedServiceAndStaffBtn";
             this.RecWalkinDeleteSelectedServiceAndStaffBtn.Size = new System.Drawing.Size(100, 47);
             this.RecWalkinDeleteSelectedServiceAndStaffBtn.TabIndex = 172;
             this.RecWalkinDeleteSelectedServiceAndStaffBtn.Text = "VOID";
             this.RecWalkinDeleteSelectedServiceAndStaffBtn.Click += new System.EventHandler(this.RecDeleteSelectedServiceAndStaffBtn_Click);
             // 
-            // label5
+            // RecWalkinProdLbl
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label5.Location = new System.Drawing.Point(17, 27);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(301, 35);
-            this.label5.TabIndex = 171;
-            this.label5.Text = "5. Buy Our Product";
+            this.RecWalkinProdLbl.AutoSize = true;
+            this.RecWalkinProdLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecWalkinProdLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinProdLbl.Location = new System.Drawing.Point(42, 102);
+            this.RecWalkinProdLbl.Name = "RecWalkinProdLbl";
+            this.RecWalkinProdLbl.Size = new System.Drawing.Size(301, 35);
+            this.RecWalkinProdLbl.TabIndex = 171;
+            this.RecWalkinProdLbl.Text = "5. Buy Our Product";
             // 
             // RecWalkinSelectedProdDGV
             // 
@@ -9942,7 +9936,7 @@ namespace Enchante
             dataGridViewCellStyle60.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.RecWalkinSelectedProdDGV.DefaultCellStyle = dataGridViewCellStyle60;
             this.RecWalkinSelectedProdDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecWalkinSelectedProdDGV.Location = new System.Drawing.Point(757, 131);
+            this.RecWalkinSelectedProdDGV.Location = new System.Drawing.Point(771, 218);
             this.RecWalkinSelectedProdDGV.Name = "RecWalkinSelectedProdDGV";
             this.RecWalkinSelectedProdDGV.ReadOnly = true;
             this.RecWalkinSelectedProdDGV.RowHeadersVisible = false;
@@ -9971,7 +9965,7 @@ namespace Enchante
             this.RecWalkinSelectedProdVoidButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecWalkinSelectedProdVoidButton.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecWalkinSelectedProdVoidButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinSelectedProdVoidButton.Location = new System.Drawing.Point(1244, 598);
+            this.RecWalkinSelectedProdVoidButton.Location = new System.Drawing.Point(1258, 689);
             this.RecWalkinSelectedProdVoidButton.Name = "RecWalkinSelectedProdVoidButton";
             this.RecWalkinSelectedProdVoidButton.Size = new System.Drawing.Size(182, 47);
             this.RecWalkinSelectedProdVoidButton.TabIndex = 169;
@@ -9982,7 +9976,7 @@ namespace Enchante
             // 
             this.RecWalkinProductFlowLayoutPanel.AutoScroll = true;
             this.RecWalkinProductFlowLayoutPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RecWalkinProductFlowLayoutPanel.Location = new System.Drawing.Point(23, 131);
+            this.RecWalkinProductFlowLayoutPanel.Location = new System.Drawing.Point(48, 218);
             this.RecWalkinProductFlowLayoutPanel.Name = "RecWalkinProductFlowLayoutPanel";
             this.RecWalkinProductFlowLayoutPanel.Size = new System.Drawing.Size(699, 452);
             this.RecWalkinProductFlowLayoutPanel.TabIndex = 164;
@@ -9992,11 +9986,11 @@ namespace Enchante
             this.RecWalkInStaffSelectLbl.AutoSize = true;
             this.RecWalkInStaffSelectLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkInStaffSelectLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkInStaffSelectLbl.Location = new System.Drawing.Point(77, 442);
+            this.RecWalkInStaffSelectLbl.Location = new System.Drawing.Point(103, 238);
             this.RecWalkInStaffSelectLbl.Name = "RecWalkInStaffSelectLbl";
-            this.RecWalkInStaffSelectLbl.Size = new System.Drawing.Size(292, 35);
+            this.RecWalkInStaffSelectLbl.Size = new System.Drawing.Size(250, 35);
             this.RecWalkInStaffSelectLbl.TabIndex = 163;
-            this.RecWalkInStaffSelectLbl.Text = "3. Staff Selection";
+            this.RecWalkInStaffSelectLbl.Text = "Staff Selection";
             // 
             // RecWalkinSelectedServiceDGV
             // 
@@ -10017,6 +10011,7 @@ namespace Enchante
             this.RecWalkinSelectedServiceDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle57;
             this.RecWalkinSelectedServiceDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecWalkinSelectedServiceDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.WalkinServiceVoid,
             this.SelectedService,
             this.ServicePrice,
             this.ServiceCategory,
@@ -10034,69 +10029,22 @@ namespace Enchante
             dataGridViewCellStyle58.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.RecWalkinSelectedServiceDGV.DefaultCellStyle = dataGridViewCellStyle58;
             this.RecWalkinSelectedServiceDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecWalkinSelectedServiceDGV.Location = new System.Drawing.Point(741, 145);
+            this.RecWalkinSelectedServiceDGV.Location = new System.Drawing.Point(757, 536);
             this.RecWalkinSelectedServiceDGV.Name = "RecWalkinSelectedServiceDGV";
             this.RecWalkinSelectedServiceDGV.ReadOnly = true;
             this.RecWalkinSelectedServiceDGV.RowHeadersVisible = false;
             this.RecWalkinSelectedServiceDGV.RowHeadersWidth = 51;
             this.RecWalkinSelectedServiceDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.RecWalkinSelectedServiceDGV.Size = new System.Drawing.Size(669, 452);
+            this.RecWalkinSelectedServiceDGV.Size = new System.Drawing.Size(622, 227);
             this.RecWalkinSelectedServiceDGV.TabIndex = 162;
             this.RecWalkinSelectedServiceDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecWalkinSelectedServiceDGV_CellContentClick);
-            // 
-            // SelectedService
-            // 
-            this.SelectedService.HeaderText = "Selected Service";
-            this.SelectedService.Name = "SelectedService";
-            this.SelectedService.ReadOnly = true;
-            // 
-            // ServicePrice
-            // 
-            this.ServicePrice.HeaderText = "Service Price";
-            this.ServicePrice.Name = "ServicePrice";
-            this.ServicePrice.ReadOnly = true;
-            // 
-            // ServiceCategory
-            // 
-            this.ServiceCategory.HeaderText = "Service Category";
-            this.ServiceCategory.Name = "ServiceCategory";
-            this.ServiceCategory.ReadOnly = true;
-            this.ServiceCategory.Visible = false;
-            // 
-            // ServiceID
-            // 
-            this.ServiceID.HeaderText = "Service ID";
-            this.ServiceID.Name = "ServiceID";
-            this.ServiceID.ReadOnly = true;
-            this.ServiceID.Visible = false;
-            // 
-            // StaffSelected
-            // 
-            this.StaffSelected.HeaderText = "Staff Selected";
-            this.StaffSelected.Name = "StaffSelected";
-            this.StaffSelected.ReadOnly = true;
-            this.StaffSelected.Visible = false;
-            // 
-            // QueNumber
-            // 
-            this.QueNumber.HeaderText = "QueNumber";
-            this.QueNumber.Name = "QueNumber";
-            this.QueNumber.ReadOnly = true;
-            this.QueNumber.Visible = false;
-            // 
-            // QueType
-            // 
-            this.QueType.HeaderText = "Que Type";
-            this.QueType.Name = "QueType";
-            this.QueType.ReadOnly = true;
-            this.QueType.Visible = false;
             // 
             // RecWalkinNoServiceCategoryChosenWarningLbl
             // 
             this.RecWalkinNoServiceCategoryChosenWarningLbl.AutoSize = true;
             this.RecWalkinNoServiceCategoryChosenWarningLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinNoServiceCategoryChosenWarningLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinNoServiceCategoryChosenWarningLbl.Location = new System.Drawing.Point(593, 484);
+            this.RecWalkinNoServiceCategoryChosenWarningLbl.Location = new System.Drawing.Point(208, 293);
             this.RecWalkinNoServiceCategoryChosenWarningLbl.Name = "RecWalkinNoServiceCategoryChosenWarningLbl";
             this.RecWalkinNoServiceCategoryChosenWarningLbl.Size = new System.Drawing.Size(365, 29);
             this.RecWalkinNoServiceCategoryChosenWarningLbl.TabIndex = 161;
@@ -10117,11 +10065,10 @@ namespace Enchante
             this.RecWalkinAttendingStaffSelectedComboBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecWalkinAttendingStaffSelectedComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.RecWalkinAttendingStaffSelectedComboBox.ItemHeight = 30;
-            this.RecWalkinAttendingStaffSelectedComboBox.Location = new System.Drawing.Point(583, 575);
+            this.RecWalkinAttendingStaffSelectedComboBox.Location = new System.Drawing.Point(819, 338);
             this.RecWalkinAttendingStaffSelectedComboBox.Name = "RecWalkinAttendingStaffSelectedComboBox";
-            this.RecWalkinAttendingStaffSelectedComboBox.Size = new System.Drawing.Size(633, 36);
+            this.RecWalkinAttendingStaffSelectedComboBox.Size = new System.Drawing.Size(477, 36);
             this.RecWalkinAttendingStaffSelectedComboBox.TabIndex = 160;
-            this.RecWalkinAttendingStaffSelectedComboBox.Visible = false;
             this.RecWalkinAttendingStaffSelectedComboBox.SelectedIndexChanged += new System.EventHandler(this.RecWalkinAttendingStaffSelectedComboBox_SelectedIndexChanged);
             // 
             // RecWalkinAnyStaffLbl
@@ -10129,7 +10076,7 @@ namespace Enchante
             this.RecWalkinAnyStaffLbl.AutoSize = true;
             this.RecWalkinAnyStaffLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinAnyStaffLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinAnyStaffLbl.Location = new System.Drawing.Point(538, 526);
+            this.RecWalkinAnyStaffLbl.Location = new System.Drawing.Point(178, 337);
             this.RecWalkinAnyStaffLbl.Name = "RecWalkinAnyStaffLbl";
             this.RecWalkinAnyStaffLbl.Size = new System.Drawing.Size(99, 29);
             this.RecWalkinAnyStaffLbl.TabIndex = 159;
@@ -10141,7 +10088,7 @@ namespace Enchante
             this.RecWalkinAnyStaffToggleSwitch.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.RecWalkinAnyStaffToggleSwitch.CheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.RecWalkinAnyStaffToggleSwitch.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.RecWalkinAnyStaffToggleSwitch.Location = new System.Drawing.Point(481, 526);
+            this.RecWalkinAnyStaffToggleSwitch.Location = new System.Drawing.Point(121, 337);
             this.RecWalkinAnyStaffToggleSwitch.Name = "RecWalkinAnyStaffToggleSwitch";
             this.RecWalkinAnyStaffToggleSwitch.Size = new System.Drawing.Size(51, 31);
             this.RecWalkinAnyStaffToggleSwitch.TabIndex = 158;
@@ -10157,7 +10104,7 @@ namespace Enchante
             this.RecWalkinPreferredStaffToggleSwitch.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.RecWalkinPreferredStaffToggleSwitch.CheckedState.InnerBorderColor = System.Drawing.Color.White;
             this.RecWalkinPreferredStaffToggleSwitch.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.RecWalkinPreferredStaffToggleSwitch.Location = new System.Drawing.Point(797, 526);
+            this.RecWalkinPreferredStaffToggleSwitch.Location = new System.Drawing.Point(437, 337);
             this.RecWalkinPreferredStaffToggleSwitch.Name = "RecWalkinPreferredStaffToggleSwitch";
             this.RecWalkinPreferredStaffToggleSwitch.Size = new System.Drawing.Size(52, 31);
             this.RecWalkinPreferredStaffToggleSwitch.TabIndex = 157;
@@ -10172,7 +10119,7 @@ namespace Enchante
             this.RecWalkinPreferredStaffLbl.AutoSize = true;
             this.RecWalkinPreferredStaffLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinPreferredStaffLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinPreferredStaffLbl.Location = new System.Drawing.Point(855, 527);
+            this.RecWalkinPreferredStaffLbl.Location = new System.Drawing.Point(495, 337);
             this.RecWalkinPreferredStaffLbl.Name = "RecWalkinPreferredStaffLbl";
             this.RecWalkinPreferredStaffLbl.Size = new System.Drawing.Size(215, 29);
             this.RecWalkinPreferredStaffLbl.TabIndex = 143;
@@ -10183,9 +10130,9 @@ namespace Enchante
             this.RecWalkinSearchServiceTypeText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecWalkinSearchServiceTypeText.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecWalkinSearchServiceTypeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinSearchServiceTypeText.Location = new System.Drawing.Point(7, 87);
+            this.RecWalkinSearchServiceTypeText.Location = new System.Drawing.Point(109, 481);
             this.RecWalkinSearchServiceTypeText.Name = "RecWalkinSearchServiceTypeText";
-            this.RecWalkinSearchServiceTypeText.Size = new System.Drawing.Size(701, 37);
+            this.RecWalkinSearchServiceTypeText.Size = new System.Drawing.Size(608, 37);
             this.RecWalkinSearchServiceTypeText.TabIndex = 132;
             this.RecWalkinSearchServiceTypeText.TextChanged += new System.EventHandler(this.RecWalkInSearchServiceTypeText_TextChanged);
             this.RecWalkinSearchServiceTypeText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecWalkinSearchServiceTypeText_KeyPress);
@@ -10218,13 +10165,13 @@ namespace Enchante
             dataGridViewCellStyle56.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.RecWalkInServiceTypeDGV.DefaultCellStyle = dataGridViewCellStyle56;
             this.RecWalkInServiceTypeDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecWalkInServiceTypeDGV.Location = new System.Drawing.Point(7, 145);
+            this.RecWalkInServiceTypeDGV.Location = new System.Drawing.Point(109, 536);
             this.RecWalkInServiceTypeDGV.Name = "RecWalkInServiceTypeDGV";
             this.RecWalkInServiceTypeDGV.ReadOnly = true;
             this.RecWalkInServiceTypeDGV.RowHeadersVisible = false;
             this.RecWalkInServiceTypeDGV.RowHeadersWidth = 51;
             this.RecWalkInServiceTypeDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.RecWalkInServiceTypeDGV.Size = new System.Drawing.Size(699, 452);
+            this.RecWalkInServiceTypeDGV.Size = new System.Drawing.Size(622, 227);
             this.RecWalkInServiceTypeDGV.TabIndex = 125;
             this.RecWalkInServiceTypeDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecWalkInServiceTypeTable_CellClick);
             // 
@@ -10233,19 +10180,19 @@ namespace Enchante
             this.RecWalkInServiceTypeLbl.AutoSize = true;
             this.RecWalkInServiceTypeLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkInServiceTypeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkInServiceTypeLbl.Location = new System.Drawing.Point(1, 16);
+            this.RecWalkInServiceTypeLbl.Location = new System.Drawing.Point(103, 413);
             this.RecWalkInServiceTypeLbl.Name = "RecWalkInServiceTypeLbl";
-            this.RecWalkInServiceTypeLbl.Size = new System.Drawing.Size(388, 35);
+            this.RecWalkInServiceTypeLbl.Size = new System.Drawing.Size(136, 35);
             this.RecWalkInServiceTypeLbl.TabIndex = 124;
-            this.RecWalkInServiceTypeLbl.Text = "4. Choose a Service Type";
+            this.RecWalkInServiceTypeLbl.Text = "Services";
             // 
             // RecWalkinCatMassagePanel
             // 
             this.RecWalkinCatMassagePanel.Controls.Add(this.RecWalkinCatMassageRB);
             this.RecWalkinCatMassagePanel.Controls.Add(this.RecWalkinCatMassageBtn);
-            this.RecWalkinCatMassagePanel.Location = new System.Drawing.Point(911, 219);
+            this.RecWalkinCatMassagePanel.Location = new System.Drawing.Point(1146, 117);
             this.RecWalkinCatMassagePanel.Name = "RecWalkinCatMassagePanel";
-            this.RecWalkinCatMassagePanel.Size = new System.Drawing.Size(227, 213);
+            this.RecWalkinCatMassagePanel.Size = new System.Drawing.Size(227, 78);
             this.RecWalkinCatMassagePanel.TabIndex = 117;
             // 
             // RecWalkinCatMassageRB
@@ -10255,7 +10202,7 @@ namespace Enchante
             this.RecWalkinCatMassageRB.FlatAppearance.BorderSize = 5;
             this.RecWalkinCatMassageRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RecWalkinCatMassageRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecWalkinCatMassageRB.Location = new System.Drawing.Point(211, 42);
+            this.RecWalkinCatMassageRB.Location = new System.Drawing.Point(211, 3);
             this.RecWalkinCatMassageRB.Name = "RecWalkinCatMassageRB";
             this.RecWalkinCatMassageRB.Size = new System.Drawing.Size(13, 12);
             this.RecWalkinCatMassageRB.TabIndex = 115;
@@ -10270,14 +10217,14 @@ namespace Enchante
             this.RecWalkinCatMassageBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.RecWalkinCatMassageBtn.FlatAppearance.BorderSize = 3;
             this.RecWalkinCatMassageBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecWalkinCatMassageBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecWalkinCatMassageBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinCatMassageBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecWalkinCatMassageBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.RecWalkinCatMassageBtn.IconColor = System.Drawing.Color.Black;
             this.RecWalkinCatMassageBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.RecWalkinCatMassageBtn.Location = new System.Drawing.Point(0, 0);
             this.RecWalkinCatMassageBtn.Name = "RecWalkinCatMassageBtn";
-            this.RecWalkinCatMassageBtn.Size = new System.Drawing.Size(227, 213);
+            this.RecWalkinCatMassageBtn.Size = new System.Drawing.Size(227, 78);
             this.RecWalkinCatMassageBtn.TabIndex = 86;
             this.RecWalkinCatMassageBtn.Text = "Massage";
             this.RecWalkinCatMassageBtn.UseVisualStyleBackColor = true;
@@ -10287,9 +10234,9 @@ namespace Enchante
             // 
             this.RecWalkinCatSpaPanel.Controls.Add(this.RecWalkinCatSpaRB);
             this.RecWalkinCatSpaPanel.Controls.Add(this.RecWalkinCatSpaBtn);
-            this.RecWalkinCatSpaPanel.Location = new System.Drawing.Point(684, 219);
+            this.RecWalkinCatSpaPanel.Location = new System.Drawing.Point(895, 117);
             this.RecWalkinCatSpaPanel.Name = "RecWalkinCatSpaPanel";
-            this.RecWalkinCatSpaPanel.Size = new System.Drawing.Size(227, 213);
+            this.RecWalkinCatSpaPanel.Size = new System.Drawing.Size(227, 78);
             this.RecWalkinCatSpaPanel.TabIndex = 116;
             // 
             // RecWalkinCatSpaRB
@@ -10299,7 +10246,7 @@ namespace Enchante
             this.RecWalkinCatSpaRB.FlatAppearance.BorderSize = 5;
             this.RecWalkinCatSpaRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RecWalkinCatSpaRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecWalkinCatSpaRB.Location = new System.Drawing.Point(207, 42);
+            this.RecWalkinCatSpaRB.Location = new System.Drawing.Point(211, 3);
             this.RecWalkinCatSpaRB.Name = "RecWalkinCatSpaRB";
             this.RecWalkinCatSpaRB.Size = new System.Drawing.Size(13, 12);
             this.RecWalkinCatSpaRB.TabIndex = 114;
@@ -10314,14 +10261,14 @@ namespace Enchante
             this.RecWalkinCatSpaBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.RecWalkinCatSpaBtn.FlatAppearance.BorderSize = 3;
             this.RecWalkinCatSpaBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecWalkinCatSpaBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecWalkinCatSpaBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinCatSpaBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecWalkinCatSpaBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.RecWalkinCatSpaBtn.IconColor = System.Drawing.Color.Black;
             this.RecWalkinCatSpaBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.RecWalkinCatSpaBtn.Location = new System.Drawing.Point(0, 0);
             this.RecWalkinCatSpaBtn.Name = "RecWalkinCatSpaBtn";
-            this.RecWalkinCatSpaBtn.Size = new System.Drawing.Size(227, 213);
+            this.RecWalkinCatSpaBtn.Size = new System.Drawing.Size(227, 78);
             this.RecWalkinCatSpaBtn.TabIndex = 81;
             this.RecWalkinCatSpaBtn.Text = "Spa";
             this.RecWalkinCatSpaBtn.UseVisualStyleBackColor = true;
@@ -10331,9 +10278,9 @@ namespace Enchante
             // 
             this.RecWalkinCatNCPanel.Controls.Add(this.RecWalkinCatNCRB);
             this.RecWalkinCatNCPanel.Controls.Add(this.RecWalkinCatNCBtn);
-            this.RecWalkinCatNCPanel.Location = new System.Drawing.Point(457, 219);
+            this.RecWalkinCatNCPanel.Location = new System.Drawing.Point(644, 117);
             this.RecWalkinCatNCPanel.Name = "RecWalkinCatNCPanel";
-            this.RecWalkinCatNCPanel.Size = new System.Drawing.Size(227, 213);
+            this.RecWalkinCatNCPanel.Size = new System.Drawing.Size(227, 78);
             this.RecWalkinCatNCPanel.TabIndex = 110;
             // 
             // RecWalkinCatNCRB
@@ -10343,7 +10290,7 @@ namespace Enchante
             this.RecWalkinCatNCRB.FlatAppearance.BorderSize = 5;
             this.RecWalkinCatNCRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RecWalkinCatNCRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecWalkinCatNCRB.Location = new System.Drawing.Point(211, 42);
+            this.RecWalkinCatNCRB.Location = new System.Drawing.Point(211, 3);
             this.RecWalkinCatNCRB.Name = "RecWalkinCatNCRB";
             this.RecWalkinCatNCRB.Size = new System.Drawing.Size(13, 12);
             this.RecWalkinCatNCRB.TabIndex = 115;
@@ -10358,14 +10305,14 @@ namespace Enchante
             this.RecWalkinCatNCBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.RecWalkinCatNCBtn.FlatAppearance.BorderSize = 3;
             this.RecWalkinCatNCBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecWalkinCatNCBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecWalkinCatNCBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinCatNCBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecWalkinCatNCBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.RecWalkinCatNCBtn.IconColor = System.Drawing.Color.Black;
             this.RecWalkinCatNCBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.RecWalkinCatNCBtn.Location = new System.Drawing.Point(0, 0);
             this.RecWalkinCatNCBtn.Name = "RecWalkinCatNCBtn";
-            this.RecWalkinCatNCBtn.Size = new System.Drawing.Size(227, 213);
+            this.RecWalkinCatNCBtn.Size = new System.Drawing.Size(227, 78);
             this.RecWalkinCatNCBtn.TabIndex = 86;
             this.RecWalkinCatNCBtn.Text = "Nail Care";
             this.RecWalkinCatNCBtn.UseVisualStyleBackColor = true;
@@ -10375,9 +10322,9 @@ namespace Enchante
             // 
             this.RecWalkinCatFSPanel.Controls.Add(this.RecWalkinCatFSRB);
             this.RecWalkinCatFSPanel.Controls.Add(this.RecWalkinCatFSBtn);
-            this.RecWalkinCatFSPanel.Location = new System.Drawing.Point(230, 219);
+            this.RecWalkinCatFSPanel.Location = new System.Drawing.Point(393, 117);
             this.RecWalkinCatFSPanel.Name = "RecWalkinCatFSPanel";
-            this.RecWalkinCatFSPanel.Size = new System.Drawing.Size(227, 213);
+            this.RecWalkinCatFSPanel.Size = new System.Drawing.Size(227, 78);
             this.RecWalkinCatFSPanel.TabIndex = 109;
             // 
             // RecWalkinCatFSRB
@@ -10387,7 +10334,7 @@ namespace Enchante
             this.RecWalkinCatFSRB.FlatAppearance.BorderSize = 5;
             this.RecWalkinCatFSRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RecWalkinCatFSRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecWalkinCatFSRB.Location = new System.Drawing.Point(207, 42);
+            this.RecWalkinCatFSRB.Location = new System.Drawing.Point(211, 3);
             this.RecWalkinCatFSRB.Name = "RecWalkinCatFSRB";
             this.RecWalkinCatFSRB.Size = new System.Drawing.Size(13, 12);
             this.RecWalkinCatFSRB.TabIndex = 114;
@@ -10402,14 +10349,14 @@ namespace Enchante
             this.RecWalkinCatFSBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.RecWalkinCatFSBtn.FlatAppearance.BorderSize = 3;
             this.RecWalkinCatFSBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecWalkinCatFSBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecWalkinCatFSBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinCatFSBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecWalkinCatFSBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.RecWalkinCatFSBtn.IconColor = System.Drawing.Color.Black;
             this.RecWalkinCatFSBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.RecWalkinCatFSBtn.Location = new System.Drawing.Point(0, 0);
             this.RecWalkinCatFSBtn.Name = "RecWalkinCatFSBtn";
-            this.RecWalkinCatFSBtn.Size = new System.Drawing.Size(227, 213);
+            this.RecWalkinCatFSBtn.Size = new System.Drawing.Size(227, 78);
             this.RecWalkinCatFSBtn.TabIndex = 81;
             this.RecWalkinCatFSBtn.Text = "Face && Skin";
             this.RecWalkinCatFSBtn.UseVisualStyleBackColor = true;
@@ -10419,9 +10366,9 @@ namespace Enchante
             // 
             this.RecWalkinCatHSPanel.Controls.Add(this.RecWalkinCatHSRB);
             this.RecWalkinCatHSPanel.Controls.Add(this.RecWalkinCatHSBtn);
-            this.RecWalkinCatHSPanel.Location = new System.Drawing.Point(3, 219);
+            this.RecWalkinCatHSPanel.Location = new System.Drawing.Point(142, 117);
             this.RecWalkinCatHSPanel.Name = "RecWalkinCatHSPanel";
-            this.RecWalkinCatHSPanel.Size = new System.Drawing.Size(227, 213);
+            this.RecWalkinCatHSPanel.Size = new System.Drawing.Size(227, 78);
             this.RecWalkinCatHSPanel.TabIndex = 108;
             // 
             // RecWalkinCatHSRB
@@ -10431,7 +10378,7 @@ namespace Enchante
             this.RecWalkinCatHSRB.FlatAppearance.BorderSize = 5;
             this.RecWalkinCatHSRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RecWalkinCatHSRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecWalkinCatHSRB.Location = new System.Drawing.Point(202, 46);
+            this.RecWalkinCatHSRB.Location = new System.Drawing.Point(211, 3);
             this.RecWalkinCatHSRB.Name = "RecWalkinCatHSRB";
             this.RecWalkinCatHSRB.Size = new System.Drawing.Size(13, 12);
             this.RecWalkinCatHSRB.TabIndex = 113;
@@ -10446,14 +10393,14 @@ namespace Enchante
             this.RecWalkinCatHSBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.RecWalkinCatHSBtn.FlatAppearance.BorderSize = 3;
             this.RecWalkinCatHSBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecWalkinCatHSBtn.Font = new System.Drawing.Font("TechnicBold", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecWalkinCatHSBtn.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinCatHSBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecWalkinCatHSBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.RecWalkinCatHSBtn.IconColor = System.Drawing.Color.Black;
             this.RecWalkinCatHSBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.RecWalkinCatHSBtn.Location = new System.Drawing.Point(0, 0);
             this.RecWalkinCatHSBtn.Name = "RecWalkinCatHSBtn";
-            this.RecWalkinCatHSBtn.Size = new System.Drawing.Size(227, 213);
+            this.RecWalkinCatHSBtn.Size = new System.Drawing.Size(227, 78);
             this.RecWalkinCatHSBtn.TabIndex = 77;
             this.RecWalkinCatHSBtn.Text = "Hair Styling";
             this.RecWalkinCatHSBtn.UseVisualStyleBackColor = true;
@@ -10462,20 +10409,22 @@ namespace Enchante
             // RecWalkinBasicInfoLbl
             // 
             this.RecWalkinBasicInfoLbl.AutoSize = true;
+            this.RecWalkinBasicInfoLbl.BackColor = System.Drawing.Color.Transparent;
             this.RecWalkinBasicInfoLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinBasicInfoLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinBasicInfoLbl.Location = new System.Drawing.Point(49, 160);
+            this.RecWalkinBasicInfoLbl.Location = new System.Drawing.Point(61, 213);
             this.RecWalkinBasicInfoLbl.Name = "RecWalkinBasicInfoLbl";
-            this.RecWalkinBasicInfoLbl.Size = new System.Drawing.Size(305, 35);
+            this.RecWalkinBasicInfoLbl.Size = new System.Drawing.Size(319, 35);
             this.RecWalkinBasicInfoLbl.TabIndex = 91;
-            this.RecWalkinBasicInfoLbl.Text = "1. Basic Information";
+            this.RecWalkinBasicInfoLbl.Text = "BASIC INFORMATION";
             // 
             // RecWalkinLNameErrorLbl
             // 
             this.RecWalkinLNameErrorLbl.AutoSize = true;
+            this.RecWalkinLNameErrorLbl.BackColor = System.Drawing.Color.Transparent;
             this.RecWalkinLNameErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinLNameErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinLNameErrorLbl.Location = new System.Drawing.Point(760, 239);
+            this.RecWalkinLNameErrorLbl.Location = new System.Drawing.Point(782, 264);
             this.RecWalkinLNameErrorLbl.Name = "RecWalkinLNameErrorLbl";
             this.RecWalkinLNameErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RecWalkinLNameErrorLbl.Size = new System.Drawing.Size(82, 14);
@@ -10487,9 +10436,10 @@ namespace Enchante
             // RecWalkinFNameErrorLbl
             // 
             this.RecWalkinFNameErrorLbl.AutoSize = true;
+            this.RecWalkinFNameErrorLbl.BackColor = System.Drawing.Color.Transparent;
             this.RecWalkinFNameErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinFNameErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinFNameErrorLbl.Location = new System.Drawing.Point(370, 232);
+            this.RecWalkinFNameErrorLbl.Location = new System.Drawing.Point(367, 271);
             this.RecWalkinFNameErrorLbl.Name = "RecWalkinFNameErrorLbl";
             this.RecWalkinFNameErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RecWalkinFNameErrorLbl.Size = new System.Drawing.Size(82, 14);
@@ -10503,7 +10453,7 @@ namespace Enchante
             this.RecWalkinCPNumErrorLbl.AutoSize = true;
             this.RecWalkinCPNumErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinCPNumErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinCPNumErrorLbl.Location = new System.Drawing.Point(1157, 232);
+            this.RecWalkinCPNumErrorLbl.Location = new System.Drawing.Point(289, 363);
             this.RecWalkinCPNumErrorLbl.Name = "RecWalkinCPNumErrorLbl";
             this.RecWalkinCPNumErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RecWalkinCPNumErrorLbl.Size = new System.Drawing.Size(82, 14);
@@ -10517,96 +10467,43 @@ namespace Enchante
             this.RecWalkinAttendingStaffLbl.AutoSize = true;
             this.RecWalkinAttendingStaffLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinAttendingStaffLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinAttendingStaffLbl.Location = new System.Drawing.Point(353, 579);
+            this.RecWalkinAttendingStaffLbl.Location = new System.Drawing.Point(814, 304);
             this.RecWalkinAttendingStaffLbl.Name = "RecWalkinAttendingStaffLbl";
             this.RecWalkinAttendingStaffLbl.Size = new System.Drawing.Size(224, 29);
             this.RecWalkinAttendingStaffLbl.TabIndex = 60;
             this.RecWalkinAttendingStaffLbl.Text = "Attending Staff:";
-            this.RecWalkinAttendingStaffLbl.Visible = false;
-            // 
-            // RecWalkinCPNumText
-            // 
-            this.RecWalkinCPNumText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecWalkinCPNumText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecWalkinCPNumText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinCPNumText.Location = new System.Drawing.Point(863, 259);
-            this.RecWalkinCPNumText.Name = "RecWalkinCPNumText";
-            this.RecWalkinCPNumText.Size = new System.Drawing.Size(373, 30);
-            this.RecWalkinCPNumText.TabIndex = 58;
-            this.RecWalkinCPNumText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecWalkinCPNumText_KeyPress);
             // 
             // RecWalkinCPNumLbl
             // 
             this.RecWalkinCPNumLbl.AutoSize = true;
+            this.RecWalkinCPNumLbl.BackColor = System.Drawing.Color.Transparent;
             this.RecWalkinCPNumLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinCPNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinCPNumLbl.Location = new System.Drawing.Point(858, 227);
+            this.RecWalkinCPNumLbl.Location = new System.Drawing.Point(68, 353);
             this.RecWalkinCPNumLbl.Name = "RecWalkinCPNumLbl";
             this.RecWalkinCPNumLbl.Size = new System.Drawing.Size(196, 29);
             this.RecWalkinCPNumLbl.TabIndex = 57;
             this.RecWalkinCPNumLbl.Text = "Mobile Number:";
             // 
-            // RecWalkInFooterStopperPanel
-            // 
-            this.RecWalkInFooterStopperPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecWalkInFooterStopperPanel.Controls.Add(this.RecWalkInFooterStopperLbl);
-            this.RecWalkInFooterStopperPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.RecWalkInFooterStopperPanel.Location = new System.Drawing.Point(385, 972);
-            this.RecWalkInFooterStopperPanel.Name = "RecWalkInFooterStopperPanel";
-            this.RecWalkInFooterStopperPanel.Size = new System.Drawing.Size(804, 49);
-            this.RecWalkInFooterStopperPanel.TabIndex = 52;
-            // 
-            // RecWalkInFooterStopperLbl
-            // 
-            this.RecWalkInFooterStopperLbl.AutoSize = true;
-            this.RecWalkInFooterStopperLbl.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecWalkInFooterStopperLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.RecWalkInFooterStopperLbl.Location = new System.Drawing.Point(206, 29);
-            this.RecWalkInFooterStopperLbl.Name = "RecWalkInFooterStopperLbl";
-            this.RecWalkInFooterStopperLbl.Size = new System.Drawing.Size(362, 51);
-            this.RecWalkInFooterStopperLbl.TabIndex = 20;
-            this.RecWalkInFooterStopperLbl.Text = "Footer Stopper";
-            this.RecWalkInFooterStopperLbl.Visible = false;
-            // 
-            // RecWalkinLNameText
-            // 
-            this.RecWalkinLNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecWalkinLNameText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecWalkinLNameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinLNameText.Location = new System.Drawing.Point(463, 264);
-            this.RecWalkinLNameText.Name = "RecWalkinLNameText";
-            this.RecWalkinLNameText.Size = new System.Drawing.Size(376, 30);
-            this.RecWalkinLNameText.TabIndex = 47;
-            this.RecWalkinLNameText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecWalkinLNameText_KeyPress);
-            // 
             // RecWalkinLNameLbl
             // 
             this.RecWalkinLNameLbl.AutoSize = true;
+            this.RecWalkinLNameLbl.BackColor = System.Drawing.Color.Transparent;
             this.RecWalkinLNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinLNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinLNameLbl.Location = new System.Drawing.Point(458, 232);
+            this.RecWalkinLNameLbl.Location = new System.Drawing.Point(470, 264);
             this.RecWalkinLNameLbl.Name = "RecWalkinLNameLbl";
             this.RecWalkinLNameLbl.Size = new System.Drawing.Size(152, 29);
             this.RecWalkinLNameLbl.TabIndex = 46;
             this.RecWalkinLNameLbl.Text = "Last Name:";
             // 
-            // RecWalkinFNameText
-            // 
-            this.RecWalkinFNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecWalkinFNameText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecWalkinFNameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinFNameText.Location = new System.Drawing.Point(75, 264);
-            this.RecWalkinFNameText.Name = "RecWalkinFNameText";
-            this.RecWalkinFNameText.Size = new System.Drawing.Size(376, 30);
-            this.RecWalkinFNameText.TabIndex = 45;
-            this.RecWalkinFNameText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecWalkinFNameText_KeyPress);
-            // 
             // RecWalkinFNameLbl
             // 
             this.RecWalkinFNameLbl.AutoSize = true;
+            this.RecWalkinFNameLbl.BackColor = System.Drawing.Color.Transparent;
             this.RecWalkinFNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinFNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinFNameLbl.Location = new System.Drawing.Point(70, 232);
+            this.RecWalkinFNameLbl.Location = new System.Drawing.Point(68, 264);
             this.RecWalkinFNameLbl.Name = "RecWalkinFNameLbl";
             this.RecWalkinFNameLbl.Size = new System.Drawing.Size(157, 29);
             this.RecWalkinFNameLbl.TabIndex = 44;
@@ -10617,31 +10514,19 @@ namespace Enchante
             this.RecWalkinServiceCategoryLbl.AutoSize = true;
             this.RecWalkinServiceCategoryLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinServiceCategoryLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinServiceCategoryLbl.Location = new System.Drawing.Point(49, 104);
+            this.RecWalkinServiceCategoryLbl.Location = new System.Drawing.Point(103, 58);
             this.RecWalkinServiceCategoryLbl.Name = "RecWalkinServiceCategoryLbl";
-            this.RecWalkinServiceCategoryLbl.Size = new System.Drawing.Size(454, 35);
+            this.RecWalkinServiceCategoryLbl.Size = new System.Drawing.Size(270, 35);
             this.RecWalkinServiceCategoryLbl.TabIndex = 10;
-            this.RecWalkinServiceCategoryLbl.Text = "2. Choose a Service Category";
-            // 
-            // RecWalkinTransNumText
-            // 
-            this.RecWalkinTransNumText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecWalkinTransNumText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RecWalkinTransNumText.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecWalkinTransNumText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinTransNumText.Location = new System.Drawing.Point(301, 92);
-            this.RecWalkinTransNumText.Name = "RecWalkinTransNumText";
-            this.RecWalkinTransNumText.ReadOnly = true;
-            this.RecWalkinTransNumText.Size = new System.Drawing.Size(281, 27);
-            this.RecWalkinTransNumText.TabIndex = 9;
-            this.RecWalkinTransNumText.Text = "Transaction Number";
+            this.RecWalkinServiceCategoryLbl.Text = "Service Category";
             // 
             // RecWalkinTransNumLbl
             // 
             this.RecWalkinTransNumLbl.AutoSize = true;
+            this.RecWalkinTransNumLbl.BackColor = System.Drawing.Color.Transparent;
             this.RecWalkinTransNumLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinTransNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinTransNumLbl.Location = new System.Drawing.Point(50, 92);
+            this.RecWalkinTransNumLbl.Location = new System.Drawing.Point(60, 129);
             this.RecWalkinTransNumLbl.Name = "RecWalkinTransNumLbl";
             this.RecWalkinTransNumLbl.Size = new System.Drawing.Size(239, 26);
             this.RecWalkinTransNumLbl.TabIndex = 8;
@@ -10650,30 +10535,30 @@ namespace Enchante
             // RecWalkinLbl
             // 
             this.RecWalkinLbl.AutoSize = true;
+            this.RecWalkinLbl.BackColor = System.Drawing.Color.Transparent;
             this.RecWalkinLbl.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinLbl.Location = new System.Drawing.Point(46, 8);
+            this.RecWalkinLbl.Location = new System.Drawing.Point(56, 69);
             this.RecWalkinLbl.Name = "RecWalkinLbl";
             this.RecWalkinLbl.Size = new System.Drawing.Size(347, 51);
             this.RecWalkinLbl.TabIndex = 7;
             this.RecWalkinLbl.Text = "Walk-in Client";
             // 
-            // RecWalkInExitBtn
+            // RecWalkinServicePrevBtn
             // 
-            this.RecWalkInExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.RecWalkInExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.RecWalkInExitBtn.FlatAppearance.BorderSize = 0;
-            this.RecWalkInExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecWalkInExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.RecWalkInExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkInExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecWalkInExitBtn.Location = new System.Drawing.Point(1497, 17);
-            this.RecWalkInExitBtn.Name = "RecWalkInExitBtn";
-            this.RecWalkInExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.RecWalkInExitBtn.TabIndex = 43;
-            this.RecWalkInExitBtn.UseVisualStyleBackColor = false;
-            this.RecWalkInExitBtn.Visible = false;
-            this.RecWalkInExitBtn.Click += new System.EventHandler(this.RecWalkInExitBtn_Click);
+            this.RecWalkinServicePrevBtn.BackColor = System.Drawing.Color.Transparent;
+            this.RecWalkinServicePrevBtn.FlatAppearance.BorderSize = 0;
+            this.RecWalkinServicePrevBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecWalkinServicePrevBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.RecWalkinServicePrevBtn.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.RecWalkinServicePrevBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinServicePrevBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecWalkinServicePrevBtn.Location = new System.Drawing.Point(49, 16);
+            this.RecWalkinServicePrevBtn.Name = "RecWalkinServicePrevBtn";
+            this.RecWalkinServicePrevBtn.Size = new System.Drawing.Size(48, 48);
+            this.RecWalkinServicePrevBtn.TabIndex = 43;
+            this.RecWalkinServicePrevBtn.UseVisualStyleBackColor = false;
+            this.RecWalkinServicePrevBtn.Click += new System.EventHandler(this.RecWalkInExitBtn_Click);
             // 
             // RecQueStartPanel
             // 
@@ -11522,7 +11407,6 @@ namespace Enchante
             // 
             this.WalkinTabs.Controls.Add(this.WalkinBasicInfo);
             this.WalkinTabs.Controls.Add(this.WalkinServiceCatNStaff);
-            this.WalkinTabs.Controls.Add(this.WalkinAcquireService);
             this.WalkinTabs.Controls.Add(this.WalkinProducts);
             this.WalkinTabs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.WalkinTabs.ItemSize = new System.Drawing.Size(180, 40);
@@ -11531,61 +11415,34 @@ namespace Enchante
             this.WalkinTabs.SelectedIndex = 0;
             this.WalkinTabs.Size = new System.Drawing.Size(1596, 1059);
             this.WalkinTabs.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
-            this.WalkinTabs.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
+            this.WalkinTabs.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.WalkinTabs.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
-            this.WalkinTabs.TabButtonHoverState.ForeColor = System.Drawing.Color.White;
-            this.WalkinTabs.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
+            this.WalkinTabs.TabButtonHoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinTabs.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.WalkinTabs.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty;
-            this.WalkinTabs.TabButtonIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
+            this.WalkinTabs.TabButtonIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.WalkinTabs.TabButtonIdleState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
-            this.WalkinTabs.TabButtonIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(160)))), ((int)(((byte)(167)))));
-            this.WalkinTabs.TabButtonIdleState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
+            this.WalkinTabs.TabButtonIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinTabs.TabButtonIdleState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.WalkinTabs.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty;
-            this.WalkinTabs.TabButtonSelectedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(37)))), ((int)(((byte)(49)))));
+            this.WalkinTabs.TabButtonSelectedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.WalkinTabs.TabButtonSelectedState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
-            this.WalkinTabs.TabButtonSelectedState.ForeColor = System.Drawing.Color.White;
-            this.WalkinTabs.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
+            this.WalkinTabs.TabButtonSelectedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinTabs.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.WalkinTabs.TabButtonSize = new System.Drawing.Size(180, 40);
             this.WalkinTabs.TabIndex = 177;
-            this.WalkinTabs.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
+            this.WalkinTabs.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.WalkinTabs.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop;
             // 
             // WalkinBasicInfo
             // 
             this.WalkinBasicInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.WalkinBasicInfo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.WalkinBasicInfo.Controls.Add(this.label8);
-            this.WalkinBasicInfo.Controls.Add(this.guna2TextBox3);
-            this.WalkinBasicInfo.Controls.Add(this.label9);
-            this.WalkinBasicInfo.Controls.Add(this.label10);
-            this.WalkinBasicInfo.Controls.Add(this.guna2DateTimePicker1);
-            this.WalkinBasicInfo.Controls.Add(this.guna2TextBox4);
-            this.WalkinBasicInfo.Controls.Add(this.guna2TextBox5);
-            this.WalkinBasicInfo.Controls.Add(this.RecWalkinFNameText1);
-            this.WalkinBasicInfo.Controls.Add(this.label11);
-            this.WalkinBasicInfo.Controls.Add(this.label12);
-            this.WalkinBasicInfo.Controls.Add(this.label13);
-            this.WalkinBasicInfo.Controls.Add(this.label14);
-            this.WalkinBasicInfo.Controls.Add(this.label15);
-            this.WalkinBasicInfo.Controls.Add(this.RecWalkinFNameLbl1);
-            this.WalkinBasicInfo.Controls.Add(this.RecWalkinBasicInfoNxtBtn);
-            this.WalkinBasicInfo.Controls.Add(this.RecWalkinBasicInfoLbl);
-            this.WalkinBasicInfo.Controls.Add(this.RecWalkinFNameLbl);
-            this.WalkinBasicInfo.Controls.Add(this.RecWalkinFNameText);
-            this.WalkinBasicInfo.Controls.Add(this.RecWalkinFNameErrorLbl);
-            this.WalkinBasicInfo.Controls.Add(this.RecWalkinLbl);
-            this.WalkinBasicInfo.Controls.Add(this.RecWalkinTransNumLbl);
-            this.WalkinBasicInfo.Controls.Add(this.RecWalkinTransNumText);
-            this.WalkinBasicInfo.Controls.Add(this.RecWalkinLNameLbl);
-            this.WalkinBasicInfo.Controls.Add(this.RecWalkinLNameText);
-            this.WalkinBasicInfo.Controls.Add(this.RecWalkinCPNumLbl);
-            this.WalkinBasicInfo.Controls.Add(this.RecWalkinCPNumText);
-            this.WalkinBasicInfo.Controls.Add(this.RecWalkinCPNumErrorLbl);
-            this.WalkinBasicInfo.Controls.Add(this.RecWalkinLNameErrorLbl);
-            this.WalkinBasicInfo.Location = new System.Drawing.Point(4, 184);
+            this.WalkinBasicInfo.Controls.Add(this.RecWalkinBasicInfoPanel);
+            this.WalkinBasicInfo.Location = new System.Drawing.Point(4, 44);
             this.WalkinBasicInfo.Name = "WalkinBasicInfo";
             this.WalkinBasicInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.WalkinBasicInfo.Size = new System.Drawing.Size(1588, 871);
+            this.WalkinBasicInfo.Size = new System.Drawing.Size(1588, 1011);
             this.WalkinBasicInfo.TabIndex = 0;
             this.WalkinBasicInfo.Text = "Basic Info";
             // 
@@ -11593,298 +11450,391 @@ namespace Enchante
             // 
             this.WalkinServiceCatNStaff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.WalkinServiceCatNStaff.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.WalkinServiceCatNStaff.Controls.Add(this.RecWalkinServiceCategoryLbl);
-            this.WalkinServiceCatNStaff.Controls.Add(this.RecWalkinCatHSPanel);
-            this.WalkinServiceCatNStaff.Controls.Add(this.RecWalkinCatFSPanel);
-            this.WalkinServiceCatNStaff.Controls.Add(this.RecWalkinCatNCPanel);
-            this.WalkinServiceCatNStaff.Controls.Add(this.RecWalkinCatSpaPanel);
-            this.WalkinServiceCatNStaff.Controls.Add(this.RecWalkinCatMassagePanel);
-            this.WalkinServiceCatNStaff.Controls.Add(this.RecWalkInStaffSelectLbl);
-            this.WalkinServiceCatNStaff.Controls.Add(this.RecWalkinAttendingStaffLbl);
-            this.WalkinServiceCatNStaff.Controls.Add(this.RecWalkinPreferredStaffLbl);
-            this.WalkinServiceCatNStaff.Controls.Add(this.RecWalkinPreferredStaffToggleSwitch);
-            this.WalkinServiceCatNStaff.Controls.Add(this.RecWalkinAnyStaffToggleSwitch);
-            this.WalkinServiceCatNStaff.Controls.Add(this.RecWalkinAnyStaffLbl);
-            this.WalkinServiceCatNStaff.Controls.Add(this.RecWalkinNoServiceCategoryChosenWarningLbl);
-            this.WalkinServiceCatNStaff.Controls.Add(this.RecWalkinAttendingStaffSelectedComboBox);
-            this.WalkinServiceCatNStaff.Location = new System.Drawing.Point(4, 184);
+            this.WalkinServiceCatNStaff.Controls.Add(this.RecWalkinServicePanel);
+            this.WalkinServiceCatNStaff.Location = new System.Drawing.Point(4, 44);
             this.WalkinServiceCatNStaff.Name = "WalkinServiceCatNStaff";
             this.WalkinServiceCatNStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.WalkinServiceCatNStaff.Size = new System.Drawing.Size(1588, 871);
+            this.WalkinServiceCatNStaff.Size = new System.Drawing.Size(1588, 1011);
             this.WalkinServiceCatNStaff.TabIndex = 1;
             this.WalkinServiceCatNStaff.Text = "Services";
             // 
             // RecWalkinBasicInfoNxtBtn
             // 
+            this.RecWalkinBasicInfoNxtBtn.BackColor = System.Drawing.Color.Transparent;
             this.RecWalkinBasicInfoNxtBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.RecWalkinBasicInfoNxtBtn.BorderRadius = 20;
             this.RecWalkinBasicInfoNxtBtn.BorderThickness = 2;
-            this.RecWalkinBasicInfoNxtBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.RecWalkinBasicInfoNxtBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.RecWalkinBasicInfoNxtBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.RecWalkinBasicInfoNxtBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.RecWalkinBasicInfoNxtBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecWalkinBasicInfoNxtBtn.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecWalkinBasicInfoNxtBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecWalkinBasicInfoNxtBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinBasicInfoNxtBtn.Location = new System.Drawing.Point(1015, 517);
+            this.RecWalkinBasicInfoNxtBtn.Location = new System.Drawing.Point(378, 474);
             this.RecWalkinBasicInfoNxtBtn.Name = "RecWalkinBasicInfoNxtBtn";
-            this.RecWalkinBasicInfoNxtBtn.Size = new System.Drawing.Size(160, 47);
+            this.RecWalkinBasicInfoNxtBtn.Size = new System.Drawing.Size(177, 47);
             this.RecWalkinBasicInfoNxtBtn.TabIndex = 174;
-            this.RecWalkinBasicInfoNxtBtn.Text = "Next";
+            this.RecWalkinBasicInfoNxtBtn.Text = "CONTINUE";
+            this.RecWalkinBasicInfoNxtBtn.Click += new System.EventHandler(this.RecWalkinBasicInfoNxtBtn_Click);
             // 
-            // label8
+            // RecWalkinAgeErrorLbl
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label8.Location = new System.Drawing.Point(801, 404);
-            this.label8.Name = "label8";
-            this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label8.Size = new System.Drawing.Size(112, 28);
-            this.label8.TabIndex = 203;
-            this.label8.Text = "Must be 18yrs old\r\nand above\r\n";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label8.Visible = false;
+            this.RecWalkinAgeErrorLbl.AutoSize = true;
+            this.RecWalkinAgeErrorLbl.BackColor = System.Drawing.Color.Transparent;
+            this.RecWalkinAgeErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecWalkinAgeErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinAgeErrorLbl.Location = new System.Drawing.Point(752, 352);
+            this.RecWalkinAgeErrorLbl.Name = "RecWalkinAgeErrorLbl";
+            this.RecWalkinAgeErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.RecWalkinAgeErrorLbl.Size = new System.Drawing.Size(112, 28);
+            this.RecWalkinAgeErrorLbl.TabIndex = 203;
+            this.RecWalkinAgeErrorLbl.Text = "Must be 18yrs old\r\nand above\r\n";
+            this.RecWalkinAgeErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.RecWalkinAgeErrorLbl.Visible = false;
             // 
-            // guna2TextBox3
+            // RecWalkinAgeBox
             // 
-            this.guna2TextBox3.AutoRoundedCorners = true;
-            this.guna2TextBox3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.guna2TextBox3.BorderRadius = 14;
-            this.guna2TextBox3.BorderThickness = 2;
-            this.guna2TextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox3.DefaultText = "";
-            this.guna2TextBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.guna2TextBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.guna2TextBox3.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.guna2TextBox3.Location = new System.Drawing.Point(739, 437);
-            this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.guna2TextBox3.Name = "guna2TextBox3";
-            this.guna2TextBox3.PasswordChar = '\0';
-            this.guna2TextBox3.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.guna2TextBox3.PlaceholderText = "Age";
-            this.guna2TextBox3.ReadOnly = true;
-            this.guna2TextBox3.SelectedText = "";
-            this.guna2TextBox3.Size = new System.Drawing.Size(183, 30);
-            this.guna2TextBox3.TabIndex = 202;
+            this.RecWalkinAgeBox.AutoRoundedCorners = true;
+            this.RecWalkinAgeBox.BackColor = System.Drawing.Color.Transparent;
+            this.RecWalkinAgeBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinAgeBox.BorderRadius = 14;
+            this.RecWalkinAgeBox.BorderThickness = 2;
+            this.RecWalkinAgeBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.RecWalkinAgeBox.DefaultText = "";
+            this.RecWalkinAgeBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecWalkinAgeBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecWalkinAgeBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecWalkinAgeBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinAgeBox.Location = new System.Drawing.Point(682, 385);
+            this.RecWalkinAgeBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.RecWalkinAgeBox.Name = "RecWalkinAgeBox";
+            this.RecWalkinAgeBox.PasswordChar = '\0';
+            this.RecWalkinAgeBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinAgeBox.PlaceholderText = "Age";
+            this.RecWalkinAgeBox.ReadOnly = true;
+            this.RecWalkinAgeBox.SelectedText = "";
+            this.RecWalkinAgeBox.Size = new System.Drawing.Size(183, 30);
+            this.RecWalkinAgeBox.TabIndex = 202;
             // 
-            // label9
+            // RecWalkinAgeLbl
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label9.Location = new System.Drawing.Point(734, 405);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(65, 29);
-            this.label9.TabIndex = 201;
-            this.label9.Text = "Age:";
+            this.RecWalkinAgeLbl.AutoSize = true;
+            this.RecWalkinAgeLbl.BackColor = System.Drawing.Color.Transparent;
+            this.RecWalkinAgeLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecWalkinAgeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinAgeLbl.Location = new System.Drawing.Point(685, 353);
+            this.RecWalkinAgeLbl.Name = "RecWalkinAgeLbl";
+            this.RecWalkinAgeLbl.Size = new System.Drawing.Size(65, 29);
+            this.RecWalkinAgeLbl.TabIndex = 201;
+            this.RecWalkinAgeLbl.Text = "Age:";
             // 
-            // label10
+            // RecWalkinBdayLbl
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label10.Location = new System.Drawing.Point(426, 405);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(128, 29);
-            this.label10.TabIndex = 200;
-            this.label10.Text = "Birthday:";
+            this.RecWalkinBdayLbl.AutoSize = true;
+            this.RecWalkinBdayLbl.BackColor = System.Drawing.Color.Transparent;
+            this.RecWalkinBdayLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecWalkinBdayLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinBdayLbl.Location = new System.Drawing.Point(392, 353);
+            this.RecWalkinBdayLbl.Name = "RecWalkinBdayLbl";
+            this.RecWalkinBdayLbl.Size = new System.Drawing.Size(128, 29);
+            this.RecWalkinBdayLbl.TabIndex = 200;
+            this.RecWalkinBdayLbl.Text = "Birthday:";
             // 
-            // guna2DateTimePicker1
+            // RecWalkinBdayPicker
             // 
-            this.guna2DateTimePicker1.AutoRoundedCorners = true;
-            this.guna2DateTimePicker1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.guna2DateTimePicker1.BorderRadius = 14;
-            this.guna2DateTimePicker1.BorderThickness = 2;
-            this.guna2DateTimePicker1.Checked = true;
-            this.guna2DateTimePicker1.CustomFormat = "MMMM dd, yyyy";
-            this.guna2DateTimePicker1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.guna2DateTimePicker1.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2DateTimePicker1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.guna2DateTimePicker1.Location = new System.Drawing.Point(431, 437);
-            this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
-            this.guna2DateTimePicker1.Size = new System.Drawing.Size(284, 30);
-            this.guna2DateTimePicker1.TabIndex = 199;
-            this.guna2DateTimePicker1.Value = new System.DateTime(2024, 3, 15, 23, 11, 54, 37);
+            this.RecWalkinBdayPicker.AutoRoundedCorners = true;
+            this.RecWalkinBdayPicker.BackColor = System.Drawing.Color.Transparent;
+            this.RecWalkinBdayPicker.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinBdayPicker.BorderRadius = 14;
+            this.RecWalkinBdayPicker.BorderThickness = 2;
+            this.RecWalkinBdayPicker.Checked = true;
+            this.RecWalkinBdayPicker.CustomFormat = "MMMM dd, yyyy";
+            this.RecWalkinBdayPicker.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecWalkinBdayPicker.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecWalkinBdayPicker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinBdayPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.RecWalkinBdayPicker.Location = new System.Drawing.Point(389, 385);
+            this.RecWalkinBdayPicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.RecWalkinBdayPicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.RecWalkinBdayPicker.Name = "RecWalkinBdayPicker";
+            this.RecWalkinBdayPicker.Size = new System.Drawing.Size(272, 30);
+            this.RecWalkinBdayPicker.TabIndex = 199;
+            this.RecWalkinBdayPicker.Value = new System.DateTime(2024, 3, 15, 23, 11, 54, 37);
+            this.RecWalkinBdayPicker.ValueChanged += new System.EventHandler(this.RecWalkinBdayPicker_ValueChanged);
             // 
-            // guna2TextBox4
+            // RecWalkinCPNumText
             // 
-            this.guna2TextBox4.AutoRoundedCorners = true;
-            this.guna2TextBox4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.guna2TextBox4.BorderRadius = 14;
-            this.guna2TextBox4.BorderThickness = 2;
-            this.guna2TextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox4.DefaultText = "";
-            this.guna2TextBox4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.guna2TextBox4.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.guna2TextBox4.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.guna2TextBox4.Location = new System.Drawing.Point(897, 350);
-            this.guna2TextBox4.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.guna2TextBox4.Name = "guna2TextBox4";
-            this.guna2TextBox4.PasswordChar = '\0';
-            this.guna2TextBox4.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.guna2TextBox4.PlaceholderText = "Mobile Number";
-            this.guna2TextBox4.SelectedText = "";
-            this.guna2TextBox4.Size = new System.Drawing.Size(376, 30);
-            this.guna2TextBox4.TabIndex = 198;
+            this.RecWalkinCPNumText.AutoRoundedCorners = true;
+            this.RecWalkinCPNumText.BackColor = System.Drawing.Color.Transparent;
+            this.RecWalkinCPNumText.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinCPNumText.BorderRadius = 14;
+            this.RecWalkinCPNumText.BorderThickness = 2;
+            this.RecWalkinCPNumText.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.RecWalkinCPNumText.DefaultText = "";
+            this.RecWalkinCPNumText.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecWalkinCPNumText.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecWalkinCPNumText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecWalkinCPNumText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinCPNumText.Location = new System.Drawing.Point(67, 385);
+            this.RecWalkinCPNumText.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.RecWalkinCPNumText.Name = "RecWalkinCPNumText";
+            this.RecWalkinCPNumText.PasswordChar = '\0';
+            this.RecWalkinCPNumText.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinCPNumText.PlaceholderText = "Mobile Number";
+            this.RecWalkinCPNumText.SelectedText = "";
+            this.RecWalkinCPNumText.Size = new System.Drawing.Size(301, 30);
+            this.RecWalkinCPNumText.TabIndex = 198;
             // 
-            // guna2TextBox5
+            // RecWalkinLNameText
             // 
-            this.guna2TextBox5.AutoRoundedCorners = true;
-            this.guna2TextBox5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.guna2TextBox5.BorderRadius = 14;
-            this.guna2TextBox5.BorderThickness = 2;
-            this.guna2TextBox5.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox5.DefaultText = "";
-            this.guna2TextBox5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.guna2TextBox5.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.guna2TextBox5.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.guna2TextBox5.Location = new System.Drawing.Point(488, 350);
-            this.guna2TextBox5.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.guna2TextBox5.Name = "guna2TextBox5";
-            this.guna2TextBox5.PasswordChar = '\0';
-            this.guna2TextBox5.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.guna2TextBox5.PlaceholderText = "Last Name";
-            this.guna2TextBox5.SelectedText = "";
-            this.guna2TextBox5.Size = new System.Drawing.Size(376, 30);
-            this.guna2TextBox5.TabIndex = 197;
+            this.RecWalkinLNameText.AutoRoundedCorners = true;
+            this.RecWalkinLNameText.BackColor = System.Drawing.Color.Transparent;
+            this.RecWalkinLNameText.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinLNameText.BorderRadius = 14;
+            this.RecWalkinLNameText.BorderThickness = 2;
+            this.RecWalkinLNameText.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.RecWalkinLNameText.DefaultText = "";
+            this.RecWalkinLNameText.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecWalkinLNameText.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecWalkinLNameText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecWalkinLNameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinLNameText.Location = new System.Drawing.Point(471, 298);
+            this.RecWalkinLNameText.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.RecWalkinLNameText.Name = "RecWalkinLNameText";
+            this.RecWalkinLNameText.PasswordChar = '\0';
+            this.RecWalkinLNameText.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinLNameText.PlaceholderText = "Last Name";
+            this.RecWalkinLNameText.SelectedText = "";
+            this.RecWalkinLNameText.Size = new System.Drawing.Size(396, 30);
+            this.RecWalkinLNameText.TabIndex = 197;
             // 
-            // RecWalkinFNameText1
+            // RecWalkinFNameText
             // 
-            this.RecWalkinFNameText1.AutoRoundedCorners = true;
-            this.RecWalkinFNameText1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinFNameText1.BorderRadius = 14;
-            this.RecWalkinFNameText1.BorderThickness = 2;
-            this.RecWalkinFNameText1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.RecWalkinFNameText1.DefaultText = "";
-            this.RecWalkinFNameText1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecWalkinFNameText1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecWalkinFNameText1.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecWalkinFNameText1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinFNameText1.Location = new System.Drawing.Point(73, 350);
-            this.RecWalkinFNameText1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.RecWalkinFNameText1.Name = "RecWalkinFNameText1";
-            this.RecWalkinFNameText1.PasswordChar = '\0';
-            this.RecWalkinFNameText1.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinFNameText1.PlaceholderText = "First Name";
-            this.RecWalkinFNameText1.SelectedText = "";
-            this.RecWalkinFNameText1.Size = new System.Drawing.Size(376, 30);
-            this.RecWalkinFNameText1.TabIndex = 196;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label11.Location = new System.Drawing.Point(785, 323);
-            this.label11.Name = "label11";
-            this.label11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label11.Size = new System.Drawing.Size(82, 14);
-            this.label11.TabIndex = 195;
-            this.label11.Text = "Missing Field";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label11.Visible = false;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label12.Location = new System.Drawing.Point(370, 323);
-            this.label12.Name = "label12";
-            this.label12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label12.Size = new System.Drawing.Size(82, 14);
-            this.label12.TabIndex = 194;
-            this.label12.Text = "Missing Field";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label12.Visible = false;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label13.Location = new System.Drawing.Point(1191, 321);
-            this.label13.Name = "label13";
-            this.label13.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label13.Size = new System.Drawing.Size(82, 14);
-            this.label13.TabIndex = 193;
-            this.label13.Text = "Missing Field";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label13.Visible = false;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label14.Location = new System.Drawing.Point(892, 316);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(196, 29);
-            this.label14.TabIndex = 192;
-            this.label14.Text = "Mobile Number:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label15.Location = new System.Drawing.Point(483, 316);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(152, 29);
-            this.label15.TabIndex = 191;
-            this.label15.Text = "Last Name:";
-            // 
-            // RecWalkinFNameLbl1
-            // 
-            this.RecWalkinFNameLbl1.AutoSize = true;
-            this.RecWalkinFNameLbl1.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecWalkinFNameLbl1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinFNameLbl1.Location = new System.Drawing.Point(70, 316);
-            this.RecWalkinFNameLbl1.Name = "RecWalkinFNameLbl1";
-            this.RecWalkinFNameLbl1.Size = new System.Drawing.Size(157, 29);
-            this.RecWalkinFNameLbl1.TabIndex = 190;
-            this.RecWalkinFNameLbl1.Text = "First Name:";
-            // 
-            // WalkinAcquireService
-            // 
-            this.WalkinAcquireService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.WalkinAcquireService.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.WalkinAcquireService.Controls.Add(this.RecWalkinBookTransactBtn);
-            this.WalkinAcquireService.Controls.Add(this.RecWalkinSearchServiceTypeBtn);
-            this.WalkinAcquireService.Controls.Add(this.RecWalkInServiceTypeLbl);
-            this.WalkinAcquireService.Controls.Add(this.RecWalkInServiceTypeDGV);
-            this.WalkinAcquireService.Controls.Add(this.RecWalkinSelectServiceAndStaffBtn);
-            this.WalkinAcquireService.Controls.Add(this.RecWalkinSearchServiceTypeText);
-            this.WalkinAcquireService.Controls.Add(this.RecWalkinDeleteSelectedServiceAndStaffBtn);
-            this.WalkinAcquireService.Controls.Add(this.RecWalkinSelectedServiceDGV);
-            this.WalkinAcquireService.Location = new System.Drawing.Point(4, 44);
-            this.WalkinAcquireService.Name = "WalkinAcquireService";
-            this.WalkinAcquireService.Size = new System.Drawing.Size(1588, 1011);
-            this.WalkinAcquireService.TabIndex = 2;
-            this.WalkinAcquireService.Text = "Services";
+            this.RecWalkinFNameText.AutoRoundedCorners = true;
+            this.RecWalkinFNameText.BackColor = System.Drawing.Color.Transparent;
+            this.RecWalkinFNameText.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinFNameText.BorderRadius = 14;
+            this.RecWalkinFNameText.BorderThickness = 2;
+            this.RecWalkinFNameText.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.RecWalkinFNameText.DefaultText = "";
+            this.RecWalkinFNameText.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecWalkinFNameText.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecWalkinFNameText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecWalkinFNameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinFNameText.Location = new System.Drawing.Point(65, 298);
+            this.RecWalkinFNameText.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.RecWalkinFNameText.Name = "RecWalkinFNameText";
+            this.RecWalkinFNameText.PasswordChar = '\0';
+            this.RecWalkinFNameText.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinFNameText.PlaceholderText = "First Name";
+            this.RecWalkinFNameText.SelectedText = "";
+            this.RecWalkinFNameText.Size = new System.Drawing.Size(396, 30);
+            this.RecWalkinFNameText.TabIndex = 196;
             // 
             // WalkinProducts
             // 
             this.WalkinProducts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.WalkinProducts.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.WalkinProducts.Controls.Add(this.iconButton1);
-            this.WalkinProducts.Controls.Add(this.label5);
-            this.WalkinProducts.Controls.Add(this.RecWalkinProductFlowLayoutPanel);
-            this.WalkinProducts.Controls.Add(this.RecWalkinSearchProductTextBox);
-            this.WalkinProducts.Controls.Add(this.RecWalkinSelectedProdVoidButton);
-            this.WalkinProducts.Controls.Add(this.RecWalkinSelectedProdDGV);
-            this.WalkinProducts.Location = new System.Drawing.Point(4, 184);
+            this.WalkinProducts.Controls.Add(this.RecWalkinProdPanel);
+            this.WalkinProducts.Location = new System.Drawing.Point(4, 44);
             this.WalkinProducts.Name = "WalkinProducts";
-            this.WalkinProducts.Size = new System.Drawing.Size(1588, 871);
+            this.WalkinProducts.Size = new System.Drawing.Size(1588, 1011);
             this.WalkinProducts.TabIndex = 3;
             this.WalkinProducts.Text = "Products";
+            // 
+            // RecWalkinBasicInfoPanel
+            // 
+            this.RecWalkinBasicInfoPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecWalkinBasicInfoPanel.BorderRadius = 3;
+            this.RecWalkinBasicInfoPanel.BorderThickness = 3;
+            this.RecWalkinBasicInfoPanel.Controls.Add(this.RecWalkinTransNumText);
+            this.RecWalkinBasicInfoPanel.Controls.Add(this.RecWalkinAgeErrorLbl);
+            this.RecWalkinBasicInfoPanel.Controls.Add(this.RecWalkinLNameLbl);
+            this.RecWalkinBasicInfoPanel.Controls.Add(this.RecWalkinCPNumLbl);
+            this.RecWalkinBasicInfoPanel.Controls.Add(this.RecWalkinFNameLbl);
+            this.RecWalkinBasicInfoPanel.Controls.Add(this.RecWalkinBasicInfoNxtBtn);
+            this.RecWalkinBasicInfoPanel.Controls.Add(this.RecWalkinAgeBox);
+            this.RecWalkinBasicInfoPanel.Controls.Add(this.RecWalkinAgeLbl);
+            this.RecWalkinBasicInfoPanel.Controls.Add(this.RecWalkinBdayLbl);
+            this.RecWalkinBasicInfoPanel.Controls.Add(this.RecWalkinBdayPicker);
+            this.RecWalkinBasicInfoPanel.Controls.Add(this.RecWalkinLNameErrorLbl);
+            this.RecWalkinBasicInfoPanel.Controls.Add(this.RecWalkinCPNumText);
+            this.RecWalkinBasicInfoPanel.Controls.Add(this.RecWalkinLNameText);
+            this.RecWalkinBasicInfoPanel.Controls.Add(this.RecWalkinFNameText);
+            this.RecWalkinBasicInfoPanel.Controls.Add(this.RecWalkinBasicInfoLbl);
+            this.RecWalkinBasicInfoPanel.Controls.Add(this.RecWalkinFNameErrorLbl);
+            this.RecWalkinBasicInfoPanel.Controls.Add(this.RecWalkinLbl);
+            this.RecWalkinBasicInfoPanel.Controls.Add(this.RecWalkinTransNumLbl);
+            this.RecWalkinBasicInfoPanel.Controls.Add(this.RecWalkinCPNumErrorLbl);
+            this.RecWalkinBasicInfoPanel.Location = new System.Drawing.Point(316, 208);
+            this.RecWalkinBasicInfoPanel.Name = "RecWalkinBasicInfoPanel";
+            this.RecWalkinBasicInfoPanel.Size = new System.Drawing.Size(933, 590);
+            this.RecWalkinBasicInfoPanel.TabIndex = 204;
+            // 
+            // RecWalkinTransNumText
+            // 
+            this.RecWalkinTransNumText.AutoSize = true;
+            this.RecWalkinTransNumText.BackColor = System.Drawing.Color.Transparent;
+            this.RecWalkinTransNumText.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecWalkinTransNumText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinTransNumText.Location = new System.Drawing.Point(295, 129);
+            this.RecWalkinTransNumText.Name = "RecWalkinTransNumText";
+            this.RecWalkinTransNumText.Size = new System.Drawing.Size(239, 26);
+            this.RecWalkinTransNumText.TabIndex = 204;
+            this.RecWalkinTransNumText.Text = "Transaction Number:";
+            // 
+            // RecWalkinServicePanel
+            // 
+            this.RecWalkinServicePanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecWalkinServicePanel.BorderRadius = 3;
+            this.RecWalkinServicePanel.BorderThickness = 3;
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkinProdCOBtn);
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkinServicePrevBtn);
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkinBookTransactBtn);
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkinCatMassagePanel);
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkinSearchServiceTypeBtn);
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkinCatSpaPanel);
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkInServiceTypeLbl);
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkInServiceTypeDGV);
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkinCatNCPanel);
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkinSelectServiceAndStaffBtn);
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkinServiceCategoryLbl);
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkinSelectedServiceDGV);
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkinCatFSPanel);
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkinSearchServiceTypeText);
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkInStaffSelectLbl);
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkinDeleteSelectedServiceAndStaffBtn);
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkinCatHSPanel);
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkinAttendingStaffLbl);
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkinAttendingStaffSelectedComboBox);
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkinNoServiceCategoryChosenWarningLbl);
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkinPreferredStaffLbl);
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkinAnyStaffLbl);
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkinAnyStaffToggleSwitch);
+            this.RecWalkinServicePanel.Controls.Add(this.RecWalkinPreferredStaffToggleSwitch);
+            this.RecWalkinServicePanel.Location = new System.Drawing.Point(35, 22);
+            this.RecWalkinServicePanel.Name = "RecWalkinServicePanel";
+            this.RecWalkinServicePanel.Size = new System.Drawing.Size(1514, 963);
+            this.RecWalkinServicePanel.TabIndex = 205;
+            // 
+            // RecWalkinProdCOBtn
+            // 
+            this.RecWalkinProdCOBtn.AutoSize = true;
+            this.RecWalkinProdCOBtn.Font = new System.Drawing.Font("TechnicBold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecWalkinProdCOBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinProdCOBtn.Location = new System.Drawing.Point(567, 906);
+            this.RecWalkinProdCOBtn.Name = "RecWalkinProdCOBtn";
+            this.RecWalkinProdCOBtn.Size = new System.Drawing.Size(381, 24);
+            this.RecWalkinProdCOBtn.TabIndex = 175;
+            this.RecWalkinProdCOBtn.Text = "Do you want to checkout a product?";
+            this.RecWalkinProdCOBtn.Click += new System.EventHandler(this.RecWalkinProdCOBtn_Click);
+            // 
+            // iconButton3
+            // 
+            this.iconButton3.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton3.FlatAppearance.BorderSize = 0;
+            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton3.ForeColor = System.Drawing.Color.Transparent;
+            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton3.Location = new System.Drawing.Point(46, 28);
+            this.iconButton3.Name = "iconButton3";
+            this.iconButton3.Size = new System.Drawing.Size(48, 48);
+            this.iconButton3.TabIndex = 177;
+            this.iconButton3.UseVisualStyleBackColor = false;
+            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
+            // 
+            // RecWalkinCheckoutBtn
+            // 
+            this.RecWalkinCheckoutBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecWalkinCheckoutBtn.BorderRadius = 20;
+            this.RecWalkinCheckoutBtn.BorderThickness = 2;
+            this.RecWalkinCheckoutBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.RecWalkinCheckoutBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.RecWalkinCheckoutBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.RecWalkinCheckoutBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.RecWalkinCheckoutBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecWalkinCheckoutBtn.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecWalkinCheckoutBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecWalkinCheckoutBtn.Location = new System.Drawing.Point(665, 781);
+            this.RecWalkinCheckoutBtn.Name = "RecWalkinCheckoutBtn";
+            this.RecWalkinCheckoutBtn.Size = new System.Drawing.Size(182, 47);
+            this.RecWalkinCheckoutBtn.TabIndex = 178;
+            this.RecWalkinCheckoutBtn.Text = "Checkout Items";
+            this.RecWalkinCheckoutBtn.Click += new System.EventHandler(this.RecWalkinCheckoutBtn_Click);
+            // 
+            // RecWalkinProdPanel
+            // 
+            this.RecWalkinProdPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecWalkinProdPanel.BorderRadius = 3;
+            this.RecWalkinProdPanel.BorderThickness = 3;
+            this.RecWalkinProdPanel.Controls.Add(this.RecWalkinCheckoutBtn);
+            this.RecWalkinProdPanel.Controls.Add(this.iconButton3);
+            this.RecWalkinProdPanel.Controls.Add(this.RecWalkinSelectedProdDGV);
+            this.RecWalkinProdPanel.Controls.Add(this.RecWalkinSearchProductBtn);
+            this.RecWalkinProdPanel.Controls.Add(this.RecWalkinSelectedProdVoidButton);
+            this.RecWalkinProdPanel.Controls.Add(this.RecWalkinProdLbl);
+            this.RecWalkinProdPanel.Controls.Add(this.RecWalkinSearchProductTextBox);
+            this.RecWalkinProdPanel.Controls.Add(this.RecWalkinProductFlowLayoutPanel);
+            this.RecWalkinProdPanel.Location = new System.Drawing.Point(56, 54);
+            this.RecWalkinProdPanel.Name = "RecWalkinProdPanel";
+            this.RecWalkinProdPanel.Size = new System.Drawing.Size(1454, 861);
+            this.RecWalkinProdPanel.TabIndex = 205;
+            // 
+            // WalkinServiceVoid
+            // 
+            this.WalkinServiceVoid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.WalkinServiceVoid.HeaderText = "Void";
+            this.WalkinServiceVoid.Name = "WalkinServiceVoid";
+            this.WalkinServiceVoid.ReadOnly = true;
+            this.WalkinServiceVoid.Text = "x";
+            this.WalkinServiceVoid.UseColumnTextForButtonValue = true;
+            this.WalkinServiceVoid.Width = 54;
+            // 
+            // SelectedService
+            // 
+            this.SelectedService.HeaderText = "Selected Service";
+            this.SelectedService.Name = "SelectedService";
+            this.SelectedService.ReadOnly = true;
+            // 
+            // ServicePrice
+            // 
+            this.ServicePrice.HeaderText = "Service Price";
+            this.ServicePrice.Name = "ServicePrice";
+            this.ServicePrice.ReadOnly = true;
+            // 
+            // ServiceCategory
+            // 
+            this.ServiceCategory.HeaderText = "Service Category";
+            this.ServiceCategory.Name = "ServiceCategory";
+            this.ServiceCategory.ReadOnly = true;
+            this.ServiceCategory.Visible = false;
+            // 
+            // ServiceID
+            // 
+            this.ServiceID.HeaderText = "Service ID";
+            this.ServiceID.Name = "ServiceID";
+            this.ServiceID.ReadOnly = true;
+            this.ServiceID.Visible = false;
+            // 
+            // StaffSelected
+            // 
+            this.StaffSelected.HeaderText = "Staff Selected";
+            this.StaffSelected.Name = "StaffSelected";
+            this.StaffSelected.ReadOnly = true;
+            this.StaffSelected.Visible = false;
+            // 
+            // QueNumber
+            // 
+            this.QueNumber.HeaderText = "QueNumber";
+            this.QueNumber.Name = "QueNumber";
+            this.QueNumber.ReadOnly = true;
+            this.QueNumber.Visible = false;
+            // 
+            // QueType
+            // 
+            this.QueType.HeaderText = "Que Type";
+            this.QueType.Name = "QueType";
+            this.QueType.ReadOnly = true;
+            this.QueType.Visible = false;
             // 
             // Enchante
             // 
@@ -12071,8 +12021,6 @@ namespace Enchante
             this.RecWalkinCatFSPanel.PerformLayout();
             this.RecWalkinCatHSPanel.ResumeLayout(false);
             this.RecWalkinCatHSPanel.PerformLayout();
-            this.RecWalkInFooterStopperPanel.ResumeLayout(false);
-            this.RecWalkInFooterStopperPanel.PerformLayout();
             this.RecQueStartPanel.ResumeLayout(false);
             this.RecQueStartPanel.PerformLayout();
             this.RecQueStartFooterStopperPanel.ResumeLayout(false);
@@ -12097,13 +12045,14 @@ namespace Enchante
             ((System.ComponentModel.ISupportInitialize)(this.MngrInventoryCard)).EndInit();
             this.WalkinTabs.ResumeLayout(false);
             this.WalkinBasicInfo.ResumeLayout(false);
-            this.WalkinBasicInfo.PerformLayout();
             this.WalkinServiceCatNStaff.ResumeLayout(false);
-            this.WalkinServiceCatNStaff.PerformLayout();
-            this.WalkinAcquireService.ResumeLayout(false);
-            this.WalkinAcquireService.PerformLayout();
             this.WalkinProducts.ResumeLayout(false);
-            this.WalkinProducts.PerformLayout();
+            this.RecWalkinBasicInfoPanel.ResumeLayout(false);
+            this.RecWalkinBasicInfoPanel.PerformLayout();
+            this.RecWalkinServicePanel.ResumeLayout(false);
+            this.RecWalkinServicePanel.PerformLayout();
+            this.RecWalkinProdPanel.ResumeLayout(false);
+            this.RecWalkinProdPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -12159,19 +12108,13 @@ namespace Enchante
         private System.Windows.Forms.Label RecWalkinFNameErrorLbl;
         private System.Windows.Forms.Label RecWalkinCPNumErrorLbl;
         private System.Windows.Forms.Label RecWalkinAttendingStaffLbl;
-        private System.Windows.Forms.TextBox RecWalkinCPNumText;
         private System.Windows.Forms.Label RecWalkinCPNumLbl;
-        private System.Windows.Forms.Panel RecWalkInFooterStopperPanel;
-        private System.Windows.Forms.Label RecWalkInFooterStopperLbl;
-        private System.Windows.Forms.TextBox RecWalkinLNameText;
         private System.Windows.Forms.Label RecWalkinLNameLbl;
-        private System.Windows.Forms.TextBox RecWalkinFNameText;
         private System.Windows.Forms.Label RecWalkinFNameLbl;
         private System.Windows.Forms.Label RecWalkinServiceCategoryLbl;
-        private System.Windows.Forms.TextBox RecWalkinTransNumText;
         private System.Windows.Forms.Label RecWalkinTransNumLbl;
         private System.Windows.Forms.Label RecWalkinLbl;
-        private FontAwesome.Sharp.IconButton RecWalkInExitBtn;
+        private FontAwesome.Sharp.IconButton RecWalkinServicePrevBtn;
         private System.Windows.Forms.Panel RecWalkinCatMassagePanel;
         private System.Windows.Forms.RadioButton RecWalkinCatMassageRB;
         private FontAwesome.Sharp.IconButton RecWalkinCatMassageBtn;
@@ -12474,7 +12417,7 @@ namespace Enchante
         private Guna.UI2.WinForms.Guna2GradientButton SelectImage;
         private Guna.UI2.WinForms.Guna2TextBox StaffItemSelectedCountTextBox;
         private System.Windows.Forms.DataGridView RecWalkinSelectedProdDGV;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label RecWalkinProdLbl;
         private System.Windows.Forms.Label RecPayServiceCOProdLbl;
         private System.Windows.Forms.Label RecPayServiceAcqLbl;
         private System.Windows.Forms.DataGridView RecPayServiceCOProdDGV;
@@ -12529,13 +12472,6 @@ namespace Enchante
         private Guna.UI2.WinForms.Guna2Button RecWalkinDeleteSelectedServiceAndStaffBtn;
         private Guna.UI2.WinForms.Guna2Button RecWalkinBookTransactBtn;
         private Guna.UI2.WinForms.Guna2Button RecApptBookTransactBtn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SelectedService;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ServicePrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ServiceCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ServiceID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StaffSelected;
-        private System.Windows.Forms.DataGridViewTextBoxColumn QueNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn QueType;
         private Guna.UI2.WinForms.Guna2TextBox RecApptFNameText;
         private Guna.UI2.WinForms.Guna2DateTimePicker RecApptClientBdayPicker;
         private Guna.UI2.WinForms.Guna2TextBox RecApptCPNumText;
@@ -12731,7 +12667,7 @@ namespace Enchante
         private System.Windows.Forms.Timer PictureSlideTimer;
         private System.Windows.Forms.TextBox RecWalkinSearchProductTextBox;
         private Guna.UI2.WinForms.Guna2TextBox RecSearchProductTextBox;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton RecWalkinSearchProductBtn;
         private FontAwesome.Sharp.IconButton iconButton2;
         private System.Windows.Forms.Label MngrAppSalesSelectAppLbl;
         private System.Windows.Forms.Label MngrWalkinSalesTotalRevenueLbl;
@@ -12823,22 +12759,30 @@ namespace Enchante
         private System.Windows.Forms.TabPage WalkinBasicInfo;
         private System.Windows.Forms.TabPage WalkinServiceCatNStaff;
         private Guna.UI2.WinForms.Guna2Button RecWalkinBasicInfoNxtBtn;
-        private System.Windows.Forms.Label label8;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox4;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox5;
-        private Guna.UI2.WinForms.Guna2TextBox RecWalkinFNameText1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label RecWalkinFNameLbl1;
-        private System.Windows.Forms.TabPage WalkinAcquireService;
+        private System.Windows.Forms.Label RecWalkinAgeErrorLbl;
+        private Guna.UI2.WinForms.Guna2TextBox RecWalkinAgeBox;
+        private System.Windows.Forms.Label RecWalkinAgeLbl;
+        private System.Windows.Forms.Label RecWalkinBdayLbl;
+        private Guna.UI2.WinForms.Guna2DateTimePicker RecWalkinBdayPicker;
+        private Guna.UI2.WinForms.Guna2TextBox RecWalkinCPNumText;
+        private Guna.UI2.WinForms.Guna2TextBox RecWalkinLNameText;
+        private Guna.UI2.WinForms.Guna2TextBox RecWalkinFNameText;
         private System.Windows.Forms.TabPage WalkinProducts;
+        private Guna.UI2.WinForms.Guna2GradientPanel RecWalkinBasicInfoPanel;
+        private System.Windows.Forms.Label RecWalkinTransNumText;
+        private Guna.UI2.WinForms.Guna2GradientPanel RecWalkinServicePanel;
+        private System.Windows.Forms.Label RecWalkinProdCOBtn;
+        private FontAwesome.Sharp.IconButton iconButton3;
+        private Guna.UI2.WinForms.Guna2Button RecWalkinCheckoutBtn;
+        private Guna.UI2.WinForms.Guna2GradientPanel RecWalkinProdPanel;
+        private System.Windows.Forms.DataGridViewButtonColumn WalkinServiceVoid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SelectedService;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ServicePrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ServiceCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ServiceID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StaffSelected;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QueNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QueType;
     }
 }
 

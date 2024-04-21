@@ -224,7 +224,7 @@ namespace Enchante
 
             //Tab Header remover
             WalkinTabs.SizeMode = TabSizeMode.Fixed;
-            WalkinTabs.ItemSize = new Size(0, 1);
+            WalkinTabs.ItemSize = new Size(0, 2);
 
 
         }
@@ -322,8 +322,8 @@ namespace Enchante
         }
         #endregion
 
-        //customized dgv on receptionist dashboard
-        #region
+        //
+        #region customized dgv on receptionist dashboard
         private void RecWalkinSelectedProdView()
         {
             DataGridViewButtonColumn trashColumn = new DataGridViewButtonColumn();
@@ -1213,8 +1213,8 @@ namespace Enchante
         #region Receptionist Walk-in Transaction
         private void RecWalkInExitBtn_Click(object sender, EventArgs e)
         {
-            Transaction.PanelShow(RecQueStartPanel);
-            RecWalkinTransactionClear();
+            //RecWalkinTransactionClear();
+            WalkinTabs.SelectedIndex = 0;
 
         }
         private void RecWalkInCatHSBtn_Click(object sender, EventArgs e)
@@ -1288,7 +1288,7 @@ namespace Enchante
         {
             if (RecWalkinCatHSRB.Checked == false)
             {
-                RecWalkinCatHSRB.Visible = true;
+                RecWalkinCatHSRB.Visible = false;
                 RecWalkinCatHSRB.Checked = true;
                 RecWalkinLoadServiceTypeComboBox("Hair Styling");
 
@@ -1304,7 +1304,7 @@ namespace Enchante
             }
             else if (RecWalkinCatHSRB.Checked == true)
             {
-                RecWalkinCatHSRB.Visible = true;
+                RecWalkinCatHSRB.Visible = false;
                 RecWalkinCatHSRB.Checked = true;
                 RecWalkinLoadServiceTypeComboBox("Hair Styling");
 
@@ -1322,7 +1322,7 @@ namespace Enchante
         {
             if (RecWalkinCatFSRB.Checked == false)
             {
-                RecWalkinCatFSRB.Visible = true;
+                RecWalkinCatFSRB.Visible = false;
                 RecWalkinCatFSRB.Checked = true;
                 RecWalkinLoadServiceTypeComboBox("Face & Skin");
 
@@ -1338,7 +1338,7 @@ namespace Enchante
             }
             else if (RecWalkinCatFSRB.Checked == true)
             {
-                RecWalkinCatFSRB.Visible = true;
+                RecWalkinCatFSRB.Visible = false;
                 RecWalkinCatFSRB.Checked = true;
             }
         }
@@ -1346,7 +1346,7 @@ namespace Enchante
         {
             if (RecWalkinCatNCRB.Checked == false)
             {
-                RecWalkinCatNCRB.Visible = true;
+                RecWalkinCatNCRB.Visible = false;
                 RecWalkinCatNCRB.Checked = true;
                 RecWalkinLoadServiceTypeComboBox("Nail Care");
 
@@ -1362,7 +1362,7 @@ namespace Enchante
             }
             else if (RecWalkinCatNCRB.Checked == true)
             {
-                RecWalkinCatNCRB.Visible = true;
+                RecWalkinCatNCRB.Visible = false;
                 RecWalkinCatNCRB.Checked = true;
             }
         }
@@ -1370,7 +1370,7 @@ namespace Enchante
         {
             if (RecWalkinCatSpaRB.Checked == false)
             {
-                RecWalkinCatSpaRB.Visible = true;
+                RecWalkinCatSpaRB.Visible = false;
                 RecWalkinCatSpaRB.Checked = true;
                 RecWalkinLoadServiceTypeComboBox("Spa");
 
@@ -1386,7 +1386,7 @@ namespace Enchante
             }
             else if (RecWalkinCatSpaRB.Checked == true)
             {
-                RecWalkinCatSpaRB.Visible = true;
+                RecWalkinCatSpaRB.Visible = false;
                 RecWalkinCatSpaRB.Checked = true;
             }
         }
@@ -1394,7 +1394,7 @@ namespace Enchante
         {
             if (RecWalkinCatMassageRB.Checked == false)
             {
-                RecWalkinCatMassageRB.Visible = true;
+                RecWalkinCatMassageRB.Visible = false;
                 RecWalkinCatMassageRB.Checked = true;
                 RecWalkinLoadServiceTypeComboBox("Massage");
 
@@ -1410,7 +1410,7 @@ namespace Enchante
             }
             else if (RecWalkinCatMassageRB.Checked == true)
             {
-                RecWalkinCatMassageRB.Visible = true;
+                RecWalkinCatMassageRB.Visible = false;
                 RecWalkinCatMassageRB.Checked = true;
             }
         }
@@ -1921,12 +1921,11 @@ namespace Enchante
         {
             if (RecWalkinSelectedServiceDGV.SelectedRows.Count > 0)
             {
-                DialogResult result = MessageBox.Show("Are you sure you want to delete this row?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Are you sure you want to void these services?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
-                    DataGridViewRow selectedRow = RecWalkinSelectedServiceDGV.SelectedRows[0];
-                    RecWalkinSelectedServiceDGV.Rows.Remove(selectedRow);
+                    RecWalkinSelectedServiceDGV.Rows.Clear();
                 }
             }
         }
@@ -1951,31 +1950,7 @@ namespace Enchante
         private void RecWalkinBookTransactBtn_Click(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrWhiteSpace(RecWalkinFNameText.Text))
-            {
-                MessageBox.Show("Please enter a first name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (!IsCardNameValid(RecWalkinFNameText.Text))
-            {
-                MessageBox.Show("Invalid First Name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (string.IsNullOrWhiteSpace(RecWalkinLNameText.Text))
-            {
-                MessageBox.Show("Please enter a last name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (!IsCardNameValid(RecWalkinLNameText.Text))
-            {
-                MessageBox.Show("Invalid Last Name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (string.IsNullOrWhiteSpace(RecWalkinCPNumText.Text))
-            {
-                MessageBox.Show("Please enter a contact number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (!IsNumeric(RecWalkinCPNumText.Text))
-            {
-                MessageBox.Show("Invalid Contact Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (RecWalkinSelectedServiceDGV != null && RecWalkinSelectedServiceDGV.Rows.Count == 0)
+            if (RecWalkinSelectedServiceDGV != null && RecWalkinSelectedServiceDGV.Rows.Count == 0)
             {
                 MessageBox.Show("Select a service first to proceed on booking a transaction.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
@@ -2329,7 +2304,7 @@ namespace Enchante
 
                 // Successful insertion
                 MessageBox.Show("Service successfully booked.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Transaction.PanelShow(RecQueStartPanel);
+                WalkinTabs.SelectedIndex = 0;  
                 //RecWalkinServiceHistoryDB();
             }
             catch (MySqlException ex)
@@ -4474,8 +4449,7 @@ namespace Enchante
                 ShowNoServiceCategoryChosenWarningMessage();
                 RecWalkinAnyStaffToggleSwitch.CheckedChanged -= RecWalkinAnyStaffToggleSwitch_CheckedChanged;
                 RecWalkinAnyStaffToggleSwitch.Checked = false;
-                RecWalkinAttendingStaffLbl.Visible = false;
-                RecWalkinAttendingStaffSelectedComboBox.Visible = false;
+                RecWalkinAttendingStaffSelectedComboBox.Enabled = false; 
                 RecWalkinAnyStaffToggleSwitch.CheckedChanged += RecWalkinAnyStaffToggleSwitch_CheckedChanged;
                 return;
             }
@@ -4483,10 +4457,8 @@ namespace Enchante
             {
                 if (RecWalkinAnyStaffToggleSwitch.Checked)
                 {
-                    RecWalkinPreferredStaffToggleSwitch.Checked = false;
+                    RecWalkinPreferredStaffToggleSwitch.Checked = false; 
                     RecWalkinAttendingStaffSelectedComboBox.Enabled = false;
-                    RecWalkinAttendingStaffLbl.Visible = false;
-                    RecWalkinAttendingStaffSelectedComboBox.Visible = false;
                     selectedStaffID = "Anyone";
                     RecWalkinAttendingStaffSelectedComboBox.Items.Clear();
                 }
@@ -4500,8 +4472,6 @@ namespace Enchante
                 ShowNoServiceCategoryChosenWarningMessage();
                 RecWalkinPreferredStaffToggleSwitch.CheckedChanged -= RecWalkinPreferredStaffToggleSwitch_CheckedChanged;
                 RecWalkinPreferredStaffToggleSwitch.Checked = false;
-                RecWalkinAttendingStaffLbl.Visible = false;
-                RecWalkinAttendingStaffSelectedComboBox.Visible = false;
                 RecWalkinPreferredStaffToggleSwitch.CheckedChanged += RecWalkinPreferredStaffToggleSwitch_CheckedChanged;
                 return;
             }
@@ -4512,15 +4482,13 @@ namespace Enchante
                     RecWalkinAnyStaffToggleSwitch.Checked = false;
                     RecWalkinAttendingStaffSelectedComboBox.Enabled = true;
                     RecWalkinAttendingStaffLbl.Visible = true;
-                    RecWalkinAttendingStaffSelectedComboBox.Visible = true;
+                    RecWalkinAttendingStaffSelectedComboBox.Enabled = true;
                     LoadPreferredStaffComboBox();
                 }
                 else
                 {
                     selectedStaffID = "Anyone";
                     RecWalkinAttendingStaffSelectedComboBox.Enabled = false;
-                    RecWalkinAttendingStaffLbl.Visible = false;
-                    RecWalkinAttendingStaffSelectedComboBox.Visible = false;
                     RecWalkinAttendingStaffSelectedComboBox.Items.Clear();
                 }
             }
@@ -5020,7 +4988,7 @@ namespace Enchante
         {
             "Select a booking time", "08:00 am", "08:30 am", "09:00 am",
             "09:30 am", "10:00 am", "10:30 am", "11:00 am", "11:30 am",
-            "01:00 pm", "01:30 pm", "02:00 pm", "02:30 pm", "03:00 pm",
+            "01:00 pm", "01:30 pm", "02:00 pm", "02:30 pm",
         };
 
         //ApptMember
@@ -6223,6 +6191,22 @@ namespace Enchante
             //di ko alam kung ituloy ko pa
             //selected discount per service itey
             //walkin itey pang discount ng selected service
+            if (RecWalkinSelectedServiceDGV.Columns[e.ColumnIndex].Name == "WalkinServiceVoid")
+            {
+                DialogResult result;
+
+                result = MessageBox.Show("Do you want to remove this item?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    // Remove the selected row
+                    RecWalkinSelectedServiceDGV.Rows.RemoveAt(e.RowIndex);
+                    MessageBox.Show("Item removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                
+            }
+
+
         }
         private void RecApptConfirmBtn_Click(object sender, EventArgs e)
         {
@@ -14683,5 +14667,96 @@ namespace Enchante
             }
         }
 
+        private void RecWalkinBasicInfoNxtBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(RecWalkinFNameText.Text))
+            {
+                MessageBox.Show("Please enter a first name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!IsCardNameValid(RecWalkinFNameText.Text))
+            {
+                MessageBox.Show("Invalid First Name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(RecWalkinLNameText.Text))
+            {
+                MessageBox.Show("Please enter a last name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!IsCardNameValid(RecWalkinLNameText.Text))
+            {
+                MessageBox.Show("Invalid Last Name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(RecWalkinCPNumText.Text))
+            {
+                MessageBox.Show("Please enter a contact number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!IsNumeric(RecWalkinCPNumText.Text))
+            {
+                MessageBox.Show("Invalid Contact Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(RecWalkinAgeBox.Text) || RecWalkinAgeBox.Text == "Age")
+            {
+                MessageBox.Show("Please enter birth date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!IsNumeric(RecWalkinAgeBox.Text))
+            {
+                MessageBox.Show("Invalid Age.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (int.TryParse(RecWalkinAgeBox.Text, out int age) && age < 18)
+            {
+                MessageBox.Show("The client's age must be at least 18.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                WalkinTabs.SelectedIndex = 1;
+            }
+        }
+
+        private void RecWalkinProdCOBtn_Click(object sender, EventArgs e)
+        {
+            WalkinTabs.SelectedIndex = 2;          
+
+        }
+
+        private void RecWalkinCheckoutBtn_Click(object sender, EventArgs e)
+        {
+            if (RecWalkinSelectedProdDGV != null && RecWalkinSelectedProdDGV.Rows.Count == 0)
+            {
+                MessageBox.Show("Select an item to proceed on checking out.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+            else
+            {
+                WalkinTabs.SelectedIndex = 1;
+            }
+
+        }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            WalkinTabs.SelectedIndex = 1;
+
+        }
+
+        private void RecWalkinBdayPicker_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime selectedDate = RecWalkinBdayPicker.Value;
+            int age = DateTime.Now.Year - selectedDate.Year;
+
+            if (DateTime.Now < selectedDate.AddYears(age))
+            {
+                age--; // Subtract 1 if the birthday hasn't occurred yet this year
+            }
+            RecWalkinAgeBox.Text = age.ToString();
+            if (age < 18)
+            {
+                RecWalkinAgeErrorLbl.Visible = true;
+                RecWalkinAgeErrorLbl.Text = "Must be 18yrs old\nand above";
+                return;
+            }
+            else
+            {
+                RecWalkinAgeErrorLbl.Visible = false;
+
+            }
+        }
     }
 }
