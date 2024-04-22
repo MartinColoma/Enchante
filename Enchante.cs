@@ -224,8 +224,9 @@ namespace Enchante
 
             //Tab Header remover
             WalkinTabs.SizeMode = TabSizeMode.Fixed;
-            WalkinTabs.ItemSize = new Size(0, 2);
-
+            WalkinTabs.ItemSize = new Size(0, 1);
+            ApptTabs.SizeMode = TabSizeMode.Fixed;
+            ApptTabs.ItemSize = new Size(0, 1);
 
         }
 
@@ -447,7 +448,8 @@ namespace Enchante
         {
             ParentPanelShow.PanelShow(EnchanteReceptionPage);
             InitialWalkinTransColor();
-            RecTransTimer.Start();
+            RecTransTimer.Start(); 
+
         }
 
         private void StaffHomePanelReset()
@@ -921,6 +923,9 @@ namespace Enchante
                 MngrUserAccPanel.Visible = false;
                 AdminUserAccPanel.Visible = false;
                 //ReceptionUserAccPanel.Visible = false;
+
+                RecTransTimer.Stop();
+                RecQueTimer.Stop();
             }
         }
 
@@ -1960,6 +1965,7 @@ namespace Enchante
                 ReceptionistWalk_in_AppointmentDB(); //walk-in transaction db
                 RecWalkinOrderProdHistoryDB(RecWalkinSelectedProdDGV);
                 RecWalkinTransactNumRefresh();
+                WalkinTabs.SelectedIndex = 0;
                 RecWalkinTransactionClear();
             }
         }
@@ -4451,7 +4457,6 @@ namespace Enchante
                     RecWalkinAnyStaffToggleSwitch.Checked = false;
                     RecWalkinAttendingStaffSelectedComboBox.Enabled = true;
                     RecWalkinAttendingStaffLbl.Visible = true;
-                    RecWalkinAttendingStaffSelectedComboBox.Enabled = true;
                     LoadPreferredStaffComboBox();
                 }
                 else
@@ -4970,7 +4975,7 @@ namespace Enchante
                 RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
                 LoadAppointmentPreferredStaffComboBox();
             }
-            LoadBookingTimes();
+            //LoadBookingTimes();
             RecApptHairStyle();
         }
 
@@ -4984,7 +4989,7 @@ namespace Enchante
                 RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
                 LoadAppointmentPreferredStaffComboBox();
             }
-            LoadBookingTimes();
+            //LoadBookingTimes();
             RecApptFace();
         }
 
@@ -4998,7 +5003,7 @@ namespace Enchante
                 RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
                 LoadAppointmentPreferredStaffComboBox();
             }
-            LoadBookingTimes();
+            //LoadBookingTimes();
             RecApptNail();
         }
 
@@ -5012,7 +5017,7 @@ namespace Enchante
                 RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
                 LoadAppointmentPreferredStaffComboBox();
             }
-            LoadBookingTimes();
+            //LoadBookingTimes();
             RecApptSpa();
         }
 
@@ -5026,7 +5031,7 @@ namespace Enchante
                 RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
                 LoadAppointmentPreferredStaffComboBox();
             }
-            LoadBookingTimes();
+            //LoadBookingTimes();
             RecApptMassage();
         }
 
@@ -5051,7 +5056,7 @@ namespace Enchante
             }
             else if (RecApptCatHSRB.Checked == true)
             {
-                RecApptCatHSRB.Visible = true;
+                RecApptCatHSRB.Visible = false;
                 RecApptCatHSRB.Checked = true;
                 RecApptLoadServiceTypeComboBox("Hair Styling");
 
@@ -5503,7 +5508,31 @@ namespace Enchante
         {
             RecApptAddService();
         }
+        private void RecApptServiceCalculateTotalPrice()
+        {
+            decimal total1 = 0;
 
+            int servicepriceColumnIndex = RecApptSelectedServiceDGV.Columns["RecApptServicePrice"].Index;
+
+            foreach (DataGridViewRow row in RecApptSelectedServiceDGV.Rows)
+            {
+                if (row.Cells[servicepriceColumnIndex].Value != null)
+                {
+                    decimal price;
+                    if (decimal.TryParse(row.Cells[servicepriceColumnIndex].Value.ToString(), out price))
+                    {
+                        total1 += price;
+                    }
+                    else
+                    {
+                        // Handle invalid numeric value
+                        // For example, you can skip this row or display an error message
+                    }
+                }
+            }
+            RecApptInitialFeeText.Text = total1.ToString("F2");
+
+        }
         //ApptMember
         private void RecApptSelectServiceAndStaffBtn_Click(object sender, EventArgs e)
         {
@@ -5518,8 +5547,8 @@ namespace Enchante
                 ShowNoServiceCategoryChosenWarningMessage();
                 RecApptAnyStaffToggleSwitch.CheckedChanged -= RecApptAnyStaffToggleSwitch_CheckedChanged;
                 RecApptAnyStaffToggleSwitch.Checked = false;
-                RecApptAttendingStaffLbl.Visible = false;
-                RecApptAvailableAttendingStaffSelectedComboBox.Visible = false;
+                RecApptAvailableAttendingStaffSelectedComboBox.Enabled = false;
+
                 RecApptAnyStaffToggleSwitch.CheckedChanged += RecApptAnyStaffToggleSwitch_CheckedChanged;
                 return;
             }
@@ -5529,8 +5558,6 @@ namespace Enchante
                 {
                     RecApptPreferredStaffToggleSwitch.Checked = false;
                     RecApptAvailableAttendingStaffSelectedComboBox.Enabled = false;
-                    RecApptAttendingStaffLbl.Visible = false;
-                    RecApptAvailableAttendingStaffSelectedComboBox.Visible = false;
                     selectedStaffID = "Anyone";
                     RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
                 }
@@ -5545,8 +5572,7 @@ namespace Enchante
                 ShowNoServiceCategoryChosenWarningMessage();
                 RecApptPreferredStaffToggleSwitch.CheckedChanged -= RecApptPreferredStaffToggleSwitch_CheckedChanged;
                 RecApptPreferredStaffToggleSwitch.Checked = false;
-                RecApptAttendingStaffLbl.Visible = false;
-                RecApptAvailableAttendingStaffSelectedComboBox.Visible = false;
+                RecApptAvailableAttendingStaffSelectedComboBox.Enabled = false;
                 RecApptPreferredStaffToggleSwitch.CheckedChanged += RecApptPreferredStaffToggleSwitch_CheckedChanged;
                 return;
             }
@@ -5556,16 +5582,12 @@ namespace Enchante
                 {
                     RecApptAnyStaffToggleSwitch.Checked = false;
                     RecApptAvailableAttendingStaffSelectedComboBox.Enabled = true;
-                    RecApptAttendingStaffLbl.Visible = true;
-                    RecApptAvailableAttendingStaffSelectedComboBox.Visible = true;
                     LoadAppointmentPreferredStaffComboBox();
                 }
                 else
                 {
                     selectedStaffID = "Anyone";
                     RecApptAvailableAttendingStaffSelectedComboBox.Enabled = false;
-                    RecApptAttendingStaffLbl.Visible = false;
-                    RecApptAvailableAttendingStaffSelectedComboBox.Visible = false;
                     RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
                 }
             }
@@ -5595,53 +5617,8 @@ namespace Enchante
         //ApptMember
         private void RecApptBookTransactBtn_Click(object sender, EventArgs e)
         {
-            DateTime selectedDate = RecApptBookingDatePicker.Value.Date;
-            DateTime currentDate = DateTime.Today;
-            if (string.IsNullOrWhiteSpace(RecApptFNameText.Text) || RecApptFNameText.Text == "First Name")
-            {
-                MessageBox.Show("Please enter a first name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (!IsCardNameValid(RecApptFNameText.Text))
-            {
-                MessageBox.Show("Invalid First Name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (string.IsNullOrWhiteSpace(RecApptLNameText.Text) || RecApptLNameText.Text == "Last Name")
-            {
-                MessageBox.Show("Please enter a last name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (!IsCardNameValid(RecApptLNameText.Text))
-            {
-                MessageBox.Show("Invalid Last Name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (string.IsNullOrWhiteSpace(RecApptCPNumText.Text) || RecApptCPNumText.Text == "Mobile Number")
-            {
-                MessageBox.Show("Please enter a contact number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (!IsNumeric(RecApptCPNumText.Text))
-            {
-                MessageBox.Show("Invalid Contact Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (string.IsNullOrWhiteSpace(RecApptClientAgeText.Text) || RecApptClientAgeText.Text == "Age")
-            {
-                MessageBox.Show("Please enter birth date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (!IsNumeric(RecApptClientAgeText.Text))
-            {
-                MessageBox.Show("Invalid Age.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (int.TryParse(RecApptClientAgeText.Text, out int age) && age < 18)
-            {
-                MessageBox.Show("The client's age must be at least 18.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            //else if (selectedDate == currentDate)
-            //{
-            //    MessageBox.Show("The selected date cannot be today.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-            else if (RecApptBookingTimeComboBox.SelectedItem == null || RecApptBookingTimeComboBox.SelectedIndex == 0)
-            {
-                MessageBox.Show("Please select a booking time.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (RecApptSelectedServiceDGV != null && RecApptSelectedServiceDGV.Rows.Count == 0)
+
+            if (RecApptSelectedServiceDGV != null && RecApptSelectedServiceDGV.Rows.Count == 0)
             {
                 MessageBox.Show("Select a service first to proceed on booking a transaction.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
@@ -5650,6 +5627,7 @@ namespace Enchante
                 RecApptServiceHistoryDB(RecApptSelectedServiceDGV); //service history db
                 ReceptionistAppointmentDB(); //appointment transaction db
                 RecApptTransactNumRefresh();
+                ApptTabs.SelectedIndex = 0;
                 RecApptTransactionClear();
             }
         }
@@ -14574,7 +14552,6 @@ namespace Enchante
                 RecTransBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
                 RecTransBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
 
-                // Check if any panel is still visible, if so, don't stop the timer
                 if (RecTransBtnFlowPanel.Height >= RecTransBtnFlowPanel.MaximumSize.Height)
                 {
                     RecTransTimer.Stop();
@@ -14590,7 +14567,6 @@ namespace Enchante
                 RecTransBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
                 //RecTransBtnResetColor();
 
-                // Check if any panel is still visible, if so, don't stop the timer
                 if (RecTransBtnFlowPanel.Height <= RecTransBtnFlowPanel.MinimumSize.Height)
                 {
                     RecTransTimer.Stop();
@@ -14611,7 +14587,6 @@ namespace Enchante
                 RecQueBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
                 RecQueBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
 
-                // Check if any panel is still visible, if so, don't stop the timer
                 if (RecQueBtnFlowPanel.Height >= RecQueBtnFlowPanel.MaximumSize.Height)
                 {
                     RecQueTimer.Stop();
@@ -14627,7 +14602,6 @@ namespace Enchante
                 RecQueBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
                 //RecQueBtnResetColor();
 
-                // Check if any panel is still visible, if so, don't stop the timer
                 if (RecQueBtnFlowPanel.Height <= RecQueBtnFlowPanel.MinimumSize.Height)
                 {
                     RecQueTimer.Stop();
@@ -14750,6 +14724,96 @@ namespace Enchante
                 }
             }
             RecWalkinTotalAmountLblText.Text = total1.ToString("F2");
+
+        }
+
+        private void RecApptSelectedServiceDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (RecApptSelectedServiceDGV.Columns[e.ColumnIndex].Name == "ApptServiceVoid")
+            {
+                DialogResult result;
+
+                result = MessageBox.Show("Do you want to remove this item?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    // Remove the selected row
+                    RecApptSelectedServiceDGV.Rows.RemoveAt(e.RowIndex);
+                    MessageBox.Show("Item removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+        }
+
+        private void RecApptBasicInfoNextBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(RecApptFNameText.Text) || RecApptFNameText.Text == "First Name")
+            {
+                MessageBox.Show("Please enter a first name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!IsCardNameValid(RecApptFNameText.Text))
+            {
+                MessageBox.Show("Invalid First Name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(RecApptLNameText.Text) || RecApptLNameText.Text == "Last Name")
+            {
+                MessageBox.Show("Please enter a last name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!IsCardNameValid(RecApptLNameText.Text))
+            {
+                MessageBox.Show("Invalid Last Name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(RecApptCPNumText.Text) || RecApptCPNumText.Text == "Mobile Number")
+            {
+                MessageBox.Show("Please enter a contact number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!IsNumeric(RecApptCPNumText.Text))
+            {
+                MessageBox.Show("Invalid Contact Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrWhiteSpace(RecApptClientAgeText.Text) || RecApptClientAgeText.Text == "Age")
+            {
+                MessageBox.Show("Please enter birth date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!IsNumeric(RecApptClientAgeText.Text))
+            {
+                MessageBox.Show("Invalid Age.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (int.TryParse(RecApptClientAgeText.Text, out int age) && age < 18)
+            {
+                MessageBox.Show("The client's age must be at least 18.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                ApptTabs.SelectedIndex = 1;
+
+            }
+        }
+
+        private void RecApptServicePrevBtn_Click(object sender, EventArgs e)
+        {
+            ApptTabs.SelectedIndex = 0;
+        }
+
+        private void RecApptServiceNextBtn_Click(object sender, EventArgs e)
+        {
+            DateTime selectedDate = RecApptBookingDatePicker.Value.Date;
+            DateTime currentDate = DateTime.Today;
+            if (RecApptBookingTimeComboBox.SelectedItem == null || RecApptBookingTimeComboBox.SelectedIndex == 0)
+            {
+                MessageBox.Show("Please select a booking time.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                ApptTabs.SelectedIndex = 2;
+
+            }
+
+        }
+
+        private void RecApptAcqServicePrevBtn_Click(object sender, EventArgs e)
+        {
+            ApptTabs.SelectedIndex = 1;
 
         }
     }
