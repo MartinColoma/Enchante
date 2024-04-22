@@ -228,6 +228,7 @@ namespace Enchante
             ApptTabs.SizeMode = TabSizeMode.Fixed;
             ApptTabs.ItemSize = new Size(0, 1);
 
+
         }
 
         private void Enchante_Load(object sender, EventArgs e)
@@ -236,6 +237,7 @@ namespace Enchante
             ParentPanelShow.PanelShow(EnchanteHomePage);
             DateTimePickerTimer.Interval = 1000;
             DateTimePickerTimer.Start();
+
         }
 
         //database-related methods
@@ -5498,7 +5500,7 @@ namespace Enchante
                 NewSelectedServiceRow.Cells["RecApptPriorityNumber"].Value = latestprioritynumber;
                 NewSelectedServiceRow.Cells["RecApptStaffSelected"].Value = selectedStaffID;
                 QueTypeIdentifier(NewSelectedServiceRow.Cells["RecApptQueType"]);
-
+                RecApptServiceCalculateTotalPrice();
                 RecApptServiceTypeDGV.ClearSelection();
 
             }
@@ -5530,7 +5532,11 @@ namespace Enchante
                     }
                 }
             }
-            RecApptInitialFeeText.Text = total1.ToString("F2");
+            RecAppTotalText.Text = total1.ToString("F2");
+            // Apply discount (for example, 20% discount)
+            decimal discount = 0.6m; // 20% discount
+            decimal discountedTotal = total1 * (1 - discount);
+            RecApptInitialFeeText.Text = discountedTotal.ToString("F2");
 
         }
         //ApptMember
@@ -5619,6 +5625,10 @@ namespace Enchante
         {
 
             if (RecApptSelectedServiceDGV != null && RecApptSelectedServiceDGV.Rows.Count == 0)
+            {
+                MessageBox.Show("Select a service first to proceed on booking a transaction.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+            else if (RecApptSelectedServiceDGV != null && RecApptSelectedServiceDGV.Rows.Count == 0)
             {
                 MessageBox.Show("Select a service first to proceed on booking a transaction.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
@@ -5744,6 +5754,12 @@ namespace Enchante
             string bookedDate = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
             string bookedTime = currentDate.ToString("hh:mm tt"); //bookedTime
             string bookedBy = RecNameLbl.Text; //booked by
+
+            //cash values
+            string total = RecAppTotalText.Text;
+            string downpayment = RecApptInitialFeeText.Text;
+            string cash = RecApptCashText.Text;
+            string change = RecApptChangeText.Text;
 
 
             try
@@ -14803,10 +14819,13 @@ namespace Enchante
             {
                 MessageBox.Show("Please select a booking time.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else if (RecApptPreferredStaffToggleSwitch.Checked && RecApptAvailableAttendingStaffSelectedComboBox.Text == "Select a Preferred Staff")
+            {
+                MessageBox.Show("Please select client's preferred staff.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
                 ApptTabs.SelectedIndex = 2;
-
             }
 
         }
