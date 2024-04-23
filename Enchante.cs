@@ -3030,7 +3030,7 @@ namespace Enchante
                 else
                 {
                     // Handle invalid input in MngrCashBox, e.g., display an error message
-                    RecPayServiceChangeBox.Text = "0.00";
+                    RecPayServiceChangeBox.Text = "Invalid Cash Input";
                 }
             }
             else
@@ -4977,7 +4977,7 @@ namespace Enchante
                 RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
                 LoadAppointmentPreferredStaffComboBox();
             }
-            //LoadBookingTimes();
+            LoadBookingTimes();
             RecApptHairStyle();
         }
 
@@ -4991,7 +4991,7 @@ namespace Enchante
                 RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
                 LoadAppointmentPreferredStaffComboBox();
             }
-            //LoadBookingTimes();
+            LoadBookingTimes();
             RecApptFace();
         }
 
@@ -5005,7 +5005,7 @@ namespace Enchante
                 RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
                 LoadAppointmentPreferredStaffComboBox();
             }
-            //LoadBookingTimes();
+            LoadBookingTimes();
             RecApptNail();
         }
 
@@ -5019,7 +5019,7 @@ namespace Enchante
                 RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
                 LoadAppointmentPreferredStaffComboBox();
             }
-            //LoadBookingTimes();
+            LoadBookingTimes();
             RecApptSpa();
         }
 
@@ -5033,7 +5033,7 @@ namespace Enchante
                 RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
                 LoadAppointmentPreferredStaffComboBox();
             }
-            //LoadBookingTimes();
+            LoadBookingTimes();
             RecApptMassage();
         }
 
@@ -5636,9 +5636,218 @@ namespace Enchante
             {
                 RecApptServiceHistoryDB(RecApptSelectedServiceDGV); //service history db
                 ReceptionistAppointmentDB(); //appointment transaction db
+                RecApptFormGenerator();
                 RecApptTransactNumRefresh();
                 ApptTabs.SelectedIndex = 0;
                 RecApptTransactionClear();
+            }
+        }
+        private void RecApptFormGenerator()
+        {
+            DateTime currentDate = RecDateTimePicker.Value;
+            string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
+            string timePrinted = currentDate.ToString("hh:mm tt");
+            string timePrintedFile = currentDate.ToString("hh-mm-ss");
+            string transactNum = RecApptTransNumText.Text;
+            string clientName = $"{RecApptFNameText.Text} {RecApptLNameText.Text}";
+            string recName = RecNameLbl.Text;
+            string apptNote = "This form will serves as your proof of appointment with Enchanté Salon. " +
+                                "Kindly present this form and one (1) Valid ID in our frontdesk and our " +
+                                "receptionist shall attend to your needs right away.";
+            string total = RecAppTotalText.Text.ToString();
+            string downpayment = RecApptInitialFeeText.Text;
+            string cash = RecApptCashText.Text;
+            string change = RecApptChangeText.Text;
+
+            DateTime bookeddate = RecApptBookingDatePicker.Value;
+            string apptdate = bookeddate.ToString("MM-dd-yyyy dddd");
+            string appttime = RecApptBookingTimeComboBox.Text;
+
+            // Increment the file name
+
+            // Generate a unique filename for the PDF
+            string fileName = $"Enchanté-Receipt-{transactNum}-{timePrintedFile}.pdf";
+
+            // Create a SaveFileDialog to choose the save location
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF Files|*.pdf";
+            saveFileDialog.FileName = fileName;
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = saveFileDialog.FileName;
+
+                // Create a new document with custom page size (8.5"x4.25" in landscape mode)
+                Document doc = new Document(new iTextSharp.text.Rectangle(Utilities.MillimetersToPoints(133.35f), Utilities.MillimetersToPoints(215.9f)));
+
+                try
+                {
+                    // Create a PdfWriter instance
+                    PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(filePath, FileMode.Create));
+
+                    // Open the document for writing
+                    doc.Open();
+
+                    Bitmap imagepath = Properties.Resources.Enchante_Logo__200_x_200_px__Green;
+                    iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imagepath, System.Drawing.Imaging.ImageFormat.Png);
+                    logo.Alignment = Element.ALIGN_CENTER;
+                    logo.ScaleAbsolute(100f, 100f);
+                    doc.Add(logo);
+
+                    iTextSharp.text.Font headerFont = FontFactory.GetFont("Courier", 16, iTextSharp.text.Font.BOLD);
+                    iTextSharp.text.Font boldfont = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.BOLD);
+                    iTextSharp.text.Font font = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.NORMAL);
+                    iTextSharp.text.Font italic = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.ITALIC);
+                    iTextSharp.text.Font right = FontFactory.GetFont("Courier", 10, Element.ALIGN_CENTER);
+
+                    // Create a centered alignment for text
+                    iTextSharp.text.Paragraph centerAligned = new Paragraph();
+                    centerAligned.Alignment = Element.ALIGN_CENTER;
+
+                    // Add centered content to the centerAligned Paragraph
+                    //centerAligned.Add(new Chunk("Enchanté Salon", headerFont));
+                    centerAligned.Add(new Chunk("69th flr. Enchanté Bldg. Ortigas Extension Ave. \nManggahan, Pasig City 1611 Philippines", font));
+                    centerAligned.Add(new Chunk("\nTel. No.: (1101) 111-1010", font));
+                    centerAligned.Add(new Chunk($"\nDate: {datetoday} Time: {timePrinted}", font));
+
+                    // Add the centered content to the document
+                    doc.Add(centerAligned);
+
+                    int totalRowCount = RecApptSelectedServiceDGV.Rows.Count;
+                    doc.Add(new Chunk("\n")); // New line
+
+                    doc.Add(new Paragraph($"Transaction No.: {transactNum}", font));
+                    doc.Add(new Paragraph($"Booked For: {clientName}", font));
+                    doc.Add(new Paragraph($"Booked By: {recName}", font));
+
+                    doc.Add(new Chunk("\n")); // New line
+
+                    doc.Add(new LineSeparator()); // Dotted line
+
+                    PdfPTable columnHeaderTable = new PdfPTable(4);
+                    columnHeaderTable.SetWidths(new float[] { 30f, 40f, 30f, 30f }); // Column widths
+                    columnHeaderTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+                    columnHeaderTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                    columnHeaderTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                    columnHeaderTable.AddCell(new Phrase("Attending\nStaff ID", boldfont));
+                    columnHeaderTable.AddCell(new Phrase("Services", boldfont));
+                    columnHeaderTable.AddCell(new Phrase("Total Price", boldfont));
+                    columnHeaderTable.AddCell(new Phrase("Time", boldfont));
+
+                    doc.Add(columnHeaderTable);
+
+                    doc.Add(new LineSeparator()); // Dotted line
+                    // Iterate through the rows of your 
+
+                    foreach (DataGridViewRow row in RecApptSelectedServiceDGV.Rows)
+                    {
+                        try
+                        {
+                            string serviceName = row.Cells["RecApptSelectedService"].Value?.ToString();
+                            if (string.IsNullOrEmpty(serviceName))
+                            {
+                                continue; // Skip empty rows
+                            }
+
+                            string staffID = row.Cells["RecApptStaffSelected"].Value?.ToString();
+                            string itemTotalcost = row.Cells["RecApptServicePrice"].Value?.ToString();
+                            string selectedTime = row.Cells["RecApptTimeSelected"].Value?.ToString();
+
+                            // Add cells to the item table
+                            PdfPTable serviceTable = new PdfPTable(4);
+                            serviceTable.SetWidths(new float[] { 30f, 40f, 30f, 30f }); // Column widths
+                            serviceTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+                            serviceTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                            serviceTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                            serviceTable.AddCell(new Phrase(staffID, font));
+                            serviceTable.AddCell(new Phrase(serviceName, font));
+                            serviceTable.AddCell(new Phrase(itemTotalcost, font));
+                            serviceTable.AddCell(new Phrase(selectedTime, font));
+
+                            doc.Add(serviceTable);
+
+                        }
+                        catch (Exception ex)
+                        {
+                            // Handle or log any exceptions that occur while processing DataGridView data
+                            MessageBox.Show("An error occurred: " + ex.Message, "Appoint Form Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+                    doc.Add(new Chunk("\n")); // New line
+                    doc.Add(new LineSeparator()); // Dotted line
+                    doc.Add(new Chunk("\n")); // New line
+
+                    // Add cells to the INFO table
+                    PdfPTable amount = new PdfPTable(2);
+
+                    amount.HorizontalAlignment = Element.ALIGN_CENTER; // Center the table
+
+                    amount.SetWidths(new float[] { 60f, 40f }); // Column widths as percentage of the total width
+
+                    amount.DefaultCell.Border = PdfPCell.NO_BORDER;
+                    amount.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                    amount.DefaultCell.HorizontalAlignment = Element.ALIGN_LEFT; // Align cell content justified
+
+                    // Add cells to the table
+                    amount.AddCell(new Phrase($"Appointment Date: ", font));
+                    PdfPCell ApptdateCell = new PdfPCell(new Phrase($"{apptdate}", font));
+                    ApptdateCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
+                    amount.AddCell(ApptdateCell);
+
+                    amount.AddCell(new Phrase($"Appointment Time: ", font));
+                    PdfPCell ApptTimeCell = new PdfPCell(new Phrase($"{appttime}", font));
+                    ApptTimeCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
+                    amount.AddCell(ApptTimeCell);
+
+                    amount.AddCell(new Phrase($"Total ({totalRowCount}): ", font));
+                    PdfPCell totalCell = new PdfPCell(new Phrase($"{total}", font));
+                    totalCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
+                    amount.AddCell(totalCell);
+
+                    amount.AddCell(new Phrase($"Initital Payment (40%): ", font));
+                    PdfPCell dpCell = new PdfPCell(new Phrase($"{downpayment}", font));
+                    dpCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
+                    amount.AddCell(dpCell);
+
+                    amount.AddCell(new Phrase($"Cash Given: ", font));
+                    PdfPCell cashCell = new PdfPCell(new Phrase($"{cash}", font));
+                    cashCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
+                    amount.AddCell(cashCell); 
+                    
+                    amount.AddCell(new Phrase($"Change: ", font));
+                    PdfPCell changeCell = new PdfPCell(new Phrase($"{change}", font));
+                    changeCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
+                    amount.AddCell(changeCell);
+
+                    doc.Add(amount); // Add the table to the document
+
+
+                    doc.Add(new Chunk("\n")); // New line
+
+
+                    // Add the legal string with center alignment
+                    Paragraph paragraph_footer = new Paragraph($"\n{apptNote}", italic);
+                    paragraph_footer.Alignment = Element.ALIGN_CENTER;
+                    doc.Add(paragraph_footer);
+                }
+                catch (DocumentException de)
+                {
+                    MessageBox.Show("An error occurred: " + de.Message, "Appoint Form Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (IOException ioe)
+                {
+                    MessageBox.Show("An error occurred: " + ioe.Message, "Appoint Form Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    // Close the document
+                    doc.Close();
+                }
+
+                //MessageBox.Show($"Receipt saved as {filePath}", "Receipt Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -14756,6 +14965,8 @@ namespace Enchante
                     // Remove the selected row
                     RecApptSelectedServiceDGV.Rows.RemoveAt(e.RowIndex);
                     MessageBox.Show("Item removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RecApptServiceCalculateTotalPrice();
+                    RecApptChangeCalculateAmount();
                 }
 
             }
@@ -14826,6 +15037,8 @@ namespace Enchante
             else
             {
                 ApptTabs.SelectedIndex = 2;
+                RecApptCashText.Text = "";
+                RecApptCashText.Focus();
             }
 
         }
@@ -14834,6 +15047,37 @@ namespace Enchante
         {
             ApptTabs.SelectedIndex = 1;
 
+        }
+
+        private void RecApptCashText_TextChanged(object sender, EventArgs e)
+        {
+            RecApptChangeCalculateAmount();
+        }
+
+        private void RecApptChangeCalculateAmount()
+        {
+            if (decimal.TryParse(RecApptInitialFeeText.Text, out decimal grossAmount))
+            {
+                // Get the Cash Amount from the TextBox (MngrCashBox)
+                if (decimal.TryParse(RecApptCashText.Text, out decimal cashAmount))
+                {
+                    // Calculate the Change
+                    decimal change = cashAmount - grossAmount;
+
+                    // Display the calculated change value in the MngrChangeBox
+                    RecApptChangeText.Text = change.ToString("0.00");
+                }
+                else
+                {
+                    // Handle invalid input in MngrCashBox, e.g., display an error message
+                    RecApptChangeText.Text = "Invalid Cash Input";
+                }
+            }
+            else
+            {
+                // Handle invalid input in MngrGrossAmountBox, e.g., display an error message
+                RecApptChangeText.Text = "0.00";
+            }
         }
     }
 }

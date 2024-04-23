@@ -537,7 +537,6 @@ namespace Enchante
             this.RecShopProdSelectedProdDGV = new System.Windows.Forms.DataGridView();
             this.RecShopProdItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecShopProdDiscountAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.RecShopProdTransNumText = new System.Windows.Forms.TextBox();
             this.RecShopProdTransNumLbl = new System.Windows.Forms.Label();
             this.RecShopProdLbl = new System.Windows.Forms.Label();
@@ -6525,9 +6524,9 @@ namespace Enchante
             this.RecShopProdPanel.Controls.Add(this.RecShopProdFooterStopperPanel);
             this.RecShopProdPanel.Controls.Add(this.RecShopProdPaymentButton);
             this.RecShopProdPanel.Controls.Add(this.RecShopProdSelectedProdDGV);
-            this.RecShopProdPanel.Controls.Add(this.guna2Button2);
             this.RecShopProdPanel.Controls.Add(this.RecShopProdTransNumText);
             this.RecShopProdPanel.Controls.Add(this.RecShopProdTransNumLbl);
+            this.RecShopProdPanel.Controls.Add(this.RecShopProdCash1PaymentPanel);
             this.RecShopProdPanel.Controls.Add(this.RecShopProdLbl);
             this.RecShopProdPanel.Controls.Add(this.RecShopProdExitBtn);
             this.RecShopProdPanel.Location = new System.Drawing.Point(0, 0);
@@ -6596,7 +6595,7 @@ namespace Enchante
             // 
             this.RecShopProdSelectedProdVoidBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.RecShopProdSelectedProdVoidBtn.BorderRadius = 20;
-            this.RecShopProdSelectedProdVoidBtn.BorderThickness = 2;
+            this.RecShopProdSelectedProdVoidBtn.DefaultAutoSize = true;
             this.RecShopProdSelectedProdVoidBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.RecShopProdSelectedProdVoidBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.RecShopProdSelectedProdVoidBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -6604,11 +6603,12 @@ namespace Enchante
             this.RecShopProdSelectedProdVoidBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecShopProdSelectedProdVoidBtn.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecShopProdSelectedProdVoidBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecShopProdSelectedProdVoidBtn.Location = new System.Drawing.Point(1339, 669);
+            this.RecShopProdSelectedProdVoidBtn.Location = new System.Drawing.Point(1355, 392);
             this.RecShopProdSelectedProdVoidBtn.Name = "RecShopProdSelectedProdVoidBtn";
-            this.RecShopProdSelectedProdVoidBtn.Size = new System.Drawing.Size(182, 47);
+            this.RecShopProdSelectedProdVoidBtn.Size = new System.Drawing.Size(164, 29);
             this.RecShopProdSelectedProdVoidBtn.TabIndex = 181;
-            this.RecShopProdSelectedProdVoidBtn.Text = "Void All Products";
+            this.RecShopProdSelectedProdVoidBtn.Text = "Void All Products?";
+            this.RecShopProdSelectedProdVoidBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.RecShopProdSelectedProdVoidBtn.Click += new System.EventHandler(this.RecShopProdSelectedProdVoidBtn_Click);
             // 
             // RecShopProdPayMethodPanel
@@ -6624,7 +6624,6 @@ namespace Enchante
             this.RecShopProdPayMethodPanel.Controls.Add(this.RecShopProdCCPaymentChk);
             this.RecShopProdPayMethodPanel.Controls.Add(this.RecShopProdCashPaymentChk);
             this.RecShopProdPayMethodPanel.Controls.Add(this.RecShopProdWalletPaymentPanel);
-            this.RecShopProdPayMethodPanel.Controls.Add(this.RecShopProdCash1PaymentPanel);
             this.RecShopProdPayMethodPanel.Controls.Add(this.RecShopProdBankPaymentPanel);
             this.RecShopProdPayMethodPanel.Controls.Add(this.RecShopProdTypeText);
             this.RecShopProdPayMethodPanel.Controls.Add(this.RecShopProdPayMethodLbl);
@@ -6888,9 +6887,9 @@ namespace Enchante
             this.RecShopProdCash1PaymentPanel.Controls.Add(this.RecShopProdNetAmountLbl);
             this.RecShopProdCash1PaymentPanel.Controls.Add(this.RecShopProdVATLbl);
             this.RecShopProdCash1PaymentPanel.Controls.Add(this.RecShopProdGrossAmountLbl);
-            this.RecShopProdCash1PaymentPanel.Location = new System.Drawing.Point(316, 135);
+            this.RecShopProdCash1PaymentPanel.Location = new System.Drawing.Point(886, 468);
             this.RecShopProdCash1PaymentPanel.Name = "RecShopProdCash1PaymentPanel";
-            this.RecShopProdCash1PaymentPanel.Size = new System.Drawing.Size(476, 303);
+            this.RecShopProdCash1PaymentPanel.Size = new System.Drawing.Size(476, 242);
             this.RecShopProdCash1PaymentPanel.TabIndex = 148;
             // 
             // RecShopProdChangeBox
@@ -7246,7 +7245,7 @@ namespace Enchante
             this.RecShopProdPaymentButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecShopProdPaymentButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecShopProdPaymentButton.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecShopProdPaymentButton.Location = new System.Drawing.Point(665, 1291);
+            this.RecShopProdPaymentButton.Location = new System.Drawing.Point(1250, 667);
             this.RecShopProdPaymentButton.Name = "RecShopProdPaymentButton";
             this.RecShopProdPaymentButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.RecShopProdPaymentButton.Size = new System.Drawing.Size(309, 65);
@@ -7285,12 +7284,12 @@ namespace Enchante
             dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.RecShopProdSelectedProdDGV.DefaultCellStyle = dataGridViewCellStyle36;
             this.RecShopProdSelectedProdDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecShopProdSelectedProdDGV.Location = new System.Drawing.Point(850, 211);
+            this.RecShopProdSelectedProdDGV.Location = new System.Drawing.Point(1013, 211);
             this.RecShopProdSelectedProdDGV.Name = "RecShopProdSelectedProdDGV";
             this.RecShopProdSelectedProdDGV.RowHeadersVisible = false;
             this.RecShopProdSelectedProdDGV.RowHeadersWidth = 51;
             this.RecShopProdSelectedProdDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.RecShopProdSelectedProdDGV.Size = new System.Drawing.Size(669, 452);
+            this.RecShopProdSelectedProdDGV.Size = new System.Drawing.Size(506, 175);
             this.RecShopProdSelectedProdDGV.TabIndex = 177;
             this.RecShopProdSelectedProdDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecShopProdSelectedProdDGV_CellContentClick);
             // 
@@ -7305,24 +7304,6 @@ namespace Enchante
             this.RecShopProdDiscountAmount.HeaderText = "DiscountAmount";
             this.RecShopProdDiscountAmount.Name = "RecShopProdDiscountAmount";
             this.RecShopProdDiscountAmount.Visible = false;
-            // 
-            // guna2Button2
-            // 
-            this.guna2Button2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.guna2Button2.BorderRadius = 20;
-            this.guna2Button2.BorderThickness = 2;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.guna2Button2.Location = new System.Drawing.Point(1300, 519);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(182, 47);
-            this.guna2Button2.TabIndex = 176;
-            this.guna2Button2.Text = "Void All Products";
             // 
             // RecShopProdTransNumText
             // 
@@ -7854,7 +7835,7 @@ namespace Enchante
             this.RecApptPrefDateTime.AutoSize = true;
             this.RecApptPrefDateTime.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecApptPrefDateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecApptPrefDateTime.Location = new System.Drawing.Point(103, 124);
+            this.RecApptPrefDateTime.Location = new System.Drawing.Point(103, 325);
             this.RecApptPrefDateTime.Name = "RecApptPrefDateTime";
             this.RecApptPrefDateTime.Size = new System.Drawing.Size(194, 35);
             this.RecApptPrefDateTime.TabIndex = 183;
@@ -7872,7 +7853,7 @@ namespace Enchante
             this.RecApptBookingDatePicker.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecApptBookingDatePicker.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.RecApptBookingDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.RecApptBookingDatePicker.Location = new System.Drawing.Point(420, 209);
+            this.RecApptBookingDatePicker.Location = new System.Drawing.Point(420, 397);
             this.RecApptBookingDatePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.RecApptBookingDatePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.RecApptBookingDatePicker.Name = "RecApptBookingDatePicker";
@@ -7886,7 +7867,7 @@ namespace Enchante
             this.RecApptBookingDateLbl.AutoSize = true;
             this.RecApptBookingDateLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecApptBookingDateLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecApptBookingDateLbl.Location = new System.Drawing.Point(421, 177);
+            this.RecApptBookingDateLbl.Location = new System.Drawing.Point(421, 365);
             this.RecApptBookingDateLbl.Name = "RecApptBookingDateLbl";
             this.RecApptBookingDateLbl.Size = new System.Drawing.Size(183, 29);
             this.RecApptBookingDateLbl.TabIndex = 185;
@@ -7922,7 +7903,7 @@ namespace Enchante
             "02:00 pm",
             "02:30 pm",
             "03:00 pm"});
-            this.RecApptBookingTimeComboBox.Location = new System.Drawing.Point(803, 209);
+            this.RecApptBookingTimeComboBox.Location = new System.Drawing.Point(803, 397);
             this.RecApptBookingTimeComboBox.Name = "RecApptBookingTimeComboBox";
             this.RecApptBookingTimeComboBox.Size = new System.Drawing.Size(247, 36);
             this.RecApptBookingTimeComboBox.TabIndex = 188;
@@ -7932,7 +7913,7 @@ namespace Enchante
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label2.Location = new System.Drawing.Point(798, 177);
+            this.label2.Location = new System.Drawing.Point(798, 365);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(177, 29);
             this.label2.TabIndex = 192;
@@ -7980,7 +7961,7 @@ namespace Enchante
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label23.Location = new System.Drawing.Point(103, 278);
+            this.label23.Location = new System.Drawing.Point(103, 111);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(270, 35);
             this.label23.TabIndex = 10;
@@ -8079,7 +8060,7 @@ namespace Enchante
             // 
             this.RecApptCatHSPanel.Controls.Add(this.RecApptCatHSRB);
             this.RecApptCatHSPanel.Controls.Add(this.RecApptCatHSBtn);
-            this.RecApptCatHSPanel.Location = new System.Drawing.Point(136, 335);
+            this.RecApptCatHSPanel.Location = new System.Drawing.Point(136, 196);
             this.RecApptCatHSPanel.Name = "RecApptCatHSPanel";
             this.RecApptCatHSPanel.Size = new System.Drawing.Size(227, 78);
             this.RecApptCatHSPanel.TabIndex = 108;
@@ -8120,7 +8101,7 @@ namespace Enchante
             // 
             this.RecApptCatFSPanel.Controls.Add(this.RecApptCatFSRB);
             this.RecApptCatFSPanel.Controls.Add(this.RecApptCatFSBtn);
-            this.RecApptCatFSPanel.Location = new System.Drawing.Point(379, 335);
+            this.RecApptCatFSPanel.Location = new System.Drawing.Point(379, 196);
             this.RecApptCatFSPanel.Name = "RecApptCatFSPanel";
             this.RecApptCatFSPanel.Size = new System.Drawing.Size(227, 78);
             this.RecApptCatFSPanel.TabIndex = 109;
@@ -8161,7 +8142,7 @@ namespace Enchante
             // 
             this.RecApptCatNCPanel.Controls.Add(this.RecApptCatNCRB);
             this.RecApptCatNCPanel.Controls.Add(this.RecApptCatNCBtn);
-            this.RecApptCatNCPanel.Location = new System.Drawing.Point(622, 335);
+            this.RecApptCatNCPanel.Location = new System.Drawing.Point(622, 196);
             this.RecApptCatNCPanel.Name = "RecApptCatNCPanel";
             this.RecApptCatNCPanel.Size = new System.Drawing.Size(227, 78);
             this.RecApptCatNCPanel.TabIndex = 110;
@@ -8202,7 +8183,7 @@ namespace Enchante
             // 
             this.RecApptCatMassagePanel.Controls.Add(this.RecApptCatMassRB);
             this.RecApptCatMassagePanel.Controls.Add(this.RecApptCatMassBtn);
-            this.RecApptCatMassagePanel.Location = new System.Drawing.Point(1108, 335);
+            this.RecApptCatMassagePanel.Location = new System.Drawing.Point(1108, 196);
             this.RecApptCatMassagePanel.Name = "RecApptCatMassagePanel";
             this.RecApptCatMassagePanel.Size = new System.Drawing.Size(227, 78);
             this.RecApptCatMassagePanel.TabIndex = 117;
@@ -8243,7 +8224,7 @@ namespace Enchante
             // 
             this.RecApptCatSpaPanel.Controls.Add(this.RecApptCatSpaRB);
             this.RecApptCatSpaPanel.Controls.Add(this.RecApptCatSpaBtn);
-            this.RecApptCatSpaPanel.Location = new System.Drawing.Point(865, 335);
+            this.RecApptCatSpaPanel.Location = new System.Drawing.Point(865, 196);
             this.RecApptCatSpaPanel.Name = "RecApptCatSpaPanel";
             this.RecApptCatSpaPanel.Size = new System.Drawing.Size(227, 78);
             this.RecApptCatSpaPanel.TabIndex = 116;
@@ -8388,6 +8369,7 @@ namespace Enchante
             this.RecApptCashText.TabIndex = 24;
             this.RecApptCashText.Text = "0.00";
             this.RecApptCashText.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.RecApptCashText.TextChanged += new System.EventHandler(this.RecApptCashText_TextChanged);
             // 
             // RecApptCashLbl
             // 
@@ -11469,7 +11451,6 @@ namespace Enchante
             // 
             // RecQueStartPanel
             // 
-            this.RecQueStartPanel.AutoScroll = true;
             this.RecQueStartPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecTransactionCard.SetCardName(this.RecQueStartPanel, "QueStart");
             this.RecQueStartPanel.Controls.Add(this.RecQueStartFooterStopperPanel);
@@ -11607,7 +11588,7 @@ namespace Enchante
             this.RecQueStartGenQueLbl.AutoSize = true;
             this.RecQueStartGenQueLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecQueStartGenQueLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecQueStartGenQueLbl.Location = new System.Drawing.Point(1298, 518);
+            this.RecQueStartGenQueLbl.Location = new System.Drawing.Point(1303, 527);
             this.RecQueStartGenQueLbl.Name = "RecQueStartGenQueLbl";
             this.RecQueStartGenQueLbl.Size = new System.Drawing.Size(196, 26);
             this.RecQueStartGenQueLbl.TabIndex = 134;
@@ -11618,7 +11599,7 @@ namespace Enchante
             this.RecQueStartGenQuePanel.AutoScroll = true;
             this.RecQueStartGenQuePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecQueStartGenQuePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RecQueStartGenQuePanel.Location = new System.Drawing.Point(1284, 555);
+            this.RecQueStartGenQuePanel.Location = new System.Drawing.Point(1289, 564);
             this.RecQueStartGenQuePanel.Name = "RecQueStartGenQuePanel";
             this.RecQueStartGenQuePanel.Size = new System.Drawing.Size(225, 225);
             this.RecQueStartGenQuePanel.TabIndex = 133;
@@ -11628,7 +11609,7 @@ namespace Enchante
             this.RecQueStartPrefQueLbl.AutoSize = true;
             this.RecQueStartPrefQueLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecQueStartPrefQueLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecQueStartPrefQueLbl.Location = new System.Drawing.Point(1061, 518);
+            this.RecQueStartPrefQueLbl.Location = new System.Drawing.Point(1066, 527);
             this.RecQueStartPrefQueLbl.Name = "RecQueStartPrefQueLbl";
             this.RecQueStartPrefQueLbl.Size = new System.Drawing.Size(221, 26);
             this.RecQueStartPrefQueLbl.TabIndex = 134;
@@ -11639,7 +11620,7 @@ namespace Enchante
             this.RecQueStartPrefQuePanel.AutoScroll = true;
             this.RecQueStartPrefQuePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecQueStartPrefQuePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RecQueStartPrefQuePanel.Location = new System.Drawing.Point(1059, 555);
+            this.RecQueStartPrefQuePanel.Location = new System.Drawing.Point(1064, 564);
             this.RecQueStartPrefQuePanel.Name = "RecQueStartPrefQuePanel";
             this.RecQueStartPrefQuePanel.Size = new System.Drawing.Size(225, 225);
             this.RecQueStartPrefQuePanel.TabIndex = 133;
@@ -11649,7 +11630,7 @@ namespace Enchante
             this.RecQueStartNextCustLbl.AutoSize = true;
             this.RecQueStartNextCustLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecQueStartNextCustLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecQueStartNextCustLbl.Location = new System.Drawing.Point(829, 483);
+            this.RecQueStartNextCustLbl.Location = new System.Drawing.Point(834, 492);
             this.RecQueStartNextCustLbl.Name = "RecQueStartNextCustLbl";
             this.RecQueStartNextCustLbl.Size = new System.Drawing.Size(172, 26);
             this.RecQueStartNextCustLbl.TabIndex = 132;
@@ -11660,7 +11641,7 @@ namespace Enchante
             this.RecQueStartPrioQueLbl.AutoSize = true;
             this.RecQueStartPrioQueLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecQueStartPrioQueLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecQueStartPrioQueLbl.Location = new System.Drawing.Point(849, 518);
+            this.RecQueStartPrioQueLbl.Location = new System.Drawing.Point(854, 527);
             this.RecQueStartPrioQueLbl.Name = "RecQueStartPrioQueLbl";
             this.RecQueStartPrioQueLbl.Size = new System.Drawing.Size(194, 26);
             this.RecQueStartPrioQueLbl.TabIndex = 131;
@@ -11671,7 +11652,7 @@ namespace Enchante
             this.RecQueStartPrioQuePanel.AutoScroll = true;
             this.RecQueStartPrioQuePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecQueStartPrioQuePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RecQueStartPrioQuePanel.Location = new System.Drawing.Point(834, 555);
+            this.RecQueStartPrioQuePanel.Location = new System.Drawing.Point(839, 564);
             this.RecQueStartPrioQuePanel.Name = "RecQueStartPrioQuePanel";
             this.RecQueStartPrioQuePanel.Size = new System.Drawing.Size(225, 225);
             this.RecQueStartPrioQuePanel.TabIndex = 129;
@@ -11681,7 +11662,7 @@ namespace Enchante
             this.RecQueStartCurrentCustLbl.AutoSize = true;
             this.RecQueStartCurrentCustLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecQueStartCurrentCustLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecQueStartCurrentCustLbl.Location = new System.Drawing.Point(829, 132);
+            this.RecQueStartCurrentCustLbl.Location = new System.Drawing.Point(834, 141);
             this.RecQueStartCurrentCustLbl.Name = "RecQueStartCurrentCustLbl";
             this.RecQueStartCurrentCustLbl.Size = new System.Drawing.Size(209, 26);
             this.RecQueStartCurrentCustLbl.TabIndex = 130;
@@ -11692,7 +11673,7 @@ namespace Enchante
             this.RecQueStartStaffLbl.AutoSize = true;
             this.RecQueStartStaffLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecQueStartStaffLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecQueStartStaffLbl.Location = new System.Drawing.Point(84, 132);
+            this.RecQueStartStaffLbl.Location = new System.Drawing.Point(89, 141);
             this.RecQueStartStaffLbl.Name = "RecQueStartStaffLbl";
             this.RecQueStartStaffLbl.Size = new System.Drawing.Size(128, 26);
             this.RecQueStartStaffLbl.TabIndex = 129;
@@ -11703,7 +11684,7 @@ namespace Enchante
             this.RecQueStartCurrentCustPanel.AutoScroll = true;
             this.RecQueStartCurrentCustPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecQueStartCurrentCustPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RecQueStartCurrentCustPanel.Location = new System.Drawing.Point(834, 173);
+            this.RecQueStartCurrentCustPanel.Location = new System.Drawing.Point(839, 182);
             this.RecQueStartCurrentCustPanel.Name = "RecQueStartCurrentCustPanel";
             this.RecQueStartCurrentCustPanel.Size = new System.Drawing.Size(674, 283);
             this.RecQueStartCurrentCustPanel.TabIndex = 128;
@@ -11713,7 +11694,7 @@ namespace Enchante
             this.RecQueStartLbl.AutoSize = true;
             this.RecQueStartLbl.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecQueStartLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecQueStartLbl.Location = new System.Drawing.Point(80, 58);
+            this.RecQueStartLbl.Location = new System.Drawing.Point(85, 67);
             this.RecQueStartLbl.Name = "RecQueStartLbl";
             this.RecQueStartLbl.Size = new System.Drawing.Size(298, 51);
             this.RecQueStartLbl.TabIndex = 127;
@@ -11752,7 +11733,7 @@ namespace Enchante
             dataGridViewCellStyle64.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.RecQueStartStaffDGV.DefaultCellStyle = dataGridViewCellStyle64;
             this.RecQueStartStaffDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecQueStartStaffDGV.Location = new System.Drawing.Point(89, 173);
+            this.RecQueStartStaffDGV.Location = new System.Drawing.Point(94, 182);
             this.RecQueStartStaffDGV.Name = "RecQueStartStaffDGV";
             this.RecQueStartStaffDGV.ReadOnly = true;
             this.RecQueStartStaffDGV.RowHeadersVisible = false;
@@ -12994,7 +12975,6 @@ namespace Enchante
         private System.Windows.Forms.Label RecShopProdLbl;
         private Guna.UI2.WinForms.Guna2Button RecShopProdPaymentButton;
         private System.Windows.Forms.DataGridView RecShopProdSelectedProdDGV;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private System.Windows.Forms.Panel RecShopProdFooterStopperPanel;
         private System.Windows.Forms.Label RecShopProdFooterStopperLbl;
         private System.Windows.Forms.Panel RecShopProdPayMethodPanel;
