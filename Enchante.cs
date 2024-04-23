@@ -45,6 +45,7 @@ using System.Security.Policy;
 using Org.BouncyCastle.Math;
 using Mysqlx.Crud;
 using System.Web.Util;
+using System.Web.UI;
 
 namespace Enchante
 {
@@ -444,7 +445,9 @@ namespace Enchante
         private void MngrHomePanelReset()
         {
             ParentPanelShow.PanelShow(EnchanteMngrPage);
-            Inventory.PanelShow(MngrInventoryTypePanel);
+            MngrServiceDataColor();
+            ReceptionLoadServices();
+            MngrDataTimer.Start();
         }
         private void ReceptionHomePanelReset()
         {
@@ -605,6 +608,7 @@ namespace Enchante
                 MngrHomePanelReset();
                 MngrNameLbl.Text = "Manager Tester";
                 MngrIDNumLbl.Text = "MT-0000-0000";
+                MngrEmplTypeLbl.Text = "Manager";
                 logincredclear();
 
 
@@ -634,6 +638,10 @@ namespace Enchante
                 ReceptionHomePanelReset();
                 RecNameLbl.Text = "Receptionist Tester";
                 RecIDNumLbl.Text = "RT-0000-0000";
+                RecEmplTypeLbl.Text = "Receptionist";
+
+                RecWalkinBdayMaxDate();
+                RecApptBdayMaxDate();
                 InitializeProducts();
                 logincredclear();
                 InitializeAppointmentDataGrid();
@@ -773,6 +781,8 @@ namespace Enchante
                                         MessageBox.Show($"Welcome back, Manager {name}.", "System User Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         MngrNameLbl.Text = name + " " + lastname;
                                         MngrIDNumLbl.Text = ID;
+                                        MngrEmplTypeLbl.Text = membertype;
+
                                         MngrHomePanelReset();
                                         logincredclear();
 
@@ -798,8 +808,12 @@ namespace Enchante
                                         MessageBox.Show($"Welcome back, Receptionist {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         RecNameLbl.Text = name + " " + lastname;
                                         RecIDNumLbl.Text = ID;
+                                        RecEmplTypeLbl.Text = membertype;
+
                                         InitializeProducts();
                                         ReceptionHomePanelReset();
+                                        RecWalkinBdayMaxDate();
+                                        RecApptBdayMaxDate();
                                         logincredclear();
                                         InitializeAppointmentDataGrid();
                                         InitializeCustomerServiceListDataGrid();
@@ -922,9 +936,7 @@ namespace Enchante
                 StaffInventoryDataGrid.Rows.Clear();
 
                 StaffUserAccPanel.Visible = false;
-                MngrUserAccPanel.Visible = false;
                 AdminUserAccPanel.Visible = false;
-                //ReceptionUserAccPanel.Visible = false;
 
                 RecTransTimer.Stop();
                 RecQueTimer.Stop();
@@ -963,7 +975,34 @@ namespace Enchante
         private void RecWalkInBtn_Click(object sender, EventArgs e)
         {
             InitialWalkinTransColor();
+            RecWalkinBdayMaxDate();
         }
+
+        private void RecWalkinBdayMaxDate()
+        {
+            DateTime currentDate = DateTime.Today;
+            DateTime maxDate = currentDate.AddYears(-2); // Calculate 2 years ago from today
+
+            // Set the MaxDate property
+            RecWalkinBdayPicker.MaxDate = maxDate;
+
+            // Convert maxDate to the desired format and set it as the initial value
+            RecWalkinBdayPicker.Value = DateTime.ParseExact(maxDate.ToString("MMMM dd, yyyy"), "MMMM dd, yyyy", null);
+        }
+
+        private void RecApptBdayMaxDate()
+        {
+            DateTime currentDate = DateTime.Today;
+            DateTime maxDate = currentDate.AddYears(-18); // Calculate 18 years ago from today
+
+            // Set the MaxDate property
+            RecApptClientBdayPicker.MaxDate = maxDate;
+
+            // Convert maxDate to the desired format and set it as the initial value
+            RecApptClientBdayPicker.Value = DateTime.ParseExact(maxDate.ToString("MMMM dd, yyyy"), "MMMM dd, yyyy", null);
+        }
+
+
 
         private void InitialWalkinTransColor()
         {
@@ -1129,7 +1168,7 @@ namespace Enchante
             RecApptBookingTimeComboBox.Items.Clear();
             LoadBookingTimes();
             RecApptBookingDatePicker.MinDate = DateTime.Today;
-            RecApptClientBdayPicker.MaxDate = DateTime.Today;
+            RecApptBdayMaxDate();
             isappointment = true;
             RecQueBtnResetColor();
         }
@@ -1978,16 +2017,19 @@ namespace Enchante
             RecWalkinLNameText.Text = "";
             RecWalkinCPNumText.Text = "";
             RecWalkinAgeBox.Text = "";
-            RecWalkinBdayPicker.Value = DateTime.Today;
             RecWalkinCatHSRB.Checked = false;
             RecWalkinCatFSRB.Checked = false;
             RecWalkinCatNCRB.Checked = false;
             RecWalkinCatSpaRB.Checked = false;
             RecWalkinCatMassageRB.Checked = false;
+            RecWalkinBdayMaxDate();
+            RecWalkinAgeBox.Text = "Age";
+
             RecWalkinSelectedServiceDGV.Rows.Clear();
             RecWalkinSelectedProdDGV.Rows.Clear();
             RecWalkinAnyStaffToggleSwitch.Checked = false;
             RecWalkinPreferredStaffToggleSwitch.Checked = false;
+
         }
 
 
@@ -2280,7 +2322,8 @@ namespace Enchante
             //basic info
             string CustomerName = RecWalkinFNameText.Text + " " + RecWalkinLNameText.Text; //client name
             string CustomerMobileNumber = RecWalkinCPNumText.Text; //client cp num
-
+            string bday = RecWalkinBdayPicker.Value.ToString("MMMM dd, yyyy");
+            string age = RecWalkinAgeBox.Text;
             //booked values
             string bookedDate = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
             string bookedTime = currentDate.ToString("hh:mm tt"); //bookedTime
@@ -2293,8 +2336,8 @@ namespace Enchante
                 {
                     connection.Open();
                     string insertQuery = "INSERT INTO walk_in_appointment (TransactionNumber, ServiceStatus, AppointmentDate, AppointmentTime, " +
-                                        "ClientName, ClientCPNum, ServiceDuration, BookedBy, BookedDate, BookedTime)" +
-                                        "VALUES (@Transact, @status, @appointDate, @appointTime, @clientName, @clientCP, @duration, @bookedBy, @bookedDate, @bookedTime)";
+                                        "ClientName, ClientCPNum, ClientBday, ClientAge, ServiceDuration, BookedBy, BookedDate, BookedTime)" +
+                                        "VALUES (@Transact, @status, @appointDate, @appointTime, @clientName, @clientCP, @clientBday, @clientAge, @duration, @bookedBy, @bookedDate, @bookedTime)";
 
                     MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
                     cmd.Parameters.AddWithValue("@Transact", transactionNum);
@@ -2303,6 +2346,8 @@ namespace Enchante
                     cmd.Parameters.AddWithValue("@appointTime", bookedTime);
                     cmd.Parameters.AddWithValue("@clientName", CustomerName);
                     cmd.Parameters.AddWithValue("@clientCP", CustomerMobileNumber);
+                    cmd.Parameters.AddWithValue("@clientBday", bday);
+                    cmd.Parameters.AddWithValue("@clientAge", age);
                     cmd.Parameters.AddWithValue("@duration", "00:00:00");
                     cmd.Parameters.AddWithValue("@bookedBy", bookedBy);
                     cmd.Parameters.AddWithValue("@bookedDate", bookedDate);
@@ -4959,13 +5004,7 @@ namespace Enchante
             }
         }
 
-        //ApptMember
-        string[] bookingTimes = new string[]
-        {
-            "Select a booking time", "08:00 am", "08:30 am", "09:00 am",
-            "09:30 am", "10:00 am", "10:30 am", "11:00 am", "11:30 am",
-            "01:00 pm", "01:30 pm", "02:00 pm", "02:30 pm",
-        };
+
 
         //ApptMember
         private void RecApptCatHSBtn_Click(object sender, EventArgs e)
@@ -5632,16 +5671,17 @@ namespace Enchante
             {
                 MessageBox.Show("Select a service first to proceed on booking a transaction.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
-            else
+            else if(ReceptionistAppointmentDB())
             {
-                RecApptServiceHistoryDB(RecApptSelectedServiceDGV); //service history db
-                ReceptionistAppointmentDB(); //appointment transaction db
+                RecApptServiceHistoryDB(RecApptSelectedServiceDGV); //service history 
                 RecApptFormGenerator();
                 RecApptTransactNumRefresh();
                 ApptTabs.SelectedIndex = 0;
                 RecApptTransactionClear();
             }
         }
+
+        
         private void RecApptFormGenerator()
         {
             DateTime currentDate = RecDateTimePicker.Value;
@@ -5780,6 +5820,29 @@ namespace Enchante
                     doc.Add(new LineSeparator()); // Dotted line
                     doc.Add(new Chunk("\n")); // New line
 
+                    PdfPTable ApptDetails = new PdfPTable(2);
+
+                    ApptDetails.HorizontalAlignment = Element.ALIGN_CENTER; // Center the table
+
+                    ApptDetails.SetWidths(new float[] { 60f, 40f }); // Column widths as percentage of the total width
+
+                    ApptDetails.DefaultCell.Border = PdfPCell.NO_BORDER;
+                    ApptDetails.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                    ApptDetails.DefaultCell.HorizontalAlignment = Element.ALIGN_LEFT; // Align cell content justified
+
+                    ApptDetails.AddCell(new Phrase($"Appointment Date: ", font));
+                    PdfPCell ApptdateCell = new PdfPCell(new Phrase($"{apptdate}", font));
+                    ApptdateCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
+                    ApptDetails.AddCell(ApptdateCell);
+
+                    ApptDetails.AddCell(new Phrase($"Appointment Time: ", font));
+                    PdfPCell ApptTimeCell = new PdfPCell(new Phrase($"{appttime}", font));
+                    ApptTimeCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
+                    ApptDetails.AddCell(ApptTimeCell);
+                    doc.Add(ApptDetails); // Add the table to the document
+
+                    doc.Add(new Chunk("\n")); // New line
+
                     // Add cells to the INFO table
                     PdfPTable amount = new PdfPTable(2);
 
@@ -5790,17 +5853,6 @@ namespace Enchante
                     amount.DefaultCell.Border = PdfPCell.NO_BORDER;
                     amount.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
                     amount.DefaultCell.HorizontalAlignment = Element.ALIGN_LEFT; // Align cell content justified
-
-                    // Add cells to the table
-                    amount.AddCell(new Phrase($"Appointment Date: ", font));
-                    PdfPCell ApptdateCell = new PdfPCell(new Phrase($"{apptdate}", font));
-                    ApptdateCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
-                    amount.AddCell(ApptdateCell);
-
-                    amount.AddCell(new Phrase($"Appointment Time: ", font));
-                    PdfPCell ApptTimeCell = new PdfPCell(new Phrase($"{appttime}", font));
-                    ApptTimeCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
-                    amount.AddCell(ApptTimeCell);
 
                     amount.AddCell(new Phrase($"Total ({totalRowCount}): ", font));
                     PdfPCell totalCell = new PdfPCell(new Phrase($"{total}", font));
@@ -5944,11 +5996,11 @@ namespace Enchante
         }
 
         //ApptMember
-        private void ReceptionistAppointmentDB()
+        private bool ReceptionistAppointmentDB()
         {
             DateTime appointmentdate = RecApptBookingDatePicker.Value;
             string transactionNum = RecApptTransNumText.Text;
-            DateTime currentDate = DateTime.Today;
+            DateTime currentDate = RecDateTimePicker.Value;
             string serviceStatus = "Pending";
             string transactType = "Walk-in Appointment";
             string appointmentStatus = "Unconfirmed";
@@ -5956,6 +6008,8 @@ namespace Enchante
             //basic info
             string CustomerName = RecApptFNameText.Text + " " + RecApptLNameText.Text; //client name
             string CustomerMobileNumber = RecApptCPNumText.Text; //client cp num
+            string bday = RecApptClientBdayPicker.Value.ToString("MMMM dd, yyyy");
+            string age = RecApptClientAgeText.Text;
 
             //booked values
             string appointmentbookedDate = appointmentdate.ToString("MM-dd-yyyy dddd"); //bookedDate
@@ -5976,43 +6030,161 @@ namespace Enchante
                 using (MySqlConnection connection = new MySqlConnection(mysqlconn))
                 {
                     connection.Open();
-                    string insertQuery = "INSERT INTO appointment (TransactionNumber, TransactionType, ServiceStatus, AppointmentDate, AppointmentTime, AppointmentStatus, " +
-                                        "ClientName, ClientCPNum, ServiceDuration, BookedBy, BookedDate, BookedTime)" +
-                                        "VALUES (@Transact, @TransactType, @status, @appointDate, @appointTime, @appointStatus, @clientName, @clientCP, @duration, @bookedBy, @bookedDate, @bookedTime)";
+                    if (downpayment == "0.00")
+                    {
+                        MessageBox.Show("Please select a transaction to pay.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    else if (string.IsNullOrWhiteSpace(cash))
+                    {
+                        MessageBox.Show("Please enter a cash amount.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    else if (!IsNumeric(cash))
+                    {
+                        MessageBox.Show("Cash amount must be in numbers only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    else if (Convert.ToDecimal(cash) < Convert.ToDecimal(downpayment))
+                    {
+                        MessageBox.Show("Insufficient amount. Please provide enough cash to cover the transaction.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    else
+                    {
+                        string insertQuery = "INSERT INTO appointment (TransactionNumber, TransactionType, ServiceStatus, AppointmentDate, AppointmentTime, AppointmentStatus, " +
+                                        "ClientName, ClientCPNum, ClientBday, ClientAge, GrossAmount, Downpayment, CashGiven, DueChange, PaymentMethod, BookedBy, BookedDate, BookedTime)" +
+                                        "VALUES (@Transact, @TransactType, @status, @appointDate, @appointTime, @appointStatus, @clientName, @clientCP, @clientBday, @clientAge, @total,  " +
+                                        "@dp, @cash, @change, @method, @bookedBy, @bookedDate, @bookedTime)";
 
-                    MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
-                    cmd.Parameters.AddWithValue("@Transact", transactionNum);
-                    cmd.Parameters.AddWithValue("@TransactType", transactType);
-                    cmd.Parameters.AddWithValue("@status", serviceStatus);
-                    cmd.Parameters.AddWithValue("@appointDate", appointmentbookedDate);
-                    cmd.Parameters.AddWithValue("@appointTime", appointmentbookedTime);
-                    cmd.Parameters.AddWithValue("@appointStatus", appointmentStatus);
-                    cmd.Parameters.AddWithValue("@clientName", CustomerName);
-                    cmd.Parameters.AddWithValue("@clientCP", CustomerMobileNumber);
-                    cmd.Parameters.AddWithValue("@duration", "00:00:00");
-                    cmd.Parameters.AddWithValue("@bookedBy", bookedBy);
-                    cmd.Parameters.AddWithValue("@bookedDate", bookedDate);
-                    cmd.Parameters.AddWithValue("@bookedTime", bookedTime);
+                        MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
+                        cmd.Parameters.AddWithValue("@Transact", transactionNum);
+                        cmd.Parameters.AddWithValue("@TransactType", transactType);
+                        cmd.Parameters.AddWithValue("@status", serviceStatus);
+                        cmd.Parameters.AddWithValue("@appointDate", appointmentbookedDate);
+                        cmd.Parameters.AddWithValue("@appointTime", appointmentbookedTime);
+                        cmd.Parameters.AddWithValue("@appointStatus", appointmentStatus);
+                        cmd.Parameters.AddWithValue("@clientName", CustomerName);
+                        cmd.Parameters.AddWithValue("@clientCP", CustomerMobileNumber);
+                        cmd.Parameters.AddWithValue("@clientBday", bday);
+                        cmd.Parameters.AddWithValue("@clientAge", age);
+                        cmd.Parameters.AddWithValue("@total", total);
+                        cmd.Parameters.AddWithValue("@dp", downpayment);
+                        cmd.Parameters.AddWithValue("@cash", cash);
+                        cmd.Parameters.AddWithValue("@change", change);
+                        cmd.Parameters.AddWithValue("@method", "Cash");
+
+                        cmd.Parameters.AddWithValue("@bookedBy", bookedBy);
+                        cmd.Parameters.AddWithValue("@bookedDate", bookedDate);
+                        cmd.Parameters.AddWithValue("@bookedTime", bookedTime);
 
 
-                    cmd.ExecuteNonQuery();
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Service successfully booked.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
                 }
-                MessageBox.Show("Service successfully booked.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Transaction.PanelShow(RecQueStartPanel);
-                //RecWalkinServiceHistoryDB();
             }
             catch (MySqlException ex)
             {
                 // Handle MySQL database exception
-                MessageBox.Show("An error occurred: " + ex.Message, "Manager booked transaction failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred: " + ex.Message, "Appointment booking transaction failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
             finally
             {
                 // Make sure to close the connection
                 connection.Close();
             }
+            return true;
         }
+        private bool RecApptDownpayment()
+        {
+            // cash values
+            string netAmount = RecPayServiceNetAmountBox.Text; // net amount
+            string vat = RecPayServiceVATBox.Text; // vat 
+            string discount = RecPayServiceDiscountBox.Text; // discount
+            string grossAmount = RecPayServiceGrossAmountBox.Text; // gross amount
+            string cash = RecPayServiceCashBox.Text; // cash given
+            string change = RecPayServiceChangeBox.Text; // due change
+            string paymentMethod = RecPayServiceTypeText.Text; // payment method
+            string mngr = RecNameLbl.Text;
+            string transactNum = RecPayServiceTransactNumLbl.Text;
 
+            // bank & wallet details
+            string cardName = RecPayServiceCardNameText.Text;
+            string cardNum = RecPayServiceCardNumText.Text;
+            string CVC = RecPayServiceCVCText.Text;
+            string expire = RecPayServiceCardExpText.Text;
+            string walletNum = RecPayServiceWalletNumText.Text;
+            string walletPIN = RecPayServiceWalletPINText.Text;
+            string walletOTP = RecPayServiceWalletOTPText.Text;
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+                    if (grossAmount == "0.00")
+                    {
+                        MessageBox.Show("Please select a transaction to pay.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    else if (string.IsNullOrWhiteSpace(cash))
+                    {
+                        MessageBox.Show("Please enter a cash amount.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    else if (!IsNumeric(cash))
+                    {
+                        MessageBox.Show("Cash amount must be in numbers only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    else if (Convert.ToDecimal(cash) < Convert.ToDecimal(grossAmount))
+                    {
+                        MessageBox.Show("Insufficient amount. Please provide enough cash to cover the transaction.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    else
+                    {
+                        string cashPaymentAppt = "UPDATE appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
+                                        "GrossAmount = @gross, CashGiven = @cash, DueChange = @change, PaymentMethod = @payment, CheckedOutBy = @mngr " +
+                                        "WHERE TransactionNumber = @transactNum"; // cash query
+
+                        MySqlCommand cmd = new MySqlCommand(cashPaymentAppt, connection);
+                        cmd.Parameters.AddWithValue("@status", "Paid");
+                        cmd.Parameters.AddWithValue("@net", netAmount);
+                        cmd.Parameters.AddWithValue("@vat", vat);
+                        cmd.Parameters.AddWithValue("@discount", discount);
+                        cmd.Parameters.AddWithValue("@gross", grossAmount);
+                        cmd.Parameters.AddWithValue("@cash", cash);
+                        cmd.Parameters.AddWithValue("@change", change);
+                        cmd.Parameters.AddWithValue("@payment", paymentMethod);
+                        cmd.Parameters.AddWithValue("@mngr", mngr);
+                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
+
+                        cmd.ExecuteNonQuery();
+                        // Successful update
+                        MessageBox.Show("Service successfully been paid through cash.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                // Handle MySQL database exception
+                MessageBox.Show("An error occurred: " + ex.Message, "Manager payment transaction failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false; // Return false in case of an exception
+            }
+            finally
+            {
+                // Make sure to close the connection
+                connection.Close();
+            }
+            return true;
+        }
         //ApptMember
         private int GetLargestPriorityNum(string appointmentDate, string serviceCategory)
         {
@@ -6065,7 +6237,7 @@ namespace Enchante
             RecApptCatMassRB.Checked = false;
             RecApptSelectedServiceDGV.Rows.Clear();
             RecApptBookingTimeComboBox.Items.Clear();
-            RecApptClientBdayPicker.Value = DateTime.Today;
+            RecApptBdayMaxDate();
             RecApptClientAgeText.Text = "Age";
             RecApptBookingDatePicker.Value = DateTime.Today;
             RecApptPreferredStaffToggleSwitch.Checked = false;
@@ -6078,7 +6250,13 @@ namespace Enchante
         {
             LoadBookingTimes();
         }
-
+        //ApptMember
+        string[] bookingTimes = new string[]
+        {
+            "Select a booking time", "08:00 am", "08:30 am", "09:00 am",
+            "09:30 am", "10:00 am", "10:30 am", "11:00 am", "11:30 am",
+            "01:00 pm", "01:30 pm", "02:00 pm", "02:30 pm",
+        };
         //ApptMember
         private void LoadBookingTimes()
         {
@@ -6092,13 +6270,79 @@ namespace Enchante
             // Clear existing items in the ComboBox
             RecApptBookingTimeComboBox.Items.Clear();
 
-            // Check if the selected date is today and if it's past 3 PM
-            if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay > new TimeSpan(15, 0, 0))
+            if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay > new TimeSpan(14, 3, 0))  // Check if the selected date is today and if it's past 3 PM
             {
                 // Add "Cutoff Time" to ComboBox and disable it
                 RecApptBookingTimeComboBox.Items.Add("Cutoff Time");
                 RecApptBookingTimeComboBox.SelectedIndex = 0;
                 RecApptBookingTimeComboBox.Enabled = false;
+                return;
+            }
+            else if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay >= new TimeSpan(08, 0, 0))
+            {
+                RecApptBookingTimeComboBox.Items.Remove("08:00 am");
+                RecApptBookingTimeComboBox.SelectedIndex = 0;
+                return;
+            }
+            else if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay >= new TimeSpan(08, 3, 0))
+            {
+                RecApptBookingTimeComboBox.Items.Remove("08:30 am");
+                RecApptBookingTimeComboBox.SelectedIndex = 0;
+                return;
+            }
+            else if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay >= new TimeSpan(09, 0, 0))
+            {
+                RecApptBookingTimeComboBox.Items.Remove("09:00 am");
+                RecApptBookingTimeComboBox.SelectedIndex = 0;
+                return;
+            }
+            else if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay >= new TimeSpan(09, 3, 0))
+            {
+                RecApptBookingTimeComboBox.Items.Remove("09:30 am");
+                RecApptBookingTimeComboBox.SelectedIndex = 0;
+                return;
+            }
+            else if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay >= new TimeSpan(10, 0, 0))
+            {
+                RecApptBookingTimeComboBox.Items.Remove("10:00 am");
+                RecApptBookingTimeComboBox.SelectedIndex = 0;
+                return;
+            }
+            else if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay >= new TimeSpan(10, 3, 0))
+            {
+                RecApptBookingTimeComboBox.Items.Remove("10:30 am");
+                RecApptBookingTimeComboBox.SelectedIndex = 0;
+                return;
+            }
+            else if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay >= new TimeSpan(11, 0, 0))
+            {
+                RecApptBookingTimeComboBox.Items.Remove("11:00 am");
+                RecApptBookingTimeComboBox.SelectedIndex = 0;
+                return;
+            }
+            else if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay >= new TimeSpan(11, 3, 0))
+            {
+                RecApptBookingTimeComboBox.Items.Remove("11:30 am");
+                RecApptBookingTimeComboBox.SelectedIndex = 0;
+                return;
+            }
+            else if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay >= new TimeSpan(13, 0, 0))
+            {
+                RecApptBookingTimeComboBox.Items.Remove("01:00 pm");
+                RecApptBookingTimeComboBox.SelectedIndex = 0;
+                return;
+            }
+            else if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay >= new TimeSpan(13, 3, 0))
+            {
+                RecApptBookingTimeComboBox.Items.Remove("01:30 pm");
+                RecApptBookingTimeComboBox.SelectedIndex = 0;
+                return;
+            }
+            else if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay >= new TimeSpan(14, 0, 0))
+            {
+                RecApptBookingTimeComboBox.Items.Remove("02:00 pm");
+                RecApptBookingTimeComboBox.SelectedIndex = 0;
+                return;
             }
             else
             {
@@ -7681,26 +7925,14 @@ namespace Enchante
             LogoutChecker();
         }
 
-        private void MngrUserAccBtn_Click(object sender, EventArgs e)
-        {
-            if (MngrUserAccPanel.Visible == false)
-            {
-                MngrUserAccPanel.Visible = true;
-            }
-            else
-            {
-                MngrUserAccPanel.Visible = false;
-            }
-        }
         private void RecInventoryMembershipBtn_Click(object sender, EventArgs e)
         {
-            Inventory.PanelShow(MngrInventoryMembershipPanel);
-
+            MngrMembershipDataColor();
         }
 
         private void RecInventoryProductsBtn_Click(object sender, EventArgs e)
         {
-            Inventory.PanelShow(MngrInventoryProductsPanel);
+            MngrProductDataColor();
             MngrInventoryProductData();
         }
         private void MngrSchedExitBtn_Click(object sender, EventArgs e)
@@ -7721,18 +7953,17 @@ namespace Enchante
 
         private void MngrInventoryWalkinSalesBtn_Click(object sender, EventArgs e)
         {
-            Inventory.PanelShow(MngrWalkinSalesPanel);
+            MngrWalkinSalesColor();
         }
 
         private void MngrInventoryProductsHistoryBtn_Click(object sender, EventArgs e)
         {
-            Inventory.PanelShow(MngrInventoryProductHistoryPanel);
-
+            MngrProductHistoryColor();
         }
 
         private void MngrInventoryStaffSchedBtn_Click(object sender, EventArgs e)
         {
-            Inventory.PanelShow(MngrPromoPanel);
+            MngrPromoDataColor();
         }
 
         private void MngrInventoryMembershipExitBtn_Click(object sender, EventArgs e)
@@ -7741,12 +7972,11 @@ namespace Enchante
         }
         private void MngrInventoryInDemandBtn_Click(object sender, EventArgs e)
         {
-            Inventory.PanelShow(MngrIndemandPanel);
+            MngrInDemandColor();
         }
         private void MngrServicesHistoryBtn_Click(object sender, EventArgs e)
         {
-            Inventory.PanelShow(MngrServiceHistoryPanel);
-
+            MngrServiceHistoryColor();
         }
         private void MngrServiceHistoryExitBtn_Click(object sender, EventArgs e)
         {
@@ -7756,7 +7986,7 @@ namespace Enchante
 
         private void MngrWalkinProdSalesBtn_Click(object sender, EventArgs e)
         {
-            Inventory.PanelShow(MngrWalkinProdSalesPanel);
+            MngrProdSalesColor();
             MngrProductSalesTransRepDGV.DataSource = null;
         }
 
@@ -7786,7 +8016,7 @@ namespace Enchante
         #region Mngr Services Data
         private void RecInventoryServicesBtn_Click_1(object sender, EventArgs e)
         {
-            Inventory.PanelShow(MngrServicesPanel);
+            MngrServiceDataColor();
             ReceptionLoadServices();
 
         }
@@ -11954,7 +12184,7 @@ namespace Enchante
 
         private void MngrApptServiceBtn_Click(object sender, EventArgs e)
         {
-            Inventory.PanelShow(MngrApptServicePanel);
+            MngrApptSalesColor();
         }
 
         private void MngrApptServiceExitBtn_Click(object sender, EventArgs e)
@@ -14869,10 +15099,6 @@ namespace Enchante
             {
                 MessageBox.Show("Invalid Age.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (int.TryParse(RecWalkinAgeBox.Text, out int age) && age < 18)
-            {
-                MessageBox.Show("The client's age must be at least 18.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
             else
             {
                 WalkinTabs.SelectedIndex = 1;
@@ -14898,7 +15124,7 @@ namespace Enchante
 
         }
 
-        private void iconButton3_Click(object sender, EventArgs e)
+        private void RecWalkinProdPrevBtn_Click(object sender, EventArgs e)
         {
             WalkinTabs.SelectedIndex = 1;
 
@@ -14914,10 +15140,10 @@ namespace Enchante
                 age--; // Subtract 1 if the birthday hasn't occurred yet this year
             }
             RecWalkinAgeBox.Text = age.ToString();
-            if (age < 18)
+            if (age < 2)
             {
                 RecWalkinAgeErrorLbl.Visible = true;
-                RecWalkinAgeErrorLbl.Text = "Must be 18yrs old\nand above";
+                RecWalkinAgeErrorLbl.Text = "Must be 2yrs old\nand above";
                 return;
             }
             else
@@ -15078,6 +15304,462 @@ namespace Enchante
                 // Handle invalid input in MngrGrossAmountBox, e.g., display an error message
                 RecApptChangeText.Text = "0.00";
             }
+        }
+
+        private void RecApptAcceptLateDeclineDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = RecApptAcceptLateDeclineDGV.Rows[e.RowIndex];
+                string transactionNumber = selectedRow.Cells["TransactionID"].Value.ToString();
+                string serviceHistoryQuery = "SELECT TransactionNumber, ServiceCategory, ServiceID, SelectedService " +
+                                             "FROM servicehistory " +
+                                             "WHERE TransactionNumber = @transactionNumber AND (ServiceStatus = 'Pending' OR ServiceStatus = 'PendingPaid')";
+
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    MySqlCommand command = new MySqlCommand(serviceHistoryQuery, connection);
+                    command.Parameters.AddWithValue("@transactionNumber", transactionNumber);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                    DataTable serviceHistoryTable = new DataTable();
+                    adapter.Fill(serviceHistoryTable);
+
+                    RecCancelServicesDGV.Rows.Clear();
+                    if (serviceHistoryTable.Rows.Count > 0)
+                    {
+                        foreach (DataRow serviceHistoryRow in serviceHistoryTable.Rows)
+                        {
+                            RecCancelServicesDGV.Rows.Add(
+                                serviceHistoryRow["TransactionNumber"],
+                                serviceHistoryRow["ServiceCategory"],
+                                serviceHistoryRow["ServiceID"],
+                                serviceHistoryRow["SelectedService"]
+                            );
+                        }
+                    }
+                }
+            }
+        }
+
+        private void RecApptAddMoreServiceBtn_Click(object sender, EventArgs e)
+        {
+            ApptTabs.SelectedIndex = 1;
+
+        }
+        bool DataExpand = false;
+        bool ReportExpand = false;
+        bool HistoryExpand = false;
+        private void MngrDataTimer_Tick(object sender, EventArgs e)
+        {
+            if (DataExpand == false)
+            {
+                MngrDataBtnFlowPanel.Height += 15;
+                MngrDataBtn.IconChar = FontAwesome.Sharp.IconChar.CaretUp;
+                MngrDataBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+                MngrDataBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+                MngrDataBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+                if (MngrDataBtnFlowPanel.Height >= MngrDataBtnFlowPanel.MaximumSize.Height)
+                {
+                    MngrDataTimer.Stop();
+                    DataExpand = true;
+                }
+            }
+            else
+            {
+                MngrDataBtnFlowPanel.Height -= 15;
+                MngrDataBtn.IconChar = FontAwesome.Sharp.IconChar.CaretDown;
+                MngrDataBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+                MngrDataBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+                MngrDataBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+                if (MngrDataBtnFlowPanel.Height <= MngrDataBtnFlowPanel.MinimumSize.Height)
+                {
+                    MngrDataTimer.Stop();
+                    DataExpand = false;
+                }
+            }
+        }
+
+        private void MngrReportsTimer_Tick(object sender, EventArgs e)
+        {
+            if (ReportExpand == false)
+            {
+                MngrReportsBtnFlowPanel.Height += 15;
+                MngrReportsBtn.IconChar = FontAwesome.Sharp.IconChar.CaretUp;
+                MngrReportsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+                MngrReportsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+                MngrReportsBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+                if (MngrReportsBtnFlowPanel.Height >= MngrReportsBtnFlowPanel.MaximumSize.Height)
+                {
+                    MngrReportsTimer.Stop();
+                    ReportExpand = true;
+                }
+            }
+            else
+            {
+                MngrReportsBtnFlowPanel.Height -= 15;
+                MngrReportsBtn.IconChar = FontAwesome.Sharp.IconChar.CaretDown;
+                MngrReportsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+                MngrReportsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+                MngrReportsBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+                if (MngrReportsBtnFlowPanel.Height <= MngrReportsBtnFlowPanel.MinimumSize.Height)
+                {
+                    MngrReportsTimer.Stop();
+                    ReportExpand = false;
+                }
+            }
+        }
+
+        private void MngrHistoryTimer_Tick(object sender, EventArgs e)
+        {
+            if (HistoryExpand == false)
+            {
+                MngrHistoryBtnFlowPanel.Height += 15;
+                MngrHistoryBtn.IconChar = FontAwesome.Sharp.IconChar.CaretUp;
+                MngrHistoryBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+                MngrHistoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+                MngrHistoryBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+                if (MngrHistoryBtnFlowPanel.Height >= MngrHistoryBtnFlowPanel.MaximumSize.Height)
+                {
+                    MngrHistoryTimer.Stop();
+                    HistoryExpand = true;
+                }
+            }
+            else
+            {
+                MngrHistoryBtnFlowPanel.Height -= 15;
+                MngrHistoryBtn.IconChar = FontAwesome.Sharp.IconChar.CaretDown;
+                MngrHistoryBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+                MngrHistoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+                MngrHistoryBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+                if (MngrHistoryBtnFlowPanel.Height <= MngrHistoryBtnFlowPanel.MinimumSize.Height)
+                {
+                    MngrHistoryTimer.Stop();
+                    HistoryExpand = false;
+                }
+            }
+        }
+
+        private void MngrDataBtn_Click(object sender, EventArgs e)
+        {
+            MngrDataTimer.Start();
+
+        }
+
+        private void MngrReportsBtn_Click(object sender, EventArgs e)
+        {
+            MngrReportsTimer.Start();
+
+        }
+
+        private void MngrHistoryBtn_Click(object sender, EventArgs e)
+        {
+            MngrHistoryTimer.Start();
+
+        }
+
+        private void MngrRecOverrideBtn_Click(object sender, EventArgs e)
+        {
+            ReceptionHomePanelReset();
+            RecNameLbl.Text = MngrNameLbl.Text;
+            RecIDNumLbl.Text = MngrIDNumLbl.Text;
+            RecEmplTypeLbl.Text = MngrEmplTypeLbl.Text;
+            ReceptionLogoutBtn.Visible = false;
+            RecOverrideBackBtn.Visible = true;
+        }
+
+        private void MngrServiceDataColor()
+        {
+            Inventory.PanelShow(MngrServicesPanel);
+
+            //light yellow bg, green text and fg
+            MngrServicesDataBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrServicesDataBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            MngrServicesDataBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+            MngrProductsDataBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrProductsDataBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrProductsDataBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            MngrPromoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrPromoBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrPromoBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            MngrInventoryMembershipBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrInventoryMembershipBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrInventoryMembershipBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrReportBtnsResetColor();
+            MngrHistoryBtnResetColor();
+        }
+        private void MngrProductDataColor()
+        {
+            Inventory.PanelShow(MngrInventoryProductsPanel);
+
+            //light yellow bg, green text and fg
+            MngrProductsDataBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrProductsDataBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            MngrProductsDataBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+            MngrServicesDataBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrServicesDataBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrServicesDataBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            MngrPromoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrPromoBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrPromoBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            MngrInventoryMembershipBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrInventoryMembershipBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrInventoryMembershipBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrReportBtnsResetColor();
+            MngrHistoryBtnResetColor();
+        }
+        private void MngrPromoDataColor()
+        {
+            Inventory.PanelShow(MngrPromoPanel);
+
+            //light yellow bg, green text and fg
+            MngrPromoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrPromoBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            MngrPromoBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+            MngrServicesDataBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrServicesDataBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrServicesDataBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            MngrProductsDataBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrProductsDataBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrProductsDataBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            MngrInventoryMembershipBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrInventoryMembershipBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrInventoryMembershipBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrReportBtnsResetColor();
+            MngrHistoryBtnResetColor();
+        }
+        private void MngrMembershipDataColor()
+        {
+            Inventory.PanelShow(MngrInventoryMembershipPanel);
+
+            //light yellow bg, green text and fg
+            MngrInventoryMembershipBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrInventoryMembershipBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            MngrInventoryMembershipBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+            MngrServicesDataBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrProductsDataBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrProductsDataBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            MngrProductsDataBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrProductsDataBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrProductsDataBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            MngrPromoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrPromoBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrPromoBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrReportBtnsResetColor();
+            MngrHistoryBtnResetColor();
+        }
+
+        private void MngrDataBtnsResetColor()
+        {
+            MngrServicesDataBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrServicesDataBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrServicesDataBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            MngrProductsDataBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrProductsDataBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrProductsDataBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            MngrPromoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrPromoBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrPromoBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            MngrInventoryMembershipBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrInventoryMembershipBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrInventoryMembershipBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+        }
+
+        private void MngrWalkinSalesColor()
+        {
+            Inventory.PanelShow(MngrWalkinSalesPanel);
+
+            //light yellow bg, green text and fg
+            MngrWalkinServiceSalesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrWalkinServiceSalesBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            MngrWalkinServiceSalesBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+            MngrWalkinProdSalesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrWalkinProdSalesBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrWalkinProdSalesBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            MngrApptServiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrApptServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrApptServiceBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            MngrInDemandBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrInDemandBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrInDemandBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrDataBtnsResetColor();
+            MngrHistoryBtnResetColor();
+        }
+        private void MngrApptSalesColor()
+        {
+            Inventory.PanelShow(MngrApptServicePanel);
+
+            //light yellow bg, green text and fg
+            MngrApptServiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrApptServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            MngrApptServiceBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+            MngrWalkinServiceSalesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrWalkinServiceSalesBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrWalkinServiceSalesBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            MngrWalkinProdSalesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrWalkinProdSalesBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrWalkinProdSalesBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            MngrInDemandBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrInDemandBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrInDemandBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrDataBtnsResetColor();
+            MngrHistoryBtnResetColor();
+        }
+        private void MngrProdSalesColor()
+        {
+            Inventory.PanelShow(MngrWalkinProdSalesPanel);
+
+            //light yellow bg, green text and fg
+            MngrWalkinProdSalesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrWalkinProdSalesBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            MngrWalkinProdSalesBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+            MngrApptServiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrApptServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrApptServiceBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            MngrWalkinServiceSalesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrWalkinServiceSalesBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrWalkinServiceSalesBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            MngrInDemandBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrInDemandBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrInDemandBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrDataBtnsResetColor(); 
+            MngrHistoryBtnResetColor();
+        }
+        private void MngrInDemandColor()
+        {
+            Inventory.PanelShow(MngrIndemandPanel);
+
+            //light yellow bg, green text and fg
+            MngrInDemandBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrInDemandBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            MngrInDemandBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+            MngrWalkinServiceSalesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrWalkinServiceSalesBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrWalkinServiceSalesBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            MngrApptServiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrApptServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrApptServiceBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            MngrWalkinProdSalesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrWalkinProdSalesBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrWalkinProdSalesBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrDataBtnsResetColor();
+            MngrHistoryBtnResetColor();
+        }
+        private void MngrReportBtnsResetColor()
+        {
+            MngrWalkinServiceSalesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrWalkinServiceSalesBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrWalkinServiceSalesBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            MngrApptServiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrApptServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrApptServiceBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            MngrInDemandBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrInDemandBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrInDemandBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            MngrApptServiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrApptServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrApptServiceBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+        }
+        private void MngrServiceHistoryColor()
+        {
+            Inventory.PanelShow(MngrServiceHistoryPanel);
+
+            //light yellow bg, green text and fg
+            MngrServicesHistoryBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrServicesHistoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            MngrServicesHistoryBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+            MngrProductsHistoryBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrProductsHistoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrProductsHistoryBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            
+            MngrDataBtnsResetColor();
+            MngrReportBtnsResetColor();
+
+        }
+        private void MngrProductHistoryColor()
+        {
+            Inventory.PanelShow(MngrInventoryProductHistoryPanel);
+
+            //light yellow bg, green text and fg
+            MngrProductsHistoryBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrProductsHistoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            MngrProductsHistoryBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+            MngrServicesHistoryBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrServicesHistoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrServicesHistoryBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+
+            MngrDataBtnsResetColor();
+            MngrReportBtnsResetColor();
+
+        }
+        private void MngrHistoryBtnResetColor()
+        {
+            //light yellow bg, green text and fg
+            MngrProductsHistoryBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrProductsHistoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrProductsHistoryBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+            MngrServicesHistoryBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrServicesHistoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrServicesHistoryBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+
+            MngrDataBtnsResetColor();
+            MngrReportBtnsResetColor();
+
+        }
+
+        private void RecOverrideBackBtn_Click(object sender, EventArgs e)
+        {
+            MngrHomePanelReset();
+            RecNameLbl.Text = "";
+            RecIDNumLbl.Text = "";
+            RecEmplTypeLbl.Text = "";
+            ReceptionLogoutBtn.Visible = true;
+            RecOverrideBackBtn.Visible = false;
         }
     }
 }
