@@ -93,16 +93,14 @@ namespace Enchante
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -117,6 +115,10 @@ namespace Enchante
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle68 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle69 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle70 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Enchante));
             this.EnchanteParentContainer = new System.Windows.Forms.Panel();
             this.EnchanteMngrPage = new System.Windows.Forms.Panel();
@@ -626,78 +628,30 @@ namespace Enchante
             this.RecQueWinStaffListDGV = new System.Windows.Forms.DataGridView();
             this.RecQueWinExitBtn = new FontAwesome.Sharp.IconButton();
             this.RecPayServicePanel = new System.Windows.Forms.Panel();
-            this.RecPayServiceTransTypeLbl = new System.Windows.Forms.Label();
+            this.RecPayServiceApptTransTypeLbl = new System.Windows.Forms.Label();
             this.RecPayServiceApptCompleteTransLbl = new System.Windows.Forms.Label();
             this.RecPayServiceApptCompleteTransDGV = new System.Windows.Forms.DataGridView();
             this.RecPayServiceWalkinCompleteTransLbl = new System.Windows.Forms.Label();
-            this.RecPayServiceCOProdTotalText = new System.Windows.Forms.TextBox();
-            this.RecPayServiceAcquiredTotalText = new System.Windows.Forms.TextBox();
+            this.RecPayServiceWalkinCOProdTotalText = new System.Windows.Forms.TextBox();
+            this.RecPayServiceWalkinAcquiredTotalText = new System.Windows.Forms.TextBox();
             this.RecPayServiceCOProdLbl = new System.Windows.Forms.Label();
             this.RecPayServiceAcqLbl = new System.Windows.Forms.Label();
-            this.RecPayServiceCOProdDGV = new System.Windows.Forms.DataGridView();
-            this.RecPayServiceClientNameLbl = new System.Windows.Forms.Label();
-            this.RecPayServiceTransactNumLbl = new System.Windows.Forms.Label();
-            this.MngrPayServiceFooterPanel = new System.Windows.Forms.Panel();
-            this.MngrPayServiceFooterLbl = new System.Windows.Forms.Label();
-            this.RecPayServiceMethodPanel = new System.Windows.Forms.Panel();
-            this.RecPayServiceWalletPaymentPanel = new System.Windows.Forms.Panel();
-            this.RecPayServiceWalletNumLbl = new System.Windows.Forms.Label();
-            this.RecPayServiceWalletNumText = new System.Windows.Forms.TextBox();
-            this.RecPayServiceWalletNumErrorLbl = new System.Windows.Forms.Label();
-            this.RecPayServiceWalletPINLbl = new System.Windows.Forms.Label();
-            this.RecPayServiceWalletPINText = new System.Windows.Forms.TextBox();
-            this.RecPayServiceWalletPINErrorLbl = new System.Windows.Forms.Label();
-            this.RecPayServiceWalletOTPLbl = new System.Windows.Forms.Label();
-            this.RecPayServiceWalletOTPErrorLbl = new System.Windows.Forms.Label();
-            this.RecPayServiceWalletOTPText = new System.Windows.Forms.TextBox();
-            this.RecPayServiceCash1PaymentPanel = new System.Windows.Forms.Panel();
+            this.RecPayServiceWalkinCOProdDGV = new System.Windows.Forms.DataGridView();
+            this.RecPayServiceWalkinClientNameLbl = new System.Windows.Forms.Label();
+            this.RecPayServiceWalkinTransactNumLbl = new System.Windows.Forms.Label();
             this.RecPayServiceChangeBox = new System.Windows.Forms.TextBox();
             this.RecPayServiceCashBox = new System.Windows.Forms.TextBox();
-            this.RecPayServiceVATExemptChk = new System.Windows.Forms.CheckBox();
             this.RecPayServiceGrossAmountBox = new System.Windows.Forms.TextBox();
             this.RecPayServiceVATBox = new System.Windows.Forms.TextBox();
             this.RecPayServiceNetAmountBox = new System.Windows.Forms.TextBox();
-            this.RecPayServiceDiscountBox = new System.Windows.Forms.TextBox();
+            this.RecPayServiceWalkinDiscountBox = new System.Windows.Forms.TextBox();
             this.RecPayServiceCashLbl = new System.Windows.Forms.Label();
             this.RecPayServiceChangeLbl = new System.Windows.Forms.Label();
-            this.RecPayServiceDiscountPWD = new System.Windows.Forms.CheckBox();
-            this.RecPayServiceDiscountSenior = new System.Windows.Forms.CheckBox();
-            this.RecPayServiceDiscountLbl = new System.Windows.Forms.Label();
-            this.RecPayServiceNetAmountLbl = new System.Windows.Forms.Label();
+            this.RecPayServiceWalkinDiscountLbl = new System.Windows.Forms.Label();
+            this.RecPayServiceWalkinNetAmountLbl = new System.Windows.Forms.Label();
             this.RecPayServiceVATLbl = new System.Windows.Forms.Label();
             this.RecPayServiceGrossAmountLbl = new System.Windows.Forms.Label();
-            this.RecPayServiceBankPaymentPanel = new System.Windows.Forms.Panel();
-            this.RecPayServiceCardNameLbl = new System.Windows.Forms.Label();
-            this.RecPayServiceCardNameText = new System.Windows.Forms.TextBox();
-            this.RecPayServiceCardNumLbl = new System.Windows.Forms.Label();
-            this.RecPayServiceCardNumText = new System.Windows.Forms.TextBox();
-            this.RecPayServiceCardNameErrorLbl = new System.Windows.Forms.Label();
-            this.RecPayServiceCardNumErrorLbl = new System.Windows.Forms.Label();
-            this.RecPayServiceCVCLbl = new System.Windows.Forms.Label();
-            this.RecPayServiceCVCText = new System.Windows.Forms.TextBox();
-            this.RecPayServiceCVCErrorLbl = new System.Windows.Forms.Label();
-            this.RecPayServiceCardExpLbl = new System.Windows.Forms.Label();
-            this.RecPayServiceCardExpErrorLbl = new System.Windows.Forms.Label();
-            this.RecPayServiceCardExpText = new System.Windows.Forms.TextBox();
-            this.RecPayServiceGCPaymentPanel = new System.Windows.Forms.Panel();
-            this.RecPayServiceGCPaymentRB = new System.Windows.Forms.RadioButton();
-            this.RecPayServiceGCPaymentBtn = new FontAwesome.Sharp.IconButton();
-            this.RecPayServiceCashPaymentPanel = new System.Windows.Forms.Panel();
-            this.RecPayServiceCashPaymentRB = new System.Windows.Forms.RadioButton();
-            this.RecPayServiceCashPaymentBtn = new FontAwesome.Sharp.IconButton();
-            this.RecPayServiceTypeText = new System.Windows.Forms.TextBox();
-            this.RecPayServicePPPaymentPanel = new System.Windows.Forms.Panel();
-            this.RecPayServicePPPaymentRB = new System.Windows.Forms.RadioButton();
-            this.RecPayServicePPPaymentBtn = new FontAwesome.Sharp.IconButton();
-            this.RecPayServicePMPaymentPanel = new System.Windows.Forms.Panel();
-            this.RecPayServicePMPaymentRB = new System.Windows.Forms.RadioButton();
-            this.RecPayServicePMPaymentBtn = new FontAwesome.Sharp.IconButton();
-            this.RecPayServicePaymentButton = new FontAwesome.Sharp.IconButton();
-            this.RecPayServiceCCPaymentPanel = new System.Windows.Forms.Panel();
-            this.RecPayServiceCCPaymentRB = new System.Windows.Forms.RadioButton();
-            this.RecPayServiceCCPaymentBtn = new FontAwesome.Sharp.IconButton();
-            this.RecPayServiceMethodLbl = new System.Windows.Forms.Label();
-            this.RecPayServiceAcquiredDGV = new System.Windows.Forms.DataGridView();
+            this.RecPayServiceWalkinAcquiredDGV = new System.Windows.Forms.DataGridView();
             this.RecPayServiceWalkinCompleteTransDGV = new System.Windows.Forms.DataGridView();
             this.RecPayServiceExitBtn = new FontAwesome.Sharp.IconButton();
             this.RecWalkinPanel = new System.Windows.Forms.Panel();
@@ -853,6 +807,35 @@ namespace Enchante
             this.MngrHistoryTimer = new System.Windows.Forms.Timer(this.components);
             this.MngrDateTimeText = new System.Windows.Forms.TextBox();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.PaymentTabs = new Guna.UI2.WinForms.Guna2TabControl();
+            this.PaymentWalkinTab = new System.Windows.Forms.TabPage();
+            this.PaymentApptTab = new System.Windows.Forms.TabPage();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.guna2GradientPanel4 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.guna2GradientPanel3 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.RecPayServiceWalkinPaymentButton = new Guna.UI2.WinForms.Guna2Button();
+            this.RecPayServiceApptAcquiredTotalText = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.RecPayServiceApptAcquiredDGV = new System.Windows.Forms.DataGridView();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.RecPayServiceApptTransactNumLbl = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.RecPayServiceApptClientNameLbl = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.RecPayServiceApptPaymentButton = new Guna.UI2.WinForms.Guna2Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBox11 = new System.Windows.Forms.TextBox();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteMngrPage.SuspendLayout();
             this.MngrScrollPanel.SuspendLayout();
@@ -950,18 +933,8 @@ namespace Enchante
             ((System.ComponentModel.ISupportInitialize)(this.RecQueWinStaffListDGV)).BeginInit();
             this.RecPayServicePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecPayServiceApptCompleteTransDGV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RecPayServiceCOProdDGV)).BeginInit();
-            this.MngrPayServiceFooterPanel.SuspendLayout();
-            this.RecPayServiceMethodPanel.SuspendLayout();
-            this.RecPayServiceWalletPaymentPanel.SuspendLayout();
-            this.RecPayServiceCash1PaymentPanel.SuspendLayout();
-            this.RecPayServiceBankPaymentPanel.SuspendLayout();
-            this.RecPayServiceGCPaymentPanel.SuspendLayout();
-            this.RecPayServiceCashPaymentPanel.SuspendLayout();
-            this.RecPayServicePPPaymentPanel.SuspendLayout();
-            this.RecPayServicePMPaymentPanel.SuspendLayout();
-            this.RecPayServiceCCPaymentPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RecPayServiceAcquiredDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecPayServiceWalkinCOProdDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecPayServiceWalkinAcquiredDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecPayServiceWalkinCompleteTransDGV)).BeginInit();
             this.RecWalkinPanel.SuspendLayout();
             this.WalkinTabs.SuspendLayout();
@@ -996,6 +969,12 @@ namespace Enchante
             ((System.ComponentModel.ISupportInitialize)(this.RecTransactionCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrInventoryCard)).BeginInit();
             this.guna2GradientPanel2.SuspendLayout();
+            this.PaymentTabs.SuspendLayout();
+            this.PaymentWalkinTab.SuspendLayout();
+            this.PaymentApptTab.SuspendLayout();
+            this.guna2GradientPanel4.SuspendLayout();
+            this.guna2GradientPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RecPayServiceApptAcquiredDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // EnchanteParentContainer
@@ -8761,21 +8740,7 @@ namespace Enchante
             this.RecPayServicePanel.AutoScroll = true;
             this.RecPayServicePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecTransactionCard.SetCardName(this.RecPayServicePanel, "Payment");
-            this.RecPayServicePanel.Controls.Add(this.RecPayServiceTransTypeLbl);
-            this.RecPayServicePanel.Controls.Add(this.RecPayServiceApptCompleteTransLbl);
-            this.RecPayServicePanel.Controls.Add(this.RecPayServiceApptCompleteTransDGV);
-            this.RecPayServicePanel.Controls.Add(this.RecPayServiceWalkinCompleteTransLbl);
-            this.RecPayServicePanel.Controls.Add(this.RecPayServiceCOProdTotalText);
-            this.RecPayServicePanel.Controls.Add(this.RecPayServiceAcquiredTotalText);
-            this.RecPayServicePanel.Controls.Add(this.RecPayServiceCOProdLbl);
-            this.RecPayServicePanel.Controls.Add(this.RecPayServiceAcqLbl);
-            this.RecPayServicePanel.Controls.Add(this.RecPayServiceCOProdDGV);
-            this.RecPayServicePanel.Controls.Add(this.RecPayServiceClientNameLbl);
-            this.RecPayServicePanel.Controls.Add(this.RecPayServiceTransactNumLbl);
-            this.RecPayServicePanel.Controls.Add(this.MngrPayServiceFooterPanel);
-            this.RecPayServicePanel.Controls.Add(this.RecPayServiceMethodPanel);
-            this.RecPayServicePanel.Controls.Add(this.RecPayServiceAcquiredDGV);
-            this.RecPayServicePanel.Controls.Add(this.RecPayServiceWalkinCompleteTransDGV);
+            this.RecPayServicePanel.Controls.Add(this.PaymentTabs);
             this.RecPayServicePanel.Controls.Add(this.RecPayServiceExitBtn);
             this.RecPayServicePanel.Location = new System.Drawing.Point(0, 0);
             this.RecTransactionCard.SetMinimumSize(this.RecPayServicePanel, new System.Drawing.Size(1797, 749));
@@ -8784,24 +8749,24 @@ namespace Enchante
             this.RecPayServicePanel.Size = new System.Drawing.Size(1598, 1061);
             this.RecPayServicePanel.TabIndex = 27;
             // 
-            // RecPayServiceTransTypeLbl
+            // RecPayServiceApptTransTypeLbl
             // 
-            this.RecPayServiceTransTypeLbl.AutoSize = true;
-            this.RecPayServiceTransTypeLbl.Font = new System.Drawing.Font("TechnicBold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceTransTypeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceTransTypeLbl.Location = new System.Drawing.Point(1328, 87);
-            this.RecPayServiceTransTypeLbl.Name = "RecPayServiceTransTypeLbl";
-            this.RecPayServiceTransTypeLbl.Size = new System.Drawing.Size(136, 18);
-            this.RecPayServiceTransTypeLbl.TabIndex = 148;
-            this.RecPayServiceTransTypeLbl.Text = "Transaction Type";
-            this.RecPayServiceTransTypeLbl.Visible = false;
+            this.RecPayServiceApptTransTypeLbl.AutoSize = true;
+            this.RecPayServiceApptTransTypeLbl.Font = new System.Drawing.Font("TechnicBold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecPayServiceApptTransTypeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServiceApptTransTypeLbl.Location = new System.Drawing.Point(1263, 90);
+            this.RecPayServiceApptTransTypeLbl.Name = "RecPayServiceApptTransTypeLbl";
+            this.RecPayServiceApptTransTypeLbl.Size = new System.Drawing.Size(136, 18);
+            this.RecPayServiceApptTransTypeLbl.TabIndex = 148;
+            this.RecPayServiceApptTransTypeLbl.Text = "Transaction Type";
+            this.RecPayServiceApptTransTypeLbl.Visible = false;
             // 
             // RecPayServiceApptCompleteTransLbl
             // 
             this.RecPayServiceApptCompleteTransLbl.AutoSize = true;
             this.RecPayServiceApptCompleteTransLbl.Font = new System.Drawing.Font("TechnicBold", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecPayServiceApptCompleteTransLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceApptCompleteTransLbl.Location = new System.Drawing.Point(829, 68);
+            this.RecPayServiceApptCompleteTransLbl.Location = new System.Drawing.Point(113, 68);
             this.RecPayServiceApptCompleteTransLbl.Name = "RecPayServiceApptCompleteTransLbl";
             this.RecPayServiceApptCompleteTransLbl.Size = new System.Drawing.Size(439, 41);
             this.RecPayServiceApptCompleteTransLbl.TabIndex = 147;
@@ -8816,33 +8781,33 @@ namespace Enchante
             this.RecPayServiceApptCompleteTransDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecPayServiceApptCompleteTransDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecPayServiceApptCompleteTransDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecPayServiceApptCompleteTransDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle55.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle55.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle55.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle55.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle55.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle55.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecPayServiceApptCompleteTransDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle55;
             this.RecPayServiceApptCompleteTransDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecPayServiceApptCompleteTransDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle48.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecPayServiceApptCompleteTransDGV.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle56.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle56.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle56.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle56.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle56.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecPayServiceApptCompleteTransDGV.DefaultCellStyle = dataGridViewCellStyle56;
             this.RecPayServiceApptCompleteTransDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecPayServiceApptCompleteTransDGV.Location = new System.Drawing.Point(836, 115);
+            this.RecPayServiceApptCompleteTransDGV.Location = new System.Drawing.Point(120, 119);
             this.RecPayServiceApptCompleteTransDGV.MultiSelect = false;
             this.RecPayServiceApptCompleteTransDGV.Name = "RecPayServiceApptCompleteTransDGV";
             this.RecPayServiceApptCompleteTransDGV.ReadOnly = true;
             this.RecPayServiceApptCompleteTransDGV.RowHeadersVisible = false;
             this.RecPayServiceApptCompleteTransDGV.RowHeadersWidth = 51;
             this.RecPayServiceApptCompleteTransDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.RecPayServiceApptCompleteTransDGV.Size = new System.Drawing.Size(636, 403);
+            this.RecPayServiceApptCompleteTransDGV.Size = new System.Drawing.Size(1279, 194);
             this.RecPayServiceApptCompleteTransDGV.TabIndex = 146;
             this.RecPayServiceApptCompleteTransDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecPayServiceApptCompleteTransDGV_CellClick);
             // 
@@ -8851,69 +8816,69 @@ namespace Enchante
             this.RecPayServiceWalkinCompleteTransLbl.AutoSize = true;
             this.RecPayServiceWalkinCompleteTransLbl.Font = new System.Drawing.Font("TechnicBold", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecPayServiceWalkinCompleteTransLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceWalkinCompleteTransLbl.Location = new System.Drawing.Point(139, 68);
+            this.RecPayServiceWalkinCompleteTransLbl.Location = new System.Drawing.Point(50, 42);
             this.RecPayServiceWalkinCompleteTransLbl.Name = "RecPayServiceWalkinCompleteTransLbl";
             this.RecPayServiceWalkinCompleteTransLbl.Size = new System.Drawing.Size(380, 41);
             this.RecPayServiceWalkinCompleteTransLbl.TabIndex = 145;
             this.RecPayServiceWalkinCompleteTransLbl.Text = "Walk-in  Transaction";
             // 
-            // RecPayServiceCOProdTotalText
+            // RecPayServiceWalkinCOProdTotalText
             // 
-            this.RecPayServiceCOProdTotalText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecPayServiceCOProdTotalText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecPayServiceCOProdTotalText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceCOProdTotalText.Location = new System.Drawing.Point(1254, 665);
-            this.RecPayServiceCOProdTotalText.MaxLength = 7;
-            this.RecPayServiceCOProdTotalText.Name = "RecPayServiceCOProdTotalText";
-            this.RecPayServiceCOProdTotalText.Size = new System.Drawing.Size(211, 30);
-            this.RecPayServiceCOProdTotalText.TabIndex = 144;
-            this.RecPayServiceCOProdTotalText.Text = "0";
-            this.RecPayServiceCOProdTotalText.Visible = false;
+            this.RecPayServiceWalkinCOProdTotalText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecPayServiceWalkinCOProdTotalText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecPayServiceWalkinCOProdTotalText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServiceWalkinCOProdTotalText.Location = new System.Drawing.Point(551, 642);
+            this.RecPayServiceWalkinCOProdTotalText.MaxLength = 7;
+            this.RecPayServiceWalkinCOProdTotalText.Name = "RecPayServiceWalkinCOProdTotalText";
+            this.RecPayServiceWalkinCOProdTotalText.Size = new System.Drawing.Size(211, 30);
+            this.RecPayServiceWalkinCOProdTotalText.TabIndex = 144;
+            this.RecPayServiceWalkinCOProdTotalText.Text = "0";
+            this.RecPayServiceWalkinCOProdTotalText.Visible = false;
             // 
-            // RecPayServiceAcquiredTotalText
+            // RecPayServiceWalkinAcquiredTotalText
             // 
-            this.RecPayServiceAcquiredTotalText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecPayServiceAcquiredTotalText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecPayServiceAcquiredTotalText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceAcquiredTotalText.Location = new System.Drawing.Point(578, 675);
-            this.RecPayServiceAcquiredTotalText.MaxLength = 7;
-            this.RecPayServiceAcquiredTotalText.Name = "RecPayServiceAcquiredTotalText";
-            this.RecPayServiceAcquiredTotalText.Size = new System.Drawing.Size(211, 30);
-            this.RecPayServiceAcquiredTotalText.TabIndex = 143;
-            this.RecPayServiceAcquiredTotalText.Text = "0";
-            this.RecPayServiceAcquiredTotalText.Visible = false;
+            this.RecPayServiceWalkinAcquiredTotalText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecPayServiceWalkinAcquiredTotalText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecPayServiceWalkinAcquiredTotalText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServiceWalkinAcquiredTotalText.Location = new System.Drawing.Point(551, 392);
+            this.RecPayServiceWalkinAcquiredTotalText.MaxLength = 7;
+            this.RecPayServiceWalkinAcquiredTotalText.Name = "RecPayServiceWalkinAcquiredTotalText";
+            this.RecPayServiceWalkinAcquiredTotalText.Size = new System.Drawing.Size(211, 30);
+            this.RecPayServiceWalkinAcquiredTotalText.TabIndex = 143;
+            this.RecPayServiceWalkinAcquiredTotalText.Text = "0";
+            this.RecPayServiceWalkinAcquiredTotalText.Visible = false;
             // 
             // RecPayServiceCOProdLbl
             // 
             this.RecPayServiceCOProdLbl.AutoSize = true;
             this.RecPayServiceCOProdLbl.Font = new System.Drawing.Font("TechnicBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecPayServiceCOProdLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceCOProdLbl.Location = new System.Drawing.Point(822, 675);
+            this.RecPayServiceCOProdLbl.Location = new System.Drawing.Point(53, 646);
             this.RecPayServiceCOProdLbl.Name = "RecPayServiceCOProdLbl";
-            this.RecPayServiceCOProdLbl.Size = new System.Drawing.Size(203, 20);
+            this.RecPayServiceCOProdLbl.Size = new System.Drawing.Size(190, 20);
             this.RecPayServiceCOProdLbl.TabIndex = 142;
-            this.RecPayServiceCOProdLbl.Text = "| Checked Out Product";
+            this.RecPayServiceCOProdLbl.Text = "Checked Out Product";
             // 
             // RecPayServiceAcqLbl
             // 
             this.RecPayServiceAcqLbl.AutoSize = true;
             this.RecPayServiceAcqLbl.Font = new System.Drawing.Font("TechnicBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecPayServiceAcqLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceAcqLbl.Location = new System.Drawing.Point(142, 675);
+            this.RecPayServiceAcqLbl.Location = new System.Drawing.Point(53, 402);
             this.RecPayServiceAcqLbl.Name = "RecPayServiceAcqLbl";
-            this.RecPayServiceAcqLbl.Size = new System.Drawing.Size(163, 20);
+            this.RecPayServiceAcqLbl.Size = new System.Drawing.Size(150, 20);
             this.RecPayServiceAcqLbl.TabIndex = 141;
-            this.RecPayServiceAcqLbl.Text = "| Service Acquired";
+            this.RecPayServiceAcqLbl.Text = "Service Acquired";
             // 
-            // RecPayServiceCOProdDGV
+            // RecPayServiceWalkinCOProdDGV
             // 
-            this.RecPayServiceCOProdDGV.AllowUserToAddRows = false;
-            this.RecPayServiceCOProdDGV.AllowUserToDeleteRows = false;
-            this.RecPayServiceCOProdDGV.AllowUserToResizeColumns = false;
-            this.RecPayServiceCOProdDGV.AllowUserToResizeRows = false;
-            this.RecPayServiceCOProdDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.RecPayServiceCOProdDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.RecPayServiceCOProdDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecPayServiceWalkinCOProdDGV.AllowUserToAddRows = false;
+            this.RecPayServiceWalkinCOProdDGV.AllowUserToDeleteRows = false;
+            this.RecPayServiceWalkinCOProdDGV.AllowUserToResizeColumns = false;
+            this.RecPayServiceWalkinCOProdDGV.AllowUserToResizeRows = false;
+            this.RecPayServiceWalkinCOProdDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.RecPayServiceWalkinCOProdDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.RecPayServiceWalkinCOProdDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle49.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle49.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -8921,9 +8886,9 @@ namespace Enchante
             dataGridViewCellStyle49.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             dataGridViewCellStyle49.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle49.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecPayServiceCOProdDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle49;
-            this.RecPayServiceCOProdDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RecPayServiceCOProdDGV.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RecPayServiceWalkinCOProdDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle49;
+            this.RecPayServiceWalkinCOProdDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RecPayServiceWalkinCOProdDGV.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle50.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle50.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -8931,282 +8896,78 @@ namespace Enchante
             dataGridViewCellStyle50.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             dataGridViewCellStyle50.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle50.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecPayServiceCOProdDGV.DefaultCellStyle = dataGridViewCellStyle50;
-            this.RecPayServiceCOProdDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecPayServiceCOProdDGV.Location = new System.Drawing.Point(829, 714);
-            this.RecPayServiceCOProdDGV.MultiSelect = false;
-            this.RecPayServiceCOProdDGV.Name = "RecPayServiceCOProdDGV";
-            this.RecPayServiceCOProdDGV.RowHeadersVisible = false;
-            this.RecPayServiceCOProdDGV.RowHeadersWidth = 51;
-            this.RecPayServiceCOProdDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.RecPayServiceCOProdDGV.Size = new System.Drawing.Size(636, 383);
-            this.RecPayServiceCOProdDGV.TabIndex = 140;
+            this.RecPayServiceWalkinCOProdDGV.DefaultCellStyle = dataGridViewCellStyle50;
+            this.RecPayServiceWalkinCOProdDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecPayServiceWalkinCOProdDGV.Location = new System.Drawing.Point(60, 685);
+            this.RecPayServiceWalkinCOProdDGV.MultiSelect = false;
+            this.RecPayServiceWalkinCOProdDGV.Name = "RecPayServiceWalkinCOProdDGV";
+            this.RecPayServiceWalkinCOProdDGV.RowHeadersVisible = false;
+            this.RecPayServiceWalkinCOProdDGV.RowHeadersWidth = 51;
+            this.RecPayServiceWalkinCOProdDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.RecPayServiceWalkinCOProdDGV.Size = new System.Drawing.Size(702, 162);
+            this.RecPayServiceWalkinCOProdDGV.TabIndex = 140;
             // 
-            // RecPayServiceClientNameLbl
+            // RecPayServiceWalkinClientNameLbl
             // 
-            this.RecPayServiceClientNameLbl.AutoSize = true;
-            this.RecPayServiceClientNameLbl.Font = new System.Drawing.Font("TechnicBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceClientNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceClientNameLbl.Location = new System.Drawing.Point(149, 618);
-            this.RecPayServiceClientNameLbl.Name = "RecPayServiceClientNameLbl";
-            this.RecPayServiceClientNameLbl.Size = new System.Drawing.Size(127, 20);
-            this.RecPayServiceClientNameLbl.TabIndex = 139;
-            this.RecPayServiceClientNameLbl.Text = "| Client Name";
+            this.RecPayServiceWalkinClientNameLbl.AutoSize = true;
+            this.RecPayServiceWalkinClientNameLbl.Font = new System.Drawing.Font("TechnicBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecPayServiceWalkinClientNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServiceWalkinClientNameLbl.Location = new System.Drawing.Point(821, 443);
+            this.RecPayServiceWalkinClientNameLbl.Name = "RecPayServiceWalkinClientNameLbl";
+            this.RecPayServiceWalkinClientNameLbl.Size = new System.Drawing.Size(114, 20);
+            this.RecPayServiceWalkinClientNameLbl.TabIndex = 139;
+            this.RecPayServiceWalkinClientNameLbl.Text = "Client Name";
             // 
-            // RecPayServiceTransactNumLbl
+            // RecPayServiceWalkinTransactNumLbl
             // 
-            this.RecPayServiceTransactNumLbl.AutoSize = true;
-            this.RecPayServiceTransactNumLbl.Font = new System.Drawing.Font("TechnicBold", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceTransactNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceTransactNumLbl.Location = new System.Drawing.Point(139, 567);
-            this.RecPayServiceTransactNumLbl.Name = "RecPayServiceTransactNumLbl";
-            this.RecPayServiceTransactNumLbl.Size = new System.Drawing.Size(381, 41);
-            this.RecPayServiceTransactNumLbl.TabIndex = 138;
-            this.RecPayServiceTransactNumLbl.Text = "| Transaction Number";
-            // 
-            // MngrPayServiceFooterPanel
-            // 
-            this.MngrPayServiceFooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrPayServiceFooterPanel.Controls.Add(this.MngrPayServiceFooterLbl);
-            this.MngrPayServiceFooterPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.MngrPayServiceFooterPanel.Location = new System.Drawing.Point(388, 1650);
-            this.MngrPayServiceFooterPanel.Name = "MngrPayServiceFooterPanel";
-            this.MngrPayServiceFooterPanel.Size = new System.Drawing.Size(804, 45);
-            this.MngrPayServiceFooterPanel.TabIndex = 137;
-            // 
-            // MngrPayServiceFooterLbl
-            // 
-            this.MngrPayServiceFooterLbl.AutoSize = true;
-            this.MngrPayServiceFooterLbl.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrPayServiceFooterLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.MngrPayServiceFooterLbl.Location = new System.Drawing.Point(206, 29);
-            this.MngrPayServiceFooterLbl.Name = "MngrPayServiceFooterLbl";
-            this.MngrPayServiceFooterLbl.Size = new System.Drawing.Size(362, 51);
-            this.MngrPayServiceFooterLbl.TabIndex = 20;
-            this.MngrPayServiceFooterLbl.Text = "Footer Stopper";
-            this.MngrPayServiceFooterLbl.Visible = false;
-            // 
-            // RecPayServiceMethodPanel
-            // 
-            this.RecPayServiceMethodPanel.AutoScroll = true;
-            this.RecPayServiceMethodPanel.Controls.Add(this.RecPayServiceWalletPaymentPanel);
-            this.RecPayServiceMethodPanel.Controls.Add(this.RecPayServiceCash1PaymentPanel);
-            this.RecPayServiceMethodPanel.Controls.Add(this.RecPayServiceBankPaymentPanel);
-            this.RecPayServiceMethodPanel.Controls.Add(this.RecPayServiceGCPaymentPanel);
-            this.RecPayServiceMethodPanel.Controls.Add(this.RecPayServiceCashPaymentPanel);
-            this.RecPayServiceMethodPanel.Controls.Add(this.RecPayServiceTypeText);
-            this.RecPayServiceMethodPanel.Controls.Add(this.RecPayServicePPPaymentPanel);
-            this.RecPayServiceMethodPanel.Controls.Add(this.RecPayServicePMPaymentPanel);
-            this.RecPayServiceMethodPanel.Controls.Add(this.RecPayServicePaymentButton);
-            this.RecPayServiceMethodPanel.Controls.Add(this.RecPayServiceCCPaymentPanel);
-            this.RecPayServiceMethodPanel.Controls.Add(this.RecPayServiceMethodLbl);
-            this.RecPayServiceMethodPanel.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.RecPayServiceMethodPanel.Location = new System.Drawing.Point(146, 1128);
-            this.RecPayServiceMethodPanel.Name = "RecPayServiceMethodPanel";
-            this.RecPayServiceMethodPanel.Size = new System.Drawing.Size(1322, 492);
-            this.RecPayServiceMethodPanel.TabIndex = 130;
-            // 
-            // RecPayServiceWalletPaymentPanel
-            // 
-            this.RecPayServiceWalletPaymentPanel.Controls.Add(this.RecPayServiceWalletNumLbl);
-            this.RecPayServiceWalletPaymentPanel.Controls.Add(this.RecPayServiceWalletNumText);
-            this.RecPayServiceWalletPaymentPanel.Controls.Add(this.RecPayServiceWalletNumErrorLbl);
-            this.RecPayServiceWalletPaymentPanel.Controls.Add(this.RecPayServiceWalletPINLbl);
-            this.RecPayServiceWalletPaymentPanel.Controls.Add(this.RecPayServiceWalletPINText);
-            this.RecPayServiceWalletPaymentPanel.Controls.Add(this.RecPayServiceWalletPINErrorLbl);
-            this.RecPayServiceWalletPaymentPanel.Controls.Add(this.RecPayServiceWalletOTPLbl);
-            this.RecPayServiceWalletPaymentPanel.Controls.Add(this.RecPayServiceWalletOTPErrorLbl);
-            this.RecPayServiceWalletPaymentPanel.Controls.Add(this.RecPayServiceWalletOTPText);
-            this.RecPayServiceWalletPaymentPanel.Location = new System.Drawing.Point(743, 77);
-            this.RecPayServiceWalletPaymentPanel.Name = "RecPayServiceWalletPaymentPanel";
-            this.RecPayServiceWalletPaymentPanel.Size = new System.Drawing.Size(491, 304);
-            this.RecPayServiceWalletPaymentPanel.TabIndex = 148;
-            this.RecPayServiceWalletPaymentPanel.Visible = false;
-            // 
-            // RecPayServiceWalletNumLbl
-            // 
-            this.RecPayServiceWalletNumLbl.AutoSize = true;
-            this.RecPayServiceWalletNumLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceWalletNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceWalletNumLbl.Location = new System.Drawing.Point(25, 18);
-            this.RecPayServiceWalletNumLbl.Name = "RecPayServiceWalletNumLbl";
-            this.RecPayServiceWalletNumLbl.Size = new System.Drawing.Size(206, 29);
-            this.RecPayServiceWalletNumLbl.TabIndex = 92;
-            this.RecPayServiceWalletNumLbl.Text = "Wallet Number:";
-            // 
-            // RecPayServiceWalletNumText
-            // 
-            this.RecPayServiceWalletNumText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecPayServiceWalletNumText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecPayServiceWalletNumText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceWalletNumText.Location = new System.Drawing.Point(30, 50);
-            this.RecPayServiceWalletNumText.Name = "RecPayServiceWalletNumText";
-            this.RecPayServiceWalletNumText.Size = new System.Drawing.Size(438, 30);
-            this.RecPayServiceWalletNumText.TabIndex = 93;
-            this.RecPayServiceWalletNumText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecPayServiceWalletNumText_KeyPress);
-            // 
-            // RecPayServiceWalletNumErrorLbl
-            // 
-            this.RecPayServiceWalletNumErrorLbl.AutoSize = true;
-            this.RecPayServiceWalletNumErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceWalletNumErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceWalletNumErrorLbl.Location = new System.Drawing.Point(385, 25);
-            this.RecPayServiceWalletNumErrorLbl.Name = "RecPayServiceWalletNumErrorLbl";
-            this.RecPayServiceWalletNumErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.RecPayServiceWalletNumErrorLbl.Size = new System.Drawing.Size(82, 14);
-            this.RecPayServiceWalletNumErrorLbl.TabIndex = 96;
-            this.RecPayServiceWalletNumErrorLbl.Text = "Missing Field";
-            this.RecPayServiceWalletNumErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RecPayServiceWalletNumErrorLbl.Visible = false;
-            // 
-            // RecPayServiceWalletPINLbl
-            // 
-            this.RecPayServiceWalletPINLbl.AutoSize = true;
-            this.RecPayServiceWalletPINLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceWalletPINLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceWalletPINLbl.Location = new System.Drawing.Point(25, 88);
-            this.RecPayServiceWalletPINLbl.Name = "RecPayServiceWalletPINLbl";
-            this.RecPayServiceWalletPINLbl.Size = new System.Drawing.Size(61, 29);
-            this.RecPayServiceWalletPINLbl.TabIndex = 99;
-            this.RecPayServiceWalletPINLbl.Text = "PIN:";
-            // 
-            // RecPayServiceWalletPINText
-            // 
-            this.RecPayServiceWalletPINText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecPayServiceWalletPINText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecPayServiceWalletPINText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceWalletPINText.Location = new System.Drawing.Point(30, 120);
-            this.RecPayServiceWalletPINText.Name = "RecPayServiceWalletPINText";
-            this.RecPayServiceWalletPINText.Size = new System.Drawing.Size(207, 30);
-            this.RecPayServiceWalletPINText.TabIndex = 100;
-            this.RecPayServiceWalletPINText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecPayServiceWalletPINText_KeyPress);
-            // 
-            // RecPayServiceWalletPINErrorLbl
-            // 
-            this.RecPayServiceWalletPINErrorLbl.AutoSize = true;
-            this.RecPayServiceWalletPINErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceWalletPINErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceWalletPINErrorLbl.Location = new System.Drawing.Point(152, 95);
-            this.RecPayServiceWalletPINErrorLbl.Name = "RecPayServiceWalletPINErrorLbl";
-            this.RecPayServiceWalletPINErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.RecPayServiceWalletPINErrorLbl.Size = new System.Drawing.Size(82, 14);
-            this.RecPayServiceWalletPINErrorLbl.TabIndex = 101;
-            this.RecPayServiceWalletPINErrorLbl.Text = "Missing Field";
-            this.RecPayServiceWalletPINErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RecPayServiceWalletPINErrorLbl.Visible = false;
-            // 
-            // RecPayServiceWalletOTPLbl
-            // 
-            this.RecPayServiceWalletOTPLbl.AutoSize = true;
-            this.RecPayServiceWalletOTPLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceWalletOTPLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceWalletOTPLbl.Location = new System.Drawing.Point(252, 88);
-            this.RecPayServiceWalletOTPLbl.Name = "RecPayServiceWalletOTPLbl";
-            this.RecPayServiceWalletOTPLbl.Size = new System.Drawing.Size(70, 29);
-            this.RecPayServiceWalletOTPLbl.TabIndex = 102;
-            this.RecPayServiceWalletOTPLbl.Text = "OTP:";
-            // 
-            // RecPayServiceWalletOTPErrorLbl
-            // 
-            this.RecPayServiceWalletOTPErrorLbl.AutoSize = true;
-            this.RecPayServiceWalletOTPErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceWalletOTPErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceWalletOTPErrorLbl.Location = new System.Drawing.Point(389, 95);
-            this.RecPayServiceWalletOTPErrorLbl.Name = "RecPayServiceWalletOTPErrorLbl";
-            this.RecPayServiceWalletOTPErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.RecPayServiceWalletOTPErrorLbl.Size = new System.Drawing.Size(82, 14);
-            this.RecPayServiceWalletOTPErrorLbl.TabIndex = 104;
-            this.RecPayServiceWalletOTPErrorLbl.Text = "Missing Field";
-            this.RecPayServiceWalletOTPErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RecPayServiceWalletOTPErrorLbl.Visible = false;
-            // 
-            // RecPayServiceWalletOTPText
-            // 
-            this.RecPayServiceWalletOTPText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecPayServiceWalletOTPText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecPayServiceWalletOTPText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceWalletOTPText.Location = new System.Drawing.Point(257, 120);
-            this.RecPayServiceWalletOTPText.Name = "RecPayServiceWalletOTPText";
-            this.RecPayServiceWalletOTPText.Size = new System.Drawing.Size(211, 30);
-            this.RecPayServiceWalletOTPText.TabIndex = 103;
-            this.RecPayServiceWalletOTPText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecPayServiceWalletOTPText_KeyPress);
-            // 
-            // RecPayServiceCash1PaymentPanel
-            // 
-            this.RecPayServiceCash1PaymentPanel.Controls.Add(this.RecPayServiceChangeBox);
-            this.RecPayServiceCash1PaymentPanel.Controls.Add(this.RecPayServiceCashBox);
-            this.RecPayServiceCash1PaymentPanel.Controls.Add(this.RecPayServiceVATExemptChk);
-            this.RecPayServiceCash1PaymentPanel.Controls.Add(this.RecPayServiceGrossAmountBox);
-            this.RecPayServiceCash1PaymentPanel.Controls.Add(this.RecPayServiceVATBox);
-            this.RecPayServiceCash1PaymentPanel.Controls.Add(this.RecPayServiceNetAmountBox);
-            this.RecPayServiceCash1PaymentPanel.Controls.Add(this.RecPayServiceDiscountBox);
-            this.RecPayServiceCash1PaymentPanel.Controls.Add(this.RecPayServiceCashLbl);
-            this.RecPayServiceCash1PaymentPanel.Controls.Add(this.RecPayServiceChangeLbl);
-            this.RecPayServiceCash1PaymentPanel.Controls.Add(this.RecPayServiceDiscountPWD);
-            this.RecPayServiceCash1PaymentPanel.Controls.Add(this.RecPayServiceDiscountSenior);
-            this.RecPayServiceCash1PaymentPanel.Controls.Add(this.RecPayServiceDiscountLbl);
-            this.RecPayServiceCash1PaymentPanel.Controls.Add(this.RecPayServiceNetAmountLbl);
-            this.RecPayServiceCash1PaymentPanel.Controls.Add(this.RecPayServiceVATLbl);
-            this.RecPayServiceCash1PaymentPanel.Controls.Add(this.RecPayServiceGrossAmountLbl);
-            this.RecPayServiceCash1PaymentPanel.Location = new System.Drawing.Point(263, 77);
-            this.RecPayServiceCash1PaymentPanel.Name = "RecPayServiceCash1PaymentPanel";
-            this.RecPayServiceCash1PaymentPanel.Size = new System.Drawing.Size(476, 331);
-            this.RecPayServiceCash1PaymentPanel.TabIndex = 148;
+            this.RecPayServiceWalkinTransactNumLbl.AutoSize = true;
+            this.RecPayServiceWalkinTransactNumLbl.Font = new System.Drawing.Font("TechnicBold", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecPayServiceWalkinTransactNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServiceWalkinTransactNumLbl.Location = new System.Drawing.Point(818, 402);
+            this.RecPayServiceWalkinTransactNumLbl.Name = "RecPayServiceWalkinTransactNumLbl";
+            this.RecPayServiceWalkinTransactNumLbl.Size = new System.Drawing.Size(356, 41);
+            this.RecPayServiceWalkinTransactNumLbl.TabIndex = 138;
+            this.RecPayServiceWalkinTransactNumLbl.Text = "Transaction Number";
             // 
             // RecPayServiceChangeBox
             // 
             this.RecPayServiceChangeBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecPayServiceChangeBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecPayServiceChangeBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceChangeBox.Location = new System.Drawing.Point(241, 256);
+            this.RecPayServiceChangeBox.Location = new System.Drawing.Point(1102, 718);
             this.RecPayServiceChangeBox.Name = "RecPayServiceChangeBox";
             this.RecPayServiceChangeBox.ReadOnly = true;
-            this.RecPayServiceChangeBox.Size = new System.Drawing.Size(212, 30);
+            this.RecPayServiceChangeBox.Size = new System.Drawing.Size(165, 30);
             this.RecPayServiceChangeBox.TabIndex = 8;
             this.RecPayServiceChangeBox.Text = "0.00";
-            this.RecPayServiceChangeBox.Visible = false;
+            this.RecPayServiceChangeBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // RecPayServiceCashBox
             // 
             this.RecPayServiceCashBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecPayServiceCashBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecPayServiceCashBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceCashBox.Location = new System.Drawing.Point(17, 256);
+            this.RecPayServiceCashBox.Location = new System.Drawing.Point(1102, 672);
             this.RecPayServiceCashBox.MaxLength = 7;
             this.RecPayServiceCashBox.Name = "RecPayServiceCashBox";
-            this.RecPayServiceCashBox.Size = new System.Drawing.Size(211, 30);
+            this.RecPayServiceCashBox.Size = new System.Drawing.Size(165, 30);
             this.RecPayServiceCashBox.TabIndex = 8;
             this.RecPayServiceCashBox.Text = "0";
-            this.RecPayServiceCashBox.Visible = false;
+            this.RecPayServiceCashBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.RecPayServiceCashBox.TextChanged += new System.EventHandler(this.RecWalkinCashBox_TextChanged);
-            // 
-            // RecPayServiceVATExemptChk
-            // 
-            this.RecPayServiceVATExemptChk.AutoSize = true;
-            this.RecPayServiceVATExemptChk.FlatAppearance.BorderSize = 2;
-            this.RecPayServiceVATExemptChk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecPayServiceVATExemptChk.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceVATExemptChk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceVATExemptChk.Location = new System.Drawing.Point(391, 86);
-            this.RecPayServiceVATExemptChk.Name = "RecPayServiceVATExemptChk";
-            this.RecPayServiceVATExemptChk.Size = new System.Drawing.Size(76, 32);
-            this.RecPayServiceVATExemptChk.TabIndex = 146;
-            this.RecPayServiceVATExemptChk.Text = "EXEMPT \r\nVAT";
-            this.RecPayServiceVATExemptChk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.RecPayServiceVATExemptChk.UseVisualStyleBackColor = true;
-            this.RecPayServiceVATExemptChk.CheckedChanged += new System.EventHandler(this.RecPayServiceVATExemptChk_CheckedChanged);
             // 
             // RecPayServiceGrossAmountBox
             // 
             this.RecPayServiceGrossAmountBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecPayServiceGrossAmountBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecPayServiceGrossAmountBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceGrossAmountBox.Location = new System.Drawing.Point(15, 186);
+            this.RecPayServiceGrossAmountBox.Location = new System.Drawing.Point(1102, 626);
             this.RecPayServiceGrossAmountBox.Name = "RecPayServiceGrossAmountBox";
             this.RecPayServiceGrossAmountBox.ReadOnly = true;
-            this.RecPayServiceGrossAmountBox.Size = new System.Drawing.Size(440, 30);
+            this.RecPayServiceGrossAmountBox.Size = new System.Drawing.Size(165, 30);
             this.RecPayServiceGrossAmountBox.TabIndex = 8;
             this.RecPayServiceGrossAmountBox.Text = "0.00";
+            this.RecPayServiceGrossAmountBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.RecPayServiceGrossAmountBox.TextChanged += new System.EventHandler(this.RecWalkinGrossAmountBox_TextChanged);
             // 
             // RecPayServiceVATBox
@@ -9214,119 +8975,90 @@ namespace Enchante
             this.RecPayServiceVATBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecPayServiceVATBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecPayServiceVATBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceVATBox.Location = new System.Drawing.Point(241, 119);
+            this.RecPayServiceVATBox.Location = new System.Drawing.Point(1102, 580);
             this.RecPayServiceVATBox.Name = "RecPayServiceVATBox";
             this.RecPayServiceVATBox.ReadOnly = true;
-            this.RecPayServiceVATBox.Size = new System.Drawing.Size(214, 30);
+            this.RecPayServiceVATBox.Size = new System.Drawing.Size(165, 30);
             this.RecPayServiceVATBox.TabIndex = 8;
             this.RecPayServiceVATBox.Text = "0.00";
+            this.RecPayServiceVATBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // RecPayServiceNetAmountBox
             // 
             this.RecPayServiceNetAmountBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecPayServiceNetAmountBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecPayServiceNetAmountBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceNetAmountBox.Location = new System.Drawing.Point(17, 119);
+            this.RecPayServiceNetAmountBox.Location = new System.Drawing.Point(1102, 534);
             this.RecPayServiceNetAmountBox.Name = "RecPayServiceNetAmountBox";
             this.RecPayServiceNetAmountBox.ReadOnly = true;
-            this.RecPayServiceNetAmountBox.Size = new System.Drawing.Size(211, 30);
+            this.RecPayServiceNetAmountBox.Size = new System.Drawing.Size(165, 30);
             this.RecPayServiceNetAmountBox.TabIndex = 8;
             this.RecPayServiceNetAmountBox.Text = "0.00";
+            this.RecPayServiceNetAmountBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // RecPayServiceDiscountBox
+            // RecPayServiceWalkinDiscountBox
             // 
-            this.RecPayServiceDiscountBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecPayServiceDiscountBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecPayServiceDiscountBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceDiscountBox.Location = new System.Drawing.Point(17, 49);
-            this.RecPayServiceDiscountBox.Name = "RecPayServiceDiscountBox";
-            this.RecPayServiceDiscountBox.ReadOnly = true;
-            this.RecPayServiceDiscountBox.Size = new System.Drawing.Size(438, 30);
-            this.RecPayServiceDiscountBox.TabIndex = 8;
-            this.RecPayServiceDiscountBox.Text = "0.00";
+            this.RecPayServiceWalkinDiscountBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecPayServiceWalkinDiscountBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecPayServiceWalkinDiscountBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServiceWalkinDiscountBox.Location = new System.Drawing.Point(1102, 488);
+            this.RecPayServiceWalkinDiscountBox.Name = "RecPayServiceWalkinDiscountBox";
+            this.RecPayServiceWalkinDiscountBox.ReadOnly = true;
+            this.RecPayServiceWalkinDiscountBox.Size = new System.Drawing.Size(165, 30);
+            this.RecPayServiceWalkinDiscountBox.TabIndex = 8;
+            this.RecPayServiceWalkinDiscountBox.Text = "0.00";
+            this.RecPayServiceWalkinDiscountBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // RecPayServiceCashLbl
             // 
             this.RecPayServiceCashLbl.AutoSize = true;
             this.RecPayServiceCashLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecPayServiceCashLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceCashLbl.Location = new System.Drawing.Point(10, 219);
+            this.RecPayServiceCashLbl.Location = new System.Drawing.Point(820, 668);
             this.RecPayServiceCashLbl.Name = "RecPayServiceCashLbl";
             this.RecPayServiceCashLbl.Size = new System.Drawing.Size(81, 29);
             this.RecPayServiceCashLbl.TabIndex = 36;
             this.RecPayServiceCashLbl.Text = "Cash:";
-            this.RecPayServiceCashLbl.Visible = false;
             // 
             // RecPayServiceChangeLbl
             // 
             this.RecPayServiceChangeLbl.AutoSize = true;
             this.RecPayServiceChangeLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecPayServiceChangeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceChangeLbl.Location = new System.Drawing.Point(236, 219);
+            this.RecPayServiceChangeLbl.Location = new System.Drawing.Point(822, 713);
             this.RecPayServiceChangeLbl.Name = "RecPayServiceChangeLbl";
             this.RecPayServiceChangeLbl.Size = new System.Drawing.Size(163, 29);
             this.RecPayServiceChangeLbl.TabIndex = 34;
             this.RecPayServiceChangeLbl.Text = "Change Due:";
-            this.RecPayServiceChangeLbl.Visible = false;
             // 
-            // RecPayServiceDiscountPWD
+            // RecPayServiceWalkinDiscountLbl
             // 
-            this.RecPayServiceDiscountPWD.AutoSize = true;
-            this.RecPayServiceDiscountPWD.FlatAppearance.BorderSize = 2;
-            this.RecPayServiceDiscountPWD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecPayServiceDiscountPWD.Font = new System.Drawing.Font("TechnicBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceDiscountPWD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceDiscountPWD.Location = new System.Drawing.Point(297, 19);
-            this.RecPayServiceDiscountPWD.Name = "RecPayServiceDiscountPWD";
-            this.RecPayServiceDiscountPWD.Size = new System.Drawing.Size(62, 24);
-            this.RecPayServiceDiscountPWD.TabIndex = 33;
-            this.RecPayServiceDiscountPWD.Text = "PWD";
-            this.RecPayServiceDiscountPWD.UseVisualStyleBackColor = true;
-            this.RecPayServiceDiscountPWD.CheckedChanged += new System.EventHandler(this.RecWalkinDiscountPWD_CheckedChanged);
+            this.RecPayServiceWalkinDiscountLbl.AutoSize = true;
+            this.RecPayServiceWalkinDiscountLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecPayServiceWalkinDiscountLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServiceWalkinDiscountLbl.Location = new System.Drawing.Point(820, 488);
+            this.RecPayServiceWalkinDiscountLbl.Name = "RecPayServiceWalkinDiscountLbl";
+            this.RecPayServiceWalkinDiscountLbl.Size = new System.Drawing.Size(126, 29);
+            this.RecPayServiceWalkinDiscountLbl.TabIndex = 31;
+            this.RecPayServiceWalkinDiscountLbl.Text = "Discount:";
             // 
-            // RecPayServiceDiscountSenior
+            // RecPayServiceWalkinNetAmountLbl
             // 
-            this.RecPayServiceDiscountSenior.AutoSize = true;
-            this.RecPayServiceDiscountSenior.FlatAppearance.BorderSize = 2;
-            this.RecPayServiceDiscountSenior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecPayServiceDiscountSenior.Font = new System.Drawing.Font("TechnicBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceDiscountSenior.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceDiscountSenior.Location = new System.Drawing.Point(147, 19);
-            this.RecPayServiceDiscountSenior.Name = "RecPayServiceDiscountSenior";
-            this.RecPayServiceDiscountSenior.Size = new System.Drawing.Size(146, 24);
-            this.RecPayServiceDiscountSenior.TabIndex = 32;
-            this.RecPayServiceDiscountSenior.Text = "Senior Citizen";
-            this.RecPayServiceDiscountSenior.UseVisualStyleBackColor = true;
-            this.RecPayServiceDiscountSenior.CheckedChanged += new System.EventHandler(this.RecWalkinDiscountSenior_CheckedChanged);
-            // 
-            // RecPayServiceDiscountLbl
-            // 
-            this.RecPayServiceDiscountLbl.AutoSize = true;
-            this.RecPayServiceDiscountLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceDiscountLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceDiscountLbl.Location = new System.Drawing.Point(12, 17);
-            this.RecPayServiceDiscountLbl.Name = "RecPayServiceDiscountLbl";
-            this.RecPayServiceDiscountLbl.Size = new System.Drawing.Size(126, 29);
-            this.RecPayServiceDiscountLbl.TabIndex = 31;
-            this.RecPayServiceDiscountLbl.Text = "Discount:";
-            // 
-            // RecPayServiceNetAmountLbl
-            // 
-            this.RecPayServiceNetAmountLbl.AutoSize = true;
-            this.RecPayServiceNetAmountLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceNetAmountLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceNetAmountLbl.Location = new System.Drawing.Point(10, 87);
-            this.RecPayServiceNetAmountLbl.Name = "RecPayServiceNetAmountLbl";
-            this.RecPayServiceNetAmountLbl.Size = new System.Drawing.Size(165, 29);
-            this.RecPayServiceNetAmountLbl.TabIndex = 29;
-            this.RecPayServiceNetAmountLbl.Text = "Net Amount:";
+            this.RecPayServiceWalkinNetAmountLbl.AutoSize = true;
+            this.RecPayServiceWalkinNetAmountLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecPayServiceWalkinNetAmountLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServiceWalkinNetAmountLbl.Location = new System.Drawing.Point(820, 533);
+            this.RecPayServiceWalkinNetAmountLbl.Name = "RecPayServiceWalkinNetAmountLbl";
+            this.RecPayServiceWalkinNetAmountLbl.Size = new System.Drawing.Size(165, 29);
+            this.RecPayServiceWalkinNetAmountLbl.TabIndex = 29;
+            this.RecPayServiceWalkinNetAmountLbl.Text = "Net Amount:";
             // 
             // RecPayServiceVATLbl
             // 
             this.RecPayServiceVATLbl.AutoSize = true;
             this.RecPayServiceVATLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecPayServiceVATLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceVATLbl.Location = new System.Drawing.Point(236, 87);
+            this.RecPayServiceVATLbl.Location = new System.Drawing.Point(820, 578);
             this.RecPayServiceVATLbl.Name = "RecPayServiceVATLbl";
             this.RecPayServiceVATLbl.Size = new System.Drawing.Size(149, 29);
             this.RecPayServiceVATLbl.TabIndex = 27;
@@ -9337,478 +9069,48 @@ namespace Enchante
             this.RecPayServiceGrossAmountLbl.AutoSize = true;
             this.RecPayServiceGrossAmountLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecPayServiceGrossAmountLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceGrossAmountLbl.Location = new System.Drawing.Point(10, 154);
+            this.RecPayServiceGrossAmountLbl.Location = new System.Drawing.Point(820, 623);
             this.RecPayServiceGrossAmountLbl.Name = "RecPayServiceGrossAmountLbl";
             this.RecPayServiceGrossAmountLbl.Size = new System.Drawing.Size(192, 29);
             this.RecPayServiceGrossAmountLbl.TabIndex = 23;
             this.RecPayServiceGrossAmountLbl.Text = "Gross Amount:";
             // 
-            // RecPayServiceBankPaymentPanel
+            // RecPayServiceWalkinAcquiredDGV
             // 
-            this.RecPayServiceBankPaymentPanel.Controls.Add(this.RecPayServiceCardNameLbl);
-            this.RecPayServiceBankPaymentPanel.Controls.Add(this.RecPayServiceCardNameText);
-            this.RecPayServiceBankPaymentPanel.Controls.Add(this.RecPayServiceCardNumLbl);
-            this.RecPayServiceBankPaymentPanel.Controls.Add(this.RecPayServiceCardNumText);
-            this.RecPayServiceBankPaymentPanel.Controls.Add(this.RecPayServiceCardNameErrorLbl);
-            this.RecPayServiceBankPaymentPanel.Controls.Add(this.RecPayServiceCardNumErrorLbl);
-            this.RecPayServiceBankPaymentPanel.Controls.Add(this.RecPayServiceCVCLbl);
-            this.RecPayServiceBankPaymentPanel.Controls.Add(this.RecPayServiceCVCText);
-            this.RecPayServiceBankPaymentPanel.Controls.Add(this.RecPayServiceCVCErrorLbl);
-            this.RecPayServiceBankPaymentPanel.Controls.Add(this.RecPayServiceCardExpLbl);
-            this.RecPayServiceBankPaymentPanel.Controls.Add(this.RecPayServiceCardExpErrorLbl);
-            this.RecPayServiceBankPaymentPanel.Controls.Add(this.RecPayServiceCardExpText);
-            this.RecPayServiceBankPaymentPanel.Location = new System.Drawing.Point(745, 77);
-            this.RecPayServiceBankPaymentPanel.Name = "RecPayServiceBankPaymentPanel";
-            this.RecPayServiceBankPaymentPanel.Size = new System.Drawing.Size(487, 304);
-            this.RecPayServiceBankPaymentPanel.TabIndex = 147;
-            this.RecPayServiceBankPaymentPanel.Visible = false;
-            // 
-            // RecPayServiceCardNameLbl
-            // 
-            this.RecPayServiceCardNameLbl.AutoSize = true;
-            this.RecPayServiceCardNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceCardNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceCardNameLbl.Location = new System.Drawing.Point(20, 17);
-            this.RecPayServiceCardNameLbl.Name = "RecPayServiceCardNameLbl";
-            this.RecPayServiceCardNameLbl.Size = new System.Drawing.Size(232, 29);
-            this.RecPayServiceCardNameLbl.TabIndex = 92;
-            this.RecPayServiceCardNameLbl.Text = "Cardholder Name:";
-            // 
-            // RecPayServiceCardNameText
-            // 
-            this.RecPayServiceCardNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecPayServiceCardNameText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecPayServiceCardNameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceCardNameText.Location = new System.Drawing.Point(25, 49);
-            this.RecPayServiceCardNameText.Name = "RecPayServiceCardNameText";
-            this.RecPayServiceCardNameText.Size = new System.Drawing.Size(438, 30);
-            this.RecPayServiceCardNameText.TabIndex = 93;
-            // 
-            // RecPayServiceCardNumLbl
-            // 
-            this.RecPayServiceCardNumLbl.AutoSize = true;
-            this.RecPayServiceCardNumLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceCardNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceCardNumLbl.Location = new System.Drawing.Point(20, 87);
-            this.RecPayServiceCardNumLbl.Name = "RecPayServiceCardNumLbl";
-            this.RecPayServiceCardNumLbl.Size = new System.Drawing.Size(256, 29);
-            this.RecPayServiceCardNumLbl.TabIndex = 94;
-            this.RecPayServiceCardNumLbl.Text = "Cardholder Number:";
-            // 
-            // RecPayServiceCardNumText
-            // 
-            this.RecPayServiceCardNumText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecPayServiceCardNumText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecPayServiceCardNumText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceCardNumText.Location = new System.Drawing.Point(25, 119);
-            this.RecPayServiceCardNumText.Name = "RecPayServiceCardNumText";
-            this.RecPayServiceCardNumText.Size = new System.Drawing.Size(438, 30);
-            this.RecPayServiceCardNumText.TabIndex = 95;
-            // 
-            // RecPayServiceCardNameErrorLbl
-            // 
-            this.RecPayServiceCardNameErrorLbl.AutoSize = true;
-            this.RecPayServiceCardNameErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceCardNameErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceCardNameErrorLbl.Location = new System.Drawing.Point(384, 27);
-            this.RecPayServiceCardNameErrorLbl.Name = "RecPayServiceCardNameErrorLbl";
-            this.RecPayServiceCardNameErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.RecPayServiceCardNameErrorLbl.Size = new System.Drawing.Size(82, 14);
-            this.RecPayServiceCardNameErrorLbl.TabIndex = 96;
-            this.RecPayServiceCardNameErrorLbl.Text = "Missing Field";
-            this.RecPayServiceCardNameErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RecPayServiceCardNameErrorLbl.Visible = false;
-            // 
-            // RecPayServiceCardNumErrorLbl
-            // 
-            this.RecPayServiceCardNumErrorLbl.AutoSize = true;
-            this.RecPayServiceCardNumErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceCardNumErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceCardNumErrorLbl.Location = new System.Drawing.Point(384, 95);
-            this.RecPayServiceCardNumErrorLbl.Name = "RecPayServiceCardNumErrorLbl";
-            this.RecPayServiceCardNumErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.RecPayServiceCardNumErrorLbl.Size = new System.Drawing.Size(82, 14);
-            this.RecPayServiceCardNumErrorLbl.TabIndex = 97;
-            this.RecPayServiceCardNumErrorLbl.Text = "Missing Field";
-            this.RecPayServiceCardNumErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RecPayServiceCardNumErrorLbl.Visible = false;
-            // 
-            // RecPayServiceCVCLbl
-            // 
-            this.RecPayServiceCVCLbl.AutoSize = true;
-            this.RecPayServiceCVCLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceCVCLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceCVCLbl.Location = new System.Drawing.Point(20, 154);
-            this.RecPayServiceCVCLbl.Name = "RecPayServiceCVCLbl";
-            this.RecPayServiceCVCLbl.Size = new System.Drawing.Size(71, 29);
-            this.RecPayServiceCVCLbl.TabIndex = 99;
-            this.RecPayServiceCVCLbl.Text = "CVC:";
-            // 
-            // RecPayServiceCVCText
-            // 
-            this.RecPayServiceCVCText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecPayServiceCVCText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecPayServiceCVCText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceCVCText.Location = new System.Drawing.Point(25, 186);
-            this.RecPayServiceCVCText.Name = "RecPayServiceCVCText";
-            this.RecPayServiceCVCText.Size = new System.Drawing.Size(211, 30);
-            this.RecPayServiceCVCText.TabIndex = 100;
-            // 
-            // RecPayServiceCVCErrorLbl
-            // 
-            this.RecPayServiceCVCErrorLbl.AutoSize = true;
-            this.RecPayServiceCVCErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceCVCErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceCVCErrorLbl.Location = new System.Drawing.Point(157, 161);
-            this.RecPayServiceCVCErrorLbl.Name = "RecPayServiceCVCErrorLbl";
-            this.RecPayServiceCVCErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.RecPayServiceCVCErrorLbl.Size = new System.Drawing.Size(82, 14);
-            this.RecPayServiceCVCErrorLbl.TabIndex = 101;
-            this.RecPayServiceCVCErrorLbl.Text = "Missing Field";
-            this.RecPayServiceCVCErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RecPayServiceCVCErrorLbl.Visible = false;
-            // 
-            // RecPayServiceCardExpLbl
-            // 
-            this.RecPayServiceCardExpLbl.AutoSize = true;
-            this.RecPayServiceCardExpLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceCardExpLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceCardExpLbl.Location = new System.Drawing.Point(247, 153);
-            this.RecPayServiceCardExpLbl.Name = "RecPayServiceCardExpLbl";
-            this.RecPayServiceCardExpLbl.Size = new System.Drawing.Size(148, 29);
-            this.RecPayServiceCardExpLbl.TabIndex = 102;
-            this.RecPayServiceCardExpLbl.Text = "Expiration:";
-            // 
-            // RecPayServiceCardExpErrorLbl
-            // 
-            this.RecPayServiceCardExpErrorLbl.AutoSize = true;
-            this.RecPayServiceCardExpErrorLbl.Font = new System.Drawing.Font("TechnicBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceCardExpErrorLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceCardExpErrorLbl.Location = new System.Drawing.Point(413, 155);
-            this.RecPayServiceCardExpErrorLbl.Name = "RecPayServiceCardExpErrorLbl";
-            this.RecPayServiceCardExpErrorLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.RecPayServiceCardExpErrorLbl.Size = new System.Drawing.Size(53, 28);
-            this.RecPayServiceCardExpErrorLbl.TabIndex = 104;
-            this.RecPayServiceCardExpErrorLbl.Text = "Missing \r\nField";
-            this.RecPayServiceCardExpErrorLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RecPayServiceCardExpErrorLbl.Visible = false;
-            // 
-            // RecPayServiceCardExpText
-            // 
-            this.RecPayServiceCardExpText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecPayServiceCardExpText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecPayServiceCardExpText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceCardExpText.Location = new System.Drawing.Point(252, 186);
-            this.RecPayServiceCardExpText.Name = "RecPayServiceCardExpText";
-            this.RecPayServiceCardExpText.Size = new System.Drawing.Size(211, 30);
-            this.RecPayServiceCardExpText.TabIndex = 103;
-            this.RecPayServiceCardExpText.Text = "MM/YY";
-            // 
-            // RecPayServiceGCPaymentPanel
-            // 
-            this.RecPayServiceGCPaymentPanel.Controls.Add(this.RecPayServiceGCPaymentRB);
-            this.RecPayServiceGCPaymentPanel.Controls.Add(this.RecPayServiceGCPaymentBtn);
-            this.RecPayServiceGCPaymentPanel.Location = new System.Drawing.Point(9, 245);
-            this.RecPayServiceGCPaymentPanel.Name = "RecPayServiceGCPaymentPanel";
-            this.RecPayServiceGCPaymentPanel.Size = new System.Drawing.Size(223, 50);
-            this.RecPayServiceGCPaymentPanel.TabIndex = 121;
-            // 
-            // RecPayServiceGCPaymentRB
-            // 
-            this.RecPayServiceGCPaymentRB.AutoSize = true;
-            this.RecPayServiceGCPaymentRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecPayServiceGCPaymentRB.FlatAppearance.BorderSize = 5;
-            this.RecPayServiceGCPaymentRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecPayServiceGCPaymentRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecPayServiceGCPaymentRB.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.RecPayServiceGCPaymentRB.Location = new System.Drawing.Point(196, 16);
-            this.RecPayServiceGCPaymentRB.Name = "RecPayServiceGCPaymentRB";
-            this.RecPayServiceGCPaymentRB.Size = new System.Drawing.Size(13, 12);
-            this.RecPayServiceGCPaymentRB.TabIndex = 119;
-            this.RecPayServiceGCPaymentRB.UseVisualStyleBackColor = true;
-            this.RecPayServiceGCPaymentRB.Visible = false;
-            // 
-            // RecPayServiceGCPaymentBtn
-            // 
-            this.RecPayServiceGCPaymentBtn.AutoSize = true;
-            this.RecPayServiceGCPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecPayServiceGCPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RecPayServiceGCPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.RecPayServiceGCPaymentBtn.FlatAppearance.BorderSize = 3;
-            this.RecPayServiceGCPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecPayServiceGCPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceGCPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecPayServiceGCPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.RecPayServiceGCPaymentBtn.IconColor = System.Drawing.Color.Black;
-            this.RecPayServiceGCPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecPayServiceGCPaymentBtn.Location = new System.Drawing.Point(0, 0);
-            this.RecPayServiceGCPaymentBtn.Name = "RecPayServiceGCPaymentBtn";
-            this.RecPayServiceGCPaymentBtn.Size = new System.Drawing.Size(223, 50);
-            this.RecPayServiceGCPaymentBtn.TabIndex = 106;
-            this.RecPayServiceGCPaymentBtn.Text = "GCash";
-            this.RecPayServiceGCPaymentBtn.UseVisualStyleBackColor = true;
-            this.RecPayServiceGCPaymentBtn.Click += new System.EventHandler(this.RecWalkinGCPaymentBtn_Click);
-            // 
-            // RecPayServiceCashPaymentPanel
-            // 
-            this.RecPayServiceCashPaymentPanel.Controls.Add(this.RecPayServiceCashPaymentRB);
-            this.RecPayServiceCashPaymentPanel.Controls.Add(this.RecPayServiceCashPaymentBtn);
-            this.RecPayServiceCashPaymentPanel.Location = new System.Drawing.Point(9, 77);
-            this.RecPayServiceCashPaymentPanel.Name = "RecPayServiceCashPaymentPanel";
-            this.RecPayServiceCashPaymentPanel.Size = new System.Drawing.Size(223, 50);
-            this.RecPayServiceCashPaymentPanel.TabIndex = 120;
-            // 
-            // RecPayServiceCashPaymentRB
-            // 
-            this.RecPayServiceCashPaymentRB.AutoSize = true;
-            this.RecPayServiceCashPaymentRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecPayServiceCashPaymentRB.FlatAppearance.BorderSize = 5;
-            this.RecPayServiceCashPaymentRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecPayServiceCashPaymentRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecPayServiceCashPaymentRB.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.RecPayServiceCashPaymentRB.Location = new System.Drawing.Point(196, 16);
-            this.RecPayServiceCashPaymentRB.Name = "RecPayServiceCashPaymentRB";
-            this.RecPayServiceCashPaymentRB.Size = new System.Drawing.Size(13, 12);
-            this.RecPayServiceCashPaymentRB.TabIndex = 119;
-            this.RecPayServiceCashPaymentRB.UseVisualStyleBackColor = true;
-            this.RecPayServiceCashPaymentRB.Visible = false;
-            // 
-            // RecPayServiceCashPaymentBtn
-            // 
-            this.RecPayServiceCashPaymentBtn.AutoSize = true;
-            this.RecPayServiceCashPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecPayServiceCashPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RecPayServiceCashPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.RecPayServiceCashPaymentBtn.FlatAppearance.BorderSize = 3;
-            this.RecPayServiceCashPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecPayServiceCashPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceCashPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecPayServiceCashPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.RecPayServiceCashPaymentBtn.IconColor = System.Drawing.Color.Black;
-            this.RecPayServiceCashPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecPayServiceCashPaymentBtn.Location = new System.Drawing.Point(0, 0);
-            this.RecPayServiceCashPaymentBtn.Name = "RecPayServiceCashPaymentBtn";
-            this.RecPayServiceCashPaymentBtn.Size = new System.Drawing.Size(223, 50);
-            this.RecPayServiceCashPaymentBtn.TabIndex = 106;
-            this.RecPayServiceCashPaymentBtn.Text = "Cash";
-            this.RecPayServiceCashPaymentBtn.UseVisualStyleBackColor = true;
-            this.RecPayServiceCashPaymentBtn.Click += new System.EventHandler(this.RecWalkinCashPaymentBtn_Click);
-            // 
-            // RecPayServiceTypeText
-            // 
-            this.RecPayServiceTypeText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecPayServiceTypeText.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceTypeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceTypeText.Location = new System.Drawing.Point(9, 359);
-            this.RecPayServiceTypeText.Name = "RecPayServiceTypeText";
-            this.RecPayServiceTypeText.Size = new System.Drawing.Size(223, 37);
-            this.RecPayServiceTypeText.TabIndex = 115;
-            this.RecPayServiceTypeText.Visible = false;
-            // 
-            // RecPayServicePPPaymentPanel
-            // 
-            this.RecPayServicePPPaymentPanel.Controls.Add(this.RecPayServicePPPaymentRB);
-            this.RecPayServicePPPaymentPanel.Controls.Add(this.RecPayServicePPPaymentBtn);
-            this.RecPayServicePPPaymentPanel.Location = new System.Drawing.Point(9, 189);
-            this.RecPayServicePPPaymentPanel.Name = "RecPayServicePPPaymentPanel";
-            this.RecPayServicePPPaymentPanel.Size = new System.Drawing.Size(223, 50);
-            this.RecPayServicePPPaymentPanel.TabIndex = 114;
-            // 
-            // RecPayServicePPPaymentRB
-            // 
-            this.RecPayServicePPPaymentRB.AutoSize = true;
-            this.RecPayServicePPPaymentRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecPayServicePPPaymentRB.FlatAppearance.BorderSize = 5;
-            this.RecPayServicePPPaymentRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecPayServicePPPaymentRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecPayServicePPPaymentRB.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.RecPayServicePPPaymentRB.Location = new System.Drawing.Point(196, 16);
-            this.RecPayServicePPPaymentRB.Name = "RecPayServicePPPaymentRB";
-            this.RecPayServicePPPaymentRB.Size = new System.Drawing.Size(13, 12);
-            this.RecPayServicePPPaymentRB.TabIndex = 119;
-            this.RecPayServicePPPaymentRB.UseVisualStyleBackColor = true;
-            this.RecPayServicePPPaymentRB.Visible = false;
-            // 
-            // RecPayServicePPPaymentBtn
-            // 
-            this.RecPayServicePPPaymentBtn.AutoSize = true;
-            this.RecPayServicePPPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecPayServicePPPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RecPayServicePPPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.RecPayServicePPPaymentBtn.FlatAppearance.BorderSize = 3;
-            this.RecPayServicePPPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecPayServicePPPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServicePPPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecPayServicePPPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.RecPayServicePPPaymentBtn.IconColor = System.Drawing.Color.Black;
-            this.RecPayServicePPPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecPayServicePPPaymentBtn.Location = new System.Drawing.Point(0, 0);
-            this.RecPayServicePPPaymentBtn.Name = "RecPayServicePPPaymentBtn";
-            this.RecPayServicePPPaymentBtn.Size = new System.Drawing.Size(223, 50);
-            this.RecPayServicePPPaymentBtn.TabIndex = 106;
-            this.RecPayServicePPPaymentBtn.Text = "Paypal";
-            this.RecPayServicePPPaymentBtn.UseVisualStyleBackColor = true;
-            this.RecPayServicePPPaymentBtn.Click += new System.EventHandler(this.RecWalkinPPPaymentBtn_Click);
-            // 
-            // RecPayServicePMPaymentPanel
-            // 
-            this.RecPayServicePMPaymentPanel.Controls.Add(this.RecPayServicePMPaymentRB);
-            this.RecPayServicePMPaymentPanel.Controls.Add(this.RecPayServicePMPaymentBtn);
-            this.RecPayServicePMPaymentPanel.Location = new System.Drawing.Point(9, 303);
-            this.RecPayServicePMPaymentPanel.Name = "RecPayServicePMPaymentPanel";
-            this.RecPayServicePMPaymentPanel.Size = new System.Drawing.Size(223, 50);
-            this.RecPayServicePMPaymentPanel.TabIndex = 113;
-            // 
-            // RecPayServicePMPaymentRB
-            // 
-            this.RecPayServicePMPaymentRB.AutoSize = true;
-            this.RecPayServicePMPaymentRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecPayServicePMPaymentRB.FlatAppearance.BorderSize = 5;
-            this.RecPayServicePMPaymentRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecPayServicePMPaymentRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecPayServicePMPaymentRB.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.RecPayServicePMPaymentRB.Location = new System.Drawing.Point(196, 16);
-            this.RecPayServicePMPaymentRB.Name = "RecPayServicePMPaymentRB";
-            this.RecPayServicePMPaymentRB.Size = new System.Drawing.Size(13, 12);
-            this.RecPayServicePMPaymentRB.TabIndex = 118;
-            this.RecPayServicePMPaymentRB.UseVisualStyleBackColor = true;
-            this.RecPayServicePMPaymentRB.Visible = false;
-            // 
-            // RecPayServicePMPaymentBtn
-            // 
-            this.RecPayServicePMPaymentBtn.AutoSize = true;
-            this.RecPayServicePMPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecPayServicePMPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RecPayServicePMPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.RecPayServicePMPaymentBtn.FlatAppearance.BorderSize = 3;
-            this.RecPayServicePMPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecPayServicePMPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServicePMPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecPayServicePMPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.RecPayServicePMPaymentBtn.IconColor = System.Drawing.Color.Black;
-            this.RecPayServicePMPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecPayServicePMPaymentBtn.Location = new System.Drawing.Point(0, 0);
-            this.RecPayServicePMPaymentBtn.Name = "RecPayServicePMPaymentBtn";
-            this.RecPayServicePMPaymentBtn.Size = new System.Drawing.Size(223, 50);
-            this.RecPayServicePMPaymentBtn.TabIndex = 106;
-            this.RecPayServicePMPaymentBtn.Text = "Paymaya";
-            this.RecPayServicePMPaymentBtn.UseVisualStyleBackColor = true;
-            this.RecPayServicePMPaymentBtn.Click += new System.EventHandler(this.RecWalkinPMPaymentBtn_Click);
-            // 
-            // RecPayServicePaymentButton
-            // 
-            this.RecPayServicePaymentButton.AutoSize = true;
-            this.RecPayServicePaymentButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecPayServicePaymentButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecPayServicePaymentButton.FlatAppearance.BorderSize = 3;
-            this.RecPayServicePaymentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecPayServicePaymentButton.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServicePaymentButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServicePaymentButton.IconChar = FontAwesome.Sharp.IconChar.MoneyCheck;
-            this.RecPayServicePaymentButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServicePaymentButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecPayServicePaymentButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RecPayServicePaymentButton.Location = new System.Drawing.Point(522, 414);
-            this.RecPayServicePaymentButton.Name = "RecPayServicePaymentButton";
-            this.RecPayServicePaymentButton.Size = new System.Drawing.Size(284, 60);
-            this.RecPayServicePaymentButton.TabIndex = 145;
-            this.RecPayServicePaymentButton.Text = "Pay Service / Product";
-            this.RecPayServicePaymentButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.RecPayServicePaymentButton.UseVisualStyleBackColor = true;
-            this.RecPayServicePaymentButton.Click += new System.EventHandler(this.RecPayServicePaymentButton_Click);
-            // 
-            // RecPayServiceCCPaymentPanel
-            // 
-            this.RecPayServiceCCPaymentPanel.Controls.Add(this.RecPayServiceCCPaymentRB);
-            this.RecPayServiceCCPaymentPanel.Controls.Add(this.RecPayServiceCCPaymentBtn);
-            this.RecPayServiceCCPaymentPanel.Location = new System.Drawing.Point(9, 133);
-            this.RecPayServiceCCPaymentPanel.Name = "RecPayServiceCCPaymentPanel";
-            this.RecPayServiceCCPaymentPanel.Size = new System.Drawing.Size(223, 50);
-            this.RecPayServiceCCPaymentPanel.TabIndex = 111;
-            // 
-            // RecPayServiceCCPaymentRB
-            // 
-            this.RecPayServiceCCPaymentRB.AutoSize = true;
-            this.RecPayServiceCCPaymentRB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecPayServiceCCPaymentRB.FlatAppearance.BorderSize = 5;
-            this.RecPayServiceCCPaymentRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecPayServiceCCPaymentRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecPayServiceCCPaymentRB.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.RecPayServiceCCPaymentRB.Location = new System.Drawing.Point(196, 16);
-            this.RecPayServiceCCPaymentRB.Name = "RecPayServiceCCPaymentRB";
-            this.RecPayServiceCCPaymentRB.Size = new System.Drawing.Size(13, 12);
-            this.RecPayServiceCCPaymentRB.TabIndex = 116;
-            this.RecPayServiceCCPaymentRB.UseVisualStyleBackColor = true;
-            this.RecPayServiceCCPaymentRB.Visible = false;
-            // 
-            // RecPayServiceCCPaymentBtn
-            // 
-            this.RecPayServiceCCPaymentBtn.AutoSize = true;
-            this.RecPayServiceCCPaymentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RecPayServiceCCPaymentBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RecPayServiceCCPaymentBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(212)))));
-            this.RecPayServiceCCPaymentBtn.FlatAppearance.BorderSize = 3;
-            this.RecPayServiceCCPaymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecPayServiceCCPaymentBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceCCPaymentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecPayServiceCCPaymentBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.RecPayServiceCCPaymentBtn.IconColor = System.Drawing.Color.Black;
-            this.RecPayServiceCCPaymentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecPayServiceCCPaymentBtn.Location = new System.Drawing.Point(0, 0);
-            this.RecPayServiceCCPaymentBtn.Name = "RecPayServiceCCPaymentBtn";
-            this.RecPayServiceCCPaymentBtn.Size = new System.Drawing.Size(223, 50);
-            this.RecPayServiceCCPaymentBtn.TabIndex = 106;
-            this.RecPayServiceCCPaymentBtn.Text = "Credit Card";
-            this.RecPayServiceCCPaymentBtn.UseVisualStyleBackColor = true;
-            this.RecPayServiceCCPaymentBtn.Click += new System.EventHandler(this.RecWalkinCCPaymentBtn_Click);
-            // 
-            // RecPayServiceMethodLbl
-            // 
-            this.RecPayServiceMethodLbl.AutoSize = true;
-            this.RecPayServiceMethodLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecPayServiceMethodLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceMethodLbl.Location = new System.Drawing.Point(3, 11);
-            this.RecPayServiceMethodLbl.Name = "RecPayServiceMethodLbl";
-            this.RecPayServiceMethodLbl.Size = new System.Drawing.Size(252, 35);
-            this.RecPayServiceMethodLbl.TabIndex = 126;
-            this.RecPayServiceMethodLbl.Text = "Payment Method";
-            // 
-            // RecPayServiceAcquiredDGV
-            // 
-            this.RecPayServiceAcquiredDGV.AllowUserToAddRows = false;
-            this.RecPayServiceAcquiredDGV.AllowUserToDeleteRows = false;
-            this.RecPayServiceAcquiredDGV.AllowUserToResizeColumns = false;
-            this.RecPayServiceAcquiredDGV.AllowUserToResizeRows = false;
-            this.RecPayServiceAcquiredDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.RecPayServiceAcquiredDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.RecPayServiceAcquiredDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle51.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle51.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle51.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle51.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecPayServiceAcquiredDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle51;
-            this.RecPayServiceAcquiredDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RecPayServiceAcquiredDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle52.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle52.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle52.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle52.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecPayServiceAcquiredDGV.DefaultCellStyle = dataGridViewCellStyle52;
-            this.RecPayServiceAcquiredDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecPayServiceAcquiredDGV.Location = new System.Drawing.Point(153, 714);
-            this.RecPayServiceAcquiredDGV.MultiSelect = false;
-            this.RecPayServiceAcquiredDGV.Name = "RecPayServiceAcquiredDGV";
-            this.RecPayServiceAcquiredDGV.RowHeadersVisible = false;
-            this.RecPayServiceAcquiredDGV.RowHeadersWidth = 51;
-            this.RecPayServiceAcquiredDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.RecPayServiceAcquiredDGV.Size = new System.Drawing.Size(636, 383);
-            this.RecPayServiceAcquiredDGV.TabIndex = 102;
+            this.RecPayServiceWalkinAcquiredDGV.AllowUserToAddRows = false;
+            this.RecPayServiceWalkinAcquiredDGV.AllowUserToDeleteRows = false;
+            this.RecPayServiceWalkinAcquiredDGV.AllowUserToResizeColumns = false;
+            this.RecPayServiceWalkinAcquiredDGV.AllowUserToResizeRows = false;
+            this.RecPayServiceWalkinAcquiredDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.RecPayServiceWalkinAcquiredDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.RecPayServiceWalkinAcquiredDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle47.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecPayServiceWalkinAcquiredDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle47;
+            this.RecPayServiceWalkinAcquiredDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RecPayServiceWalkinAcquiredDGV.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle48.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle48.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecPayServiceWalkinAcquiredDGV.DefaultCellStyle = dataGridViewCellStyle48;
+            this.RecPayServiceWalkinAcquiredDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecPayServiceWalkinAcquiredDGV.Location = new System.Drawing.Point(57, 437);
+            this.RecPayServiceWalkinAcquiredDGV.MultiSelect = false;
+            this.RecPayServiceWalkinAcquiredDGV.Name = "RecPayServiceWalkinAcquiredDGV";
+            this.RecPayServiceWalkinAcquiredDGV.RowHeadersVisible = false;
+            this.RecPayServiceWalkinAcquiredDGV.RowHeadersWidth = 51;
+            this.RecPayServiceWalkinAcquiredDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.RecPayServiceWalkinAcquiredDGV.Size = new System.Drawing.Size(702, 162);
+            this.RecPayServiceWalkinAcquiredDGV.TabIndex = 102;
             // 
             // RecPayServiceWalkinCompleteTransDGV
             // 
@@ -9819,33 +9121,33 @@ namespace Enchante
             this.RecPayServiceWalkinCompleteTransDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecPayServiceWalkinCompleteTransDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecPayServiceWalkinCompleteTransDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle53.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle53.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle53.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle53.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle53.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecPayServiceWalkinCompleteTransDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle53;
+            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle51.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle51.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle51.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle51.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecPayServiceWalkinCompleteTransDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle51;
             this.RecPayServiceWalkinCompleteTransDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecPayServiceWalkinCompleteTransDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle54.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle54.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle54.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle54.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle54.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle54.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecPayServiceWalkinCompleteTransDGV.DefaultCellStyle = dataGridViewCellStyle54;
+            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle52.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle52.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle52.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle52.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecPayServiceWalkinCompleteTransDGV.DefaultCellStyle = dataGridViewCellStyle52;
             this.RecPayServiceWalkinCompleteTransDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecPayServiceWalkinCompleteTransDGV.Location = new System.Drawing.Point(146, 115);
+            this.RecPayServiceWalkinCompleteTransDGV.Location = new System.Drawing.Point(57, 117);
             this.RecPayServiceWalkinCompleteTransDGV.MultiSelect = false;
             this.RecPayServiceWalkinCompleteTransDGV.Name = "RecPayServiceWalkinCompleteTransDGV";
             this.RecPayServiceWalkinCompleteTransDGV.ReadOnly = true;
             this.RecPayServiceWalkinCompleteTransDGV.RowHeadersVisible = false;
             this.RecPayServiceWalkinCompleteTransDGV.RowHeadersWidth = 51;
             this.RecPayServiceWalkinCompleteTransDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.RecPayServiceWalkinCompleteTransDGV.Size = new System.Drawing.Size(636, 403);
+            this.RecPayServiceWalkinCompleteTransDGV.Size = new System.Drawing.Size(1267, 234);
             this.RecPayServiceWalkinCompleteTransDGV.TabIndex = 99;
             this.RecPayServiceWalkinCompleteTransDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecPayServiceCompleteTransDGV_CellClick);
             // 
@@ -10305,7 +9607,7 @@ namespace Enchante
             this.RecWalkinProdCOBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RecWalkinProdCOBtn.Font = new System.Drawing.Font("TechnicBold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecWalkinProdCOBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinProdCOBtn.Location = new System.Drawing.Point(594, 892);
+            this.RecWalkinProdCOBtn.Location = new System.Drawing.Point(594, 791);
             this.RecWalkinProdCOBtn.Name = "RecWalkinProdCOBtn";
             this.RecWalkinProdCOBtn.Size = new System.Drawing.Size(327, 20);
             this.RecWalkinProdCOBtn.TabIndex = 175;
@@ -10332,8 +9634,9 @@ namespace Enchante
             // 
             this.RecWalkinBookTransactBtn.AutoRoundedCorners = true;
             this.RecWalkinBookTransactBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecWalkinBookTransactBtn.BorderRadius = 22;
+            this.RecWalkinBookTransactBtn.BorderRadius = 16;
             this.RecWalkinBookTransactBtn.BorderThickness = 2;
+            this.RecWalkinBookTransactBtn.DefaultAutoSize = true;
             this.RecWalkinBookTransactBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.RecWalkinBookTransactBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.RecWalkinBookTransactBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -10343,10 +9646,10 @@ namespace Enchante
             this.RecWalkinBookTransactBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecWalkinBookTransactBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecWalkinBookTransactBtn.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinBookTransactBtn.Location = new System.Drawing.Point(603, 810);
+            this.RecWalkinBookTransactBtn.Location = new System.Drawing.Point(652, 860);
             this.RecWalkinBookTransactBtn.Name = "RecWalkinBookTransactBtn";
             this.RecWalkinBookTransactBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinBookTransactBtn.Size = new System.Drawing.Size(309, 47);
+            this.RecWalkinBookTransactBtn.Size = new System.Drawing.Size(210, 34);
             this.RecWalkinBookTransactBtn.TabIndex = 174;
             this.RecWalkinBookTransactBtn.Text = "CONFIRM BOOKING";
             this.RecWalkinBookTransactBtn.Click += new System.EventHandler(this.RecWalkinBookTransactBtn_Click);
@@ -10408,7 +9711,7 @@ namespace Enchante
             this.RecWalkinSearchServiceTypeBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.RecWalkinSearchServiceTypeBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.RecWalkinSearchServiceTypeBtn.IconSize = 25;
-            this.RecWalkinSearchServiceTypeBtn.Location = new System.Drawing.Point(687, 472);
+            this.RecWalkinSearchServiceTypeBtn.Location = new System.Drawing.Point(700, 472);
             this.RecWalkinSearchServiceTypeBtn.Name = "RecWalkinSearchServiceTypeBtn";
             this.RecWalkinSearchServiceTypeBtn.Size = new System.Drawing.Size(35, 31);
             this.RecWalkinSearchServiceTypeBtn.TabIndex = 133;
@@ -10479,26 +9782,26 @@ namespace Enchante
             this.RecWalkInServiceTypeDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecWalkInServiceTypeDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecWalkInServiceTypeDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle55.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle55.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle55.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle55.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle55.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle55.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecWalkInServiceTypeDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle57.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle57.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle57.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle57.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle57.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecWalkInServiceTypeDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle57;
             this.RecWalkInServiceTypeDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecWalkInServiceTypeDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle56.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle56.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle56.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle56.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle56.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecWalkInServiceTypeDGV.DefaultCellStyle = dataGridViewCellStyle56;
+            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle58.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle58.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle58.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle58.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle58.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecWalkInServiceTypeDGV.DefaultCellStyle = dataGridViewCellStyle58;
             this.RecWalkInServiceTypeDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecWalkInServiceTypeDGV.Location = new System.Drawing.Point(109, 524);
+            this.RecWalkInServiceTypeDGV.Location = new System.Drawing.Point(122, 524);
             this.RecWalkInServiceTypeDGV.Name = "RecWalkInServiceTypeDGV";
             this.RecWalkInServiceTypeDGV.ReadOnly = true;
             this.RecWalkInServiceTypeDGV.RowHeadersVisible = false;
@@ -10554,9 +9857,11 @@ namespace Enchante
             // 
             // RecWalkinSelectServiceAndStaffBtn
             // 
+            this.RecWalkinSelectServiceAndStaffBtn.AutoRoundedCorners = true;
             this.RecWalkinSelectServiceAndStaffBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecWalkinSelectServiceAndStaffBtn.BorderRadius = 20;
+            this.RecWalkinSelectServiceAndStaffBtn.BorderRadius = 13;
             this.RecWalkinSelectServiceAndStaffBtn.BorderThickness = 2;
+            this.RecWalkinSelectServiceAndStaffBtn.DefaultAutoSize = true;
             this.RecWalkinSelectServiceAndStaffBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.RecWalkinSelectServiceAndStaffBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.RecWalkinSelectServiceAndStaffBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -10564,9 +9869,9 @@ namespace Enchante
             this.RecWalkinSelectServiceAndStaffBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecWalkinSelectServiceAndStaffBtn.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecWalkinSelectServiceAndStaffBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinSelectServiceAndStaffBtn.Location = new System.Drawing.Point(109, 769);
+            this.RecWalkinSelectServiceAndStaffBtn.Location = new System.Drawing.Point(122, 768);
             this.RecWalkinSelectServiceAndStaffBtn.Name = "RecWalkinSelectServiceAndStaffBtn";
-            this.RecWalkinSelectServiceAndStaffBtn.Size = new System.Drawing.Size(100, 47);
+            this.RecWalkinSelectServiceAndStaffBtn.Size = new System.Drawing.Size(61, 29);
             this.RecWalkinSelectServiceAndStaffBtn.TabIndex = 173;
             this.RecWalkinSelectServiceAndStaffBtn.Text = "ADD";
             this.RecWalkinSelectServiceAndStaffBtn.Visible = false;
@@ -10592,14 +9897,14 @@ namespace Enchante
             this.RecWalkinSelectedServiceDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecWalkinSelectedServiceDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecWalkinSelectedServiceDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle57.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle57.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle57.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle57.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle57.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecWalkinSelectedServiceDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle57;
+            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle59.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle59.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle59.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle59.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle59.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecWalkinSelectedServiceDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle59;
             this.RecWalkinSelectedServiceDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecWalkinSelectedServiceDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.WalkinServiceVoid,
@@ -10611,16 +9916,16 @@ namespace Enchante
             this.QueNumber,
             this.QueType});
             this.RecWalkinSelectedServiceDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle58.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle58.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle58.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle58.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle58.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecWalkinSelectedServiceDGV.DefaultCellStyle = dataGridViewCellStyle58;
+            dataGridViewCellStyle60.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle60.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle60.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle60.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle60.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle60.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecWalkinSelectedServiceDGV.DefaultCellStyle = dataGridViewCellStyle60;
             this.RecWalkinSelectedServiceDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecWalkinSelectedServiceDGV.Location = new System.Drawing.Point(757, 472);
+            this.RecWalkinSelectedServiceDGV.Location = new System.Drawing.Point(770, 472);
             this.RecWalkinSelectedServiceDGV.Name = "RecWalkinSelectedServiceDGV";
             this.RecWalkinSelectedServiceDGV.ReadOnly = true;
             this.RecWalkinSelectedServiceDGV.RowHeadersVisible = false;
@@ -10736,7 +10041,7 @@ namespace Enchante
             this.RecWalkinSearchServiceTypeText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecWalkinSearchServiceTypeText.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecWalkinSearchServiceTypeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinSearchServiceTypeText.Location = new System.Drawing.Point(109, 469);
+            this.RecWalkinSearchServiceTypeText.Location = new System.Drawing.Point(122, 470);
             this.RecWalkinSearchServiceTypeText.Name = "RecWalkinSearchServiceTypeText";
             this.RecWalkinSearchServiceTypeText.Size = new System.Drawing.Size(622, 37);
             this.RecWalkinSearchServiceTypeText.TabIndex = 132;
@@ -10952,20 +10257,22 @@ namespace Enchante
             // 
             // RecWalkinCheckoutBtn
             // 
+            this.RecWalkinCheckoutBtn.AutoRoundedCorners = true;
             this.RecWalkinCheckoutBtn.BackColor = System.Drawing.Color.Transparent;
             this.RecWalkinCheckoutBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecWalkinCheckoutBtn.BorderRadius = 20;
+            this.RecWalkinCheckoutBtn.BorderRadius = 16;
             this.RecWalkinCheckoutBtn.BorderThickness = 2;
+            this.RecWalkinCheckoutBtn.DefaultAutoSize = true;
             this.RecWalkinCheckoutBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.RecWalkinCheckoutBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.RecWalkinCheckoutBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.RecWalkinCheckoutBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.RecWalkinCheckoutBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecWalkinCheckoutBtn.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecWalkinCheckoutBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecWalkinCheckoutBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecWalkinCheckoutBtn.Location = new System.Drawing.Point(1050, 623);
+            this.RecWalkinCheckoutBtn.Location = new System.Drawing.Point(1048, 623);
             this.RecWalkinCheckoutBtn.Name = "RecWalkinCheckoutBtn";
-            this.RecWalkinCheckoutBtn.Size = new System.Drawing.Size(182, 47);
+            this.RecWalkinCheckoutBtn.Size = new System.Drawing.Size(174, 34);
             this.RecWalkinCheckoutBtn.TabIndex = 178;
             this.RecWalkinCheckoutBtn.Text = "Checkout Items";
             this.RecWalkinCheckoutBtn.Click += new System.EventHandler(this.RecWalkinCheckoutBtn_Click);
@@ -11054,26 +10361,26 @@ namespace Enchante
             this.RecWalkinSelectedProdDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecWalkinSelectedProdDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecWalkinSelectedProdDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle59.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle59.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle59.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle59.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle59.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecWalkinSelectedProdDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle59;
+            dataGridViewCellStyle61.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle61.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle61.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle61.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle61.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle61.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle61.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecWalkinSelectedProdDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle61;
             this.RecWalkinSelectedProdDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecWalkinSelectedProdDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.OrderProdItemID});
             this.RecWalkinSelectedProdDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle60.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle60.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle60.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle60.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle60.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle60.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecWalkinSelectedProdDGV.DefaultCellStyle = dataGridViewCellStyle60;
+            dataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle62.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle62.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle62.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle62.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle62.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle62.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecWalkinSelectedProdDGV.DefaultCellStyle = dataGridViewCellStyle62;
             this.RecWalkinSelectedProdDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecWalkinSelectedProdDGV.Location = new System.Drawing.Point(874, 162);
             this.RecWalkinSelectedProdDGV.Name = "RecWalkinSelectedProdDGV";
@@ -11247,14 +10554,14 @@ namespace Enchante
             this.RecQueStartInventoryDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecQueStartInventoryDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecQueStartInventoryDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle61.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle61.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle61.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle61.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle61.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle61.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle61.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecQueStartInventoryDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle61;
+            dataGridViewCellStyle63.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle63.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle63.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle63.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle63.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle63.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle63.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecQueStartInventoryDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle63;
             this.RecQueStartInventoryDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecQueStartInventoryDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RecStaffItemID,
@@ -11263,14 +10570,14 @@ namespace Enchante
             this.RecStaffItemStock,
             this.RecStaffItemStatus});
             this.RecQueStartInventoryDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle62.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle62.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle62.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle62.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle62.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle62.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecQueStartInventoryDGV.DefaultCellStyle = dataGridViewCellStyle62;
+            dataGridViewCellStyle64.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle64.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle64.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle64.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle64.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle64.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle64.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecQueStartInventoryDGV.DefaultCellStyle = dataGridViewCellStyle64;
             this.RecQueStartInventoryDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecQueStartInventoryDGV.Location = new System.Drawing.Point(89, 972);
             this.RecQueStartInventoryDGV.Name = "RecQueStartInventoryDGV";
@@ -11438,14 +10745,14 @@ namespace Enchante
             this.RecQueStartStaffDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecQueStartStaffDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecQueStartStaffDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle63.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle63.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle63.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle63.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle63.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle63.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle63.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecQueStartStaffDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle63;
+            dataGridViewCellStyle65.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle65.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle65.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle65.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle65.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle65.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle65.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecQueStartStaffDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle65;
             this.RecQueStartStaffDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecQueStartStaffDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.StaffName,
@@ -11453,14 +10760,14 @@ namespace Enchante
             this.StaffGender,
             this.StaffEmployeeID});
             this.RecQueStartStaffDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle64.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle64.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle64.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle64.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle64.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle64.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle64.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecQueStartStaffDGV.DefaultCellStyle = dataGridViewCellStyle64;
+            dataGridViewCellStyle66.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle66.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle66.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle66.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle66.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle66.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle66.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecQueStartStaffDGV.DefaultCellStyle = dataGridViewCellStyle66;
             this.RecQueStartStaffDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecQueStartStaffDGV.Location = new System.Drawing.Point(94, 182);
             this.RecQueStartStaffDGV.Name = "RecQueStartStaffDGV";
@@ -11758,16 +11065,16 @@ namespace Enchante
             // 
             this.StaffPersonalInventoryDataGrid.AllowUserToAddRows = false;
             this.StaffPersonalInventoryDataGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle65.BackColor = System.Drawing.Color.White;
-            this.StaffPersonalInventoryDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle65;
-            dataGridViewCellStyle66.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle66.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            dataGridViewCellStyle66.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle66.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle66.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            dataGridViewCellStyle66.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle66.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.StaffPersonalInventoryDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle66;
+            dataGridViewCellStyle67.BackColor = System.Drawing.Color.White;
+            this.StaffPersonalInventoryDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle67;
+            dataGridViewCellStyle68.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle68.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            dataGridViewCellStyle68.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle68.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle68.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            dataGridViewCellStyle68.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle68.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.StaffPersonalInventoryDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle68;
             this.StaffPersonalInventoryDataGrid.ColumnHeadersHeight = 15;
             this.StaffPersonalInventoryDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.StaffPersonalInventoryDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -11775,14 +11082,14 @@ namespace Enchante
             this.dataGridViewTextBoxColumn6,
             this.StaffItemStock,
             this.dataGridViewTextBoxColumn8});
-            dataGridViewCellStyle67.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle67.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle67.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle67.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle67.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle67.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle67.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.StaffPersonalInventoryDataGrid.DefaultCellStyle = dataGridViewCellStyle67;
+            dataGridViewCellStyle69.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle69.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle69.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle69.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle69.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle69.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle69.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.StaffPersonalInventoryDataGrid.DefaultCellStyle = dataGridViewCellStyle69;
             this.StaffPersonalInventoryDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.StaffPersonalInventoryDataGrid.Location = new System.Drawing.Point(766, 69);
             this.StaffPersonalInventoryDataGrid.Name = "StaffPersonalInventoryDataGrid";
@@ -11840,16 +11147,16 @@ namespace Enchante
             // 
             this.StaffInventoryDataGrid.AllowUserToAddRows = false;
             this.StaffInventoryDataGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle68.BackColor = System.Drawing.Color.White;
-            this.StaffInventoryDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle68;
-            dataGridViewCellStyle69.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle69.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            dataGridViewCellStyle69.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle69.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle69.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            dataGridViewCellStyle69.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle69.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.StaffInventoryDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle69;
+            dataGridViewCellStyle70.BackColor = System.Drawing.Color.White;
+            this.StaffInventoryDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle70;
+            dataGridViewCellStyle71.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle71.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            dataGridViewCellStyle71.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle71.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle71.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            dataGridViewCellStyle71.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle71.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.StaffInventoryDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle71;
             this.StaffInventoryDataGrid.ColumnHeadersHeight = 15;
             this.StaffInventoryDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.StaffInventoryDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -11857,14 +11164,14 @@ namespace Enchante
             this.ItemName,
             this.ItemStock,
             this.ItemStatus});
-            dataGridViewCellStyle70.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle70.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle70.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle70.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle70.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle70.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle70.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.StaffInventoryDataGrid.DefaultCellStyle = dataGridViewCellStyle70;
+            dataGridViewCellStyle72.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle72.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle72.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle72.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle72.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle72.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle72.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.StaffInventoryDataGrid.DefaultCellStyle = dataGridViewCellStyle72;
             this.StaffInventoryDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.StaffInventoryDataGrid.Location = new System.Drawing.Point(32, 69);
             this.StaffInventoryDataGrid.Name = "StaffInventoryDataGrid";
@@ -11993,7 +11300,7 @@ namespace Enchante
             // 
             this.RecTransactionCard.ContainerControl = this.ReceptionCreateTransactPanel;
             this.RecTransactionCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.RecTransactionCard.SelectedCard = "ShopProd";
+            this.RecTransactionCard.SelectedCard = "Payment";
             // 
             // DateTimePickerTimer
             // 
@@ -12079,6 +11386,470 @@ namespace Enchante
             this.guna2GradientPanel2.Name = "guna2GradientPanel2";
             this.guna2GradientPanel2.Size = new System.Drawing.Size(1518, 795);
             this.guna2GradientPanel2.TabIndex = 206;
+            // 
+            // PaymentTabs
+            // 
+            this.PaymentTabs.Controls.Add(this.PaymentWalkinTab);
+            this.PaymentTabs.Controls.Add(this.PaymentApptTab);
+            this.PaymentTabs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PaymentTabs.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PaymentTabs.ItemSize = new System.Drawing.Size(180, 60);
+            this.PaymentTabs.Location = new System.Drawing.Point(0, 0);
+            this.PaymentTabs.Name = "PaymentTabs";
+            this.PaymentTabs.SelectedIndex = 0;
+            this.PaymentTabs.Size = new System.Drawing.Size(1598, 1061);
+            this.PaymentTabs.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
+            this.PaymentTabs.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PaymentTabs.TabButtonHoverState.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PaymentTabs.TabButtonHoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PaymentTabs.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PaymentTabs.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty;
+            this.PaymentTabs.TabButtonIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PaymentTabs.TabButtonIdleState.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PaymentTabs.TabButtonIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PaymentTabs.TabButtonIdleState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PaymentTabs.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty;
+            this.PaymentTabs.TabButtonSelectedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PaymentTabs.TabButtonSelectedState.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PaymentTabs.TabButtonSelectedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PaymentTabs.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.PaymentTabs.TabButtonSize = new System.Drawing.Size(180, 60);
+            this.PaymentTabs.TabIndex = 178;
+            this.PaymentTabs.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PaymentTabs.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop;
+            // 
+            // PaymentWalkinTab
+            // 
+            this.PaymentWalkinTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PaymentWalkinTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PaymentWalkinTab.Controls.Add(this.guna2GradientPanel3);
+            this.PaymentWalkinTab.Location = new System.Drawing.Point(4, 64);
+            this.PaymentWalkinTab.Name = "PaymentWalkinTab";
+            this.PaymentWalkinTab.Padding = new System.Windows.Forms.Padding(3);
+            this.PaymentWalkinTab.Size = new System.Drawing.Size(1590, 993);
+            this.PaymentWalkinTab.TabIndex = 0;
+            this.PaymentWalkinTab.Text = "Walk-in Transactions";
+            // 
+            // PaymentApptTab
+            // 
+            this.PaymentApptTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PaymentApptTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PaymentApptTab.Controls.Add(this.guna2GradientPanel4);
+            this.PaymentApptTab.Location = new System.Drawing.Point(4, 64);
+            this.PaymentApptTab.Name = "PaymentApptTab";
+            this.PaymentApptTab.Padding = new System.Windows.Forms.Padding(3);
+            this.PaymentApptTab.Size = new System.Drawing.Size(1590, 993);
+            this.PaymentApptTab.TabIndex = 1;
+            this.PaymentApptTab.Text = "Appointment Transactions";
+            this.PaymentApptTab.Click += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.ForeColor = System.Drawing.Color.Transparent;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.Location = new System.Drawing.Point(24, 27);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(48, 48);
+            this.iconButton1.TabIndex = 43;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Visible = false;
+            // 
+            // guna2GradientPanel4
+            // 
+            this.guna2GradientPanel4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.guna2GradientPanel4.BorderRadius = 3;
+            this.guna2GradientPanel4.BorderThickness = 3;
+            this.guna2GradientPanel4.Controls.Add(this.RecPayServiceApptPaymentButton);
+            this.guna2GradientPanel4.Controls.Add(this.textBox3);
+            this.guna2GradientPanel4.Controls.Add(this.textBox11);
+            this.guna2GradientPanel4.Controls.Add(this.textBox5);
+            this.guna2GradientPanel4.Controls.Add(this.textBox10);
+            this.guna2GradientPanel4.Controls.Add(this.textBox6);
+            this.guna2GradientPanel4.Controls.Add(this.textBox7);
+            this.guna2GradientPanel4.Controls.Add(this.RecPayServiceApptTransactNumLbl);
+            this.guna2GradientPanel4.Controls.Add(this.textBox8);
+            this.guna2GradientPanel4.Controls.Add(this.textBox9);
+            this.guna2GradientPanel4.Controls.Add(this.label18);
+            this.guna2GradientPanel4.Controls.Add(this.label9);
+            this.guna2GradientPanel4.Controls.Add(this.label10);
+            this.guna2GradientPanel4.Controls.Add(this.RecPayServiceApptClientNameLbl);
+            this.guna2GradientPanel4.Controls.Add(this.label12);
+            this.guna2GradientPanel4.Controls.Add(this.label13);
+            this.guna2GradientPanel4.Controls.Add(this.label17);
+            this.guna2GradientPanel4.Controls.Add(this.label14);
+            this.guna2GradientPanel4.Controls.Add(this.label15);
+            this.guna2GradientPanel4.Controls.Add(this.RecPayServiceApptAcquiredTotalText);
+            this.guna2GradientPanel4.Controls.Add(this.label5);
+            this.guna2GradientPanel4.Controls.Add(this.RecPayServiceApptAcquiredDGV);
+            this.guna2GradientPanel4.Controls.Add(this.RecPayServiceApptTransTypeLbl);
+            this.guna2GradientPanel4.Controls.Add(this.iconButton1);
+            this.guna2GradientPanel4.Controls.Add(this.RecPayServiceApptCompleteTransLbl);
+            this.guna2GradientPanel4.Controls.Add(this.RecPayServiceApptCompleteTransDGV);
+            this.guna2GradientPanel4.Location = new System.Drawing.Point(36, 38);
+            this.guna2GradientPanel4.Name = "guna2GradientPanel4";
+            this.guna2GradientPanel4.Size = new System.Drawing.Size(1514, 912);
+            this.guna2GradientPanel4.TabIndex = 205;
+            // 
+            // guna2GradientPanel3
+            // 
+            this.guna2GradientPanel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.guna2GradientPanel3.BorderRadius = 3;
+            this.guna2GradientPanel3.BorderThickness = 3;
+            this.guna2GradientPanel3.Controls.Add(this.RecPayServiceWalkinPaymentButton);
+            this.guna2GradientPanel3.Controls.Add(this.RecPayServiceChangeBox);
+            this.guna2GradientPanel3.Controls.Add(this.RecPayServiceWalkinCOProdTotalText);
+            this.guna2GradientPanel3.Controls.Add(this.RecPayServiceCashBox);
+            this.guna2GradientPanel3.Controls.Add(this.RecPayServiceWalkinAcquiredTotalText);
+            this.guna2GradientPanel3.Controls.Add(this.RecPayServiceGrossAmountBox);
+            this.guna2GradientPanel3.Controls.Add(this.RecPayServiceCOProdLbl);
+            this.guna2GradientPanel3.Controls.Add(this.RecPayServiceVATBox);
+            this.guna2GradientPanel3.Controls.Add(this.RecPayServiceWalkinTransactNumLbl);
+            this.guna2GradientPanel3.Controls.Add(this.RecPayServiceNetAmountBox);
+            this.guna2GradientPanel3.Controls.Add(this.RecPayServiceAcqLbl);
+            this.guna2GradientPanel3.Controls.Add(this.RecPayServiceWalkinDiscountBox);
+            this.guna2GradientPanel3.Controls.Add(this.RecPayServiceWalkinAcquiredDGV);
+            this.guna2GradientPanel3.Controls.Add(this.RecPayServiceCashLbl);
+            this.guna2GradientPanel3.Controls.Add(this.RecPayServiceChangeLbl);
+            this.guna2GradientPanel3.Controls.Add(this.RecPayServiceWalkinCOProdDGV);
+            this.guna2GradientPanel3.Controls.Add(this.RecPayServiceWalkinClientNameLbl);
+            this.guna2GradientPanel3.Controls.Add(this.RecPayServiceWalkinDiscountLbl);
+            this.guna2GradientPanel3.Controls.Add(this.RecPayServiceWalkinNetAmountLbl);
+            this.guna2GradientPanel3.Controls.Add(this.RecPayServiceWalkinCompleteTransLbl);
+            this.guna2GradientPanel3.Controls.Add(this.RecPayServiceVATLbl);
+            this.guna2GradientPanel3.Controls.Add(this.RecPayServiceWalkinCompleteTransDGV);
+            this.guna2GradientPanel3.Controls.Add(this.RecPayServiceGrossAmountLbl);
+            this.guna2GradientPanel3.Location = new System.Drawing.Point(106, 41);
+            this.guna2GradientPanel3.Name = "guna2GradientPanel3";
+            this.guna2GradientPanel3.Size = new System.Drawing.Size(1374, 906);
+            this.guna2GradientPanel3.TabIndex = 206;
+            // 
+            // RecPayServiceWalkinPaymentButton
+            // 
+            this.RecPayServiceWalkinPaymentButton.AutoRoundedCorners = true;
+            this.RecPayServiceWalkinPaymentButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecPayServiceWalkinPaymentButton.BorderRadius = 16;
+            this.RecPayServiceWalkinPaymentButton.BorderThickness = 2;
+            this.RecPayServiceWalkinPaymentButton.DefaultAutoSize = true;
+            this.RecPayServiceWalkinPaymentButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.RecPayServiceWalkinPaymentButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.RecPayServiceWalkinPaymentButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.RecPayServiceWalkinPaymentButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.RecPayServiceWalkinPaymentButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServiceWalkinPaymentButton.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecPayServiceWalkinPaymentButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecPayServiceWalkinPaymentButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecPayServiceWalkinPaymentButton.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServiceWalkinPaymentButton.Location = new System.Drawing.Point(928, 813);
+            this.RecPayServiceWalkinPaymentButton.Name = "RecPayServiceWalkinPaymentButton";
+            this.RecPayServiceWalkinPaymentButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServiceWalkinPaymentButton.Size = new System.Drawing.Size(213, 34);
+            this.RecPayServiceWalkinPaymentButton.TabIndex = 175;
+            this.RecPayServiceWalkinPaymentButton.Text = "CONFIRM PAYMENT";
+            this.RecPayServiceWalkinPaymentButton.Click += new System.EventHandler(this.RecPayServicePaymentButton_Click);
+            // 
+            // RecPayServiceApptAcquiredTotalText
+            // 
+            this.RecPayServiceApptAcquiredTotalText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecPayServiceApptAcquiredTotalText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecPayServiceApptAcquiredTotalText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServiceApptAcquiredTotalText.Location = new System.Drawing.Point(611, 339);
+            this.RecPayServiceApptAcquiredTotalText.MaxLength = 7;
+            this.RecPayServiceApptAcquiredTotalText.Name = "RecPayServiceApptAcquiredTotalText";
+            this.RecPayServiceApptAcquiredTotalText.Size = new System.Drawing.Size(211, 30);
+            this.RecPayServiceApptAcquiredTotalText.TabIndex = 178;
+            this.RecPayServiceApptAcquiredTotalText.Text = "0";
+            this.RecPayServiceApptAcquiredTotalText.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("TechnicBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.label5.Location = new System.Drawing.Point(116, 335);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(150, 20);
+            this.label5.TabIndex = 177;
+            this.label5.Text = "Service Acquired";
+            // 
+            // RecPayServiceApptAcquiredDGV
+            // 
+            this.RecPayServiceApptAcquiredDGV.AllowUserToAddRows = false;
+            this.RecPayServiceApptAcquiredDGV.AllowUserToDeleteRows = false;
+            this.RecPayServiceApptAcquiredDGV.AllowUserToResizeColumns = false;
+            this.RecPayServiceApptAcquiredDGV.AllowUserToResizeRows = false;
+            this.RecPayServiceApptAcquiredDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.RecPayServiceApptAcquiredDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.RecPayServiceApptAcquiredDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle53.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle53.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle53.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle53.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle53.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecPayServiceApptAcquiredDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle53;
+            this.RecPayServiceApptAcquiredDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RecPayServiceApptAcquiredDGV.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle54.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle54.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle54.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle54.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle54.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle54.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecPayServiceApptAcquiredDGV.DefaultCellStyle = dataGridViewCellStyle54;
+            this.RecPayServiceApptAcquiredDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecPayServiceApptAcquiredDGV.Location = new System.Drawing.Point(120, 382);
+            this.RecPayServiceApptAcquiredDGV.MultiSelect = false;
+            this.RecPayServiceApptAcquiredDGV.Name = "RecPayServiceApptAcquiredDGV";
+            this.RecPayServiceApptAcquiredDGV.RowHeadersVisible = false;
+            this.RecPayServiceApptAcquiredDGV.RowHeadersWidth = 51;
+            this.RecPayServiceApptAcquiredDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.RecPayServiceApptAcquiredDGV.Size = new System.Drawing.Size(702, 485);
+            this.RecPayServiceApptAcquiredDGV.TabIndex = 176;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.textBox3.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.textBox3.Location = new System.Drawing.Point(1173, 769);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(165, 30);
+            this.textBox3.TabIndex = 179;
+            this.textBox3.Text = "0.00";
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBox5
+            // 
+            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.textBox5.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.textBox5.Location = new System.Drawing.Point(1173, 724);
+            this.textBox5.MaxLength = 7;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(165, 30);
+            this.textBox5.TabIndex = 180;
+            this.textBox5.Text = "0";
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBox6
+            // 
+            this.textBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.textBox6.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.textBox6.Location = new System.Drawing.Point(1173, 560);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
+            this.textBox6.Size = new System.Drawing.Size(165, 30);
+            this.textBox6.TabIndex = 182;
+            this.textBox6.Text = "0.00";
+            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBox7
+            // 
+            this.textBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.textBox7.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.textBox7.Location = new System.Drawing.Point(1173, 515);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(165, 30);
+            this.textBox7.TabIndex = 183;
+            this.textBox7.Text = "0.00";
+            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // RecPayServiceApptTransactNumLbl
+            // 
+            this.RecPayServiceApptTransactNumLbl.AutoSize = true;
+            this.RecPayServiceApptTransactNumLbl.Font = new System.Drawing.Font("TechnicBold", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecPayServiceApptTransactNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServiceApptTransactNumLbl.Location = new System.Drawing.Point(889, 339);
+            this.RecPayServiceApptTransactNumLbl.Name = "RecPayServiceApptTransactNumLbl";
+            this.RecPayServiceApptTransactNumLbl.Size = new System.Drawing.Size(356, 41);
+            this.RecPayServiceApptTransactNumLbl.TabIndex = 193;
+            this.RecPayServiceApptTransactNumLbl.Text = "Transaction Number";
+            // 
+            // textBox8
+            // 
+            this.textBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.textBox8.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.textBox8.Location = new System.Drawing.Point(1173, 470);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            this.textBox8.Size = new System.Drawing.Size(165, 30);
+            this.textBox8.TabIndex = 184;
+            this.textBox8.Text = "0.00";
+            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBox9
+            // 
+            this.textBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.textBox9.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.textBox9.Location = new System.Drawing.Point(1173, 425);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.ReadOnly = true;
+            this.textBox9.Size = new System.Drawing.Size(165, 30);
+            this.textBox9.TabIndex = 181;
+            this.textBox9.Text = "0.00";
+            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.label9.Location = new System.Drawing.Point(891, 725);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(81, 29);
+            this.label9.TabIndex = 192;
+            this.label9.Text = "Cash:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.label10.Location = new System.Drawing.Point(893, 770);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(163, 29);
+            this.label10.TabIndex = 191;
+            this.label10.Text = "Change Due:";
+            // 
+            // RecPayServiceApptClientNameLbl
+            // 
+            this.RecPayServiceApptClientNameLbl.AutoSize = true;
+            this.RecPayServiceApptClientNameLbl.Font = new System.Drawing.Font("TechnicBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecPayServiceApptClientNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServiceApptClientNameLbl.Location = new System.Drawing.Point(892, 380);
+            this.RecPayServiceApptClientNameLbl.Name = "RecPayServiceApptClientNameLbl";
+            this.RecPayServiceApptClientNameLbl.Size = new System.Drawing.Size(114, 20);
+            this.RecPayServiceApptClientNameLbl.TabIndex = 194;
+            this.RecPayServiceApptClientNameLbl.Text = "Client Name";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.label12.Location = new System.Drawing.Point(891, 426);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(126, 29);
+            this.label12.TabIndex = 188;
+            this.label12.Text = "Discount:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.label13.Location = new System.Drawing.Point(891, 471);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(165, 29);
+            this.label13.TabIndex = 187;
+            this.label13.Text = "Net Amount:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.label14.Location = new System.Drawing.Point(891, 516);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(149, 29);
+            this.label14.TabIndex = 186;
+            this.label14.Text = "VAT (12%):";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.label15.Location = new System.Drawing.Point(891, 561);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(192, 29);
+            this.label15.TabIndex = 185;
+            this.label15.Text = "Gross Amount:";
+            // 
+            // RecPayServiceApptPaymentButton
+            // 
+            this.RecPayServiceApptPaymentButton.AutoRoundedCorners = true;
+            this.RecPayServiceApptPaymentButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecPayServiceApptPaymentButton.BorderRadius = 16;
+            this.RecPayServiceApptPaymentButton.BorderThickness = 2;
+            this.RecPayServiceApptPaymentButton.DefaultAutoSize = true;
+            this.RecPayServiceApptPaymentButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.RecPayServiceApptPaymentButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.RecPayServiceApptPaymentButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.RecPayServiceApptPaymentButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.RecPayServiceApptPaymentButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServiceApptPaymentButton.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecPayServiceApptPaymentButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecPayServiceApptPaymentButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecPayServiceApptPaymentButton.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServiceApptPaymentButton.Location = new System.Drawing.Point(1019, 833);
+            this.RecPayServiceApptPaymentButton.Name = "RecPayServiceApptPaymentButton";
+            this.RecPayServiceApptPaymentButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecPayServiceApptPaymentButton.Size = new System.Drawing.Size(213, 34);
+            this.RecPayServiceApptPaymentButton.TabIndex = 196;
+            this.RecPayServiceApptPaymentButton.Text = "CONFIRM PAYMENT";
+            this.RecPayServiceApptPaymentButton.Click += new System.EventHandler(this.RecPayServiceApptPaymentButton_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.label17.Location = new System.Drawing.Point(891, 606);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(209, 58);
+            this.label17.TabIndex = 185;
+            this.label17.Text = "Initial \r\nPayment (40%):";
+            // 
+            // textBox10
+            // 
+            this.textBox10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.textBox10.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.textBox10.Location = new System.Drawing.Point(1173, 620);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
+            this.textBox10.Size = new System.Drawing.Size(165, 30);
+            this.textBox10.TabIndex = 182;
+            this.textBox10.Text = "0.00";
+            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.label18.Location = new System.Drawing.Point(891, 680);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(249, 29);
+            this.label18.TabIndex = 192;
+            this.label18.Text = "Remaining Balance:";
+            // 
+            // textBox11
+            // 
+            this.textBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.textBox11.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.textBox11.Location = new System.Drawing.Point(1173, 679);
+            this.textBox11.MaxLength = 7;
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(165, 30);
+            this.textBox11.TabIndex = 180;
+            this.textBox11.Text = "0";
+            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // Enchante
             // 
@@ -12226,30 +11997,9 @@ namespace Enchante
             ((System.ComponentModel.ISupportInitialize)(this.RecQueWinNextCustomerDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecQueWinStaffListDGV)).EndInit();
             this.RecPayServicePanel.ResumeLayout(false);
-            this.RecPayServicePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecPayServiceApptCompleteTransDGV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RecPayServiceCOProdDGV)).EndInit();
-            this.MngrPayServiceFooterPanel.ResumeLayout(false);
-            this.MngrPayServiceFooterPanel.PerformLayout();
-            this.RecPayServiceMethodPanel.ResumeLayout(false);
-            this.RecPayServiceMethodPanel.PerformLayout();
-            this.RecPayServiceWalletPaymentPanel.ResumeLayout(false);
-            this.RecPayServiceWalletPaymentPanel.PerformLayout();
-            this.RecPayServiceCash1PaymentPanel.ResumeLayout(false);
-            this.RecPayServiceCash1PaymentPanel.PerformLayout();
-            this.RecPayServiceBankPaymentPanel.ResumeLayout(false);
-            this.RecPayServiceBankPaymentPanel.PerformLayout();
-            this.RecPayServiceGCPaymentPanel.ResumeLayout(false);
-            this.RecPayServiceGCPaymentPanel.PerformLayout();
-            this.RecPayServiceCashPaymentPanel.ResumeLayout(false);
-            this.RecPayServiceCashPaymentPanel.PerformLayout();
-            this.RecPayServicePPPaymentPanel.ResumeLayout(false);
-            this.RecPayServicePPPaymentPanel.PerformLayout();
-            this.RecPayServicePMPaymentPanel.ResumeLayout(false);
-            this.RecPayServicePMPaymentPanel.PerformLayout();
-            this.RecPayServiceCCPaymentPanel.ResumeLayout(false);
-            this.RecPayServiceCCPaymentPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RecPayServiceAcquiredDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecPayServiceWalkinCOProdDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecPayServiceWalkinAcquiredDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecPayServiceWalkinCompleteTransDGV)).EndInit();
             this.RecWalkinPanel.ResumeLayout(false);
             this.WalkinTabs.ResumeLayout(false);
@@ -12299,6 +12049,14 @@ namespace Enchante
             ((System.ComponentModel.ISupportInitialize)(this.MngrInventoryCard)).EndInit();
             this.guna2GradientPanel2.ResumeLayout(false);
             this.guna2GradientPanel2.PerformLayout();
+            this.PaymentTabs.ResumeLayout(false);
+            this.PaymentWalkinTab.ResumeLayout(false);
+            this.PaymentApptTab.ResumeLayout(false);
+            this.guna2GradientPanel4.ResumeLayout(false);
+            this.guna2GradientPanel4.PerformLayout();
+            this.guna2GradientPanel3.ResumeLayout(false);
+            this.guna2GradientPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RecPayServiceApptAcquiredDGV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -12519,72 +12277,24 @@ namespace Enchante
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private System.Windows.Forms.Panel RecPayServicePanel;
-        private System.Windows.Forms.Label RecPayServiceTransactNumLbl;
-        private System.Windows.Forms.Panel MngrPayServiceFooterPanel;
-        private System.Windows.Forms.Label MngrPayServiceFooterLbl;
-        private System.Windows.Forms.Panel RecPayServiceMethodPanel;
-        private System.Windows.Forms.Panel RecPayServiceWalletPaymentPanel;
-        private System.Windows.Forms.Label RecPayServiceWalletNumLbl;
-        private System.Windows.Forms.TextBox RecPayServiceWalletNumText;
-        private System.Windows.Forms.Label RecPayServiceWalletNumErrorLbl;
-        private System.Windows.Forms.Label RecPayServiceWalletPINLbl;
-        private System.Windows.Forms.TextBox RecPayServiceWalletPINText;
-        private System.Windows.Forms.Label RecPayServiceWalletPINErrorLbl;
-        private System.Windows.Forms.Label RecPayServiceWalletOTPLbl;
-        private System.Windows.Forms.Label RecPayServiceWalletOTPErrorLbl;
-        private System.Windows.Forms.TextBox RecPayServiceWalletOTPText;
-        private System.Windows.Forms.Panel RecPayServiceCash1PaymentPanel;
+        private System.Windows.Forms.Label RecPayServiceWalkinTransactNumLbl;
         private System.Windows.Forms.TextBox RecPayServiceChangeBox;
         private System.Windows.Forms.TextBox RecPayServiceCashBox;
-        private System.Windows.Forms.CheckBox RecPayServiceVATExemptChk;
         private System.Windows.Forms.TextBox RecPayServiceGrossAmountBox;
         private System.Windows.Forms.TextBox RecPayServiceVATBox;
         private System.Windows.Forms.TextBox RecPayServiceNetAmountBox;
-        private System.Windows.Forms.TextBox RecPayServiceDiscountBox;
+        private System.Windows.Forms.TextBox RecPayServiceWalkinDiscountBox;
         private System.Windows.Forms.Label RecPayServiceCashLbl;
         private System.Windows.Forms.Label RecPayServiceChangeLbl;
-        private System.Windows.Forms.CheckBox RecPayServiceDiscountPWD;
-        private System.Windows.Forms.CheckBox RecPayServiceDiscountSenior;
-        private System.Windows.Forms.Label RecPayServiceDiscountLbl;
-        private System.Windows.Forms.Label RecPayServiceNetAmountLbl;
+        private System.Windows.Forms.Label RecPayServiceWalkinDiscountLbl;
+        private System.Windows.Forms.Label RecPayServiceWalkinNetAmountLbl;
         private System.Windows.Forms.Label RecPayServiceVATLbl;
         private System.Windows.Forms.Label RecPayServiceGrossAmountLbl;
-        private System.Windows.Forms.Panel RecPayServiceBankPaymentPanel;
-        private System.Windows.Forms.Label RecPayServiceCardNameLbl;
-        private System.Windows.Forms.TextBox RecPayServiceCardNameText;
-        private System.Windows.Forms.Label RecPayServiceCardNumLbl;
-        private System.Windows.Forms.TextBox RecPayServiceCardNumText;
-        private System.Windows.Forms.Label RecPayServiceCardNameErrorLbl;
-        private System.Windows.Forms.Label RecPayServiceCardNumErrorLbl;
-        private System.Windows.Forms.Label RecPayServiceCVCLbl;
-        private System.Windows.Forms.TextBox RecPayServiceCVCText;
-        private System.Windows.Forms.Label RecPayServiceCVCErrorLbl;
-        private System.Windows.Forms.Label RecPayServiceCardExpLbl;
-        private System.Windows.Forms.Label RecPayServiceCardExpErrorLbl;
-        private System.Windows.Forms.TextBox RecPayServiceCardExpText;
-        private System.Windows.Forms.Panel RecPayServiceGCPaymentPanel;
-        private System.Windows.Forms.RadioButton RecPayServiceGCPaymentRB;
-        private FontAwesome.Sharp.IconButton RecPayServiceGCPaymentBtn;
-        private System.Windows.Forms.Panel RecPayServiceCashPaymentPanel;
-        private System.Windows.Forms.RadioButton RecPayServiceCashPaymentRB;
-        private FontAwesome.Sharp.IconButton RecPayServiceCashPaymentBtn;
-        private System.Windows.Forms.TextBox RecPayServiceTypeText;
-        private System.Windows.Forms.Panel RecPayServicePPPaymentPanel;
-        private System.Windows.Forms.RadioButton RecPayServicePPPaymentRB;
-        private FontAwesome.Sharp.IconButton RecPayServicePPPaymentBtn;
-        private System.Windows.Forms.Panel RecPayServicePMPaymentPanel;
-        private System.Windows.Forms.RadioButton RecPayServicePMPaymentRB;
-        private FontAwesome.Sharp.IconButton RecPayServicePMPaymentBtn;
-        private FontAwesome.Sharp.IconButton RecPayServicePaymentButton;
-        private System.Windows.Forms.Panel RecPayServiceCCPaymentPanel;
-        private System.Windows.Forms.RadioButton RecPayServiceCCPaymentRB;
-        private FontAwesome.Sharp.IconButton RecPayServiceCCPaymentBtn;
-        private System.Windows.Forms.Label RecPayServiceMethodLbl;
-        private System.Windows.Forms.DataGridView RecPayServiceAcquiredDGV;
+        private System.Windows.Forms.DataGridView RecPayServiceWalkinAcquiredDGV;
         private System.Windows.Forms.DataGridView RecPayServiceWalkinCompleteTransDGV;
         private FontAwesome.Sharp.IconButton RecPayServiceExitBtn;
         private FontAwesome.Sharp.IconButton RecPayServiceBtn;
-        private System.Windows.Forms.Label RecPayServiceClientNameLbl;
+        private System.Windows.Forms.Label RecPayServiceWalkinClientNameLbl;
         private Guna.UI2.WinForms.Guna2ToggleSwitch RecWalkinAnyStaffToggleSwitch;
         private Guna.UI2.WinForms.Guna2ToggleSwitch RecWalkinPreferredStaffToggleSwitch;
         private System.Windows.Forms.Label RecWalkinAnyStaffLbl;
@@ -12662,9 +12372,9 @@ namespace Enchante
         private System.Windows.Forms.Label RecWalkinProdLbl;
         private System.Windows.Forms.Label RecPayServiceCOProdLbl;
         private System.Windows.Forms.Label RecPayServiceAcqLbl;
-        private System.Windows.Forms.DataGridView RecPayServiceCOProdDGV;
-        private System.Windows.Forms.TextBox RecPayServiceCOProdTotalText;
-        private System.Windows.Forms.TextBox RecPayServiceAcquiredTotalText;
+        private System.Windows.Forms.DataGridView RecPayServiceWalkinCOProdDGV;
+        private System.Windows.Forms.TextBox RecPayServiceWalkinCOProdTotalText;
+        private System.Windows.Forms.TextBox RecPayServiceWalkinAcquiredTotalText;
         private System.Windows.Forms.Panel MngrWalkinProdSalesPanel;
         private FontAwesome.Sharp.IconButton MngrWalkinProdSalesExitBtn;
         private System.Windows.Forms.Panel MngrServiceHistoryPanel;
@@ -12783,7 +12493,7 @@ namespace Enchante
         private System.Windows.Forms.Label RecPayServiceApptCompleteTransLbl;
         private System.Windows.Forms.DataGridView RecPayServiceApptCompleteTransDGV;
         private System.Windows.Forms.Label RecPayServiceWalkinCompleteTransLbl;
-        private System.Windows.Forms.Label RecPayServiceTransTypeLbl;
+        private System.Windows.Forms.Label RecPayServiceApptTransTypeLbl;
         private System.Windows.Forms.Panel MngrApptServicePanel;
         private System.Windows.Forms.Label MngrApptServiceLbl;
         private FontAwesome.Sharp.IconButton MngrApptServiceExitBtn;
@@ -13041,6 +12751,35 @@ namespace Enchante
         private FontAwesome.Sharp.IconButton MngrRecOverrideBtn;
         private System.Windows.Forms.TextBox MngrDateTimeText;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
+        private Guna.UI2.WinForms.Guna2TabControl PaymentTabs;
+        private System.Windows.Forms.TabPage PaymentWalkinTab;
+        private System.Windows.Forms.TabPage PaymentApptTab;
+        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel4;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel3;
+        private Guna.UI2.WinForms.Guna2Button RecPayServiceWalkinPaymentButton;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label RecPayServiceApptTransactNumLbl;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label RecPayServiceApptClientNameLbl;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox RecPayServiceApptAcquiredTotalText;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView RecPayServiceApptAcquiredDGV;
+        private Guna.UI2.WinForms.Guna2Button RecPayServiceApptPaymentButton;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.Label label18;
     }
 }
 
