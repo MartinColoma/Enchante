@@ -445,9 +445,9 @@ namespace Enchante
         private void MngrHomePanelReset()
         {
             ParentPanelShow.PanelShow(EnchanteMngrPage);
-            MngrServiceDataColor();
             ReceptionLoadServices();
             MngrDataTimer.Start();
+            MngrServiceDataColor();
         }
         private void ReceptionHomePanelReset()
         {
@@ -1334,7 +1334,7 @@ namespace Enchante
         {
             if (RecWalkinCatHSRB.Checked == false)
             {
-                RecWalkinCatHSRB.Visible = false;
+                RecWalkinCatHSRB.Visible = true;
                 RecWalkinCatHSRB.Checked = true;
                 RecWalkinLoadServiceTypeComboBox("Hair Styling");
 
@@ -1350,7 +1350,7 @@ namespace Enchante
             }
             else if (RecWalkinCatHSRB.Checked == true)
             {
-                RecWalkinCatHSRB.Visible = false;
+                RecWalkinCatHSRB.Visible = true;
                 RecWalkinCatHSRB.Checked = true;
                 RecWalkinLoadServiceTypeComboBox("Hair Styling");
 
@@ -1368,7 +1368,7 @@ namespace Enchante
         {
             if (RecWalkinCatFSRB.Checked == false)
             {
-                RecWalkinCatFSRB.Visible = false;
+                RecWalkinCatFSRB.Visible = true;
                 RecWalkinCatFSRB.Checked = true;
                 RecWalkinLoadServiceTypeComboBox("Face & Skin");
 
@@ -1384,7 +1384,7 @@ namespace Enchante
             }
             else if (RecWalkinCatFSRB.Checked == true)
             {
-                RecWalkinCatFSRB.Visible = false;
+                RecWalkinCatFSRB.Visible = true;
                 RecWalkinCatFSRB.Checked = true;
             }
         }
@@ -1392,7 +1392,7 @@ namespace Enchante
         {
             if (RecWalkinCatNCRB.Checked == false)
             {
-                RecWalkinCatNCRB.Visible = false;
+                RecWalkinCatNCRB.Visible = true;
                 RecWalkinCatNCRB.Checked = true;
                 RecWalkinLoadServiceTypeComboBox("Nail Care");
 
@@ -1408,7 +1408,7 @@ namespace Enchante
             }
             else if (RecWalkinCatNCRB.Checked == true)
             {
-                RecWalkinCatNCRB.Visible = false;
+                RecWalkinCatNCRB.Visible = true;
                 RecWalkinCatNCRB.Checked = true;
             }
         }
@@ -1416,7 +1416,7 @@ namespace Enchante
         {
             if (RecWalkinCatSpaRB.Checked == false)
             {
-                RecWalkinCatSpaRB.Visible = false;
+                RecWalkinCatSpaRB.Visible = true;
                 RecWalkinCatSpaRB.Checked = true;
                 RecWalkinLoadServiceTypeComboBox("Spa");
 
@@ -1432,7 +1432,7 @@ namespace Enchante
             }
             else if (RecWalkinCatSpaRB.Checked == true)
             {
-                RecWalkinCatSpaRB.Visible = false;
+                RecWalkinCatSpaRB.Visible = true;
                 RecWalkinCatSpaRB.Checked = true;
             }
         }
@@ -1440,7 +1440,7 @@ namespace Enchante
         {
             if (RecWalkinCatMassageRB.Checked == false)
             {
-                RecWalkinCatMassageRB.Visible = false;
+                RecWalkinCatMassageRB.Visible = true;
                 RecWalkinCatMassageRB.Checked = true;
                 RecWalkinLoadServiceTypeComboBox("Massage");
 
@@ -1456,7 +1456,7 @@ namespace Enchante
             }
             else if (RecWalkinCatMassageRB.Checked == true)
             {
-                RecWalkinCatMassageRB.Visible = false;
+                RecWalkinCatMassageRB.Visible = true;
                 RecWalkinCatMassageRB.Checked = true;
             }
         }
@@ -2984,8 +2984,9 @@ namespace Enchante
         {
             RecDateTimePicker.Value = DateTime.Now;
             DateTime cashierrcurrentDate = RecDateTimePicker.Value;
-            string Cashiertoday = cashierrcurrentDate.ToString("MM-dd-yyyy dddd hh:mm tt");
+            string Cashiertoday = cashierrcurrentDate.ToString("MMMM dd, yyyy dddd hh:mm tt");
             RecDateTimeText.Text = Cashiertoday;
+            MngrDateTimeText.Text = Cashiertoday;
         }
         private decimal originalGrossAmount; // Store the original value
 
@@ -9472,7 +9473,7 @@ namespace Enchante
                 }
             }
         }
-
+        //pakilagay sa try catch mga calendar date changed event
         private void SalesPeriodCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
             DateTime selectedDate = MngrWalkinSalesPeriodCalendar.SelectionStart;
@@ -15694,9 +15695,9 @@ namespace Enchante
             MngrInDemandBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             MngrInDemandBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
 
-            MngrApptServiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            MngrApptServiceBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            MngrApptServiceBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrWalkinProdSalesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            MngrWalkinProdSalesBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            MngrWalkinProdSalesBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
 
         }
         private void MngrServiceHistoryColor()
@@ -15745,11 +15746,6 @@ namespace Enchante
             MngrServicesHistoryBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             MngrServicesHistoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             MngrServicesHistoryBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-
-
-            MngrDataBtnsResetColor();
-            MngrReportBtnsResetColor();
-
         }
 
         private void RecOverrideBackBtn_Click(object sender, EventArgs e)

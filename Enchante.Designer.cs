@@ -32,41 +32,41 @@ namespace Enchante
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -884,6 +884,7 @@ namespace Enchante
             this.MngrDataTimer = new System.Windows.Forms.Timer(this.components);
             this.MngrReportsTimer = new System.Windows.Forms.Timer(this.components);
             this.MngrHistoryTimer = new System.Windows.Forms.Timer(this.components);
+            this.MngrDateTimeText = new System.Windows.Forms.TextBox();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteMngrPage.SuspendLayout();
             this.MngrScrollPanel.SuspendLayout();
@@ -1073,6 +1074,7 @@ namespace Enchante
             // MngrNavBarPanel
             // 
             this.MngrNavBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrNavBarPanel.Controls.Add(this.MngrDateTimeText);
             this.MngrNavBarPanel.Controls.Add(this.MngrBtnHolderFlowPanel);
             this.MngrNavBarPanel.Controls.Add(this.MngrEmplTypeLbl);
             this.MngrNavBarPanel.Controls.Add(this.MngrIDNumLbl);
@@ -1081,8 +1083,9 @@ namespace Enchante
             this.MngrNavBarPanel.Controls.Add(this.MngrNameLbl);
             this.MngrNavBarPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.MngrNavBarPanel.Location = new System.Drawing.Point(0, 0);
+            this.MngrNavBarPanel.MaximumSize = new System.Drawing.Size(330, 1061);
             this.MngrNavBarPanel.Name = "MngrNavBarPanel";
-            this.MngrNavBarPanel.Size = new System.Drawing.Size(325, 1044);
+            this.MngrNavBarPanel.Size = new System.Drawing.Size(330, 1061);
             this.MngrNavBarPanel.TabIndex = 3;
             // 
             // MngrBtnHolderFlowPanel
@@ -1095,13 +1098,14 @@ namespace Enchante
             this.MngrBtnHolderFlowPanel.Controls.Add(this.MngrSignOutBtn);
             this.MngrBtnHolderFlowPanel.Controls.Add(this.MngrOverrideBackBtn);
             this.MngrBtnHolderFlowPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.MngrBtnHolderFlowPanel.Location = new System.Drawing.Point(0, 346);
+            this.MngrBtnHolderFlowPanel.Location = new System.Drawing.Point(0, 363);
             this.MngrBtnHolderFlowPanel.Name = "MngrBtnHolderFlowPanel";
-            this.MngrBtnHolderFlowPanel.Size = new System.Drawing.Size(325, 698);
+            this.MngrBtnHolderFlowPanel.Size = new System.Drawing.Size(330, 698);
             this.MngrBtnHolderFlowPanel.TabIndex = 64;
             // 
             // MngrDataBtnFlowPanel
             // 
+            this.MngrDataBtnFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.MngrDataBtnFlowPanel.Controls.Add(this.MngrDataBtn);
             this.MngrDataBtnFlowPanel.Controls.Add(this.MngrServicesDataBtn);
             this.MngrDataBtnFlowPanel.Controls.Add(this.MngrProductsDataBtn);
@@ -1111,7 +1115,7 @@ namespace Enchante
             this.MngrDataBtnFlowPanel.MaximumSize = new System.Drawing.Size(305, 427);
             this.MngrDataBtnFlowPanel.MinimumSize = new System.Drawing.Size(305, 107);
             this.MngrDataBtnFlowPanel.Name = "MngrDataBtnFlowPanel";
-            this.MngrDataBtnFlowPanel.Size = new System.Drawing.Size(305, 190);
+            this.MngrDataBtnFlowPanel.Size = new System.Drawing.Size(305, 107);
             this.MngrDataBtnFlowPanel.TabIndex = 22;
             // 
             // MngrDataBtn
@@ -1143,7 +1147,6 @@ namespace Enchante
             this.MngrServicesDataBtn.AutoSize = true;
             this.MngrServicesDataBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.MngrServicesDataBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrServicesDataBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.MngrServicesDataBtn.FlatAppearance.BorderSize = 0;
             this.MngrServicesDataBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MngrServicesDataBtn.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1168,7 +1171,6 @@ namespace Enchante
             this.MngrProductsDataBtn.AutoSize = true;
             this.MngrProductsDataBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.MngrProductsDataBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrProductsDataBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.MngrProductsDataBtn.FlatAppearance.BorderSize = 0;
             this.MngrProductsDataBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MngrProductsDataBtn.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1193,7 +1195,6 @@ namespace Enchante
             this.MngrPromoBtn.AutoSize = true;
             this.MngrPromoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.MngrPromoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrPromoBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.MngrPromoBtn.FlatAppearance.BorderSize = 0;
             this.MngrPromoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MngrPromoBtn.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1240,12 +1241,13 @@ namespace Enchante
             // 
             // MngrReportsBtnFlowPanel
             // 
+            this.MngrReportsBtnFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.MngrReportsBtnFlowPanel.Controls.Add(this.MngrReportsBtn);
             this.MngrReportsBtnFlowPanel.Controls.Add(this.MngrWalkinServiceSalesBtn);
             this.MngrReportsBtnFlowPanel.Controls.Add(this.MngrApptServiceBtn);
             this.MngrReportsBtnFlowPanel.Controls.Add(this.MngrWalkinProdSalesBtn);
             this.MngrReportsBtnFlowPanel.Controls.Add(this.MngrInDemandBtn);
-            this.MngrReportsBtnFlowPanel.Location = new System.Drawing.Point(3, 199);
+            this.MngrReportsBtnFlowPanel.Location = new System.Drawing.Point(3, 116);
             this.MngrReportsBtnFlowPanel.MaximumSize = new System.Drawing.Size(305, 528);
             this.MngrReportsBtnFlowPanel.MinimumSize = new System.Drawing.Size(305, 107);
             this.MngrReportsBtnFlowPanel.Name = "MngrReportsBtnFlowPanel";
@@ -1281,7 +1283,6 @@ namespace Enchante
             this.MngrWalkinServiceSalesBtn.AutoSize = true;
             this.MngrWalkinServiceSalesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.MngrWalkinServiceSalesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrWalkinServiceSalesBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.MngrWalkinServiceSalesBtn.FlatAppearance.BorderSize = 0;
             this.MngrWalkinServiceSalesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MngrWalkinServiceSalesBtn.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1306,7 +1307,6 @@ namespace Enchante
             this.MngrApptServiceBtn.AutoSize = true;
             this.MngrApptServiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.MngrApptServiceBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrApptServiceBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.MngrApptServiceBtn.FlatAppearance.BorderSize = 0;
             this.MngrApptServiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MngrApptServiceBtn.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1331,7 +1331,6 @@ namespace Enchante
             this.MngrWalkinProdSalesBtn.AutoSize = true;
             this.MngrWalkinProdSalesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.MngrWalkinProdSalesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrWalkinProdSalesBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.MngrWalkinProdSalesBtn.FlatAppearance.BorderSize = 0;
             this.MngrWalkinProdSalesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MngrWalkinProdSalesBtn.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1356,7 +1355,6 @@ namespace Enchante
             this.MngrInDemandBtn.AutoSize = true;
             this.MngrInDemandBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.MngrInDemandBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrInDemandBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.MngrInDemandBtn.FlatAppearance.BorderSize = 0;
             this.MngrInDemandBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MngrInDemandBtn.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1378,10 +1376,11 @@ namespace Enchante
             // 
             // MngrHistoryBtnFlowPanel
             // 
+            this.MngrHistoryBtnFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.MngrHistoryBtnFlowPanel.Controls.Add(this.MngrHistoryBtn);
             this.MngrHistoryBtnFlowPanel.Controls.Add(this.MngrServicesHistoryBtn);
             this.MngrHistoryBtnFlowPanel.Controls.Add(this.MngrProductsHistoryBtn);
-            this.MngrHistoryBtnFlowPanel.Location = new System.Drawing.Point(3, 312);
+            this.MngrHistoryBtnFlowPanel.Location = new System.Drawing.Point(3, 229);
             this.MngrHistoryBtnFlowPanel.MaximumSize = new System.Drawing.Size(305, 330);
             this.MngrHistoryBtnFlowPanel.MinimumSize = new System.Drawing.Size(305, 107);
             this.MngrHistoryBtnFlowPanel.Name = "MngrHistoryBtnFlowPanel";
@@ -1417,7 +1416,6 @@ namespace Enchante
             this.MngrServicesHistoryBtn.AutoSize = true;
             this.MngrServicesHistoryBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.MngrServicesHistoryBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrServicesHistoryBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.MngrServicesHistoryBtn.FlatAppearance.BorderSize = 0;
             this.MngrServicesHistoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MngrServicesHistoryBtn.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1442,7 +1440,6 @@ namespace Enchante
             this.MngrProductsHistoryBtn.AutoSize = true;
             this.MngrProductsHistoryBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.MngrProductsHistoryBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrProductsHistoryBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.MngrProductsHistoryBtn.FlatAppearance.BorderSize = 0;
             this.MngrProductsHistoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MngrProductsHistoryBtn.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1468,17 +1465,17 @@ namespace Enchante
             this.MngrRecOverrideBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.MngrRecOverrideBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MngrRecOverrideBtn.FlatAppearance.BorderSize = 0;
-            this.MngrRecOverrideBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrRecOverrideBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.MngrRecOverrideBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrRecOverrideBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrRecOverrideBtn.IconChar = FontAwesome.Sharp.IconChar.CashRegister;
             this.MngrRecOverrideBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrRecOverrideBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MngrRecOverrideBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrRecOverrideBtn.Location = new System.Drawing.Point(3, 425);
+            this.MngrRecOverrideBtn.Location = new System.Drawing.Point(3, 342);
             this.MngrRecOverrideBtn.Name = "MngrRecOverrideBtn";
             this.MngrRecOverrideBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.MngrRecOverrideBtn.Size = new System.Drawing.Size(295, 100);
+            this.MngrRecOverrideBtn.Size = new System.Drawing.Size(305, 100);
             this.MngrRecOverrideBtn.TabIndex = 90;
             this.MngrRecOverrideBtn.Text = "RECEPTIONIST\r\nOVERRIDE";
             this.MngrRecOverrideBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1499,7 +1496,7 @@ namespace Enchante
             this.MngrSignOutBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrSignOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MngrSignOutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrSignOutBtn.Location = new System.Drawing.Point(3, 531);
+            this.MngrSignOutBtn.Location = new System.Drawing.Point(3, 448);
             this.MngrSignOutBtn.Name = "MngrSignOutBtn";
             this.MngrSignOutBtn.Size = new System.Drawing.Size(305, 54);
             this.MngrSignOutBtn.TabIndex = 7;
@@ -1522,7 +1519,7 @@ namespace Enchante
             this.MngrOverrideBackBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrOverrideBackBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MngrOverrideBackBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrOverrideBackBtn.Location = new System.Drawing.Point(3, 591);
+            this.MngrOverrideBackBtn.Location = new System.Drawing.Point(3, 508);
             this.MngrOverrideBackBtn.Name = "MngrOverrideBackBtn";
             this.MngrOverrideBackBtn.Size = new System.Drawing.Size(310, 54);
             this.MngrOverrideBackBtn.TabIndex = 23;
@@ -1535,26 +1532,26 @@ namespace Enchante
             // MngrEmplTypeLbl
             // 
             this.MngrEmplTypeLbl.AutoEllipsis = true;
-            this.MngrEmplTypeLbl.AutoSize = true;
             this.MngrEmplTypeLbl.Font = new System.Drawing.Font("TechnicBold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrEmplTypeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrEmplTypeLbl.Location = new System.Drawing.Point(158, 264);
+            this.MngrEmplTypeLbl.Location = new System.Drawing.Point(181, 264);
             this.MngrEmplTypeLbl.Name = "MngrEmplTypeLbl";
-            this.MngrEmplTypeLbl.Size = new System.Drawing.Size(81, 18);
+            this.MngrEmplTypeLbl.Size = new System.Drawing.Size(84, 18);
             this.MngrEmplTypeLbl.TabIndex = 9;
-            this.MngrEmplTypeLbl.Text = "Empl Type";
+            this.MngrEmplTypeLbl.Text = "Manager";
+            this.MngrEmplTypeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // MngrIDNumLbl
             // 
             this.MngrIDNumLbl.AutoEllipsis = true;
-            this.MngrIDNumLbl.AutoSize = true;
             this.MngrIDNumLbl.Font = new System.Drawing.Font("TechnicBold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrIDNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrIDNumLbl.Location = new System.Drawing.Point(62, 264);
             this.MngrIDNumLbl.Name = "MngrIDNumLbl";
-            this.MngrIDNumLbl.Size = new System.Drawing.Size(80, 18);
+            this.MngrIDNumLbl.Size = new System.Drawing.Size(84, 18);
             this.MngrIDNumLbl.TabIndex = 9;
             this.MngrIDNumLbl.Text = "ID Number";
+            this.MngrIDNumLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // MngrDateTimePicker
             // 
@@ -1578,17 +1575,18 @@ namespace Enchante
             // MngrNameLbl
             // 
             this.MngrNameLbl.AutoEllipsis = true;
-            this.MngrNameLbl.AutoSize = true;
             this.MngrNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrNameLbl.Location = new System.Drawing.Point(60, 235);
+            this.MngrNameLbl.Location = new System.Drawing.Point(57, 224);
             this.MngrNameLbl.Name = "MngrNameLbl";
-            this.MngrNameLbl.Size = new System.Drawing.Size(146, 29);
+            this.MngrNameLbl.Size = new System.Drawing.Size(205, 29);
             this.MngrNameLbl.TabIndex = 8;
             this.MngrNameLbl.Text = "Mngr Name";
+            this.MngrNameLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // MngrInventoryPanel
             // 
+            this.MngrInventoryPanel.Controls.Add(this.MngrInventoryProductsPanel);
             this.MngrInventoryPanel.Controls.Add(this.MngrInventoryTypePanel);
             this.MngrInventoryPanel.Controls.Add(this.MngrServiceHistoryPanel);
             this.MngrInventoryPanel.Controls.Add(this.MngrApptServicePanel);
@@ -1599,22 +1597,21 @@ namespace Enchante
             this.MngrInventoryPanel.Controls.Add(this.MngrPromoPanel);
             this.MngrInventoryPanel.Controls.Add(this.MngrServicesPanel);
             this.MngrInventoryPanel.Controls.Add(this.MngrInventoryMembershipPanel);
-            this.MngrInventoryPanel.Controls.Add(this.MngrInventoryProductsPanel);
             this.MngrInventoryPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.MngrInventoryPanel.Location = new System.Drawing.Point(325, 0);
+            this.MngrInventoryPanel.Location = new System.Drawing.Point(336, 0);
             this.MngrInventoryPanel.Name = "MngrInventoryPanel";
-            this.MngrInventoryPanel.Size = new System.Drawing.Size(2307, 1044);
+            this.MngrInventoryPanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrInventoryPanel.TabIndex = 24;
             // 
             // MngrInventoryTypePanel
             // 
-            this.MngrInventoryCard.SetCardName(this.MngrInventoryTypePanel, "TYPES");
+            this.MngrInventoryCard.SetCardName(this.MngrInventoryTypePanel, "type");
             this.MngrInventoryTypePanel.Controls.Add(this.iconButton11);
             this.MngrInventoryTypePanel.Location = new System.Drawing.Point(0, 0);
             this.MngrInventoryCard.SetMinimumSize(this.MngrInventoryTypePanel, new System.Drawing.Size(0, 0));
             this.MngrInventoryTypePanel.Name = "MngrInventoryTypePanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrInventoryTypePanel, new System.Drawing.Size(1797, 749));
-            this.MngrInventoryTypePanel.Size = new System.Drawing.Size(2307, 1044);
+            this.MngrInventoryTypePanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrInventoryTypePanel.TabIndex = 1;
             // 
             // iconButton11
@@ -1644,8 +1641,9 @@ namespace Enchante
             // 
             // MngrServiceHistoryPanel
             // 
+            this.MngrServiceHistoryPanel.AutoScroll = true;
             this.MngrServiceHistoryPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrInventoryCard.SetCardName(this.MngrServiceHistoryPanel, "ServiceHistory");
+            this.MngrInventoryCard.SetCardName(this.MngrServiceHistoryPanel, "service history");
             this.MngrServiceHistoryPanel.Controls.Add(this.MngrSVHistoryServiceCatBox);
             this.MngrServiceHistoryPanel.Controls.Add(this.MngrSVHistoryServiceCatLbl);
             this.MngrServiceHistoryPanel.Controls.Add(this.MngrSVHistoryToLbl);
@@ -1664,7 +1662,7 @@ namespace Enchante
             this.MngrInventoryCard.SetMinimumSize(this.MngrServiceHistoryPanel, new System.Drawing.Size(200, 100));
             this.MngrServiceHistoryPanel.Name = "MngrServiceHistoryPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrServiceHistoryPanel, new System.Drawing.Size(200, 100));
-            this.MngrServiceHistoryPanel.Size = new System.Drawing.Size(2307, 1044);
+            this.MngrServiceHistoryPanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrServiceHistoryPanel.TabIndex = 30;
             // 
             // MngrSVHistoryServiceCatBox
@@ -1672,9 +1670,9 @@ namespace Enchante
             this.MngrSVHistoryServiceCatBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MngrSVHistoryServiceCatBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrSVHistoryServiceCatBox.FormattingEnabled = true;
-            this.MngrSVHistoryServiceCatBox.Location = new System.Drawing.Point(712, 107);
+            this.MngrSVHistoryServiceCatBox.Location = new System.Drawing.Point(636, 172);
             this.MngrSVHistoryServiceCatBox.Name = "MngrSVHistoryServiceCatBox";
-            this.MngrSVHistoryServiceCatBox.Size = new System.Drawing.Size(300, 24);
+            this.MngrSVHistoryServiceCatBox.Size = new System.Drawing.Size(261, 24);
             this.MngrSVHistoryServiceCatBox.TabIndex = 11;
             this.MngrSVHistoryServiceCatBox.SelectedIndexChanged += new System.EventHandler(this.MngrSVHistoryServiceCatBox_SelectedIndexChanged);
             // 
@@ -1683,7 +1681,7 @@ namespace Enchante
             this.MngrSVHistoryServiceCatLbl.AutoSize = true;
             this.MngrSVHistoryServiceCatLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrSVHistoryServiceCatLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrSVHistoryServiceCatLbl.Location = new System.Drawing.Point(707, 58);
+            this.MngrSVHistoryServiceCatLbl.Location = new System.Drawing.Point(631, 137);
             this.MngrSVHistoryServiceCatLbl.Name = "MngrSVHistoryServiceCatLbl";
             this.MngrSVHistoryServiceCatLbl.Size = new System.Drawing.Size(177, 25);
             this.MngrSVHistoryServiceCatLbl.TabIndex = 10;
@@ -1694,7 +1692,7 @@ namespace Enchante
             this.MngrSVHistoryToLbl.AutoSize = true;
             this.MngrSVHistoryToLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrSVHistoryToLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrSVHistoryToLbl.Location = new System.Drawing.Point(1340, 114);
+            this.MngrSVHistoryToLbl.Location = new System.Drawing.Point(1239, 174);
             this.MngrSVHistoryToLbl.Name = "MngrSVHistoryToLbl";
             this.MngrSVHistoryToLbl.Size = new System.Drawing.Size(24, 16);
             this.MngrSVHistoryToLbl.TabIndex = 9;
@@ -1710,11 +1708,12 @@ namespace Enchante
             this.MngrServiceHistoryExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.MngrServiceHistoryExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrServiceHistoryExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrServiceHistoryExitBtn.Location = new System.Drawing.Point(1717, 29);
+            this.MngrServiceHistoryExitBtn.Location = new System.Drawing.Point(1479, 57);
             this.MngrServiceHistoryExitBtn.Name = "MngrServiceHistoryExitBtn";
             this.MngrServiceHistoryExitBtn.Size = new System.Drawing.Size(48, 48);
             this.MngrServiceHistoryExitBtn.TabIndex = 84;
             this.MngrServiceHistoryExitBtn.UseVisualStyleBackColor = false;
+            this.MngrServiceHistoryExitBtn.Visible = false;
             this.MngrServiceHistoryExitBtn.Click += new System.EventHandler(this.MngrServiceHistoryExitBtn_Click);
             // 
             // MngrSVHistoryFromLbl
@@ -1722,7 +1721,7 @@ namespace Enchante
             this.MngrSVHistoryFromLbl.AutoSize = true;
             this.MngrSVHistoryFromLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrSVHistoryFromLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrSVHistoryFromLbl.Location = new System.Drawing.Point(1030, 114);
+            this.MngrSVHistoryFromLbl.Location = new System.Drawing.Point(912, 174);
             this.MngrSVHistoryFromLbl.Name = "MngrSVHistoryFromLbl";
             this.MngrSVHistoryFromLbl.Size = new System.Drawing.Size(38, 16);
             this.MngrSVHistoryFromLbl.TabIndex = 8;
@@ -1734,18 +1733,18 @@ namespace Enchante
             this.MngrSVHistoryDGV.BackgroundColor = System.Drawing.Color.GhostWhite;
             this.MngrSVHistoryDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MngrSVHistoryDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.MngrSVHistoryDGV.Location = new System.Drawing.Point(46, 159);
+            this.MngrSVHistoryDGV.Location = new System.Drawing.Point(73, 240);
             this.MngrSVHistoryDGV.MultiSelect = false;
             this.MngrSVHistoryDGV.Name = "MngrSVHistoryDGV";
             this.MngrSVHistoryDGV.ReadOnly = true;
             this.MngrSVHistoryDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MngrSVHistoryDGV.Size = new System.Drawing.Size(1709, 556);
+            this.MngrSVHistoryDGV.Size = new System.Drawing.Size(1454, 364);
             this.MngrSVHistoryDGV.TabIndex = 0;
             // 
             // MngrSVHistoryResetBtn
             // 
             this.MngrSVHistoryResetBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrSVHistoryResetBtn.Location = new System.Drawing.Point(1652, 107);
+            this.MngrSVHistoryResetBtn.Location = new System.Drawing.Point(1424, 203);
             this.MngrSVHistoryResetBtn.Margin = new System.Windows.Forms.Padding(2);
             this.MngrSVHistoryResetBtn.Name = "MngrSVHistoryResetBtn";
             this.MngrSVHistoryResetBtn.Size = new System.Drawing.Size(103, 24);
@@ -1759,15 +1758,15 @@ namespace Enchante
             this.MngrSVHistoryTransTypeBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MngrSVHistoryTransTypeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrSVHistoryTransTypeBox.FormattingEnabled = true;
-            this.MngrSVHistoryTransTypeBox.Location = new System.Drawing.Point(46, 107);
+            this.MngrSVHistoryTransTypeBox.Location = new System.Drawing.Point(73, 172);
             this.MngrSVHistoryTransTypeBox.Name = "MngrSVHistoryTransTypeBox";
-            this.MngrSVHistoryTransTypeBox.Size = new System.Drawing.Size(300, 24);
+            this.MngrSVHistoryTransTypeBox.Size = new System.Drawing.Size(261, 24);
             this.MngrSVHistoryTransTypeBox.TabIndex = 1;
             this.MngrSVHistoryTransTypeBox.SelectedIndexChanged += new System.EventHandler(this.MngrSVHistoryTransTypeBox_SelectedIndexChanged);
             // 
             // MngrSVHistoryDatePickTo
             // 
-            this.MngrSVHistoryDatePickTo.Location = new System.Drawing.Point(1370, 110);
+            this.MngrSVHistoryDatePickTo.Location = new System.Drawing.Point(1267, 172);
             this.MngrSVHistoryDatePickTo.Name = "MngrSVHistoryDatePickTo";
             this.MngrSVHistoryDatePickTo.Size = new System.Drawing.Size(260, 20);
             this.MngrSVHistoryDatePickTo.TabIndex = 7;
@@ -1778,7 +1777,7 @@ namespace Enchante
             this.MngrSVHistoryTransTypeLbl.AutoSize = true;
             this.MngrSVHistoryTransTypeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrSVHistoryTransTypeLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrSVHistoryTransTypeLbl.Location = new System.Drawing.Point(41, 58);
+            this.MngrSVHistoryTransTypeLbl.Location = new System.Drawing.Point(68, 137);
             this.MngrSVHistoryTransTypeLbl.Name = "MngrSVHistoryTransTypeLbl";
             this.MngrSVHistoryTransTypeLbl.Size = new System.Drawing.Size(179, 25);
             this.MngrSVHistoryTransTypeLbl.TabIndex = 2;
@@ -1786,7 +1785,7 @@ namespace Enchante
             // 
             // MngrSVHistoryDatePickFrom
             // 
-            this.MngrSVHistoryDatePickFrom.Location = new System.Drawing.Point(1073, 110);
+            this.MngrSVHistoryDatePickFrom.Location = new System.Drawing.Point(956, 172);
             this.MngrSVHistoryDatePickFrom.Name = "MngrSVHistoryDatePickFrom";
             this.MngrSVHistoryDatePickFrom.Size = new System.Drawing.Size(260, 20);
             this.MngrSVHistoryDatePickFrom.TabIndex = 6;
@@ -1797,7 +1796,7 @@ namespace Enchante
             this.MngrSVHistoryDateLbl.AutoSize = true;
             this.MngrSVHistoryDateLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrSVHistoryDateLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrSVHistoryDateLbl.Location = new System.Drawing.Point(1068, 58);
+            this.MngrSVHistoryDateLbl.Location = new System.Drawing.Point(910, 137);
             this.MngrSVHistoryDateLbl.Name = "MngrSVHistoryDateLbl";
             this.MngrSVHistoryDateLbl.Size = new System.Drawing.Size(57, 25);
             this.MngrSVHistoryDateLbl.TabIndex = 3;
@@ -1808,9 +1807,9 @@ namespace Enchante
             this.MngrSVHistoryServiceStatusBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MngrSVHistoryServiceStatusBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrSVHistoryServiceStatusBox.FormattingEnabled = true;
-            this.MngrSVHistoryServiceStatusBox.Location = new System.Drawing.Point(379, 107);
+            this.MngrSVHistoryServiceStatusBox.Location = new System.Drawing.Point(349, 172);
             this.MngrSVHistoryServiceStatusBox.Name = "MngrSVHistoryServiceStatusBox";
-            this.MngrSVHistoryServiceStatusBox.Size = new System.Drawing.Size(300, 24);
+            this.MngrSVHistoryServiceStatusBox.Size = new System.Drawing.Size(261, 24);
             this.MngrSVHistoryServiceStatusBox.TabIndex = 5;
             this.MngrSVHistoryServiceStatusBox.SelectedIndexChanged += new System.EventHandler(this.MngrSVHistoryServiceStatusBox_SelectedIndexChanged);
             // 
@@ -1819,7 +1818,7 @@ namespace Enchante
             this.MngrSVHistoryServiceStatusLbl.AutoSize = true;
             this.MngrSVHistoryServiceStatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrSVHistoryServiceStatusLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrSVHistoryServiceStatusLbl.Location = new System.Drawing.Point(374, 58);
+            this.MngrSVHistoryServiceStatusLbl.Location = new System.Drawing.Point(344, 137);
             this.MngrSVHistoryServiceStatusLbl.Name = "MngrSVHistoryServiceStatusLbl";
             this.MngrSVHistoryServiceStatusLbl.Size = new System.Drawing.Size(151, 25);
             this.MngrSVHistoryServiceStatusLbl.TabIndex = 4;
@@ -1859,7 +1858,7 @@ namespace Enchante
             this.MngrInventoryCard.SetMinimumSize(this.MngrApptServicePanel, new System.Drawing.Size(1132, 505));
             this.MngrApptServicePanel.Name = "MngrApptServicePanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrApptServicePanel, new System.Drawing.Size(1132, 505));
-            this.MngrApptServicePanel.Size = new System.Drawing.Size(2307, 1044);
+            this.MngrApptServicePanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrApptServicePanel.TabIndex = 100;
             this.MngrApptServicePanel.Visible = false;
             // 
@@ -1868,7 +1867,7 @@ namespace Enchante
             this.MngrAppSalesDataGraphLbl.AutoSize = true;
             this.MngrAppSalesDataGraphLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesDataGraphLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrAppSalesDataGraphLbl.Location = new System.Drawing.Point(1160, 110);
+            this.MngrAppSalesDataGraphLbl.Location = new System.Drawing.Point(1060, 212);
             this.MngrAppSalesDataGraphLbl.Name = "MngrAppSalesDataGraphLbl";
             this.MngrAppSalesDataGraphLbl.Size = new System.Drawing.Size(122, 23);
             this.MngrAppSalesDataGraphLbl.TabIndex = 90;
@@ -1882,7 +1881,7 @@ namespace Enchante
             this.MngrAppSalesPeriod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesPeriod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrAppSalesPeriod.FormattingEnabled = true;
-            this.MngrAppSalesPeriod.Location = new System.Drawing.Point(283, 136);
+            this.MngrAppSalesPeriod.Location = new System.Drawing.Point(183, 238);
             this.MngrAppSalesPeriod.Margin = new System.Windows.Forms.Padding(2);
             this.MngrAppSalesPeriod.Name = "MngrAppSalesPeriod";
             this.MngrAppSalesPeriod.Size = new System.Drawing.Size(311, 24);
@@ -1896,7 +1895,7 @@ namespace Enchante
             this.MngrAppSalesAppointmentSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesAppointmentSelect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrAppSalesAppointmentSelect.FormattingEnabled = true;
-            this.MngrAppSalesAppointmentSelect.Location = new System.Drawing.Point(283, 198);
+            this.MngrAppSalesAppointmentSelect.Location = new System.Drawing.Point(183, 300);
             this.MngrAppSalesAppointmentSelect.Margin = new System.Windows.Forms.Padding(2);
             this.MngrAppSalesAppointmentSelect.Name = "MngrAppSalesAppointmentSelect";
             this.MngrAppSalesAppointmentSelect.Size = new System.Drawing.Size(311, 24);
@@ -1907,7 +1906,7 @@ namespace Enchante
             this.MngrAppSalesSelectedPeriodText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrAppSalesSelectedPeriodText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesSelectedPeriodText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrAppSalesSelectedPeriodText.Location = new System.Drawing.Point(283, 320);
+            this.MngrAppSalesSelectedPeriodText.Location = new System.Drawing.Point(183, 422);
             this.MngrAppSalesSelectedPeriodText.Margin = new System.Windows.Forms.Padding(2);
             this.MngrAppSalesSelectedPeriodText.Name = "MngrAppSalesSelectedPeriodText";
             this.MngrAppSalesSelectedPeriodText.ReadOnly = true;
@@ -1921,7 +1920,7 @@ namespace Enchante
             this.MngrAppSalesSelectCatBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesSelectCatBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrAppSalesSelectCatBox.FormattingEnabled = true;
-            this.MngrAppSalesSelectCatBox.Location = new System.Drawing.Point(283, 260);
+            this.MngrAppSalesSelectCatBox.Location = new System.Drawing.Point(183, 362);
             this.MngrAppSalesSelectCatBox.Margin = new System.Windows.Forms.Padding(2);
             this.MngrAppSalesSelectCatBox.Name = "MngrAppSalesSelectCatBox";
             this.MngrAppSalesSelectCatBox.Size = new System.Drawing.Size(311, 24);
@@ -1936,26 +1935,26 @@ namespace Enchante
             this.MngrAppSalesTransServiceHisDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MngrAppSalesTransServiceHisDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.MngrAppSalesTransServiceHisDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrAppSalesTransServiceHisDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrAppSalesTransServiceHisDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.MngrAppSalesTransServiceHisDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MngrAppSalesTransServiceHisDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrAppSalesTransServiceHisDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrAppSalesTransServiceHisDGV.DefaultCellStyle = dataGridViewCellStyle4;
             this.MngrAppSalesTransServiceHisDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrAppSalesTransServiceHisDGV.Location = new System.Drawing.Point(924, 444);
+            this.MngrAppSalesTransServiceHisDGV.Location = new System.Drawing.Point(824, 546);
             this.MngrAppSalesTransServiceHisDGV.Name = "MngrAppSalesTransServiceHisDGV";
             this.MngrAppSalesTransServiceHisDGV.ReadOnly = true;
             this.MngrAppSalesTransServiceHisDGV.RowHeadersVisible = false;
@@ -1969,7 +1968,7 @@ namespace Enchante
             this.MngrAppSalesTransIDShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrAppSalesTransIDShow.Font = new System.Drawing.Font("Arial Black", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesTransIDShow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrAppSalesTransIDShow.Location = new System.Drawing.Point(1371, 410);
+            this.MngrAppSalesTransIDShow.Location = new System.Drawing.Point(1271, 512);
             this.MngrAppSalesTransIDShow.Margin = new System.Windows.Forms.Padding(2);
             this.MngrAppSalesTransIDShow.Name = "MngrAppSalesTransIDShow";
             this.MngrAppSalesTransIDShow.ReadOnly = true;
@@ -1986,26 +1985,26 @@ namespace Enchante
             this.MngrAppSalesTransRepDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MngrAppSalesTransRepDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.MngrAppSalesTransRepDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrAppSalesTransRepDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrAppSalesTransRepDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.MngrAppSalesTransRepDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MngrAppSalesTransRepDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrAppSalesTransRepDGV.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrAppSalesTransRepDGV.DefaultCellStyle = dataGridViewCellStyle6;
             this.MngrAppSalesTransRepDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrAppSalesTransRepDGV.Location = new System.Drawing.Point(283, 444);
+            this.MngrAppSalesTransRepDGV.Location = new System.Drawing.Point(183, 546);
             this.MngrAppSalesTransRepDGV.Name = "MngrAppSalesTransRepDGV";
             this.MngrAppSalesTransRepDGV.ReadOnly = true;
             this.MngrAppSalesTransRepDGV.RowHeadersVisible = false;
@@ -2020,7 +2019,7 @@ namespace Enchante
             this.MngrAppSalesTotalRevLbl.AutoSize = true;
             this.MngrAppSalesTotalRevLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesTotalRevLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrAppSalesTotalRevLbl.Location = new System.Drawing.Point(283, 710);
+            this.MngrAppSalesTotalRevLbl.Location = new System.Drawing.Point(183, 812);
             this.MngrAppSalesTotalRevLbl.Name = "MngrAppSalesTotalRevLbl";
             this.MngrAppSalesTotalRevLbl.Size = new System.Drawing.Size(142, 23);
             this.MngrAppSalesTotalRevLbl.TabIndex = 100;
@@ -2031,7 +2030,7 @@ namespace Enchante
             this.MngrAppSalesSelectAppLbl.AutoSize = true;
             this.MngrAppSalesSelectAppLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesSelectAppLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrAppSalesSelectAppLbl.Location = new System.Drawing.Point(283, 166);
+            this.MngrAppSalesSelectAppLbl.Location = new System.Drawing.Point(183, 268);
             this.MngrAppSalesSelectAppLbl.Name = "MngrAppSalesSelectAppLbl";
             this.MngrAppSalesSelectAppLbl.Size = new System.Drawing.Size(190, 23);
             this.MngrAppSalesSelectAppLbl.TabIndex = 87;
@@ -2042,7 +2041,7 @@ namespace Enchante
             this.MngrAppSalesTotalRevBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrAppSalesTotalRevBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesTotalRevBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrAppSalesTotalRevBox.Location = new System.Drawing.Point(427, 710);
+            this.MngrAppSalesTotalRevBox.Location = new System.Drawing.Point(327, 812);
             this.MngrAppSalesTotalRevBox.Margin = new System.Windows.Forms.Padding(2);
             this.MngrAppSalesTotalRevBox.Name = "MngrAppSalesTotalRevBox";
             this.MngrAppSalesTotalRevBox.ReadOnly = true;
@@ -2054,7 +2053,7 @@ namespace Enchante
             this.MngrAppSalesTransServiceLbl.AutoSize = true;
             this.MngrAppSalesTransServiceLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesTransServiceLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrAppSalesTransServiceLbl.Location = new System.Drawing.Point(924, 410);
+            this.MngrAppSalesTransServiceLbl.Location = new System.Drawing.Point(824, 512);
             this.MngrAppSalesTransServiceLbl.Name = "MngrAppSalesTransServiceLbl";
             this.MngrAppSalesTransServiceLbl.Size = new System.Drawing.Size(401, 23);
             this.MngrAppSalesTransServiceLbl.TabIndex = 13;
@@ -2066,7 +2065,7 @@ namespace Enchante
             this.MngrAppSalesGraph.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.MngrAppSalesGraph.Legends.Add(legend1);
-            this.MngrAppSalesGraph.Location = new System.Drawing.Point(924, 140);
+            this.MngrAppSalesGraph.Location = new System.Drawing.Point(824, 242);
             this.MngrAppSalesGraph.Margin = new System.Windows.Forms.Padding(2);
             this.MngrAppSalesGraph.Name = "MngrAppSalesGraph";
             series1.ChartArea = "ChartArea1";
@@ -2083,7 +2082,7 @@ namespace Enchante
             this.MngrAppSalesSelectedPeriodLbl.AutoSize = true;
             this.MngrAppSalesSelectedPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesSelectedPeriodLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrAppSalesSelectedPeriodLbl.Location = new System.Drawing.Point(283, 290);
+            this.MngrAppSalesSelectedPeriodLbl.Location = new System.Drawing.Point(183, 392);
             this.MngrAppSalesSelectedPeriodLbl.Name = "MngrAppSalesSelectedPeriodLbl";
             this.MngrAppSalesSelectedPeriodLbl.Size = new System.Drawing.Size(156, 23);
             this.MngrAppSalesSelectedPeriodLbl.TabIndex = 17;
@@ -2094,7 +2093,7 @@ namespace Enchante
             this.MngrApptServiceLbl.AutoSize = true;
             this.MngrApptServiceLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrApptServiceLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrApptServiceLbl.Location = new System.Drawing.Point(76, 60);
+            this.MngrApptServiceLbl.Location = new System.Drawing.Point(181, 145);
             this.MngrApptServiceLbl.Name = "MngrApptServiceLbl";
             this.MngrApptServiceLbl.Size = new System.Drawing.Size(505, 35);
             this.MngrApptServiceLbl.TabIndex = 24;
@@ -2105,7 +2104,7 @@ namespace Enchante
             this.MngrAppSalesPeriodLbl.AutoSize = true;
             this.MngrAppSalesPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesPeriodLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrAppSalesPeriodLbl.Location = new System.Drawing.Point(283, 106);
+            this.MngrAppSalesPeriodLbl.Location = new System.Drawing.Point(183, 208);
             this.MngrAppSalesPeriodLbl.Name = "MngrAppSalesPeriodLbl";
             this.MngrAppSalesPeriodLbl.Size = new System.Drawing.Size(197, 23);
             this.MngrAppSalesPeriodLbl.TabIndex = 15;
@@ -2113,16 +2112,15 @@ namespace Enchante
             // 
             // MngrAppSalesPeriodCalendar
             // 
-            this.MngrAppSalesPeriodCalendar.Location = new System.Drawing.Point(650, 160);
+            this.MngrAppSalesPeriodCalendar.Location = new System.Drawing.Point(550, 262);
             this.MngrAppSalesPeriodCalendar.Margin = new System.Windows.Forms.Padding(7);
             this.MngrAppSalesPeriodCalendar.Name = "MngrAppSalesPeriodCalendar";
             this.MngrAppSalesPeriodCalendar.TabIndex = 16;
-            this.MngrAppSalesPeriodCalendar.Visible = false;
             this.MngrAppSalesPeriodCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.MngrAppSalesPeriodCalendar_DateChanged);
             // 
             // MngrAppSalesFromDatePicker
             // 
-            this.MngrAppSalesFromDatePicker.Location = new System.Drawing.Point(637, 200);
+            this.MngrAppSalesFromDatePicker.Location = new System.Drawing.Point(537, 302);
             this.MngrAppSalesFromDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.MngrAppSalesFromDatePicker.Name = "MngrAppSalesFromDatePicker";
             this.MngrAppSalesFromDatePicker.Size = new System.Drawing.Size(252, 20);
@@ -2134,7 +2132,7 @@ namespace Enchante
             this.MngrAppSalesTransactionRepLbl.AutoSize = true;
             this.MngrAppSalesTransactionRepLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesTransactionRepLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrAppSalesTransactionRepLbl.Location = new System.Drawing.Point(283, 410);
+            this.MngrAppSalesTransactionRepLbl.Location = new System.Drawing.Point(183, 512);
             this.MngrAppSalesTransactionRepLbl.Name = "MngrAppSalesTransactionRepLbl";
             this.MngrAppSalesTransactionRepLbl.Size = new System.Drawing.Size(479, 23);
             this.MngrAppSalesTransactionRepLbl.TabIndex = 12;
@@ -2142,7 +2140,7 @@ namespace Enchante
             // 
             // MngrAppSalesToDatePicker
             // 
-            this.MngrAppSalesToDatePicker.Location = new System.Drawing.Point(637, 262);
+            this.MngrAppSalesToDatePicker.Location = new System.Drawing.Point(537, 364);
             this.MngrAppSalesToDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.MngrAppSalesToDatePicker.Name = "MngrAppSalesToDatePicker";
             this.MngrAppSalesToDatePicker.Size = new System.Drawing.Size(252, 20);
@@ -2154,7 +2152,7 @@ namespace Enchante
             this.MngrAppSalesFromLbl.AutoSize = true;
             this.MngrAppSalesFromLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesFromLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrAppSalesFromLbl.Location = new System.Drawing.Point(633, 166);
+            this.MngrAppSalesFromLbl.Location = new System.Drawing.Point(533, 268);
             this.MngrAppSalesFromLbl.Name = "MngrAppSalesFromLbl";
             this.MngrAppSalesFromLbl.Size = new System.Drawing.Size(59, 23);
             this.MngrAppSalesFromLbl.TabIndex = 4;
@@ -2166,7 +2164,7 @@ namespace Enchante
             this.MngrAppSalesToLbl.AutoSize = true;
             this.MngrAppSalesToLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesToLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrAppSalesToLbl.Location = new System.Drawing.Point(633, 228);
+            this.MngrAppSalesToLbl.Location = new System.Drawing.Point(533, 330);
             this.MngrAppSalesToLbl.Name = "MngrAppSalesToLbl";
             this.MngrAppSalesToLbl.Size = new System.Drawing.Size(37, 23);
             this.MngrAppSalesToLbl.TabIndex = 5;
@@ -2177,7 +2175,7 @@ namespace Enchante
             // 
             this.MngrAppSalesIncomeBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesIncomeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MngrAppSalesIncomeBtn.Location = new System.Drawing.Point(283, 354);
+            this.MngrAppSalesIncomeBtn.Location = new System.Drawing.Point(183, 456);
             this.MngrAppSalesIncomeBtn.Name = "MngrAppSalesIncomeBtn";
             this.MngrAppSalesIncomeBtn.Size = new System.Drawing.Size(606, 46);
             this.MngrAppSalesIncomeBtn.TabIndex = 7;
@@ -2190,7 +2188,7 @@ namespace Enchante
             this.MngrAppSalesCatLbl.AutoSize = true;
             this.MngrAppSalesCatLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrAppSalesCatLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrAppSalesCatLbl.Location = new System.Drawing.Point(283, 228);
+            this.MngrAppSalesCatLbl.Location = new System.Drawing.Point(183, 330);
             this.MngrAppSalesCatLbl.Name = "MngrAppSalesCatLbl";
             this.MngrAppSalesCatLbl.Size = new System.Drawing.Size(158, 23);
             this.MngrAppSalesCatLbl.TabIndex = 6;
@@ -2206,17 +2204,18 @@ namespace Enchante
             this.MngrApptServiceExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.MngrApptServiceExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrApptServiceExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrApptServiceExitBtn.Location = new System.Drawing.Point(1716, 20);
+            this.MngrApptServiceExitBtn.Location = new System.Drawing.Point(1369, 145);
             this.MngrApptServiceExitBtn.Name = "MngrApptServiceExitBtn";
             this.MngrApptServiceExitBtn.Size = new System.Drawing.Size(48, 48);
             this.MngrApptServiceExitBtn.TabIndex = 85;
             this.MngrApptServiceExitBtn.UseVisualStyleBackColor = false;
+            this.MngrApptServiceExitBtn.Visible = false;
             this.MngrApptServiceExitBtn.Click += new System.EventHandler(this.MngrApptServiceExitBtn_Click);
             // 
             // MngrWalkinProdSalesPanel
             // 
             this.MngrWalkinProdSalesPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrInventoryCard.SetCardName(this.MngrWalkinProdSalesPanel, "ProductSales");
+            this.MngrInventoryCard.SetCardName(this.MngrWalkinProdSalesPanel, "product sales");
             this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesPeriod);
             this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesTransRepDGV);
             this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesSelectedPeriodText);
@@ -2242,7 +2241,7 @@ namespace Enchante
             this.MngrInventoryCard.SetMinimumSize(this.MngrWalkinProdSalesPanel, new System.Drawing.Size(200, 100));
             this.MngrWalkinProdSalesPanel.Name = "MngrWalkinProdSalesPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrWalkinProdSalesPanel, new System.Drawing.Size(200, 100));
-            this.MngrWalkinProdSalesPanel.Size = new System.Drawing.Size(2307, 1044);
+            this.MngrWalkinProdSalesPanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrWalkinProdSalesPanel.TabIndex = 99;
             // 
             // MngrProductSalesPeriod
@@ -2252,7 +2251,7 @@ namespace Enchante
             this.MngrProductSalesPeriod.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesPeriod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrProductSalesPeriod.FormattingEnabled = true;
-            this.MngrProductSalesPeriod.Location = new System.Drawing.Point(302, 141);
+            this.MngrProductSalesPeriod.Location = new System.Drawing.Point(188, 266);
             this.MngrProductSalesPeriod.Margin = new System.Windows.Forms.Padding(2);
             this.MngrProductSalesPeriod.Name = "MngrProductSalesPeriod";
             this.MngrProductSalesPeriod.Size = new System.Drawing.Size(299, 31);
@@ -2268,26 +2267,26 @@ namespace Enchante
             this.MngrProductSalesTransRepDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MngrProductSalesTransRepDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.MngrProductSalesTransRepDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrProductSalesTransRepDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrProductSalesTransRepDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.MngrProductSalesTransRepDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MngrProductSalesTransRepDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrProductSalesTransRepDGV.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrProductSalesTransRepDGV.DefaultCellStyle = dataGridViewCellStyle8;
             this.MngrProductSalesTransRepDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrProductSalesTransRepDGV.Location = new System.Drawing.Point(936, 117);
+            this.MngrProductSalesTransRepDGV.Location = new System.Drawing.Point(822, 242);
             this.MngrProductSalesTransRepDGV.Name = "MngrProductSalesTransRepDGV";
             this.MngrProductSalesTransRepDGV.ReadOnly = true;
             this.MngrProductSalesTransRepDGV.RowHeadersVisible = false;
@@ -2301,7 +2300,7 @@ namespace Enchante
             this.MngrProductSalesSelectedPeriodText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrProductSalesSelectedPeriodText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesSelectedPeriodText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrProductSalesSelectedPeriodText.Location = new System.Drawing.Point(302, 285);
+            this.MngrProductSalesSelectedPeriodText.Location = new System.Drawing.Point(188, 410);
             this.MngrProductSalesSelectedPeriodText.Margin = new System.Windows.Forms.Padding(2);
             this.MngrProductSalesSelectedPeriodText.Name = "MngrProductSalesSelectedPeriodText";
             this.MngrProductSalesSelectedPeriodText.ReadOnly = true;
@@ -2315,7 +2314,7 @@ namespace Enchante
             this.MngrProductSalesSelectCatBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesSelectCatBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrProductSalesSelectCatBox.FormattingEnabled = true;
-            this.MngrProductSalesSelectCatBox.Location = new System.Drawing.Point(302, 213);
+            this.MngrProductSalesSelectCatBox.Location = new System.Drawing.Point(188, 338);
             this.MngrProductSalesSelectCatBox.Margin = new System.Windows.Forms.Padding(2);
             this.MngrProductSalesSelectCatBox.Name = "MngrProductSalesSelectCatBox";
             this.MngrProductSalesSelectCatBox.Size = new System.Drawing.Size(299, 31);
@@ -2326,7 +2325,7 @@ namespace Enchante
             this.MngrProductSalesTotalRevLbl.AutoSize = true;
             this.MngrProductSalesTotalRevLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesTotalRevLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrProductSalesTotalRevLbl.Location = new System.Drawing.Point(936, 712);
+            this.MngrProductSalesTotalRevLbl.Location = new System.Drawing.Point(818, 833);
             this.MngrProductSalesTotalRevLbl.Name = "MngrProductSalesTotalRevLbl";
             this.MngrProductSalesTotalRevLbl.Size = new System.Drawing.Size(142, 23);
             this.MngrProductSalesTotalRevLbl.TabIndex = 92;
@@ -2337,7 +2336,7 @@ namespace Enchante
             this.MngrProductSalesTotalRevBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrProductSalesTotalRevBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesTotalRevBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrProductSalesTotalRevBox.Location = new System.Drawing.Point(1083, 712);
+            this.MngrProductSalesTotalRevBox.Location = new System.Drawing.Point(965, 831);
             this.MngrProductSalesTotalRevBox.Margin = new System.Windows.Forms.Padding(2);
             this.MngrProductSalesTotalRevBox.Name = "MngrProductSalesTotalRevBox";
             this.MngrProductSalesTotalRevBox.ReadOnly = true;
@@ -2349,7 +2348,7 @@ namespace Enchante
             this.trydata.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.trydata.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
             this.trydata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.trydata.Location = new System.Drawing.Point(936, 381);
+            this.trydata.Location = new System.Drawing.Point(822, 506);
             this.trydata.Name = "trydata";
             this.trydata.Size = new System.Drawing.Size(594, 324);
             this.trydata.TabIndex = 26;
@@ -2360,7 +2359,7 @@ namespace Enchante
             this.MngrProductSalesToLbl.AutoSize = true;
             this.MngrProductSalesToLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesToLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrProductSalesToLbl.Location = new System.Drawing.Point(627, 180);
+            this.MngrProductSalesToLbl.Location = new System.Drawing.Point(513, 305);
             this.MngrProductSalesToLbl.Name = "MngrProductSalesToLbl";
             this.MngrProductSalesToLbl.Size = new System.Drawing.Size(37, 23);
             this.MngrProductSalesToLbl.TabIndex = 5;
@@ -2372,7 +2371,7 @@ namespace Enchante
             this.MngrProductSalesFromLbl.AutoSize = true;
             this.MngrProductSalesFromLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesFromLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrProductSalesFromLbl.Location = new System.Drawing.Point(627, 110);
+            this.MngrProductSalesFromLbl.Location = new System.Drawing.Point(513, 235);
             this.MngrProductSalesFromLbl.Name = "MngrProductSalesFromLbl";
             this.MngrProductSalesFromLbl.Size = new System.Drawing.Size(59, 23);
             this.MngrProductSalesFromLbl.TabIndex = 4;
@@ -2381,7 +2380,7 @@ namespace Enchante
             // 
             // MngrProductSalesToDatePicker
             // 
-            this.MngrProductSalesToDatePicker.Location = new System.Drawing.Point(631, 217);
+            this.MngrProductSalesToDatePicker.Location = new System.Drawing.Point(517, 342);
             this.MngrProductSalesToDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.MngrProductSalesToDatePicker.Name = "MngrProductSalesToDatePicker";
             this.MngrProductSalesToDatePicker.Size = new System.Drawing.Size(265, 20);
@@ -2390,7 +2389,7 @@ namespace Enchante
             // 
             // MngrProductSalesFromDatePicker
             // 
-            this.MngrProductSalesFromDatePicker.Location = new System.Drawing.Point(631, 147);
+            this.MngrProductSalesFromDatePicker.Location = new System.Drawing.Point(517, 272);
             this.MngrProductSalesFromDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.MngrProductSalesFromDatePicker.Name = "MngrProductSalesFromDatePicker";
             this.MngrProductSalesFromDatePicker.Size = new System.Drawing.Size(265, 20);
@@ -2403,7 +2402,7 @@ namespace Enchante
             this.MngrProductSalesLineGraph.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.MngrProductSalesLineGraph.Legends.Add(legend2);
-            this.MngrProductSalesLineGraph.Location = new System.Drawing.Point(936, 381);
+            this.MngrProductSalesLineGraph.Location = new System.Drawing.Point(822, 506);
             this.MngrProductSalesLineGraph.Margin = new System.Windows.Forms.Padding(2);
             this.MngrProductSalesLineGraph.Name = "MngrProductSalesLineGraph";
             series2.ChartArea = "ChartArea1";
@@ -2421,7 +2420,7 @@ namespace Enchante
             this.MngrProductSalesGraph.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
             this.MngrProductSalesGraph.Legends.Add(legend3);
-            this.MngrProductSalesGraph.Location = new System.Drawing.Point(302, 381);
+            this.MngrProductSalesGraph.Location = new System.Drawing.Point(188, 506);
             this.MngrProductSalesGraph.Name = "MngrProductSalesGraph";
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
@@ -2437,7 +2436,7 @@ namespace Enchante
             this.MngrWalkinProdSalesLbl.AutoSize = true;
             this.MngrWalkinProdSalesLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrWalkinProdSalesLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinProdSalesLbl.Location = new System.Drawing.Point(76, 60);
+            this.MngrWalkinProdSalesLbl.Location = new System.Drawing.Point(186, 154);
             this.MngrWalkinProdSalesLbl.Name = "MngrWalkinProdSalesLbl";
             this.MngrWalkinProdSalesLbl.Size = new System.Drawing.Size(371, 35);
             this.MngrWalkinProdSalesLbl.TabIndex = 99;
@@ -2448,7 +2447,7 @@ namespace Enchante
             this.MngrProductSalesTransactionRepLbl.AutoSize = true;
             this.MngrProductSalesTransactionRepLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesTransactionRepLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MngrProductSalesTransactionRepLbl.Location = new System.Drawing.Point(936, 90);
+            this.MngrProductSalesTransactionRepLbl.Location = new System.Drawing.Point(822, 215);
             this.MngrProductSalesTransactionRepLbl.Name = "MngrProductSalesTransactionRepLbl";
             this.MngrProductSalesTransactionRepLbl.Size = new System.Drawing.Size(187, 23);
             this.MngrProductSalesTransactionRepLbl.TabIndex = 12;
@@ -2459,7 +2458,7 @@ namespace Enchante
             this.MngrProductSalesPeriodLbl.AutoSize = true;
             this.MngrProductSalesPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesPeriodLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrProductSalesPeriodLbl.Location = new System.Drawing.Point(302, 110);
+            this.MngrProductSalesPeriodLbl.Location = new System.Drawing.Point(188, 235);
             this.MngrProductSalesPeriodLbl.Name = "MngrProductSalesPeriodLbl";
             this.MngrProductSalesPeriodLbl.Size = new System.Drawing.Size(197, 23);
             this.MngrProductSalesPeriodLbl.TabIndex = 15;
@@ -2467,11 +2466,10 @@ namespace Enchante
             // 
             // MngrProductSalesPeriodCalendar
             // 
-            this.MngrProductSalesPeriodCalendar.Location = new System.Drawing.Point(643, 140);
+            this.MngrProductSalesPeriodCalendar.Location = new System.Drawing.Point(529, 265);
             this.MngrProductSalesPeriodCalendar.Margin = new System.Windows.Forms.Padding(7);
             this.MngrProductSalesPeriodCalendar.Name = "MngrProductSalesPeriodCalendar";
             this.MngrProductSalesPeriodCalendar.TabIndex = 16;
-            this.MngrProductSalesPeriodCalendar.Visible = false;
             this.MngrProductSalesPeriodCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.MngrProductSalesPeriodCalendar_DateChanged_1);
             // 
             // MngrProductSalesSelectedPeriodLbl
@@ -2479,7 +2477,7 @@ namespace Enchante
             this.MngrProductSalesSelectedPeriodLbl.AutoSize = true;
             this.MngrProductSalesSelectedPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesSelectedPeriodLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrProductSalesSelectedPeriodLbl.Location = new System.Drawing.Point(302, 253);
+            this.MngrProductSalesSelectedPeriodLbl.Location = new System.Drawing.Point(188, 378);
             this.MngrProductSalesSelectedPeriodLbl.Name = "MngrProductSalesSelectedPeriodLbl";
             this.MngrProductSalesSelectedPeriodLbl.Size = new System.Drawing.Size(156, 23);
             this.MngrProductSalesSelectedPeriodLbl.TabIndex = 17;
@@ -2490,7 +2488,7 @@ namespace Enchante
             this.MngrProductSalesIncomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MngrProductSalesIncomeBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesIncomeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MngrProductSalesIncomeBtn.Location = new System.Drawing.Point(302, 330);
+            this.MngrProductSalesIncomeBtn.Location = new System.Drawing.Point(188, 455);
             this.MngrProductSalesIncomeBtn.Name = "MngrProductSalesIncomeBtn";
             this.MngrProductSalesIncomeBtn.Size = new System.Drawing.Size(594, 40);
             this.MngrProductSalesIncomeBtn.TabIndex = 7;
@@ -2503,7 +2501,7 @@ namespace Enchante
             this.MngrProductSalesCatLbl.AutoSize = true;
             this.MngrProductSalesCatLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrProductSalesCatLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrProductSalesCatLbl.Location = new System.Drawing.Point(302, 180);
+            this.MngrProductSalesCatLbl.Location = new System.Drawing.Point(188, 305);
             this.MngrProductSalesCatLbl.Name = "MngrProductSalesCatLbl";
             this.MngrProductSalesCatLbl.Size = new System.Drawing.Size(158, 23);
             this.MngrProductSalesCatLbl.TabIndex = 6;
@@ -2519,17 +2517,18 @@ namespace Enchante
             this.MngrWalkinProdSalesExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.MngrWalkinProdSalesExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrWalkinProdSalesExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrWalkinProdSalesExitBtn.Location = new System.Drawing.Point(1717, 29);
+            this.MngrWalkinProdSalesExitBtn.Location = new System.Drawing.Point(1368, 154);
             this.MngrWalkinProdSalesExitBtn.Name = "MngrWalkinProdSalesExitBtn";
             this.MngrWalkinProdSalesExitBtn.Size = new System.Drawing.Size(48, 48);
             this.MngrWalkinProdSalesExitBtn.TabIndex = 84;
             this.MngrWalkinProdSalesExitBtn.UseVisualStyleBackColor = false;
+            this.MngrWalkinProdSalesExitBtn.Visible = false;
             this.MngrWalkinProdSalesExitBtn.Click += new System.EventHandler(this.MngrWalkinProdSalesExitBtn_Click);
             // 
             // MngrWalkinSalesPanel
             // 
             this.MngrWalkinSalesPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrInventoryCard.SetCardName(this.MngrWalkinSalesPanel, "WALKIN SALES");
+            this.MngrInventoryCard.SetCardName(this.MngrWalkinSalesPanel, "walkin sales");
             this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesRevenueTextbox);
             this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesTotalRevenueLbl);
             this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesGraphLbl);
@@ -2558,7 +2557,7 @@ namespace Enchante
             this.MngrInventoryCard.SetMinimumSize(this.MngrWalkinSalesPanel, new System.Drawing.Size(1132, 505));
             this.MngrWalkinSalesPanel.Name = "MngrWalkinSalesPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrWalkinSalesPanel, new System.Drawing.Size(1132, 505));
-            this.MngrWalkinSalesPanel.Size = new System.Drawing.Size(2307, 1044);
+            this.MngrWalkinSalesPanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrWalkinSalesPanel.TabIndex = 28;
             this.MngrWalkinSalesPanel.Visible = false;
             // 
@@ -2567,7 +2566,7 @@ namespace Enchante
             this.MngrWalkinSalesRevenueTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrWalkinSalesRevenueTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesRevenueTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesRevenueTextbox.Location = new System.Drawing.Point(427, 710);
+            this.MngrWalkinSalesRevenueTextbox.Location = new System.Drawing.Point(327, 728);
             this.MngrWalkinSalesRevenueTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.MngrWalkinSalesRevenueTextbox.Name = "MngrWalkinSalesRevenueTextbox";
             this.MngrWalkinSalesRevenueTextbox.ReadOnly = true;
@@ -2579,7 +2578,7 @@ namespace Enchante
             this.MngrWalkinSalesTotalRevenueLbl.AutoSize = true;
             this.MngrWalkinSalesTotalRevenueLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesTotalRevenueLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesTotalRevenueLbl.Location = new System.Drawing.Point(283, 710);
+            this.MngrWalkinSalesTotalRevenueLbl.Location = new System.Drawing.Point(183, 728);
             this.MngrWalkinSalesTotalRevenueLbl.Name = "MngrWalkinSalesTotalRevenueLbl";
             this.MngrWalkinSalesTotalRevenueLbl.Size = new System.Drawing.Size(142, 23);
             this.MngrWalkinSalesTotalRevenueLbl.TabIndex = 90;
@@ -2590,7 +2589,7 @@ namespace Enchante
             this.MngrWalkinSalesGraphLbl.AutoSize = true;
             this.MngrWalkinSalesGraphLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesGraphLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesGraphLbl.Location = new System.Drawing.Point(1160, 110);
+            this.MngrWalkinSalesGraphLbl.Location = new System.Drawing.Point(1060, 123);
             this.MngrWalkinSalesGraphLbl.Name = "MngrWalkinSalesGraphLbl";
             this.MngrWalkinSalesGraphLbl.Size = new System.Drawing.Size(122, 23);
             this.MngrWalkinSalesGraphLbl.TabIndex = 89;
@@ -2606,26 +2605,26 @@ namespace Enchante
             this.MngrWalkinSalesTransServiceHisDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MngrWalkinSalesTransServiceHisDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.MngrWalkinSalesTransServiceHisDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrWalkinSalesTransServiceHisDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrWalkinSalesTransServiceHisDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.MngrWalkinSalesTransServiceHisDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MngrWalkinSalesTransServiceHisDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrWalkinSalesTransServiceHisDGV.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrWalkinSalesTransServiceHisDGV.DefaultCellStyle = dataGridViewCellStyle10;
             this.MngrWalkinSalesTransServiceHisDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrWalkinSalesTransServiceHisDGV.Location = new System.Drawing.Point(924, 444);
+            this.MngrWalkinSalesTransServiceHisDGV.Location = new System.Drawing.Point(824, 457);
             this.MngrWalkinSalesTransServiceHisDGV.Name = "MngrWalkinSalesTransServiceHisDGV";
             this.MngrWalkinSalesTransServiceHisDGV.ReadOnly = true;
             this.MngrWalkinSalesTransServiceHisDGV.RowHeadersVisible = false;
@@ -2643,26 +2642,26 @@ namespace Enchante
             this.MngrWalkinSalesTransRepDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MngrWalkinSalesTransRepDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.MngrWalkinSalesTransRepDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrWalkinSalesTransRepDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrWalkinSalesTransRepDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.MngrWalkinSalesTransRepDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MngrWalkinSalesTransRepDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrWalkinSalesTransRepDGV.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrWalkinSalesTransRepDGV.DefaultCellStyle = dataGridViewCellStyle12;
             this.MngrWalkinSalesTransRepDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrWalkinSalesTransRepDGV.Location = new System.Drawing.Point(283, 444);
+            this.MngrWalkinSalesTransRepDGV.Location = new System.Drawing.Point(183, 457);
             this.MngrWalkinSalesTransRepDGV.Name = "MngrWalkinSalesTransRepDGV";
             this.MngrWalkinSalesTransRepDGV.ReadOnly = true;
             this.MngrWalkinSalesTransRepDGV.RowHeadersVisible = false;
@@ -2677,7 +2676,7 @@ namespace Enchante
             this.MngrWalkinSalesLbl.AutoSize = true;
             this.MngrWalkinSalesLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrWalkinSalesLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesLbl.Location = new System.Drawing.Point(76, 60);
+            this.MngrWalkinSalesLbl.Location = new System.Drawing.Point(181, 60);
             this.MngrWalkinSalesLbl.Name = "MngrWalkinSalesLbl";
             this.MngrWalkinSalesLbl.Size = new System.Drawing.Size(438, 35);
             this.MngrWalkinSalesLbl.TabIndex = 24;
@@ -2692,7 +2691,7 @@ namespace Enchante
             this.MngrWalkinSalesGraph.ChartAreas.Add(chartArea4);
             legend4.Name = "Legend1";
             this.MngrWalkinSalesGraph.Legends.Add(legend4);
-            this.MngrWalkinSalesGraph.Location = new System.Drawing.Point(924, 140);
+            this.MngrWalkinSalesGraph.Location = new System.Drawing.Point(824, 153);
             this.MngrWalkinSalesGraph.Margin = new System.Windows.Forms.Padding(2);
             this.MngrWalkinSalesGraph.Name = "MngrWalkinSalesGraph";
             series4.ChartArea = "ChartArea1";
@@ -2709,11 +2708,11 @@ namespace Enchante
             this.MngrWalkinSalesTransIDShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrWalkinSalesTransIDShow.Font = new System.Drawing.Font("Arial Black", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesTransIDShow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesTransIDShow.Location = new System.Drawing.Point(1371, 410);
+            this.MngrWalkinSalesTransIDShow.Location = new System.Drawing.Point(1125, 421);
             this.MngrWalkinSalesTransIDShow.Margin = new System.Windows.Forms.Padding(2);
             this.MngrWalkinSalesTransIDShow.Name = "MngrWalkinSalesTransIDShow";
             this.MngrWalkinSalesTransIDShow.ReadOnly = true;
-            this.MngrWalkinSalesTransIDShow.Size = new System.Drawing.Size(146, 29);
+            this.MngrWalkinSalesTransIDShow.Size = new System.Drawing.Size(188, 29);
             this.MngrWalkinSalesTransIDShow.TabIndex = 21;
             this.MngrWalkinSalesTransIDShow.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -2722,7 +2721,7 @@ namespace Enchante
             this.MngrWalkinSalesSelectedPeriodText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrWalkinSalesSelectedPeriodText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesSelectedPeriodText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesSelectedPeriodText.Location = new System.Drawing.Point(283, 297);
+            this.MngrWalkinSalesSelectedPeriodText.Location = new System.Drawing.Point(183, 310);
             this.MngrWalkinSalesSelectedPeriodText.Margin = new System.Windows.Forms.Padding(2);
             this.MngrWalkinSalesSelectedPeriodText.Name = "MngrWalkinSalesSelectedPeriodText";
             this.MngrWalkinSalesSelectedPeriodText.ReadOnly = true;
@@ -2734,7 +2733,7 @@ namespace Enchante
             this.MngrWalkinSalesSelectedPeriodLbl.AutoSize = true;
             this.MngrWalkinSalesSelectedPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesSelectedPeriodLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesSelectedPeriodLbl.Location = new System.Drawing.Point(283, 263);
+            this.MngrWalkinSalesSelectedPeriodLbl.Location = new System.Drawing.Point(183, 276);
             this.MngrWalkinSalesSelectedPeriodLbl.Name = "MngrWalkinSalesSelectedPeriodLbl";
             this.MngrWalkinSalesSelectedPeriodLbl.Size = new System.Drawing.Size(156, 23);
             this.MngrWalkinSalesSelectedPeriodLbl.TabIndex = 17;
@@ -2745,7 +2744,7 @@ namespace Enchante
             this.MngrWalkinSalesPeriodLbl.AutoSize = true;
             this.MngrWalkinSalesPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesPeriodLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesPeriodLbl.Location = new System.Drawing.Point(283, 120);
+            this.MngrWalkinSalesPeriodLbl.Location = new System.Drawing.Point(183, 133);
             this.MngrWalkinSalesPeriodLbl.Name = "MngrWalkinSalesPeriodLbl";
             this.MngrWalkinSalesPeriodLbl.Size = new System.Drawing.Size(197, 23);
             this.MngrWalkinSalesPeriodLbl.TabIndex = 15;
@@ -2758,7 +2757,7 @@ namespace Enchante
             this.MngrWalkinSalesPeriod.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesPeriod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrWalkinSalesPeriod.FormattingEnabled = true;
-            this.MngrWalkinSalesPeriod.Location = new System.Drawing.Point(283, 151);
+            this.MngrWalkinSalesPeriod.Location = new System.Drawing.Point(183, 164);
             this.MngrWalkinSalesPeriod.Margin = new System.Windows.Forms.Padding(2);
             this.MngrWalkinSalesPeriod.Name = "MngrWalkinSalesPeriod";
             this.MngrWalkinSalesPeriod.Size = new System.Drawing.Size(311, 31);
@@ -2770,7 +2769,7 @@ namespace Enchante
             this.MngrWalkinSalesTransServiceLbl.AutoSize = true;
             this.MngrWalkinSalesTransServiceLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesTransServiceLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesTransServiceLbl.Location = new System.Drawing.Point(924, 410);
+            this.MngrWalkinSalesTransServiceLbl.Location = new System.Drawing.Point(824, 423);
             this.MngrWalkinSalesTransServiceLbl.Name = "MngrWalkinSalesTransServiceLbl";
             this.MngrWalkinSalesTransServiceLbl.Size = new System.Drawing.Size(401, 23);
             this.MngrWalkinSalesTransServiceLbl.TabIndex = 13;
@@ -2781,7 +2780,7 @@ namespace Enchante
             this.MngrWalkinSalesTransactionRepLbl.AutoSize = true;
             this.MngrWalkinSalesTransactionRepLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesTransactionRepLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesTransactionRepLbl.Location = new System.Drawing.Point(283, 410);
+            this.MngrWalkinSalesTransactionRepLbl.Location = new System.Drawing.Point(183, 423);
             this.MngrWalkinSalesTransactionRepLbl.Name = "MngrWalkinSalesTransactionRepLbl";
             this.MngrWalkinSalesTransactionRepLbl.Size = new System.Drawing.Size(479, 23);
             this.MngrWalkinSalesTransactionRepLbl.TabIndex = 12;
@@ -2792,7 +2791,7 @@ namespace Enchante
             this.MngrWalkinSalesIncomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MngrWalkinSalesIncomeBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesIncomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesIncomeBtn.Location = new System.Drawing.Point(283, 354);
+            this.MngrWalkinSalesIncomeBtn.Location = new System.Drawing.Point(183, 367);
             this.MngrWalkinSalesIncomeBtn.Name = "MngrWalkinSalesIncomeBtn";
             this.MngrWalkinSalesIncomeBtn.Size = new System.Drawing.Size(594, 44);
             this.MngrWalkinSalesIncomeBtn.TabIndex = 7;
@@ -2805,7 +2804,7 @@ namespace Enchante
             this.MngrWalkinSalesCatLbl.AutoSize = true;
             this.MngrWalkinSalesCatLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesCatLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesCatLbl.Location = new System.Drawing.Point(283, 191);
+            this.MngrWalkinSalesCatLbl.Location = new System.Drawing.Point(183, 204);
             this.MngrWalkinSalesCatLbl.Name = "MngrWalkinSalesCatLbl";
             this.MngrWalkinSalesCatLbl.Size = new System.Drawing.Size(158, 23);
             this.MngrWalkinSalesCatLbl.TabIndex = 6;
@@ -2816,7 +2815,7 @@ namespace Enchante
             this.MngrWalkinSalesToLbl.AutoSize = true;
             this.MngrWalkinSalesToLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesToLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesToLbl.Location = new System.Drawing.Point(637, 191);
+            this.MngrWalkinSalesToLbl.Location = new System.Drawing.Point(537, 204);
             this.MngrWalkinSalesToLbl.Name = "MngrWalkinSalesToLbl";
             this.MngrWalkinSalesToLbl.Size = new System.Drawing.Size(37, 23);
             this.MngrWalkinSalesToLbl.TabIndex = 5;
@@ -2828,7 +2827,7 @@ namespace Enchante
             this.MngrWalkinSalesFromLbl.AutoSize = true;
             this.MngrWalkinSalesFromLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesFromLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesFromLbl.Location = new System.Drawing.Point(637, 120);
+            this.MngrWalkinSalesFromLbl.Location = new System.Drawing.Point(537, 133);
             this.MngrWalkinSalesFromLbl.Name = "MngrWalkinSalesFromLbl";
             this.MngrWalkinSalesFromLbl.Size = new System.Drawing.Size(59, 23);
             this.MngrWalkinSalesFromLbl.TabIndex = 4;
@@ -2842,7 +2841,7 @@ namespace Enchante
             this.MngrWalkinSalesSelectCatBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrWalkinSalesSelectCatBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrWalkinSalesSelectCatBox.FormattingEnabled = true;
-            this.MngrWalkinSalesSelectCatBox.Location = new System.Drawing.Point(283, 223);
+            this.MngrWalkinSalesSelectCatBox.Location = new System.Drawing.Point(183, 236);
             this.MngrWalkinSalesSelectCatBox.Margin = new System.Windows.Forms.Padding(2);
             this.MngrWalkinSalesSelectCatBox.Name = "MngrWalkinSalesSelectCatBox";
             this.MngrWalkinSalesSelectCatBox.Size = new System.Drawing.Size(311, 31);
@@ -2850,7 +2849,7 @@ namespace Enchante
             // 
             // MngrWalkinSalesToDatePicker
             // 
-            this.MngrWalkinSalesToDatePicker.Location = new System.Drawing.Point(637, 228);
+            this.MngrWalkinSalesToDatePicker.Location = new System.Drawing.Point(537, 241);
             this.MngrWalkinSalesToDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.MngrWalkinSalesToDatePicker.Name = "MngrWalkinSalesToDatePicker";
             this.MngrWalkinSalesToDatePicker.Size = new System.Drawing.Size(239, 20);
@@ -2859,7 +2858,7 @@ namespace Enchante
             // 
             // MngrWalkinSalesFromDatePicker
             // 
-            this.MngrWalkinSalesFromDatePicker.Location = new System.Drawing.Point(637, 155);
+            this.MngrWalkinSalesFromDatePicker.Location = new System.Drawing.Point(537, 168);
             this.MngrWalkinSalesFromDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.MngrWalkinSalesFromDatePicker.Name = "MngrWalkinSalesFromDatePicker";
             this.MngrWalkinSalesFromDatePicker.Size = new System.Drawing.Size(239, 20);
@@ -2868,11 +2867,10 @@ namespace Enchante
             // 
             // MngrWalkinSalesPeriodCalendar
             // 
-            this.MngrWalkinSalesPeriodCalendar.Location = new System.Drawing.Point(637, 155);
+            this.MngrWalkinSalesPeriodCalendar.Location = new System.Drawing.Point(537, 168);
             this.MngrWalkinSalesPeriodCalendar.Margin = new System.Windows.Forms.Padding(7);
             this.MngrWalkinSalesPeriodCalendar.Name = "MngrWalkinSalesPeriodCalendar";
             this.MngrWalkinSalesPeriodCalendar.TabIndex = 16;
-            this.MngrWalkinSalesPeriodCalendar.Visible = false;
             this.MngrWalkinSalesPeriodCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.SalesPeriodCalendar_DateChanged);
             // 
             // MngrWalkinSalesExitBtn
@@ -2885,17 +2883,18 @@ namespace Enchante
             this.MngrWalkinSalesExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.MngrWalkinSalesExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrWalkinSalesExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrWalkinSalesExitBtn.Location = new System.Drawing.Point(1716, 20);
+            this.MngrWalkinSalesExitBtn.Location = new System.Drawing.Point(1416, 20);
             this.MngrWalkinSalesExitBtn.Name = "MngrWalkinSalesExitBtn";
             this.MngrWalkinSalesExitBtn.Size = new System.Drawing.Size(48, 48);
             this.MngrWalkinSalesExitBtn.TabIndex = 85;
             this.MngrWalkinSalesExitBtn.UseVisualStyleBackColor = false;
+            this.MngrWalkinSalesExitBtn.Visible = false;
             this.MngrWalkinSalesExitBtn.Click += new System.EventHandler(this.MngrWalkinSalesExitBtn_Click);
             // 
             // MngrIndemandPanel
             // 
             this.MngrIndemandPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrInventoryCard.SetCardName(this.MngrIndemandPanel, "IN DEMAND");
+            this.MngrInventoryCard.SetCardName(this.MngrIndemandPanel, "in demand");
             this.MngrIndemandPanel.Controls.Add(this.MngrIndemandServiceGraphLbl);
             this.MngrIndemandPanel.Controls.Add(this.MngrIndemandLbl);
             this.MngrIndemandPanel.Controls.Add(this.MngrIndemandBestEmployee);
@@ -2921,7 +2920,7 @@ namespace Enchante
             this.MngrInventoryCard.SetMinimumSize(this.MngrIndemandPanel, new System.Drawing.Size(1132, 505));
             this.MngrIndemandPanel.Name = "MngrIndemandPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrIndemandPanel, new System.Drawing.Size(1132, 505));
-            this.MngrIndemandPanel.Size = new System.Drawing.Size(2307, 1044);
+            this.MngrIndemandPanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrIndemandPanel.TabIndex = 29;
             this.MngrIndemandPanel.Visible = false;
             // 
@@ -2930,7 +2929,7 @@ namespace Enchante
             this.MngrIndemandServiceGraphLbl.AutoSize = true;
             this.MngrIndemandServiceGraphLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrIndemandServiceGraphLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandServiceGraphLbl.Location = new System.Drawing.Point(1160, 110);
+            this.MngrIndemandServiceGraphLbl.Location = new System.Drawing.Point(1062, 127);
             this.MngrIndemandServiceGraphLbl.Name = "MngrIndemandServiceGraphLbl";
             this.MngrIndemandServiceGraphLbl.Size = new System.Drawing.Size(122, 23);
             this.MngrIndemandServiceGraphLbl.TabIndex = 91;
@@ -2942,11 +2941,11 @@ namespace Enchante
             this.MngrIndemandLbl.AutoSize = true;
             this.MngrIndemandLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrIndemandLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandLbl.Location = new System.Drawing.Point(76, 38);
+            this.MngrIndemandLbl.Location = new System.Drawing.Point(179, 80);
             this.MngrIndemandLbl.Name = "MngrIndemandLbl";
-            this.MngrIndemandLbl.Size = new System.Drawing.Size(391, 70);
+            this.MngrIndemandLbl.Size = new System.Drawing.Size(663, 35);
             this.MngrIndemandLbl.TabIndex = 90;
-            this.MngrIndemandLbl.Text = "IN DEMAND SERVICES &&\r\nBEST EMPLOYEE\r\n";
+            this.MngrIndemandLbl.Text = "IN DEMAND SERVICES && BEST EMPLOYEE\r\n";
             // 
             // MngrIndemandBestEmployee
             // 
@@ -2957,26 +2956,26 @@ namespace Enchante
             this.MngrIndemandBestEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MngrIndemandBestEmployee.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.MngrIndemandBestEmployee.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrIndemandBestEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrIndemandBestEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.MngrIndemandBestEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MngrIndemandBestEmployee.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrIndemandBestEmployee.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrIndemandBestEmployee.DefaultCellStyle = dataGridViewCellStyle14;
             this.MngrIndemandBestEmployee.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrIndemandBestEmployee.Location = new System.Drawing.Point(924, 444);
+            this.MngrIndemandBestEmployee.Location = new System.Drawing.Point(826, 461);
             this.MngrIndemandBestEmployee.Name = "MngrIndemandBestEmployee";
             this.MngrIndemandBestEmployee.ReadOnly = true;
             this.MngrIndemandBestEmployee.RowHeadersVisible = false;
@@ -2994,26 +2993,26 @@ namespace Enchante
             this.MngrIndemandServiceSelection.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MngrIndemandServiceSelection.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.MngrIndemandServiceSelection.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrIndemandServiceSelection.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrIndemandServiceSelection.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.MngrIndemandServiceSelection.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MngrIndemandServiceSelection.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrIndemandServiceSelection.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrIndemandServiceSelection.DefaultCellStyle = dataGridViewCellStyle16;
             this.MngrIndemandServiceSelection.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrIndemandServiceSelection.Location = new System.Drawing.Point(283, 444);
+            this.MngrIndemandServiceSelection.Location = new System.Drawing.Point(185, 461);
             this.MngrIndemandServiceSelection.Name = "MngrIndemandServiceSelection";
             this.MngrIndemandServiceSelection.ReadOnly = true;
             this.MngrIndemandServiceSelection.RowHeadersVisible = false;
@@ -3028,7 +3027,7 @@ namespace Enchante
             this.MngrIndemandServiceGraph.ChartAreas.Add(chartArea5);
             legend5.Name = "Legend1";
             this.MngrIndemandServiceGraph.Legends.Add(legend5);
-            this.MngrIndemandServiceGraph.Location = new System.Drawing.Point(924, 140);
+            this.MngrIndemandServiceGraph.Location = new System.Drawing.Point(826, 157);
             this.MngrIndemandServiceGraph.Margin = new System.Windows.Forms.Padding(2);
             this.MngrIndemandServiceGraph.Name = "MngrIndemandServiceGraph";
             series5.ChartArea = "ChartArea1";
@@ -3046,7 +3045,7 @@ namespace Enchante
             this.MngrIndemandSelectPeriod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrIndemandSelectPeriod.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrIndemandSelectPeriod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandSelectPeriod.Location = new System.Drawing.Point(283, 297);
+            this.MngrIndemandSelectPeriod.Location = new System.Drawing.Point(185, 314);
             this.MngrIndemandSelectPeriod.Margin = new System.Windows.Forms.Padding(2);
             this.MngrIndemandSelectPeriod.Name = "MngrIndemandSelectPeriod";
             this.MngrIndemandSelectPeriod.ReadOnly = true;
@@ -3058,7 +3057,7 @@ namespace Enchante
             this.MngrIndemandSelectPeriodLbl.AutoSize = true;
             this.MngrIndemandSelectPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrIndemandSelectPeriodLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandSelectPeriodLbl.Location = new System.Drawing.Point(283, 263);
+            this.MngrIndemandSelectPeriodLbl.Location = new System.Drawing.Point(185, 280);
             this.MngrIndemandSelectPeriodLbl.Name = "MngrIndemandSelectPeriodLbl";
             this.MngrIndemandSelectPeriodLbl.Size = new System.Drawing.Size(156, 23);
             this.MngrIndemandSelectPeriodLbl.TabIndex = 17;
@@ -3069,7 +3068,7 @@ namespace Enchante
             this.MngrIndemandServiceHistoryPeriodLbl.AutoSize = true;
             this.MngrIndemandServiceHistoryPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrIndemandServiceHistoryPeriodLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandServiceHistoryPeriodLbl.Location = new System.Drawing.Point(283, 120);
+            this.MngrIndemandServiceHistoryPeriodLbl.Location = new System.Drawing.Point(185, 137);
             this.MngrIndemandServiceHistoryPeriodLbl.Name = "MngrIndemandServiceHistoryPeriodLbl";
             this.MngrIndemandServiceHistoryPeriodLbl.Size = new System.Drawing.Size(285, 23);
             this.MngrIndemandServiceHistoryPeriodLbl.TabIndex = 15;
@@ -3082,7 +3081,7 @@ namespace Enchante
             this.MngrIndemandServiceHistoryPeriod.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrIndemandServiceHistoryPeriod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrIndemandServiceHistoryPeriod.FormattingEnabled = true;
-            this.MngrIndemandServiceHistoryPeriod.Location = new System.Drawing.Point(283, 151);
+            this.MngrIndemandServiceHistoryPeriod.Location = new System.Drawing.Point(185, 168);
             this.MngrIndemandServiceHistoryPeriod.Margin = new System.Windows.Forms.Padding(2);
             this.MngrIndemandServiceHistoryPeriod.Name = "MngrIndemandServiceHistoryPeriod";
             this.MngrIndemandServiceHistoryPeriod.Size = new System.Drawing.Size(311, 31);
@@ -3094,7 +3093,7 @@ namespace Enchante
             this.MngrIndemandBestEmplLbl.AutoSize = true;
             this.MngrIndemandBestEmplLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrIndemandBestEmplLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandBestEmplLbl.Location = new System.Drawing.Point(924, 410);
+            this.MngrIndemandBestEmplLbl.Location = new System.Drawing.Point(826, 427);
             this.MngrIndemandBestEmplLbl.Name = "MngrIndemandBestEmplLbl";
             this.MngrIndemandBestEmplLbl.Size = new System.Drawing.Size(147, 23);
             this.MngrIndemandBestEmplLbl.TabIndex = 13;
@@ -3105,7 +3104,7 @@ namespace Enchante
             this.MngrIndemandFrequencyServiceLbl.AutoSize = true;
             this.MngrIndemandFrequencyServiceLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrIndemandFrequencyServiceLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandFrequencyServiceLbl.Location = new System.Drawing.Point(283, 410);
+            this.MngrIndemandFrequencyServiceLbl.Location = new System.Drawing.Point(185, 427);
             this.MngrIndemandFrequencyServiceLbl.Name = "MngrIndemandFrequencyServiceLbl";
             this.MngrIndemandFrequencyServiceLbl.Size = new System.Drawing.Size(303, 23);
             this.MngrIndemandFrequencyServiceLbl.TabIndex = 12;
@@ -3116,7 +3115,7 @@ namespace Enchante
             this.MngrIndemandServiceHistoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MngrIndemandServiceHistoryBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrIndemandServiceHistoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandServiceHistoryBtn.Location = new System.Drawing.Point(283, 354);
+            this.MngrIndemandServiceHistoryBtn.Location = new System.Drawing.Point(185, 371);
             this.MngrIndemandServiceHistoryBtn.Name = "MngrIndemandServiceHistoryBtn";
             this.MngrIndemandServiceHistoryBtn.Size = new System.Drawing.Size(594, 40);
             this.MngrIndemandServiceHistoryBtn.TabIndex = 7;
@@ -3129,7 +3128,7 @@ namespace Enchante
             this.MngrIndemandSelectCatLbl.AutoSize = true;
             this.MngrIndemandSelectCatLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrIndemandSelectCatLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandSelectCatLbl.Location = new System.Drawing.Point(283, 191);
+            this.MngrIndemandSelectCatLbl.Location = new System.Drawing.Point(185, 208);
             this.MngrIndemandSelectCatLbl.Name = "MngrIndemandSelectCatLbl";
             this.MngrIndemandSelectCatLbl.Size = new System.Drawing.Size(158, 23);
             this.MngrIndemandSelectCatLbl.TabIndex = 6;
@@ -3140,7 +3139,7 @@ namespace Enchante
             this.MngrIndemandToLbl.AutoSize = true;
             this.MngrIndemandToLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrIndemandToLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandToLbl.Location = new System.Drawing.Point(637, 191);
+            this.MngrIndemandToLbl.Location = new System.Drawing.Point(539, 208);
             this.MngrIndemandToLbl.Name = "MngrIndemandToLbl";
             this.MngrIndemandToLbl.Size = new System.Drawing.Size(37, 23);
             this.MngrIndemandToLbl.TabIndex = 5;
@@ -3152,7 +3151,7 @@ namespace Enchante
             this.MngrIndemandFromLbl.AutoSize = true;
             this.MngrIndemandFromLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrIndemandFromLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandFromLbl.Location = new System.Drawing.Point(637, 120);
+            this.MngrIndemandFromLbl.Location = new System.Drawing.Point(539, 137);
             this.MngrIndemandFromLbl.Name = "MngrIndemandFromLbl";
             this.MngrIndemandFromLbl.Size = new System.Drawing.Size(59, 23);
             this.MngrIndemandFromLbl.TabIndex = 4;
@@ -3166,7 +3165,7 @@ namespace Enchante
             this.MngrIndemandSelectCatBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrIndemandSelectCatBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrIndemandSelectCatBox.FormattingEnabled = true;
-            this.MngrIndemandSelectCatBox.Location = new System.Drawing.Point(283, 223);
+            this.MngrIndemandSelectCatBox.Location = new System.Drawing.Point(185, 240);
             this.MngrIndemandSelectCatBox.Margin = new System.Windows.Forms.Padding(2);
             this.MngrIndemandSelectCatBox.Name = "MngrIndemandSelectCatBox";
             this.MngrIndemandSelectCatBox.Size = new System.Drawing.Size(311, 31);
@@ -3174,7 +3173,7 @@ namespace Enchante
             // 
             // MngrIndemandDatePickerTo
             // 
-            this.MngrIndemandDatePickerTo.Location = new System.Drawing.Point(637, 228);
+            this.MngrIndemandDatePickerTo.Location = new System.Drawing.Point(539, 245);
             this.MngrIndemandDatePickerTo.Margin = new System.Windows.Forms.Padding(2);
             this.MngrIndemandDatePickerTo.Name = "MngrIndemandDatePickerTo";
             this.MngrIndemandDatePickerTo.Size = new System.Drawing.Size(239, 20);
@@ -3183,7 +3182,7 @@ namespace Enchante
             // 
             // MngrIndemandDatePickerFrom
             // 
-            this.MngrIndemandDatePickerFrom.Location = new System.Drawing.Point(637, 155);
+            this.MngrIndemandDatePickerFrom.Location = new System.Drawing.Point(539, 172);
             this.MngrIndemandDatePickerFrom.Margin = new System.Windows.Forms.Padding(2);
             this.MngrIndemandDatePickerFrom.Name = "MngrIndemandDatePickerFrom";
             this.MngrIndemandDatePickerFrom.Size = new System.Drawing.Size(239, 20);
@@ -3192,11 +3191,10 @@ namespace Enchante
             // 
             // MngrIndemandServicePeriodCalendar
             // 
-            this.MngrIndemandServicePeriodCalendar.Location = new System.Drawing.Point(637, 155);
+            this.MngrIndemandServicePeriodCalendar.Location = new System.Drawing.Point(539, 172);
             this.MngrIndemandServicePeriodCalendar.Margin = new System.Windows.Forms.Padding(7);
             this.MngrIndemandServicePeriodCalendar.Name = "MngrIndemandServicePeriodCalendar";
             this.MngrIndemandServicePeriodCalendar.TabIndex = 16;
-            this.MngrIndemandServicePeriodCalendar.Visible = false;
             this.MngrIndemandServicePeriodCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.ServicePeriodCalendar_DateChanged);
             // 
             // MngrIndemandExitBtn
@@ -3209,17 +3207,19 @@ namespace Enchante
             this.MngrIndemandExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.MngrIndemandExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrIndemandExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrIndemandExitBtn.Location = new System.Drawing.Point(1732, 15);
+            this.MngrIndemandExitBtn.Location = new System.Drawing.Point(1432, 15);
             this.MngrIndemandExitBtn.Name = "MngrIndemandExitBtn";
             this.MngrIndemandExitBtn.Size = new System.Drawing.Size(48, 48);
             this.MngrIndemandExitBtn.TabIndex = 85;
             this.MngrIndemandExitBtn.UseVisualStyleBackColor = false;
+            this.MngrIndemandExitBtn.Visible = false;
             this.MngrIndemandExitBtn.Click += new System.EventHandler(this.MngrIndemandExitBtn_Click);
             // 
             // MngrInventoryProductHistoryPanel
             // 
+            this.MngrInventoryProductHistoryPanel.AutoScroll = true;
             this.MngrInventoryProductHistoryPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrInventoryCard.SetCardName(this.MngrInventoryProductHistoryPanel, "PRODUCT HISTORY");
+            this.MngrInventoryCard.SetCardName(this.MngrInventoryProductHistoryPanel, "prod history");
             this.MngrInventoryProductHistoryPanel.Controls.Add(this.MngrPDHistoryDGV);
             this.MngrInventoryProductHistoryPanel.Controls.Add(this.MngrPDHistoryToLbl);
             this.MngrInventoryProductHistoryPanel.Controls.Add(this.MngrInventoryProductHistoryExitBtn);
@@ -3236,7 +3236,7 @@ namespace Enchante
             this.MngrInventoryCard.SetMinimumSize(this.MngrInventoryProductHistoryPanel, new System.Drawing.Size(200, 100));
             this.MngrInventoryProductHistoryPanel.Name = "MngrInventoryProductHistoryPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrInventoryProductHistoryPanel, new System.Drawing.Size(200, 100));
-            this.MngrInventoryProductHistoryPanel.Size = new System.Drawing.Size(2307, 1044);
+            this.MngrInventoryProductHistoryPanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrInventoryProductHistoryPanel.TabIndex = 4;
             // 
             // MngrPDHistoryDGV
@@ -3245,12 +3245,12 @@ namespace Enchante
             this.MngrPDHistoryDGV.BackgroundColor = System.Drawing.Color.GhostWhite;
             this.MngrPDHistoryDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MngrPDHistoryDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.MngrPDHistoryDGV.Location = new System.Drawing.Point(46, 159);
+            this.MngrPDHistoryDGV.Location = new System.Drawing.Point(92, 192);
             this.MngrPDHistoryDGV.MultiSelect = false;
             this.MngrPDHistoryDGV.Name = "MngrPDHistoryDGV";
             this.MngrPDHistoryDGV.ReadOnly = true;
             this.MngrPDHistoryDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MngrPDHistoryDGV.Size = new System.Drawing.Size(1709, 556);
+            this.MngrPDHistoryDGV.Size = new System.Drawing.Size(1419, 365);
             this.MngrPDHistoryDGV.TabIndex = 0;
             // 
             // MngrPDHistoryToLbl
@@ -3258,7 +3258,7 @@ namespace Enchante
             this.MngrPDHistoryToLbl.AutoSize = true;
             this.MngrPDHistoryToLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrPDHistoryToLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MngrPDHistoryToLbl.Location = new System.Drawing.Point(1251, 115);
+            this.MngrPDHistoryToLbl.Location = new System.Drawing.Point(1213, 121);
             this.MngrPDHistoryToLbl.Name = "MngrPDHistoryToLbl";
             this.MngrPDHistoryToLbl.Size = new System.Drawing.Size(24, 16);
             this.MngrPDHistoryToLbl.TabIndex = 9;
@@ -3274,17 +3274,18 @@ namespace Enchante
             this.MngrInventoryProductHistoryExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.MngrInventoryProductHistoryExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrInventoryProductHistoryExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrInventoryProductHistoryExitBtn.Location = new System.Drawing.Point(1717, 29);
+            this.MngrInventoryProductHistoryExitBtn.Location = new System.Drawing.Point(1458, 41);
             this.MngrInventoryProductHistoryExitBtn.Name = "MngrInventoryProductHistoryExitBtn";
             this.MngrInventoryProductHistoryExitBtn.Size = new System.Drawing.Size(48, 48);
             this.MngrInventoryProductHistoryExitBtn.TabIndex = 84;
             this.MngrInventoryProductHistoryExitBtn.UseVisualStyleBackColor = false;
+            this.MngrInventoryProductHistoryExitBtn.Visible = false;
             this.MngrInventoryProductHistoryExitBtn.Click += new System.EventHandler(this.MngrInventoryProductHistoryExitBtn_Click);
             // 
             // MngrPDHistoryResetBtn
             // 
             this.MngrPDHistoryResetBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrPDHistoryResetBtn.Location = new System.Drawing.Point(1652, 112);
+            this.MngrPDHistoryResetBtn.Location = new System.Drawing.Point(1408, 163);
             this.MngrPDHistoryResetBtn.Margin = new System.Windows.Forms.Padding(2);
             this.MngrPDHistoryResetBtn.Name = "MngrPDHistoryResetBtn";
             this.MngrPDHistoryResetBtn.Size = new System.Drawing.Size(103, 24);
@@ -3298,7 +3299,7 @@ namespace Enchante
             this.MngrPDHistoryFromLbl.AutoSize = true;
             this.MngrPDHistoryFromLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrPDHistoryFromLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MngrPDHistoryFromLbl.Location = new System.Drawing.Point(854, 115);
+            this.MngrPDHistoryFromLbl.Location = new System.Drawing.Point(882, 118);
             this.MngrPDHistoryFromLbl.Name = "MngrPDHistoryFromLbl";
             this.MngrPDHistoryFromLbl.Size = new System.Drawing.Size(38, 16);
             this.MngrPDHistoryFromLbl.TabIndex = 8;
@@ -3309,7 +3310,7 @@ namespace Enchante
             this.MngrPDHistoryItemCatBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MngrPDHistoryItemCatBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrPDHistoryItemCatBox.FormattingEnabled = true;
-            this.MngrPDHistoryItemCatBox.Location = new System.Drawing.Point(452, 111);
+            this.MngrPDHistoryItemCatBox.Location = new System.Drawing.Point(481, 115);
             this.MngrPDHistoryItemCatBox.Name = "MngrPDHistoryItemCatBox";
             this.MngrPDHistoryItemCatBox.Size = new System.Drawing.Size(370, 24);
             this.MngrPDHistoryItemCatBox.TabIndex = 5;
@@ -3320,7 +3321,7 @@ namespace Enchante
             this.MngrPDHistoryStatusBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MngrPDHistoryStatusBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrPDHistoryStatusBox.FormattingEnabled = true;
-            this.MngrPDHistoryStatusBox.Location = new System.Drawing.Point(46, 112);
+            this.MngrPDHistoryStatusBox.Location = new System.Drawing.Point(92, 115);
             this.MngrPDHistoryStatusBox.Name = "MngrPDHistoryStatusBox";
             this.MngrPDHistoryStatusBox.Size = new System.Drawing.Size(370, 24);
             this.MngrPDHistoryStatusBox.TabIndex = 1;
@@ -3331,7 +3332,7 @@ namespace Enchante
             this.MngrPDHistoryStatusLbl.AutoSize = true;
             this.MngrPDHistoryStatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrPDHistoryStatusLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MngrPDHistoryStatusLbl.Location = new System.Drawing.Point(42, 66);
+            this.MngrPDHistoryStatusLbl.Location = new System.Drawing.Point(87, 84);
             this.MngrPDHistoryStatusLbl.Name = "MngrPDHistoryStatusLbl";
             this.MngrPDHistoryStatusLbl.Size = new System.Drawing.Size(153, 25);
             this.MngrPDHistoryStatusLbl.TabIndex = 2;
@@ -3339,9 +3340,9 @@ namespace Enchante
             // 
             // MngrPDHistoryDatePickTo
             // 
-            this.MngrPDHistoryDatePickTo.Location = new System.Drawing.Point(1280, 113);
+            this.MngrPDHistoryDatePickTo.Location = new System.Drawing.Point(1242, 119);
             this.MngrPDHistoryDatePickTo.Name = "MngrPDHistoryDatePickTo";
-            this.MngrPDHistoryDatePickTo.Size = new System.Drawing.Size(340, 20);
+            this.MngrPDHistoryDatePickTo.Size = new System.Drawing.Size(264, 20);
             this.MngrPDHistoryDatePickTo.TabIndex = 7;
             this.MngrPDHistoryDatePickTo.ValueChanged += new System.EventHandler(this.MngrPDHistoryDatePickTo_ValueChanged);
             // 
@@ -3350,7 +3351,7 @@ namespace Enchante
             this.MngrPDHistoryItemCatLbl.AutoSize = true;
             this.MngrPDHistoryItemCatLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrPDHistoryItemCatLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MngrPDHistoryItemCatLbl.Location = new System.Drawing.Point(448, 65);
+            this.MngrPDHistoryItemCatLbl.Location = new System.Drawing.Point(476, 88);
             this.MngrPDHistoryItemCatLbl.Name = "MngrPDHistoryItemCatLbl";
             this.MngrPDHistoryItemCatLbl.Size = new System.Drawing.Size(145, 25);
             this.MngrPDHistoryItemCatLbl.TabIndex = 4;
@@ -3361,7 +3362,7 @@ namespace Enchante
             this.MngrPDHistoryDateLbl.AutoSize = true;
             this.MngrPDHistoryDateLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrPDHistoryDateLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MngrPDHistoryDateLbl.Location = new System.Drawing.Point(891, 66);
+            this.MngrPDHistoryDateLbl.Location = new System.Drawing.Point(880, 88);
             this.MngrPDHistoryDateLbl.Name = "MngrPDHistoryDateLbl";
             this.MngrPDHistoryDateLbl.Size = new System.Drawing.Size(57, 25);
             this.MngrPDHistoryDateLbl.TabIndex = 3;
@@ -3369,9 +3370,9 @@ namespace Enchante
             // 
             // MngrPDHistoryDatePickFrom
             // 
-            this.MngrPDHistoryDatePickFrom.Location = new System.Drawing.Point(905, 113);
+            this.MngrPDHistoryDatePickFrom.Location = new System.Drawing.Point(933, 116);
             this.MngrPDHistoryDatePickFrom.Name = "MngrPDHistoryDatePickFrom";
-            this.MngrPDHistoryDatePickFrom.Size = new System.Drawing.Size(340, 20);
+            this.MngrPDHistoryDatePickFrom.Size = new System.Drawing.Size(264, 20);
             this.MngrPDHistoryDatePickFrom.TabIndex = 6;
             this.MngrPDHistoryDatePickFrom.ValueChanged += new System.EventHandler(this.MngrPDHistoryDatePickFrom_ValueChanged);
             // 
@@ -3379,26 +3380,23 @@ namespace Enchante
             // 
             this.MngrPromoPanel.AutoScroll = true;
             this.MngrPromoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrInventoryCard.SetCardName(this.MngrPromoPanel, "vouchers");
+            this.MngrInventoryCard.SetCardName(this.MngrPromoPanel, "promo");
+            this.MngrPromoPanel.Controls.Add(this.MngrVoucherXBtn);
+            this.MngrPromoPanel.Controls.Add(this.MngrVoucherInsertBtn);
             this.MngrPromoPanel.Controls.Add(this.MngrVoucherPromoCodeTextBox);
             this.MngrPromoPanel.Controls.Add(this.MngrVoucherPromoCategoryComboBox);
             this.MngrPromoPanel.Controls.Add(this.MngrVoucherSelectCatTextBox);
             this.MngrPromoPanel.Controls.Add(this.MngrVoucherAvailNumTextBox);
             this.MngrPromoPanel.Controls.Add(this.MngrVoucherPromoDiscTextBox);
             this.MngrPromoPanel.Controls.Add(this.MngrVoucherPromoNameTextBox);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherDGV);
             this.MngrPromoPanel.Controls.Add(this.MngrVoucherEditBtn);
             this.MngrPromoPanel.Controls.Add(this.MngrVoucherNextBtn);
             this.MngrPromoPanel.Controls.Add(this.MngrVoucherPreviousBtn);
             this.MngrPromoPanel.Controls.Add(this.MngrVoucherCurrentRecordLbl);
             this.MngrPromoPanel.Controls.Add(this.MngrVoucherCancelBtn);
             this.MngrPromoPanel.Controls.Add(this.MngrVoucherUpdateBtn);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherXBtn);
             this.MngrPromoPanel.Controls.Add(this.MngrVoucherSelectedCatLbl);
             this.MngrPromoPanel.Controls.Add(this.MngrVoucherPromoCategoryLbl);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherSearchLbl);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherSearchTextBox);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherInsertBtn);
             this.MngrPromoPanel.Controls.Add(this.MngrVoucherAvailNumLbl);
             this.MngrPromoPanel.Controls.Add(this.MngrVoucherPromoDiscLbl);
             this.MngrPromoPanel.Controls.Add(this.MngrVoucherPromoCodeLbl);
@@ -3408,11 +3406,14 @@ namespace Enchante
             this.MngrPromoPanel.Controls.Add(this.MngrVoucherDateEndLbl);
             this.MngrPromoPanel.Controls.Add(this.MngrVoucherDateStartLbl);
             this.MngrPromoPanel.Controls.Add(this.MngrSchedExitBtn);
+            this.MngrPromoPanel.Controls.Add(this.MngrVoucherDGV);
+            this.MngrPromoPanel.Controls.Add(this.MngrVoucherSearchLbl);
+            this.MngrPromoPanel.Controls.Add(this.MngrVoucherSearchTextBox);
             this.MngrPromoPanel.Location = new System.Drawing.Point(0, 0);
             this.MngrInventoryCard.SetMinimumSize(this.MngrPromoPanel, new System.Drawing.Size(1697, 557));
             this.MngrPromoPanel.Name = "MngrPromoPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrPromoPanel, new System.Drawing.Size(1697, 557));
-            this.MngrPromoPanel.Size = new System.Drawing.Size(2307, 1044);
+            this.MngrPromoPanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrPromoPanel.TabIndex = 25;
             // 
             // MngrVoucherPromoCodeTextBox
@@ -3420,7 +3421,7 @@ namespace Enchante
             this.MngrVoucherPromoCodeTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrVoucherPromoCodeTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrVoucherPromoCodeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherPromoCodeTextBox.Location = new System.Drawing.Point(333, 133);
+            this.MngrVoucherPromoCodeTextBox.Location = new System.Drawing.Point(201, 755);
             this.MngrVoucherPromoCodeTextBox.Name = "MngrVoucherPromoCodeTextBox";
             this.MngrVoucherPromoCodeTextBox.ReadOnly = true;
             this.MngrVoucherPromoCodeTextBox.Size = new System.Drawing.Size(380, 30);
@@ -3434,7 +3435,7 @@ namespace Enchante
             this.MngrVoucherPromoCategoryComboBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrVoucherPromoCategoryComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrVoucherPromoCategoryComboBox.FormattingEnabled = true;
-            this.MngrVoucherPromoCategoryComboBox.Location = new System.Drawing.Point(739, 133);
+            this.MngrVoucherPromoCategoryComboBox.Location = new System.Drawing.Point(600, 755);
             this.MngrVoucherPromoCategoryComboBox.Name = "MngrVoucherPromoCategoryComboBox";
             this.MngrVoucherPromoCategoryComboBox.Size = new System.Drawing.Size(380, 31);
             this.MngrVoucherPromoCategoryComboBox.TabIndex = 119;
@@ -3445,7 +3446,7 @@ namespace Enchante
             this.MngrVoucherSelectCatTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrVoucherSelectCatTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrVoucherSelectCatTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherSelectCatTextBox.Location = new System.Drawing.Point(1147, 133);
+            this.MngrVoucherSelectCatTextBox.Location = new System.Drawing.Point(1020, 755);
             this.MngrVoucherSelectCatTextBox.Name = "MngrVoucherSelectCatTextBox";
             this.MngrVoucherSelectCatTextBox.Size = new System.Drawing.Size(380, 30);
             this.MngrVoucherSelectCatTextBox.TabIndex = 118;
@@ -3455,7 +3456,7 @@ namespace Enchante
             this.MngrVoucherAvailNumTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrVoucherAvailNumTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrVoucherAvailNumTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherAvailNumTextBox.Location = new System.Drawing.Point(1147, 67);
+            this.MngrVoucherAvailNumTextBox.Location = new System.Drawing.Point(1020, 689);
             this.MngrVoucherAvailNumTextBox.Name = "MngrVoucherAvailNumTextBox";
             this.MngrVoucherAvailNumTextBox.Size = new System.Drawing.Size(380, 30);
             this.MngrVoucherAvailNumTextBox.TabIndex = 117;
@@ -3466,7 +3467,7 @@ namespace Enchante
             this.MngrVoucherPromoDiscTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrVoucherPromoDiscTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrVoucherPromoDiscTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherPromoDiscTextBox.Location = new System.Drawing.Point(739, 67);
+            this.MngrVoucherPromoDiscTextBox.Location = new System.Drawing.Point(600, 689);
             this.MngrVoucherPromoDiscTextBox.Name = "MngrVoucherPromoDiscTextBox";
             this.MngrVoucherPromoDiscTextBox.Size = new System.Drawing.Size(380, 30);
             this.MngrVoucherPromoDiscTextBox.TabIndex = 116;
@@ -3477,7 +3478,7 @@ namespace Enchante
             this.MngrVoucherPromoNameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrVoucherPromoNameTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrVoucherPromoNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherPromoNameTextBox.Location = new System.Drawing.Point(333, 67);
+            this.MngrVoucherPromoNameTextBox.Location = new System.Drawing.Point(201, 689);
             this.MngrVoucherPromoNameTextBox.Name = "MngrVoucherPromoNameTextBox";
             this.MngrVoucherPromoNameTextBox.Size = new System.Drawing.Size(380, 30);
             this.MngrVoucherPromoNameTextBox.TabIndex = 114;
@@ -3492,38 +3493,38 @@ namespace Enchante
             this.MngrVoucherDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MngrVoucherDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.MngrVoucherDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrVoucherDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrVoucherDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.MngrVoucherDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MngrVoucherDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrVoucherDGV.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrVoucherDGV.DefaultCellStyle = dataGridViewCellStyle18;
             this.MngrVoucherDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrVoucherDGV.Location = new System.Drawing.Point(108, 218);
+            this.MngrVoucherDGV.Location = new System.Drawing.Point(201, 187);
             this.MngrVoucherDGV.Name = "MngrVoucherDGV";
             this.MngrVoucherDGV.ReadOnly = true;
             this.MngrVoucherDGV.RowHeadersVisible = false;
             this.MngrVoucherDGV.RowHeadersWidth = 51;
             this.MngrVoucherDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MngrVoucherDGV.Size = new System.Drawing.Size(1572, 447);
+            this.MngrVoucherDGV.Size = new System.Drawing.Size(1199, 358);
             this.MngrVoucherDGV.TabIndex = 113;
             // 
             // MngrVoucherEditBtn
             // 
             this.MngrVoucherEditBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrVoucherEditBtn.Location = new System.Drawing.Point(1551, 680);
+            this.MngrVoucherEditBtn.Location = new System.Drawing.Point(1269, 551);
             this.MngrVoucherEditBtn.Name = "MngrVoucherEditBtn";
             this.MngrVoucherEditBtn.Size = new System.Drawing.Size(131, 30);
             this.MngrVoucherEditBtn.TabIndex = 107;
@@ -3533,7 +3534,7 @@ namespace Enchante
             // 
             // MngrVoucherNextBtn
             // 
-            this.MngrVoucherNextBtn.Location = new System.Drawing.Point(244, 684);
+            this.MngrVoucherNextBtn.Location = new System.Drawing.Point(337, 558);
             this.MngrVoucherNextBtn.Name = "MngrVoucherNextBtn";
             this.MngrVoucherNextBtn.Size = new System.Drawing.Size(75, 23);
             this.MngrVoucherNextBtn.TabIndex = 112;
@@ -3543,7 +3544,7 @@ namespace Enchante
             // 
             // MngrVoucherPreviousBtn
             // 
-            this.MngrVoucherPreviousBtn.Location = new System.Drawing.Point(108, 684);
+            this.MngrVoucherPreviousBtn.Location = new System.Drawing.Point(201, 558);
             this.MngrVoucherPreviousBtn.Name = "MngrVoucherPreviousBtn";
             this.MngrVoucherPreviousBtn.Size = new System.Drawing.Size(75, 23);
             this.MngrVoucherPreviousBtn.TabIndex = 111;
@@ -3556,7 +3557,7 @@ namespace Enchante
             this.MngrVoucherCurrentRecordLbl.AutoSize = true;
             this.MngrVoucherCurrentRecordLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrVoucherCurrentRecordLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherCurrentRecordLbl.Location = new System.Drawing.Point(189, 687);
+            this.MngrVoucherCurrentRecordLbl.Location = new System.Drawing.Point(282, 561);
             this.MngrVoucherCurrentRecordLbl.Name = "MngrVoucherCurrentRecordLbl";
             this.MngrVoucherCurrentRecordLbl.Size = new System.Drawing.Size(49, 20);
             this.MngrVoucherCurrentRecordLbl.TabIndex = 110;
@@ -3565,9 +3566,9 @@ namespace Enchante
             // MngrVoucherCancelBtn
             // 
             this.MngrVoucherCancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrVoucherCancelBtn.Location = new System.Drawing.Point(1551, 680);
+            this.MngrVoucherCancelBtn.Location = new System.Drawing.Point(714, 884);
             this.MngrVoucherCancelBtn.Name = "MngrVoucherCancelBtn";
-            this.MngrVoucherCancelBtn.Size = new System.Drawing.Size(131, 30);
+            this.MngrVoucherCancelBtn.Size = new System.Drawing.Size(167, 45);
             this.MngrVoucherCancelBtn.TabIndex = 109;
             this.MngrVoucherCancelBtn.Text = "Cancel";
             this.MngrVoucherCancelBtn.UseVisualStyleBackColor = true;
@@ -3577,7 +3578,7 @@ namespace Enchante
             // MngrVoucherUpdateBtn
             // 
             this.MngrVoucherUpdateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrVoucherUpdateBtn.Location = new System.Drawing.Point(1414, 680);
+            this.MngrVoucherUpdateBtn.Location = new System.Drawing.Point(1132, 551);
             this.MngrVoucherUpdateBtn.Name = "MngrVoucherUpdateBtn";
             this.MngrVoucherUpdateBtn.Size = new System.Drawing.Size(131, 30);
             this.MngrVoucherUpdateBtn.TabIndex = 108;
@@ -3589,7 +3590,7 @@ namespace Enchante
             // MngrVoucherXBtn
             // 
             this.MngrVoucherXBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrVoucherXBtn.Location = new System.Drawing.Point(1503, 106);
+            this.MngrVoucherXBtn.Location = new System.Drawing.Point(1376, 760);
             this.MngrVoucherXBtn.Name = "MngrVoucherXBtn";
             this.MngrVoucherXBtn.Size = new System.Drawing.Size(24, 21);
             this.MngrVoucherXBtn.TabIndex = 105;
@@ -3602,7 +3603,7 @@ namespace Enchante
             this.MngrVoucherSelectedCatLbl.AutoSize = true;
             this.MngrVoucherSelectedCatLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
             this.MngrVoucherSelectedCatLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherSelectedCatLbl.Location = new System.Drawing.Point(1142, 101);
+            this.MngrVoucherSelectedCatLbl.Location = new System.Drawing.Point(1015, 723);
             this.MngrVoucherSelectedCatLbl.Name = "MngrVoucherSelectedCatLbl";
             this.MngrVoucherSelectedCatLbl.Size = new System.Drawing.Size(254, 29);
             this.MngrVoucherSelectedCatLbl.TabIndex = 103;
@@ -3613,7 +3614,7 @@ namespace Enchante
             this.MngrVoucherPromoCategoryLbl.AutoSize = true;
             this.MngrVoucherPromoCategoryLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
             this.MngrVoucherPromoCategoryLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherPromoCategoryLbl.Location = new System.Drawing.Point(734, 101);
+            this.MngrVoucherPromoCategoryLbl.Location = new System.Drawing.Point(595, 723);
             this.MngrVoucherPromoCategoryLbl.Name = "MngrVoucherPromoCategoryLbl";
             this.MngrVoucherPromoCategoryLbl.Size = new System.Drawing.Size(219, 29);
             this.MngrVoucherPromoCategoryLbl.TabIndex = 101;
@@ -3624,7 +3625,7 @@ namespace Enchante
             this.MngrVoucherSearchLbl.AutoSize = true;
             this.MngrVoucherSearchLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
             this.MngrVoucherSearchLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherSearchLbl.Location = new System.Drawing.Point(108, 174);
+            this.MngrVoucherSearchLbl.Location = new System.Drawing.Point(201, 143);
             this.MngrVoucherSearchLbl.Name = "MngrVoucherSearchLbl";
             this.MngrVoucherSearchLbl.Size = new System.Drawing.Size(106, 29);
             this.MngrVoucherSearchLbl.TabIndex = 100;
@@ -3632,18 +3633,18 @@ namespace Enchante
             // 
             // MngrVoucherSearchTextBox
             // 
-            this.MngrVoucherSearchTextBox.Location = new System.Drawing.Point(224, 183);
+            this.MngrVoucherSearchTextBox.Location = new System.Drawing.Point(317, 152);
             this.MngrVoucherSearchTextBox.Name = "MngrVoucherSearchTextBox";
-            this.MngrVoucherSearchTextBox.Size = new System.Drawing.Size(1458, 20);
+            this.MngrVoucherSearchTextBox.Size = new System.Drawing.Size(1083, 20);
             this.MngrVoucherSearchTextBox.TabIndex = 99;
             this.MngrVoucherSearchTextBox.TextChanged += new System.EventHandler(this.MngrVoucherSearchTextBox_TextChanged);
             // 
             // MngrVoucherInsertBtn
             // 
             this.MngrVoucherInsertBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrVoucherInsertBtn.Location = new System.Drawing.Point(1551, 133);
+            this.MngrVoucherInsertBtn.Location = new System.Drawing.Point(714, 884);
             this.MngrVoucherInsertBtn.Name = "MngrVoucherInsertBtn";
-            this.MngrVoucherInsertBtn.Size = new System.Drawing.Size(131, 30);
+            this.MngrVoucherInsertBtn.Size = new System.Drawing.Size(167, 45);
             this.MngrVoucherInsertBtn.TabIndex = 98;
             this.MngrVoucherInsertBtn.Text = "Insert";
             this.MngrVoucherInsertBtn.UseVisualStyleBackColor = true;
@@ -3654,7 +3655,7 @@ namespace Enchante
             this.MngrVoucherAvailNumLbl.AutoSize = true;
             this.MngrVoucherAvailNumLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
             this.MngrVoucherAvailNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherAvailNumLbl.Location = new System.Drawing.Point(1142, 31);
+            this.MngrVoucherAvailNumLbl.Location = new System.Drawing.Point(1015, 653);
             this.MngrVoucherAvailNumLbl.Name = "MngrVoucherAvailNumLbl";
             this.MngrVoucherAvailNumLbl.Size = new System.Drawing.Size(237, 29);
             this.MngrVoucherAvailNumLbl.TabIndex = 96;
@@ -3665,7 +3666,7 @@ namespace Enchante
             this.MngrVoucherPromoDiscLbl.AutoSize = true;
             this.MngrVoucherPromoDiscLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
             this.MngrVoucherPromoDiscLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherPromoDiscLbl.Location = new System.Drawing.Point(734, 31);
+            this.MngrVoucherPromoDiscLbl.Location = new System.Drawing.Point(595, 653);
             this.MngrVoucherPromoDiscLbl.Name = "MngrVoucherPromoDiscLbl";
             this.MngrVoucherPromoDiscLbl.Size = new System.Drawing.Size(209, 29);
             this.MngrVoucherPromoDiscLbl.TabIndex = 93;
@@ -3676,7 +3677,7 @@ namespace Enchante
             this.MngrVoucherPromoCodeLbl.AutoSize = true;
             this.MngrVoucherPromoCodeLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
             this.MngrVoucherPromoCodeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherPromoCodeLbl.Location = new System.Drawing.Point(328, 101);
+            this.MngrVoucherPromoCodeLbl.Location = new System.Drawing.Point(196, 723);
             this.MngrVoucherPromoCodeLbl.Name = "MngrVoucherPromoCodeLbl";
             this.MngrVoucherPromoCodeLbl.Size = new System.Drawing.Size(161, 29);
             this.MngrVoucherPromoCodeLbl.TabIndex = 92;
@@ -3687,7 +3688,7 @@ namespace Enchante
             this.MngrVoucherPromoNameLbl.AutoSize = true;
             this.MngrVoucherPromoNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
             this.MngrVoucherPromoNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherPromoNameLbl.Location = new System.Drawing.Point(328, 31);
+            this.MngrVoucherPromoNameLbl.Location = new System.Drawing.Point(196, 653);
             this.MngrVoucherPromoNameLbl.Name = "MngrVoucherPromoNameLbl";
             this.MngrVoucherPromoNameLbl.Size = new System.Drawing.Size(166, 29);
             this.MngrVoucherPromoNameLbl.TabIndex = 90;
@@ -3695,16 +3696,16 @@ namespace Enchante
             // 
             // MngrVoucherDatePickerEnd
             // 
-            this.MngrVoucherDatePickerEnd.Location = new System.Drawing.Point(108, 137);
+            this.MngrVoucherDatePickerEnd.Location = new System.Drawing.Point(818, 833);
             this.MngrVoucherDatePickerEnd.Name = "MngrVoucherDatePickerEnd";
-            this.MngrVoucherDatePickerEnd.Size = new System.Drawing.Size(200, 20);
+            this.MngrVoucherDatePickerEnd.Size = new System.Drawing.Size(382, 20);
             this.MngrVoucherDatePickerEnd.TabIndex = 89;
             // 
             // MngrVoucherDatePickerStart
             // 
-            this.MngrVoucherDatePickerStart.Location = new System.Drawing.Point(108, 71);
+            this.MngrVoucherDatePickerStart.Location = new System.Drawing.Point(406, 833);
             this.MngrVoucherDatePickerStart.Name = "MngrVoucherDatePickerStart";
-            this.MngrVoucherDatePickerStart.Size = new System.Drawing.Size(200, 20);
+            this.MngrVoucherDatePickerStart.Size = new System.Drawing.Size(382, 20);
             this.MngrVoucherDatePickerStart.TabIndex = 88;
             // 
             // MngrVoucherDateEndLbl
@@ -3712,7 +3713,7 @@ namespace Enchante
             this.MngrVoucherDateEndLbl.AutoSize = true;
             this.MngrVoucherDateEndLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
             this.MngrVoucherDateEndLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherDateEndLbl.Location = new System.Drawing.Point(108, 101);
+            this.MngrVoucherDateEndLbl.Location = new System.Drawing.Point(813, 801);
             this.MngrVoucherDateEndLbl.Name = "MngrVoucherDateEndLbl";
             this.MngrVoucherDateEndLbl.Size = new System.Drawing.Size(134, 29);
             this.MngrVoucherDateEndLbl.TabIndex = 87;
@@ -3723,7 +3724,7 @@ namespace Enchante
             this.MngrVoucherDateStartLbl.AutoSize = true;
             this.MngrVoucherDateStartLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
             this.MngrVoucherDateStartLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherDateStartLbl.Location = new System.Drawing.Point(108, 31);
+            this.MngrVoucherDateStartLbl.Location = new System.Drawing.Point(401, 801);
             this.MngrVoucherDateStartLbl.Name = "MngrVoucherDateStartLbl";
             this.MngrVoucherDateStartLbl.Size = new System.Drawing.Size(164, 29);
             this.MngrVoucherDateStartLbl.TabIndex = 86;
@@ -3739,22 +3740,23 @@ namespace Enchante
             this.MngrSchedExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.MngrSchedExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrSchedExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrSchedExitBtn.Location = new System.Drawing.Point(1707, 29);
+            this.MngrSchedExitBtn.Location = new System.Drawing.Point(1230, 40);
             this.MngrSchedExitBtn.Name = "MngrSchedExitBtn";
             this.MngrSchedExitBtn.Size = new System.Drawing.Size(48, 48);
             this.MngrSchedExitBtn.TabIndex = 85;
             this.MngrSchedExitBtn.UseVisualStyleBackColor = false;
+            this.MngrSchedExitBtn.Visible = false;
             this.MngrSchedExitBtn.Click += new System.EventHandler(this.MngrSchedExitBtn_Click);
             // 
             // MngrServicesPanel
             // 
             this.MngrServicesPanel.AutoScroll = true;
             this.MngrServicesPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrInventoryCard.SetCardName(this.MngrServicesPanel, "SERVICES");
+            this.MngrInventoryCard.SetCardName(this.MngrServicesPanel, "services");
+            this.MngrServicesPanel.Controls.Add(this.MngrServicesDeleteBtn);
             this.MngrServicesPanel.Controls.Add(this.MngrServicesNumOfItems);
             this.MngrServicesPanel.Controls.Add(this.label6);
             this.MngrServicesPanel.Controls.Add(this.MngrServicesSelectedReqItemText);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesDeleteBtn);
             this.MngrServicesPanel.Controls.Add(this.MngrServicesSelectedRequiredItemLbl);
             this.MngrServicesPanel.Controls.Add(this.MngrServicesRequiredItemBox);
             this.MngrServicesPanel.Controls.Add(this.MngrServicesRequiredItemLbl);
@@ -3782,7 +3784,7 @@ namespace Enchante
             this.MngrInventoryCard.SetMinimumSize(this.MngrServicesPanel, new System.Drawing.Size(1857, 839));
             this.MngrServicesPanel.Name = "MngrServicesPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrServicesPanel, new System.Drawing.Size(1857, 839));
-            this.MngrServicesPanel.Size = new System.Drawing.Size(2307, 1044);
+            this.MngrServicesPanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrServicesPanel.TabIndex = 0;
             // 
             // MngrServicesNumOfItems
@@ -3790,7 +3792,7 @@ namespace Enchante
             this.MngrServicesNumOfItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrServicesNumOfItems.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrServicesNumOfItems.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesNumOfItems.Location = new System.Drawing.Point(1326, 607);
+            this.MngrServicesNumOfItems.Location = new System.Drawing.Point(1009, 909);
             this.MngrServicesNumOfItems.Name = "MngrServicesNumOfItems";
             this.MngrServicesNumOfItems.Size = new System.Drawing.Size(407, 30);
             this.MngrServicesNumOfItems.TabIndex = 112;
@@ -3800,7 +3802,7 @@ namespace Enchante
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label6.Location = new System.Drawing.Point(1321, 570);
+            this.label6.Location = new System.Drawing.Point(1004, 879);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(220, 29);
             this.label6.TabIndex = 111;
@@ -3811,7 +3813,7 @@ namespace Enchante
             this.MngrServicesSelectedReqItemText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrServicesSelectedReqItemText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrServicesSelectedReqItemText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesSelectedReqItemText.Location = new System.Drawing.Point(1326, 528);
+            this.MngrServicesSelectedReqItemText.Location = new System.Drawing.Point(591, 911);
             this.MngrServicesSelectedReqItemText.Name = "MngrServicesSelectedReqItemText";
             this.MngrServicesSelectedReqItemText.ReadOnly = true;
             this.MngrServicesSelectedReqItemText.Size = new System.Drawing.Size(407, 30);
@@ -3820,7 +3822,7 @@ namespace Enchante
             // MngrServicesDeleteBtn
             // 
             this.MngrServicesDeleteBtn.Font = new System.Drawing.Font("Arial Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrServicesDeleteBtn.Location = new System.Drawing.Point(1739, 528);
+            this.MngrServicesDeleteBtn.Location = new System.Drawing.Point(961, 911);
             this.MngrServicesDeleteBtn.Name = "MngrServicesDeleteBtn";
             this.MngrServicesDeleteBtn.Size = new System.Drawing.Size(30, 30);
             this.MngrServicesDeleteBtn.TabIndex = 88;
@@ -3833,7 +3835,7 @@ namespace Enchante
             this.MngrServicesSelectedRequiredItemLbl.AutoSize = true;
             this.MngrServicesSelectedRequiredItemLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrServicesSelectedRequiredItemLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesSelectedRequiredItemLbl.Location = new System.Drawing.Point(1321, 485);
+            this.MngrServicesSelectedRequiredItemLbl.Location = new System.Drawing.Point(586, 879);
             this.MngrServicesSelectedRequiredItemLbl.Name = "MngrServicesSelectedRequiredItemLbl";
             this.MngrServicesSelectedRequiredItemLbl.Size = new System.Drawing.Size(304, 29);
             this.MngrServicesSelectedRequiredItemLbl.TabIndex = 87;
@@ -3847,7 +3849,7 @@ namespace Enchante
             this.MngrServicesRequiredItemBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrServicesRequiredItemBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrServicesRequiredItemBox.FormattingEnabled = true;
-            this.MngrServicesRequiredItemBox.Location = new System.Drawing.Point(882, 527);
+            this.MngrServicesRequiredItemBox.Location = new System.Drawing.Point(160, 908);
             this.MngrServicesRequiredItemBox.Name = "MngrServicesRequiredItemBox";
             this.MngrServicesRequiredItemBox.Size = new System.Drawing.Size(407, 31);
             this.MngrServicesRequiredItemBox.TabIndex = 86;
@@ -3858,7 +3860,7 @@ namespace Enchante
             this.MngrServicesRequiredItemLbl.AutoSize = true;
             this.MngrServicesRequiredItemLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrServicesRequiredItemLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesRequiredItemLbl.Location = new System.Drawing.Point(877, 485);
+            this.MngrServicesRequiredItemLbl.Location = new System.Drawing.Point(156, 879);
             this.MngrServicesRequiredItemLbl.Name = "MngrServicesRequiredItemLbl";
             this.MngrServicesRequiredItemLbl.Size = new System.Drawing.Size(186, 29);
             this.MngrServicesRequiredItemLbl.TabIndex = 83;
@@ -3869,7 +3871,7 @@ namespace Enchante
             this.MngrServicesIDNumLbl.AutoSize = true;
             this.MngrServicesIDNumLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrServicesIDNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesIDNumLbl.Location = new System.Drawing.Point(877, 279);
+            this.MngrServicesIDNumLbl.Location = new System.Drawing.Point(156, 713);
             this.MngrServicesIDNumLbl.Name = "MngrServicesIDNumLbl";
             this.MngrServicesIDNumLbl.Size = new System.Drawing.Size(144, 29);
             this.MngrServicesIDNumLbl.TabIndex = 81;
@@ -3880,7 +3882,7 @@ namespace Enchante
             this.MngrServicesIDNumText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrServicesIDNumText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrServicesIDNumText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesIDNumText.Location = new System.Drawing.Point(882, 322);
+            this.MngrServicesIDNumText.Location = new System.Drawing.Point(161, 745);
             this.MngrServicesIDNumText.Name = "MngrServicesIDNumText";
             this.MngrServicesIDNumText.ReadOnly = true;
             this.MngrServicesIDNumText.Size = new System.Drawing.Size(407, 30);
@@ -3894,7 +3896,7 @@ namespace Enchante
             this.MngrServicesTypeComboText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrServicesTypeComboText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrServicesTypeComboText.FormattingEnabled = true;
-            this.MngrServicesTypeComboText.Location = new System.Drawing.Point(1326, 128);
+            this.MngrServicesTypeComboText.Location = new System.Drawing.Point(1008, 666);
             this.MngrServicesTypeComboText.Name = "MngrServicesTypeComboText";
             this.MngrServicesTypeComboText.Size = new System.Drawing.Size(407, 31);
             this.MngrServicesTypeComboText.TabIndex = 77;
@@ -3905,7 +3907,7 @@ namespace Enchante
             this.MngrServicesPriceLbl.AutoSize = true;
             this.MngrServicesPriceLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrServicesPriceLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesPriceLbl.Location = new System.Drawing.Point(1321, 385);
+            this.MngrServicesPriceLbl.Location = new System.Drawing.Point(157, 791);
             this.MngrServicesPriceLbl.Name = "MngrServicesPriceLbl";
             this.MngrServicesPriceLbl.Size = new System.Drawing.Size(82, 29);
             this.MngrServicesPriceLbl.TabIndex = 76;
@@ -3916,9 +3918,9 @@ namespace Enchante
             this.MngrServicesPriceText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrServicesPriceText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrServicesPriceText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesPriceText.Location = new System.Drawing.Point(1326, 428);
+            this.MngrServicesPriceText.Location = new System.Drawing.Point(161, 826);
             this.MngrServicesPriceText.Name = "MngrServicesPriceText";
-            this.MngrServicesPriceText.Size = new System.Drawing.Size(407, 30);
+            this.MngrServicesPriceText.Size = new System.Drawing.Size(191, 30);
             this.MngrServicesPriceText.TabIndex = 75;
             this.MngrServicesPriceText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrServicesPriceText_KeyPress);
             // 
@@ -3929,7 +3931,7 @@ namespace Enchante
             this.MngrServicesCategoryComboText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrServicesCategoryComboText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrServicesCategoryComboText.FormattingEnabled = true;
-            this.MngrServicesCategoryComboText.Location = new System.Drawing.Point(882, 128);
+            this.MngrServicesCategoryComboText.Location = new System.Drawing.Point(585, 668);
             this.MngrServicesCategoryComboText.Name = "MngrServicesCategoryComboText";
             this.MngrServicesCategoryComboText.Size = new System.Drawing.Size(407, 31);
             this.MngrServicesCategoryComboText.TabIndex = 74;
@@ -3940,7 +3942,7 @@ namespace Enchante
             this.MngrServicesDurationLbl.AutoSize = true;
             this.MngrServicesDurationLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrServicesDurationLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesDurationLbl.Location = new System.Drawing.Point(877, 385);
+            this.MngrServicesDurationLbl.Location = new System.Drawing.Point(372, 792);
             this.MngrServicesDurationLbl.Name = "MngrServicesDurationLbl";
             this.MngrServicesDurationLbl.Size = new System.Drawing.Size(129, 29);
             this.MngrServicesDurationLbl.TabIndex = 73;
@@ -3951,9 +3953,9 @@ namespace Enchante
             this.MngrServicesDurationText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrServicesDurationText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrServicesDurationText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesDurationText.Location = new System.Drawing.Point(882, 428);
+            this.MngrServicesDurationText.Location = new System.Drawing.Point(377, 826);
             this.MngrServicesDurationText.Name = "MngrServicesDurationText";
-            this.MngrServicesDurationText.Size = new System.Drawing.Size(407, 30);
+            this.MngrServicesDurationText.Size = new System.Drawing.Size(191, 30);
             this.MngrServicesDurationText.TabIndex = 72;
             this.MngrServicesDurationText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrServicesDurationText_KeyPress);
             // 
@@ -3962,7 +3964,7 @@ namespace Enchante
             this.MngrServicesDescriptionLbl.AutoSize = true;
             this.MngrServicesDescriptionLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrServicesDescriptionLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesDescriptionLbl.Location = new System.Drawing.Point(1321, 180);
+            this.MngrServicesDescriptionLbl.Location = new System.Drawing.Point(580, 713);
             this.MngrServicesDescriptionLbl.Name = "MngrServicesDescriptionLbl";
             this.MngrServicesDescriptionLbl.Size = new System.Drawing.Size(157, 29);
             this.MngrServicesDescriptionLbl.TabIndex = 71;
@@ -3973,11 +3975,11 @@ namespace Enchante
             this.MngrServicesDescriptionText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrServicesDescriptionText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrServicesDescriptionText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesDescriptionText.Location = new System.Drawing.Point(1326, 223);
+            this.MngrServicesDescriptionText.Location = new System.Drawing.Point(585, 747);
             this.MngrServicesDescriptionText.Multiline = true;
             this.MngrServicesDescriptionText.Name = "MngrServicesDescriptionText";
             this.MngrServicesDescriptionText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.MngrServicesDescriptionText.Size = new System.Drawing.Size(407, 129);
+            this.MngrServicesDescriptionText.Size = new System.Drawing.Size(830, 109);
             this.MngrServicesDescriptionText.TabIndex = 70;
             this.MngrServicesDescriptionText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrServicesDescriptionText_KeyPress);
             // 
@@ -3986,7 +3988,7 @@ namespace Enchante
             this.MngrServicesNameLbl.AutoSize = true;
             this.MngrServicesNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrServicesNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesNameLbl.Location = new System.Drawing.Point(877, 180);
+            this.MngrServicesNameLbl.Location = new System.Drawing.Point(156, 636);
             this.MngrServicesNameLbl.Name = "MngrServicesNameLbl";
             this.MngrServicesNameLbl.Size = new System.Drawing.Size(83, 29);
             this.MngrServicesNameLbl.TabIndex = 69;
@@ -3997,7 +3999,7 @@ namespace Enchante
             this.MngrServicesNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrServicesNameText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrServicesNameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesNameText.Location = new System.Drawing.Point(882, 223);
+            this.MngrServicesNameText.Location = new System.Drawing.Point(161, 668);
             this.MngrServicesNameText.Name = "MngrServicesNameText";
             this.MngrServicesNameText.Size = new System.Drawing.Size(407, 30);
             this.MngrServicesNameText.TabIndex = 68;
@@ -4008,7 +4010,7 @@ namespace Enchante
             this.MngrServicesTypeLbl.AutoSize = true;
             this.MngrServicesTypeLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrServicesTypeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesTypeLbl.Location = new System.Drawing.Point(1321, 85);
+            this.MngrServicesTypeLbl.Location = new System.Drawing.Point(1003, 638);
             this.MngrServicesTypeLbl.Name = "MngrServicesTypeLbl";
             this.MngrServicesTypeLbl.Size = new System.Drawing.Size(77, 29);
             this.MngrServicesTypeLbl.TabIndex = 67;
@@ -4019,7 +4021,7 @@ namespace Enchante
             this.MngrServicesCategoryLbl.AutoSize = true;
             this.MngrServicesCategoryLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrServicesCategoryLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesCategoryLbl.Location = new System.Drawing.Point(877, 85);
+            this.MngrServicesCategoryLbl.Location = new System.Drawing.Point(580, 636);
             this.MngrServicesCategoryLbl.Name = "MngrServicesCategoryLbl";
             this.MngrServicesCategoryLbl.Size = new System.Drawing.Size(136, 29);
             this.MngrServicesCategoryLbl.TabIndex = 65;
@@ -4034,32 +4036,32 @@ namespace Enchante
             this.MngrInventoryServicesTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MngrInventoryServicesTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.MngrInventoryServicesTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrInventoryServicesTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrInventoryServicesTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.MngrInventoryServicesTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MngrInventoryServicesTable.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrInventoryServicesTable.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrInventoryServicesTable.DefaultCellStyle = dataGridViewCellStyle20;
             this.MngrInventoryServicesTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrInventoryServicesTable.Location = new System.Drawing.Point(45, 76);
+            this.MngrInventoryServicesTable.Location = new System.Drawing.Point(141, 91);
             this.MngrInventoryServicesTable.Name = "MngrInventoryServicesTable";
             this.MngrInventoryServicesTable.ReadOnly = true;
             this.MngrInventoryServicesTable.RowHeadersVisible = false;
             this.MngrInventoryServicesTable.RowHeadersWidth = 51;
             this.MngrInventoryServicesTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MngrInventoryServicesTable.Size = new System.Drawing.Size(797, 482);
+            this.MngrInventoryServicesTable.Size = new System.Drawing.Size(1300, 467);
             this.MngrInventoryServicesTable.TabIndex = 12;
             // 
             // MngrServicesCancelButton
@@ -4067,22 +4069,21 @@ namespace Enchante
             this.MngrServicesCancelButton.AutoSize = true;
             this.MngrServicesCancelButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MngrServicesCancelButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrServicesCancelButton.FlatAppearance.BorderSize = 3;
+            this.MngrServicesCancelButton.FlatAppearance.BorderSize = 0;
             this.MngrServicesCancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MngrServicesCancelButton.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrServicesCancelButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesCancelButton.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.MngrServicesCancelButton.IconChar = FontAwesome.Sharp.IconChar.None;
             this.MngrServicesCancelButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrServicesCancelButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MngrServicesCancelButton.IconSize = 32;
             this.MngrServicesCancelButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrServicesCancelButton.Location = new System.Drawing.Point(971, 658);
+            this.MngrServicesCancelButton.Location = new System.Drawing.Point(1097, 962);
             this.MngrServicesCancelButton.Name = "MngrServicesCancelButton";
-            this.MngrServicesCancelButton.Size = new System.Drawing.Size(246, 60);
+            this.MngrServicesCancelButton.Size = new System.Drawing.Size(162, 39);
             this.MngrServicesCancelButton.TabIndex = 109;
             this.MngrServicesCancelButton.Text = "Cancel";
             this.MngrServicesCancelButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrServicesCancelButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.MngrServicesCancelButton.UseVisualStyleBackColor = true;
             this.MngrServicesCancelButton.Visible = false;
             this.MngrServicesCancelButton.Click += new System.EventHandler(this.MngrServicesCancelButton_Click);
@@ -4096,18 +4097,16 @@ namespace Enchante
             this.MngrServicesUpdateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MngrServicesUpdateBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrServicesUpdateBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesUpdateBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.MngrServicesUpdateBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.MngrServicesUpdateBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrServicesUpdateBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MngrServicesUpdateBtn.IconSize = 32;
             this.MngrServicesUpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrServicesUpdateBtn.Location = new System.Drawing.Point(971, 588);
+            this.MngrServicesUpdateBtn.Location = new System.Drawing.Point(1270, 962);
             this.MngrServicesUpdateBtn.Name = "MngrServicesUpdateBtn";
-            this.MngrServicesUpdateBtn.Size = new System.Drawing.Size(246, 60);
+            this.MngrServicesUpdateBtn.Size = new System.Drawing.Size(145, 45);
             this.MngrServicesUpdateBtn.TabIndex = 82;
-            this.MngrServicesUpdateBtn.Text = "Update Service";
-            this.MngrServicesUpdateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrServicesUpdateBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.MngrServicesUpdateBtn.Text = "Update";
             this.MngrServicesUpdateBtn.UseVisualStyleBackColor = true;
             this.MngrServicesUpdateBtn.Visible = false;
             this.MngrServicesUpdateBtn.Click += new System.EventHandler(this.RecServicesUpdateBtn_Click);
@@ -4126,9 +4125,9 @@ namespace Enchante
             this.MngrServicesUpdateInfoBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MngrServicesUpdateInfoBtn.IconSize = 32;
             this.MngrServicesUpdateInfoBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrServicesUpdateInfoBtn.Location = new System.Drawing.Point(731, 588);
+            this.MngrServicesUpdateInfoBtn.Location = new System.Drawing.Point(1330, 564);
             this.MngrServicesUpdateInfoBtn.Name = "MngrServicesUpdateInfoBtn";
-            this.MngrServicesUpdateInfoBtn.Size = new System.Drawing.Size(111, 60);
+            this.MngrServicesUpdateInfoBtn.Size = new System.Drawing.Size(111, 45);
             this.MngrServicesUpdateInfoBtn.TabIndex = 79;
             this.MngrServicesUpdateInfoBtn.Text = "Edit";
             this.MngrServicesUpdateInfoBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -4150,13 +4149,11 @@ namespace Enchante
             this.MngrServicesCreateBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MngrServicesCreateBtn.IconSize = 32;
             this.MngrServicesCreateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrServicesCreateBtn.Location = new System.Drawing.Point(971, 588);
+            this.MngrServicesCreateBtn.Location = new System.Drawing.Point(1269, 962);
             this.MngrServicesCreateBtn.Name = "MngrServicesCreateBtn";
-            this.MngrServicesCreateBtn.Size = new System.Drawing.Size(246, 60);
+            this.MngrServicesCreateBtn.Size = new System.Drawing.Size(147, 45);
             this.MngrServicesCreateBtn.TabIndex = 78;
-            this.MngrServicesCreateBtn.Text = "Create Service";
-            this.MngrServicesCreateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrServicesCreateBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.MngrServicesCreateBtn.Text = "Create";
             this.MngrServicesCreateBtn.UseVisualStyleBackColor = true;
             this.MngrServicesCreateBtn.Click += new System.EventHandler(this.RecServicesCreateBtn_Click);
             // 
@@ -4170,17 +4167,19 @@ namespace Enchante
             this.MngrServicesExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.MngrServicesExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrServicesExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrServicesExitBtn.Location = new System.Drawing.Point(1715, 30);
+            this.MngrServicesExitBtn.Location = new System.Drawing.Point(1412, 78);
             this.MngrServicesExitBtn.Name = "MngrServicesExitBtn";
             this.MngrServicesExitBtn.Size = new System.Drawing.Size(48, 48);
             this.MngrServicesExitBtn.TabIndex = 46;
             this.MngrServicesExitBtn.UseVisualStyleBackColor = false;
+            this.MngrServicesExitBtn.Visible = false;
             this.MngrServicesExitBtn.Click += new System.EventHandler(this.RecInventoryServicesExitBtn_Click);
             // 
             // MngrInventoryMembershipPanel
             // 
+            this.MngrInventoryMembershipPanel.AutoScroll = true;
             this.MngrInventoryMembershipPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrInventoryCard.SetCardName(this.MngrInventoryMembershipPanel, "MEMBERSHIP");
+            this.MngrInventoryCard.SetCardName(this.MngrInventoryMembershipPanel, "membership");
             this.MngrInventoryMembershipPanel.Controls.Add(this.MngrMemAccDGV);
             this.MngrInventoryMembershipPanel.Controls.Add(this.MngrMemAccToLbl);
             this.MngrInventoryMembershipPanel.Controls.Add(this.MngrMemAccFromLbl);
@@ -4195,7 +4194,7 @@ namespace Enchante
             this.MngrInventoryCard.SetMinimumSize(this.MngrInventoryMembershipPanel, new System.Drawing.Size(1857, 839));
             this.MngrInventoryMembershipPanel.Name = "MngrInventoryMembershipPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrInventoryMembershipPanel, new System.Drawing.Size(1857, 839));
-            this.MngrInventoryMembershipPanel.Size = new System.Drawing.Size(2307, 1044);
+            this.MngrInventoryMembershipPanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrInventoryMembershipPanel.TabIndex = 3;
             // 
             // MngrMemAccDGV
@@ -4204,12 +4203,12 @@ namespace Enchante
             this.MngrMemAccDGV.BackgroundColor = System.Drawing.Color.GhostWhite;
             this.MngrMemAccDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MngrMemAccDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.MngrMemAccDGV.Location = new System.Drawing.Point(46, 159);
+            this.MngrMemAccDGV.Location = new System.Drawing.Point(230, 252);
             this.MngrMemAccDGV.MultiSelect = false;
             this.MngrMemAccDGV.Name = "MngrMemAccDGV";
             this.MngrMemAccDGV.ReadOnly = true;
             this.MngrMemAccDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MngrMemAccDGV.Size = new System.Drawing.Size(1709, 556);
+            this.MngrMemAccDGV.Size = new System.Drawing.Size(1139, 444);
             this.MngrMemAccDGV.TabIndex = 0;
             // 
             // MngrMemAccToLbl
@@ -4217,7 +4216,7 @@ namespace Enchante
             this.MngrMemAccToLbl.AutoSize = true;
             this.MngrMemAccToLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrMemAccToLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MngrMemAccToLbl.Location = new System.Drawing.Point(1078, 109);
+            this.MngrMemAccToLbl.Location = new System.Drawing.Point(960, 209);
             this.MngrMemAccToLbl.Name = "MngrMemAccToLbl";
             this.MngrMemAccToLbl.Size = new System.Drawing.Size(24, 16);
             this.MngrMemAccToLbl.TabIndex = 9;
@@ -4228,7 +4227,7 @@ namespace Enchante
             this.MngrMemAccFromLbl.AutoSize = true;
             this.MngrMemAccFromLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrMemAccFromLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MngrMemAccFromLbl.Location = new System.Drawing.Point(656, 109);
+            this.MngrMemAccFromLbl.Location = new System.Drawing.Point(695, 208);
             this.MngrMemAccFromLbl.Name = "MngrMemAccFromLbl";
             this.MngrMemAccFromLbl.Size = new System.Drawing.Size(38, 16);
             this.MngrMemAccFromLbl.TabIndex = 8;
@@ -4244,17 +4243,18 @@ namespace Enchante
             this.MngrInventoryMembershipExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.MngrInventoryMembershipExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrInventoryMembershipExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrInventoryMembershipExitBtn.Location = new System.Drawing.Point(1737, 17);
+            this.MngrInventoryMembershipExitBtn.Location = new System.Drawing.Point(1387, 32);
             this.MngrInventoryMembershipExitBtn.Name = "MngrInventoryMembershipExitBtn";
             this.MngrInventoryMembershipExitBtn.Size = new System.Drawing.Size(48, 48);
             this.MngrInventoryMembershipExitBtn.TabIndex = 47;
             this.MngrInventoryMembershipExitBtn.UseVisualStyleBackColor = false;
+            this.MngrInventoryMembershipExitBtn.Visible = false;
             this.MngrInventoryMembershipExitBtn.Click += new System.EventHandler(this.MngrInventoryMembershipExitBtn_Click);
             // 
             // MngrMemAccResetBtn
             // 
             this.MngrMemAccResetBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrMemAccResetBtn.Location = new System.Drawing.Point(1652, 107);
+            this.MngrMemAccResetBtn.Location = new System.Drawing.Point(1266, 204);
             this.MngrMemAccResetBtn.Margin = new System.Windows.Forms.Padding(2);
             this.MngrMemAccResetBtn.Name = "MngrMemAccResetBtn";
             this.MngrMemAccResetBtn.Size = new System.Drawing.Size(103, 24);
@@ -4265,9 +4265,9 @@ namespace Enchante
             // 
             // MngrMemAccDatePickTo
             // 
-            this.MngrMemAccDatePickTo.Location = new System.Drawing.Point(1107, 106);
+            this.MngrMemAccDatePickTo.Location = new System.Drawing.Point(989, 206);
             this.MngrMemAccDatePickTo.Name = "MngrMemAccDatePickTo";
-            this.MngrMemAccDatePickTo.Size = new System.Drawing.Size(362, 20);
+            this.MngrMemAccDatePickTo.Size = new System.Drawing.Size(206, 20);
             this.MngrMemAccDatePickTo.TabIndex = 7;
             this.MngrMemAccDatePickTo.ValueChanged += new System.EventHandler(this.MngrMemAccDatePickTo_ValueChanged);
             // 
@@ -4276,7 +4276,7 @@ namespace Enchante
             this.MngrMemAccMemTypeBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MngrMemAccMemTypeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrMemAccMemTypeBox.FormattingEnabled = true;
-            this.MngrMemAccMemTypeBox.Location = new System.Drawing.Point(46, 107);
+            this.MngrMemAccMemTypeBox.Location = new System.Drawing.Point(230, 205);
             this.MngrMemAccMemTypeBox.Name = "MngrMemAccMemTypeBox";
             this.MngrMemAccMemTypeBox.Size = new System.Drawing.Size(452, 24);
             this.MngrMemAccMemTypeBox.TabIndex = 1;
@@ -4284,9 +4284,9 @@ namespace Enchante
             // 
             // MngrMemAccDatePickFrom
             // 
-            this.MngrMemAccDatePickFrom.Location = new System.Drawing.Point(698, 106);
+            this.MngrMemAccDatePickFrom.Location = new System.Drawing.Point(737, 205);
             this.MngrMemAccDatePickFrom.Name = "MngrMemAccDatePickFrom";
-            this.MngrMemAccDatePickFrom.Size = new System.Drawing.Size(362, 20);
+            this.MngrMemAccDatePickFrom.Size = new System.Drawing.Size(206, 20);
             this.MngrMemAccDatePickFrom.TabIndex = 6;
             this.MngrMemAccDatePickFrom.ValueChanged += new System.EventHandler(this.MngrMemAccDatePickFrom_ValueChanged);
             // 
@@ -4295,7 +4295,7 @@ namespace Enchante
             this.MngrMemAccMemTypeLbl.AutoSize = true;
             this.MngrMemAccMemTypeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrMemAccMemTypeLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MngrMemAccMemTypeLbl.Location = new System.Drawing.Point(46, 55);
+            this.MngrMemAccMemTypeLbl.Location = new System.Drawing.Point(225, 177);
             this.MngrMemAccMemTypeLbl.Name = "MngrMemAccMemTypeLbl";
             this.MngrMemAccMemTypeLbl.Size = new System.Drawing.Size(184, 25);
             this.MngrMemAccMemTypeLbl.TabIndex = 2;
@@ -4306,7 +4306,7 @@ namespace Enchante
             this.MngrMemAccAccCreateLbl.AutoSize = true;
             this.MngrMemAccAccCreateLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrMemAccAccCreateLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MngrMemAccAccCreateLbl.Location = new System.Drawing.Point(693, 55);
+            this.MngrMemAccAccCreateLbl.Location = new System.Drawing.Point(693, 177);
             this.MngrMemAccAccCreateLbl.Name = "MngrMemAccAccCreateLbl";
             this.MngrMemAccAccCreateLbl.Size = new System.Drawing.Size(172, 25);
             this.MngrMemAccAccCreateLbl.TabIndex = 3;
@@ -4315,7 +4315,7 @@ namespace Enchante
             // MngrInventoryProductsPanel
             // 
             this.MngrInventoryProductsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrInventoryCard.SetCardName(this.MngrInventoryProductsPanel, "PRODUCTS");
+            this.MngrInventoryCard.SetCardName(this.MngrInventoryProductsPanel, "products");
             this.MngrInventoryProductsPanel.Controls.Add(this.SelectImage);
             this.MngrInventoryProductsPanel.Controls.Add(this.PDImage);
             this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsStatusComboText);
@@ -4343,7 +4343,7 @@ namespace Enchante
             this.MngrInventoryCard.SetMinimumSize(this.MngrInventoryProductsPanel, new System.Drawing.Size(200, 100));
             this.MngrInventoryProductsPanel.Name = "MngrInventoryProductsPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrInventoryProductsPanel, new System.Drawing.Size(200, 100));
-            this.MngrInventoryProductsPanel.Size = new System.Drawing.Size(2307, 1044);
+            this.MngrInventoryProductsPanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrInventoryProductsPanel.TabIndex = 0;
             this.MngrInventoryProductsPanel.Visible = false;
             // 
@@ -4354,11 +4354,11 @@ namespace Enchante
             this.SelectImage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.SelectImage.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.SelectImage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.SelectImage.FillColor = System.Drawing.Color.PaleGreen;
-            this.SelectImage.FillColor2 = System.Drawing.Color.Aquamarine;
+            this.SelectImage.FillColor = System.Drawing.Color.Empty;
+            this.SelectImage.FillColor2 = System.Drawing.Color.Empty;
             this.SelectImage.Font = new System.Drawing.Font("TechnicBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SelectImage.ForeColor = System.Drawing.Color.Black;
-            this.SelectImage.Location = new System.Drawing.Point(1552, 366);
+            this.SelectImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SelectImage.Location = new System.Drawing.Point(1026, 730);
             this.SelectImage.Name = "SelectImage";
             this.SelectImage.Size = new System.Drawing.Size(183, 30);
             this.SelectImage.TabIndex = 107;
@@ -4371,7 +4371,7 @@ namespace Enchante
             this.PDImage.AutoSize = true;
             this.PDImage.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.PDImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PDImage.Location = new System.Drawing.Point(1540, 129);
+            this.PDImage.Location = new System.Drawing.Point(1020, 552);
             this.PDImage.Name = "PDImage";
             this.PDImage.Size = new System.Drawing.Size(195, 29);
             this.PDImage.TabIndex = 104;
@@ -4385,7 +4385,7 @@ namespace Enchante
             this.MngrInventoryProductsStatusComboText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrInventoryProductsStatusComboText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrInventoryProductsStatusComboText.FormattingEnabled = true;
-            this.MngrInventoryProductsStatusComboText.Location = new System.Drawing.Point(1217, 365);
+            this.MngrInventoryProductsStatusComboText.Location = new System.Drawing.Point(659, 705);
             this.MngrInventoryProductsStatusComboText.Name = "MngrInventoryProductsStatusComboText";
             this.MngrInventoryProductsStatusComboText.Size = new System.Drawing.Size(296, 31);
             this.MngrInventoryProductsStatusComboText.TabIndex = 102;
@@ -4395,7 +4395,7 @@ namespace Enchante
             this.MngrInventoryProductsIDLbl.AutoSize = true;
             this.MngrInventoryProductsIDLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrInventoryProductsIDLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsIDLbl.Location = new System.Drawing.Point(1212, 224);
+            this.MngrInventoryProductsIDLbl.Location = new System.Drawing.Point(333, 665);
             this.MngrInventoryProductsIDLbl.Name = "MngrInventoryProductsIDLbl";
             this.MngrInventoryProductsIDLbl.Size = new System.Drawing.Size(152, 29);
             this.MngrInventoryProductsIDLbl.TabIndex = 100;
@@ -4406,7 +4406,7 @@ namespace Enchante
             this.MngrInventoryProductsIDText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrInventoryProductsIDText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrInventoryProductsIDText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsIDText.Location = new System.Drawing.Point(1217, 267);
+            this.MngrInventoryProductsIDText.Location = new System.Drawing.Point(338, 708);
             this.MngrInventoryProductsIDText.Name = "MngrInventoryProductsIDText";
             this.MngrInventoryProductsIDText.ReadOnly = true;
             this.MngrInventoryProductsIDText.Size = new System.Drawing.Size(296, 30);
@@ -4420,7 +4420,7 @@ namespace Enchante
             this.MngrInventoryProductsTypeComboText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrInventoryProductsTypeComboText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrInventoryProductsTypeComboText.FormattingEnabled = true;
-            this.MngrInventoryProductsTypeComboText.Location = new System.Drawing.Point(1217, 172);
+            this.MngrInventoryProductsTypeComboText.Location = new System.Drawing.Point(659, 611);
             this.MngrInventoryProductsTypeComboText.Name = "MngrInventoryProductsTypeComboText";
             this.MngrInventoryProductsTypeComboText.Size = new System.Drawing.Size(296, 31);
             this.MngrInventoryProductsTypeComboText.TabIndex = 96;
@@ -4431,7 +4431,7 @@ namespace Enchante
             this.MngrInventoryProductsPriceLbl.AutoSize = true;
             this.MngrInventoryProductsPriceLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrInventoryProductsPriceLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsPriceLbl.Location = new System.Drawing.Point(1047, 423);
+            this.MngrInventoryProductsPriceLbl.Location = new System.Drawing.Point(654, 764);
             this.MngrInventoryProductsPriceLbl.Name = "MngrInventoryProductsPriceLbl";
             this.MngrInventoryProductsPriceLbl.Size = new System.Drawing.Size(189, 29);
             this.MngrInventoryProductsPriceLbl.TabIndex = 95;
@@ -4442,7 +4442,7 @@ namespace Enchante
             this.MngrInventoryProductsPriceText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrInventoryProductsPriceText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrInventoryProductsPriceText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsPriceText.Location = new System.Drawing.Point(1052, 464);
+            this.MngrInventoryProductsPriceText.Location = new System.Drawing.Point(659, 805);
             this.MngrInventoryProductsPriceText.Name = "MngrInventoryProductsPriceText";
             this.MngrInventoryProductsPriceText.Size = new System.Drawing.Size(296, 30);
             this.MngrInventoryProductsPriceText.TabIndex = 94;
@@ -4455,7 +4455,7 @@ namespace Enchante
             this.MngrInventoryProductsCatComboText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrInventoryProductsCatComboText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrInventoryProductsCatComboText.FormattingEnabled = true;
-            this.MngrInventoryProductsCatComboText.Location = new System.Drawing.Point(871, 172);
+            this.MngrInventoryProductsCatComboText.Location = new System.Drawing.Point(969, 807);
             this.MngrInventoryProductsCatComboText.Name = "MngrInventoryProductsCatComboText";
             this.MngrInventoryProductsCatComboText.Size = new System.Drawing.Size(296, 31);
             this.MngrInventoryProductsCatComboText.TabIndex = 93;
@@ -4466,7 +4466,7 @@ namespace Enchante
             this.MngrInventoryProductsStockLbl.AutoSize = true;
             this.MngrInventoryProductsStockLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrInventoryProductsStockLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsStockLbl.Location = new System.Drawing.Point(866, 323);
+            this.MngrInventoryProductsStockLbl.Location = new System.Drawing.Point(333, 764);
             this.MngrInventoryProductsStockLbl.Name = "MngrInventoryProductsStockLbl";
             this.MngrInventoryProductsStockLbl.Size = new System.Drawing.Size(175, 29);
             this.MngrInventoryProductsStockLbl.TabIndex = 92;
@@ -4477,7 +4477,7 @@ namespace Enchante
             this.MngrInventoryProductsStockText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrInventoryProductsStockText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrInventoryProductsStockText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsStockText.Location = new System.Drawing.Point(871, 366);
+            this.MngrInventoryProductsStockText.Location = new System.Drawing.Point(338, 807);
             this.MngrInventoryProductsStockText.Name = "MngrInventoryProductsStockText";
             this.MngrInventoryProductsStockText.Size = new System.Drawing.Size(296, 30);
             this.MngrInventoryProductsStockText.TabIndex = 91;
@@ -4489,7 +4489,7 @@ namespace Enchante
             this.MngrInventoryProductsStatusLbl.AutoSize = true;
             this.MngrInventoryProductsStatusLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrInventoryProductsStatusLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsStatusLbl.Location = new System.Drawing.Point(1212, 323);
+            this.MngrInventoryProductsStatusLbl.Location = new System.Drawing.Point(654, 665);
             this.MngrInventoryProductsStatusLbl.Name = "MngrInventoryProductsStatusLbl";
             this.MngrInventoryProductsStatusLbl.Size = new System.Drawing.Size(215, 29);
             this.MngrInventoryProductsStatusLbl.TabIndex = 90;
@@ -4500,7 +4500,7 @@ namespace Enchante
             this.MngrInventoryProductsNameLbl.AutoSize = true;
             this.MngrInventoryProductsNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrInventoryProductsNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsNameLbl.Location = new System.Drawing.Point(866, 224);
+            this.MngrInventoryProductsNameLbl.Location = new System.Drawing.Point(333, 568);
             this.MngrInventoryProductsNameLbl.Name = "MngrInventoryProductsNameLbl";
             this.MngrInventoryProductsNameLbl.Size = new System.Drawing.Size(190, 29);
             this.MngrInventoryProductsNameLbl.TabIndex = 88;
@@ -4511,7 +4511,7 @@ namespace Enchante
             this.MngrInventoryProductsNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrInventoryProductsNameText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MngrInventoryProductsNameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsNameText.Location = new System.Drawing.Point(871, 267);
+            this.MngrInventoryProductsNameText.Location = new System.Drawing.Point(338, 611);
             this.MngrInventoryProductsNameText.Name = "MngrInventoryProductsNameText";
             this.MngrInventoryProductsNameText.Size = new System.Drawing.Size(296, 30);
             this.MngrInventoryProductsNameText.TabIndex = 87;
@@ -4522,7 +4522,7 @@ namespace Enchante
             this.MngrInventoryProductsTypeLbl.AutoSize = true;
             this.MngrInventoryProductsTypeLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrInventoryProductsTypeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsTypeLbl.Location = new System.Drawing.Point(1212, 129);
+            this.MngrInventoryProductsTypeLbl.Location = new System.Drawing.Point(654, 568);
             this.MngrInventoryProductsTypeLbl.Name = "MngrInventoryProductsTypeLbl";
             this.MngrInventoryProductsTypeLbl.Size = new System.Drawing.Size(184, 29);
             this.MngrInventoryProductsTypeLbl.TabIndex = 86;
@@ -4533,7 +4533,7 @@ namespace Enchante
             this.MngrInventoryProductsCatLbl.AutoSize = true;
             this.MngrInventoryProductsCatLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrInventoryProductsCatLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsCatLbl.Location = new System.Drawing.Point(866, 129);
+            this.MngrInventoryProductsCatLbl.Location = new System.Drawing.Point(964, 764);
             this.MngrInventoryProductsCatLbl.Name = "MngrInventoryProductsCatLbl";
             this.MngrInventoryProductsCatLbl.Size = new System.Drawing.Size(243, 29);
             this.MngrInventoryProductsCatLbl.TabIndex = 85;
@@ -4548,32 +4548,32 @@ namespace Enchante
             this.MngrInventoryProductsTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MngrInventoryProductsTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.MngrInventoryProductsTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrInventoryProductsTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrInventoryProductsTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.MngrInventoryProductsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MngrInventoryProductsTable.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrInventoryProductsTable.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrInventoryProductsTable.DefaultCellStyle = dataGridViewCellStyle2;
             this.MngrInventoryProductsTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrInventoryProductsTable.Location = new System.Drawing.Point(46, 129);
+            this.MngrInventoryProductsTable.Location = new System.Drawing.Point(143, 112);
             this.MngrInventoryProductsTable.Name = "MngrInventoryProductsTable";
             this.MngrInventoryProductsTable.ReadOnly = true;
             this.MngrInventoryProductsTable.RowHeadersVisible = false;
             this.MngrInventoryProductsTable.RowHeadersWidth = 51;
             this.MngrInventoryProductsTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MngrInventoryProductsTable.Size = new System.Drawing.Size(792, 443);
+            this.MngrInventoryProductsTable.Size = new System.Drawing.Size(1313, 332);
             this.MngrInventoryProductsTable.TabIndex = 83;
             // 
             // CancelEdit
@@ -4581,22 +4581,20 @@ namespace Enchante
             this.CancelEdit.AutoSize = true;
             this.CancelEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CancelEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.CancelEdit.FlatAppearance.BorderSize = 3;
+            this.CancelEdit.FlatAppearance.BorderSize = 0;
             this.CancelEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelEdit.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.CancelEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.CancelEdit.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.CancelEdit.IconChar = FontAwesome.Sharp.IconChar.None;
             this.CancelEdit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.CancelEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CancelEdit.IconSize = 32;
             this.CancelEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CancelEdit.Location = new System.Drawing.Point(1052, 604);
+            this.CancelEdit.Location = new System.Drawing.Point(823, 866);
             this.CancelEdit.Name = "CancelEdit";
-            this.CancelEdit.Size = new System.Drawing.Size(296, 60);
+            this.CancelEdit.Size = new System.Drawing.Size(160, 39);
             this.CancelEdit.TabIndex = 105;
             this.CancelEdit.Text = "CANCEL";
-            this.CancelEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CancelEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.CancelEdit.UseVisualStyleBackColor = true;
             this.CancelEdit.Visible = false;
             this.CancelEdit.Click += new System.EventHandler(this.CancelEdit_Click);
@@ -4604,10 +4602,10 @@ namespace Enchante
             // ProductImagePictureBox
             // 
             this.ProductImagePictureBox.ImageRotate = 0F;
-            this.ProductImagePictureBox.Location = new System.Drawing.Point(1558, 172);
+            this.ProductImagePictureBox.Location = new System.Drawing.Point(1051, 595);
             this.ProductImagePictureBox.Name = "ProductImagePictureBox";
             this.ProductImagePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.ProductImagePictureBox.Size = new System.Drawing.Size(168, 168);
+            this.ProductImagePictureBox.Size = new System.Drawing.Size(132, 129);
             this.ProductImagePictureBox.TabIndex = 103;
             this.ProductImagePictureBox.TabStop = false;
             this.ProductImagePictureBox.Visible = false;
@@ -4617,22 +4615,21 @@ namespace Enchante
             this.MngrInventoryProductsInfoEditBtn.AutoSize = true;
             this.MngrInventoryProductsInfoEditBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MngrInventoryProductsInfoEditBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrInventoryProductsInfoEditBtn.FlatAppearance.BorderSize = 3;
+            this.MngrInventoryProductsInfoEditBtn.FlatAppearance.BorderSize = 0;
             this.MngrInventoryProductsInfoEditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MngrInventoryProductsInfoEditBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrInventoryProductsInfoEditBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsInfoEditBtn.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.MngrInventoryProductsInfoEditBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.MngrInventoryProductsInfoEditBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrInventoryProductsInfoEditBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MngrInventoryProductsInfoEditBtn.IconSize = 32;
             this.MngrInventoryProductsInfoEditBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrInventoryProductsInfoEditBtn.Location = new System.Drawing.Point(727, 604);
+            this.MngrInventoryProductsInfoEditBtn.Location = new System.Drawing.Point(1383, 450);
             this.MngrInventoryProductsInfoEditBtn.Name = "MngrInventoryProductsInfoEditBtn";
-            this.MngrInventoryProductsInfoEditBtn.Size = new System.Drawing.Size(111, 60);
+            this.MngrInventoryProductsInfoEditBtn.Size = new System.Drawing.Size(73, 39);
             this.MngrInventoryProductsInfoEditBtn.TabIndex = 98;
             this.MngrInventoryProductsInfoEditBtn.Text = "Edit";
             this.MngrInventoryProductsInfoEditBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrInventoryProductsInfoEditBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.MngrInventoryProductsInfoEditBtn.UseVisualStyleBackColor = true;
             this.MngrInventoryProductsInfoEditBtn.Click += new System.EventHandler(this.MngrInventoryProductsInfoEditBtn_Click);
             // 
@@ -4662,18 +4659,16 @@ namespace Enchante
             this.MngrInventoryProductsUpdateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MngrInventoryProductsUpdateBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrInventoryProductsUpdateBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsUpdateBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.MngrInventoryProductsUpdateBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.MngrInventoryProductsUpdateBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrInventoryProductsUpdateBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MngrInventoryProductsUpdateBtn.IconSize = 32;
             this.MngrInventoryProductsUpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrInventoryProductsUpdateBtn.Location = new System.Drawing.Point(1052, 531);
+            this.MngrInventoryProductsUpdateBtn.Location = new System.Drawing.Point(989, 863);
             this.MngrInventoryProductsUpdateBtn.Name = "MngrInventoryProductsUpdateBtn";
-            this.MngrInventoryProductsUpdateBtn.Size = new System.Drawing.Size(296, 60);
+            this.MngrInventoryProductsUpdateBtn.Size = new System.Drawing.Size(276, 45);
             this.MngrInventoryProductsUpdateBtn.TabIndex = 101;
             this.MngrInventoryProductsUpdateBtn.Text = "UPDATE PRODUCT";
-            this.MngrInventoryProductsUpdateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrInventoryProductsUpdateBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.MngrInventoryProductsUpdateBtn.UseVisualStyleBackColor = true;
             this.MngrInventoryProductsUpdateBtn.Visible = false;
             this.MngrInventoryProductsUpdateBtn.Click += new System.EventHandler(this.MngrInventoryProductsUpdateBtn_Click);
@@ -4687,18 +4682,16 @@ namespace Enchante
             this.MngrInventoryProductsInsertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MngrInventoryProductsInsertBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrInventoryProductsInsertBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsInsertBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.MngrInventoryProductsInsertBtn.IconChar = FontAwesome.Sharp.IconChar.None;
             this.MngrInventoryProductsInsertBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrInventoryProductsInsertBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MngrInventoryProductsInsertBtn.IconSize = 32;
             this.MngrInventoryProductsInsertBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrInventoryProductsInsertBtn.Location = new System.Drawing.Point(1052, 531);
+            this.MngrInventoryProductsInsertBtn.Location = new System.Drawing.Point(989, 863);
             this.MngrInventoryProductsInsertBtn.Name = "MngrInventoryProductsInsertBtn";
-            this.MngrInventoryProductsInsertBtn.Size = new System.Drawing.Size(296, 60);
+            this.MngrInventoryProductsInsertBtn.Size = new System.Drawing.Size(276, 45);
             this.MngrInventoryProductsInsertBtn.TabIndex = 97;
             this.MngrInventoryProductsInsertBtn.Text = "INSERT PRODUCT";
-            this.MngrInventoryProductsInsertBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrInventoryProductsInsertBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.MngrInventoryProductsInsertBtn.UseVisualStyleBackColor = true;
             this.MngrInventoryProductsInsertBtn.Click += new System.EventHandler(this.MngrInventoryProductsInsertBtn_Click);
             // 
@@ -5953,6 +5946,7 @@ namespace Enchante
             // 
             // RecTransBtnFlowPanel
             // 
+            this.RecTransBtnFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RecTransBtnFlowPanel.Controls.Add(this.RecTransBtn);
             this.RecTransBtnFlowPanel.Controls.Add(this.RecWalkInBtn);
             this.RecTransBtnFlowPanel.Controls.Add(this.RecAppointmentBtn);
@@ -6102,6 +6096,7 @@ namespace Enchante
             // 
             // RecQueBtnFlowPanel
             // 
+            this.RecQueBtnFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RecQueBtnFlowPanel.Controls.Add(this.RecQueBtn);
             this.RecQueBtnFlowPanel.Controls.Add(this.RecQueStartBtn);
             this.RecQueBtnFlowPanel.Controls.Add(this.RecQueWinBtn);
@@ -6231,41 +6226,41 @@ namespace Enchante
             // RecNameLbl
             // 
             this.RecNameLbl.AutoEllipsis = true;
-            this.RecNameLbl.AutoSize = true;
             this.RecNameLbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecNameLbl.Location = new System.Drawing.Point(23, 237);
+            this.RecNameLbl.Location = new System.Drawing.Point(52, 224);
             this.RecNameLbl.Name = "RecNameLbl";
-            this.RecNameLbl.Size = new System.Drawing.Size(202, 29);
+            this.RecNameLbl.Size = new System.Drawing.Size(210, 29);
             this.RecNameLbl.TabIndex = 8;
             this.RecNameLbl.Text = "Reception Name";
+            this.RecNameLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // RecEmplTypeLbl
             // 
             this.RecEmplTypeLbl.AutoEllipsis = true;
-            this.RecEmplTypeLbl.AutoSize = true;
             this.RecEmplTypeLbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecEmplTypeLbl.Font = new System.Drawing.Font("TechnicBold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecEmplTypeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecEmplTypeLbl.Location = new System.Drawing.Point(145, 266);
+            this.RecEmplTypeLbl.Location = new System.Drawing.Point(163, 266);
             this.RecEmplTypeLbl.Name = "RecEmplTypeLbl";
-            this.RecEmplTypeLbl.Size = new System.Drawing.Size(75, 18);
+            this.RecEmplTypeLbl.Size = new System.Drawing.Size(99, 18);
             this.RecEmplTypeLbl.TabIndex = 9;
-            this.RecEmplTypeLbl.Text = "EmplType";
+            this.RecEmplTypeLbl.Text = "Receptionist";
+            this.RecEmplTypeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // RecIDNumLbl
             // 
             this.RecIDNumLbl.AutoEllipsis = true;
-            this.RecIDNumLbl.AutoSize = true;
             this.RecIDNumLbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecIDNumLbl.Font = new System.Drawing.Font("TechnicBold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecIDNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecIDNumLbl.Location = new System.Drawing.Point(27, 266);
+            this.RecIDNumLbl.Location = new System.Drawing.Point(54, 266);
             this.RecIDNumLbl.Name = "RecIDNumLbl";
             this.RecIDNumLbl.Size = new System.Drawing.Size(80, 18);
             this.RecIDNumLbl.TabIndex = 9;
             this.RecIDNumLbl.Text = "ID Number";
+            this.RecIDNumLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // RecDateTimeText
             // 
@@ -6273,11 +6268,12 @@ namespace Enchante
             this.RecDateTimeText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RecDateTimeText.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecDateTimeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecDateTimeText.Location = new System.Drawing.Point(23, 293);
+            this.RecDateTimeText.Location = new System.Drawing.Point(27, 293);
             this.RecDateTimeText.Name = "RecDateTimeText";
             this.RecDateTimeText.ReadOnly = true;
             this.RecDateTimeText.Size = new System.Drawing.Size(271, 19);
             this.RecDateTimeText.TabIndex = 59;
+            this.RecDateTimeText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ReceptionCreateTransactPanel
             // 
@@ -6790,7 +6786,8 @@ namespace Enchante
             this.RecSearchProductTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.RecSearchProductTextBox.Name = "RecSearchProductTextBox";
             this.RecSearchProductTextBox.PasswordChar = '\0';
-            this.RecSearchProductTextBox.PlaceholderText = "";
+            this.RecSearchProductTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecSearchProductTextBox.PlaceholderText = "Search an item...";
             this.RecSearchProductTextBox.SelectedText = "";
             this.RecSearchProductTextBox.Size = new System.Drawing.Size(651, 34);
             this.RecSearchProductTextBox.TabIndex = 183;
@@ -6803,7 +6800,7 @@ namespace Enchante
             this.RecShopProdProductFlowLayoutPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RecShopProdProductFlowLayoutPanel.Location = new System.Drawing.Point(114, 211);
             this.RecShopProdProductFlowLayoutPanel.Name = "RecShopProdProductFlowLayoutPanel";
-            this.RecShopProdProductFlowLayoutPanel.Size = new System.Drawing.Size(651, 452);
+            this.RecShopProdProductFlowLayoutPanel.Size = new System.Drawing.Size(869, 452);
             this.RecShopProdProductFlowLayoutPanel.TabIndex = 182;
             // 
             // RecShopProdSelectedProdVoidBtn
@@ -7013,7 +7010,7 @@ namespace Enchante
             // RecShopProdWalletQRPB
             // 
             this.RecShopProdWalletQRPB.Image = global::Enchante.Properties.Resources.Enchante_GCash_QR;
-            this.RecShopProdWalletQRPB.Location = new System.Drawing.Point(27, 9);
+            this.RecShopProdWalletQRPB.Location = new System.Drawing.Point(89, 9);
             this.RecShopProdWalletQRPB.Name = "RecShopProdWalletQRPB";
             this.RecShopProdWalletQRPB.Size = new System.Drawing.Size(425, 456);
             this.RecShopProdWalletQRPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -7362,7 +7359,7 @@ namespace Enchante
             this.RecShopProdCash1PaymentPanel.Controls.Add(this.RecShopProdNetAmountLbl);
             this.RecShopProdCash1PaymentPanel.Controls.Add(this.RecShopProdVATLbl);
             this.RecShopProdCash1PaymentPanel.Controls.Add(this.RecShopProdGrossAmountLbl);
-            this.RecShopProdCash1PaymentPanel.Location = new System.Drawing.Point(886, 468);
+            this.RecShopProdCash1PaymentPanel.Location = new System.Drawing.Point(1013, 439);
             this.RecShopProdCash1PaymentPanel.Name = "RecShopProdCash1PaymentPanel";
             this.RecShopProdCash1PaymentPanel.Size = new System.Drawing.Size(476, 242);
             this.RecShopProdCash1PaymentPanel.TabIndex = 148;
@@ -8369,7 +8366,7 @@ namespace Enchante
             this.RecApptCatNCRB.FlatAppearance.BorderSize = 5;
             this.RecApptCatNCRB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RecApptCatNCRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecApptCatNCRB.Location = new System.Drawing.Point(191, 18);
+            this.RecApptCatNCRB.Location = new System.Drawing.Point(191, 25);
             this.RecApptCatNCRB.Name = "RecApptCatNCRB";
             this.RecApptCatNCRB.Size = new System.Drawing.Size(33, 29);
             this.RecApptCatNCRB.TabIndex = 115;
@@ -8767,7 +8764,7 @@ namespace Enchante
             this.RecApptSearchServiceTypeText.Name = "RecApptSearchServiceTypeText";
             this.RecApptSearchServiceTypeText.PasswordChar = '\0';
             this.RecApptSearchServiceTypeText.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecApptSearchServiceTypeText.PlaceholderText = "Search Services Here";
+            this.RecApptSearchServiceTypeText.PlaceholderText = "Search Services Here...";
             this.RecApptSearchServiceTypeText.SelectedText = "";
             this.RecApptSearchServiceTypeText.Size = new System.Drawing.Size(729, 47);
             this.RecApptSearchServiceTypeText.TabIndex = 190;
@@ -8962,7 +8959,6 @@ namespace Enchante
             this.RecApptDeleteSelectedServiceAndStaffBtn.TabIndex = 169;
             this.RecApptDeleteSelectedServiceAndStaffBtn.Text = "VOID ALL SERVICES";
             this.RecApptDeleteSelectedServiceAndStaffBtn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.RecApptDeleteSelectedServiceAndStaffBtn.Visible = false;
             this.RecApptDeleteSelectedServiceAndStaffBtn.Click += new System.EventHandler(this.RecApptDeleteSelectedServiceAndStaffBtn_Click);
             // 
             // RecQueWinPanel
@@ -12490,7 +12486,7 @@ namespace Enchante
             // 
             this.RecTransactionCard.ContainerControl = this.ReceptionCreateTransactPanel;
             this.RecTransactionCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.RecTransactionCard.SelectedCard = "APPT";
+            this.RecTransactionCard.SelectedCard = "Walkin";
             // 
             // DateTimePickerTimer
             // 
@@ -12500,7 +12496,7 @@ namespace Enchante
             // 
             this.MngrInventoryCard.ContainerControl = this.MngrInventoryPanel;
             this.MngrInventoryCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.MngrInventoryCard.SelectedCard = "PRODUCT HISTORY";
+            this.MngrInventoryCard.SelectedCard = "walkin sales";
             // 
             // PictureSlideTimer
             // 
@@ -12532,6 +12528,19 @@ namespace Enchante
             // 
             this.MngrHistoryTimer.Interval = 1;
             this.MngrHistoryTimer.Tick += new System.EventHandler(this.MngrHistoryTimer_Tick);
+            // 
+            // MngrDateTimeText
+            // 
+            this.MngrDateTimeText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrDateTimeText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MngrDateTimeText.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrDateTimeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrDateTimeText.Location = new System.Drawing.Point(14, 290);
+            this.MngrDateTimeText.Name = "MngrDateTimeText";
+            this.MngrDateTimeText.ReadOnly = true;
+            this.MngrDateTimeText.Size = new System.Drawing.Size(296, 19);
+            this.MngrDateTimeText.TabIndex = 65;
+            this.MngrDateTimeText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Enchante
             // 
@@ -13533,6 +13542,7 @@ namespace Enchante
         private System.Windows.Forms.Timer MngrReportsTimer;
         private System.Windows.Forms.Timer MngrHistoryTimer;
         private FontAwesome.Sharp.IconButton MngrRecOverrideBtn;
+        private System.Windows.Forms.TextBox MngrDateTimeText;
     }
 }
 
