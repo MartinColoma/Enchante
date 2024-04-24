@@ -424,12 +424,12 @@ namespace Enchante
             itemCostColumn.ReadOnly = true;
             RecShopProdSelectedProdDGV.Columns.Add(itemCostColumn);
 
-            DataGridViewCheckBoxColumn checkboxColumn = new DataGridViewCheckBoxColumn();
-            checkboxColumn.HeaderText = "Senior\nPWD\nDiscount";
-            checkboxColumn.Name = "CheckBoxColumn";
-            checkboxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            checkboxColumn.Width = 15;
-            RecShopProdSelectedProdDGV.Columns.Add(checkboxColumn);
+            //DataGridViewCheckBoxColumn checkboxColumn = new DataGridViewCheckBoxColumn();
+            //checkboxColumn.HeaderText = "Senior\nPWD\nDiscount";
+            //checkboxColumn.Name = "CheckBoxColumn";
+            //checkboxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            //checkboxColumn.Width = 15;
+            //RecShopProdSelectedProdDGV.Columns.Add(checkboxColumn);
 
         }
         #endregion
@@ -2102,7 +2102,7 @@ namespace Enchante
 
                     // Add centered content to the centerAligned Paragraph
                     centerAligned.Add(new Chunk("Enchanté Salon", headerFont));
-                    centerAligned.Add(new Chunk("\n69th flr. Enchanté Bldg. Ortigas Extension Ave. \nManggahan, Pasig City 1611 Philippines", font));
+                    centerAligned.Add(new Chunk("\n69th flr. Enchanté Bldg. Ortigas Ave. Ext.\nManggahan, Pasig City 1611 Philippines", font));
                     centerAligned.Add(new Chunk("\nTel. No.: (1101) 111-1010", font));
                     centerAligned.Add(new Chunk($"\nDate: {datetoday} Time: {timePrinted}", font));
 
@@ -2712,8 +2712,9 @@ namespace Enchante
                         // Remove the selected row
                         RecWalkinSelectedProdDGV.Rows.RemoveAt(e.RowIndex);
                         MessageBox.Show("Item removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        RecWalkinProdCalculateTotalPrice();
                     }
-                    
+
                 }
                 else if (RecWalkinSelectedProdDGV.Columns[e.ColumnIndex].Name == "-")
                 {
@@ -4193,7 +4194,7 @@ namespace Enchante
 
                     // Add centered content to the centerAligned Paragraph
                     centerAligned.Add(new Chunk("Enchanté Salon", headerFont));
-                    centerAligned.Add(new Chunk("\n69th flr. Enchanté Bldg. Ortigas Extension Ave. \nManggahan, Pasig City 1611 Philippines", font));
+                    centerAligned.Add(new Chunk("\n69th flr. Enchanté Bldg. Ortigas Ave. Ext.\nManggahan, Pasig City 1611 Philippines", font));
                     centerAligned.Add(new Chunk("\nTel. No.: (1101) 111-1010", font));
                     centerAligned.Add(new Chunk($"\nDate: {datetoday} Time: {timePrinted}", font));
 
@@ -5747,7 +5748,7 @@ namespace Enchante
 
                     // Add centered content to the centerAligned Paragraph
                     //centerAligned.Add(new Chunk("Enchanté Salon", headerFont));
-                    centerAligned.Add(new Chunk("69th flr. Enchanté Bldg. Ortigas Extension Ave. \nManggahan, Pasig City 1611 Philippines", font));
+                    centerAligned.Add(new Chunk("\n69th flr. Enchanté Bldg. Ortigas Ave. Ext.\nManggahan, Pasig City 1611 Philippines", font));
                     centerAligned.Add(new Chunk("\nTel. No.: (1101) 111-1010", font));
                     centerAligned.Add(new Chunk($"\nDate: {datetoday} Time: {timePrinted}", font));
 
@@ -6666,53 +6667,17 @@ namespace Enchante
                     {
                         if (RecShopProdSelectedProdDGV.Columns[e.ColumnIndex].Name == "Void")
                         {
-                            //input dialog messagebox
-                            string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Void Product Permission");
 
-                            // Hash the entered password
-                            string hashedEnteredPassword = HashHelper.HashString(enteredPassword);
-                            DialogResult result;
+                            DialogResult result = MessageBox.Show("Do you want to remove this item?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                            if (result == DialogResult.Yes)
                             {
-                                connection.Open();
-
-                                string query = "SELECT EmployeeType FROM systemusers WHERE HashedPass = @Password";
-                                using (MySqlCommand command = new MySqlCommand(query, connection))
-                                {
-                                    command.Parameters.AddWithValue("@Password", hashedEnteredPassword);
-
-                                    // Execute the query
-                                    using (MySqlDataReader reader = command.ExecuteReader())
-                                    {
-                                        if (reader.Read())
-                                        {
-                                            string position = reader["EmployeeType"].ToString();
-                                            if (position == "Manager")
-                                            {
-                                                result = MessageBox.Show("Do you want to remove this item?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                                                if (result == DialogResult.Yes)
-                                                {
-                                                    // Remove the selected row
-                                                    RecShopProdSelectedProdDGV.Rows.RemoveAt(e.RowIndex);
-                                                    MessageBox.Show("Item removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                }
-                                            }
-                                            else
-                                            {
-                                                MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                                return;
-                                            }
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                            return;
-                                        }
-                                    }
-                                }
+                                // Remove the selected row
+                                RecShopProdSelectedProdDGV.Rows.RemoveAt(e.RowIndex);
+                                MessageBox.Show("Item removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                RecShopProdCalculateTotalPrice();
                             }
+                            
                         }
                         else if (RecShopProdSelectedProdDGV.Columns[e.ColumnIndex].Name == "-")
                         {
@@ -6735,6 +6700,7 @@ namespace Enchante
                                     // Update Qty and ItemCost in the DataGridView
                                     RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value = quantity.ToString();
                                     RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = updatedCost.ToString("F2"); // Format to two decimal places
+                                    RecShopProdCalculateTotalPrice();
 
                                 }
                             }
@@ -6763,6 +6729,7 @@ namespace Enchante
                                 // Update Qty and ItemCost in the DataGridView
                                 RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Qty"].Value = quantity.ToString();
                                 RecShopProdSelectedProdDGV.Rows[e.RowIndex].Cells["Total Price"].Value = updatedCost.ToString("F2"); // Format to two decimal places
+                                RecShopProdCalculateTotalPrice();
 
                             }
                             else
@@ -6945,267 +6912,14 @@ namespace Enchante
             }
 
         }
-        private void RecShopProdCashPaymentChk_CheckedChanged(object sender, EventArgs e)
-        {
-            if (RecShopProdCashPaymentChk.Checked)
-            {
-                RecShopProdCashPaymentChk.Checked = true;
-                RecShopProdTypeText.Text = "Cash";
-
-                RecShopProdCashLbl.Visible = true;
-                RecShopProdCashBox.Visible = true;
-                RecShopProdChangeLbl.Visible = true;
-                RecShopProdChangeBox.Visible = true;
-
-                //disable other payment panel
-                RecShopProdBankPaymentPanel.Visible = false;
-                RecShopProdWalletPaymentPanel.Visible = false;
-
-                RecShopProdCCPaymentChk.Checked = false;
-                RecShopProdPPPaymentChk.Checked = false;
-                RecShopProdGCPaymentChk.Checked = false;
-                RecShopProdPMPaymentChk.Checked = false;
-
-                RecShopProdCardNameText.Text = "";
-                RecShopProdCardNumText.Text = "";
-                RecShopProdCVCText.Text = "";
-                RecShopProdCardExpText.Text = "MM/YY";
-                RecShopProdWalletNumText.Text = "";
-                RecShopProdWalletPINText.Text = "";
-                RecShopProdWalletOTPText.Text = "";
-                RecShopProdCashBox.Text = "0";
-                RecShopProdChangeBox.Text = "0.00";
-            }
-            else
-            {
-                RecShopProdCashPaymentChk.Checked = false;
-                RecShopProdCashLbl.Visible = false;
-                RecShopProdCashBox.Visible = false;
-                RecShopProdChangeLbl.Visible = false;
-                RecShopProdChangeBox.Visible = false;
-            }
-        }
-
-        private void RecShopProdCCPaymentChk_CheckedChanged(object sender, EventArgs e)
-        {
-            if (RecShopProdCCPaymentChk.Checked)
-            {
-                RecShopProdCCPaymentChk.Checked = true;
-                RecShopProdTypeText.Text = "Credit Card";
-
-                RecShopProdCashLbl.Visible = false;
-                RecShopProdCashBox.Visible = false;
-                RecShopProdChangeLbl.Visible = false;
-                RecShopProdChangeBox.Visible = false;
-
-                //disable other payment panel
-                RecShopProdBankPaymentPanel.Visible = true;
-                RecShopProdWalletPaymentPanel.Visible = false;
-
-                RecShopProdCashPaymentChk.Checked = false;
-                RecShopProdPPPaymentChk.Checked = false;
-                RecShopProdGCPaymentChk.Checked = false;
-                RecShopProdPMPaymentChk.Checked = false;
-
-                RecShopProdCardNameText.Text = "";
-                RecShopProdCardNumText.Text = "";
-                RecShopProdCVCText.Text = "";
-                RecShopProdCardExpText.Text = "MM/YY";
-                RecShopProdWalletNumText.Text = "";
-                RecShopProdWalletPINText.Text = "";
-                RecShopProdWalletOTPText.Text = "";
-                RecShopProdCashBox.Text = "0";
-                RecShopProdChangeBox.Text = "0.00";
-            }
-            else if (RecShopProdCCPaymentChk.Checked || RecShopProdPPPaymentChk.Checked)
-            {
-                RecShopProdBankPaymentPanel.Visible = true;
-                RecShopProdWalletPaymentPanel.Visible = false;
-
-            }
-            else
-            {
-                RecShopProdCCPaymentChk.Checked = false;
-                RecShopProdBankPaymentPanel.Visible = false;
-                RecShopProdCardNameText.Text = "";
-                RecShopProdCardNumText.Text = "";
-                RecShopProdCVCText.Text = "";
-                RecShopProdCardExpText.Text = "MM/YY";
-            }
-
-        }
-
-        private void RecShopProdPPPaymentChk_CheckedChanged(object sender, EventArgs e)
-        {
-            if (RecShopProdPPPaymentChk.Checked)
-            {
-                RecShopProdPPPaymentChk.Checked = true;
-                RecShopProdTypeText.Text = "Paypal";
-
-                RecShopProdCashLbl.Visible = false;
-                RecShopProdCashBox.Visible = false;
-                RecShopProdChangeLbl.Visible = false;
-                RecShopProdChangeBox.Visible = false;
-
-                //disable other payment panel
-                RecShopProdBankPaymentPanel.Visible = true;
-                RecShopProdWalletPaymentPanel.Visible = false;
-
-                RecShopProdCashPaymentChk.Checked = false;
-                RecShopProdCCPaymentChk.Checked = false;
-                RecShopProdGCPaymentChk.Checked = false;
-                RecShopProdPMPaymentChk.Checked = false;
-
-                RecShopProdCardNameText.Text = "";
-                RecShopProdCardNumText.Text = "";
-                RecShopProdCVCText.Text = "";
-                RecShopProdCardExpText.Text = "MM/YY";
-                RecShopProdWalletNumText.Text = "";
-                RecShopProdWalletPINText.Text = "";
-                RecShopProdWalletOTPText.Text = "";
-                RecShopProdCashBox.Text = "0";
-                RecShopProdChangeBox.Text = "0.00";
-            }
-            else if (RecShopProdCCPaymentChk.Checked || RecShopProdPPPaymentChk.Checked)
-            {
-                RecShopProdBankPaymentPanel.Visible = true;
-                RecShopProdWalletPaymentPanel.Visible = false;
-
-            }
-            else
-            {
-                RecShopProdPPPaymentChk.Checked = false;
-                RecShopProdBankPaymentPanel.Visible = false;
-                RecShopProdCardNameText.Text = "";
-                RecShopProdCardNumText.Text = "";
-                RecShopProdCVCText.Text = "";
-                RecShopProdCardExpText.Text = "MM/YY";
-            }
-
-        }
-
-        private void RecShopProdGCPaymentChk_CheckedChanged(object sender, EventArgs e)
-        {
-            if (RecShopProdGCPaymentChk.Checked)
-            {
-                RecShopProdGCPaymentChk.Checked = true;
-                RecShopProdTypeText.Text = "GCash";
-
-                RecShopProdCashLbl.Visible = false;
-                RecShopProdCashBox.Visible = false;
-                RecShopProdChangeLbl.Visible = false;
-                RecShopProdChangeBox.Visible = false;
-
-                //disable other payment panel
-                RecShopProdBankPaymentPanel.Visible = false;
-                RecShopProdWalletPaymentPanel.Visible = true;
-
-                RecShopProdCashPaymentChk.Checked = false;
-                RecShopProdCCPaymentChk.Checked = false;
-                RecShopProdPPPaymentChk.Checked = false;
-                RecShopProdPMPaymentChk.Checked = false;
-
-                RecShopProdCardNameText.Text = "";
-                RecShopProdCardNumText.Text = "";
-                RecShopProdCVCText.Text = "";
-                RecShopProdCardExpText.Text = "MM/YY";
-                RecShopProdWalletNumText.Text = "";
-                RecShopProdWalletPINText.Text = "";
-                RecShopProdWalletOTPText.Text = "";
-                RecShopProdCashBox.Text = "0";
-                RecShopProdChangeBox.Text = "0.00";
-            }
-            else if (RecShopProdGCPaymentChk.Checked || RecShopProdPMPaymentChk.Checked)
-            {
-                RecShopProdBankPaymentPanel.Visible = false;
-                RecShopProdWalletPaymentPanel.Visible = true;
-
-            }
-            else
-            {
-                RecShopProdGCPaymentChk.Checked = false;
-                RecShopProdWalletPaymentPanel.Visible = false;
-                RecShopProdWalletNumText.Text = "";
-                RecShopProdWalletPINText.Text = "";
-                RecShopProdWalletOTPText.Text = "";
-            }
-        }
-
-        private void RecShopProdPMPaymentChk_CheckedChanged(object sender, EventArgs e)
-        {
-            if (RecShopProdPMPaymentChk.Checked)
-            {
-                RecShopProdPMPaymentChk.Checked = true;
-                RecShopProdTypeText.Text = "Paymaya";
-
-                RecShopProdCashLbl.Visible = false;
-                RecShopProdCashBox.Visible = false;
-                RecShopProdChangeLbl.Visible = false;
-                RecShopProdChangeBox.Visible = false;
-
-                //disable other payment panel
-                RecShopProdBankPaymentPanel.Visible = false;
-                RecShopProdWalletPaymentPanel.Visible = true;
-
-                RecShopProdCashPaymentChk.Checked = false;
-                RecShopProdCCPaymentChk.Checked = false;
-                RecShopProdPPPaymentChk.Checked = false;
-                RecShopProdGCPaymentChk.Checked = false;
-
-                RecShopProdCardNameText.Text = "";
-                RecShopProdCardNumText.Text = "";
-                RecShopProdCVCText.Text = "";
-                RecShopProdCardExpText.Text = "MM/YY";
-                RecShopProdWalletNumText.Text = "";
-                RecShopProdWalletPINText.Text = "";
-                RecShopProdWalletOTPText.Text = "";
-                RecShopProdCashBox.Text = "0";
-                RecShopProdChangeBox.Text = "0.00";
-            }
-            else if (RecShopProdGCPaymentChk.Checked || RecShopProdPMPaymentChk.Checked)
-            {
-                RecShopProdBankPaymentPanel.Visible = false;
-                RecShopProdWalletPaymentPanel.Visible = true;
-
-            }
-            else
-            {
-                RecShopProdPMPaymentChk.Checked = false;
-                RecShopProdWalletPaymentPanel.Visible = false;
-                RecShopProdWalletNumText.Text = "";
-                RecShopProdWalletPINText.Text = "";
-                RecShopProdWalletOTPText.Text = "";
-            }
-        }
-
-        private void RecShopProdDiscountPWD_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RecShopProdVATExemptChk_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void RecShopProdPaymentButton_Click(object sender, EventArgs e)
         {
-            if (!RecShopProdCashPaymentChk.Checked &&
-                !RecShopProdCCPaymentChk.Checked &&
-                !RecShopProdPPPaymentChk.Checked &&
-                !RecShopProdGCPaymentChk.Checked &&
-                !RecShopProdPMPaymentChk.Checked)
-            {
-                MessageBox.Show("Please select a payment method.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             if (RecShopProdInsertOrderDB())
             {
                 RecShopProdUpdateQtyInventory(RecShopProdSelectedProdDGV);
                 RecShopProdOrderProdHistoryDB(RecShopProdSelectedProdDGV);
                 RecShopProdInvoiceReceiptGenerator();
                 RecShopProdClearAllField();
-                Transaction.PanelShow(RecQueStartPanel);
             }
         }
         private void RecShopProdClearAllField()
@@ -7217,24 +6931,7 @@ namespace Enchante
             RecShopProdGrossAmountBox.Text = "0.00";
             RecShopProdCashBox.Text = "0";
             RecShopProdChangeBox.Text = "0.00";
-            RecShopProdTypeText.Text = "";
-
-            RecShopProdCardNameText.Text = "";
-            RecShopProdCardNumText.Text = "";
-            RecShopProdCVCText.Text = "";
-            RecShopProdCardExpText.Text = "MM/YY";
-            RecShopProdWalletNumText.Text = "";
-            RecShopProdWalletPINText.Text = "";
-            RecShopProdWalletOTPText.Text = "";
             RecShopProdSelectedProdDGV.Rows.Clear();
-            RecShopProdClientNameText.Text = "";
-            RecShopProdClientCPNumText.Text = "";
-
-            RecShopProdCashPaymentChk.Checked = false;
-            RecShopProdCCPaymentChk.Checked = false;
-            RecShopProdPPPaymentChk.Checked = false;
-            RecShopProdGCPaymentChk.Checked = false;
-            RecShopProdPMPaymentChk.Checked = false;
 
         }
         private void RecShopProdUpdateQtyInventory(DataGridView dgv)
@@ -7272,8 +6969,7 @@ namespace Enchante
         private bool RecShopProdInsertOrderDB()
         {
             DateTime currentDate = RecDateTimePicker.Value;
-            string clientName = RecShopProdClientNameText.Text;
-            string clientCPNum = RecShopProdClientCPNumText.Text;
+
 
             // cash values
             string netAmount = RecShopProdNetAmountBox.Text; // net amount
@@ -7282,152 +6978,44 @@ namespace Enchante
             string grossAmount = RecShopProdGrossAmountBox.Text; // gross amount
             string cash = RecShopProdCashBox.Text; // cash given
             string change = RecShopProdChangeBox.Text; // due change
-            string paymentMethod = RecShopProdTypeText.Text; // payment method
             string rec = RecNameLbl.Text;
             string transactNum = RecShopProdTransNumText.Text;
             //booked values
             string Date = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
             string Time = currentDate.ToString("hh:mm tt"); //bookedTime
             // bank & wallet details
-            string cardName = RecShopProdCardNameText.Text;
-            string cardNum = RecShopProdCardNumText.Text;
-            string CVC = RecShopProdCVCText.Text;
-            string expire = RecShopProdCardExpText.Text;
-            string walletNum = RecShopProdWalletNumText.Text;
-            string walletPIN = RecShopProdWalletPINText.Text;
-            string walletOTP = RecShopProdWalletOTPText.Text;
+
 
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(mysqlconn))
                 {
                     connection.Open();
-
-
-                    if (RecShopProdCashPaymentChk.Checked)
+                    if (grossAmount == "0.00")
                     {
-                        if (grossAmount == "0.00")
-                        {
-                            MessageBox.Show("Please select a transaction to pay.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (string.IsNullOrWhiteSpace(cash))
-                        {
-                            MessageBox.Show("Please enter a cash amount.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (!IsNumeric(cash))
-                        {
-                            MessageBox.Show("Cash amount must be in numbers only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (Convert.ToDecimal(cash) < Convert.ToDecimal(grossAmount))
-                        {
-                            MessageBox.Show("Insufficient amount. Please provide enough cash to cover the transaction.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-
+                        MessageBox.Show("Please select a transaction to pay.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
                     }
-                    else if (RecShopProdCCPaymentChk.Checked || RecShopProdPPPaymentChk.Checked)
+                    else if (string.IsNullOrWhiteSpace(cash))
                     {
-                        if (grossAmount == "0.00")
-                        {
-                            MessageBox.Show("Please select a transaction to pay.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (string.IsNullOrWhiteSpace(RecShopProdCardNameText.Text))
-                        {
-                            MessageBox.Show("Please enter a cardholder name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (!IsCardNameValid(RecShopProdCardNameText.Text))
-                        {
-                            MessageBox.Show("Please enter a valid name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (string.IsNullOrWhiteSpace(cardNum))
-                        {
-                            MessageBox.Show("Please enter a card number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (cardNum.Length != 16 || !IsNumeric(cardNum))
-                        {
-                            MessageBox.Show("Please enter a valid 16-digit card number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (string.IsNullOrWhiteSpace(CVC))
-                        {
-                            MessageBox.Show("Please enter a CVC code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (CVC.Length != 3 || !IsNumeric(CVC))
-                        {
-                            MessageBox.Show("Please enter a valid 3-digit CVC code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (string.IsNullOrWhiteSpace(expire))
-                        {
-                            MessageBox.Show("Please enter an expiration date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        if (!Regex.IsMatch(expire, @"^(0[1-9]|1[0-2])\/\d{2}$"))
-                        {
-                            MessageBox.Show("Please enter the expiration date in MM/YY format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
+                        MessageBox.Show("Please enter a cash amount.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
                     }
-
-                    else if (RecShopProdGCPaymentChk.Checked || RecShopProdPMPaymentChk.Checked)
+                    else if (!IsNumeric(cash))
                     {
-                        if (grossAmount == "0.00")
-                        {
-                            MessageBox.Show("Please select a transaction to pay.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (string.IsNullOrWhiteSpace(walletNum))
-                        {
-                            MessageBox.Show("Please enter your wallet number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (!IsNumeric(walletNum))
-                        {
-                            MessageBox.Show("Invalid wallet number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (string.IsNullOrWhiteSpace(walletPIN))
-                        {
-                            MessageBox.Show("Please enter your PIN.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (!IsNumeric(walletPIN) || walletPIN.Length != 6)
-                        {
-                            MessageBox.Show("Wallet PIN should be a 6-digit numeric code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (string.IsNullOrWhiteSpace(walletOTP))
-                        {
-                            MessageBox.Show("Please enter your OTP.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        else if (!IsNumeric(walletOTP) || walletOTP.Length != 6)
-                        {
-                            MessageBox.Show("OTP should be a 6-digit numeric code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
+                        MessageBox.Show("Cash amount must be in numbers only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
                     }
-                    string cashPayment = "INSERT INTO orders (TransactionNumber, TransactionType, ProductStatus, Date, Time, CheckedOutBy, ClientName, ClientCPNum, NetPrice, VatAmount, DiscountAmount, GrossAmount, CashGiven, DueChange, PaymentMethod) " +
-                                        "VALUES (@transactNum, @transactType, @status, @date, @time, @rec, @name, @cpNum, @net, @vat, @discount, @gross, @cash, @change, @payment)";
-
-
-                    string bankPayment = "INSERT INTO orders (TransactionNumber, TransactionType, ProductStatus, Date, Time, CheckedOutBy, ClientName, ClientCPNum, NetPrice, VatAmount, DiscountAmount, GrossAmount, PaymentMethod, CardName, CardNumber, CVC, CardExpiration) " +
-                                        "VALUES (@transactNum, @transactType, @status, @date, @time, @rec, @name, @cpNum, @net, @vat, @discount, @gross, @payment, @cardname, @cardNum, @cvc, @expiration)";
-
-
-                    string walletPayment = "INSERT INTO orders (TransactionNumber, TransactionType, ProductStatus, Date, Time, CheckedOutBy, ClientName, ClientCPNum, NetPrice, VatAmount, DiscountAmount, GrossAmount, PaymentMethod, WalletNumber, WalletPIN, WalletOTP) " +
-                                        "VALUES (@transactNum, @transactType, @status, @date, @time, @rec, @name, @cpNum, @net, @vat, @discount, @gross, @payment, @walletNum, @walletPin, @walletOTP)";
-
-                    if (RecShopProdCashPaymentChk.Checked == true)
+                    else if (Convert.ToDecimal(cash) < Convert.ToDecimal(grossAmount))
                     {
+                        MessageBox.Show("Insufficient amount. Please provide enough cash to cover the transaction.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    else
+                    {
+                        string cashPayment = "INSERT INTO orders (TransactionNumber, TransactionType, ProductStatus, Date, Time, CheckedOutBy, NetPrice, VatAmount, DiscountAmount, GrossAmount, CashGiven, DueChange) " +
+                                        "VALUES (@transactNum, @transactType, @status, @date, @time, @rec, @net, @vat, @discount, @gross, @cash, @change)";
+
                         MySqlCommand cmd = new MySqlCommand(cashPayment, connection);
                         cmd.Parameters.AddWithValue("@transactNum", transactNum);
                         cmd.Parameters.AddWithValue("@transactType", "Walk-in Checked Out");
@@ -7435,70 +7023,19 @@ namespace Enchante
                         cmd.Parameters.AddWithValue("@date", Date);
                         cmd.Parameters.AddWithValue("@time", Time);
                         cmd.Parameters.AddWithValue("@rec", rec);
-                        cmd.Parameters.AddWithValue("@name", clientName);
-                        cmd.Parameters.AddWithValue("@cpNum", clientCPNum);
+
                         cmd.Parameters.AddWithValue("@net", netAmount);
                         cmd.Parameters.AddWithValue("@vat", vat);
                         cmd.Parameters.AddWithValue("@discount", discount);
                         cmd.Parameters.AddWithValue("@gross", grossAmount);
                         cmd.Parameters.AddWithValue("@cash", cash);
                         cmd.Parameters.AddWithValue("@change", change);
-                        cmd.Parameters.AddWithValue("@payment", paymentMethod);
 
                         cmd.ExecuteNonQuery();
                         // Successful update
-                        MessageBox.Show("Service successfully been paid through cash.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Products successfully been paid through cash.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    else if (RecShopProdCCPaymentChk.Checked == true || RecShopProdPPPaymentChk.Checked == true)
-                    {
-                        MySqlCommand cmd = new MySqlCommand(bankPayment, connection);
-                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
-                        cmd.Parameters.AddWithValue("@transactType", "Walk-in Checked Out");
-                        cmd.Parameters.AddWithValue("@status", "Paid");
-                        cmd.Parameters.AddWithValue("@date", Date);
-                        cmd.Parameters.AddWithValue("@time", Time);
-                        cmd.Parameters.AddWithValue("@rec", rec);
-                        cmd.Parameters.AddWithValue("@name", clientName);
-                        cmd.Parameters.AddWithValue("@cpNum", clientCPNum);
-                        cmd.Parameters.AddWithValue("@net", netAmount);
-                        cmd.Parameters.AddWithValue("@vat", vat);
-                        cmd.Parameters.AddWithValue("@discount", discount);
-                        cmd.Parameters.AddWithValue("@gross", grossAmount);
-                        cmd.Parameters.AddWithValue("@payment", paymentMethod);
-                        cmd.Parameters.AddWithValue("@cardname", cardName);
-                        cmd.Parameters.AddWithValue("@cardNum", cardNum);
-                        cmd.Parameters.AddWithValue("@cvc", CVC);
-                        cmd.Parameters.AddWithValue("@expiration", expire);
-
-                        cmd.ExecuteNonQuery();
-                        // Successful update
-                        MessageBox.Show("Service successfully been paid through bank.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else if (RecShopProdGCPaymentChk.Checked == true || RecShopProdPMPaymentChk.Checked == true)
-                    {
-                        MySqlCommand cmd = new MySqlCommand(walletPayment, connection);
-                        cmd.Parameters.AddWithValue("@transactNum", transactNum);
-                        cmd.Parameters.AddWithValue("@transactType", "Walk-in Checked Out");
-                        cmd.Parameters.AddWithValue("@status", "Paid");
-                        cmd.Parameters.AddWithValue("@date", Date);
-                        cmd.Parameters.AddWithValue("@time", Time);
-                        cmd.Parameters.AddWithValue("@rec", rec);
-                        cmd.Parameters.AddWithValue("@name", clientName);
-                        cmd.Parameters.AddWithValue("@cpNum", clientCPNum);
-                        cmd.Parameters.AddWithValue("@net", netAmount);
-                        cmd.Parameters.AddWithValue("@vat", vat);
-                        cmd.Parameters.AddWithValue("@discount", discount);
-                        cmd.Parameters.AddWithValue("@gross", grossAmount);
-                        cmd.Parameters.AddWithValue("@payment", paymentMethod);
-                        cmd.Parameters.AddWithValue("@walletNum", walletNum);
-                        cmd.Parameters.AddWithValue("@walletPin", walletPIN);
-                        cmd.Parameters.AddWithValue("@walletOTP", walletOTP);
-
-                        cmd.ExecuteNonQuery();
-                        // Successful update
-                        MessageBox.Show("Service successfully been paid through online wallet.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-
+                   
                 }
             }
             catch (MySqlException ex)
@@ -7521,9 +7058,9 @@ namespace Enchante
             string transactionNum = RecShopProdTransNumText.Text;
             string status = "Paid";
 
-            //basic info
-            string clientName = RecShopProdClientNameText.Text;
-            string clientCPNum = RecShopProdClientCPNumText.Text;
+            ////basic info
+            //string clientName = RecShopProdClientNameText.Text;
+            //string clientCPNum = RecShopProdClientCPNumText.Text;
 
             //booked values
             string bookedDate = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
@@ -7551,8 +7088,8 @@ namespace Enchante
                                 string itemID = row.Cells["RecShopProdItemID"].Value.ToString();
 
 
-                                string query = "INSERT INTO orderproducthistory (TransactionNumber, ProductStatus, CheckedOutDate, CheckedOutTime, CheckedOutBy, ClientName, ItemID, ItemName, Qty, ItemPrice, ItemTotalPrice, CheckedOut, Voided) " +
-                                                 "VALUES (@Transact, @status, @date, @time, @OrderedBy, @client, @ID, @ItemName, @Qty, @ItemPrice, @ItemTotalPrice, @Yes, @No)";
+                                string query = "INSERT INTO orderproducthistory (TransactionNumber, ProductStatus, CheckedOutDate, CheckedOutTime, CheckedOutBy, ItemID, ItemName, Qty, ItemPrice, ItemTotalPrice, CheckedOut, Voided) " +
+                                                 "VALUES (@Transact, @status, @date, @time, @OrderedBy, @ID, @ItemName, @Qty, @ItemPrice, @ItemTotalPrice, @Yes, @No)";
 
                                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
                                 {
@@ -7561,7 +7098,6 @@ namespace Enchante
                                     cmd.Parameters.AddWithValue("@date", bookedDate);
                                     cmd.Parameters.AddWithValue("@time", bookedTime);
                                     cmd.Parameters.AddWithValue("@OrderedBy", bookedBy);
-                                    cmd.Parameters.AddWithValue("@client", clientName);
                                     cmd.Parameters.AddWithValue("@ID", itemID);
                                     cmd.Parameters.AddWithValue("@ItemName", itemName);
                                     cmd.Parameters.AddWithValue("@Qty", qty);
@@ -7601,7 +7137,7 @@ namespace Enchante
             string timePrinted = currentDate.ToString("hh:mm tt");
             string timePrintedFile = currentDate.ToString("hh-mm-ss");
             string transactNum = RecShopProdTransNumText.Text;
-            string clientName = RecShopProdClientNameText.Text;
+            //string clientName = RecShopProdClientNameText.Text;
             string receptionName = RecNameLbl.Text;
             string legal = "Thank you for trusting Enchanté Salon for your beauty needs." +
                 " This receipt will serve as your sales invoice of any services done in Enchanté Salon." +
@@ -7656,8 +7192,8 @@ namespace Enchante
                     centerAligned.Alignment = Element.ALIGN_CENTER;
 
                     // Add centered content to the centerAligned Paragraph
-                    centerAligned.Add(new Chunk("Enchanté Salon", headerFont));
-                    centerAligned.Add(new Chunk("\n69th flr. Enchanté Bldg. Ortigas Extension Ave. \nManggahan, Pasig City 1611 Philippines", font));
+                    //centerAligned.Add(new Chunk("Enchanté Salon", headerFont));
+                    centerAligned.Add(new Chunk("\n69th flr. Enchanté Bldg. Ortigas Ave. Ext.\nManggahan, Pasig City 1611 Philippines", font));
                     centerAligned.Add(new Chunk("\nTel. No.: (1101) 111-1010", font));
                     centerAligned.Add(new Chunk($"\nDate: {datetoday} Time: {timePrinted}", font));
 
@@ -7736,7 +7272,7 @@ namespace Enchante
                     decimal grossAmount = decimal.Parse(RecShopProdGrossAmountBox.Text);
                     decimal cash = decimal.Parse(RecShopProdCashBox.Text);
                     decimal change = decimal.Parse(RecShopProdChangeBox.Text);
-                    string paymentMethod = RecShopProdTypeText.Text;
+                    string paymentMethod = "Cash";
 
                     // Create a new table for the "Total" section
                     PdfPTable totalTable = new PdfPTable(2); // 2 columns for the "Total" table
@@ -7746,7 +7282,7 @@ namespace Enchante
                     int totalRowCount = RecShopProdSelectedProdDGV.Rows.Count;
 
                     // Add cells to the "Total" table
-                    totalTable.AddCell(new Phrase($"Total # of Products ({totalRowCount})", font));
+                    totalTable.AddCell(new Phrase($"Total ({totalRowCount})", font));
                     totalTable.AddCell(new Phrase($"Php {grossAmount:F2}", font));
                     totalTable.AddCell(new Phrase($"Cash Given", font));
                     totalTable.AddCell(new Phrase($"Php {cash:F2}", font));
@@ -7769,8 +7305,8 @@ namespace Enchante
                     vatTable.AddCell(new Phrase($"Php {netAmount:F2}", font));
                     vatTable.AddCell(new Phrase("VAT Tax (12%)", font));
                     vatTable.AddCell(new Phrase($"Php {vat:F2}", font));
-                    vatTable.AddCell(new Phrase("Discount (20%)", font));
-                    vatTable.AddCell(new Phrase($"Php {discount:F2}", font));
+                    //vatTable.AddCell(new Phrase("Discount (20%)", font));
+                    //vatTable.AddCell(new Phrase($"Php {discount:F2}", font));
 
                     // Add the "VATable" table to the document
                     doc.Add(vatTable);
@@ -7778,7 +7314,7 @@ namespace Enchante
 
                     // Add the "Served To" section
                     doc.Add(new Chunk("\n")); // New line
-                    doc.Add(new Paragraph($"Served To: {clientName}", italic));
+                    doc.Add(new Paragraph($"Served To: ", italic));
                     doc.Add(new Paragraph("Address:_______________________________", italic));
                     doc.Add(new Paragraph("TIN No.:_______________________________", italic));
 
@@ -7864,55 +7400,18 @@ namespace Enchante
                 MessageBox.Show("The product list is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            //input dialog messagebox
-            string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Void Product Permission");
+            
+            DialogResult result = MessageBox.Show("Do you want to remove this item?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            // Hash the entered password
-            string hashedEnteredPassword = HashHelper.HashString(enteredPassword);
-            DialogResult result;
-
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            if (result == DialogResult.Yes)
             {
-                connection.Open();
 
-                string query = "SELECT EmployeeType FROM systemusers WHERE HashedPass = @Password";
-                using (MySqlCommand command = new MySqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@Password", hashedEnteredPassword);
-
-                    // Execute the query
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            string position = reader["EmployeeType"].ToString();
-                            if (position == "Manager")
-                            {
-                                result = MessageBox.Show("Do you want to remove this item?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                                if (result == DialogResult.Yes)
-                                {
-
-                                    RecShopProdSelectedProdDGV.Rows.Clear();
+                RecShopProdSelectedProdDGV.Rows.Clear();
 
 
-                                    MessageBox.Show("Item removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                return;
-                            }
-                        }
-                        else
-                        {
-                            //MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            //return;
-                        }
-                    }
-                }
+                MessageBox.Show("Item removed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
         }
 
         #endregion
@@ -12819,62 +12318,27 @@ namespace Enchante
             {
                 e.Handled = true;
             }
-            if (RecShopProdClientNameText.Text.Length >= 100 && e.KeyChar != '\b')
-            {
-                e.Handled = true;
-            }
-            if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecShopProdClientNameText.Text))
-            {
-                e.Handled = true;
-            }
+            //if (RecShopProdClientNameText.Text.Length >= 100 && e.KeyChar != '\b')
+            //{
+            //    e.Handled = true;
+            //}
+            //if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecShopProdClientNameText.Text))
+            //{
+            //    e.Handled = true;
+            //}
         }
 
         private void RecShopProdClientCPNumText_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '+' && e.KeyChar != '\b' || (RecShopProdClientCPNumText.Text.Contains("+")
-                && RecShopProdClientCPNumText.Text.Length >= 13 && e.KeyChar != '\b') || (!RecShopProdClientCPNumText.Text.Contains("+")
-                && RecShopProdClientCPNumText.Text.Length >= 11 && e.KeyChar != '\b'))
-            {
-                e.Handled = true;
-            }
+            //if (!char.IsDigit(e.KeyChar) && e.KeyChar != '+' && e.KeyChar != '\b' || (RecShopProdClientCPNumText.Text.Contains("+")
+            //    && RecShopProdClientCPNumText.Text.Length >= 13 && e.KeyChar != '\b') || (!RecShopProdClientCPNumText.Text.Contains("+")
+            //    && RecShopProdClientCPNumText.Text.Length >= 11 && e.KeyChar != '\b'))
+            //{
+            //    e.Handled = true;
+            //}
         }
 
-        private void RecShopProdWalletNumText_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (RecShopProdWalletNumText.Text.Length >= 50 && e.KeyChar != '\b')
-            {
-                e.Handled = true;
-            }
-            if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecShopProdWalletNumText.Text))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void RecShopProdWalletPINText_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (RecShopProdWalletPINText.Text.Length >= 50 && e.KeyChar != '\b')
-            {
-                e.Handled = true;
-            }
-            if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecShopProdWalletPINText.Text))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void RecShopProdWalletOTPText_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (RecShopProdWalletOTPText.Text.Length >= 50 && e.KeyChar != '\b')
-            {
-                e.Handled = true;
-            }
-            if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecShopProdWalletOTPText.Text))
-            {
-                e.Handled = true;
-            }
-        }
-
+        
         private void RecApptCPNumText_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != '+' && e.KeyChar != '\b' || (RecApptCPNumText.Text.Contains("+")
