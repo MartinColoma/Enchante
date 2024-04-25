@@ -57,6 +57,7 @@
             this.StaffQueNumberTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.StaffQueNumberTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.StaffQueNumberTextBox.Location = new System.Drawing.Point(43, 42);
+            this.StaffQueNumberTextBox.Margin = new System.Windows.Forms.Padding(11, 10, 11, 10);
             this.StaffQueNumberTextBox.Name = "StaffQueNumberTextBox";
             this.StaffQueNumberTextBox.PasswordChar = '\0';
             this.StaffQueNumberTextBox.PlaceholderText = "";
@@ -83,6 +84,7 @@
             this.StaffElapsedTimeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.StaffElapsedTimeTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.StaffElapsedTimeTextBox.Location = new System.Drawing.Point(3, 7);
+            this.StaffElapsedTimeTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.StaffElapsedTimeTextBox.Name = "StaffElapsedTimeTextBox";
             this.StaffElapsedTimeTextBox.PasswordChar = '\0';
             this.StaffElapsedTimeTextBox.PlaceholderText = "";
@@ -90,6 +92,7 @@
             this.StaffElapsedTimeTextBox.Size = new System.Drawing.Size(110, 22);
             this.StaffElapsedTimeTextBox.TabIndex = 1;
             this.StaffElapsedTimeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.StaffElapsedTimeTextBox.Visible = false;
             this.StaffElapsedTimeTextBox.Click += new System.EventHandler(this.StaffElapsedTimeTextBox_Click);
             // 
             // StaffCustomerNameTextBox
@@ -274,6 +277,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Controls.Add(this.StaffCancelServiceBtn);
             this.Controls.Add(this.StaffCustomerAttendingStaffTextBox);
             this.Controls.Add(this.StaffCustomerServiceStatusTextBox);
@@ -285,7 +289,7 @@
             this.Controls.Add(this.StaffElapsedTimeTextBox);
             this.Controls.Add(this.StaffQueNumberTextBox);
             this.Name = "QueueUserControl";
-            this.Size = new System.Drawing.Size(210, 215);
+            this.Size = new System.Drawing.Size(206, 211);
             this.Click += new System.EventHandler(this.QueueUserControl_Click);
             this.ResumeLayout(false);
 
