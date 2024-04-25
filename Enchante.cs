@@ -972,6 +972,7 @@ namespace Enchante
         {
             InitialWalkinTransColor();
             RecWalkinBdayMaxDate();
+            serviceappointment = false;
         }
 
         private void RecWalkinBdayMaxDate()
@@ -1167,6 +1168,7 @@ namespace Enchante
             RecApptBdayMaxDate();
             isappointment = true;
             RecQueBtnResetColor();
+            serviceappointment = true;
         }
         public class TransactionNumberGenerator
         {
@@ -1264,6 +1266,7 @@ namespace Enchante
             filterstaffbyservicecategory = "Hair Styling";
             ServicesFlowLayoutPanel.Controls.Clear();
             InitializeServices(filterstaffbyservicecategory);
+            serviceappointment = false;
             haschosenacategory = true;
             if (RecWalkinPreferredStaffToggleSwitch.Checked == true)
             {
@@ -1279,6 +1282,7 @@ namespace Enchante
             filterstaffbyservicecategory = "Face & Skin";
             ServicesFlowLayoutPanel.Controls.Clear();
             InitializeServices(filterstaffbyservicecategory);
+            serviceappointment = false;
             haschosenacategory = true;
             if (RecWalkinPreferredStaffToggleSwitch.Checked == true)
             {
@@ -1295,6 +1299,7 @@ namespace Enchante
             filterstaffbyservicecategory = "Nail Care";
             ServicesFlowLayoutPanel.Controls.Clear();
             InitializeServices(filterstaffbyservicecategory);
+            serviceappointment = false;
             haschosenacategory = true;
             if (RecWalkinPreferredStaffToggleSwitch.Checked == true)
             {
@@ -1310,6 +1315,7 @@ namespace Enchante
             filterstaffbyservicecategory = "Spa";
             ServicesFlowLayoutPanel.Controls.Clear();
             InitializeServices(filterstaffbyservicecategory);
+            serviceappointment = false;
             haschosenacategory = true;
             if (RecWalkinPreferredStaffToggleSwitch.Checked == true)
             {
@@ -1325,6 +1331,7 @@ namespace Enchante
             filterstaffbyservicecategory = "Massage";
             ServicesFlowLayoutPanel.Controls.Clear();
             InitializeServices(filterstaffbyservicecategory);
+            serviceappointment = false;
             haschosenacategory = true;
             if (RecWalkinPreferredStaffToggleSwitch.Checked == true)
             {
@@ -4336,12 +4343,15 @@ namespace Enchante
         }
 
 
-
+        public bool serviceappointment;
         //ApptMember
         private void RecApptCatHSBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Hair Styling";
             haschosenacategory = true;
+            RecApptServicesFLP.Controls.Clear();
+            InitializeApptServices(filterstaffbyservicecategory);
+            serviceappointment = true;
             if (RecApptPreferredStaffToggleSwitch.Checked == true)
             {
                 RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
@@ -4356,6 +4366,9 @@ namespace Enchante
         {
             filterstaffbyservicecategory = "Face & Skin";
             haschosenacategory = true;
+            RecApptServicesFLP.Controls.Clear();
+            InitializeApptServices(filterstaffbyservicecategory);
+            serviceappointment = true;
             if (RecApptPreferredStaffToggleSwitch.Checked == true)
             {
                 RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
@@ -4370,6 +4383,9 @@ namespace Enchante
         {
             filterstaffbyservicecategory = "Nail Care";
             haschosenacategory = true;
+            RecApptServicesFLP.Controls.Clear();
+            InitializeApptServices(filterstaffbyservicecategory);
+            serviceappointment = true;
             if (RecApptPreferredStaffToggleSwitch.Checked == true)
             {
                 RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
@@ -4384,6 +4400,9 @@ namespace Enchante
         {
             filterstaffbyservicecategory = "Spa";
             haschosenacategory = true;
+            RecApptServicesFLP.Controls.Clear();
+            InitializeApptServices(filterstaffbyservicecategory);
+            serviceappointment = true;
             if (RecApptPreferredStaffToggleSwitch.Checked == true)
             {
                 RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
@@ -4398,6 +4417,9 @@ namespace Enchante
         {
             filterstaffbyservicecategory = "Massage";
             haschosenacategory = true;
+            RecApptServicesFLP.Controls.Clear();
+            InitializeApptServices(filterstaffbyservicecategory);
+            serviceappointment = true;
             if (RecApptPreferredStaffToggleSwitch.Checked == true)
             {
                 RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
@@ -4414,7 +4436,6 @@ namespace Enchante
             {
                 RecApptCatHSRB.Visible = true;
                 RecApptCatHSRB.Checked = true;
-                RecApptLoadServiceTypeComboBox("Hair Styling");
 
                 RecApptCatFSRB.Visible = false;
                 RecApptCatNCRB.Visible = false;
@@ -4430,8 +4451,7 @@ namespace Enchante
             {
                 RecApptCatHSRB.Visible = false;
                 RecApptCatHSRB.Checked = true;
-                RecApptLoadServiceTypeComboBox("Hair Styling");
-
+                
                 RecApptCatFSRB.Visible = false;
                 RecApptCatNCRB.Visible = false;
                 RecApptCatSpaRB.Visible = false;
@@ -4449,8 +4469,7 @@ namespace Enchante
             {
                 RecApptCatFSRB.Visible = true;
                 RecApptCatFSRB.Checked = true;
-                RecApptLoadServiceTypeComboBox("Face & Skin");
-
+                
                 RecApptCatHSRB.Visible = false;
                 RecApptCatNCRB.Visible = false;
                 RecApptCatSpaRB.Visible = false;
@@ -4474,7 +4493,7 @@ namespace Enchante
             {
                 RecApptCatNCRB.Visible = true;
                 RecApptCatNCRB.Checked = true;
-                RecApptLoadServiceTypeComboBox("Nail Care");
+                
 
                 RecApptCatHSRB.Visible = false;
                 RecApptCatFSRB.Visible = false;
@@ -4499,7 +4518,7 @@ namespace Enchante
             {
                 RecApptCatSpaRB.Visible = true;
                 RecApptCatSpaRB.Checked = true;
-                RecApptLoadServiceTypeComboBox("Spa");
+                
 
                 RecApptCatHSRB.Visible = false;
                 RecApptCatFSRB.Visible = false;
@@ -4524,8 +4543,7 @@ namespace Enchante
             {
                 RecApptCatMassRB.Visible = true;
                 RecApptCatMassRB.Checked = true;
-                RecApptLoadServiceTypeComboBox("Massage");
-
+                
                 RecApptCatHSRB.Visible = false;
                 RecApptCatFSRB.Visible = false;
                 RecApptCatNCRB.Visible = false;
@@ -4543,256 +4561,14 @@ namespace Enchante
             }
         }
 
-        //ApptMember
-        public void RecApptLoadHairStyleType()
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-                {
-                    connection.Open();
 
-                    // Filter and sort the data by FoodType
-                    string sql = "SELECT * FROM `services` WHERE Category = 'Hair Styling' ORDER BY Category";
-                    MySqlCommand cmd = new MySqlCommand(sql, connection);
-                    System.Data.DataTable dataTable = new System.Data.DataTable();
-
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
-                    {
-                        adapter.Fill(dataTable);
-
-                        RecApptServiceTypeDGV.Columns.Clear();
-
-
-                        RecApptServiceTypeDGV.DataSource = dataTable;
-
-                        RecApptServiceTypeDGV.Columns[0].Visible = false; //service category
-                        RecApptServiceTypeDGV.Columns[1].Visible = false; // service type
-                        RecApptServiceTypeDGV.Columns[2].Visible = false; // service ID
-                        RecApptServiceTypeDGV.Columns[7].Visible = false; // required item
-                        RecApptServiceTypeDGV.Columns[8].Visible = false; // numofitems
-                        RecApptServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                        RecApptServiceTypeDGV.ClearSelection();
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("An error occurred: " + e.Message, "Cashier Burger Item List");
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
-        public void RecApptFaceSkinType()
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-                {
-                    connection.Open();
-
-                    // Filter and sort the data by FoodType
-                    string sql = "SELECT * FROM `services` WHERE Category = 'Face & Skin' ORDER BY Category";
-                    MySqlCommand cmd = new MySqlCommand(sql, connection);
-                    System.Data.DataTable dataTable = new System.Data.DataTable();
-
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
-                    {
-                        adapter.Fill(dataTable);
-
-                        RecApptServiceTypeDGV.Columns.Clear();
-
-
-                        RecApptServiceTypeDGV.DataSource = dataTable;
-
-                        RecApptServiceTypeDGV.Columns[0].Visible = false;
-                        RecApptServiceTypeDGV.Columns[1].Visible = false;
-                        RecApptServiceTypeDGV.Columns[2].Visible = false;
-                        RecApptServiceTypeDGV.Columns[7].Visible = false;
-                        RecApptServiceTypeDGV.Columns[8].Visible = false;
-                        RecApptServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                        RecApptServiceTypeDGV.ClearSelection();
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("An error occurred: " + e.Message, "Cashier Burger Item List");
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
+       
 
         //ApptMember
-        public void RecApptNailCareType()
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-                {
-                    connection.Open();
-
-                    // Filter and sort the data by FoodType
-                    string sql = "SELECT * FROM `services` WHERE Category = 'Nail Care' ORDER BY Category";
-                    MySqlCommand cmd = new MySqlCommand(sql, connection);
-                    System.Data.DataTable dataTable = new System.Data.DataTable();
-
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
-                    {
-                        adapter.Fill(dataTable);
-
-                        RecApptServiceTypeDGV.Columns.Clear();
-
-
-                        RecApptServiceTypeDGV.DataSource = dataTable;
-
-                        RecApptServiceTypeDGV.Columns[0].Visible = false;
-                        RecApptServiceTypeDGV.Columns[1].Visible = false;
-                        RecApptServiceTypeDGV.Columns[2].Visible = false;
-                        RecApptServiceTypeDGV.Columns[7].Visible = false;
-                        RecApptServiceTypeDGV.Columns[8].Visible = false;
-                        RecApptServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                        RecApptServiceTypeDGV.ClearSelection();
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("An error occurred: " + e.Message, "Cashier Burger Item List");
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
-
-        //ApptMember
-        public void RecApptSpaType()
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-                {
-                    connection.Open();
-
-                    // Filter and sort the data by FoodType
-                    string sql = "SELECT * FROM `services` WHERE Category = 'Spa' ORDER BY Category";
-                    MySqlCommand cmd = new MySqlCommand(sql, connection);
-                    System.Data.DataTable dataTable = new System.Data.DataTable();
-
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
-                    {
-                        adapter.Fill(dataTable);
-
-                        RecApptServiceTypeDGV.Columns.Clear();
-
-
-                        RecApptServiceTypeDGV.DataSource = dataTable;
-
-                        RecApptServiceTypeDGV.Columns[0].Visible = false;
-                        RecApptServiceTypeDGV.Columns[1].Visible = false;
-                        RecApptServiceTypeDGV.Columns[2].Visible = false;
-                        RecApptServiceTypeDGV.Columns[7].Visible = false;
-                        RecApptServiceTypeDGV.Columns[8].Visible = false;
-                        RecApptServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                        RecApptServiceTypeDGV.ClearSelection();
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("An error occurred: " + e.Message, "Cashier Burger Item List");
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
-
-        //ApptMember
-        public void RecApptMassageType()
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-                {
-                    connection.Open();
-
-                    // Filter and sort the data by FoodType
-                    string sql = "SELECT * FROM `services` WHERE Category = 'Massage' ORDER BY Category";
-                    MySqlCommand cmd = new MySqlCommand(sql, connection);
-                    System.Data.DataTable dataTable = new System.Data.DataTable();
-
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
-                    {
-                        adapter.Fill(dataTable);
-
-                        RecApptServiceTypeDGV.Columns.Clear();
-
-
-                        RecApptServiceTypeDGV.DataSource = dataTable;
-
-                        RecApptServiceTypeDGV.Columns[0].Visible = false;
-                        RecApptServiceTypeDGV.Columns[1].Visible = false;
-                        RecApptServiceTypeDGV.Columns[2].Visible = false;
-                        RecApptServiceTypeDGV.Columns[7].Visible = false;
-                        RecApptServiceTypeDGV.Columns[8].Visible = false;
-                        RecApptServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                        RecApptServiceTypeDGV.ClearSelection();
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("An error occurred: " + e.Message, "Cashier Burger Item List");
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
-
-        //ApptMember
-        private void RecApptLoadServiceTypeComboBox(string selectedCategory)
-        {
-            // Filter and add the relevant service types based on the selected category
-            switch (selectedCategory)
-            {
-                case "Hair Styling":
-                    RecApptLoadHairStyleType();
-                    break;
-                case "Nail Care":
-                    RecApptNailCareType();
-                    break;
-                case "Face & Skin":
-                    RecApptFaceSkinType();
-                    break;
-                case "Massage":
-                    RecApptMassageType();
-                    break;
-                case "Spa":
-                    RecApptSpaType();
-                    break;
-                default:
-                    break;
-            }
-
-        }
-
-        //ApptMember
-        private void RecApptAddService()
+        public void RecApptAddService()
         {
 
 
-            if (RecApptServiceTypeDGV.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Please select a service.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
             if (string.IsNullOrEmpty(selectedStaffID))
             {
                 MessageBox.Show("Please select a prefered staff or toggle anyone ", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -4803,28 +4579,15 @@ namespace Enchante
                 MessageBox.Show("Please select a booking time", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            DataGridViewRow selectedRow = RecApptServiceTypeDGV.SelectedRows[0];
 
-            string SelectedCategory = selectedRow.Cells[0].Value.ToString();
-            string ServiceID = selectedRow.Cells[2].Value.ToString();
-            string ServiceName = selectedRow.Cells[3].Value.ToString();
-            string ServicePrice = selectedRow.Cells[6].Value.ToString();
+
+            string SelectedCategory = serviceCategory;
+            string ServiceID = serviceID2;
+            string ServiceName = serviceName;
+            string ServicePrice = servicePrice;
             string ServiceTime = RecApptBookingTimeComboBox.SelectedItem.ToString();
-            string serviceID = selectedRow.Cells[2]?.Value?.ToString(); // Use null-conditional operator to avoid NullReferenceException
+            string serviceID = serviceID2;
 
-            // ... (existing code)
-
-            if (RecApptServiceTypeDGV.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Please select a service.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            if (selectedRow == null)
-            {
-                MessageBox.Show("Selected row is null.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
             if (string.IsNullOrEmpty(serviceID))
             {
@@ -4871,7 +4634,6 @@ namespace Enchante
                 NewSelectedServiceRow.Cells["RecApptStaffSelected"].Value = selectedStaffID;
                 QueTypeIdentifier(NewSelectedServiceRow.Cells["RecApptQueType"]);
                 RecApptServiceCalculateTotalPrice();
-                RecApptServiceTypeDGV.ClearSelection();
 
             }
         }
@@ -11334,45 +11096,12 @@ namespace Enchante
 
         private void RecApptSearchServiceTypeText_TextChanged(object sender, EventArgs e)
         {
-            RecApptSearchServicePerCat();
-        }
-
-        private void RecApptSearchServicePerCat()
-        {
             string searchText = RecApptSearchServiceTypeText.Text;
-            if (RecApptCatHSRB.Checked)
-            {
-                SearchApptAcrossCategories(searchText, "Hair Styling");
-                return;
-            }
-            else if (RecApptCatFSRB.Checked)
-            {
-                SearchApptAcrossCategories(searchText, "Face & Skin");
-                return;
-            }
-            else if (RecApptCatNCRB.Checked)
-            {
-                SearchApptAcrossCategories(searchText, "Nail Care");
-                return;
-            }
-            else if (RecApptCatSpaRB.Checked)
-            {
-                SearchApptAcrossCategories(searchText, "Spa");
-                return;
-            }
-            else if (RecApptCatMassRB.Checked)
-            {
-                SearchApptAcrossCategories(searchText, "Massage");
-                return;
-            }
+            RecApptServicesFLP.Controls.Clear();
+            SearchRecApptAcrossCategories(searchText, filterstaffbyservicecategory);
         }
 
-        private void RecApptSearchServiceTypeBtn_Click(object sender, EventArgs e)
-        {
-            RecApptSearchServicePerCat();
-        }
-
-        private void SearchApptAcrossCategories(string searchText, string category)
+        private void SearchRecApptAcrossCategories(string searchText, string filterstaffbyservicecategory)
         {
             try
             {
@@ -11380,33 +11109,39 @@ namespace Enchante
                 {
                     connection.Open();
 
-                    // Modify the query to search for the specified text in a specific category
-                    string sql = "SELECT * FROM `services` WHERE Category = @category AND " +
+                    string sql = "SELECT ServiceID, Name, Duration, Category, Price FROM `services` WHERE Category = @category AND " +
                                  "(Name LIKE @searchText OR " +
-                                 "Description LIKE @searchText OR " +
                                  "Duration LIKE @searchText OR " +
                                  "Price LIKE @searchText)";
 
                     MySqlCommand cmd = new MySqlCommand(sql, connection);
                     cmd.Parameters.AddWithValue("@searchText", "%" + searchText + "%");
-                    cmd.Parameters.AddWithValue("@category", category);
+                    cmd.Parameters.AddWithValue("@category", filterstaffbyservicecategory);
 
-                    System.Data.DataTable dataTable = new System.Data.DataTable();
-
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        adapter.Fill(dataTable);
+                        ServicesFlowLayoutPanel.Controls.Clear();
 
-                        RecApptServiceTypeDGV.Columns.Clear();
+                        while (reader.Read())
+                        {
+                            Services service = new Services();
 
-                        RecApptServiceTypeDGV.DataSource = dataTable;
+                            // Retrieve the data from the reader and populate the 'service' object
+                            service.ServiceName = reader["Name"].ToString();
+                            service.ServiceID = reader["ServiceID"].ToString();
+                            service.ServiceDuration = reader["Duration"].ToString();
+                            service.ServicePrice = reader["Price"].ToString();
+                            service.ServiceCategory = reader["Category"].ToString();
 
-                        // Adjust column visibility and sizing as needed
-                        RecApptServiceTypeDGV.Columns[0].Visible = false;
-                        RecApptServiceTypeDGV.Columns[1].Visible = false;
-                        RecApptServiceTypeDGV.Columns[2].Visible = false;
-                        RecApptServiceTypeDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                        RecApptServiceTypeDGV.ClearSelection();
+                            ServicesUserControl servicesusercontrol = new ServicesUserControl(this);
+                            servicesusercontrol.SetServicesData(service);
+                            servicesusercontrol.ServiceUserControl_Clicked += ServiceUserControl_Clicked;
+                            servicesusercontrol.RecServicePriceTextBox_Clicked += ServiceUserControl_Clicked;
+                            servicesusercontrol.RecServiceDurationTextBox_Clicked += ServiceUserControl_Clicked;
+                            servicesusercontrol.RecServiceNameTextBox_Clicked += ServiceUserControl_Clicked;
+
+                            RecApptServicesFLP.Controls.Add(servicesusercontrol);
+                        }
                     }
                 }
             }
@@ -11414,15 +11149,14 @@ namespace Enchante
             {
                 MessageBox.Show("An error occurred: " + e.Message, "Error");
             }
-            finally
-            {
-                // Ensure the connection is closed even in case of an exception
-                if (connection.State == ConnectionState.Open)
-                {
-                    connection.Close();
-                }
-            }
         }
+
+
+        private void RecApptSearchServiceTypeBtn_Click(object sender, EventArgs e)
+        {
+            RecApptSearchServiceTypeText_TextChanged(sender, e);
+        }
+
 
         private void RecWalkinSearchProductTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -14669,5 +14403,24 @@ namespace Enchante
             }
         }
 
+        public void InitializeApptServices(string category)
+        {
+            List<Services> services = RetrieveServices(category);
+
+            foreach (Services service in services)
+            {
+
+                ServicesUserControl servicesusercontrol = new ServicesUserControl(this);
+                servicesusercontrol.SetServicesData(service);
+                servicesusercontrol.ServiceUserControl_Clicked += ServiceUserControl_Clicked;
+                servicesusercontrol.RecServicePriceTextBox_Clicked += ServiceUserControl_Clicked;
+                servicesusercontrol.RecServiceDurationTextBox_Clicked += ServiceUserControl_Clicked;
+                servicesusercontrol.RecServiceNameTextBox_Clicked += ServiceUserControl_Clicked;
+
+
+                RecApptServicesFLP.Controls.Add(servicesusercontrol);
+
+            }
+        }
     }
 }

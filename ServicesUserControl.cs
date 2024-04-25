@@ -36,12 +36,19 @@ namespace Enchante
 
         public void AddService()
         {
-                EnchanteForm.serviceName = RecServiceNameTextBox.Text;
-                EnchanteForm.servicePrice = RecServicePriceTextBox.Text;
-                EnchanteForm.serviceDuration = RecServiceDurationTextBox.Text;
-                EnchanteForm.serviceCategory = RecServiceCategoryTextBox.Text;
-                EnchanteForm.serviceID2 = RecServiceIDTextBox.Text;
+            EnchanteForm.serviceName = RecServiceNameTextBox.Text;
+            EnchanteForm.servicePrice = RecServicePriceTextBox.Text;
+            EnchanteForm.serviceDuration = RecServiceDurationTextBox.Text;
+            EnchanteForm.serviceCategory = RecServiceCategoryTextBox.Text;
+            EnchanteForm.serviceID2 = RecServiceIDTextBox.Text;
+            if (EnchanteForm.serviceappointment == true)
+            {
+                EnchanteForm.RecApptAddService();
+            }
+            else
+            {
                 EnchanteForm.RecWalkinAddService();
+            }
         }
 
         private void ServicesUserControl_Click(object sender, EventArgs e)
