@@ -5881,11 +5881,11 @@ namespace Enchante
             // 
             this.RecTransBtnFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RecTransBtnFlowPanel.Controls.Add(this.RecTransBtn);
-            this.RecTransBtnFlowPanel.Controls.Add(this.RecAppointmentBtn);
-            this.RecTransBtnFlowPanel.Controls.Add(this.RecPayServiceBtn);
-            this.RecTransBtnFlowPanel.Controls.Add(this.RecApptConfirmBtn);
             this.RecTransBtnFlowPanel.Controls.Add(this.RecShopProdBtn);
+            this.RecTransBtnFlowPanel.Controls.Add(this.RecApptConfirmBtn);
             this.RecTransBtnFlowPanel.Controls.Add(this.RecWalkInBtn);
+            this.RecTransBtnFlowPanel.Controls.Add(this.RecPayServiceBtn);
+            this.RecTransBtnFlowPanel.Controls.Add(this.RecAppointmentBtn);
             this.RecTransBtnFlowPanel.Location = new System.Drawing.Point(3, 3);
             this.RecTransBtnFlowPanel.MaximumSize = new System.Drawing.Size(305, 630);
             this.RecTransBtnFlowPanel.MinimumSize = new System.Drawing.Size(305, 107);
@@ -5928,7 +5928,7 @@ namespace Enchante
             this.RecAppointmentBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecAppointmentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.RecAppointmentBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RecAppointmentBtn.Location = new System.Drawing.Point(3, 109);
+            this.RecAppointmentBtn.Location = new System.Drawing.Point(3, 533);
             this.RecAppointmentBtn.Name = "RecAppointmentBtn";
             this.RecAppointmentBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.RecAppointmentBtn.Size = new System.Drawing.Size(295, 100);
@@ -5950,7 +5950,7 @@ namespace Enchante
             this.RecPayServiceBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecPayServiceBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.RecPayServiceBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RecPayServiceBtn.Location = new System.Drawing.Point(3, 215);
+            this.RecPayServiceBtn.Location = new System.Drawing.Point(3, 427);
             this.RecPayServiceBtn.Name = "RecPayServiceBtn";
             this.RecPayServiceBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.RecPayServiceBtn.Size = new System.Drawing.Size(295, 100);
@@ -5972,7 +5972,7 @@ namespace Enchante
             this.RecApptConfirmBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecApptConfirmBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.RecApptConfirmBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RecApptConfirmBtn.Location = new System.Drawing.Point(3, 321);
+            this.RecApptConfirmBtn.Location = new System.Drawing.Point(3, 215);
             this.RecApptConfirmBtn.Name = "RecApptConfirmBtn";
             this.RecApptConfirmBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.RecApptConfirmBtn.Size = new System.Drawing.Size(295, 100);
@@ -5994,7 +5994,7 @@ namespace Enchante
             this.RecShopProdBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecShopProdBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.RecShopProdBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RecShopProdBtn.Location = new System.Drawing.Point(3, 427);
+            this.RecShopProdBtn.Location = new System.Drawing.Point(3, 109);
             this.RecShopProdBtn.Name = "RecShopProdBtn";
             this.RecShopProdBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.RecShopProdBtn.Size = new System.Drawing.Size(295, 100);
@@ -6016,7 +6016,7 @@ namespace Enchante
             this.RecWalkInBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecWalkInBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.RecWalkInBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RecWalkInBtn.Location = new System.Drawing.Point(3, 533);
+            this.RecWalkInBtn.Location = new System.Drawing.Point(3, 321);
             this.RecWalkInBtn.Name = "RecWalkInBtn";
             this.RecWalkInBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.RecWalkInBtn.Size = new System.Drawing.Size(295, 100);

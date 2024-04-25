@@ -2267,7 +2267,7 @@ namespace Enchante
                 }
             }
         }
-
+        public bool product;
         public void InitializeProducts()
         {
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
@@ -2277,7 +2277,8 @@ namespace Enchante
                 string query = "SELECT ItemID, ItemName, ItemStock, ItemPrice, ItemStatus, ProductPicture FROM inventory WHERE ProductType = 'Retail Product'";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 MySqlDataReader reader = command.ExecuteReader();
-                Size userControlSize = new Size(295, 275);
+                Size userControlSize = new Size(419, 90);
+                //by three 278,56
 
                 while (reader.Read())
                 {
@@ -2288,86 +2289,119 @@ namespace Enchante
                     string itemStatus = reader["ItemStatus"].ToString();
                     byte[] productPicture = (byte[])reader["ProductPicture"];
 
-                    ProductUserControl recwalkinproductusercontrol = new ProductUserControl();
-                    ProductUserControl recshopproductusercontrol = new ProductUserControl();
-
-                    //recwalkin product
-                    recwalkinproductusercontrol.ProductItemIDTextBox.Text = itemID;
-                    recwalkinproductusercontrol.ProductNameTextBox.Text = itemName;
-                    recwalkinproductusercontrol.ProductStockTextBox.Text = itemStock;
-                    recwalkinproductusercontrol.ProductPriceTextBox.Text = itemPrice;
-                    recwalkinproductusercontrol.ProductStatusTextBox.Text = itemStatus;
-                    //recshop product
-                    recshopproductusercontrol.Size = userControlSize;
-                    recshopproductusercontrol.ProductNameTextBox.Size = new Size(235, 33);
-                    recshopproductusercontrol.ProductPriceTextBox.Size = new Size(90, 27);
-                    recshopproductusercontrol.ProductPicturePictureBox.Size = new Size(162, 162);
-                    recshopproductusercontrol.ProductNameTextBox.Location = new Point(12, 190);
-                    recshopproductusercontrol.ProductPriceTextBox.Location = new Point(67, 230);
-                    recshopproductusercontrol.PhpSignLbl.Location = new Point(18, 230);
-                    recshopproductusercontrol.ProductPicturePictureBox.Location = new Point(72, 12);
-                    //Border
-                    recshopproductusercontrol.LeftBorder.Size = new Size(10, 275);
-                    recshopproductusercontrol.LeftBorder.Location = new Point(-5, 0);
-                    recshopproductusercontrol.TopBorder.Size = new Size(295, 10);
-                    recshopproductusercontrol.TopBorder.Location = new Point(0, -5);
-                    recshopproductusercontrol.RightBorder.Size = new Size(10, 275);
-                    recshopproductusercontrol.RightBorder.Location = new Point(289, 0);
-                    recshopproductusercontrol.DownBorder.Size = new Size(295, 10);
-                    recshopproductusercontrol.DownBorder.Location = new Point(0, 269);
-
-                    recshopproductusercontrol.ProductItemIDTextBox.Text = itemID;
-                    recshopproductusercontrol.ProductNameTextBox.Text = itemName;
-                    recshopproductusercontrol.ProductStockTextBox.Text = itemStock;
-                    recshopproductusercontrol.ProductPriceTextBox.Text = itemPrice;
-                    recshopproductusercontrol.ProductStatusTextBox.Text = itemStatus;
-
-                    if (itemStatus == "Low Stock")
+                    if (product)
                     {
-                        recwalkinproductusercontrol.ProductOutOfStockPictureBox.Visible = true;
-                        recwalkinproductusercontrol.Enabled = false;
-                        recshopproductusercontrol.ProductOutOfStockPictureBox.Visible = true;
-                        recshopproductusercontrol.Enabled = false;
-                    }
-                    else
-                    {
-                        recwalkinproductusercontrol.ProductOutOfStockPictureBox.Visible = false;
-                        recwalkinproductusercontrol.Enabled = true;
-                        recshopproductusercontrol.ProductOutOfStockPictureBox.Visible = false;
-                        recshopproductusercontrol.Enabled = true;
-                    }
+                        ProductUserControl recshopproductusercontrol = new ProductUserControl();
 
-                    if (productPicture != null && productPicture.Length > 0)
-                    {
-                        using (MemoryStream ms = new MemoryStream(productPicture))
+                        //recshop product
+                        recshopproductusercontrol.Size = userControlSize;
+                        recshopproductusercontrol.ProductNameTextBox.Size = new Size(235, 33);
+                        recshopproductusercontrol.ProductPriceTextBox.Size = new Size(90, 27);
+                        recshopproductusercontrol.ProductPicturePictureBox.Size = new Size(72, 72);
+                        recshopproductusercontrol.ProductNameTextBox.Location = new Point(90, 29);
+                        recshopproductusercontrol.ProductPriceTextBox.Location = new Point(318, 32);
+                        recshopproductusercontrol.PhpSignLbl.Location = new Point(280, 31);
+                        recshopproductusercontrol.ProductPicturePictureBox.Location = new Point(16, 9);
+                        //Border
+                        recshopproductusercontrol.LeftBorder.Size = new Size(5, 100);
+                        recshopproductusercontrol.LeftBorder.Location = new Point(-3, 0);
+                        recshopproductusercontrol.TopBorder.Size = new Size(425, 5);
+                        recshopproductusercontrol.TopBorder.Location = new Point(0, -3);
+                        recshopproductusercontrol.RightBorder.Size = new Size(5, 100);
+                        recshopproductusercontrol.RightBorder.Location = new Point(417, 0);
+                        recshopproductusercontrol.DownBorder.Size = new Size(425, 10);
+                        recshopproductusercontrol.DownBorder.Location = new Point(0, 88);
+
+                        recshopproductusercontrol.ProductItemIDTextBox.Text = itemID;
+                        recshopproductusercontrol.ProductNameTextBox.Text = itemName;
+                        recshopproductusercontrol.ProductStockTextBox.Text = itemStock;
+                        recshopproductusercontrol.ProductPriceTextBox.Text = itemPrice;
+                        recshopproductusercontrol.ProductStatusTextBox.Text = itemStatus;
+
+                        if (itemStatus == "Low Stock")
                         {
-                            System.Drawing.Image image = System.Drawing.Image.FromStream(ms);
-                            recwalkinproductusercontrol.ProductPicturePictureBox.Image = image;
-                            System.Drawing.Image image1 = System.Drawing.Image.FromStream(ms);
-                            recshopproductusercontrol.ProductPicturePictureBox.Image = image1;
+                            recshopproductusercontrol.ProductOutOfStockPictureBox.Visible = true;
+                            recshopproductusercontrol.Enabled = false;
                         }
+                        else
+                        {
+                            recshopproductusercontrol.ProductOutOfStockPictureBox.Visible = false;
+                            recshopproductusercontrol.Enabled = true;
+                        }
+
+                        if (productPicture != null && productPicture.Length > 0)
+                        {
+                            using (MemoryStream ms = new MemoryStream(productPicture))
+                            {
+                                System.Drawing.Image image1 = System.Drawing.Image.FromStream(ms);
+                                recshopproductusercontrol.ProductPicturePictureBox.Image = image1;
+                            }
+                        }
+                        else
+                        {
+                            recshopproductusercontrol.ProductPicturePictureBox.Image = null;
+
+                        }
+                        foreach (System.Windows.Forms.Control control1 in recshopproductusercontrol.Controls)
+                        {
+                            control1.Click += RecShopProductControlElement_Click;
+                        }
+
+                        recshopproductusercontrol.Click += RecShopProdProductUserControl_Click;
+
+                        RecShopProdProductFlowLayoutPanel.Controls.Add(recshopproductusercontrol);
                     }
+                    
+                   
                     else
                     {
-                        recwalkinproductusercontrol.ProductPicturePictureBox.Image = null;
-                        recshopproductusercontrol.ProductPicturePictureBox.Image = null;
+                        ProductUserControl recwalkinproductusercontrol = new ProductUserControl();
+                        //recwalkin product
+                        recwalkinproductusercontrol.ProductItemIDTextBox.Text = itemID;
+                        recwalkinproductusercontrol.ProductNameTextBox.Text = itemName;
+                        recwalkinproductusercontrol.ProductStockTextBox.Text = itemStock;
+                        recwalkinproductusercontrol.ProductPriceTextBox.Text = itemPrice;
+                        recwalkinproductusercontrol.ProductStatusTextBox.Text = itemStatus;
 
+
+                        if (itemStatus == "Low Stock")
+                        {
+                            recwalkinproductusercontrol.ProductOutOfStockPictureBox.Visible = true;
+                            recwalkinproductusercontrol.Enabled = false;
+                        }
+                        else
+                        {
+                            recwalkinproductusercontrol.ProductOutOfStockPictureBox.Visible = false;
+                            recwalkinproductusercontrol.Enabled = true;
+                        }
+
+                        if (productPicture != null && productPicture.Length > 0)
+                        {
+                            using (MemoryStream ms = new MemoryStream(productPicture))
+                            {
+                                System.Drawing.Image image = System.Drawing.Image.FromStream(ms);
+                                recwalkinproductusercontrol.ProductPicturePictureBox.Image = image;
+                            }
+                        }
+                        else
+                        {
+                            recwalkinproductusercontrol.ProductPicturePictureBox.Image = null;
+
+                        }
+
+                        foreach (System.Windows.Forms.Control control in recwalkinproductusercontrol.Controls)
+                        {
+                            control.Click += RecWalkinProductControlElement_Click;
+                        }
+
+
+                        recwalkinproductusercontrol.Click += RecWalkinProductUserControl_Click;
+
+
+                        RecWalkinProductFlowLayoutPanel.Controls.Add(recwalkinproductusercontrol);
                     }
-
-                    foreach (System.Windows.Forms.Control control in recwalkinproductusercontrol.Controls)
-                    {
-                        control.Click += RecWalkinProductControlElement_Click;
-                    }
-                    foreach (System.Windows.Forms.Control control1 in recshopproductusercontrol.Controls)
-                    {
-                        control1.Click += RecShopProductControlElement_Click;
-                    }
-
-                    recwalkinproductusercontrol.Click += RecWalkinProductUserControl_Click;
-                    recshopproductusercontrol.Click += RecShopProdProductUserControl_Click;
-
-                    RecWalkinProductFlowLayoutPanel.Controls.Add(recwalkinproductusercontrol);
-                    RecShopProdProductFlowLayoutPanel.Controls.Add(recshopproductusercontrol);
+                    
+                    
                 }
                 reader.Close();
             }
@@ -5927,7 +5961,9 @@ namespace Enchante
         {
             ShopProdTransColor();
             RecShopProdProductFlowLayoutPanel.Controls.Clear();
+            product = true;
             InitializeProducts();
+            //ditoka
         }
 
         private void RecShopProdExitBtn_Click(object sender, EventArgs e)
@@ -11488,7 +11524,7 @@ namespace Enchante
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@searchKeyword", "%" + searchKeyword + "%");
                 MySqlDataReader reader = command.ExecuteReader();
-                Size userControlSize = new Size(295, 275);
+                Size userControlSize = new Size(419, 90);
 
                 RecWalkinProductFlowLayoutPanel.Controls.Clear();
                 RecShopProdProductFlowLayoutPanel.Controls.Clear();
@@ -11511,20 +11547,20 @@ namespace Enchante
                     recshopproductusercontrol.Size = userControlSize;
                     recshopproductusercontrol.ProductNameTextBox.Size = new Size(235, 33);
                     recshopproductusercontrol.ProductPriceTextBox.Size = new Size(90, 27);
-                    recshopproductusercontrol.ProductPicturePictureBox.Size = new Size(162, 162);
-                    recshopproductusercontrol.ProductNameTextBox.Location = new Point(12, 190);
-                    recshopproductusercontrol.ProductPriceTextBox.Location = new Point(67, 230);
-                    recshopproductusercontrol.PhpSignLbl.Location = new Point(18, 230);
-                    recshopproductusercontrol.ProductPicturePictureBox.Location = new Point(72, 12);
+                    recshopproductusercontrol.ProductPicturePictureBox.Size = new Size(72, 72);
+                    recshopproductusercontrol.ProductNameTextBox.Location = new Point(90, 29);
+                    recshopproductusercontrol.ProductPriceTextBox.Location = new Point(318, 32);
+                    recshopproductusercontrol.PhpSignLbl.Location = new Point(280, 31);
+                    recshopproductusercontrol.ProductPicturePictureBox.Location = new Point(16, 9);
                     //Border
-                    recshopproductusercontrol.LeftBorder.Size = new Size(10, 275);
-                    recshopproductusercontrol.LeftBorder.Location = new Point(-5, 0);
-                    recshopproductusercontrol.TopBorder.Size = new Size(295, 10);
-                    recshopproductusercontrol.TopBorder.Location = new Point(0, -5);
-                    recshopproductusercontrol.RightBorder.Size = new Size(10, 275);
-                    recshopproductusercontrol.RightBorder.Location = new Point(289, 0);
-                    recshopproductusercontrol.DownBorder.Size = new Size(295, 10);
-                    recshopproductusercontrol.DownBorder.Location = new Point(0, 269);
+                    recshopproductusercontrol.LeftBorder.Size = new Size(5, 100);
+                    recshopproductusercontrol.LeftBorder.Location = new Point(-3, 0);
+                    recshopproductusercontrol.TopBorder.Size = new Size(425, 5);
+                    recshopproductusercontrol.TopBorder.Location = new Point(0, -3);
+                    recshopproductusercontrol.RightBorder.Size = new Size(5, 100);
+                    recshopproductusercontrol.RightBorder.Location = new Point(417, 0);
+                    recshopproductusercontrol.DownBorder.Size = new Size(425, 10);
+                    recshopproductusercontrol.DownBorder.Location = new Point(0, 88);
 
 
                     recshopproductusercontrol.ProductItemIDTextBox.Text = itemID;
@@ -13836,6 +13872,10 @@ namespace Enchante
         private void RecWalkinProdCOBtn_Click(object sender, EventArgs e)
         {
             WalkinTabs.SelectedIndex = 2;
+            RecWalkinProductFlowLayoutPanel.Controls.Clear();
+            product = false;
+            InitializeProducts();
+            //ditoka
 
         }
 

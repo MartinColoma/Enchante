@@ -51,17 +51,17 @@
             this.ProductNameTextBox.BorderThickness = 0;
             this.ProductNameTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ProductNameTextBox.DefaultText = "Name";
-            this.ProductNameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.ProductNameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.ProductNameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.ProductNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.ProductNameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ProductNameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ProductNameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.ProductNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.ProductNameTextBox.Enabled = false;
-            this.ProductNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.ProductNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.ProductNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.ProductNameTextBox.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProductNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.ProductNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.ProductNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ProductNameTextBox.Location = new System.Drawing.Point(55, 10);
+            this.ProductNameTextBox.Location = new System.Drawing.Point(53, 9);
             this.ProductNameTextBox.Margin = new System.Windows.Forms.Padding(11, 9, 11, 9);
             this.ProductNameTextBox.Name = "ProductNameTextBox";
             this.ProductNameTextBox.PasswordChar = '\0';
@@ -119,17 +119,17 @@
             this.ProductPriceTextBox.BorderThickness = 0;
             this.ProductPriceTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ProductPriceTextBox.DefaultText = "Price";
-            this.ProductPriceTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.ProductPriceTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.ProductPriceTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.ProductPriceTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.ProductPriceTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ProductPriceTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ProductPriceTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.ProductPriceTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.ProductPriceTextBox.Enabled = false;
-            this.ProductPriceTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.ProductPriceTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.ProductPriceTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.ProductPriceTextBox.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProductPriceTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.ProductPriceTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.ProductPriceTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ProductPriceTextBox.Location = new System.Drawing.Point(159, 12);
+            this.ProductPriceTextBox.Location = new System.Drawing.Point(156, 11);
             this.ProductPriceTextBox.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.ProductPriceTextBox.Name = "ProductPriceTextBox";
             this.ProductPriceTextBox.PasswordChar = '\0';
@@ -176,7 +176,7 @@
             // 
             this.ProductPicturePictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ProductPicturePictureBox.ImageRotate = 0F;
-            this.ProductPicturePictureBox.Location = new System.Drawing.Point(9, 6);
+            this.ProductPicturePictureBox.Location = new System.Drawing.Point(9, 4);
             this.ProductPicturePictureBox.Name = "ProductPicturePictureBox";
             this.ProductPicturePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.ProductPicturePictureBox.Size = new System.Drawing.Size(42, 42);
@@ -186,46 +186,46 @@
             // 
             // LeftBorder
             // 
-            this.LeftBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.LeftBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.LeftBorder.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.LeftBorder.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LeftBorder.Location = new System.Drawing.Point(-7, 0);
+            this.LeftBorder.Location = new System.Drawing.Point(-10, 0);
             this.LeftBorder.Multiline = true;
             this.LeftBorder.Name = "LeftBorder";
             this.LeftBorder.ReadOnly = true;
-            this.LeftBorder.Size = new System.Drawing.Size(10, 92);
+            this.LeftBorder.Size = new System.Drawing.Size(11, 63);
             this.LeftBorder.TabIndex = 9;
             // 
             // DownBorder
             // 
-            this.DownBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.DownBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.DownBorder.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DownBorder.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DownBorder.Location = new System.Drawing.Point(-9, 52);
+            this.DownBorder.Location = new System.Drawing.Point(-11, 50);
             this.DownBorder.Multiline = true;
             this.DownBorder.Name = "DownBorder";
             this.DownBorder.ReadOnly = true;
-            this.DownBorder.Size = new System.Drawing.Size(303, 10);
+            this.DownBorder.Size = new System.Drawing.Size(228, 10);
             this.DownBorder.TabIndex = 10;
             // 
             // TopBorder
             // 
-            this.TopBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.TopBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.TopBorder.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TopBorder.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TopBorder.Location = new System.Drawing.Point(0, -7);
+            this.TopBorder.Location = new System.Drawing.Point(0, -9);
             this.TopBorder.Multiline = true;
             this.TopBorder.Name = "TopBorder";
             this.TopBorder.ReadOnly = true;
-            this.TopBorder.Size = new System.Drawing.Size(328, 10);
+            this.TopBorder.Size = new System.Drawing.Size(219, 10);
             this.TopBorder.TabIndex = 11;
             // 
             // RightBorder
             // 
-            this.RightBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.RightBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RightBorder.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RightBorder.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RightBorder.Location = new System.Drawing.Point(201, 0);
+            this.RightBorder.Location = new System.Drawing.Point(206, 0);
             this.RightBorder.Multiline = true;
             this.RightBorder.Name = "RightBorder";
             this.RightBorder.ReadOnly = true;
@@ -238,17 +238,17 @@
             this.PhpSignLbl.BorderThickness = 0;
             this.PhpSignLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PhpSignLbl.DefaultText = "Php.";
-            this.PhpSignLbl.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.PhpSignLbl.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.PhpSignLbl.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.PhpSignLbl.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.PhpSignLbl.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PhpSignLbl.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.PhpSignLbl.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.PhpSignLbl.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.PhpSignLbl.Enabled = false;
-            this.PhpSignLbl.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.PhpSignLbl.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.PhpSignLbl.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.PhpSignLbl.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PhpSignLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.PhpSignLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.PhpSignLbl.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PhpSignLbl.Location = new System.Drawing.Point(135, 12);
+            this.PhpSignLbl.Location = new System.Drawing.Point(135, 11);
             this.PhpSignLbl.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.PhpSignLbl.Name = "PhpSignLbl";
             this.PhpSignLbl.PasswordChar = '\0';
@@ -263,7 +263,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.Controls.Add(this.ProductPriceTextBox);
             this.Controls.Add(this.PhpSignLbl);
             this.Controls.Add(this.TopBorder);
@@ -278,7 +278,7 @@
             this.Controls.Add(this.ProductOutOfStockPictureBox);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "ProductUserControl";
-            this.Size = new System.Drawing.Size(206, 56);
+            this.Size = new System.Drawing.Size(207, 51);
             ((System.ComponentModel.ISupportInitialize)(this.ProductOutOfStockPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductPicturePictureBox)).EndInit();
             this.ResumeLayout(false);
