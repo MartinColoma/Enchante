@@ -808,12 +808,10 @@ namespace Enchante
                                         RecIDNumLbl.Text = ID;
                                         RecEmplTypeLbl.Text = membertype;
 
-                                        InitializeProducts();
                                         ReceptionHomePanelReset();
                                         RecWalkinBdayMaxDate();
                                         RecApptBdayMaxDate();
                                         logincredclear();
-                                        InitializeAppointmentDataGrid();
 
                                     }
                                     else
@@ -2290,14 +2288,37 @@ namespace Enchante
                 }
             }
         }
+
+        private int currentPage = 0;
+        private int currentPagefake = 1;
+        private int itemsPerPage = 10;
+        private int totalItems = 0;
+        private int totalPages = 0;
+
         public bool product;
         public void InitializeProducts()
         {
+            RecShopProdProductFlowLayoutPanel.Controls.Clear();
+            RecWalkinProductFlowLayoutPanel.Controls.Clear();
+
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
             {
                 connection.Open();
 
-                string query = "SELECT ItemID, ItemName, ItemStock, ItemPrice, ItemStatus, ProductPicture FROM inventory WHERE ProductType = 'Retail Product'";
+                string countQuery = "SELECT COUNT(*) FROM inventory WHERE ProductType = 'Retail Product'";
+                MySqlCommand countCommand = new MySqlCommand(countQuery, connection);
+                totalItems = Convert.ToInt32(countCommand.ExecuteScalar());
+
+                totalPages = (int)Math.Ceiling((double)totalItems / itemsPerPage);
+
+                int offset = currentPage * itemsPerPage;
+                ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+
+                string query = $@"SELECT ItemID, ItemName, ItemStock, ItemPrice, ItemStatus, ProductPicture 
+                  FROM inventory 
+                  WHERE ProductType = 'Retail Product' 
+                  LIMIT {offset}, {itemsPerPage}";
                 MySqlCommand command = new MySqlCommand(query, connection);
                 MySqlDataReader reader = command.ExecuteReader();
                 Size userControlSize = new Size(419, 90);
@@ -2374,8 +2395,8 @@ namespace Enchante
 
                         RecShopProdProductFlowLayoutPanel.Controls.Add(recshopproductusercontrol);
                     }
-                    
-                   
+
+
                     else
                     {
                         ProductUserControl recwalkinproductusercontrol = new ProductUserControl();
@@ -2423,13 +2444,14 @@ namespace Enchante
 
                         RecWalkinProductFlowLayoutPanel.Controls.Add(recwalkinproductusercontrol);
                     }
-                    
-                    
+
+
                 }
                 reader.Close();
             }
 
         }
+
 
         private void RecWalkinProductControlElement_Click(object sender, EventArgs e)
         {
@@ -5629,7 +5651,7 @@ namespace Enchante
             RecShopProdProductFlowLayoutPanel.Controls.Clear();
             product = true;
             InitializeProducts();
-            //ditoka
+            walkinproductsearch = false;
         }
 
         private void RecShopProdExitBtn_Click(object sender, EventArgs e)
@@ -11061,7 +11083,8 @@ namespace Enchante
             RecApptSearchServiceTypeText_TextChanged(sender, e);
         }
 
-
+        public bool walkinproductsearch;
+       //ditokayo
         private void RecWalkinSearchProductTextBox_TextChanged(object sender, EventArgs e)
         {
             string searchKeyword = RecWalkinSearchProductTextBox.Text.Trim().ToLower();
@@ -11078,7 +11101,24 @@ namespace Enchante
             {
                 connection.Open();
 
-                string query = "SELECT ItemID, ItemName, ItemStock, ItemPrice, ItemStatus, ProductPicture FROM inventory WHERE ProductType = 'Retail Product' AND ItemName LIKE @searchKeyword";
+
+                string countQuery = "SELECT COUNT(*) FROM inventory WHERE ProductType = 'Retail Product' AND ItemName LIKE @searchKeyword";
+                MySqlCommand countCommand = new MySqlCommand(countQuery, connection);
+                countCommand.Parameters.AddWithValue("@searchKeyword", "%" + searchKeyword + "%");
+                totalItems = Convert.ToInt32(countCommand.ExecuteScalar());
+
+                totalPages = (int)Math.Ceiling((double)totalItems / itemsPerPage);
+
+                int offset = currentPage * itemsPerPage;
+                ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+
+                string query = $@"SELECT ItemID, ItemName, ItemStock, ItemPrice, ItemStatus, ProductPicture 
+                  FROM inventory 
+                  WHERE ProductType = 'Retail Product' AND ItemName LIKE @searchKeyword 
+                  LIMIT {offset}, {itemsPerPage}";
+
+
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@searchKeyword", "%" + searchKeyword + "%");
                 MySqlDataReader reader = command.ExecuteReader();
@@ -11142,6 +11182,7 @@ namespace Enchante
             }
         }
 
+        //ditopala
         private void RecSearchProductTextBox_TextChanged(object sender, EventArgs e)
         {
             string searchKeyword = RecSearchProductTextBox.Text.Trim().ToLower();
@@ -11158,7 +11199,23 @@ namespace Enchante
             {
                 connection.Open();
 
-                string query = "SELECT ItemID, ItemName, ItemStock, ItemPrice, ItemStatus, ProductPicture FROM inventory WHERE ProductType = 'Retail Product' AND ItemName LIKE @searchKeyword";
+                string countQuery = "SELECT COUNT(*) FROM inventory WHERE ProductType = 'Retail Product' AND ItemName LIKE @searchKeyword";
+                MySqlCommand countCommand = new MySqlCommand(countQuery, connection);
+                countCommand.Parameters.AddWithValue("@searchKeyword", "%" + searchKeyword + "%");
+                totalItems = Convert.ToInt32(countCommand.ExecuteScalar());
+
+                totalPages = (int)Math.Ceiling((double)totalItems / itemsPerPage);
+
+                int offset = currentPage * itemsPerPage;
+                ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+
+                string query = $@"SELECT ItemID, ItemName, ItemStock, ItemPrice, ItemStatus, ProductPicture 
+                  FROM inventory 
+                  WHERE ProductType = 'Retail Product' AND ItemName LIKE @searchKeyword 
+                  LIMIT {offset}, {itemsPerPage}";
+
+
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@searchKeyword", "%" + searchKeyword + "%");
                 MySqlDataReader reader = command.ExecuteReader();
@@ -13524,8 +13581,8 @@ namespace Enchante
             RecWalkinProductFlowLayoutPanel.Controls.Clear();
             product = false;
             InitializeProducts();
-            //ditoka
-
+            walkinproductsearch = true;
+            //ditoine
         }
 
         private void RecWalkinCheckoutBtn_Click(object sender, EventArgs e)
@@ -14418,6 +14475,204 @@ namespace Enchante
                 RecApptServicesFLP.Controls.Add(servicesusercontrol);
 
             }
+        }
+
+        private void ProductPreviousBtn_Click(object sender, EventArgs e)
+        {
+            if (walkinproductsearch)
+            {
+                string searchKeyword = RecWalkinSearchProductTextBox.Text.Trim().ToLower();
+
+                if (string.IsNullOrEmpty(searchKeyword))
+                {
+                    if (currentPagefake == 1)
+                    {
+                        currentPagefake = totalPages;
+                        currentPage = totalPages - 1;
+                        InitializeProducts();
+                        ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                        WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                    }
+                    else if (currentPagefake <= totalPages)
+                    {
+                        currentPage--;
+                        currentPagefake--;
+                        InitializeProducts();
+                        ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                        WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                    }
+                }
+                else
+                {
+                    if (currentPagefake == 1)
+                    {
+                        currentPagefake = totalPages;
+                        currentPage = totalPages - 1;
+                        RecWalkinSearchProductTextBox_TextChanged(sender, e);
+                        ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                        WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                    }
+                    else if (currentPagefake <= totalPages)
+                    {
+                        currentPage--;
+                        currentPagefake--;
+                        RecWalkinSearchProductTextBox_TextChanged(sender, e);
+                        ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                        WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                    }
+                }
+            }
+            else
+            {
+                string searchKeyword = RecSearchProductTextBox.Text.Trim().ToLower();
+                if (string.IsNullOrEmpty(searchKeyword))
+                {
+                    if (currentPagefake == 1)
+                    {
+                        currentPagefake = totalPages;
+                        currentPage = totalPages - 1;
+                        InitializeProducts();
+                        ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                        WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                    }
+                    else if (currentPagefake <= totalPages)
+                    {
+                        currentPage--;
+                        currentPagefake--;
+                        InitializeProducts();
+                        ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                        WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                    }
+                }
+                else
+                {
+                    if (currentPagefake == 1)
+                    {
+                        currentPagefake = totalPages;
+                        currentPage = totalPages - 1;
+                        RecSearchProductTextBox_TextChanged(sender, e);
+                        ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                        WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                    }
+                    else if (currentPagefake <= totalPages)
+                    {
+                        currentPage--;
+                        currentPagefake--;
+                        RecSearchProductTextBox_TextChanged(sender, e);
+                        ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                        WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                    }
+                }
+            }
+
+        }
+
+        private void ProductNextBtn_Click(object sender, EventArgs e)
+        {
+            if (walkinproductsearch)
+            {
+                string searchKeyword = RecWalkinSearchProductTextBox.Text.Trim().ToLower();
+
+                if (string.IsNullOrEmpty(searchKeyword))
+                {
+                    if (currentPagefake == totalPages)
+                    {
+                        currentPage = 0;
+                        currentPagefake = 0;
+                        currentPagefake++;
+                        InitializeProducts();
+                        ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                        WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                    }
+                    else
+                    {
+                        currentPage++;
+                        currentPagefake++;
+                        InitializeProducts();
+                        ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                        WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                    }
+                }
+                else
+                {
+                    if (currentPagefake == totalPages)
+                    {
+                        currentPage = 0;
+                        currentPagefake = 0;
+                        currentPagefake++;
+                        RecWalkinSearchProductTextBox_TextChanged(sender, e);
+                        ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                        WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                    }
+                    else
+                    {
+                        currentPage++;
+                        currentPagefake++;
+                        RecWalkinSearchProductTextBox_TextChanged(sender, e);
+                        ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                        WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                    }
+
+                }
+
+            }
+            else
+            {
+                string searchKeyword = RecSearchProductTextBox.Text.Trim().ToLower();
+
+                if (string.IsNullOrEmpty(searchKeyword))
+                {
+                    if (currentPagefake == totalPages)
+                    {
+                        currentPage = 0;
+                        currentPagefake = 0;
+                        currentPagefake++;
+                        InitializeProducts();
+                        ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                        WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                    }
+                    else
+                    {
+                        currentPage++;
+                        currentPagefake++;
+                        InitializeProducts();
+                        ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                        WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                    }
+                }
+                else
+                {
+                    if (currentPagefake == totalPages)
+                    {
+                        currentPage = 0;
+                        currentPagefake = 0;
+                        currentPagefake++;
+                        RecSearchProductTextBox_TextChanged(sender, e);
+                        WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                    }
+                    else
+                    {
+                        currentPage++;
+                        currentPagefake++;
+                        RecSearchProductTextBox_TextChanged(sender, e);
+                        ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                        WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                    }
+
+                }
+
+            }
+
+        }
+
+        private void WalkinProductPreviousBtn_Click(object sender, EventArgs e)
+        {
+            ProductPreviousBtn_Click(sender, e);
+        }
+
+        private void WalkinProductNextBtn_Click(object sender, EventArgs e)
+        {
+            ProductNextBtn_Click(sender, e);
         }
     }
 }
