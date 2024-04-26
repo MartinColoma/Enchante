@@ -50,7 +50,7 @@ namespace Enchante
             StaffTransactionIDTextBox.Text = customer.TransactionNumber;
             StaffCustomerServiceNameSelectedTextBox.Text = customer.ServiceName;
             StaffCustomerServiceStatusTextBox.Text = customer.ServiceStatus;
-            StaffCustomerNameTextBox.Text = "Client Name: " + customer.ClientName;
+            StaffCustomerNameTextBox.Text = customer.ClientName;
             StaffQueTypeTextBox.Text = customer.QueType;
             StaffServiceIDTextBox.Text = customer.ServiceID;
             StaffQueNumberTextBox.Text = customer.QueNumber;
@@ -99,7 +99,7 @@ namespace Enchante
                 if (UpdatedServiceStatus == "Completed")
                 {
                     string updateQuery1 = "UPDATE servicehistory SET ServiceStatus = @ServiceStatus, ServiceEnd = @ServiceEnd, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber AND ServiceID = @ServiceID";
-                    string updateQuery2 = "UPDATE systemusers SET Availability = 'Available', CurrentCustomerName = '', CurrentCustomerQueNumber = '' WHERE EmployeeID = @EmployeeID";
+                    string updateQuery2 = "UPDATE systemusers SET Availability = 'Available', CurrentCustomerName = '', CurrentCustomerQueNumber = '', CurrentCustomerTransactionID = '' WHERE EmployeeID = @EmployeeID";
                     string updateQuery3 = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
                     string updateQuery4 = "UPDATE appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
 
@@ -153,7 +153,7 @@ namespace Enchante
                 else if (UpdatedServiceStatus == "Completed Paid")
                 {
                     string updateQuery1 = "UPDATE servicehistory SET ServiceStatus = @ServiceStatus, ServiceEnd = @ServiceEnd, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber AND ServiceID = @ServiceID";
-                    string updateQuery2 = "UPDATE systemusers SET Availability = 'Available', CurrentCustomerName = '', CurrentCustomerQueNumber = '' WHERE EmployeeID = @EmployeeID";
+                    string updateQuery2 = "UPDATE systemusers SET Availability = 'Available', CurrentCustomerName = '', CurrentCustomerQueNumber = '', CurrentCustomerTransactionID = '' WHERE EmployeeID = @EmployeeID";
                     string updateQuery3 = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
                     string updateQuery4 = "UPDATE appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
 
@@ -207,7 +207,7 @@ namespace Enchante
                 else if (UpdatedServiceStatus == "Cancelled")
                 {
                     string updateQuery1 = "UPDATE servicehistory SET ServiceStatus = @ServiceStatus, ServiceEnd = @ServiceEnd, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber AND ServiceID = @ServiceID";
-                    string updateQuery2 = "UPDATE systemusers SET Availability = 'Available', CurrentCustomerName = '', CurrentCustomerQueNumber = '' WHERE EmployeeID = @EmployeeID";
+                    string updateQuery2 = "UPDATE systemusers SET Availability = 'Available', CurrentCustomerName = '', CurrentCustomerQueNumber = '', CurrentCustomerTransactionID = '' WHERE EmployeeID = @EmployeeID";
                     string updateQuery3 = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
                     string updateQuery4 = "UPDATE appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
 

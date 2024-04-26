@@ -52,15 +52,15 @@ namespace Enchante
             StaffQueNumberTextBox.Text = customer.QueNumber;
         }
 
-        public void AvailablePriorityCustomerSetData(Enchante.PriorityPendingCustomers customer)
+        public void AvailablePriorityCustomerSetData(Enchante.PriorityPendingCustomers priocustomer)
         {
-            StaffTransactionIDTextBox.Text = customer.TransactionNumber;
-            StaffCustomerServiceNameSelectedTextBox.Text = customer.ServiceName;
-            StaffCustomerServiceStatusTextBox.Text = customer.ServiceStatus;
-            StaffCustomerNameTextBox.Text = customer.ClientName;
-            StaffQueTypeTextBox.Text = customer.QueType;
-            StaffServiceIDTextBox.Text = customer.ServiceID;
-            StaffQueNumberTextBox.Text = customer.QueNumber;
+            StaffTransactionIDTextBox.Text = priocustomer.TransactionNumber;
+            StaffCustomerServiceNameSelectedTextBox.Text = priocustomer.ServiceName;
+            StaffCustomerServiceStatusTextBox.Text = priocustomer.ServiceStatus;
+            StaffCustomerNameTextBox.Text = priocustomer.ClientName;
+            StaffQueTypeTextBox.Text = priocustomer.QueType;
+            StaffServiceIDTextBox.Text = priocustomer.ServiceID;
+            StaffQueNumberTextBox.Text = priocustomer.QueNumber;
         }
 
 
@@ -89,7 +89,7 @@ namespace Enchante
                     string updateQueryWalkInTransaction = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus WHERE TransactionNumber = @TransactionNumber";
                     string updateQueryAppointment = "UPDATE appointment SET ServiceStatus = @ServiceStatus WHERE TransactionNumber = @TransactionNumber";
                     string updateQuery2 = "UPDATE servicehistory SET ServiceStatus = @ServiceStatus, AttendingStaff = @AttendingStaff, ServiceStart = @ServiceStart WHERE TransactionNumber = @TransactionNumber AND ServiceID = @ServiceID";
-                    string updateQuery3 = "UPDATE systemusers SET Availability = 'Unavailable', CurrentCustomerName = @CurrentCustomerName, CurrentCustomerQueNumber = @CurrentCustomerQueNumber WHERE EmployeeID = @EmployeeID";
+                    string updateQuery3 = "UPDATE systemusers SET Availability = 'Unavailable', CurrentCustomerName = @CurrentCustomerName, CurrentCustomerQueNumber = @CurrentCustomerQueNumber, CurrentCustomerTransactionID = @CurrentCustomerTransactionID WHERE EmployeeID = @EmployeeID";
 
                     using (MySqlCommand command = new MySqlCommand(updateQueryAppointment, connection))
                     {
@@ -117,13 +117,14 @@ namespace Enchante
                         command.Parameters.AddWithValue("@EmployeeID", attenidingStaff);
                         command.Parameters.AddWithValue("@CurrentCustomerName", customerName);
                         command.Parameters.AddWithValue("@CurrentCustomerQueNumber", customerQueNumber);
+                        command.Parameters.AddWithValue("@CurrentCustomerTransactionID", transactionID);
                         command.ExecuteNonQuery();
                     }
                 }
                 else if (UpdatedServiceStatus == "Cancelled")
                 {
                     string updateQuery1 = "UPDATE servicehistory SET ServiceStatus = @ServiceStatus, ServiceEnd = @ServiceEnd, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber AND ServiceID = @ServiceID";
-                    string updateQuery2 = "UPDATE systemusers SET Availability = 'Available', CurrentCustomerName = '', CurrentCustomerQueNumber = '' WHERE EmployeeID = @EmployeeID";
+                    string updateQuery2 = "UPDATE systemusers SET Availability = 'Available', CurrentCustomerName = '', CurrentCustomerQueNumber = '', CurrentCustomerTransactionID = '' WHERE EmployeeID = @EmployeeID";
                     string updateQuery3 = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
                     string updateQuery4 = "UPDATE appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
 
