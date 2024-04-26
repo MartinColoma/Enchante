@@ -175,6 +175,12 @@
     <Compile Include="QueueUserControl.Designer.cs">
       <DependentUpon>QueueUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ServicesUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ServicesUserControl.Designer.cs">
+      <DependentUpon>ServicesUserControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Enchante.resx">
       <DependentUpon>Enchante.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QueueUserControl.resx">
       <DependentUpon>QueueUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServicesUserControl.resx">
+      <DependentUpon>ServicesUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
