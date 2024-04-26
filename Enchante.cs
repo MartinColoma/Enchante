@@ -934,6 +934,13 @@ namespace Enchante
                 StaffUserAccPanel.Visible = false;
                 AdminUserAccPanel.Visible = false;
 
+                RecWalkinTransactionClear();
+                WalkinTabs.SelectedIndex = 0;
+                RecApptTransactionClear();
+                ApptTabs.SelectedIndex = 0;
+                RecShopProdTransactionClear();
+
+
                 RecTransTimer.Stop();
                 RecQueTimer.Stop();
             }
@@ -970,6 +977,8 @@ namespace Enchante
 
         private void RecWalkInBtn_Click(object sender, EventArgs e)
         {
+            RecApptTransactionClear(); 
+            RecShopProdTransactionClear();
             InitialWalkinTransColor();
             RecWalkinBdayMaxDate();
             serviceappointment = false;
@@ -1161,6 +1170,8 @@ namespace Enchante
         //ApptMember
         private void RecAppointmentBtn_Click(object sender, EventArgs e)
         {
+            RecWalkinTransactionClear();
+            RecShopProdTransactionClear();
             ApptTransColor();
             RecApptBookingTimeComboBox.Items.Clear();
             LoadBookingTimes();
@@ -1700,9 +1711,9 @@ namespace Enchante
             }
             else
             {
+                RecWalkinOrderProdHistoryDB(RecWalkinSelectedProdDGV);
                 RecWalkinServiceHistoryDB(RecWalkinSelectedServiceDGV); //service history db
                 ReceptionistWalk_in_AppointmentDB(); //walk-in transaction db
-                RecWalkinOrderProdHistoryDB(RecWalkinSelectedProdDGV);
                 RecWalkinTransactNumRefresh();
                 WalkinTabs.SelectedIndex = 0;
                 RecWalkinTransactionClear();
@@ -1715,7 +1726,12 @@ namespace Enchante
             RecWalkinLNameText.Text = "";
             RecWalkinCPNumText.Text = "";
             RecWalkinAgeBox.Text = "";
+            RecWalkinCatHSRB.Visible = false;
             RecWalkinCatHSRB.Checked = false;
+            RecWalkinCatFSRB.Visible = false;
+            RecWalkinCatNCRB.Visible = false;
+            RecWalkinCatSpaRB.Visible = false;
+            RecWalkinCatMassageRB.Visible = false;
             RecWalkinCatFSRB.Checked = false;
             RecWalkinCatNCRB.Checked = false;
             RecWalkinCatSpaRB.Checked = false;
@@ -3279,85 +3295,7 @@ namespace Enchante
             return true;
         }
 
-        private bool RecPayServiceUpdateApptDB()
-        {
-            // cash values
-            string netAmount = RecPayServiceNetAmountBox.Text; // net amount
-            string vat = RecPayServiceVATBox.Text; // vat 
-            string discount = RecPayServiceWalkinDiscountBox.Text; // discount
-            string grossAmount = RecPayServiceGrossAmountBox.Text; // gross amount
-            string cash = RecPayServiceCashBox.Text; // cash given
-            string change = RecPayServiceChangeBox.Text; // due change
-            string paymentMethod = "Cash"; // payment method
-            string mngr = RecNameLbl.Text;
-            string transactNum = RecPayServiceWalkinTransactNumLbl.Text;
-
-            // bank & wallet details
-
-
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-                {
-                    connection.Open();
-                    if (grossAmount == "0.00")
-                    {
-                        MessageBox.Show("Please select a transaction to pay.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return false;
-                    }
-                    else if (string.IsNullOrWhiteSpace(cash))
-                    {
-                        MessageBox.Show("Please enter a cash amount.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return false;
-                    }
-                    else if (!IsNumeric(cash))
-                    {
-                        MessageBox.Show("Cash amount must be in numbers only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return false;
-                    }
-                    else if (Convert.ToDecimal(cash) < Convert.ToDecimal(grossAmount))
-                    {
-                        MessageBox.Show("Insufficient amount. Please provide enough cash to cover the transaction.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return false;
-                    }
-                    else
-                    {
-                        //appointment transactions
-                        string cashPaymentAppt = "UPDATE appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
-                                            "GrossAmount = @gross, CashGiven = @cash, DueChange = @change, PaymentMethod = @payment, CheckedOutBy = @mngr " +
-                                            "WHERE TransactionNumber = @transactNum"; // cash query
-                        MySqlCommand cmd2 = new MySqlCommand(cashPaymentAppt, connection);
-                        cmd2.Parameters.AddWithValue("@status", "Paid");
-                        cmd2.Parameters.AddWithValue("@net", netAmount);
-                        cmd2.Parameters.AddWithValue("@vat", vat);
-                        cmd2.Parameters.AddWithValue("@discount", discount);
-                        cmd2.Parameters.AddWithValue("@gross", grossAmount);
-                        cmd2.Parameters.AddWithValue("@cash", cash);
-                        cmd2.Parameters.AddWithValue("@change", change);
-                        cmd2.Parameters.AddWithValue("@payment", paymentMethod);
-                        cmd2.Parameters.AddWithValue("@mngr", mngr);
-                        cmd2.Parameters.AddWithValue("@transactNum", transactNum);
-
-                        cmd2.ExecuteNonQuery();
-                        // Successful update
-                        MessageBox.Show("Service successfully been paid through cash.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    }
-                }
-            }
-            catch (MySqlException ex)
-            {
-                // Handle MySQL database exception
-                MessageBox.Show("An error occurred: " + ex.Message, "Manager payment transaction failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false; // Return false in case of an exception
-            }
-            finally
-            {
-                // Make sure to close the connection
-                connection.Close();
-            }
-            return true;
-        }
+        
 
         private void RecPayServicePaymentButton_Click(object sender, EventArgs e)
         {
@@ -4562,6 +4500,7 @@ namespace Enchante
         }
 
 
+
        
 
         //ApptMember
@@ -4574,11 +4513,13 @@ namespace Enchante
                 MessageBox.Show("Please select a prefered staff or toggle anyone ", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (RecApptBookingTimeComboBox.SelectedIndex == 0 || RecApptBookingTimeComboBox.SelectedItem == null || RecApptBookingTimeComboBox.SelectedItem.ToString() == "Cutoff Time")
-            {
-                MessageBox.Show("Please select a booking time", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
+            //if (RecApptBookingTimeComboBox.SelectedItem == null || RecApptBookingTimeComboBox.SelectedItem.ToString() == "Cutoff Time"
+            //    || RecApptBookingTimeComboBox.SelectedItem.ToString() == "Select a booking time")
+            //{
+            //    MessageBox.Show("Please select a booking time", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    return;
+            //}
+
 
 
             string SelectedCategory = serviceCategory;
@@ -5315,6 +5256,11 @@ namespace Enchante
             RecApptFNameText.Text = "";
             RecApptLNameText.Text = "";
             RecApptCPNumText.Text = "";
+            RecApptCatHSRB.Visible = false;
+            RecApptCatFSRB.Visible = false;
+            RecApptCatNCRB.Visible = false;
+            RecApptCatSpaRB.Visible = false;
+            RecApptCatMassRB.Visible = false;
             RecApptCatHSRB.Checked = false;
             RecApptCatFSRB.Checked = false;
             RecApptCatNCRB.Checked = false;
@@ -5328,6 +5274,10 @@ namespace Enchante
             RecApptPreferredStaffToggleSwitch.Checked = false;
             RecApptAnyStaffToggleSwitch.Checked = false;
             isappointment = false;
+            RecAppTotalText.Text = "0.00";
+            RecApptInitialFeeText.Text = "0.00";
+            RecApptCashText.Text = "0.00";
+            RecApptChangeText.Text = "0.00";
         }
 
         //ApptMember
@@ -5354,114 +5304,66 @@ namespace Enchante
 
             // Clear existing items in the ComboBox
             RecApptBookingTimeComboBox.Items.Clear();
+            RecApptBookingTimeComboBox.Items.Add("Select a booking time");
 
-            if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay > new TimeSpan(14, 3, 0))  // Check if the selected date is today and if it's past 3 PM
+            bool cutoffTimeAdded = false; // Flag to track if "Cutoff Time" has been added
+
+            if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay > new TimeSpan(14, 30, 0))  // Check if the selected date is today and if it's past 2:30 PM
             {
-                // Add "Cutoff Time" to ComboBox and disable it
+                // Add "Cutoff Time" to ComboBox
                 RecApptBookingTimeComboBox.Items.Add("Cutoff Time");
-
-                RecApptBookingTimeComboBox.Enabled = false;
-                return;
+                cutoffTimeAdded = true;
             }
-            else if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay >= new TimeSpan(08, 0, 0))
-            {
-                RecApptBookingTimeComboBox.Items.Remove("08:00 am");
 
-                return;
-            }
-            else if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay >= new TimeSpan(08, 3, 0))
+            // Add regular booking times for the selected date and service category
+            foreach (string time in bookingTimes) // Skip the first item "Select a booking time"  bookingTimes.Skip(1)
             {
-                RecApptBookingTimeComboBox.Items.Remove("08:30 am");
-
-                return;
-            }
-            else if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay >= new TimeSpan(09, 0, 0))
-            {
-                RecApptBookingTimeComboBox.Items.Remove("09:00 am");
-
-                return;
-            }
-            else if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay >= new TimeSpan(09, 3, 0))
-            {
-                RecApptBookingTimeComboBox.Items.Remove("09:30 am");
-
-                return;
-            }
-            else if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay >= new TimeSpan(10, 0, 0))
-            {
-                RecApptBookingTimeComboBox.Items.Remove("10:00 am");
-
-                return;
-            }
-            else if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay >= new TimeSpan(10, 3, 0))
-            {
-                RecApptBookingTimeComboBox.Items.Remove("10:30 am");
-
-                return;
-            }
-            else if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay >= new TimeSpan(11, 0, 0))
-            {
-                RecApptBookingTimeComboBox.Items.Remove("11:00 am");
-
-                return;
-            }
-            else if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay >= new TimeSpan(11, 3, 0))
-            {
-                RecApptBookingTimeComboBox.Items.Remove("11:30 am");
-
-                return;
-            }
-            else if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay >= new TimeSpan(13, 0, 0))
-            {
-                RecApptBookingTimeComboBox.Items.Remove("01:00 pm");
-
-                return;
-            }
-            else if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay >= new TimeSpan(13, 3, 0))
-            {
-                RecApptBookingTimeComboBox.Items.Remove("01:30 pm");
-
-                return;
-            }
-            else if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay >= new TimeSpan(14, 0, 0))
-            {
-                RecApptBookingTimeComboBox.Items.Remove("02:00 pm");
-
-                return;
-            }
-            else
-            {
-                // Add regular booking times for the selected date and service category
-                foreach (string time in bookingTimes)
+                DateTime bookingDateTime;
+                if (DateTime.TryParseExact(time, "hh:mm tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out bookingDateTime))
                 {
-                    // Add the time to the ComboBox
-                    RecApptBookingTimeComboBox.Items.Add(time);
-                    RecApptBookingTimeComboBox.SelectedIndex = 0;
+                    // Combine the date part from selectedDate with the time part from bookingDateTime
+                    DateTime combinedDateTime = selectedDate.Date.Add(bookingDateTime.TimeOfDay);
 
-                }
-
-                // Remove booked times beyond the limit
-                Dictionary<string, int> timeCount = new Dictionary<string, int>();
-                foreach (string time in matchingTimes)
-                {
-                    if (!timeCount.ContainsKey(time))
+                    // Check if the combinedDateTime is in the past
+                    if (DateTime.Now >= combinedDateTime)
                     {
-                        timeCount[time] = 0;
-                    }
-                    timeCount[time]++;
-                }
-
-                foreach (var pair in timeCount)
-                {
-                    if (pair.Value >= 3)
-                    {
-                        RecApptBookingTimeComboBox.Items.Remove(pair.Key);
+                        continue; // Skip this time if it's in the past
                     }
                 }
-
-                RecApptBookingTimeComboBox.Enabled = true;
+                else
+                {
+                    // If parsing fails, log an error or handle it accordingly
+                    Console.WriteLine($"Failed to parse time: {time}");
+                    continue;
+                }
+                RecApptBookingTimeComboBox.Items.Add("Select a booking time");
+                RecApptBookingTimeComboBox.Items.Add(time);
             }
+
+            // Remove booked times beyond the limit
+            Dictionary<string, int> timeCount = new Dictionary<string, int>();
+            foreach (string time in matchingTimes)
+            {
+                if (!timeCount.ContainsKey(time))
+                {
+                    timeCount[time] = 0;
+                }
+                timeCount[time]++;
+            }
+
+            foreach (var pair in timeCount)
+            {
+                if (pair.Value >= 3)
+                {
+                    RecApptBookingTimeComboBox.Items.Remove(pair.Key);
+                }
+            }
+
+            // Disable the ComboBox if "Cutoff Time" is added
+            RecApptBookingTimeComboBox.Enabled = !cutoffTimeAdded;
         }
+
+
 
         //ApptMember
         private List<string> RetrieveMatchingAppointmentTimes(string selectedDate, string serviceCategory)
@@ -5721,6 +5623,8 @@ namespace Enchante
         }
         private void RecShopProdBtn_Click(object sender, EventArgs e)
         {
+            RecWalkinTransactionClear();
+            RecApptTransactionClear();
             ShopProdTransColor();
             RecShopProdProductFlowLayoutPanel.Controls.Clear();
             product = true;
@@ -6002,10 +5906,10 @@ namespace Enchante
                 RecShopProdUpdateQtyInventory(RecShopProdSelectedProdDGV);
                 RecShopProdOrderProdHistoryDB(RecShopProdSelectedProdDGV);
                 RecShopProdInvoiceReceiptGenerator();
-                RecShopProdClearAllField();
+                RecShopProdTransactionClear();
             }
         }
-        private void RecShopProdClearAllField()
+        private void RecShopProdTransactionClear()
         {
 
             RecShopProdNetAmountBox.Text = "0.00";
@@ -13599,6 +13503,17 @@ namespace Enchante
             }
             else
             {
+                filterstaffbyservicecategory = "Hair Styling";
+                ServicesFlowLayoutPanel.Controls.Clear();
+                InitializeServices(filterstaffbyservicecategory);
+                serviceappointment = false;
+                haschosenacategory = true;
+                if (RecWalkinPreferredStaffToggleSwitch.Checked == true)
+                {
+                    RecWalkinAttendingStaffSelectedComboBox.Items.Clear();
+                    LoadPreferredStaffComboBox();
+                }
+                RecWalkinHairStyle();
                 WalkinTabs.SelectedIndex = 1;
             }
         }
@@ -13752,24 +13667,19 @@ namespace Enchante
 
         private void RecApptServiceNextBtn_Click(object sender, EventArgs e)
         {
-            DateTime selectedDate = RecApptBookingDatePicker.Value.Date;
-            DateTime currentDate = DateTime.Today;
-            if (RecApptBookingTimeComboBox.SelectedItem == null || RecApptBookingTimeComboBox.SelectedIndex == 0)
-            {
-                MessageBox.Show("Please select a booking time.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (RecApptPreferredStaffToggleSwitch.Checked && RecApptAvailableAttendingStaffSelectedComboBox.Text == "Select a Preferred Staff")
+            if (RecApptPreferredStaffToggleSwitch.Checked && RecApptAvailableAttendingStaffSelectedComboBox.Text == "Select a Preferred Staff")
             {
                 MessageBox.Show("Please select client's preferred staff.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
+                // Proceed to the next step
                 ApptTabs.SelectedIndex = 2;
                 RecApptCashText.Text = "";
                 RecApptCashText.Focus();
             }
-
         }
+
 
         private void RecApptAcqServicePrevBtn_Click(object sender, EventArgs e)
         {
@@ -14222,6 +14132,15 @@ namespace Enchante
             RecEmplTypeLbl.Text = "";
             ReceptionLogoutBtn.Visible = true;
             RecOverrideBackBtn.Visible = false;
+            RecWalkinTransactionClear();
+            WalkinTabs.SelectedIndex = 0;
+            RecApptTransactionClear();
+            ApptTabs.SelectedIndex = 0;
+            RecShopProdTransactionClear();
+
+
+            RecTransTimer.Stop();
+            RecQueTimer.Stop();
         }
 
         private void tabPage2_Click(object sender, EventArgs e)
@@ -14239,7 +14158,85 @@ namespace Enchante
 
             }
         }
+        private bool RecPayServiceUpdateApptDB()
+        {
+            // cash values
+            string netAmount = RecPayServiceNetAmountBox.Text; // net amount
+            string vat = RecPayServiceVATBox.Text; // vat 
+            string discount = RecPayServiceWalkinDiscountBox.Text; // discount
+            string grossAmount = RecPayServiceGrossAmountBox.Text; // gross amount
+            string cash = RecPayServiceCashBox.Text; // cash given
+            string change = RecPayServiceChangeBox.Text; // due change
+            string paymentMethod = "Cash"; // payment method
+            string mngr = RecNameLbl.Text;
+            string transactNum = RecPayServiceWalkinTransactNumLbl.Text;
 
+            // bank & wallet details
+
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+                    if (grossAmount == "0.00")
+                    {
+                        MessageBox.Show("Please select a transaction to pay.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    else if (string.IsNullOrWhiteSpace(cash))
+                    {
+                        MessageBox.Show("Please enter a cash amount.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    else if (!IsNumeric(cash))
+                    {
+                        MessageBox.Show("Cash amount must be in numbers only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    else if (Convert.ToDecimal(cash) < Convert.ToDecimal(grossAmount))
+                    {
+                        MessageBox.Show("Insufficient amount. Please provide enough cash to cover the transaction.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    else
+                    {
+                        //appointment transactions
+                        string cashPaymentAppt = "UPDATE appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
+                                            "GrossAmount = @gross, CashGiven = @cash, DueChange = @change, PaymentMethod = @payment, CheckedOutBy = @mngr " +
+                                            "WHERE TransactionNumber = @transactNum"; // cash query
+                        MySqlCommand cmd2 = new MySqlCommand(cashPaymentAppt, connection);
+                        cmd2.Parameters.AddWithValue("@status", "Paid");
+                        cmd2.Parameters.AddWithValue("@net", netAmount);
+                        cmd2.Parameters.AddWithValue("@vat", vat);
+                        cmd2.Parameters.AddWithValue("@discount", discount);
+                        cmd2.Parameters.AddWithValue("@gross", grossAmount);
+                        cmd2.Parameters.AddWithValue("@cash", cash);
+                        cmd2.Parameters.AddWithValue("@change", change);
+                        cmd2.Parameters.AddWithValue("@payment", paymentMethod);
+                        cmd2.Parameters.AddWithValue("@mngr", mngr);
+                        cmd2.Parameters.AddWithValue("@transactNum", transactNum);
+
+                        cmd2.ExecuteNonQuery();
+                        // Successful update
+                        MessageBox.Show("Service successfully been paid through cash.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                // Handle MySQL database exception
+                MessageBox.Show("An error occurred: " + ex.Message, "Manager payment transaction failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false; // Return false in case of an exception
+            }
+            finally
+            {
+                // Make sure to close the connection
+                connection.Close();
+            }
+            return true;
+        }
         private void RecBtnHolderFlowPanel_Paint(object sender, PaintEventArgs e)
         {
 
