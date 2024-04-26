@@ -920,9 +920,7 @@ namespace Enchante
             if (result == DialogResult.Yes)
             {
                 ParentPanelShow.PanelShow(EnchanteHomePage);
-                RecQueStartGenQuePanel.Controls.Clear();
-                RecQueStartPrefQuePanel.Controls.Clear();
-                RecQueStartPrioQuePanel.Controls.Clear();
+                RecQueueStartPanel.Controls.Clear();
                 RecApptAcceptLateDeclineDGV.Rows.Clear();
                 membercategory = "";
                 StaffIDNumLbl.Text = string.Empty;
@@ -11801,54 +11799,20 @@ namespace Enchante
         {
             if (e.RowIndex >= 0) // Make sure a valid row index is clicked
             {
-                preferredsmallestquenumber = 0;
-                generalsmallestquenumber = 0;
                 DataGridViewRow selectedRow = RecQueStartStaffDGV.Rows[e.RowIndex];
                 selectedmembercategory = selectedRow.Cells["StaffCategory"].Value.ToString();
                 selectedstaffemployeeid = selectedRow.Cells["StaffEmployeeID"].Value.ToString();
                 CurrentStaffID = selectedstaffemployeeid;
-                RecQueStartGenQuePanel.Controls.Clear();
-                RecQueStartPrefQuePanel.Controls.Clear();
-                RecQueStartPrioQuePanel.Controls.Clear();
-                InitializePriorityPendingCustomersForStaff();
-                InitializeGeneralCuePendingCustomersForStaff();
-                InitializePreferredCuePendingCustomersForStaff();
+                RecQueueStartPanel.Controls.Clear();
+                InitializeGeneralPendingCustomersForStaff();
                 RefreshFlowLayoutPanel();
             }
         }
 
         public void RefreshFlowLayoutPanel()
         {
-            foreach (System.Windows.Forms.Control control in RecQueStartGenQuePanel.Controls)
-            {
-                if (control is QueueUserControl userControl &&
-                    userControl.StaffCustomerServiceStatusTextBox.Text == "In Session")
-                {
-                    return;
-                }
-            }
-            RecQueStartGenQuePanel.Controls.Clear();
-            RecQueStartPrefQuePanel.Controls.Clear();
-            RecQueStartPrioQuePanel.Controls.Clear();
-            InitializePriorityPendingCustomersForStaff();
-            InitializeGeneralCuePendingCustomersForStaff();
-            InitializePreferredCuePendingCustomersForStaff();
-
-
-            bool hasNoCustomerControl = RecQueStartGenQuePanel.Controls.OfType<NoCustomerInQueueUserControl>().Any()
-               || RecQueStartPrefQuePanel.Controls.OfType<NoCustomerInQueueUserControl>().Any();
-
-            if (!hasNoCustomerControl)
-            {
-                List<PendingCustomers> generalquependingcustomers = RetrieveGeneralQuePendingCustomersFromDB();
-                int smallestQueNumber2 = generalsmallestquenumber;
-                UpdateStartServiceButtonStatusGeneral(generalquependingcustomers, smallestQueNumber2);
-
-                List<PendingCustomers> preferredquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
-                int smallestQueNumber = preferredsmallestquenumber;
-                UpdateStartServiceButtonStatusPreferred(preferredquependingcustomers, smallestQueNumber);
-            }
-
+            RecQueueStartPanel.Controls.Clear();
+            InitializeGeneralPendingCustomersForStaff();
         }
 
         private void AvailableCustomersUserControl_StartServiceButtonClicked(object sender, EventArgs e)
@@ -11868,7 +11832,8 @@ namespace Enchante
             QueueUserControl clickedUserControl = (QueueUserControl)sender;
         }
 
-        public class PendingCustomers
+
+        public class GeneralPendingCustomers
         {
             public string TransactionNumber { get; set; }
             public string ClientName { get; set; }
@@ -11879,235 +11844,12 @@ namespace Enchante
             public string QueNumber { get; set; }
         }
 
-        public int generalsmallestquenumber;
-
-        protected void InitializeGeneralCuePendingCustomersForStaff()
-        {
-            List<PendingCustomers> generalquependingcustomers = RetrieveGeneralQuePendingCustomersFromDB();
-
-            if (generalquependingcustomers.Count == 0)
-            {
-                NoCustomerInQueueUserControl nocustomerusercontrol = new NoCustomerInQueueUserControl();
-                RecQueStartGenQuePanel.Controls.Add(nocustomerusercontrol);
-
-                List<PendingCustomers> preferredquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
-                int smallestQueNumber = int.MaxValue;
-
-                foreach (PendingCustomers customer in preferredquependingcustomers)
-                {
-                    QueueUserControl customer2 = new QueueUserControl(this);
-                    string queNumberText = customer2.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText, out int queNumber))
-                    {
-                        if (queNumber < smallestQueNumber)
-                        {
-                            preferredsmallestquenumber = queNumber;
-                        }
-                    }
-                }
-                return;
-            }
-
-            int smallestQueNumber2 = int.MaxValue;
-
-            foreach (PendingCustomers customer in generalquependingcustomers)
-            {
-                QueueUserControl availablecustomersusercontrol = new QueueUserControl(this);
-                availablecustomersusercontrol.AvailableCustomerSetData(customer);
-                // usercontrol click event add
-                availablecustomersusercontrol.QueueUserControl_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
-                // add event on elements
-                availablecustomersusercontrol.StaffQueNumberTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
-                availablecustomersusercontrol.StaffCustomerNameTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
-                availablecustomersusercontrol.StaffElapsedTimeTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
-                availablecustomersusercontrol.StaffTransactionIDTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
-
-                availablecustomersusercontrol.StaffCancelServiceBtnClicked += AvailableCustomerUserControl_CancelServiceButtonClicked;
-                availablecustomersusercontrol.StaffQueTypeTextBox.Visible = false;
-                RecQueStartGenQuePanel.Controls.Add(availablecustomersusercontrol);
-                availablecustomersusercontrol.CurrentStaffID = selectedstaffemployeeid;
-
-                string queNumberText = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
-                if (int.TryParse(queNumberText, out int queNumber))
-                {
-                    if (queNumber < smallestQueNumber2)
-                    {
-                        smallestQueNumber2 = queNumber;
-                    }
-                }
-            }
-
-            UpdateStartServiceButtonStatusGeneral(generalquependingcustomers, smallestQueNumber2);
-            generalsmallestquenumber = smallestQueNumber2;
-        }
-
-        private List<PendingCustomers> RetrieveGeneralQuePendingCustomersFromDB()
-        {
-            DateTime currentDate = DateTime.Today;
-            string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
-            List<PendingCustomers> result = new List<PendingCustomers>();
-
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-            {
-                try
-                {
-                    connection.Open();
-
-                    string generalquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber, sh.QueType 
-                                                     FROM servicehistory sh 
-                                                     INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber 
-                                                     WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')
-                                                     AND sh.ServiceCategory = @membercategory 
-                                                     AND sh.QueType = 'GeneralQue' 
-                                                     AND (wa.ServiceStatus = 'Pending' OR wa.ServiceStatus = 'Pending Paid')
-                                                     AND sh.AppointmentDate = @datetoday";
-
-                    string generalquependingcustomersquery2 = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber, sh.QueType
-                                                     FROM servicehistory sh 
-                                                     INNER JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber 
-                                                     WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')
-                                                     AND sh.ServiceCategory = @membercategory 
-                                                     AND sh.QueType = 'GeneralQue' 
-                                                     AND (app.ServiceStatus = 'Pending' OR app.ServiceStatus = 'Pending Paid')
-                                                     AND sh.AppointmentDate = @datetoday";
-
-                    MySqlCommand command = new MySqlCommand(generalquependingcustomersquery, connection);
-                    command.Parameters.AddWithValue("@membercategory", selectedmembercategory);
-                    command.Parameters.AddWithValue("@datetoday", datetoday);
-
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            PendingCustomers generalquependingcustomers = new PendingCustomers
-                            {
-                                TransactionNumber = reader["TransactionNumber"] as string,
-                                ClientName = reader["ClientName"] as string,
-                                ServiceStatus = reader["ServiceStatus"] as string,
-                                ServiceName = reader["SelectedService"] as string,
-                                ServiceID = reader["ServiceID"] as string,
-                                QueType = reader["QueType"] as string,
-                                QueNumber = reader["QueNumber"] as string
-                            };
-
-                            result.Add(generalquependingcustomers);
-                        }
-                    }
-
-                    MySqlCommand command2 = new MySqlCommand(generalquependingcustomersquery2, connection);
-                    command2.Parameters.AddWithValue("@membercategory", selectedmembercategory);
-                    command2.Parameters.AddWithValue("@datetoday", datetoday);
-
-                    using (MySqlDataReader reader = command2.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            PendingCustomers generalquependingcustomers = new PendingCustomers
-                            {
-                                TransactionNumber = reader["TransactionNumber"] as string,
-                                ClientName = reader["ClientName"] as string,
-                                ServiceStatus = reader["ServiceStatus"] as string,
-                                ServiceName = reader["SelectedService"] as string,
-                                ServiceID = reader["ServiceID"] as string,
-                                QueType = reader["QueType"] as string,
-                                QueNumber = reader["QueNumber"] as string
-                            };
-
-                            result.Add(generalquependingcustomers);
-                        }
-                    }
-                    if (result.Count == 0)
-                    {
-                        //MessageBox.Show("No customers in the queue.", "Empty Queue", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("An error occurred: " + ex.Message);
-                }
-            }
-
-            return result;
-        }
-
-        private void UpdateStartServiceButtonStatusGeneral(List<PendingCustomers> generalquependingcustomers, int smallestQueNumber)
-        {
-            if (RecQueStartPrefQuePanel.Controls.Count > 0 && !RecQueStartPrefQuePanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (QueueUserControl userControl in RecQueStartPrefQuePanel.Controls)
-                {
-                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText, out int queNumber))
-                    {
-                        if (queNumber < smallestQueNumber)
-                        {
-                            smallestQueNumber = queNumber;
-                        }
-                    }
-                }
-            }
-
-            if (RecQueStartGenQuePanel.Controls.Count > 0 && !RecQueStartGenQuePanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (QueueUserControl userControl in RecQueStartGenQuePanel.Controls)
-                {
-                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText, out int queNumber))
-                    {
-                        if (queNumber < smallestQueNumber)
-                        {
-                            smallestQueNumber = queNumber;
-                        }
-                    }
-                }
-            }
-
-            if (generalquependingcustomers.Count > 0 && !RecQueStartGenQuePanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (QueueUserControl userControl in RecQueStartGenQuePanel.Controls)
-                {
-                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText, out int queNumber))
-                    {
-                        if (queNumber == smallestQueNumber)
-                        {
-                            userControl.Enabled = true;
-                        }
-                        else
-                        {
-                            userControl.Enabled = false;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                foreach (System.Windows.Forms.Control control in RecQueStartGenQuePanel.Controls)
-                {
-                    if (control is QueueUserControl userControl)
-                    {
-                        userControl.Enabled = false;
-                    }
-                }
-            }
-            if (RecQueStartPrioQuePanel.Controls.Count > 0 && !RecQueStartPrioQuePanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (System.Windows.Forms.Control control in RecQueStartGenQuePanel.Controls)
-                {
-                    if (control is QueueUserControl userControl)
-                    {
-                        userControl.Enabled = false;
-                    }
-                }
-            }
-        }
-
-        private List<PendingCustomers> RetrievePreferredQuePendingCustomersFromDB()
+        private List<GeneralPendingCustomers> RetrieveGeneralPendingCustomersFromDB()
         {
             string staffID = selectedstaffemployeeid;
             DateTime currentDate = DateTime.Today;
             string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
-            List<PendingCustomers> result = new List<PendingCustomers>();
+            List<GeneralPendingCustomers> result = new List<GeneralPendingCustomers>();
 
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
             {
@@ -12115,244 +11857,17 @@ namespace Enchante
                 {
                     connection.Open();
 
-                    string preferredquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber, sh.QueType
-                       FROM servicehistory sh INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber
-                       WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid') AND sh.ServiceCategory = @membercategory AND sh.PreferredStaff = @preferredstaff AND (wa.ServiceStatus = 'Pending' OR wa.ServiceStatus = 'Pending Paid') AND sh.AppointmentDate = @datetoday";
+                    string generalpendingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber, sh.QueType 
+                                         FROM servicehistory sh 
+                                         LEFT JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber 
+                                         WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')
+                                         AND sh.ServiceCategory = @membercategory 
+                                         AND (sh.QueType = 'GeneralQue' OR sh.PreferredStaff = @preferredstaff)
+                                         AND (app.ServiceStatus IS NULL OR app.ServiceStatus = 'Pending' OR app.ServiceStatus = 'Pending Paid')
+                                         AND (app.AppointmentStatus IS NULL OR app.AppointmentStatus = 'Confirmed')
+                                         AND sh.AppointmentDate = @datetoday";
 
-
-                    string preferredquependingcustomersquery2 = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber, sh.QueType
-                       FROM servicehistory sh INNER JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber
-                       WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')  AND sh.QueType = 'Preferred' AND sh.ServiceCategory = @membercategory AND sh.PreferredStaff = @preferredstaff AND (app.ServiceStatus = 'Pending' OR app.ServiceStatus = 'Pending Paid') AND sh.AppointmentDate = @datetoday";
-
-                    MySqlCommand command = new MySqlCommand(preferredquependingcustomersquery, connection);
-                    command.Parameters.AddWithValue("@membercategory", selectedmembercategory);
-                    command.Parameters.AddWithValue("@preferredstaff", staffID);
-                    command.Parameters.AddWithValue("@datetoday", datetoday);
-
-                    MySqlCommand command2 = new MySqlCommand(preferredquependingcustomersquery2, connection);
-                    command2.Parameters.AddWithValue("@membercategory", selectedmembercategory);
-                    command2.Parameters.AddWithValue("@preferredstaff", staffID);
-                    command2.Parameters.AddWithValue("@datetoday", datetoday);
-
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            PendingCustomers preferredquependingcustomers = new PendingCustomers
-                            {
-                                TransactionNumber = reader.IsDBNull(reader.GetOrdinal("TransactionNumber")) ? string.Empty : reader.GetString("TransactionNumber"),
-                                ClientName = reader.IsDBNull(reader.GetOrdinal("ClientName")) ? string.Empty : reader.GetString("ClientName"),
-                                ServiceStatus = reader.IsDBNull(reader.GetOrdinal("ServiceStatus")) ? string.Empty : reader.GetString("ServiceStatus"),
-                                ServiceName = reader.IsDBNull(reader.GetOrdinal("SelectedService")) ? string.Empty : reader.GetString("SelectedService"),
-                                ServiceID = reader.IsDBNull(reader.GetOrdinal("ServiceID")) ? string.Empty : reader.GetString("ServiceID"),
-                                QueType = reader.IsDBNull(reader.GetOrdinal("QueType")) ? string.Empty : reader.GetString("QueType"),
-                                QueNumber = reader.IsDBNull(reader.GetOrdinal("QueNumber")) ? string.Empty : reader.GetString("QueNumber")
-                            };
-
-                            result.Add(preferredquependingcustomers);
-                        }
-                    }
-
-                    using (MySqlDataReader reader = command2.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            PendingCustomers preferredquependingcustomers = new PendingCustomers
-                            {
-                                TransactionNumber = reader.IsDBNull(reader.GetOrdinal("TransactionNumber")) ? string.Empty : reader.GetString("TransactionNumber"),
-                                ClientName = reader.IsDBNull(reader.GetOrdinal("ClientName")) ? string.Empty : reader.GetString("ClientName"),
-                                ServiceStatus = reader.IsDBNull(reader.GetOrdinal("ServiceStatus")) ? string.Empty : reader.GetString("ServiceStatus"),
-                                ServiceName = reader.IsDBNull(reader.GetOrdinal("SelectedService")) ? string.Empty : reader.GetString("SelectedService"),
-                                ServiceID = reader.IsDBNull(reader.GetOrdinal("ServiceID")) ? string.Empty : reader.GetString("ServiceID"),
-                                QueType = reader.IsDBNull(reader.GetOrdinal("QueType")) ? string.Empty : reader.GetString("QueType"),
-                                QueNumber = reader.IsDBNull(reader.GetOrdinal("QueNumber")) ? string.Empty : reader.GetString("QueNumber")
-                            };
-
-                            result.Add(preferredquependingcustomers);
-                        }
-                    }
-
-                    if (result.Count == 0)
-                    {
-                        //MessageBox.Show("No customers in the preferred queue.", "Empty Queue", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("An error occurred: " + ex.Message);
-                }
-            }
-
-            return result;
-        }
-
-        public int preferredsmallestquenumber;
-
-        protected void InitializePreferredCuePendingCustomersForStaff()
-        {
-            List<PendingCustomers> preferredquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
-
-            if (preferredquependingcustomers.Count == 0)
-            {
-                NoCustomerInQueueUserControl nocustomerusercontrol = new NoCustomerInQueueUserControl();
-                RecQueStartPrefQuePanel.Controls.Add(nocustomerusercontrol);
-                generalsmallestquenumber = preferredsmallestquenumber;
-
-                List<PendingCustomers> generalquependingcustomers = RetrievePreferredQuePendingCustomersFromDB();
-                int smallestQueNumber3 = int.MaxValue;
-
-                foreach (PendingCustomers customer in generalquependingcustomers)
-                {
-                    QueueUserControl customer2 = new QueueUserControl(this);
-                    string queNumberText2 = customer2.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText2, out int queNumber2))
-                    {
-                        if (queNumber2 < smallestQueNumber3)
-                        {
-                            generalsmallestquenumber = queNumber2;
-                        }
-                    }
-                }
-                return;
-            }
-            int smallestQueNumber = int.MaxValue;
-
-            foreach (PendingCustomers customer in preferredquependingcustomers)
-            {
-                QueueUserControl availablecustomersusercontrol = new QueueUserControl(this);
-                availablecustomersusercontrol.AvailableCustomerSetData(customer);
-                // usercontrol click event add
-                availablecustomersusercontrol.QueueUserControl_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
-                // add event on elements
-                availablecustomersusercontrol.StaffQueNumberTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
-                availablecustomersusercontrol.StaffCustomerNameTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
-                availablecustomersusercontrol.StaffElapsedTimeTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
-                availablecustomersusercontrol.StaffTransactionIDTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
-
-                availablecustomersusercontrol.StaffCancelServiceBtnClicked += AvailableCustomerUserControl_CancelServiceButtonClicked;
-                availablecustomersusercontrol.StaffQueTypeTextBox.Visible = false;
-                RecQueStartPrefQuePanel.Controls.Add(availablecustomersusercontrol);
-                availablecustomersusercontrol.CurrentStaffID = selectedstaffemployeeid;
-
-                string queNumberText = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
-                if (int.TryParse(queNumberText, out int queNumber))
-                {
-                    if (queNumber < smallestQueNumber)
-                    {
-                        smallestQueNumber = queNumber;
-                    }
-                }
-            }
-            UpdateStartServiceButtonStatusPreferred(preferredquependingcustomers, smallestQueNumber);
-            preferredsmallestquenumber = smallestQueNumber;
-        }
-
-        private void UpdateStartServiceButtonStatusPreferred(List<PendingCustomers> preferredquependingcustomers, int smallestQueNumber)
-        {
-            if (RecQueStartGenQuePanel.Controls.Count > 0 && !RecQueStartGenQuePanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (QueueUserControl userControl in RecQueStartGenQuePanel.Controls)
-                {
-                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText, out int queNumber))
-                    {
-                        if (queNumber < smallestQueNumber)
-                        {
-                            smallestQueNumber = queNumber;
-                        }
-                    }
-                }
-            }
-            if (RecQueStartPrefQuePanel.Controls.Count > 0 && !RecQueStartPrefQuePanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (QueueUserControl userControl in RecQueStartPrefQuePanel.Controls)
-                {
-                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText, out int queNumber))
-                    {
-                        if (queNumber < smallestQueNumber)
-                        {
-                            smallestQueNumber = queNumber;
-                        }
-                    }
-                }
-            }
-
-            if (preferredquependingcustomers.Count > 0 && !RecQueStartPrefQuePanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (QueueUserControl userControl in RecQueStartPrefQuePanel.Controls)
-                {
-                    string queNumberText = userControl.StaffQueNumberTextBox.Text;
-                    if (int.TryParse(queNumberText, out int queNumber))
-                    {
-                        if (queNumber == smallestQueNumber)
-                        {
-                            userControl.Enabled = true;
-                        }
-                        else
-                        {
-                            userControl.Enabled = false;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                foreach (System.Windows.Forms.Control control in RecQueStartPrefQuePanel.Controls)
-                {
-                    if (control is QueueUserControl userControl)
-                    {
-                        userControl.Enabled = false;
-                    }
-                }
-            }
-            if (RecQueStartPrioQuePanel.Controls.Count > 0 && !RecQueStartPrioQuePanel.Controls.OfType<NoCustomerInQueueUserControl>().Any())
-            {
-                foreach (System.Windows.Forms.Control control in RecQueStartGenQuePanel.Controls)
-                {
-                    if (control is QueueUserControl userControl)
-                    {
-                        userControl.Enabled = false;
-                    }
-                }
-            }
-        }
-
-        public class PriorityPendingCustomers
-        {
-            public string TransactionNumber { get; set; }
-            public string ClientName { get; set; }
-            public string ServiceID { get; set; }
-            public string ServiceName { get; set; }
-            public string ServiceStatus { get; set; }
-            public string QueType { get; set; }
-            public string QueNumber { get; set; }
-        }
-
-        private List<PriorityPendingCustomers> RetrievePriorityGeneralAndPreferredQuePendingCustomersFromDB()
-        {
-            string staffID = selectedstaffemployeeid;
-            DateTime currentDate = DateTime.Today;
-            string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
-            List<PriorityPendingCustomers> result = new List<PriorityPendingCustomers>();
-
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-            {
-                try
-                {
-                    connection.Open();
-
-                    string priorityquependingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber, sh.QueType 
-                                                                 FROM servicehistory sh 
-                                                                 INNER JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber 
-                                                                 WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')
-                                                                 AND sh.ServiceCategory = @membercategory 
-                                                                 AND (sh.QueType = 'AnyonePriority' OR sh.QueType = 'AnyoneSPriority' OR sh.PreferredStaff = @preferredstaff)
-                                                                 AND (app.ServiceStatus = 'Pending' OR app.ServiceStatus = 'Pending Paid')
-                                                                 AND app.AppointmentStatus = 'Confirmed'
-                                                                 AND sh.AppointmentDate = @datetoday";
-
-                    MySqlCommand command = new MySqlCommand(priorityquependingcustomersquery, connection);
+                    MySqlCommand command = new MySqlCommand(generalpendingcustomersquery, connection);
                     command.Parameters.AddWithValue("@membercategory", selectedmembercategory);
                     command.Parameters.AddWithValue("@preferredstaff", staffID);
                     command.Parameters.AddWithValue("@datetoday", datetoday);
@@ -12361,7 +11876,7 @@ namespace Enchante
                     {
                         while (reader.Read())
                         {
-                            PriorityPendingCustomers priorityquependingcustomers = new PriorityPendingCustomers
+                            GeneralPendingCustomers generalpendingcustomers = new GeneralPendingCustomers
                             {
                                 TransactionNumber = reader["TransactionNumber"] as string,
                                 ClientName = reader["ClientName"] as string,
@@ -12372,7 +11887,7 @@ namespace Enchante
                                 QueNumber = reader["QueNumber"] as string
                             };
 
-                            result.Add(priorityquependingcustomers);
+                            result.Add(generalpendingcustomers);
                         }
                     }
                     if (result.Count == 0)
@@ -12389,16 +11904,16 @@ namespace Enchante
             return result;
         }
 
-        public int sprioritycount;
-        bool ThereIsSvip = false;
-        public void InitializePriorityPendingCustomersForStaff()
+        public int seniorcount;
+        public bool ThereIsSenior = false;
+        public void InitializeGeneralPendingCustomersForStaff()
         {
-            List<PriorityPendingCustomers> priorityqueuependingcustomers = RetrievePriorityGeneralAndPreferredQuePendingCustomersFromDB();
+            List<GeneralPendingCustomers> generalpendingcustomers = RetrieveGeneralPendingCustomersFromDB();
 
-            if (priorityqueuependingcustomers.Count == 0)
+            if (generalpendingcustomers.Count == 0)
             {
                 NoCustomerInQueueUserControl nocustomerusercontrol = new NoCustomerInQueueUserControl();
-                RecQueStartPrioQuePanel.Controls.Add(nocustomerusercontrol);
+                RecQueueStartPanel.Controls.Add(nocustomerusercontrol);
 
             }
 
@@ -12406,21 +11921,21 @@ namespace Enchante
             int smallestQueNumberAnyonePreferred = int.MaxValue;
 
 
-            foreach (PriorityPendingCustomers priocustomer in priorityqueuependingcustomers)
+            foreach (GeneralPendingCustomers customer in generalpendingcustomers)
             {
                 QueueUserControl availablecustomersusercontrol = new QueueUserControl(this);
-                availablecustomersusercontrol.AvailablePriorityCustomerSetData(priocustomer);
-
+                availablecustomersusercontrol.AvailableGeneralCustomerSetData(customer);
                 // usercontrol click event add
                 availablecustomersusercontrol.QueueUserControl_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
                 // add event on elements
                 availablecustomersusercontrol.StaffQueNumberTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
+                availablecustomersusercontrol.ExpandUserControlButton_Clicked += AvailableCustomersUserControl_ExpandCollapseButtonClicked;
                 availablecustomersusercontrol.StaffCustomerNameTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
                 availablecustomersusercontrol.StaffElapsedTimeTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
                 availablecustomersusercontrol.StaffTransactionIDTextBox_Clicked += AvailableCustomersUserControl_StartServiceButtonClicked;
 
                 availablecustomersusercontrol.StaffCancelServiceBtnClicked += AvailableCustomerUserControl_CancelServiceButtonClicked;
-                RecQueStartPrioQuePanel.Controls.Add(availablecustomersusercontrol);
+                RecQueueStartPanel.Controls.Add(availablecustomersusercontrol);
                 availablecustomersusercontrol.CurrentStaffID = selectedstaffemployeeid;
 
                 string queNumberText = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
@@ -12436,42 +11951,42 @@ namespace Enchante
                 string queNumberText2 = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
                 if (int.TryParse(queNumberText2, out int queNumber2))
                 {
-                    if (priocustomer.QueType == "AnyoneSPriority" || priocustomer.QueType == "PreferredSPriority")
+                    if (customer.QueType == "AnyoneSenior" || customer.QueType == "PreferredSenior")
                     {
                         if (queNumber2 < smallestQueNumberAnyonePreferred)
                         {
                             smallestQueNumberAnyonePreferred = queNumber2;
                         }
-                        ThereIsSvip = true;
-                        sprioritycount++;
+                        ThereIsSenior = true;
+                        seniorcount++;
                     }
 
                 }
             }
 
 
-            if (!ThereIsSvip && sprioritycount == 0)
+            if (!ThereIsSenior && seniorcount == 0)
             {
-                ThereIsSvip = false;
+                ThereIsSenior = false;
             }
-            UpdateStartServiceButtonStatusPriority(priorityqueuependingcustomers, smallestQueNumber2, smallestQueNumberAnyonePreferred);
+            UpdateStartServiceButtonStatusPriority(generalpendingcustomers, smallestQueNumber2, smallestQueNumberAnyonePreferred);
 
         }
 
-        private void UpdateStartServiceButtonStatusPriority(List<PriorityPendingCustomers> priorityqueuependingcustomers, int smallestQueNumber, int smallestQueNumberAnyonePreferred)
+        private void UpdateStartServiceButtonStatusPriority(List<GeneralPendingCustomers> generalpendingcustomers, int smallestQueNumber, int smallestQueNumberAnyonePreferred)
         {
-            bool hasAnyoneSPriorityOrPreferredSPriority = priorityqueuependingcustomers
-                .Any(customer => customer.QueType == "AnyoneSPriority" || customer.QueType == "PreferredSPriority");
-            if (ThereIsSvip == true)
+            bool hasAnyoneSPriorityOrPreferredSPriority = generalpendingcustomers
+                .Any(customer => customer.QueType == "AnyoneSenior" || customer.QueType == "PreferredSenior");
+            if (ThereIsSenior == true)
             {
 
-                foreach (System.Windows.Forms.Control control in RecQueStartPrioQuePanel.Controls)
+                foreach (System.Windows.Forms.Control control in RecQueueStartPanel.Controls)
                 {
                     if (control is QueueUserControl userControl)
                     {
                         int queNumber;
                         int.TryParse(userControl.StaffQueNumberTextBox.Text, out queNumber);
-                        if (userControl.StaffQueTypeTextBox.Text == "AnyoneSPriority" || userControl.StaffQueTypeTextBox.Text == "PreferredSPriority")
+                        if (userControl.StaffQueTypeTextBox.Text == "AnyoneSenior" || userControl.StaffQueTypeTextBox.Text == "PreferredSenior")
                         {
                             userControl.Enabled = (queNumber == smallestQueNumberAnyonePreferred);
                         }
@@ -12484,7 +11999,7 @@ namespace Enchante
             }
             else
             {
-                foreach (System.Windows.Forms.Control control in RecQueStartPrioQuePanel.Controls)
+                foreach (System.Windows.Forms.Control control in RecQueueStartPanel.Controls)
                 {
                     if (control is QueueUserControl userControl)
                     {
@@ -12497,30 +12012,20 @@ namespace Enchante
             }
         }
 
-        private void TransferAndStartTimer(InSessionUserControl queueControl)
+        private void AvailableCustomersUserControl_ExpandCollapseButtonClicked(object sender, EventArgs e)
         {
-            // Check each FlowLayoutPanel for the user control
-            if (RecQueStartCurrentCustPanel.Controls.Contains(queueControl))
+            QueueUserControl availablecustomersusercontrol = (QueueUserControl)sender;
+
+            if (availablecustomersusercontrol != null)
             {
-                RecQueStartGenQuePanel.Controls.Remove(queueControl);
-                RecQueStartCurrentCustPanel.Controls.Add(queueControl);
-                queueControl.StartTimer();
-            }
-            else if (RecQueStartPrioQuePanel.Controls.Contains(queueControl))
-            {
-                RecQueStartPrefQuePanel.Controls.Remove(queueControl);
-                RecQueStartCurrentCustPanel.Controls.Add(queueControl);
-                queueControl.StartTimer(); // Start timer in the user control
-            }
-            else if (RecQueStartPrioQuePanel.Controls.Contains(queueControl))
-            {
-                RecQueStartPrioQuePanel.Controls.Remove(queueControl);
-                RecQueStartCurrentCustPanel.Controls.Add(queueControl);
-                queueControl.StartTimer(); // Start timer in the user control
-            }
-            else
-            {
-                MessageBox.Show("User control not found.");
+                if (!availablecustomersusercontrol.Viewing)
+                {
+                    availablecustomersusercontrol.Size = new System.Drawing.Size(448, 46);
+                }
+                else
+                {
+                    availablecustomersusercontrol.Size = new System.Drawing.Size(448, 137);
+                }
             }
         }
 

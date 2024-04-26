@@ -486,6 +486,9 @@ namespace Enchante
             this.RecShopProdFooterStopperLbl = new System.Windows.Forms.Label();
             this.RecShopProdExitBtn = new FontAwesome.Sharp.IconButton();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.ProductPreviousBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.ProductNextBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.ProductPageLbl = new Guna.UI2.WinForms.Guna2Button();
             this.RecShopProdChangeBox = new System.Windows.Forms.TextBox();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.RecShopProdDiscountLbl = new System.Windows.Forms.Label();
@@ -741,6 +744,9 @@ namespace Enchante
             this.RecWalkinPreferredStaffToggleSwitch = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.WalkinProducts = new System.Windows.Forms.TabPage();
             this.RecWalkinProdPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.WalkinProductPreviousBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.WalkinProductNextBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.WalkinProductPageLbl = new Guna.UI2.WinForms.Guna2Button();
             this.RecWalkinCheckoutBtn = new Guna.UI2.WinForms.Guna2Button();
             this.RecWalkinVoucherText = new System.Windows.Forms.TextBox();
             this.RecWalkinTotalAmountLblText = new System.Windows.Forms.TextBox();
@@ -766,13 +772,9 @@ namespace Enchante
             this.RecStaffItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecStaffItemStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecStaffItemStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecQueStartGenQueLbl = new System.Windows.Forms.Label();
-            this.RecQueStartGenQuePanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.RecQueStartPrefQueLbl = new System.Windows.Forms.Label();
-            this.RecQueStartPrefQuePanel = new System.Windows.Forms.FlowLayoutPanel();
             this.RecQueStartNextCustLbl = new System.Windows.Forms.Label();
-            this.RecQueStartPrioQueLbl = new System.Windows.Forms.Label();
-            this.RecQueStartPrioQuePanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.RecOverallQueueLbl = new System.Windows.Forms.Label();
+            this.RecQueueStartPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.RecQueStartCurrentCustLbl = new System.Windows.Forms.Label();
             this.RecQueStartStaffLbl = new System.Windows.Forms.Label();
             this.RecQueStartCurrentCustPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -823,12 +825,6 @@ namespace Enchante
             this.MngrDataTimer = new System.Windows.Forms.Timer(this.components);
             this.MngrReportsTimer = new System.Windows.Forms.Timer(this.components);
             this.MngrHistoryTimer = new System.Windows.Forms.Timer(this.components);
-            this.ProductPageLbl = new Guna.UI2.WinForms.Guna2Button();
-            this.ProductNextBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.ProductPreviousBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.WalkinProductPageLbl = new Guna.UI2.WinForms.Guna2Button();
-            this.WalkinProductNextBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.WalkinProductPreviousBtn = new Guna.UI2.WinForms.Guna2Button();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteMngrPage.SuspendLayout();
             this.MngrScrollPanel.SuspendLayout();
@@ -6657,6 +6653,75 @@ namespace Enchante
             this.guna2GradientPanel2.Size = new System.Drawing.Size(1518, 795);
             this.guna2GradientPanel2.TabIndex = 206;
             // 
+            // ProductPreviousBtn
+            // 
+            this.ProductPreviousBtn.AutoRoundedCorners = true;
+            this.ProductPreviousBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.ProductPreviousBtn.BorderRadius = 16;
+            this.ProductPreviousBtn.BorderThickness = 2;
+            this.ProductPreviousBtn.DefaultAutoSize = true;
+            this.ProductPreviousBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ProductPreviousBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ProductPreviousBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ProductPreviousBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ProductPreviousBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ProductPreviousBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProductPreviousBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ProductPreviousBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ProductPreviousBtn.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ProductPreviousBtn.Location = new System.Drawing.Point(61, 752);
+            this.ProductPreviousBtn.Name = "ProductPreviousBtn";
+            this.ProductPreviousBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ProductPreviousBtn.Size = new System.Drawing.Size(109, 34);
+            this.ProductPreviousBtn.TabIndex = 187;
+            this.ProductPreviousBtn.Text = "Previous";
+            this.ProductPreviousBtn.Click += new System.EventHandler(this.ProductPreviousBtn_Click);
+            // 
+            // ProductNextBtn
+            // 
+            this.ProductNextBtn.AutoRoundedCorners = true;
+            this.ProductNextBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.ProductNextBtn.BorderRadius = 16;
+            this.ProductNextBtn.BorderThickness = 2;
+            this.ProductNextBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ProductNextBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ProductNextBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ProductNextBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ProductNextBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ProductNextBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProductNextBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ProductNextBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ProductNextBtn.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ProductNextBtn.Location = new System.Drawing.Point(287, 752);
+            this.ProductNextBtn.Name = "ProductNextBtn";
+            this.ProductNextBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ProductNextBtn.Size = new System.Drawing.Size(109, 34);
+            this.ProductNextBtn.TabIndex = 186;
+            this.ProductNextBtn.Text = "Next";
+            this.ProductNextBtn.Click += new System.EventHandler(this.ProductNextBtn_Click);
+            // 
+            // ProductPageLbl
+            // 
+            this.ProductPageLbl.AutoRoundedCorners = true;
+            this.ProductPageLbl.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.ProductPageLbl.BorderRadius = 16;
+            this.ProductPageLbl.BorderThickness = 2;
+            this.ProductPageLbl.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ProductPageLbl.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ProductPageLbl.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ProductPageLbl.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ProductPageLbl.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ProductPageLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProductPageLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ProductPageLbl.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ProductPageLbl.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ProductPageLbl.Location = new System.Drawing.Point(174, 752);
+            this.ProductPageLbl.Name = "ProductPageLbl";
+            this.ProductPageLbl.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ProductPageLbl.Size = new System.Drawing.Size(109, 34);
+            this.ProductPageLbl.TabIndex = 185;
+            this.ProductPageLbl.Text = "10/10";
+            // 
             // RecShopProdChangeBox
             // 
             this.RecShopProdChangeBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
@@ -9112,7 +9177,7 @@ namespace Enchante
             this.PaymentApptTab.Location = new System.Drawing.Point(4, 64);
             this.PaymentApptTab.Name = "PaymentApptTab";
             this.PaymentApptTab.Padding = new System.Windows.Forms.Padding(3);
-            this.PaymentApptTab.Size = new System.Drawing.Size(1590, 956);
+            this.PaymentApptTab.Size = new System.Drawing.Size(1590, 664);
             this.PaymentApptTab.TabIndex = 1;
             this.PaymentApptTab.Text = "Appointment Transactions";
             this.PaymentApptTab.Click += new System.EventHandler(this.tabPage2_Click);
@@ -9944,7 +10009,7 @@ namespace Enchante
             this.WalkinServiceCatNStaff.Location = new System.Drawing.Point(4, 44);
             this.WalkinServiceCatNStaff.Name = "WalkinServiceCatNStaff";
             this.WalkinServiceCatNStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.WalkinServiceCatNStaff.Size = new System.Drawing.Size(1588, 974);
+            this.WalkinServiceCatNStaff.Size = new System.Drawing.Size(1588, 682);
             this.WalkinServiceCatNStaff.TabIndex = 1;
             this.WalkinServiceCatNStaff.Text = "Services";
             // 
@@ -10612,6 +10677,75 @@ namespace Enchante
             this.RecWalkinProdPanel.Size = new System.Drawing.Size(1454, 861);
             this.RecWalkinProdPanel.TabIndex = 205;
             // 
+            // WalkinProductPreviousBtn
+            // 
+            this.WalkinProductPreviousBtn.AutoRoundedCorners = true;
+            this.WalkinProductPreviousBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.WalkinProductPreviousBtn.BorderRadius = 16;
+            this.WalkinProductPreviousBtn.BorderThickness = 2;
+            this.WalkinProductPreviousBtn.DefaultAutoSize = true;
+            this.WalkinProductPreviousBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.WalkinProductPreviousBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.WalkinProductPreviousBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.WalkinProductPreviousBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.WalkinProductPreviousBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinProductPreviousBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WalkinProductPreviousBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.WalkinProductPreviousBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.WalkinProductPreviousBtn.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinProductPreviousBtn.Location = new System.Drawing.Point(48, 734);
+            this.WalkinProductPreviousBtn.Name = "WalkinProductPreviousBtn";
+            this.WalkinProductPreviousBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinProductPreviousBtn.Size = new System.Drawing.Size(109, 34);
+            this.WalkinProductPreviousBtn.TabIndex = 181;
+            this.WalkinProductPreviousBtn.Text = "Previous";
+            this.WalkinProductPreviousBtn.Click += new System.EventHandler(this.WalkinProductPreviousBtn_Click);
+            // 
+            // WalkinProductNextBtn
+            // 
+            this.WalkinProductNextBtn.AutoRoundedCorners = true;
+            this.WalkinProductNextBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.WalkinProductNextBtn.BorderRadius = 16;
+            this.WalkinProductNextBtn.BorderThickness = 2;
+            this.WalkinProductNextBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.WalkinProductNextBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.WalkinProductNextBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.WalkinProductNextBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.WalkinProductNextBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinProductNextBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WalkinProductNextBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.WalkinProductNextBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.WalkinProductNextBtn.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinProductNextBtn.Location = new System.Drawing.Point(278, 734);
+            this.WalkinProductNextBtn.Name = "WalkinProductNextBtn";
+            this.WalkinProductNextBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinProductNextBtn.Size = new System.Drawing.Size(109, 34);
+            this.WalkinProductNextBtn.TabIndex = 180;
+            this.WalkinProductNextBtn.Text = "Next";
+            this.WalkinProductNextBtn.Click += new System.EventHandler(this.WalkinProductNextBtn_Click);
+            // 
+            // WalkinProductPageLbl
+            // 
+            this.WalkinProductPageLbl.AutoRoundedCorners = true;
+            this.WalkinProductPageLbl.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.WalkinProductPageLbl.BorderRadius = 16;
+            this.WalkinProductPageLbl.BorderThickness = 2;
+            this.WalkinProductPageLbl.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.WalkinProductPageLbl.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.WalkinProductPageLbl.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.WalkinProductPageLbl.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.WalkinProductPageLbl.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinProductPageLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WalkinProductPageLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.WalkinProductPageLbl.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.WalkinProductPageLbl.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinProductPageLbl.Location = new System.Drawing.Point(163, 734);
+            this.WalkinProductPageLbl.Name = "WalkinProductPageLbl";
+            this.WalkinProductPageLbl.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinProductPageLbl.Size = new System.Drawing.Size(109, 34);
+            this.WalkinProductPageLbl.TabIndex = 179;
+            this.WalkinProductPageLbl.Text = "10/10";
+            // 
             // RecWalkinCheckoutBtn
             // 
             this.RecWalkinCheckoutBtn.AutoRoundedCorners = true;
@@ -10850,13 +10984,9 @@ namespace Enchante
             this.RecQueStartPanel.Controls.Add(this.RecQueStartFooterStopperPanel);
             this.RecQueStartPanel.Controls.Add(this.RecQueStartInventoryLbl);
             this.RecQueStartPanel.Controls.Add(this.RecQueStartInventoryDGV);
-            this.RecQueStartPanel.Controls.Add(this.RecQueStartGenQueLbl);
-            this.RecQueStartPanel.Controls.Add(this.RecQueStartGenQuePanel);
-            this.RecQueStartPanel.Controls.Add(this.RecQueStartPrefQueLbl);
-            this.RecQueStartPanel.Controls.Add(this.RecQueStartPrefQuePanel);
             this.RecQueStartPanel.Controls.Add(this.RecQueStartNextCustLbl);
-            this.RecQueStartPanel.Controls.Add(this.RecQueStartPrioQueLbl);
-            this.RecQueStartPanel.Controls.Add(this.RecQueStartPrioQuePanel);
+            this.RecQueStartPanel.Controls.Add(this.RecOverallQueueLbl);
+            this.RecQueStartPanel.Controls.Add(this.RecQueueStartPanel);
             this.RecQueStartPanel.Controls.Add(this.RecQueStartCurrentCustLbl);
             this.RecQueStartPanel.Controls.Add(this.RecQueStartStaffLbl);
             this.RecQueStartPanel.Controls.Add(this.RecQueStartCurrentCustPanel);
@@ -10977,48 +11107,6 @@ namespace Enchante
             this.RecStaffItemStatus.Name = "RecStaffItemStatus";
             this.RecStaffItemStatus.ReadOnly = true;
             // 
-            // RecQueStartGenQueLbl
-            // 
-            this.RecQueStartGenQueLbl.AutoSize = true;
-            this.RecQueStartGenQueLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecQueStartGenQueLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecQueStartGenQueLbl.Location = new System.Drawing.Point(1303, 527);
-            this.RecQueStartGenQueLbl.Name = "RecQueStartGenQueLbl";
-            this.RecQueStartGenQueLbl.Size = new System.Drawing.Size(196, 26);
-            this.RecQueStartGenQueLbl.TabIndex = 134;
-            this.RecQueStartGenQueLbl.Text = "GENERAL QUEUE";
-            // 
-            // RecQueStartGenQuePanel
-            // 
-            this.RecQueStartGenQuePanel.AutoScroll = true;
-            this.RecQueStartGenQuePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecQueStartGenQuePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RecQueStartGenQuePanel.Location = new System.Drawing.Point(1289, 564);
-            this.RecQueStartGenQuePanel.Name = "RecQueStartGenQuePanel";
-            this.RecQueStartGenQuePanel.Size = new System.Drawing.Size(225, 225);
-            this.RecQueStartGenQuePanel.TabIndex = 133;
-            // 
-            // RecQueStartPrefQueLbl
-            // 
-            this.RecQueStartPrefQueLbl.AutoSize = true;
-            this.RecQueStartPrefQueLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecQueStartPrefQueLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecQueStartPrefQueLbl.Location = new System.Drawing.Point(1066, 527);
-            this.RecQueStartPrefQueLbl.Name = "RecQueStartPrefQueLbl";
-            this.RecQueStartPrefQueLbl.Size = new System.Drawing.Size(221, 26);
-            this.RecQueStartPrefQueLbl.TabIndex = 134;
-            this.RecQueStartPrefQueLbl.Text = "PREFERRED QUEUE";
-            // 
-            // RecQueStartPrefQuePanel
-            // 
-            this.RecQueStartPrefQuePanel.AutoScroll = true;
-            this.RecQueStartPrefQuePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecQueStartPrefQuePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RecQueStartPrefQuePanel.Location = new System.Drawing.Point(1064, 564);
-            this.RecQueStartPrefQuePanel.Name = "RecQueStartPrefQuePanel";
-            this.RecQueStartPrefQuePanel.Size = new System.Drawing.Size(225, 225);
-            this.RecQueStartPrefQuePanel.TabIndex = 133;
-            // 
             // RecQueStartNextCustLbl
             // 
             this.RecQueStartNextCustLbl.AutoSize = true;
@@ -11030,26 +11118,25 @@ namespace Enchante
             this.RecQueStartNextCustLbl.TabIndex = 132;
             this.RecQueStartNextCustLbl.Text = "Next Customer";
             // 
-            // RecQueStartPrioQueLbl
+            // RecOverallQueueLbl
             // 
-            this.RecQueStartPrioQueLbl.AutoSize = true;
-            this.RecQueStartPrioQueLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecQueStartPrioQueLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecQueStartPrioQueLbl.Location = new System.Drawing.Point(854, 527);
-            this.RecQueStartPrioQueLbl.Name = "RecQueStartPrioQueLbl";
-            this.RecQueStartPrioQueLbl.Size = new System.Drawing.Size(194, 26);
-            this.RecQueStartPrioQueLbl.TabIndex = 131;
-            this.RecQueStartPrioQueLbl.Text = "PRIORITY QUEUE";
+            this.RecOverallQueueLbl.AutoSize = true;
+            this.RecOverallQueueLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecOverallQueueLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecOverallQueueLbl.Location = new System.Drawing.Point(854, 527);
+            this.RecOverallQueueLbl.Name = "RecOverallQueueLbl";
+            this.RecOverallQueueLbl.Size = new System.Drawing.Size(194, 26);
+            this.RecOverallQueueLbl.TabIndex = 131;
+            this.RecOverallQueueLbl.Text = "PRIORITY QUEUE";
             // 
-            // RecQueStartPrioQuePanel
+            // RecQueueStartPanel
             // 
-            this.RecQueStartPrioQuePanel.AutoScroll = true;
-            this.RecQueStartPrioQuePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecQueStartPrioQuePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RecQueStartPrioQuePanel.Location = new System.Drawing.Point(839, 564);
-            this.RecQueStartPrioQuePanel.Name = "RecQueStartPrioQuePanel";
-            this.RecQueStartPrioQuePanel.Size = new System.Drawing.Size(225, 225);
-            this.RecQueStartPrioQuePanel.TabIndex = 129;
+            this.RecQueueStartPanel.AutoScroll = true;
+            this.RecQueueStartPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecQueueStartPanel.Location = new System.Drawing.Point(839, 564);
+            this.RecQueueStartPanel.Name = "RecQueueStartPanel";
+            this.RecQueueStartPanel.Size = new System.Drawing.Size(674, 225);
+            this.RecQueueStartPanel.TabIndex = 129;
             // 
             // RecQueStartCurrentCustLbl
             // 
@@ -11658,7 +11745,7 @@ namespace Enchante
             // 
             this.RecTransactionCard.ContainerControl = this.ReceptionCreateTransactPanel;
             this.RecTransactionCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.RecTransactionCard.SelectedCard = "Walkin";
+            this.RecTransactionCard.SelectedCard = "QueStart";
             // 
             // DateTimePickerTimer
             // 
@@ -11700,144 +11787,6 @@ namespace Enchante
             // 
             this.MngrHistoryTimer.Interval = 1;
             this.MngrHistoryTimer.Tick += new System.EventHandler(this.MngrHistoryTimer_Tick);
-            // 
-            // ProductPageLbl
-            // 
-            this.ProductPageLbl.AutoRoundedCorners = true;
-            this.ProductPageLbl.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.ProductPageLbl.BorderRadius = 16;
-            this.ProductPageLbl.BorderThickness = 2;
-            this.ProductPageLbl.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ProductPageLbl.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ProductPageLbl.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ProductPageLbl.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ProductPageLbl.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ProductPageLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProductPageLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.ProductPageLbl.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.ProductPageLbl.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ProductPageLbl.Location = new System.Drawing.Point(174, 752);
-            this.ProductPageLbl.Name = "ProductPageLbl";
-            this.ProductPageLbl.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ProductPageLbl.Size = new System.Drawing.Size(109, 34);
-            this.ProductPageLbl.TabIndex = 185;
-            this.ProductPageLbl.Text = "10/10";
-            // 
-            // ProductNextBtn
-            // 
-            this.ProductNextBtn.AutoRoundedCorners = true;
-            this.ProductNextBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.ProductNextBtn.BorderRadius = 16;
-            this.ProductNextBtn.BorderThickness = 2;
-            this.ProductNextBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ProductNextBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ProductNextBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ProductNextBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ProductNextBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ProductNextBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProductNextBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.ProductNextBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.ProductNextBtn.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ProductNextBtn.Location = new System.Drawing.Point(287, 752);
-            this.ProductNextBtn.Name = "ProductNextBtn";
-            this.ProductNextBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ProductNextBtn.Size = new System.Drawing.Size(109, 34);
-            this.ProductNextBtn.TabIndex = 186;
-            this.ProductNextBtn.Text = "Next";
-            this.ProductNextBtn.Click += new System.EventHandler(this.ProductNextBtn_Click);
-            // 
-            // ProductPreviousBtn
-            // 
-            this.ProductPreviousBtn.AutoRoundedCorners = true;
-            this.ProductPreviousBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.ProductPreviousBtn.BorderRadius = 16;
-            this.ProductPreviousBtn.BorderThickness = 2;
-            this.ProductPreviousBtn.DefaultAutoSize = true;
-            this.ProductPreviousBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ProductPreviousBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ProductPreviousBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ProductPreviousBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ProductPreviousBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ProductPreviousBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProductPreviousBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.ProductPreviousBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.ProductPreviousBtn.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ProductPreviousBtn.Location = new System.Drawing.Point(61, 752);
-            this.ProductPreviousBtn.Name = "ProductPreviousBtn";
-            this.ProductPreviousBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ProductPreviousBtn.Size = new System.Drawing.Size(109, 34);
-            this.ProductPreviousBtn.TabIndex = 187;
-            this.ProductPreviousBtn.Text = "Previous";
-            this.ProductPreviousBtn.Click += new System.EventHandler(this.ProductPreviousBtn_Click);
-            // 
-            // WalkinProductPageLbl
-            // 
-            this.WalkinProductPageLbl.AutoRoundedCorners = true;
-            this.WalkinProductPageLbl.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.WalkinProductPageLbl.BorderRadius = 16;
-            this.WalkinProductPageLbl.BorderThickness = 2;
-            this.WalkinProductPageLbl.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.WalkinProductPageLbl.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.WalkinProductPageLbl.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.WalkinProductPageLbl.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.WalkinProductPageLbl.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.WalkinProductPageLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WalkinProductPageLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.WalkinProductPageLbl.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.WalkinProductPageLbl.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.WalkinProductPageLbl.Location = new System.Drawing.Point(163, 734);
-            this.WalkinProductPageLbl.Name = "WalkinProductPageLbl";
-            this.WalkinProductPageLbl.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.WalkinProductPageLbl.Size = new System.Drawing.Size(109, 34);
-            this.WalkinProductPageLbl.TabIndex = 179;
-            this.WalkinProductPageLbl.Text = "10/10";
-            // 
-            // WalkinProductNextBtn
-            // 
-            this.WalkinProductNextBtn.AutoRoundedCorners = true;
-            this.WalkinProductNextBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.WalkinProductNextBtn.BorderRadius = 16;
-            this.WalkinProductNextBtn.BorderThickness = 2;
-            this.WalkinProductNextBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.WalkinProductNextBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.WalkinProductNextBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.WalkinProductNextBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.WalkinProductNextBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.WalkinProductNextBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WalkinProductNextBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.WalkinProductNextBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.WalkinProductNextBtn.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.WalkinProductNextBtn.Location = new System.Drawing.Point(278, 734);
-            this.WalkinProductNextBtn.Name = "WalkinProductNextBtn";
-            this.WalkinProductNextBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.WalkinProductNextBtn.Size = new System.Drawing.Size(109, 34);
-            this.WalkinProductNextBtn.TabIndex = 180;
-            this.WalkinProductNextBtn.Text = "Next";
-            this.WalkinProductNextBtn.Click += new System.EventHandler(this.WalkinProductNextBtn_Click);
-            // 
-            // WalkinProductPreviousBtn
-            // 
-            this.WalkinProductPreviousBtn.AutoRoundedCorners = true;
-            this.WalkinProductPreviousBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.WalkinProductPreviousBtn.BorderRadius = 16;
-            this.WalkinProductPreviousBtn.BorderThickness = 2;
-            this.WalkinProductPreviousBtn.DefaultAutoSize = true;
-            this.WalkinProductPreviousBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.WalkinProductPreviousBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.WalkinProductPreviousBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.WalkinProductPreviousBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.WalkinProductPreviousBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.WalkinProductPreviousBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WalkinProductPreviousBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.WalkinProductPreviousBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.WalkinProductPreviousBtn.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.WalkinProductPreviousBtn.Location = new System.Drawing.Point(48, 734);
-            this.WalkinProductPreviousBtn.Name = "WalkinProductPreviousBtn";
-            this.WalkinProductPreviousBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.WalkinProductPreviousBtn.Size = new System.Drawing.Size(109, 34);
-            this.WalkinProductPreviousBtn.TabIndex = 181;
-            this.WalkinProductPreviousBtn.Text = "Previous";
-            this.WalkinProductPreviousBtn.Click += new System.EventHandler(this.WalkinProductPreviousBtn_Click);
             // 
             // Enchante
             // 
@@ -12586,13 +12535,9 @@ namespace Enchante
         private System.Windows.Forms.Label RecQueStartLbl;
         private System.Windows.Forms.Label RecQueStartCurrentCustLbl;
         private System.Windows.Forms.Label RecQueStartStaffLbl;
-        private System.Windows.Forms.Label RecQueStartGenQueLbl;
-        private System.Windows.Forms.FlowLayoutPanel RecQueStartGenQuePanel;
-        private System.Windows.Forms.Label RecQueStartPrefQueLbl;
-        private System.Windows.Forms.FlowLayoutPanel RecQueStartPrefQuePanel;
         private System.Windows.Forms.Label RecQueStartNextCustLbl;
-        private System.Windows.Forms.Label RecQueStartPrioQueLbl;
-        private System.Windows.Forms.FlowLayoutPanel RecQueStartPrioQuePanel;
+        private System.Windows.Forms.Label RecOverallQueueLbl;
+        private System.Windows.Forms.FlowLayoutPanel RecQueueStartPanel;
         public System.Windows.Forms.DataGridView RecQueStartInventoryDGV;
         private System.Windows.Forms.Label RecQueStartInventoryLbl;
         private System.Windows.Forms.Panel RecQueStartFooterStopperPanel;
