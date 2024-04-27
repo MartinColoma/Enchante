@@ -912,13 +912,34 @@ namespace Enchante
         private void RecWalkinBdayMaxDate()
         {
             DateTime currentDate = DateTime.Today;
-            DateTime maxDate = currentDate.AddYears(-2); // Calculate 2 years ago from today
+            DateTime maxDate = currentDate.AddYears(-4); // Calculate 2 years ago from today
 
             // Set the MaxDate property
             RecWalkinBdayPicker.MaxDate = maxDate;
 
             // Convert maxDate to the desired format and set it as the initial value
             RecWalkinBdayPicker.Value = DateTime.ParseExact(maxDate.ToString("MMMM dd, yyyy"), "MMMM dd, yyyy", null);
+
+            DateTime selectedDate = RecWalkinBdayPicker.Value;
+            int age = DateTime.Now.Year - selectedDate.Year;
+
+            if (DateTime.Now < selectedDate.AddYears(age))
+            {
+                age--; // Subtract 1 if the birthday hasn't occurred yet this year
+            }
+            RecWalkinAgeBox.Text = age.ToString();
+            if (age < 4)
+            {
+                RecWalkinAgeErrorLbl.Visible = true;
+                RecWalkinAgeErrorLbl.Text = "Must be 4yrs old\nand above";
+                return;
+            }
+            else
+            {
+                RecWalkinAgeErrorLbl.Visible = false;
+
+            }
+
         }
 
         private void RecApptBdayMaxDate()
@@ -931,6 +952,26 @@ namespace Enchante
 
             // Convert maxDate to the desired format and set it as the initial value
             RecApptClientBdayPicker.Value = DateTime.ParseExact(maxDate.ToString("MMMM dd, yyyy"), "MMMM dd, yyyy", null);
+
+            DateTime selectedDate = RecApptClientBdayPicker.Value;
+            int age = DateTime.Now.Year - selectedDate.Year;
+
+            if (DateTime.Now < selectedDate.AddYears(age))
+            {
+                age--; // Subtract 1 if the birthday hasn't occurred yet this year
+            }
+            RecApptClientAgeText.Text = age.ToString();
+            if (age < 18)
+            {
+                RecApptClientAgeErrorLbl.Visible = true;
+                RecApptClientAgeErrorLbl.Text = "Must be 18yrs old\nand above";
+                return;
+            }
+            else
+            {
+                RecApptClientAgeErrorLbl.Visible = false;
+
+            }
         }
 
 
@@ -1201,7 +1242,7 @@ namespace Enchante
         private void RecWalkInCatHSBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Hair Styling";
-            ServicesFlowLayoutPanel.Controls.Clear();
+            RecWalkinServicesFlowLayoutPanel.Controls.Clear();
             InitializeServices(filterstaffbyservicecategory);
             serviceappointment = false;
             haschosenacategory = true;
@@ -1217,7 +1258,7 @@ namespace Enchante
         private void RecWalkInCatFSBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Face & Skin";
-            ServicesFlowLayoutPanel.Controls.Clear();
+            RecWalkinServicesFlowLayoutPanel.Controls.Clear();
             InitializeServices(filterstaffbyservicecategory);
             serviceappointment = false;
             haschosenacategory = true;
@@ -1234,7 +1275,7 @@ namespace Enchante
         private void RecWalkInCatNCBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Nail Care";
-            ServicesFlowLayoutPanel.Controls.Clear();
+            RecWalkinServicesFlowLayoutPanel.Controls.Clear();
             InitializeServices(filterstaffbyservicecategory);
             serviceappointment = false;
             haschosenacategory = true;
@@ -1250,7 +1291,7 @@ namespace Enchante
         private void RecWalkInCatSpaBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Spa";
-            ServicesFlowLayoutPanel.Controls.Clear();
+            RecWalkinServicesFlowLayoutPanel.Controls.Clear();
             InitializeServices(filterstaffbyservicecategory);
             serviceappointment = false;
             haschosenacategory = true;
@@ -1266,7 +1307,7 @@ namespace Enchante
         private void RecWalkInCatMassageBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Massage";
-            ServicesFlowLayoutPanel.Controls.Clear();
+            RecWalkinServicesFlowLayoutPanel.Controls.Clear();
             InitializeServices(filterstaffbyservicecategory);
             serviceappointment = false;
             haschosenacategory = true;
@@ -1431,7 +1472,7 @@ namespace Enchante
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        ServicesFlowLayoutPanel.Controls.Clear();
+                        RecWalkinServicesFlowLayoutPanel.Controls.Clear();
 
                         while (reader.Read())
                         {
@@ -1451,7 +1492,7 @@ namespace Enchante
                             servicesusercontrol.RecServiceDurationTextBox_Clicked += ServiceUserControl_Clicked;
                             servicesusercontrol.RecServiceNameTextBox_Clicked += ServiceUserControl_Clicked;
 
-                            ServicesFlowLayoutPanel.Controls.Add(servicesusercontrol);
+                            RecWalkinServicesFlowLayoutPanel.Controls.Add(servicesusercontrol);
                         }
                     }
                 }
@@ -1562,42 +1603,6 @@ namespace Enchante
                 QueType.Value = "Preferred";
             }
         }
-        //private string CustomerTimePicked()
-        //{
-        //    string TimePicked = string.Empty;
-
-        //    if (RecAppPrefferedTimeAMComboBox.SelectedIndex == 0)
-        //    {
-        //        TimePicked = RecAppPrefferedTimePMComboBox.SelectedItem.ToString();
-        //    }
-        //    else if (RecAppPrefferedTimePMComboBox.SelectedIndex == 0)
-        //    {
-        //        TimePicked = RecAppPrefferedTimeAMComboBox.SelectedItem.ToString();
-        //    }
-
-        //    return TimePicked;
-        //}
-
-        //private string TimeSchedPicked()
-        //{
-        //    string TimeSched = string.Empty;
-
-        //    if (RecAppPrefferedTimeAMComboBox.SelectedIndex == 0)
-        //    {
-        //        TimeSched = "PM";
-        //    }
-        //    else if (RecAppPrefferedTimePMComboBox.SelectedIndex == 0)
-        //    {
-        //        TimeSched = "AM";
-        //    }
-
-        //    return TimeSched;
-        //}
-        //private void RecWalkinSelectedDateText_TextChanged(object sender, EventArgs e)
-        //{
-        //    DisbaleTimeSchedIfNoDateIsSelected();
-        //}
-
         private void RecDeleteSelectedServiceAndStaffBtn_Click(object sender, EventArgs e)
         {
             if (RecWalkinSelectedServiceDGV.SelectedRows.Count > 0)
@@ -2101,9 +2106,9 @@ namespace Enchante
                             if (row.Cells["SelectedService"].Value != null)
                             {
                                 string serviceName = row.Cells["SelectedService"].Value.ToString();
-                                string serviceCat = row.Cells["ServiceCategory"].Value.ToString();
+                                string serviceCat = row.Cells["ServiceCategories"].Value.ToString();
                                 string serviceID = row.Cells["ServiceID"].Value.ToString();
-                                decimal servicePrice = Convert.ToDecimal(row.Cells["ServicePrice"].Value);
+                                decimal servicePrice = Convert.ToDecimal(row.Cells["ServicePrices"].Value);
                                 string selectedStaff = row.Cells["StaffSelected"].Value.ToString();
                                 string queNumber = row.Cells["QueNumber"].Value.ToString();
                                 string queType = row.Cells["QueType"].Value.ToString();
@@ -2966,25 +2971,70 @@ namespace Enchante
                     {
                         adapter.Fill(dataTable);
 
-                        RecPayServiceWalkinAcquiredDGV.DataSource = dataTable;
+                        RecPayServiceApptAcquiredDGV.DataSource = dataTable;
 
-                        RecPayServiceWalkinAcquiredDGV.Columns[0].Visible = false; //transact number
-                        RecPayServiceWalkinAcquiredDGV.Columns[1].Visible = false; //transact type
-                        RecPayServiceWalkinAcquiredDGV.Columns[2].Visible = false; //service status
-                        RecPayServiceWalkinAcquiredDGV.Columns[3].Visible = false; //appointment date
-                        RecPayServiceWalkinAcquiredDGV.Columns[4].Visible = false; //appointment time
-                        RecPayServiceWalkinAcquiredDGV.Columns[5].Visible = false; //client name
-                        RecPayServiceWalkinAcquiredDGV.Columns[6].Visible = false; //service category
-                        RecPayServiceWalkinAcquiredDGV.Columns[7].Visible = false; // attending staff
-                        RecPayServiceWalkinAcquiredDGV.Columns[8].Visible = false; //service ID
-                        RecPayServiceWalkinAcquiredDGV.Columns[11].Visible = false; //service start
-                        RecPayServiceWalkinAcquiredDGV.Columns[12].Visible = false; //service end 
-                        RecPayServiceWalkinAcquiredDGV.Columns[13].Visible = false; //service duration
-                        RecPayServiceWalkinAcquiredDGV.Columns[14].Visible = false; // preferred staff
-                        RecPayServiceWalkinAcquiredDGV.Columns[15].Visible = false; // que number
-                        RecPayServiceWalkinAcquiredDGV.Columns[16].Visible = false; // que type
-                        RecPayServiceWalkinAcquiredDGV.Columns[17].Visible = false; // prio number
-                        RecPayServiceWalkinAcquiredDGV.Columns[18].Visible = false; // prio number
+                        RecPayServiceApptAcquiredDGV.Columns[0].Visible = false; //transact number
+                        RecPayServiceApptAcquiredDGV.Columns[1].Visible = false; //transact type
+                        RecPayServiceApptAcquiredDGV.Columns[2].Visible = false; //service status
+                        RecPayServiceApptAcquiredDGV.Columns[3].Visible = false; //appointment date
+                        RecPayServiceApptAcquiredDGV.Columns[4].Visible = false; //appointment time
+                        RecPayServiceApptAcquiredDGV.Columns[5].Visible = false; //client name
+                        RecPayServiceApptAcquiredDGV.Columns[6].Visible = false; //service category
+                        RecPayServiceApptAcquiredDGV.Columns[7].Visible = false; // attending staff
+                        RecPayServiceApptAcquiredDGV.Columns[8].Visible = false; //service ID
+                        RecPayServiceApptAcquiredDGV.Columns[11].Visible = false; //service start
+                        RecPayServiceApptAcquiredDGV.Columns[12].Visible = false; //service end 
+                        RecPayServiceApptAcquiredDGV.Columns[13].Visible = false; //service duration
+                        RecPayServiceApptAcquiredDGV.Columns[14].Visible = false; // preferred staff
+                        RecPayServiceApptAcquiredDGV.Columns[15].Visible = false; // que number
+                        RecPayServiceApptAcquiredDGV.Columns[16].Visible = false; // que type
+                        RecPayServiceApptAcquiredDGV.Columns[17].Visible = false; // prio number
+                        RecPayServiceApptAcquiredDGV.Columns[18].Visible = false; // prio number
+
+                        //ApptAcqServicePriceCol ApptAcqServiceCol
+
+
+                        string query = "SELECT FirstName, LastName, Gender, EmployeeCategory, EmployeeID FROM systemusers " +
+                           "WHERE EmployeeType = 'Staff' AND Availability = 'Available'";
+
+                        //using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                        //{
+                        //    using (MySqlCommand command = new MySqlCommand(query, connection))
+                        //    {
+                        //        try
+                        //        {
+                        //            connection.Open();
+                        //            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                        //            DataTable dataTable = new DataTable();
+                        //            adapter.Fill(dataTable);
+
+                        //            RecQueStartStaffDGV.Rows.Clear(); // Clear existing rows in the DataGridView
+
+                        //            foreach (DataRow row in dataTable.Rows)
+                        //            {
+                        //                string firstName = row["FirstName"].ToString();
+                        //                string lastName = row["LastName"].ToString();
+                        //                string gender = row["Gender"].ToString();
+                        //                string employeecategory = row["EmployeeCategory"].ToString();
+                        //                string employeeID = row["EmployeeID"].ToString();
+
+                        //                // Add a new row to the DataGridView
+                        //                int rowIndex = RecQueStartStaffDGV.Rows.Add();
+
+                        //                // Set the values of cells in the DataGridView
+                        //                RecQueStartStaffDGV.Rows[rowIndex].Cells["StaffName"].Value = firstName + " " + lastName;
+                        //                RecQueStartStaffDGV.Rows[rowIndex].Cells["StaffCategory"].Value = employeecategory;
+                        //                RecQueStartStaffDGV.Rows[rowIndex].Cells["StaffGender"].Value = gender;
+                        //                RecQueStartStaffDGV.Rows[rowIndex].Cells["StaffEmployeeID"].Value = employeeID;
+                        //            }
+                        //        }
+                        //        catch (Exception ex)
+                        //        {
+                        //            MessageBox.Show("An error occurred: " + ex.Message);
+                        //        }
+                        //    }
+                        //}
+
 
                     }
                 }
@@ -3416,7 +3466,7 @@ namespace Enchante
                 //RecPayServiceWalkinUpdateOrderProdHistory(RecPayServiceWalkinCOProdDGV);
                 RecLoadCompletedWalkinTrans();
                 RecLoadCompletedAppointmentTrans();
-                RecPayServiceInvoiceReceiptGenerator();
+                RecPayServiceWalkinInvoiceReceiptGenerator();
                 RecPayServiceClearAllField();
 
             }
@@ -3551,7 +3601,7 @@ namespace Enchante
             }
         }
 
-        private void RecPayServiceInvoiceReceiptGenerator()
+        private void RecPayServiceWalkinInvoiceReceiptGenerator()
         {
             DateTime currentDate = RecDateTimePicker.Value;
             string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
@@ -3600,7 +3650,6 @@ namespace Enchante
                     iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imagepath, System.Drawing.Imaging.ImageFormat.Png);
                     logo.Alignment = Element.ALIGN_CENTER;
                     logo.ScaleAbsolute(100f, 100f);
-                    logo.Alignment = Element.ALIGN_CENTER;
                     doc.Add(logo);
 
                     iTextSharp.text.Font headerFont = FontFactory.GetFont("Courier", 16, iTextSharp.text.Font.BOLD);
@@ -4951,7 +5000,7 @@ namespace Enchante
                     columnHeaderTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
                     columnHeaderTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
 
-                    columnHeaderTable.AddCell(new Phrase("Attending\nStaff ID", boldfont));
+                    columnHeaderTable.AddCell(new Phrase("Staff ID", boldfont));
                     columnHeaderTable.AddCell(new Phrase("Services", boldfont));
                     columnHeaderTable.AddCell(new Phrase("Total Price", boldfont));
                     columnHeaderTable.AddCell(new Phrase("Time", boldfont));
@@ -11156,7 +11205,7 @@ namespace Enchante
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        ServicesFlowLayoutPanel.Controls.Clear();
+                        RecWalkinServicesFlowLayoutPanel.Controls.Clear();
 
                         while (reader.Read())
                         {
@@ -13167,7 +13216,7 @@ namespace Enchante
             else
             {
                 filterstaffbyservicecategory = "Hair Styling";
-                ServicesFlowLayoutPanel.Controls.Clear();
+                RecWalkinServicesFlowLayoutPanel.Controls.Clear();
                 InitializeServices(filterstaffbyservicecategory);
                 serviceappointment = false;
                 haschosenacategory = true;
@@ -13220,10 +13269,10 @@ namespace Enchante
                 age--; // Subtract 1 if the birthday hasn't occurred yet this year
             }
             RecWalkinAgeBox.Text = age.ToString();
-            if (age < 2)
+            if (age < 4)
             {
                 RecWalkinAgeErrorLbl.Visible = true;
-                RecWalkinAgeErrorLbl.Text = "Must be 2yrs old\nand above";
+                RecWalkinAgeErrorLbl.Text = "Must be 4yrs old\nand above";
                 return;
             }
             else
@@ -13816,7 +13865,7 @@ namespace Enchante
             if (RecPayServiceUpdateApptDB())
             {
                 RecLoadCompletedAppointmentTrans();
-                RecPayServiceInvoiceReceiptGenerator();
+                RecPayServiceWalkinInvoiceReceiptGenerator();
                 RecPayServiceClearAllField();
 
             }
@@ -13931,7 +13980,7 @@ namespace Enchante
                 servicesusercontrol.RecServiceNameTextBox_Clicked += ServiceUserControl_Clicked;
 
 
-                ServicesFlowLayoutPanel.Controls.Add(servicesusercontrol);
+                RecWalkinServicesFlowLayoutPanel.Controls.Add(servicesusercontrol);
 
 
 
@@ -14050,8 +14099,8 @@ namespace Enchante
                 string serviceCategory = SelectedCategory;
                 int latestquenumber = GetLargestQueNum(appointmentDate, serviceCategory);
 
-                NewSelectedServiceRow.Cells["ServicePrice"].Value = ServicePrice;
-                NewSelectedServiceRow.Cells["ServiceCategory"].Value = SelectedCategory;
+                NewSelectedServiceRow.Cells["ServicePrices"].Value = ServicePrice;
+                NewSelectedServiceRow.Cells["ServiceCategories"].Value = SelectedCategory;
                 NewSelectedServiceRow.Cells["SelectedService"].Value = ServiceName;
                 NewSelectedServiceRow.Cells["ServiceID"].Value = ServiceID;
                 NewSelectedServiceRow.Cells["QueNumber"].Value = latestquenumber;
