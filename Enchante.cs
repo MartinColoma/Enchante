@@ -657,33 +657,6 @@ namespace Enchante
                 LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
                 return;
             }
-            //else if (LoginEmailAddText.Text == "Staff" && LoginPassText.Text == "Staff123")
-            //{
-            //    //Test Staff
-            //    MessageBox.Show("Welcome back, Staff.", "Login Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    StaffHomePanelReset();
-            //    StaffNameLbl.Text = "Staff Tester";
-            //    StaffIDNumLbl.Text = "ST-0000-0000";
-            //    logincredclear();
-
-            //    return;
-            //}
-            //else if (LoginEmailAddText.Text != "Staff" && LoginPassText.Text == "Staff123")
-            //{
-            //    //Test Staff
-            //    LoginEmailAddErrorLbl.Visible = true;
-            //    LoginPassErrorLbl.Visible = false;
-            //    LoginEmailAddErrorLbl.Text = "EMAIL ADDRESS DOES NOT EXIST";
-            //    return;
-            //}
-            //else if (LoginEmailAddText.Text == "Staff" && LoginPassText.Text != "Staff123")
-            //{
-            //    //Test Staff
-            //    LoginEmailAddErrorLbl.Visible = false;
-            //    LoginPassErrorLbl.Visible = true;
-            //    LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
-            //    return;
-            //}
             else if (string.IsNullOrEmpty(LoginEmailAddText.Text) && string.IsNullOrEmpty(LoginPassText.Text))
             {
                 //MessageBox.Show("Missing text on required fields.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -817,42 +790,6 @@ namespace Enchante
                                     }
                                     return;
                                 }
-                                //else if (membertype == "Staff")
-                                //{
-                                //    // Retrieve the HashedPass column
-                                //    string hashedPasswordFromDB = readerApproved["HashedPass"].ToString();
-
-                                //    // Check if the entered password matches
-                                //    bool passwordMatches = hashedPasswordFromDB.Equals(passchecker);
-
-                                //    if (passwordMatches)
-                                //    {
-                                //        MessageBox.Show($"Welcome back, Staff {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                //        StaffNameLbl.Text = name + " " + lastname;
-                                //        StaffIDNumLbl.Text = ID;
-                                //        StaffMemeberCategoryLbl.Text = category;
-                                //        membercategory = category;
-                                //        InitializeStaffInventoryDataGrid();
-                                //        InitializeStaffPersonalInventoryDataGrid();
-                                //        RecQueStartGenQuePanel.Controls.Clear();
-                                //        RecQueStartPrefQuePanel.Controls.Clear();
-                                //        RecQueStartPrioQuePanel.Controls.Clear();
-                                //        InitializePreferredCuePendingCustomersForStaff();
-                                //        InitializeGeneralCuePendingCustomersForStaff();
-                                //        InitializePriorityPendingCustomersForStaff();
-                                //        RefreshFlowLayoutPanel();
-                                //        StaffHomePanelReset();
-                                //        logincredclear();
-
-                                //    }
-                                //    else
-                                //    {
-                                //        LoginEmailAddErrorLbl.Visible = false;
-                                //        LoginPassErrorLbl.Visible = true;
-                                //        LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
-                                //    }
-                                //    return;
-                                //}
                             }
 
                         }
