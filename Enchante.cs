@@ -4703,6 +4703,7 @@ namespace Enchante
         {
 
 
+
             if (string.IsNullOrEmpty(selectedStaffID))
             {
                 MessageBox.Show("Please select a prefered staff or toggle anyone ", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -14048,6 +14049,20 @@ namespace Enchante
 
         public void RecWalkinAddService()
         {
+
+            if (RecWalkinAnyStaffToggleSwitch.Checked == false && RecWalkinPreferredStaffToggleSwitch.Checked == false)
+            {
+                MessageBox.Show("Please select a prefered staff or toggle anyone ", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (RecWalkinAnyStaffToggleSwitch.Checked )
+            {
+                selectedStaffID = "Anyone";
+            }
+            if (RecWalkinPreferredStaffToggleSwitch.Checked)
+            {
+                selectedStaffID = RecWalkinAttendingStaffSelectedComboBox.SelectedItem.ToString();
+            }
 
             if (string.IsNullOrEmpty(selectedStaffID))
             {
