@@ -2803,20 +2803,20 @@ namespace Enchante
         public void RecWalkinProdCalculateTotalVATAndNetAmountDB()
         {
             // Get the Gross Amount from the TextBox (MngrGrossAmountBox)
-            if (decimal.TryParse(RecPayServiceGrossAmountBox.Text, out decimal grossAmount))
+            if (decimal.TryParse(RecPayServiceWalkinCOProdTotalText.Text, out decimal grossAmount))
             {
                 // Fixed VAT rate of 12%
                 decimal rate = 12;
 
                 // Calculate the VAT Amount
                 decimal netAmount = grossAmount / ((rate / 100) + 1);
-
+                    
                 // Calculate the Net Amount
                 decimal vatAmount = grossAmount - netAmount;
 
                 // Display the calculated values in TextBoxes
-                RecPayServiceVATBox.Text = vatAmount.ToString("0.00");
-                RecPayServiceNetAmountBox.Text = netAmount.ToString("0.00");
+                RecPayServiceWalkinCOProdVATText.Text = vatAmount.ToString("0.00");
+                RecPayServiceWalkinCOProdNetText.Text = netAmount.ToString("0.00");
             }
 
         }
@@ -2899,14 +2899,19 @@ namespace Enchante
                 {
                     // Calculate the Change
                     decimal change = cashAmount - grossAmount;
-
+                    decimal walkChange = cashAmount - decimal.Parse(RecPayServiceWalkinAcquiredTotalText.Text);
+                    decimal prodChange = walkChange - decimal.Parse(RecPayServiceWalkinCOProdTotalText.Text);
                     // Display the calculated change value in the MngrChangeBox
                     RecPayServiceChangeBox.Text = change.ToString("0.00");
+                    RecPayServiceWalkinAcquiredChangeText.Text = walkChange.ToString("0.00");
+                    RecPayServiceWalkinCOProdChangeText.Text = prodChange.ToString("0.00");
                 }
                 else
                 {
                     // Handle invalid input in MngrCashBox, e.g., display an error message
                     RecPayServiceChangeBox.Text = "Invalid Cash Input";
+                    RecPayServiceWalkinAcquiredChangeText.Text = "Invalid Cash Input";
+                    RecPayServiceWalkinCOProdChangeText.Text = "Invalid Cash Input";
                 }
             }
             else
@@ -3146,7 +3151,7 @@ namespace Enchante
                 RecPayServiceApptClientNameLbl.Text = $"{clientName1}";
                 RecApptLoadServiceHistoryDB(transactNumber1);
 
-                RecWalkinCalculateTotalPrice();
+                //RecWalkinCalculateTotalPrice();
                 RecPayServiceApptTransTypeLbl.Text = "Appointment";
 
             }
@@ -3322,11 +3327,25 @@ namespace Enchante
 
         private bool RecPayServiceUpdateWalkinAndOrdersDB()
         {
-            // cash values
-            string netAmount = RecPayServiceNetAmountBox.Text; // net amount
-            string vat = RecPayServiceVATBox.Text; // vat 
-            string discount = RecPayServiceWalkinDiscountBox.Text; // discount
+            // walk-in cash values
+            string walkNetAmount = RecPayServiceWalkinAcquiredNetText.Text; // net amount
+            string walkVat = RecPayServiceWalkinAcquiredVATText.Text; // vat 
+            string walkGrossAmount = RecPayServiceWalkinAcquiredTotalText.Text; // gross amount
+            string walkDiscount = ""; // gross amount
+            string walkChange = RecPayServiceWalkinAcquiredChangeText.Text;
+
+            //product cash values
+            string prodNetAmount = RecPayServiceWalkinCOProdNetText.Text; // net amount
+            string prodVat = RecPayServiceWalkinCOProdVATText.Text; // vat 
+            string prodGrossAmount = RecPayServiceWalkinCOProdTotalText.Text; // gross amount
+            string prodDiscount = ""; // gross amount
+            string prodChange = RecPayServiceWalkinCOProdChangeText.Text;
+
+            //string walkNetAmount = RecPayServiceNetAmountBox.Text; // net amount
+            //string walkVat = RecPayServiceVATBox.Text; // vat 
             string grossAmount = RecPayServiceGrossAmountBox.Text; // gross amount
+
+            string discount = RecPayServiceWalkinDiscountBox.Text; // discount
             string cash = RecPayServiceCashBox.Text; // cash given
             string change = RecPayServiceChangeBox.Text; // due change
             string paymentMethod = "Cash"; // payment method
@@ -3364,33 +3383,50 @@ namespace Enchante
                     else
                     {
                         //walk-in transactions
-                        string cashPaymentWalkin = "UPDATE walk_in_appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
+                        string cashPaymentWalkinTrans = "UPDATE walk_in_appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
                                             "GrossAmount = @gross, CashGiven = @cash, DueChange = @change, PaymentMethod = @payment, CheckedOutBy = @mngr " +
                                             "WHERE TransactionNumber = @transactNum"; // cash query
-                        MySqlCommand cmd = new MySqlCommand(cashPaymentWalkin, connection);
+                        MySqlCommand cmd = new MySqlCommand(cashPaymentWalkinTrans, connection);
                         cmd.Parameters.AddWithValue("@status", "Paid");
-                        cmd.Parameters.AddWithValue("@net", netAmount);
-                        cmd.Parameters.AddWithValue("@vat", vat);
-                        cmd.Parameters.AddWithValue("@discount", discount);
-                        cmd.Parameters.AddWithValue("@gross", grossAmount);
+                        cmd.Parameters.AddWithValue("@net", walkNetAmount);
+                        cmd.Parameters.AddWithValue("@vat", walkVat);
+                        cmd.Parameters.AddWithValue("@discount", walkDiscount);
+                        cmd.Parameters.AddWithValue("@gross", walkGrossAmount);
                         cmd.Parameters.AddWithValue("@cash", cash);
-                        cmd.Parameters.AddWithValue("@change", change);
+                        cmd.Parameters.AddWithValue("@change", walkChange);
                         cmd.Parameters.AddWithValue("@payment", paymentMethod);
                         cmd.Parameters.AddWithValue("@mngr", mngr);
                         cmd.Parameters.AddWithValue("@transactNum", transactNum);
 
                         cmd.ExecuteNonQuery();
-                        // Successful update
-                        MessageBox.Show("Service successfully been paid through cash.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        //product walk-in transactions
+                        string cashPaymentWalkinProd = "UPDATE orders SET ProductStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
+                                            "GrossAmount = @gross, CashGiven = @cash, DueChange = @change, PaymentMethod = @payment, CheckedOutBy = @mngr " +
+                                            "WHERE TransactionNumber = @transactNum"; // cash query
+                        MySqlCommand cmd1 = new MySqlCommand(cashPaymentWalkinProd, connection);
+                        cmd1.Parameters.AddWithValue("@status", "Paid");
+                        cmd1.Parameters.AddWithValue("@net", prodNetAmount);
+                        cmd1.Parameters.AddWithValue("@vat", prodVat);
+                        cmd1.Parameters.AddWithValue("@discount", prodDiscount);
+                        cmd1.Parameters.AddWithValue("@gross", prodGrossAmount);
+                        cmd1.Parameters.AddWithValue("@cash", walkChange);
+                        cmd1.Parameters.AddWithValue("@change", prodChange);
+                        cmd1.Parameters.AddWithValue("@payment", paymentMethod);
+                        cmd1.Parameters.AddWithValue("@mngr", mngr);
+                        cmd1.Parameters.AddWithValue("@transactNum", transactNum);
+
+                        cmd1.ExecuteNonQuery();
 
                         string productPaymentWalkin = "UPDATE orderproducthistory SET ProductStatus = @status WHERE TransactionNumber = @transactNum";
 
-                        MySqlCommand cmd1 = new MySqlCommand(productPaymentWalkin, connection);
-                        cmd1.Parameters.AddWithValue("@status", "Paid");
-                        cmd1.Parameters.AddWithValue("@transactNum", transactNum);
-                        cmd1.ExecuteNonQuery();
+                        MySqlCommand cmd2 = new MySqlCommand(productPaymentWalkin, connection);
+                        cmd2.Parameters.AddWithValue("@status", "Paid");
+                        cmd2.Parameters.AddWithValue("@transactNum", transactNum);
+                        cmd2.ExecuteNonQuery();
 
 
+                        MessageBox.Show("Service successfully been paid through cash.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
                         ////appointment transactions
@@ -3520,6 +3556,8 @@ namespace Enchante
             RecPayServiceChangeBox.Text = "0.00";
 
 
+
+
             RecPayServiceWalkinClientNameLbl.Text = "";
             RecPayServiceApptTransTypeLbl.Text = "";
             // Clear rows from RecPayServiceAcquiredDGV
@@ -3530,6 +3568,8 @@ namespace Enchante
             RecPayServiceWalkinCOProdDGV.DataSource = null; // Set data source to null
             RecPayServiceWalkinCOProdDGV.Rows.Clear(); // Clear any remaining rows
 
+            RecPayServiceWalkinTransactNumLbl.Text = "Transaction Number";
+            RecPayServiceWalkinClientNameLbl.Text = "Client Name";
         }
 
         private void RecPayServiceBtn_Click(object sender, EventArgs e)
