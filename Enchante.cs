@@ -46,6 +46,7 @@ using Org.BouncyCastle.Math;
 using Mysqlx.Crud;
 using System.Web.Util;
 using System.Web.UI;
+using System.Runtime.Remoting.Messaging;
 
 namespace Enchante
 {
@@ -2958,7 +2959,7 @@ namespace Enchante
                     connection.Open();
 
                     // Modify the SQL query to filter based on TransactNumber and OrderNumber
-                    string sql = "SELECT * FROM `servicehistory` WHERE TransactionNumber = @TransactionNumber AND ServiceStatus = @status";
+                    string sql = "SELECT SelectedService, AttendingStaff, ServicePrice FROM `servicehistory` WHERE TransactionNumber = @TransactionNumber AND ServiceStatus = @status";
                     MySqlCommand cmd = new MySqlCommand(sql, connection);
 
                     // Add parameters to the query
@@ -2971,70 +2972,23 @@ namespace Enchante
                     {
                         adapter.Fill(dataTable);
 
-                        RecPayServiceApptAcquiredDGV.DataSource = dataTable;
 
-                        RecPayServiceApptAcquiredDGV.Columns[0].Visible = false; //transact number
-                        RecPayServiceApptAcquiredDGV.Columns[1].Visible = false; //transact type
-                        RecPayServiceApptAcquiredDGV.Columns[2].Visible = false; //service status
-                        RecPayServiceApptAcquiredDGV.Columns[3].Visible = false; //appointment date
-                        RecPayServiceApptAcquiredDGV.Columns[4].Visible = false; //appointment time
-                        RecPayServiceApptAcquiredDGV.Columns[5].Visible = false; //client name
-                        RecPayServiceApptAcquiredDGV.Columns[6].Visible = false; //service category
-                        RecPayServiceApptAcquiredDGV.Columns[7].Visible = false; // attending staff
-                        RecPayServiceApptAcquiredDGV.Columns[8].Visible = false; //service ID
-                        RecPayServiceApptAcquiredDGV.Columns[11].Visible = false; //service start
-                        RecPayServiceApptAcquiredDGV.Columns[12].Visible = false; //service end 
-                        RecPayServiceApptAcquiredDGV.Columns[13].Visible = false; //service duration
-                        RecPayServiceApptAcquiredDGV.Columns[14].Visible = false; // preferred staff
-                        RecPayServiceApptAcquiredDGV.Columns[15].Visible = false; // que number
-                        RecPayServiceApptAcquiredDGV.Columns[16].Visible = false; // que type
-                        RecPayServiceApptAcquiredDGV.Columns[17].Visible = false; // prio number
-                        RecPayServiceApptAcquiredDGV.Columns[18].Visible = false; // prio number
-
-                        //ApptAcqServicePriceCol ApptAcqServiceCol
+                        foreach (DataRow row in dataTable.Rows)
+                        {
+                            string service = row["SelectedService"].ToString();
+                            string staff = row["AttendingStaff"].ToString();
+                            string price = row["ServicePrice"].ToString();
 
 
-                        string query = "SELECT FirstName, LastName, Gender, EmployeeCategory, EmployeeID FROM systemusers " +
-                           "WHERE EmployeeType = 'Staff' AND Availability = 'Available'";
+                            // Add a new row to the DataGridView
+                            int rowIndex = RecPayServiceApptAcquiredDGV.Rows.Add();
 
-                        //using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-                        //{
-                        //    using (MySqlCommand command = new MySqlCommand(query, connection))
-                        //    {
-                        //        try
-                        //        {
-                        //            connection.Open();
-                        //            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                        //            DataTable dataTable = new DataTable();
-                        //            adapter.Fill(dataTable);
+                            // Set the values of cells in the DataGridView
+                            RecPayServiceApptAcquiredDGV.Rows[rowIndex].Cells["ApptSelectedService"].Value = service;
+                            RecPayServiceApptAcquiredDGV.Rows[rowIndex].Cells["ApptStaffSelected"].Value = staff;
+                            RecPayServiceApptAcquiredDGV.Rows[rowIndex].Cells["ApptServicePrice"].Value = price;
 
-                        //            RecQueStartStaffDGV.Rows.Clear(); // Clear existing rows in the DataGridView
-
-                        //            foreach (DataRow row in dataTable.Rows)
-                        //            {
-                        //                string firstName = row["FirstName"].ToString();
-                        //                string lastName = row["LastName"].ToString();
-                        //                string gender = row["Gender"].ToString();
-                        //                string employeecategory = row["EmployeeCategory"].ToString();
-                        //                string employeeID = row["EmployeeID"].ToString();
-
-                        //                // Add a new row to the DataGridView
-                        //                int rowIndex = RecQueStartStaffDGV.Rows.Add();
-
-                        //                // Set the values of cells in the DataGridView
-                        //                RecQueStartStaffDGV.Rows[rowIndex].Cells["StaffName"].Value = firstName + " " + lastName;
-                        //                RecQueStartStaffDGV.Rows[rowIndex].Cells["StaffCategory"].Value = employeecategory;
-                        //                RecQueStartStaffDGV.Rows[rowIndex].Cells["StaffGender"].Value = gender;
-                        //                RecQueStartStaffDGV.Rows[rowIndex].Cells["StaffEmployeeID"].Value = employeeID;
-                        //            }
-                        //        }
-                        //        catch (Exception ex)
-                        //        {
-                        //            MessageBox.Show("An error occurred: " + ex.Message);
-                        //        }
-                        //    }
-                        //}
-
+                        }
 
                     }
                 }
@@ -3127,22 +3081,28 @@ namespace Enchante
             }
         }
 
+        private bool serviceHistoryLoaded = false;
+
         private void RecPayServiceApptCompleteTransDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                string transactNumber1 = RecPayServiceApptCompleteTransDGV.Rows[e.RowIndex].Cells["TransactionNumber"].Value.ToString();
-                string clientName1 = RecPayServiceApptCompleteTransDGV.Rows[e.RowIndex].Cells["ClientName"].Value.ToString();
+                string transactNumber1 = RecPayServiceApptCompleteTransDGV.Rows[e.RowIndex].Cells["ApptTransNum"].Value.ToString();
+                string clientName1 = RecPayServiceApptCompleteTransDGV.Rows[e.RowIndex].Cells["ApptCustomerName"].Value.ToString();
 
                 RecPayServiceApptTransactNumLbl.Text = transactNumber1;
                 RecPayServiceApptClientNameLbl.Text = $"{clientName1}";
-                RecApptLoadServiceHistoryDB(transactNumber1);
-
-                //RecWalkinCalculateTotalPrice();
                 RecPayServiceApptTransTypeLbl.Text = "Appointment";
 
+                // Load service history only if it hasn't been loaded before
+                if (!serviceHistoryLoaded)
+                {
+                    RecApptLoadServiceHistoryDB(transactNumber1);
+                    serviceHistoryLoaded = true; // Set the flag to true to indicate that service history is loaded
+                }
             }
         }
+
         public void RecLoadCompletedWalkinTrans()
         {
             string todayDate = DateTime.Today.ToString("MM-dd-yyyy dddd");
@@ -3238,7 +3198,8 @@ namespace Enchante
                     connection.Open();
 
                     // Filter and sort the data by FoodType
-                    string sql = "SELECT * FROM `appointment` WHERE ServiceStatus = 'Completed' AND AppointmentDate = @todayDate ORDER BY ServiceStatus ";
+                    string sql = "SELECT TransactionNumber, ServiceStatus, ClientName, ClientCPNum, AppointmentDate, AppointmentTime " +
+                                "FROM `appointment` WHERE ServiceStatus = 'Completed' AND AppointmentDate = @todayDate ORDER BY ServiceStatus ";
                     MySqlCommand cmd = new MySqlCommand(sql, connection);
                     System.Data.DataTable dataTable = new System.Data.DataTable();
                     cmd.Parameters.AddWithValue("@todayDate", todayDate);
@@ -3247,35 +3208,26 @@ namespace Enchante
                     {
                         adapter.Fill(dataTable);
 
-                        RecPayServiceApptCompleteTransDGV.Columns.Clear();
-
-                        RecPayServiceApptCompleteTransDGV.DataSource = dataTable;
-
-                        if (RecPayServiceWalkinCompleteTransDGV.Columns.Count > 2)
+                        foreach (DataRow row in dataTable.Rows)
                         {
-                            RecPayServiceApptCompleteTransDGV.Columns[3].Visible = false; //appointment time
-                            RecPayServiceApptCompleteTransDGV.Columns[4].Visible = false; //appointment time
-                            RecPayServiceApptCompleteTransDGV.Columns[5].Visible = false; // client cp num
-                            RecPayServiceApptCompleteTransDGV.Columns[7].Visible = false; // net price
-                            RecPayServiceApptCompleteTransDGV.Columns[8].Visible = false; // net price
-                            RecPayServiceApptCompleteTransDGV.Columns[9].Visible = false; // net price
-                            RecPayServiceApptCompleteTransDGV.Columns[10].Visible = false; // discount amount
-                            RecPayServiceApptCompleteTransDGV.Columns[11].Visible = false; // discount amount
-                            RecPayServiceApptCompleteTransDGV.Columns[12].Visible = false; // cash given
-                            RecPayServiceApptCompleteTransDGV.Columns[13].Visible = false; // due change
-                            RecPayServiceApptCompleteTransDGV.Columns[14].Visible = false; // payment method
-                            RecPayServiceApptCompleteTransDGV.Columns[15].Visible = false; // card name
-                            RecPayServiceApptCompleteTransDGV.Columns[16].Visible = false; // card num
-                            RecPayServiceApptCompleteTransDGV.Columns[17].Visible = false; // cvc
-                            RecPayServiceApptCompleteTransDGV.Columns[18].Visible = false; // card expiration
-                            RecPayServiceApptCompleteTransDGV.Columns[19].Visible = false; // wallet num
-                            RecPayServiceApptCompleteTransDGV.Columns[20].Visible = false; // wallet PIN
-                            RecPayServiceApptCompleteTransDGV.Columns[21].Visible = false; // wallet OTP
-                            RecPayServiceApptCompleteTransDGV.Columns[22].Visible = false; // service duration
-                            RecPayServiceApptCompleteTransDGV.Columns[23].Visible = false; // booked by
-                            RecPayServiceApptCompleteTransDGV.Columns[24].Visible = false; // booked date
-                            RecPayServiceApptCompleteTransDGV.Columns[25].Visible = false; // booked date
-                            RecPayServiceApptCompleteTransDGV.Columns[26].Visible = false; // booked date
+                            string transNum = row["TransactionNumber"].ToString();
+                            string status = row["ServiceStatus"].ToString();
+                            string name = row["ClientName"].ToString();
+                            string cpNum = row["ClientCPNum"].ToString();
+                            string apptDate = row["AppointmentDate"].ToString();
+                            string appTime = row["AppointmentTime"].ToString();
+
+
+                            // Add a new row to the DataGridView
+                            int rowIndex = RecPayServiceApptCompleteTransDGV.Rows.Add();
+
+                            // Set the values of cells in the DataGridView
+                            RecPayServiceApptCompleteTransDGV.Rows[rowIndex].Cells["ApptTransNum"].Value = transNum;
+                            RecPayServiceApptCompleteTransDGV.Rows[rowIndex].Cells["ApptServiceStatus"].Value = status;
+                            RecPayServiceApptCompleteTransDGV.Rows[rowIndex].Cells["ApptCustomerName"].Value = name;
+                            RecPayServiceApptCompleteTransDGV.Rows[rowIndex].Cells["ApptCustomerCPNum"].Value = cpNum;
+                            RecPayServiceApptCompleteTransDGV.Rows[rowIndex].Cells["ApptDate"].Value = apptDate;
+                            RecPayServiceApptCompleteTransDGV.Rows[rowIndex].Cells["ApptTime"].Value = appTime;
 
                         }
 
@@ -3559,12 +3511,18 @@ namespace Enchante
             RecPayServiceWalkinClientNameLbl.Text = "Client Name";
         }
 
+        private bool CompletedTransLoad = false;
         private void RecPayServiceBtn_Click(object sender, EventArgs e)
         {
             PaymentTabs.SelectedIndex = 0;
             PaymentTransColor();
-            RecLoadCompletedWalkinTrans();
-            RecLoadCompletedAppointmentTrans();
+
+            if (!CompletedTransLoad)
+            {
+                RecLoadCompletedWalkinTrans();
+                RecLoadCompletedAppointmentTrans();
+                CompletedTransLoad = true; // Set the flag to true to indicate that service history is loaded
+            }
         }
 
         private void RecWalkinAttendingStaffComboText_SelectedIndexChanged(object sender, EventArgs e)
@@ -5270,6 +5228,26 @@ namespace Enchante
             string change = RecApptChangeText.Text;
             string bal = RecApptBalanceText.Text;
 
+            // Assuming dgv is your DataGridView object
+            // Assuming columnIndex is the index of the column you want to retrieve
+
+            if (RecApptSelectedServiceDGV.Rows.Count > 0) // Check if there are any rows in the DataGridView
+            {
+                // Access the cell value of the first row and specified column
+                object cellValue = RecApptSelectedServiceDGV.Rows[0].Cells["RecApptTimeSelected"].Value;
+
+                if (cellValue != null)
+                {
+                    // Do something with the cell value
+                    string cellContent = cellValue.ToString();
+                }
+                
+            }
+            
+
+
+
+
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(mysqlconn))
@@ -5307,7 +5285,17 @@ namespace Enchante
                         cmd.Parameters.AddWithValue("@TransactType", transactType);
                         cmd.Parameters.AddWithValue("@status", serviceStatus);
                         cmd.Parameters.AddWithValue("@appointDate", appointmentbookedDate);
-                        cmd.Parameters.AddWithValue("@appointTime", appointmentbookedTime);
+                        if (RecApptSelectedServiceDGV.Rows.Count > 0) // Check if there are any rows in the DataGridView
+                        {
+                            object cellValue = RecApptSelectedServiceDGV.Rows[0].Cells["RecApptTimeSelected"].Value;
+                            if (cellValue != null)
+                            {
+                                // Convert cell value to string
+                                string cellContent = cellValue.ToString();
+                                cmd.Parameters.AddWithValue("@appointTime", cellContent);
+                            }
+
+                        }
                         cmd.Parameters.AddWithValue("@appointStatus", appointmentStatus);
                         cmd.Parameters.AddWithValue("@clientName", CustomerName);
                         cmd.Parameters.AddWithValue("@clientCP", CustomerMobileNumber);
@@ -5323,6 +5311,8 @@ namespace Enchante
                         cmd.Parameters.AddWithValue("@bookedBy", bookedBy);
                         cmd.Parameters.AddWithValue("@bookedDate", bookedDate);
                         cmd.Parameters.AddWithValue("@bookedTime", bookedTime);
+
+                       
 
 
                         cmd.ExecuteNonQuery();
@@ -13394,7 +13384,12 @@ namespace Enchante
 
         private void RecApptServiceNextBtn_Click(object sender, EventArgs e)
         {
-            if (RecApptPreferredStaffToggleSwitch.Checked && RecApptAvailableAttendingStaffSelectedComboBox.Text == "Select a Preferred Staff")
+            if (RecApptBookingTimeComboBox.SelectedIndex == 0 || RecApptBookingTimeComboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please select an appointment time.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else if(RecApptPreferredStaffToggleSwitch.Checked && RecApptAvailableAttendingStaffSelectedComboBox.Text == "Select a Preferred Staff")
             {
                 MessageBox.Show("Please select client's preferred staff.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -14360,18 +14355,26 @@ namespace Enchante
         {
             ProductNextBtn_Click(sender, e);
         }
-
+        
+        private bool TabCompletedTransLoad = false;
         private void PaymentTabs_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(PaymentTabs.SelectedIndex == 0)
             {
-                RecLoadCompletedWalkinTrans();
-                //MessageBox.Show("Walkin Payment", "Payment");
+                if (!CompletedTransLoad)
+                {
+                    RecLoadCompletedWalkinTrans();
+                    CompletedTransLoad = true; // Set the flag to true to indicate that service history is loaded
+                }
+
             }
             else if (PaymentTabs.SelectedIndex == 1)
             {
-                RecLoadCompletedAppointmentTrans();
-                //MessageBox.Show("Appointment Payment", "Payment");
+                if (!CompletedTransLoad)
+                {
+                    RecLoadCompletedAppointmentTrans();
+                    CompletedTransLoad = true; // Set the flag to true to indicate that service history is loaded
+                }
             }
         }
     }
