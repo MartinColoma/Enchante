@@ -117,7 +117,7 @@ namespace Enchante
             RecShopProdSelectedProdView();
 
             //Landing Pages Cardlayout Panel Manager
-            ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteReceptionPage, EnchanteAdminPage, EnchanteMngrPage);
+            ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteReceptionPage, EnchanteAdminPage, EnchanteMngrPage);
             Transaction = new ReceptionTransactionCard(RecQueStartPanel, RecWalkinPanel, RecApptPanel, RecPayServicePanel, RecQueWinPanel, RecShopProdPanel, RecApptConfirmPanel);
             Inventory = new MngrInventoryCard(MngrInventoryTypePanel, MngrServicesPanel, MngrServiceHistoryPanel, MngrInventoryMembershipPanel,
                                             MngrInventoryProductsPanel, MngrInventoryProductHistoryPanel, MngrPromoPanel, MngrWalkinSalesPanel, MngrIndemandPanel, MngrWalkinProdSalesPanel, MngrApptServicePanel);
@@ -457,11 +457,6 @@ namespace Enchante
 
         }
 
-        private void StaffHomePanelReset()
-        {
-            ParentPanelShow.PanelShow(EnchanteStaffPage);
-
-        }
         private void AdminHomePanelReset()
         {
             ParentPanelShow.PanelShow(EnchanteAdminPage);
@@ -923,11 +918,7 @@ namespace Enchante
                 RecQueueStartPanel.Controls.Clear();
                 RecApptAcceptLateDeclineDGV.Rows.Clear();
                 membercategory = "";
-                StaffIDNumLbl.Text = string.Empty;
-                StaffMemeberCategoryLbl.Text = string.Empty;
-                StaffInventoryDataGrid.Rows.Clear();
 
-                StaffUserAccPanel.Visible = false;
                 AdminUserAccPanel.Visible = false;
 
                 RecWalkinTransactionClear();
@@ -973,6 +964,7 @@ namespace Enchante
 
         private void RecWalkInBtn_Click(object sender, EventArgs e)
         {
+            WalkinTabs.SelectedIndex = 0;
             RecApptTransactionClear(); 
             RecShopProdTransactionClear();
             InitialWalkinTransColor();
@@ -1166,6 +1158,7 @@ namespace Enchante
         //ApptMember
         private void RecAppointmentBtn_Click(object sender, EventArgs e)
         {
+            ApptTabs.SelectedIndex = 0;
             RecWalkinTransactionClear();
             RecShopProdTransactionClear();
             ApptTransColor();
@@ -1718,6 +1711,7 @@ namespace Enchante
 
         private void RecWalkinTransactionClear()
         {
+            WalkinTabs.SelectedIndex = 0;
             RecWalkinFNameText.Text = "";
             RecWalkinLNameText.Text = "";
             RecWalkinCPNumText.Text = "";
@@ -4627,10 +4621,11 @@ namespace Enchante
             }
             RecAppTotalText.Text = total1.ToString("F2");
             // Apply discount (for example, 20% discount)
-            decimal discount = 0.6m; // 20% discount
-            decimal discountedTotal = total1 * (1 - discount);
-            RecApptInitialFeeText.Text = discountedTotal.ToString("F2");
-
+            decimal initialFee = 0.6m; // 20% discount
+            decimal inititalFeeTotal = total1 * (1 - initialFee);
+            RecApptInitialFeeText.Text = inititalFeeTotal.ToString("F2");
+            decimal balance = total1 - inititalFeeTotal;
+            RecApptBalanceText.Text = balance.ToString("F2");
         }
         //ApptMember
         private void RecApptSelectServiceAndStaffBtn_Click(object sender, EventArgs e)
@@ -5077,7 +5072,7 @@ namespace Enchante
             string downpayment = RecApptInitialFeeText.Text;
             string cash = RecApptCashText.Text;
             string change = RecApptChangeText.Text;
-
+            string bal = RecApptBalanceText.Text;
 
             try
             {
@@ -5107,9 +5102,9 @@ namespace Enchante
                     else
                     {
                         string insertQuery = "INSERT INTO appointment (TransactionNumber, TransactionType, ServiceStatus, AppointmentDate, AppointmentTime, AppointmentStatus, " +
-                                        "ClientName, ClientCPNum, ClientBday, ClientAge, GrossAmount, Downpayment, CashGiven, DueChange, PaymentMethod, BookedBy, BookedDate, BookedTime)" +
+                                        "ClientName, ClientCPNum, ClientBday, ClientAge, GrossAmount, Downpayment, RemainingBal, CashGiven, DueChange, PaymentMethod, BookedBy, BookedDate, BookedTime)" +
                                         "VALUES (@Transact, @TransactType, @status, @appointDate, @appointTime, @appointStatus, @clientName, @clientCP, @clientBday, @clientAge, @total,  " +
-                                        "@dp, @cash, @change, @method, @bookedBy, @bookedDate, @bookedTime)";
+                                        "@dp, @bal, @cash, @change, @method, @bookedBy, @bookedDate, @bookedTime)";
 
                         MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
                         cmd.Parameters.AddWithValue("@Transact", transactionNum);
@@ -5124,6 +5119,7 @@ namespace Enchante
                         cmd.Parameters.AddWithValue("@clientAge", age);
                         cmd.Parameters.AddWithValue("@total", total);
                         cmd.Parameters.AddWithValue("@dp", downpayment);
+                        cmd.Parameters.AddWithValue("@bal", bal);
                         cmd.Parameters.AddWithValue("@cash", cash);
                         cmd.Parameters.AddWithValue("@change", change);
                         cmd.Parameters.AddWithValue("@method", "Cash");
@@ -5325,6 +5321,7 @@ namespace Enchante
             // Clear existing items in the ComboBox
             RecApptBookingTimeComboBox.Items.Clear();
             RecApptBookingTimeComboBox.Items.Add("Select a booking time");
+            RecApptBookingTimeComboBox.SelectedIndex = 0;
 
             bool cutoffTimeAdded = false; // Flag to track if "Cutoff Time" has been added
 
@@ -5356,7 +5353,6 @@ namespace Enchante
                     Console.WriteLine($"Failed to parse time: {time}");
                     continue;
                 }
-                RecApptBookingTimeComboBox.Items.Add("Select a booking time");
                 RecApptBookingTimeComboBox.Items.Add(time);
             }
 
@@ -10664,23 +10660,7 @@ namespace Enchante
 
 
 
-        #region Staff Dashboard Starts Here
-        private void StaffUserAccBtn_Click(object sender, EventArgs e)
-        {
-            if (StaffUserAccPanel.Visible == false)
-            {
-                StaffUserAccPanel.Visible = true;
-            }
-            else
-            {
-                StaffUserAccPanel.Visible = false;
-            }
 
-        }
-
-
-
-        #endregion
 
 
 
@@ -11300,17 +11280,6 @@ namespace Enchante
             }
         }
 
-        private void guna2TextBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (guna2TextBox1.Text.Length >= 100 && e.KeyChar != '\b')
-            {
-                e.Handled = true;
-            }
-            if (e.KeyChar == ' ' && string.IsNullOrEmpty(guna2TextBox1.Text))
-            {
-                e.Handled = true;
-            }
-        }
 
         private void LoginPassText_KeyPress(object sender, KeyPressEventArgs e)
         {
