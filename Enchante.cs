@@ -4701,7 +4701,7 @@ namespace Enchante
         //ApptMember
         public void RecApptAddService()
         {
-            selectedStaffID = '';
+            selectedStaffID = "";
 
             if (RecApptAnyStaffToggleSwitch.Checked == false && RecApptPreferredStaffToggleSwitch.Checked == false)
             {
@@ -14063,7 +14063,7 @@ namespace Enchante
 
         public void RecWalkinAddService()
         {
-            selectedStaffID = '';
+            selectedStaffID = "";
 
 
             if (RecWalkinAnyStaffToggleSwitch.Checked == false && RecWalkinPreferredStaffToggleSwitch.Checked == false)
