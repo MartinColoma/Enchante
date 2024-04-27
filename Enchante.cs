@@ -117,7 +117,7 @@ namespace Enchante
             RecShopProdSelectedProdView();
 
             //Landing Pages Cardlayout Panel Manager
-            ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteStaffPage, EnchanteReceptionPage, EnchanteAdminPage, EnchanteMngrPage);
+            ParentPanelShow = new ParentCard(EnchanteHomePage, EnchanteReceptionPage, EnchanteAdminPage, EnchanteMngrPage);
             Transaction = new ReceptionTransactionCard(RecQueStartPanel, RecWalkinPanel, RecApptPanel, RecPayServicePanel, RecQueWinPanel, RecShopProdPanel, RecApptConfirmPanel);
             Inventory = new MngrInventoryCard(MngrInventoryTypePanel, MngrServicesPanel, MngrServiceHistoryPanel, MngrInventoryMembershipPanel,
                                             MngrInventoryProductsPanel, MngrInventoryProductHistoryPanel, MngrPromoPanel, MngrWalkinSalesPanel, MngrIndemandPanel, MngrWalkinProdSalesPanel, MngrApptServicePanel);
@@ -457,11 +457,6 @@ namespace Enchante
 
         }
 
-        private void StaffHomePanelReset()
-        {
-            ParentPanelShow.PanelShow(EnchanteStaffPage);
-
-        }
         private void AdminHomePanelReset()
         {
             ParentPanelShow.PanelShow(EnchanteAdminPage);
@@ -662,33 +657,6 @@ namespace Enchante
                 LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
                 return;
             }
-            //else if (LoginEmailAddText.Text == "Staff" && LoginPassText.Text == "Staff123")
-            //{
-            //    //Test Staff
-            //    MessageBox.Show("Welcome back, Staff.", "Login Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    StaffHomePanelReset();
-            //    StaffNameLbl.Text = "Staff Tester";
-            //    StaffIDNumLbl.Text = "ST-0000-0000";
-            //    logincredclear();
-
-            //    return;
-            //}
-            //else if (LoginEmailAddText.Text != "Staff" && LoginPassText.Text == "Staff123")
-            //{
-            //    //Test Staff
-            //    LoginEmailAddErrorLbl.Visible = true;
-            //    LoginPassErrorLbl.Visible = false;
-            //    LoginEmailAddErrorLbl.Text = "EMAIL ADDRESS DOES NOT EXIST";
-            //    return;
-            //}
-            //else if (LoginEmailAddText.Text == "Staff" && LoginPassText.Text != "Staff123")
-            //{
-            //    //Test Staff
-            //    LoginEmailAddErrorLbl.Visible = false;
-            //    LoginPassErrorLbl.Visible = true;
-            //    LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
-            //    return;
-            //}
             else if (string.IsNullOrEmpty(LoginEmailAddText.Text) && string.IsNullOrEmpty(LoginPassText.Text))
             {
                 //MessageBox.Show("Missing text on required fields.", "Ooooops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -822,42 +790,6 @@ namespace Enchante
                                     }
                                     return;
                                 }
-                                //else if (membertype == "Staff")
-                                //{
-                                //    // Retrieve the HashedPass column
-                                //    string hashedPasswordFromDB = readerApproved["HashedPass"].ToString();
-
-                                //    // Check if the entered password matches
-                                //    bool passwordMatches = hashedPasswordFromDB.Equals(passchecker);
-
-                                //    if (passwordMatches)
-                                //    {
-                                //        MessageBox.Show($"Welcome back, Staff {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                //        StaffNameLbl.Text = name + " " + lastname;
-                                //        StaffIDNumLbl.Text = ID;
-                                //        StaffMemeberCategoryLbl.Text = category;
-                                //        membercategory = category;
-                                //        InitializeStaffInventoryDataGrid();
-                                //        InitializeStaffPersonalInventoryDataGrid();
-                                //        RecQueStartGenQuePanel.Controls.Clear();
-                                //        RecQueStartPrefQuePanel.Controls.Clear();
-                                //        RecQueStartPrioQuePanel.Controls.Clear();
-                                //        InitializePreferredCuePendingCustomersForStaff();
-                                //        InitializeGeneralCuePendingCustomersForStaff();
-                                //        InitializePriorityPendingCustomersForStaff();
-                                //        RefreshFlowLayoutPanel();
-                                //        StaffHomePanelReset();
-                                //        logincredclear();
-
-                                //    }
-                                //    else
-                                //    {
-                                //        LoginEmailAddErrorLbl.Visible = false;
-                                //        LoginPassErrorLbl.Visible = true;
-                                //        LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
-                                //    }
-                                //    return;
-                                //}
                             }
 
                         }
@@ -923,11 +855,7 @@ namespace Enchante
                 RecQueueStartPanel.Controls.Clear();
                 RecApptAcceptLateDeclineDGV.Rows.Clear();
                 membercategory = "";
-                StaffIDNumLbl.Text = string.Empty;
-                StaffMemeberCategoryLbl.Text = string.Empty;
-                StaffInventoryDataGrid.Rows.Clear();
 
-                StaffUserAccPanel.Visible = false;
                 AdminUserAccPanel.Visible = false;
 
                 RecWalkinTransactionClear();
@@ -973,6 +901,7 @@ namespace Enchante
 
         private void RecWalkInBtn_Click(object sender, EventArgs e)
         {
+            WalkinTabs.SelectedIndex = 0;
             RecApptTransactionClear(); 
             RecShopProdTransactionClear();
             InitialWalkinTransColor();
@@ -983,13 +912,34 @@ namespace Enchante
         private void RecWalkinBdayMaxDate()
         {
             DateTime currentDate = DateTime.Today;
-            DateTime maxDate = currentDate.AddYears(-2); // Calculate 2 years ago from today
+            DateTime maxDate = currentDate.AddYears(-4); // Calculate 2 years ago from today
 
             // Set the MaxDate property
             RecWalkinBdayPicker.MaxDate = maxDate;
 
             // Convert maxDate to the desired format and set it as the initial value
             RecWalkinBdayPicker.Value = DateTime.ParseExact(maxDate.ToString("MMMM dd, yyyy"), "MMMM dd, yyyy", null);
+
+            DateTime selectedDate = RecWalkinBdayPicker.Value;
+            int age = DateTime.Now.Year - selectedDate.Year;
+
+            if (DateTime.Now < selectedDate.AddYears(age))
+            {
+                age--; // Subtract 1 if the birthday hasn't occurred yet this year
+            }
+            RecWalkinAgeBox.Text = age.ToString();
+            if (age < 4)
+            {
+                RecWalkinAgeErrorLbl.Visible = true;
+                RecWalkinAgeErrorLbl.Text = "Must be 4yrs old\nand above";
+                return;
+            }
+            else
+            {
+                RecWalkinAgeErrorLbl.Visible = false;
+
+            }
+
         }
 
         private void RecApptBdayMaxDate()
@@ -1002,6 +952,26 @@ namespace Enchante
 
             // Convert maxDate to the desired format and set it as the initial value
             RecApptClientBdayPicker.Value = DateTime.ParseExact(maxDate.ToString("MMMM dd, yyyy"), "MMMM dd, yyyy", null);
+
+            DateTime selectedDate = RecApptClientBdayPicker.Value;
+            int age = DateTime.Now.Year - selectedDate.Year;
+
+            if (DateTime.Now < selectedDate.AddYears(age))
+            {
+                age--; // Subtract 1 if the birthday hasn't occurred yet this year
+            }
+            RecApptClientAgeText.Text = age.ToString();
+            if (age < 18)
+            {
+                RecApptClientAgeErrorLbl.Visible = true;
+                RecApptClientAgeErrorLbl.Text = "Must be 18yrs old\nand above";
+                return;
+            }
+            else
+            {
+                RecApptClientAgeErrorLbl.Visible = false;
+
+            }
         }
 
 
@@ -1166,6 +1136,7 @@ namespace Enchante
         //ApptMember
         private void RecAppointmentBtn_Click(object sender, EventArgs e)
         {
+            ApptTabs.SelectedIndex = 0;
             RecWalkinTransactionClear();
             RecShopProdTransactionClear();
             ApptTransColor();
@@ -1271,7 +1242,7 @@ namespace Enchante
         private void RecWalkInCatHSBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Hair Styling";
-            ServicesFlowLayoutPanel.Controls.Clear();
+            RecWalkinServicesFlowLayoutPanel.Controls.Clear();
             InitializeServices(filterstaffbyservicecategory);
             serviceappointment = false;
             haschosenacategory = true;
@@ -1287,7 +1258,7 @@ namespace Enchante
         private void RecWalkInCatFSBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Face & Skin";
-            ServicesFlowLayoutPanel.Controls.Clear();
+            RecWalkinServicesFlowLayoutPanel.Controls.Clear();
             InitializeServices(filterstaffbyservicecategory);
             serviceappointment = false;
             haschosenacategory = true;
@@ -1304,7 +1275,7 @@ namespace Enchante
         private void RecWalkInCatNCBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Nail Care";
-            ServicesFlowLayoutPanel.Controls.Clear();
+            RecWalkinServicesFlowLayoutPanel.Controls.Clear();
             InitializeServices(filterstaffbyservicecategory);
             serviceappointment = false;
             haschosenacategory = true;
@@ -1320,7 +1291,7 @@ namespace Enchante
         private void RecWalkInCatSpaBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Spa";
-            ServicesFlowLayoutPanel.Controls.Clear();
+            RecWalkinServicesFlowLayoutPanel.Controls.Clear();
             InitializeServices(filterstaffbyservicecategory);
             serviceappointment = false;
             haschosenacategory = true;
@@ -1336,7 +1307,7 @@ namespace Enchante
         private void RecWalkInCatMassageBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Massage";
-            ServicesFlowLayoutPanel.Controls.Clear();
+            RecWalkinServicesFlowLayoutPanel.Controls.Clear();
             InitializeServices(filterstaffbyservicecategory);
             serviceappointment = false;
             haschosenacategory = true;
@@ -1501,7 +1472,7 @@ namespace Enchante
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        ServicesFlowLayoutPanel.Controls.Clear();
+                        RecWalkinServicesFlowLayoutPanel.Controls.Clear();
 
                         while (reader.Read())
                         {
@@ -1521,7 +1492,7 @@ namespace Enchante
                             servicesusercontrol.RecServiceDurationTextBox_Clicked += ServiceUserControl_Clicked;
                             servicesusercontrol.RecServiceNameTextBox_Clicked += ServiceUserControl_Clicked;
 
-                            ServicesFlowLayoutPanel.Controls.Add(servicesusercontrol);
+                            RecWalkinServicesFlowLayoutPanel.Controls.Add(servicesusercontrol);
                         }
                     }
                 }
@@ -1632,42 +1603,6 @@ namespace Enchante
                 QueType.Value = "Preferred";
             }
         }
-        //private string CustomerTimePicked()
-        //{
-        //    string TimePicked = string.Empty;
-
-        //    if (RecAppPrefferedTimeAMComboBox.SelectedIndex == 0)
-        //    {
-        //        TimePicked = RecAppPrefferedTimePMComboBox.SelectedItem.ToString();
-        //    }
-        //    else if (RecAppPrefferedTimePMComboBox.SelectedIndex == 0)
-        //    {
-        //        TimePicked = RecAppPrefferedTimeAMComboBox.SelectedItem.ToString();
-        //    }
-
-        //    return TimePicked;
-        //}
-
-        //private string TimeSchedPicked()
-        //{
-        //    string TimeSched = string.Empty;
-
-        //    if (RecAppPrefferedTimeAMComboBox.SelectedIndex == 0)
-        //    {
-        //        TimeSched = "PM";
-        //    }
-        //    else if (RecAppPrefferedTimePMComboBox.SelectedIndex == 0)
-        //    {
-        //        TimeSched = "AM";
-        //    }
-
-        //    return TimeSched;
-        //}
-        //private void RecWalkinSelectedDateText_TextChanged(object sender, EventArgs e)
-        //{
-        //    DisbaleTimeSchedIfNoDateIsSelected();
-        //}
-
         private void RecDeleteSelectedServiceAndStaffBtn_Click(object sender, EventArgs e)
         {
             if (RecWalkinSelectedServiceDGV.SelectedRows.Count > 0)
@@ -1707,6 +1642,7 @@ namespace Enchante
             }
             else
             {
+                RecWalkinOrdersDB(RecWalkinSelectedProdDGV);
                 RecWalkinOrderProdHistoryDB(RecWalkinSelectedProdDGV);
                 RecWalkinServiceHistoryDB(RecWalkinSelectedServiceDGV); //service history db
                 ReceptionistWalk_in_AppointmentDB(); //walk-in transaction db
@@ -1718,6 +1654,7 @@ namespace Enchante
 
         private void RecWalkinTransactionClear()
         {
+            WalkinTabs.SelectedIndex = 0;
             RecWalkinFNameText.Text = "";
             RecWalkinLNameText.Text = "";
             RecWalkinCPNumText.Text = "";
@@ -2015,13 +1952,70 @@ namespace Enchante
                     connection.Close();
                 }
             }
-            else
-            {
-                MessageBox.Show("No products bought.", "Product");
-            }
+            //else
+            //{
+            //    MessageBox.Show("No products bought.", "Product");
+            //}
 
         }
+        private void RecWalkinOrdersDB(DataGridView RecWalkinOrderHistoryView)
+        {
+            DateTime currentDate = RecDateTimePicker.Value;
+            string transactionNum = RecWalkinTransNumText.Text;
+            string status = "Not Paid";
+            string type = "Walk-in Transaction Checked Out";
+            //booked values
+            string bookedDate = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
+            string bookedTime = currentDate.ToString("hh:mm tt"); //bookedTime
+            string bookedBy = RecNameLbl.Text; //booked by
 
+            //basic info
+            string CustomerName = RecWalkinFNameText.Text + " " + RecWalkinLNameText.Text; //client name
+            string cpnum = RecWalkinCPNumText.Text; //client name
+
+            if (RecWalkinSelectedProdDGV.Rows.Count > 0)
+            {
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    {
+                        connection.Open();
+                        string query = "INSERT INTO orders (TransactionNumber, TransactionType, ProductStatus, Date, Time, CheckedOutBy, ClientName, ClientCPNum) " +
+                                                "VALUES (@Transact, @type, @status, @date, @time, @OrderedBy, @client, @clientCPnum)";
+
+                        using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@Transact", transactionNum);
+                            cmd.Parameters.AddWithValue("@type", type);
+                            cmd.Parameters.AddWithValue("@status", status);
+                            cmd.Parameters.AddWithValue("@date", bookedDate);
+                            cmd.Parameters.AddWithValue("@time", bookedTime);
+                            cmd.Parameters.AddWithValue("@OrderedBy", bookedBy);
+                            cmd.Parameters.AddWithValue("@client", CustomerName);
+                            cmd.Parameters.AddWithValue("@clientCPnum", cpnum);
+
+                            cmd.ExecuteNonQuery();
+                        }
+                        
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    string errorMessage = "An error occurred: " + ex.Message + "\n\n" + ex.StackTrace;
+                    MessageBox.Show(errorMessage, "Reception Walkin  Product History", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            //else
+            //{
+            //    MessageBox.Show("No products bought.", "Product");
+            //}
+
+        }
 
         private void ReceptionistWalk_in_AppointmentDB()
         {
@@ -2112,9 +2106,9 @@ namespace Enchante
                             if (row.Cells["SelectedService"].Value != null)
                             {
                                 string serviceName = row.Cells["SelectedService"].Value.ToString();
-                                string serviceCat = row.Cells["ServiceCategory"].Value.ToString();
+                                string serviceCat = row.Cells["ServiceCategories"].Value.ToString();
                                 string serviceID = row.Cells["ServiceID"].Value.ToString();
-                                decimal servicePrice = Convert.ToDecimal(row.Cells["ServicePrice"].Value);
+                                decimal servicePrice = Convert.ToDecimal(row.Cells["ServicePrices"].Value);
                                 string selectedStaff = row.Cells["StaffSelected"].Value.ToString();
                                 string queNumber = row.Cells["QueNumber"].Value.ToString();
                                 string queType = row.Cells["QueType"].Value.ToString();
@@ -2684,7 +2678,7 @@ namespace Enchante
 
         #region Receptionist Payment Service
 
-        private void ReceptionCalculateTotalPrice()
+        private void RecWalkinCalculateTotalPrice()
         {
             decimal total1 = 0;
             decimal total2 = 0;
@@ -2722,11 +2716,13 @@ namespace Enchante
             // Display the total price in the GrossAmountBox TextBox
             RecPayServiceGrossAmountBox.Text = total3.ToString("F2"); // Format to two decimal places
 
-            ReceptionCalculateVATAndNetAmount();
+            RecWalkinCalculateTotalVATAndNetAmountDB();
+            RecWalkinProdCalculateTotalVATAndNetAmountDB();
+            RecWalkinServiceCalculateTotalVATAndNetAmountDB();
         }
 
 
-        public void ReceptionCalculateVATAndNetAmount()
+        public void RecWalkinCalculateTotalVATAndNetAmountDB()
         {
             // Get the Gross Amount from the TextBox (MngrGrossAmountBox)
             if (decimal.TryParse(RecPayServiceGrossAmountBox.Text, out decimal grossAmount))
@@ -2743,10 +2739,88 @@ namespace Enchante
                 // Display the calculated values in TextBoxes
                 RecPayServiceVATBox.Text = vatAmount.ToString("0.00");
                 RecPayServiceNetAmountBox.Text = netAmount.ToString("0.00");
-                RecPayServiceVATBox.Text = vatAmount.ToString("0.00");
-                RecPayServiceNetAmountBox.Text = netAmount.ToString("0.00");
             }
 
+        }
+        public void RecWalkinProdCalculateTotalVATAndNetAmountDB()
+        {
+            // Get the Gross Amount from the TextBox (MngrGrossAmountBox)
+            if (decimal.TryParse(RecPayServiceWalkinCOProdTotalText.Text, out decimal grossAmount))
+            {
+                // Fixed VAT rate of 12%
+                decimal rate = 12;
+
+                // Calculate the VAT Amount
+                decimal netAmount = grossAmount / ((rate / 100) + 1);
+                    
+                // Calculate the Net Amount
+                decimal vatAmount = grossAmount - netAmount;
+
+                // Display the calculated values in TextBoxes
+                RecPayServiceWalkinCOProdVATText.Text = vatAmount.ToString("0.00");
+                RecPayServiceWalkinCOProdNetText.Text = netAmount.ToString("0.00");
+            }
+
+        }
+        public void RecWalkinServiceCalculateTotalVATAndNetAmountDB()
+        {
+            // Get the Gross Amount from the TextBox (MngrGrossAmountBox)
+            if (decimal.TryParse(RecPayServiceWalkinAcquiredTotalText.Text, out decimal grossAmount))
+            {
+                // Fixed VAT rate of 12%
+                decimal rate = 12;
+
+                // Calculate the VAT Amount
+                decimal netAmount = grossAmount / ((rate / 100) + 1);
+
+                // Calculate the Net Amount
+                decimal vatAmount = grossAmount - netAmount;
+
+                // Display the calculated values in TextBoxes
+                RecPayServiceWalkinAcquiredVATText.Text = vatAmount.ToString("0.00");
+                RecPayServiceWalkinAcquiredNetText.Text = netAmount.ToString("0.00");
+            }
+
+        }
+        private void RecApptCalculateTotalPrice()
+        {
+            decimal total1 = 0;
+            decimal total2 = 0;
+            decimal total3 = 0;
+
+            // Assuming the "ServicePrice" column is of decimal type
+            int servicepriceColumnIndex = RecPayServiceApptAcquiredDGV.Columns["ServicePrice"].Index;
+
+            foreach (DataGridViewRow row in RecPayServiceWalkinAcquiredDGV.Rows)
+            {
+                if (row.Cells[servicepriceColumnIndex].Value != null)
+                {
+                    decimal price = decimal.Parse(row.Cells[servicepriceColumnIndex].Value.ToString());
+                    total1 += price;
+                }
+            }
+            RecPayServiceWalkinAcquiredTotalText.Text = total1.ToString("F2");
+
+            // Assuming the "ItemTotalPrice" column is of decimal type
+            int productpriceColumnIndex = RecPayServiceWalkinCOProdDGV.Columns["ItemTotalPrice"].Index;
+
+            foreach (DataGridViewRow row in RecPayServiceWalkinCOProdDGV.Rows)
+            {
+                if (row.Cells[productpriceColumnIndex].Value != null)
+                {
+                    decimal price = decimal.Parse(row.Cells[productpriceColumnIndex].Value.ToString());
+                    total2 += price;
+                }
+            }
+            RecPayServiceWalkinCOProdTotalText.Text = total2.ToString("F2");
+
+
+            total3 = total1 + total2;
+
+            // Display the total price in the GrossAmountBox TextBox
+            RecPayServiceGrossAmountBox.Text = total3.ToString("F2"); // Format to two decimal places
+
+            //RecApptCalculateTotalVATAndNetAmountDB();
         }
 
         private void DateTimePickerTimer_Tick(object sender, EventArgs e)
@@ -2757,77 +2831,6 @@ namespace Enchante
             RecDateTimeText.Text = Cashiertoday;
             MngrDateTimeText.Text = Cashiertoday;
         }
-        private decimal originalGrossAmount; // Store the original value
-
-        //private void RecWalkinDiscountSenior_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    if (decimal.TryParse(RecPayServiceGrossAmountBox.Text, out decimal grossAmount))
-        //    {
-        //        if (RecPayServiceDiscountSenior.Checked)
-        //        {
-        //            // Apply the 20% discount if the checkbox is checked and the discount hasn't been applied before
-        //            originalGrossAmount = grossAmount; // Store the original value
-        //            decimal discountPercentage = 20m;
-        //            decimal discountAmount = grossAmount * (discountPercentage / 100); // Calculate the discount amount
-        //            decimal discountedAmount = grossAmount - discountAmount; // Subtract the discount amount
-        //            decimal vatAmount = 0;
-        //            RecPayServiceGrossAmountBox.Text = discountedAmount.ToString("0.00"); // Format to display as currency
-        //            RecPayServiceNetAmountBox.Text = discountedAmount.ToString("0.00"); // Format to display as currency
-        //            RecPayServiceDiscountBox.Text = discountAmount.ToString("0.00"); // Display the discount amount
-        //            RecPayServiceVATBox.Text = vatAmount.ToString("0.00");
-        //            RecPayServiceDiscountPWD.Checked = false;
-        //            RecPayServiceVATExemptChk.Checked = true;
-        //            RecPayServiceVATExemptChk.Enabled = false;
-        //            return;
-        //        }
-        //        else
-        //        {
-        //            // Unchecked, set MngrGrossAmount to the original value if the discount has been applied before
-        //            RecPayServiceGrossAmountBox.Text = originalGrossAmount.ToString("0.00");
-        //            RecPayServiceDiscountBox.Text = "0.00"; // Reset the discount amount display
-        //            ReceptionCalculateVATAndNetAmount();
-        //            RecPayServiceVATExemptChk.Checked = false;
-        //            RecPayServiceVATExemptChk.Enabled = true;
-        //            return;
-        //        }
-
-        //    }
-        //}
-
-        //private void RecWalkinDiscountPWD_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    if (decimal.TryParse(RecPayServiceGrossAmountBox.Text, out decimal grossAmount))
-        //    {
-        //        if (RecPayServiceDiscountPWD.Checked)
-        //        {
-        //            // Apply the 20% discount if the checkbox is checked and the discount hasn't been applied before
-        //            originalGrossAmount = grossAmount; // Store the original value
-        //            decimal discountPercentage = 20m;
-        //            decimal discountAmount = grossAmount * (discountPercentage / 100); // Calculate the discount amount
-        //            decimal discountedAmount = grossAmount - discountAmount; // Subtract the discount amount
-        //            decimal vatAmount = 0;
-        //            RecPayServiceGrossAmountBox.Text = discountedAmount.ToString("0.00"); // Format to display as currency
-        //            RecPayServiceNetAmountBox.Text = discountedAmount.ToString("0.00"); // Format to display as currency
-        //            RecPayServiceDiscountBox.Text = discountAmount.ToString("0.00"); // Display the discount amount
-        //            RecPayServiceVATBox.Text = vatAmount.ToString("0.00");
-        //            RecPayServiceDiscountSenior.Checked = false;
-        //            RecPayServiceVATExemptChk.Checked = true;
-        //            RecPayServiceVATExemptChk.Enabled = false;
-        //            return;
-        //        }
-        //        else
-        //        {
-        //            // Unchecked, set MngrGrossAmount to the original value if the discount has been applied before
-        //            RecPayServiceGrossAmountBox.Text = originalGrossAmount.ToString("0.00");
-        //            RecPayServiceDiscountBox.Text = "0.00"; // Reset the discount amount display
-        //            ReceptionCalculateVATAndNetAmount();
-        //            RecPayServiceVATExemptChk.Checked = false;
-        //            RecPayServiceVATExemptChk.Enabled = true;
-        //            return;
-        //        }
-
-        //    }
-        //}
 
         private void RecWalkinCashBox_TextChanged(object sender, EventArgs e)
         {
@@ -2838,14 +2841,19 @@ namespace Enchante
                 {
                     // Calculate the Change
                     decimal change = cashAmount - grossAmount;
-
+                    decimal walkChange = cashAmount - decimal.Parse(RecPayServiceWalkinAcquiredTotalText.Text);
+                    decimal prodChange = walkChange - decimal.Parse(RecPayServiceWalkinCOProdTotalText.Text);
                     // Display the calculated change value in the MngrChangeBox
                     RecPayServiceChangeBox.Text = change.ToString("0.00");
+                    RecPayServiceWalkinAcquiredChangeText.Text = walkChange.ToString("0.00");
+                    RecPayServiceWalkinCOProdChangeText.Text = prodChange.ToString("0.00");
                 }
                 else
                 {
                     // Handle invalid input in MngrCashBox, e.g., display an error message
                     RecPayServiceChangeBox.Text = "Invalid Cash Input";
+                    RecPayServiceWalkinAcquiredChangeText.Text = "Invalid Cash Input";
+                    RecPayServiceWalkinCOProdChangeText.Text = "Invalid Cash Input";
                 }
             }
             else
@@ -2856,7 +2864,7 @@ namespace Enchante
         }
         private void RecWalkinGrossAmountBox_TextChanged(object sender, EventArgs e)
         {
-            //ReceptionCalculateVATAndNetAmount();
+            //RecWalkinCalculateTotalVATAndNetAmountDB();
             if (decimal.TryParse(RecPayServiceGrossAmountBox.Text, out decimal grossAmount))
             {
                 // Get the Cash Amount from the TextBox (MngrCashBox)
@@ -2882,7 +2890,7 @@ namespace Enchante
         }
 
 
-        public void RecLoadServiceHistoryDB(string transactNumber)
+        public void RecWalkinLoadServiceHistoryDB(string transactNumber)
         {
             try
             {
@@ -2923,6 +2931,110 @@ namespace Enchante
                         RecPayServiceWalkinAcquiredDGV.Columns[16].Visible = false; // que type
                         RecPayServiceWalkinAcquiredDGV.Columns[17].Visible = false; // prio number
                         RecPayServiceWalkinAcquiredDGV.Columns[18].Visible = false; // prio number
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Manager Order History List");
+            }
+            finally
+            {
+                // Make sure to close the connection (if it's open)
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        public void RecApptLoadServiceHistoryDB(string transactNumber)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    // Modify the SQL query to filter based on TransactNumber and OrderNumber
+                    string sql = "SELECT * FROM `servicehistory` WHERE TransactionNumber = @TransactionNumber AND ServiceStatus = @status";
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+
+                    // Add parameters to the query
+                    cmd.Parameters.AddWithValue("@TransactionNumber", transactNumber);
+                    cmd.Parameters.AddWithValue("@status", "Completed");
+
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+
+                        RecPayServiceApptAcquiredDGV.DataSource = dataTable;
+
+                        RecPayServiceApptAcquiredDGV.Columns[0].Visible = false; //transact number
+                        RecPayServiceApptAcquiredDGV.Columns[1].Visible = false; //transact type
+                        RecPayServiceApptAcquiredDGV.Columns[2].Visible = false; //service status
+                        RecPayServiceApptAcquiredDGV.Columns[3].Visible = false; //appointment date
+                        RecPayServiceApptAcquiredDGV.Columns[4].Visible = false; //appointment time
+                        RecPayServiceApptAcquiredDGV.Columns[5].Visible = false; //client name
+                        RecPayServiceApptAcquiredDGV.Columns[6].Visible = false; //service category
+                        RecPayServiceApptAcquiredDGV.Columns[7].Visible = false; // attending staff
+                        RecPayServiceApptAcquiredDGV.Columns[8].Visible = false; //service ID
+                        RecPayServiceApptAcquiredDGV.Columns[11].Visible = false; //service start
+                        RecPayServiceApptAcquiredDGV.Columns[12].Visible = false; //service end 
+                        RecPayServiceApptAcquiredDGV.Columns[13].Visible = false; //service duration
+                        RecPayServiceApptAcquiredDGV.Columns[14].Visible = false; // preferred staff
+                        RecPayServiceApptAcquiredDGV.Columns[15].Visible = false; // que number
+                        RecPayServiceApptAcquiredDGV.Columns[16].Visible = false; // que type
+                        RecPayServiceApptAcquiredDGV.Columns[17].Visible = false; // prio number
+                        RecPayServiceApptAcquiredDGV.Columns[18].Visible = false; // prio number
+
+                        //ApptAcqServicePriceCol ApptAcqServiceCol
+
+
+                        string query = "SELECT FirstName, LastName, Gender, EmployeeCategory, EmployeeID FROM systemusers " +
+                           "WHERE EmployeeType = 'Staff' AND Availability = 'Available'";
+
+                        //using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                        //{
+                        //    using (MySqlCommand command = new MySqlCommand(query, connection))
+                        //    {
+                        //        try
+                        //        {
+                        //            connection.Open();
+                        //            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                        //            DataTable dataTable = new DataTable();
+                        //            adapter.Fill(dataTable);
+
+                        //            RecQueStartStaffDGV.Rows.Clear(); // Clear existing rows in the DataGridView
+
+                        //            foreach (DataRow row in dataTable.Rows)
+                        //            {
+                        //                string firstName = row["FirstName"].ToString();
+                        //                string lastName = row["LastName"].ToString();
+                        //                string gender = row["Gender"].ToString();
+                        //                string employeecategory = row["EmployeeCategory"].ToString();
+                        //                string employeeID = row["EmployeeID"].ToString();
+
+                        //                // Add a new row to the DataGridView
+                        //                int rowIndex = RecQueStartStaffDGV.Rows.Add();
+
+                        //                // Set the values of cells in the DataGridView
+                        //                RecQueStartStaffDGV.Rows[rowIndex].Cells["StaffName"].Value = firstName + " " + lastName;
+                        //                RecQueStartStaffDGV.Rows[rowIndex].Cells["StaffCategory"].Value = employeecategory;
+                        //                RecQueStartStaffDGV.Rows[rowIndex].Cells["StaffGender"].Value = gender;
+                        //                RecQueStartStaffDGV.Rows[rowIndex].Cells["StaffEmployeeID"].Value = employeeID;
+                        //            }
+                        //        }
+                        //        catch (Exception ex)
+                        //        {
+                        //            MessageBox.Show("An error occurred: " + ex.Message);
+                        //        }
+                        //    }
+                        //}
+
 
                     }
                 }
@@ -3006,10 +3118,10 @@ namespace Enchante
                 RecPayServiceWalkinTransactNumLbl.Text = transactNumber;
                 RecPayServiceWalkinClientNameLbl.Text = $"{clientName}";
 
-                RecLoadServiceHistoryDB(transactNumber);
+                RecWalkinLoadServiceHistoryDB(transactNumber);
                 RecLoadOrderProdHistoryDB(transactNumber);
 
-                ReceptionCalculateTotalPrice();
+                RecWalkinCalculateTotalPrice();
                 RecPayServiceApptTransTypeLbl.Text = "Walk-in";
 
             }
@@ -3022,12 +3134,11 @@ namespace Enchante
                 string transactNumber1 = RecPayServiceApptCompleteTransDGV.Rows[e.RowIndex].Cells["TransactionNumber"].Value.ToString();
                 string clientName1 = RecPayServiceApptCompleteTransDGV.Rows[e.RowIndex].Cells["ClientName"].Value.ToString();
 
-                RecPayServiceWalkinTransactNumLbl.Text = transactNumber1;
-                RecPayServiceWalkinClientNameLbl.Text = $"{clientName1}";
-                RecLoadServiceHistoryDB(transactNumber1);
-                RecLoadOrderProdHistoryDB(transactNumber1);
+                RecPayServiceApptTransactNumLbl.Text = transactNumber1;
+                RecPayServiceApptClientNameLbl.Text = $"{clientName1}";
+                RecApptLoadServiceHistoryDB(transactNumber1);
 
-                ReceptionCalculateTotalPrice();
+                //RecWalkinCalculateTotalPrice();
                 RecPayServiceApptTransTypeLbl.Text = "Appointment";
 
             }
@@ -3201,13 +3312,27 @@ namespace Enchante
             }
         }
 
-        private bool RecPayServiceUpdateWalkinDB()
+        private bool RecPayServiceUpdateWalkinAndOrdersDB()
         {
-            // cash values
-            string netAmount = RecPayServiceNetAmountBox.Text; // net amount
-            string vat = RecPayServiceVATBox.Text; // vat 
-            string discount = RecPayServiceWalkinDiscountBox.Text; // discount
+            // walk-in cash values
+            string walkNetAmount = RecPayServiceWalkinAcquiredNetText.Text; // net amount
+            string walkVat = RecPayServiceWalkinAcquiredVATText.Text; // vat 
+            string walkGrossAmount = RecPayServiceWalkinAcquiredTotalText.Text; // gross amount
+            string walkDiscount = ""; // gross amount
+            string walkChange = RecPayServiceWalkinAcquiredChangeText.Text;
+
+            //product cash values
+            string prodNetAmount = RecPayServiceWalkinCOProdNetText.Text; // net amount
+            string prodVat = RecPayServiceWalkinCOProdVATText.Text; // vat 
+            string prodGrossAmount = RecPayServiceWalkinCOProdTotalText.Text; // gross amount
+            string prodDiscount = ""; // gross amount
+            string prodChange = RecPayServiceWalkinCOProdChangeText.Text;
+
+            //string walkNetAmount = RecPayServiceNetAmountBox.Text; // net amount
+            //string walkVat = RecPayServiceVATBox.Text; // vat 
             string grossAmount = RecPayServiceGrossAmountBox.Text; // gross amount
+
+            string discount = RecPayServiceWalkinDiscountBox.Text; // discount
             string cash = RecPayServiceCashBox.Text; // cash given
             string change = RecPayServiceChangeBox.Text; // due change
             string paymentMethod = "Cash"; // payment method
@@ -3245,55 +3370,71 @@ namespace Enchante
                     else
                     {
                         //walk-in transactions
-                        string cashPaymentWalkin = "UPDATE walk_in_appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
+                        string cashPaymentWalkinTrans = "UPDATE walk_in_appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
                                             "GrossAmount = @gross, CashGiven = @cash, DueChange = @change, PaymentMethod = @payment, CheckedOutBy = @mngr " +
                                             "WHERE TransactionNumber = @transactNum"; // cash query
-                        MySqlCommand cmd = new MySqlCommand(cashPaymentWalkin, connection);
+                        MySqlCommand cmd = new MySqlCommand(cashPaymentWalkinTrans, connection);
                         cmd.Parameters.AddWithValue("@status", "Paid");
-                        cmd.Parameters.AddWithValue("@net", netAmount);
-                        cmd.Parameters.AddWithValue("@vat", vat);
-                        cmd.Parameters.AddWithValue("@discount", discount);
-                        cmd.Parameters.AddWithValue("@gross", grossAmount);
+                        cmd.Parameters.AddWithValue("@net", walkNetAmount);
+                        cmd.Parameters.AddWithValue("@vat", walkVat);
+                        cmd.Parameters.AddWithValue("@discount", walkDiscount);
+                        cmd.Parameters.AddWithValue("@gross", walkGrossAmount);
                         cmd.Parameters.AddWithValue("@cash", cash);
-                        cmd.Parameters.AddWithValue("@change", change);
+                        cmd.Parameters.AddWithValue("@change", walkChange);
                         cmd.Parameters.AddWithValue("@payment", paymentMethod);
                         cmd.Parameters.AddWithValue("@mngr", mngr);
                         cmd.Parameters.AddWithValue("@transactNum", transactNum);
 
                         cmd.ExecuteNonQuery();
-                        // Successful update
-                        MessageBox.Show("Service successfully been paid through cash.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        //product walk-in transactions
+                        string cashPaymentWalkinProd = "UPDATE orders SET ProductStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
+                                            "GrossAmount = @gross, CashGiven = @cash, DueChange = @change, PaymentMethod = @payment, CheckedOutBy = @mngr " +
+                                            "WHERE TransactionNumber = @transactNum"; // cash query
+                        MySqlCommand cmd1 = new MySqlCommand(cashPaymentWalkinProd, connection);
+                        cmd1.Parameters.AddWithValue("@status", "Paid");
+                        cmd1.Parameters.AddWithValue("@net", prodNetAmount);
+                        cmd1.Parameters.AddWithValue("@vat", prodVat);
+                        cmd1.Parameters.AddWithValue("@discount", prodDiscount);
+                        cmd1.Parameters.AddWithValue("@gross", prodGrossAmount);
+                        cmd1.Parameters.AddWithValue("@cash", walkChange);
+                        cmd1.Parameters.AddWithValue("@change", prodChange);
+                        cmd1.Parameters.AddWithValue("@payment", paymentMethod);
+                        cmd1.Parameters.AddWithValue("@mngr", mngr);
+                        cmd1.Parameters.AddWithValue("@transactNum", transactNum);
+
+                        cmd1.ExecuteNonQuery();
 
                         string productPaymentWalkin = "UPDATE orderproducthistory SET ProductStatus = @status WHERE TransactionNumber = @transactNum";
 
-                        MySqlCommand cmd1 = new MySqlCommand(productPaymentWalkin, connection);
-                        cmd1.Parameters.AddWithValue("@status", "Paid");
-                        cmd1.Parameters.AddWithValue("@transactNum", transactNum);
-
-
-                        cmd.ExecuteNonQuery();
-                        // Successful update
-                        Inventory.PanelShow(MngrInventoryTypePanel);
-
-                        //appointment transactions
-                        string cashPaymentAppt = "UPDATE appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
-                                            "GrossAmount = @gross, CashGiven = @cash, DueChange = @change, PaymentMethod = @payment, CheckedOutBy = @mngr " +
-                                            "WHERE TransactionNumber = @transactNum"; // cash query
-                        MySqlCommand cmd2 = new MySqlCommand(cashPaymentAppt, connection);
+                        MySqlCommand cmd2 = new MySqlCommand(productPaymentWalkin, connection);
                         cmd2.Parameters.AddWithValue("@status", "Paid");
-                        cmd2.Parameters.AddWithValue("@net", netAmount);
-                        cmd2.Parameters.AddWithValue("@vat", vat);
-                        cmd2.Parameters.AddWithValue("@discount", discount);
-                        cmd2.Parameters.AddWithValue("@gross", grossAmount);
-                        cmd2.Parameters.AddWithValue("@cash", cash);
-                        cmd2.Parameters.AddWithValue("@change", change);
-                        cmd2.Parameters.AddWithValue("@payment", paymentMethod);
-                        cmd2.Parameters.AddWithValue("@mngr", mngr);
                         cmd2.Parameters.AddWithValue("@transactNum", transactNum);
-
                         cmd2.ExecuteNonQuery();
-                        // Successful update
+
+
                         MessageBox.Show("Service successfully been paid through cash.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                        ////appointment transactions
+                        //string cashPaymentAppt = "UPDATE appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
+                        //                    "GrossAmount = @gross, CashGiven = @cash, DueChange = @change, PaymentMethod = @payment, CheckedOutBy = @mngr " +
+                        //                    "WHERE TransactionNumber = @transactNum"; // cash query
+                        //MySqlCommand cmd2 = new MySqlCommand(cashPaymentAppt, connection);
+                        //cmd2.Parameters.AddWithValue("@status", "Paid");
+                        //cmd2.Parameters.AddWithValue("@net", netAmount);
+                        //cmd2.Parameters.AddWithValue("@vat", vat);
+                        //cmd2.Parameters.AddWithValue("@discount", discount);
+                        //cmd2.Parameters.AddWithValue("@gross", grossAmount);
+                        //cmd2.Parameters.AddWithValue("@cash", cash);
+                        //cmd2.Parameters.AddWithValue("@change", change);
+                        //cmd2.Parameters.AddWithValue("@payment", paymentMethod);
+                        //cmd2.Parameters.AddWithValue("@mngr", mngr);
+                        //cmd2.Parameters.AddWithValue("@transactNum", transactNum);
+
+                        //cmd2.ExecuteNonQuery();
+                        //// Successful update
+                        //MessageBox.Show("Service successfully been paid through cash.", "Hooray!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
 
@@ -3319,12 +3460,13 @@ namespace Enchante
 
         private void RecPayServicePaymentButton_Click(object sender, EventArgs e)
         {
-            if (RecPayServiceUpdateWalkinDB())
+            if (RecPayServiceUpdateWalkinAndOrdersDB())
             {
                 RecPayServiceUpdateQtyInventory(RecPayServiceWalkinCOProdDGV);
+                //RecPayServiceWalkinUpdateOrderProdHistory(RecPayServiceWalkinCOProdDGV);
                 RecLoadCompletedWalkinTrans();
                 RecLoadCompletedAppointmentTrans();
-                RecPayServiceInvoiceReceiptGenerator();
+                RecPayServiceWalkinInvoiceReceiptGenerator();
                 RecPayServiceClearAllField();
 
             }
@@ -3361,7 +3503,36 @@ namespace Enchante
                 connection.Close();
             }
         }
+        private void RecPayServiceWalkinUpdateOrderProdHistory(DataGridView dgv)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+                    string updateQuery = "UPDATE orderproducthistory SET ProductStatus = @status WHERE ItemID = @ItemID";
 
+                    foreach (DataGridViewRow row in RecPayServiceWalkinCOProdDGV.Rows)
+                    {
+                        string itemID = row.Cells["ItemID"].Value.ToString();
+
+                        MySqlCommand command = new MySqlCommand(updateQuery, connection);
+                        command.Parameters.AddWithValue("@status", "Paid");
+                        command.Parameters.AddWithValue("@ItemID", itemID);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string errorMessage = "An error occurred: " + ex.Message + "\n\n" + ex.StackTrace;
+                MessageBox.Show(errorMessage, "Product Qty Failed Inserting to Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
         private void RecPayServiceClearAllField()
         {
             RecPayServiceNetAmountBox.Text = "0.00";
@@ -3370,6 +3541,8 @@ namespace Enchante
             RecPayServiceGrossAmountBox.Text = "0.00";
             RecPayServiceCashBox.Text = "0";
             RecPayServiceChangeBox.Text = "0.00";
+
+
 
 
             RecPayServiceWalkinClientNameLbl.Text = "";
@@ -3382,10 +3555,13 @@ namespace Enchante
             RecPayServiceWalkinCOProdDGV.DataSource = null; // Set data source to null
             RecPayServiceWalkinCOProdDGV.Rows.Clear(); // Clear any remaining rows
 
+            RecPayServiceWalkinTransactNumLbl.Text = "Transaction Number";
+            RecPayServiceWalkinClientNameLbl.Text = "Client Name";
         }
 
         private void RecPayServiceBtn_Click(object sender, EventArgs e)
         {
+            PaymentTabs.SelectedIndex = 0;
             PaymentTransColor();
             RecLoadCompletedWalkinTrans();
             RecLoadCompletedAppointmentTrans();
@@ -3425,7 +3601,7 @@ namespace Enchante
             }
         }
 
-        private void RecPayServiceInvoiceReceiptGenerator()
+        private void RecPayServiceWalkinInvoiceReceiptGenerator()
         {
             DateTime currentDate = RecDateTimePicker.Value;
             string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
@@ -3474,7 +3650,6 @@ namespace Enchante
                     iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imagepath, System.Drawing.Imaging.ImageFormat.Png);
                     logo.Alignment = Element.ALIGN_CENTER;
                     logo.ScaleAbsolute(100f, 100f);
-                    logo.Alignment = Element.ALIGN_CENTER;
                     doc.Add(logo);
 
                     iTextSharp.text.Font headerFont = FontFactory.GetFont("Courier", 16, iTextSharp.text.Font.BOLD);
@@ -3874,7 +4049,7 @@ namespace Enchante
         //    }
         //    else
         //    {
-        //        ReceptionCalculateTotalPrice();
+        //        RecWalkinCalculateTotalPrice();
         //    }
         //}
         public void ReceptionCalculateVATExemption()
@@ -4627,10 +4802,11 @@ namespace Enchante
             }
             RecAppTotalText.Text = total1.ToString("F2");
             // Apply discount (for example, 20% discount)
-            decimal discount = 0.6m; // 20% discount
-            decimal discountedTotal = total1 * (1 - discount);
-            RecApptInitialFeeText.Text = discountedTotal.ToString("F2");
-
+            decimal initialFee = 0.6m; // 20% discount
+            decimal inititalFeeTotal = total1 * (1 - initialFee);
+            RecApptInitialFeeText.Text = inititalFeeTotal.ToString("F2");
+            decimal balance = total1 - inititalFeeTotal;
+            RecApptBalanceText.Text = balance.ToString("F2");
         }
         //ApptMember
         private void RecApptSelectServiceAndStaffBtn_Click(object sender, EventArgs e)
@@ -4824,7 +5000,7 @@ namespace Enchante
                     columnHeaderTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
                     columnHeaderTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
 
-                    columnHeaderTable.AddCell(new Phrase("Attending\nStaff ID", boldfont));
+                    columnHeaderTable.AddCell(new Phrase("Staff ID", boldfont));
                     columnHeaderTable.AddCell(new Phrase("Services", boldfont));
                     columnHeaderTable.AddCell(new Phrase("Total Price", boldfont));
                     columnHeaderTable.AddCell(new Phrase("Time", boldfont));
@@ -5077,7 +5253,7 @@ namespace Enchante
             string downpayment = RecApptInitialFeeText.Text;
             string cash = RecApptCashText.Text;
             string change = RecApptChangeText.Text;
-
+            string bal = RecApptBalanceText.Text;
 
             try
             {
@@ -5107,9 +5283,9 @@ namespace Enchante
                     else
                     {
                         string insertQuery = "INSERT INTO appointment (TransactionNumber, TransactionType, ServiceStatus, AppointmentDate, AppointmentTime, AppointmentStatus, " +
-                                        "ClientName, ClientCPNum, ClientBday, ClientAge, GrossAmount, Downpayment, CashGiven, DueChange, PaymentMethod, BookedBy, BookedDate, BookedTime)" +
+                                        "ClientName, ClientCPNum, ClientBday, ClientAge, GrossAmount, Downpayment, RemainingBal, CashGiven, DueChange, PaymentMethod, BookedBy, BookedDate, BookedTime)" +
                                         "VALUES (@Transact, @TransactType, @status, @appointDate, @appointTime, @appointStatus, @clientName, @clientCP, @clientBday, @clientAge, @total,  " +
-                                        "@dp, @cash, @change, @method, @bookedBy, @bookedDate, @bookedTime)";
+                                        "@dp, @bal, @cash, @change, @method, @bookedBy, @bookedDate, @bookedTime)";
 
                         MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
                         cmd.Parameters.AddWithValue("@Transact", transactionNum);
@@ -5124,6 +5300,7 @@ namespace Enchante
                         cmd.Parameters.AddWithValue("@clientAge", age);
                         cmd.Parameters.AddWithValue("@total", total);
                         cmd.Parameters.AddWithValue("@dp", downpayment);
+                        cmd.Parameters.AddWithValue("@bal", bal);
                         cmd.Parameters.AddWithValue("@cash", cash);
                         cmd.Parameters.AddWithValue("@change", change);
                         cmd.Parameters.AddWithValue("@method", "Cash");
@@ -5325,6 +5502,7 @@ namespace Enchante
             // Clear existing items in the ComboBox
             RecApptBookingTimeComboBox.Items.Clear();
             RecApptBookingTimeComboBox.Items.Add("Select a booking time");
+            RecApptBookingTimeComboBox.SelectedIndex = 0;
 
             bool cutoffTimeAdded = false; // Flag to track if "Cutoff Time" has been added
 
@@ -5356,7 +5534,6 @@ namespace Enchante
                     Console.WriteLine($"Failed to parse time: {time}");
                     continue;
                 }
-                RecApptBookingTimeComboBox.Items.Add("Select a booking time");
                 RecApptBookingTimeComboBox.Items.Add(time);
             }
 
@@ -5812,7 +5989,7 @@ namespace Enchante
                 MessageBox.Show("An error occurred: " + ex.Message, "ShopProdSelectedDGV Cell Content Click Error");
             }
         }
-
+        private decimal originalGrossAmount;
         private void RecShopProdSelectedDiscount()
         {
             decimal totalDiscountedAmount = 0;
@@ -10664,23 +10841,7 @@ namespace Enchante
 
 
 
-        #region Staff Dashboard Starts Here
-        private void StaffUserAccBtn_Click(object sender, EventArgs e)
-        {
-            if (StaffUserAccPanel.Visible == false)
-            {
-                StaffUserAccPanel.Visible = true;
-            }
-            else
-            {
-                StaffUserAccPanel.Visible = false;
-            }
 
-        }
-
-
-
-        #endregion
 
 
 
@@ -11044,7 +11205,7 @@ namespace Enchante
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        ServicesFlowLayoutPanel.Controls.Clear();
+                        RecWalkinServicesFlowLayoutPanel.Controls.Clear();
 
                         while (reader.Read())
                         {
@@ -11300,17 +11461,6 @@ namespace Enchante
             }
         }
 
-        private void guna2TextBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (guna2TextBox1.Text.Length >= 100 && e.KeyChar != '\b')
-            {
-                e.Handled = true;
-            }
-            if (e.KeyChar == ' ' && string.IsNullOrEmpty(guna2TextBox1.Text))
-            {
-                e.Handled = true;
-            }
-        }
 
         private void LoginPassText_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -13066,7 +13216,7 @@ namespace Enchante
             else
             {
                 filterstaffbyservicecategory = "Hair Styling";
-                ServicesFlowLayoutPanel.Controls.Clear();
+                RecWalkinServicesFlowLayoutPanel.Controls.Clear();
                 InitializeServices(filterstaffbyservicecategory);
                 serviceappointment = false;
                 haschosenacategory = true;
@@ -13119,10 +13269,10 @@ namespace Enchante
                 age--; // Subtract 1 if the birthday hasn't occurred yet this year
             }
             RecWalkinAgeBox.Text = age.ToString();
-            if (age < 2)
+            if (age < 4)
             {
                 RecWalkinAgeErrorLbl.Visible = true;
-                RecWalkinAgeErrorLbl.Text = "Must be 2yrs old\nand above";
+                RecWalkinAgeErrorLbl.Text = "Must be 4yrs old\nand above";
                 return;
             }
             else
@@ -13715,7 +13865,7 @@ namespace Enchante
             if (RecPayServiceUpdateApptDB())
             {
                 RecLoadCompletedAppointmentTrans();
-                RecPayServiceInvoiceReceiptGenerator();
+                RecPayServiceWalkinInvoiceReceiptGenerator();
                 RecPayServiceClearAllField();
 
             }
@@ -13830,7 +13980,7 @@ namespace Enchante
                 servicesusercontrol.RecServiceNameTextBox_Clicked += ServiceUserControl_Clicked;
 
 
-                ServicesFlowLayoutPanel.Controls.Add(servicesusercontrol);
+                RecWalkinServicesFlowLayoutPanel.Controls.Add(servicesusercontrol);
 
 
 
@@ -13949,8 +14099,8 @@ namespace Enchante
                 string serviceCategory = SelectedCategory;
                 int latestquenumber = GetLargestQueNum(appointmentDate, serviceCategory);
 
-                NewSelectedServiceRow.Cells["ServicePrice"].Value = ServicePrice;
-                NewSelectedServiceRow.Cells["ServiceCategory"].Value = SelectedCategory;
+                NewSelectedServiceRow.Cells["ServicePrices"].Value = ServicePrice;
+                NewSelectedServiceRow.Cells["ServiceCategories"].Value = SelectedCategory;
                 NewSelectedServiceRow.Cells["SelectedService"].Value = ServiceName;
                 NewSelectedServiceRow.Cells["ServiceID"].Value = ServiceID;
                 NewSelectedServiceRow.Cells["QueNumber"].Value = latestquenumber;
@@ -14178,6 +14328,20 @@ namespace Enchante
         private void WalkinProductNextBtn_Click(object sender, EventArgs e)
         {
             ProductNextBtn_Click(sender, e);
+        }
+
+        private void PaymentTabs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(PaymentTabs.SelectedIndex == 0)
+            {
+                RecLoadCompletedWalkinTrans();
+                //MessageBox.Show("Walkin Payment", "Payment");
+            }
+            else if (PaymentTabs.SelectedIndex == 1)
+            {
+                RecLoadCompletedAppointmentTrans();
+                //MessageBox.Show("Appointment Payment", "Payment");
+            }
         }
     }
 }
