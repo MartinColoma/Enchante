@@ -444,15 +444,15 @@ namespace Enchante
             this.RecBtnHolderFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.RecTransBtnFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.RecTransBtn = new FontAwesome.Sharp.IconButton();
+            this.RecWalkInBtn = new FontAwesome.Sharp.IconButton();
+            this.RecAppointmentBtn = new FontAwesome.Sharp.IconButton();
             this.RecShopProdBtn = new FontAwesome.Sharp.IconButton();
             this.RecApptConfirmBtn = new FontAwesome.Sharp.IconButton();
-            this.RecWalkInBtn = new FontAwesome.Sharp.IconButton();
             this.RecPayServiceBtn = new FontAwesome.Sharp.IconButton();
-            this.RecAppointmentBtn = new FontAwesome.Sharp.IconButton();
             this.RecQueBtnFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.RecQueBtn = new FontAwesome.Sharp.IconButton();
-            this.RecQueWinBtn = new FontAwesome.Sharp.IconButton();
             this.RecQueStartBtn = new FontAwesome.Sharp.IconButton();
+            this.RecQueWinBtn = new FontAwesome.Sharp.IconButton();
             this.ReceptionLogoutBtn = new FontAwesome.Sharp.IconButton();
             this.RecOverrideBackBtn = new FontAwesome.Sharp.IconButton();
             this.RecNameLbl = new System.Windows.Forms.Label();
@@ -486,6 +486,9 @@ namespace Enchante
             this.RecShopProdFooterStopperLbl = new System.Windows.Forms.Label();
             this.RecShopProdExitBtn = new FontAwesome.Sharp.IconButton();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.ProductPreviousBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.ProductNextBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.ProductPageLbl = new Guna.UI2.WinForms.Guna2Button();
             this.RecShopProdChangeBox = new System.Windows.Forms.TextBox();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.RecShopProdDiscountLbl = new System.Windows.Forms.Label();
@@ -741,6 +744,9 @@ namespace Enchante
             this.RecWalkinPreferredStaffToggleSwitch = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.WalkinProducts = new System.Windows.Forms.TabPage();
             this.RecWalkinProdPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.WalkinProductPreviousBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.WalkinProductNextBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.WalkinProductPageLbl = new Guna.UI2.WinForms.Guna2Button();
             this.RecWalkinCheckoutBtn = new Guna.UI2.WinForms.Guna2Button();
             this.RecWalkinVoucherText = new System.Windows.Forms.TextBox();
             this.RecWalkinTotalAmountLblText = new System.Windows.Forms.TextBox();
@@ -766,13 +772,9 @@ namespace Enchante
             this.RecStaffItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecStaffItemStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecStaffItemStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecQueStartGenQueLbl = new System.Windows.Forms.Label();
-            this.RecQueStartGenQuePanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.RecQueStartPrefQueLbl = new System.Windows.Forms.Label();
-            this.RecQueStartPrefQuePanel = new System.Windows.Forms.FlowLayoutPanel();
             this.RecQueStartNextCustLbl = new System.Windows.Forms.Label();
-            this.RecQueStartPrioQueLbl = new System.Windows.Forms.Label();
-            this.RecQueStartPrioQuePanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.RecOverallQueueLbl = new System.Windows.Forms.Label();
+            this.RecQueueStartPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.RecQueStartCurrentCustLbl = new System.Windows.Forms.Label();
             this.RecQueStartStaffLbl = new System.Windows.Forms.Label();
             this.RecQueStartCurrentCustPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -972,7 +974,7 @@ namespace Enchante
             this.EnchanteParentContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnchanteParentContainer.Location = new System.Drawing.Point(0, 0);
             this.EnchanteParentContainer.Name = "EnchanteParentContainer";
-            this.EnchanteParentContainer.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteParentContainer.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteParentContainer.TabIndex = 0;
             // 
             // EnchanteMngrPage
@@ -983,7 +985,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteMngrPage, new System.Drawing.Size(200, 100));
             this.EnchanteMngrPage.Name = "EnchanteMngrPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteMngrPage, new System.Drawing.Size(200, 100));
-            this.EnchanteMngrPage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteMngrPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteMngrPage.TabIndex = 6;
             // 
             // MngrScrollPanel
@@ -995,7 +997,7 @@ namespace Enchante
             this.MngrScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MngrScrollPanel.Location = new System.Drawing.Point(0, 0);
             this.MngrScrollPanel.Name = "MngrScrollPanel";
-            this.MngrScrollPanel.Size = new System.Drawing.Size(1904, 1041);
+            this.MngrScrollPanel.Size = new System.Drawing.Size(1370, 749);
             this.MngrScrollPanel.TabIndex = 0;
             // 
             // MngrNavBarPanel
@@ -1012,7 +1014,7 @@ namespace Enchante
             this.MngrNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.MngrNavBarPanel.MaximumSize = new System.Drawing.Size(330, 1061);
             this.MngrNavBarPanel.Name = "MngrNavBarPanel";
-            this.MngrNavBarPanel.Size = new System.Drawing.Size(330, 1024);
+            this.MngrNavBarPanel.Size = new System.Drawing.Size(330, 732);
             this.MngrNavBarPanel.TabIndex = 3;
             // 
             // MngrDateTimeText
@@ -1038,7 +1040,7 @@ namespace Enchante
             this.MngrBtnHolderFlowPanel.Controls.Add(this.MngrSignOutBtn);
             this.MngrBtnHolderFlowPanel.Controls.Add(this.MngrOverrideBackBtn);
             this.MngrBtnHolderFlowPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.MngrBtnHolderFlowPanel.Location = new System.Drawing.Point(0, 326);
+            this.MngrBtnHolderFlowPanel.Location = new System.Drawing.Point(0, 34);
             this.MngrBtnHolderFlowPanel.Name = "MngrBtnHolderFlowPanel";
             this.MngrBtnHolderFlowPanel.Size = new System.Drawing.Size(330, 698);
             this.MngrBtnHolderFlowPanel.TabIndex = 64;
@@ -1540,7 +1542,7 @@ namespace Enchante
             this.MngrInventoryPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.MngrInventoryPanel.Location = new System.Drawing.Point(330, 0);
             this.MngrInventoryPanel.Name = "MngrInventoryPanel";
-            this.MngrInventoryPanel.Size = new System.Drawing.Size(1588, 1024);
+            this.MngrInventoryPanel.Size = new System.Drawing.Size(1588, 732);
             this.MngrInventoryPanel.TabIndex = 24;
             // 
             // MngrInventoryProductsPanel
@@ -1574,7 +1576,7 @@ namespace Enchante
             this.MngrInventoryCard.SetMinimumSize(this.MngrInventoryProductsPanel, new System.Drawing.Size(200, 100));
             this.MngrInventoryProductsPanel.Name = "MngrInventoryProductsPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrInventoryProductsPanel, new System.Drawing.Size(200, 100));
-            this.MngrInventoryProductsPanel.Size = new System.Drawing.Size(1588, 1024);
+            this.MngrInventoryProductsPanel.Size = new System.Drawing.Size(1588, 732);
             this.MngrInventoryProductsPanel.TabIndex = 0;
             this.MngrInventoryProductsPanel.Visible = false;
             // 
@@ -1934,7 +1936,7 @@ namespace Enchante
             this.MngrInventoryCard.SetMinimumSize(this.MngrInventoryTypePanel, new System.Drawing.Size(0, 0));
             this.MngrInventoryTypePanel.Name = "MngrInventoryTypePanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrInventoryTypePanel, new System.Drawing.Size(1797, 749));
-            this.MngrInventoryTypePanel.Size = new System.Drawing.Size(1588, 1024);
+            this.MngrInventoryTypePanel.Size = new System.Drawing.Size(1588, 732);
             this.MngrInventoryTypePanel.TabIndex = 1;
             // 
             // iconButton11
@@ -1985,7 +1987,7 @@ namespace Enchante
             this.MngrInventoryCard.SetMinimumSize(this.MngrServiceHistoryPanel, new System.Drawing.Size(200, 100));
             this.MngrServiceHistoryPanel.Name = "MngrServiceHistoryPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrServiceHistoryPanel, new System.Drawing.Size(200, 100));
-            this.MngrServiceHistoryPanel.Size = new System.Drawing.Size(1588, 1024);
+            this.MngrServiceHistoryPanel.Size = new System.Drawing.Size(1588, 732);
             this.MngrServiceHistoryPanel.TabIndex = 30;
             // 
             // MngrSVHistoryServiceCatBox
@@ -2181,7 +2183,7 @@ namespace Enchante
             this.MngrInventoryCard.SetMinimumSize(this.MngrApptServicePanel, new System.Drawing.Size(1132, 505));
             this.MngrApptServicePanel.Name = "MngrApptServicePanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrApptServicePanel, new System.Drawing.Size(1132, 505));
-            this.MngrApptServicePanel.Size = new System.Drawing.Size(1588, 1024);
+            this.MngrApptServicePanel.Size = new System.Drawing.Size(1588, 732);
             this.MngrApptServicePanel.TabIndex = 100;
             this.MngrApptServicePanel.Visible = false;
             // 
@@ -2564,7 +2566,7 @@ namespace Enchante
             this.MngrInventoryCard.SetMinimumSize(this.MngrWalkinProdSalesPanel, new System.Drawing.Size(200, 100));
             this.MngrWalkinProdSalesPanel.Name = "MngrWalkinProdSalesPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrWalkinProdSalesPanel, new System.Drawing.Size(200, 100));
-            this.MngrWalkinProdSalesPanel.Size = new System.Drawing.Size(1588, 1024);
+            this.MngrWalkinProdSalesPanel.Size = new System.Drawing.Size(1588, 732);
             this.MngrWalkinProdSalesPanel.TabIndex = 99;
             // 
             // MngrProductSalesPeriod
@@ -2880,7 +2882,7 @@ namespace Enchante
             this.MngrInventoryCard.SetMinimumSize(this.MngrWalkinSalesPanel, new System.Drawing.Size(1132, 505));
             this.MngrWalkinSalesPanel.Name = "MngrWalkinSalesPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrWalkinSalesPanel, new System.Drawing.Size(1132, 505));
-            this.MngrWalkinSalesPanel.Size = new System.Drawing.Size(1588, 1024);
+            this.MngrWalkinSalesPanel.Size = new System.Drawing.Size(1588, 732);
             this.MngrWalkinSalesPanel.TabIndex = 28;
             this.MngrWalkinSalesPanel.Visible = false;
             // 
@@ -3243,7 +3245,7 @@ namespace Enchante
             this.MngrInventoryCard.SetMinimumSize(this.MngrIndemandPanel, new System.Drawing.Size(1132, 505));
             this.MngrIndemandPanel.Name = "MngrIndemandPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrIndemandPanel, new System.Drawing.Size(1132, 505));
-            this.MngrIndemandPanel.Size = new System.Drawing.Size(1588, 1024);
+            this.MngrIndemandPanel.Size = new System.Drawing.Size(1588, 732);
             this.MngrIndemandPanel.TabIndex = 29;
             this.MngrIndemandPanel.Visible = false;
             // 
@@ -3559,7 +3561,7 @@ namespace Enchante
             this.MngrInventoryCard.SetMinimumSize(this.MngrInventoryProductHistoryPanel, new System.Drawing.Size(200, 100));
             this.MngrInventoryProductHistoryPanel.Name = "MngrInventoryProductHistoryPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrInventoryProductHistoryPanel, new System.Drawing.Size(200, 100));
-            this.MngrInventoryProductHistoryPanel.Size = new System.Drawing.Size(1588, 1024);
+            this.MngrInventoryProductHistoryPanel.Size = new System.Drawing.Size(1588, 732);
             this.MngrInventoryProductHistoryPanel.TabIndex = 4;
             // 
             // MngrPDHistoryDGV
@@ -3736,7 +3738,7 @@ namespace Enchante
             this.MngrInventoryCard.SetMinimumSize(this.MngrPromoPanel, new System.Drawing.Size(1697, 557));
             this.MngrPromoPanel.Name = "MngrPromoPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrPromoPanel, new System.Drawing.Size(1697, 557));
-            this.MngrPromoPanel.Size = new System.Drawing.Size(1588, 1024);
+            this.MngrPromoPanel.Size = new System.Drawing.Size(1588, 732);
             this.MngrPromoPanel.TabIndex = 25;
             // 
             // MngrVoucherXBtn
@@ -4107,7 +4109,7 @@ namespace Enchante
             this.MngrInventoryCard.SetMinimumSize(this.MngrServicesPanel, new System.Drawing.Size(1857, 839));
             this.MngrServicesPanel.Name = "MngrServicesPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrServicesPanel, new System.Drawing.Size(1857, 839));
-            this.MngrServicesPanel.Size = new System.Drawing.Size(1588, 1024);
+            this.MngrServicesPanel.Size = new System.Drawing.Size(1588, 732);
             this.MngrServicesPanel.TabIndex = 0;
             // 
             // MngrServicesDeleteBtn
@@ -4517,7 +4519,7 @@ namespace Enchante
             this.MngrInventoryCard.SetMinimumSize(this.MngrInventoryMembershipPanel, new System.Drawing.Size(1857, 839));
             this.MngrInventoryMembershipPanel.Name = "MngrInventoryMembershipPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrInventoryMembershipPanel, new System.Drawing.Size(1857, 839));
-            this.MngrInventoryMembershipPanel.Size = new System.Drawing.Size(1588, 1024);
+            this.MngrInventoryMembershipPanel.Size = new System.Drawing.Size(1588, 732);
             this.MngrInventoryMembershipPanel.TabIndex = 3;
             // 
             // MngrMemAccDGV
@@ -4645,7 +4647,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteAdminPage, new System.Drawing.Size(200, 100));
             this.EnchanteAdminPage.Name = "EnchanteAdminPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteAdminPage, new System.Drawing.Size(200, 100));
-            this.EnchanteAdminPage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteAdminPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteAdminPage.TabIndex = 5;
             // 
             // AdminScrollPanel
@@ -4658,7 +4660,7 @@ namespace Enchante
             this.AdminScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AdminScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.AdminScrollPanel.Name = "AdminScrollPanel";
-            this.AdminScrollPanel.Size = new System.Drawing.Size(1904, 891);
+            this.AdminScrollPanel.Size = new System.Drawing.Size(1370, 599);
             this.AdminScrollPanel.TabIndex = 20;
             // 
             // AdminUserAccPanel
@@ -5501,7 +5503,7 @@ namespace Enchante
             this.AdminNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.AdminNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.AdminNavBarPanel.Name = "AdminNavBarPanel";
-            this.AdminNavBarPanel.Size = new System.Drawing.Size(1904, 150);
+            this.AdminNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.AdminNavBarPanel.TabIndex = 4;
             // 
             // AdminAccUserBtn
@@ -5569,7 +5571,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteHomePage, new System.Drawing.Size(200, 100));
             this.EnchanteHomePage.Name = "EnchanteHomePage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteHomePage, new System.Drawing.Size(200, 100));
-            this.EnchanteHomePage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteHomePage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteHomePage.TabIndex = 4;
             // 
             // EnchanteHomeScrollPanel
@@ -5582,7 +5584,7 @@ namespace Enchante
             this.EnchanteHomeScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnchanteHomeScrollPanel.Location = new System.Drawing.Point(0, 0);
             this.EnchanteHomeScrollPanel.Name = "EnchanteHomeScrollPanel";
-            this.EnchanteHomeScrollPanel.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteHomeScrollPanel.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteHomeScrollPanel.TabIndex = 18;
             this.EnchanteHomeScrollPanel.Click += new System.EventHandler(this.EnchanteHomeScrollPanel_Click);
             // 
@@ -5602,7 +5604,7 @@ namespace Enchante
             this.EnchanteLoginForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnchanteLoginForm.Location = new System.Drawing.Point(1248, 0);
             this.EnchanteLoginForm.Name = "EnchanteLoginForm";
-            this.EnchanteLoginForm.Size = new System.Drawing.Size(656, 1041);
+            this.EnchanteLoginForm.Size = new System.Drawing.Size(128, 732);
             this.EnchanteLoginForm.TabIndex = 21;
             // 
             // LoginPassReqBtn
@@ -5782,7 +5784,7 @@ namespace Enchante
             this.EDP1.Image = global::Enchante.Properties.Resources.Lobby;
             this.EDP1.Location = new System.Drawing.Point(0, 0);
             this.EDP1.Name = "EDP1";
-            this.EDP1.Size = new System.Drawing.Size(1248, 1041);
+            this.EDP1.Size = new System.Drawing.Size(1248, 732);
             this.EDP1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.EDP1.TabIndex = 24;
             this.EDP1.TabStop = false;
@@ -5818,7 +5820,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteReceptionPage, new System.Drawing.Size(200, 100));
             this.EnchanteReceptionPage.Name = "EnchanteReceptionPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteReceptionPage, new System.Drawing.Size(200, 100));
-            this.EnchanteReceptionPage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteReceptionPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteReceptionPage.TabIndex = 2;
             // 
             // ReceptionScrollPanel
@@ -5830,7 +5832,7 @@ namespace Enchante
             this.ReceptionScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ReceptionScrollPanel.Location = new System.Drawing.Point(0, 0);
             this.ReceptionScrollPanel.Name = "ReceptionScrollPanel";
-            this.ReceptionScrollPanel.Size = new System.Drawing.Size(1904, 1041);
+            this.ReceptionScrollPanel.Size = new System.Drawing.Size(1370, 749);
             this.ReceptionScrollPanel.TabIndex = 20;
             this.ReceptionScrollPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.ReceptionScrollPanel_Paint);
             // 
@@ -5846,7 +5848,7 @@ namespace Enchante
             this.RecBtnHolderPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.RecBtnHolderPanel.Location = new System.Drawing.Point(0, 0);
             this.RecBtnHolderPanel.Name = "RecBtnHolderPanel";
-            this.RecBtnHolderPanel.Size = new System.Drawing.Size(325, 1024);
+            this.RecBtnHolderPanel.Size = new System.Drawing.Size(325, 732);
             this.RecBtnHolderPanel.TabIndex = 22;
             // 
             // RecDateTimePicker
@@ -5868,7 +5870,7 @@ namespace Enchante
             this.RecBtnHolderFlowPanel.Controls.Add(this.ReceptionLogoutBtn);
             this.RecBtnHolderFlowPanel.Controls.Add(this.RecOverrideBackBtn);
             this.RecBtnHolderFlowPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.RecBtnHolderFlowPanel.Location = new System.Drawing.Point(0, 326);
+            this.RecBtnHolderFlowPanel.Location = new System.Drawing.Point(0, 34);
             this.RecBtnHolderFlowPanel.Name = "RecBtnHolderFlowPanel";
             this.RecBtnHolderFlowPanel.Size = new System.Drawing.Size(325, 698);
             this.RecBtnHolderFlowPanel.TabIndex = 63;
@@ -5914,6 +5916,50 @@ namespace Enchante
             this.RecTransBtn.UseVisualStyleBackColor = false;
             this.RecTransBtn.Click += new System.EventHandler(this.RecTransBtn_Click);
             // 
+            // RecWalkInBtn
+            // 
+            this.RecWalkInBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecWalkInBtn.FlatAppearance.BorderSize = 0;
+            this.RecWalkInBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecWalkInBtn.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecWalkInBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecWalkInBtn.IconChar = FontAwesome.Sharp.IconChar.PersonWalkingArrowLoopLeft;
+            this.RecWalkInBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecWalkInBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecWalkInBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RecWalkInBtn.Location = new System.Drawing.Point(3, 109);
+            this.RecWalkInBtn.Name = "RecWalkInBtn";
+            this.RecWalkInBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.RecWalkInBtn.Size = new System.Drawing.Size(295, 100);
+            this.RecWalkInBtn.TabIndex = 0;
+            this.RecWalkInBtn.Text = "WALK-IN\r\nTRANSACTION";
+            this.RecWalkInBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RecWalkInBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.RecWalkInBtn.UseVisualStyleBackColor = false;
+            this.RecWalkInBtn.Click += new System.EventHandler(this.RecWalkInBtn_Click);
+            // 
+            // RecAppointmentBtn
+            // 
+            this.RecAppointmentBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecAppointmentBtn.FlatAppearance.BorderSize = 0;
+            this.RecAppointmentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecAppointmentBtn.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecAppointmentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecAppointmentBtn.IconChar = FontAwesome.Sharp.IconChar.Calendar;
+            this.RecAppointmentBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecAppointmentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecAppointmentBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RecAppointmentBtn.Location = new System.Drawing.Point(3, 215);
+            this.RecAppointmentBtn.Name = "RecAppointmentBtn";
+            this.RecAppointmentBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.RecAppointmentBtn.Size = new System.Drawing.Size(295, 100);
+            this.RecAppointmentBtn.TabIndex = 1;
+            this.RecAppointmentBtn.Text = "APPOINTMENT\r\nTRANSACTION";
+            this.RecAppointmentBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RecAppointmentBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.RecAppointmentBtn.UseVisualStyleBackColor = false;
+            this.RecAppointmentBtn.Click += new System.EventHandler(this.RecAppointmentBtn_Click);
+            // 
             // RecShopProdBtn
             // 
             this.RecShopProdBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
@@ -5958,28 +6004,6 @@ namespace Enchante
             this.RecApptConfirmBtn.UseVisualStyleBackColor = false;
             this.RecApptConfirmBtn.Click += new System.EventHandler(this.RecApptConfirmBtn_Click);
             // 
-            // RecWalkInBtn
-            // 
-            this.RecWalkInBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecWalkInBtn.FlatAppearance.BorderSize = 0;
-            this.RecWalkInBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecWalkInBtn.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecWalkInBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecWalkInBtn.IconChar = FontAwesome.Sharp.IconChar.PersonWalkingArrowLoopLeft;
-            this.RecWalkInBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecWalkInBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecWalkInBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RecWalkInBtn.Location = new System.Drawing.Point(3, 109);
-            this.RecWalkInBtn.Name = "RecWalkInBtn";
-            this.RecWalkInBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.RecWalkInBtn.Size = new System.Drawing.Size(295, 100);
-            this.RecWalkInBtn.TabIndex = 0;
-            this.RecWalkInBtn.Text = "WALK-IN\r\nTRANSACTION";
-            this.RecWalkInBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RecWalkInBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.RecWalkInBtn.UseVisualStyleBackColor = false;
-            this.RecWalkInBtn.Click += new System.EventHandler(this.RecWalkInBtn_Click);
-            // 
             // RecPayServiceBtn
             // 
             this.RecPayServiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
@@ -6001,28 +6025,6 @@ namespace Enchante
             this.RecPayServiceBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.RecPayServiceBtn.UseVisualStyleBackColor = false;
             this.RecPayServiceBtn.Click += new System.EventHandler(this.RecPayServiceBtn_Click);
-            // 
-            // RecAppointmentBtn
-            // 
-            this.RecAppointmentBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecAppointmentBtn.FlatAppearance.BorderSize = 0;
-            this.RecAppointmentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecAppointmentBtn.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecAppointmentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecAppointmentBtn.IconChar = FontAwesome.Sharp.IconChar.Calendar;
-            this.RecAppointmentBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecAppointmentBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecAppointmentBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RecAppointmentBtn.Location = new System.Drawing.Point(3, 215);
-            this.RecAppointmentBtn.Name = "RecAppointmentBtn";
-            this.RecAppointmentBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.RecAppointmentBtn.Size = new System.Drawing.Size(295, 100);
-            this.RecAppointmentBtn.TabIndex = 1;
-            this.RecAppointmentBtn.Text = "APPOINTMENT\r\nTRANSACTION";
-            this.RecAppointmentBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RecAppointmentBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.RecAppointmentBtn.UseVisualStyleBackColor = false;
-            this.RecAppointmentBtn.Click += new System.EventHandler(this.RecAppointmentBtn_Click);
             // 
             // RecQueBtnFlowPanel
             // 
@@ -6061,28 +6063,6 @@ namespace Enchante
             this.RecQueBtn.UseVisualStyleBackColor = false;
             this.RecQueBtn.Click += new System.EventHandler(this.RecQueBtn_Click);
             // 
-            // RecQueWinBtn
-            // 
-            this.RecQueWinBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecQueWinBtn.FlatAppearance.BorderSize = 0;
-            this.RecQueWinBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RecQueWinBtn.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecQueWinBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecQueWinBtn.IconChar = FontAwesome.Sharp.IconChar.PeopleLine;
-            this.RecQueWinBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecQueWinBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RecQueWinBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RecQueWinBtn.Location = new System.Drawing.Point(3, 219);
-            this.RecQueWinBtn.Name = "RecQueWinBtn";
-            this.RecQueWinBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.RecQueWinBtn.Size = new System.Drawing.Size(295, 104);
-            this.RecQueWinBtn.TabIndex = 3;
-            this.RecQueWinBtn.Text = "QUEUE\r\nWINDOW";
-            this.RecQueWinBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RecQueWinBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.RecQueWinBtn.UseVisualStyleBackColor = false;
-            this.RecQueWinBtn.Click += new System.EventHandler(this.RecQueWinBtn_Click);
-            // 
             // RecQueStartBtn
             // 
             this.RecQueStartBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
@@ -6105,6 +6085,28 @@ namespace Enchante
             this.RecQueStartBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.RecQueStartBtn.UseVisualStyleBackColor = false;
             this.RecQueStartBtn.Click += new System.EventHandler(this.RecQueStartBtn_Click);
+            // 
+            // RecQueWinBtn
+            // 
+            this.RecQueWinBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecQueWinBtn.FlatAppearance.BorderSize = 0;
+            this.RecQueWinBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RecQueWinBtn.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecQueWinBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecQueWinBtn.IconChar = FontAwesome.Sharp.IconChar.PeopleLine;
+            this.RecQueWinBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecQueWinBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.RecQueWinBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RecQueWinBtn.Location = new System.Drawing.Point(3, 219);
+            this.RecQueWinBtn.Name = "RecQueWinBtn";
+            this.RecQueWinBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.RecQueWinBtn.Size = new System.Drawing.Size(295, 104);
+            this.RecQueWinBtn.TabIndex = 3;
+            this.RecQueWinBtn.Text = "QUEUE\r\nWINDOW";
+            this.RecQueWinBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RecQueWinBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.RecQueWinBtn.UseVisualStyleBackColor = false;
+            this.RecQueWinBtn.Click += new System.EventHandler(this.RecQueWinBtn_Click);
             // 
             // ReceptionLogoutBtn
             // 
@@ -6228,7 +6230,7 @@ namespace Enchante
             this.ReceptionCreateTransactPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.ReceptionCreateTransactPanel.Location = new System.Drawing.Point(325, 0);
             this.ReceptionCreateTransactPanel.Name = "ReceptionCreateTransactPanel";
-            this.ReceptionCreateTransactPanel.Size = new System.Drawing.Size(1598, 1024);
+            this.ReceptionCreateTransactPanel.Size = new System.Drawing.Size(1598, 732);
             this.ReceptionCreateTransactPanel.TabIndex = 21;
             // 
             // RecApptConfirmPanel
@@ -6250,7 +6252,7 @@ namespace Enchante
             this.RecTransactionCard.SetMinimumSize(this.RecApptConfirmPanel, new System.Drawing.Size(200, 100));
             this.RecApptConfirmPanel.Name = "RecApptConfirmPanel";
             this.RecTransactionCard.SetPreferredSize(this.RecApptConfirmPanel, new System.Drawing.Size(200, 100));
-            this.RecApptConfirmPanel.Size = new System.Drawing.Size(1598, 1024);
+            this.RecApptConfirmPanel.Size = new System.Drawing.Size(1598, 732);
             this.RecApptConfirmPanel.TabIndex = 31;
             // 
             // RecCancelServiceBtn
@@ -6574,7 +6576,7 @@ namespace Enchante
             this.RecTransactionCard.SetMinimumSize(this.RecShopProdPanel, new System.Drawing.Size(200, 100));
             this.RecShopProdPanel.Name = "RecShopProdPanel";
             this.RecTransactionCard.SetPreferredSize(this.RecShopProdPanel, new System.Drawing.Size(200, 100));
-            this.RecShopProdPanel.Size = new System.Drawing.Size(1598, 1024);
+            this.RecShopProdPanel.Size = new System.Drawing.Size(1598, 732);
             this.RecShopProdPanel.TabIndex = 30;
             // 
             // RecShopProdFooterStopperPanel
@@ -6622,6 +6624,9 @@ namespace Enchante
             this.guna2GradientPanel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.guna2GradientPanel2.BorderRadius = 3;
             this.guna2GradientPanel2.BorderThickness = 3;
+            this.guna2GradientPanel2.Controls.Add(this.ProductPreviousBtn);
+            this.guna2GradientPanel2.Controls.Add(this.ProductNextBtn);
+            this.guna2GradientPanel2.Controls.Add(this.ProductPageLbl);
             this.guna2GradientPanel2.Controls.Add(this.RecShopProdChangeBox);
             this.guna2GradientPanel2.Controls.Add(this.iconButton2);
             this.guna2GradientPanel2.Controls.Add(this.RecShopProdDiscountLbl);
@@ -6647,6 +6652,75 @@ namespace Enchante
             this.guna2GradientPanel2.Name = "guna2GradientPanel2";
             this.guna2GradientPanel2.Size = new System.Drawing.Size(1518, 795);
             this.guna2GradientPanel2.TabIndex = 206;
+            // 
+            // ProductPreviousBtn
+            // 
+            this.ProductPreviousBtn.AutoRoundedCorners = true;
+            this.ProductPreviousBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.ProductPreviousBtn.BorderRadius = 16;
+            this.ProductPreviousBtn.BorderThickness = 2;
+            this.ProductPreviousBtn.DefaultAutoSize = true;
+            this.ProductPreviousBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ProductPreviousBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ProductPreviousBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ProductPreviousBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ProductPreviousBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ProductPreviousBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProductPreviousBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ProductPreviousBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ProductPreviousBtn.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ProductPreviousBtn.Location = new System.Drawing.Point(61, 752);
+            this.ProductPreviousBtn.Name = "ProductPreviousBtn";
+            this.ProductPreviousBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ProductPreviousBtn.Size = new System.Drawing.Size(109, 34);
+            this.ProductPreviousBtn.TabIndex = 187;
+            this.ProductPreviousBtn.Text = "Previous";
+            this.ProductPreviousBtn.Click += new System.EventHandler(this.ProductPreviousBtn_Click);
+            // 
+            // ProductNextBtn
+            // 
+            this.ProductNextBtn.AutoRoundedCorners = true;
+            this.ProductNextBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.ProductNextBtn.BorderRadius = 16;
+            this.ProductNextBtn.BorderThickness = 2;
+            this.ProductNextBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ProductNextBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ProductNextBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ProductNextBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ProductNextBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ProductNextBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProductNextBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ProductNextBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ProductNextBtn.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ProductNextBtn.Location = new System.Drawing.Point(287, 752);
+            this.ProductNextBtn.Name = "ProductNextBtn";
+            this.ProductNextBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ProductNextBtn.Size = new System.Drawing.Size(109, 34);
+            this.ProductNextBtn.TabIndex = 186;
+            this.ProductNextBtn.Text = "Next";
+            this.ProductNextBtn.Click += new System.EventHandler(this.ProductNextBtn_Click);
+            // 
+            // ProductPageLbl
+            // 
+            this.ProductPageLbl.AutoRoundedCorners = true;
+            this.ProductPageLbl.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.ProductPageLbl.BorderRadius = 16;
+            this.ProductPageLbl.BorderThickness = 2;
+            this.ProductPageLbl.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ProductPageLbl.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ProductPageLbl.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ProductPageLbl.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ProductPageLbl.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ProductPageLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProductPageLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ProductPageLbl.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ProductPageLbl.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ProductPageLbl.Location = new System.Drawing.Point(174, 752);
+            this.ProductPageLbl.Name = "ProductPageLbl";
+            this.ProductPageLbl.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ProductPageLbl.Size = new System.Drawing.Size(109, 34);
+            this.ProductPageLbl.TabIndex = 185;
+            this.ProductPageLbl.Text = "10/10";
             // 
             // RecShopProdChangeBox
             // 
@@ -6995,7 +7069,7 @@ namespace Enchante
             this.RecTransactionCard.SetMinimumSize(this.RecApptPanel, new System.Drawing.Size(1371, 807));
             this.RecApptPanel.Name = "RecApptPanel";
             this.RecTransactionCard.SetPreferredSize(this.RecApptPanel, new System.Drawing.Size(1371, 807));
-            this.RecApptPanel.Size = new System.Drawing.Size(1598, 1024);
+            this.RecApptPanel.Size = new System.Drawing.Size(1598, 732);
             this.RecApptPanel.TabIndex = 29;
             // 
             // RecApptPanelExitBtn
@@ -7025,7 +7099,7 @@ namespace Enchante
             this.ApptTabs.Location = new System.Drawing.Point(0, 0);
             this.ApptTabs.Name = "ApptTabs";
             this.ApptTabs.SelectedIndex = 0;
-            this.ApptTabs.Size = new System.Drawing.Size(1596, 1022);
+            this.ApptTabs.Size = new System.Drawing.Size(1596, 730);
             this.ApptTabs.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.ApptTabs.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.ApptTabs.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -7055,7 +7129,7 @@ namespace Enchante
             this.ApptBasicInfo.Location = new System.Drawing.Point(4, 44);
             this.ApptBasicInfo.Name = "ApptBasicInfo";
             this.ApptBasicInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.ApptBasicInfo.Size = new System.Drawing.Size(1588, 974);
+            this.ApptBasicInfo.Size = new System.Drawing.Size(1588, 682);
             this.ApptBasicInfo.TabIndex = 0;
             this.ApptBasicInfo.Text = "Basic Info";
             // 
@@ -7383,7 +7457,7 @@ namespace Enchante
             this.ApptService.Location = new System.Drawing.Point(4, 44);
             this.ApptService.Name = "ApptService";
             this.ApptService.Padding = new System.Windows.Forms.Padding(3);
-            this.ApptService.Size = new System.Drawing.Size(1588, 974);
+            this.ApptService.Size = new System.Drawing.Size(1588, 682);
             this.ApptService.TabIndex = 1;
             this.ApptService.Text = "Services";
             // 
@@ -7896,7 +7970,7 @@ namespace Enchante
             this.ApptAcqService.Controls.Add(this.RecApptAcqServicePanel);
             this.ApptAcqService.Location = new System.Drawing.Point(4, 44);
             this.ApptAcqService.Name = "ApptAcqService";
-            this.ApptAcqService.Size = new System.Drawing.Size(1588, 974);
+            this.ApptAcqService.Size = new System.Drawing.Size(1588, 682);
             this.ApptAcqService.TabIndex = 3;
             this.ApptAcqService.Text = "Acquired Services";
             // 
@@ -8371,7 +8445,7 @@ namespace Enchante
             this.RecTransactionCard.SetMinimumSize(this.RecQueWinPanel, new System.Drawing.Size(1797, 749));
             this.RecQueWinPanel.Name = "RecQueWinPanel";
             this.RecTransactionCard.SetPreferredSize(this.RecQueWinPanel, new System.Drawing.Size(1797, 749));
-            this.RecQueWinPanel.Size = new System.Drawing.Size(1598, 1024);
+            this.RecQueWinPanel.Size = new System.Drawing.Size(1598, 732);
             this.RecQueWinPanel.TabIndex = 28;
             // 
             // label7
@@ -8650,7 +8724,7 @@ namespace Enchante
             this.RecTransactionCard.SetMinimumSize(this.RecPayServicePanel, new System.Drawing.Size(1797, 749));
             this.RecPayServicePanel.Name = "RecPayServicePanel";
             this.RecTransactionCard.SetPreferredSize(this.RecPayServicePanel, new System.Drawing.Size(1797, 749));
-            this.RecPayServicePanel.Size = new System.Drawing.Size(1598, 1024);
+            this.RecPayServicePanel.Size = new System.Drawing.Size(1598, 732);
             this.RecPayServicePanel.TabIndex = 27;
             // 
             // PaymentTabs
@@ -8663,7 +8737,7 @@ namespace Enchante
             this.PaymentTabs.Location = new System.Drawing.Point(0, 0);
             this.PaymentTabs.Name = "PaymentTabs";
             this.PaymentTabs.SelectedIndex = 0;
-            this.PaymentTabs.Size = new System.Drawing.Size(1598, 1024);
+            this.PaymentTabs.Size = new System.Drawing.Size(1598, 732);
             this.PaymentTabs.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.PaymentTabs.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.PaymentTabs.TabButtonHoverState.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -8693,7 +8767,7 @@ namespace Enchante
             this.PaymentWalkinTab.Location = new System.Drawing.Point(4, 64);
             this.PaymentWalkinTab.Name = "PaymentWalkinTab";
             this.PaymentWalkinTab.Padding = new System.Windows.Forms.Padding(3);
-            this.PaymentWalkinTab.Size = new System.Drawing.Size(1590, 956);
+            this.PaymentWalkinTab.Size = new System.Drawing.Size(1590, 664);
             this.PaymentWalkinTab.TabIndex = 0;
             this.PaymentWalkinTab.Text = "Walk-in Transactions";
             // 
@@ -9103,7 +9177,7 @@ namespace Enchante
             this.PaymentApptTab.Location = new System.Drawing.Point(4, 64);
             this.PaymentApptTab.Name = "PaymentApptTab";
             this.PaymentApptTab.Padding = new System.Windows.Forms.Padding(3);
-            this.PaymentApptTab.Size = new System.Drawing.Size(1590, 956);
+            this.PaymentApptTab.Size = new System.Drawing.Size(1590, 664);
             this.PaymentApptTab.TabIndex = 1;
             this.PaymentApptTab.Text = "Appointment Transactions";
             this.PaymentApptTab.Click += new System.EventHandler(this.tabPage2_Click);
@@ -9551,7 +9625,7 @@ namespace Enchante
             this.RecTransactionCard.SetMinimumSize(this.RecWalkinPanel, new System.Drawing.Size(1371, 807));
             this.RecWalkinPanel.Name = "RecWalkinPanel";
             this.RecTransactionCard.SetPreferredSize(this.RecWalkinPanel, new System.Drawing.Size(1371, 807));
-            this.RecWalkinPanel.Size = new System.Drawing.Size(1598, 1024);
+            this.RecWalkinPanel.Size = new System.Drawing.Size(1598, 732);
             this.RecWalkinPanel.TabIndex = 7;
             // 
             // WalkinTabs
@@ -9564,7 +9638,7 @@ namespace Enchante
             this.WalkinTabs.Location = new System.Drawing.Point(0, 0);
             this.WalkinTabs.Name = "WalkinTabs";
             this.WalkinTabs.SelectedIndex = 0;
-            this.WalkinTabs.Size = new System.Drawing.Size(1596, 1022);
+            this.WalkinTabs.Size = new System.Drawing.Size(1596, 730);
             this.WalkinTabs.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.WalkinTabs.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.WalkinTabs.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -9594,7 +9668,7 @@ namespace Enchante
             this.WalkinBasicInfo.Location = new System.Drawing.Point(4, 44);
             this.WalkinBasicInfo.Name = "WalkinBasicInfo";
             this.WalkinBasicInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.WalkinBasicInfo.Size = new System.Drawing.Size(1588, 974);
+            this.WalkinBasicInfo.Size = new System.Drawing.Size(1588, 682);
             this.WalkinBasicInfo.TabIndex = 0;
             this.WalkinBasicInfo.Text = "Basic Info";
             // 
@@ -9935,7 +10009,7 @@ namespace Enchante
             this.WalkinServiceCatNStaff.Location = new System.Drawing.Point(4, 44);
             this.WalkinServiceCatNStaff.Name = "WalkinServiceCatNStaff";
             this.WalkinServiceCatNStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.WalkinServiceCatNStaff.Size = new System.Drawing.Size(1588, 974);
+            this.WalkinServiceCatNStaff.Size = new System.Drawing.Size(1588, 682);
             this.WalkinServiceCatNStaff.TabIndex = 1;
             this.WalkinServiceCatNStaff.Text = "Services";
             // 
@@ -10572,7 +10646,7 @@ namespace Enchante
             this.WalkinProducts.Controls.Add(this.RecWalkinProdPanel);
             this.WalkinProducts.Location = new System.Drawing.Point(4, 44);
             this.WalkinProducts.Name = "WalkinProducts";
-            this.WalkinProducts.Size = new System.Drawing.Size(1588, 974);
+            this.WalkinProducts.Size = new System.Drawing.Size(1588, 682);
             this.WalkinProducts.TabIndex = 3;
             this.WalkinProducts.Text = "Products";
             // 
@@ -10581,6 +10655,9 @@ namespace Enchante
             this.RecWalkinProdPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecWalkinProdPanel.BorderRadius = 3;
             this.RecWalkinProdPanel.BorderThickness = 3;
+            this.RecWalkinProdPanel.Controls.Add(this.WalkinProductPreviousBtn);
+            this.RecWalkinProdPanel.Controls.Add(this.WalkinProductNextBtn);
+            this.RecWalkinProdPanel.Controls.Add(this.WalkinProductPageLbl);
             this.RecWalkinProdPanel.Controls.Add(this.RecWalkinCheckoutBtn);
             this.RecWalkinProdPanel.Controls.Add(this.RecWalkinVoucherText);
             this.RecWalkinProdPanel.Controls.Add(this.RecWalkinTotalAmountLblText);
@@ -10599,6 +10676,75 @@ namespace Enchante
             this.RecWalkinProdPanel.Name = "RecWalkinProdPanel";
             this.RecWalkinProdPanel.Size = new System.Drawing.Size(1454, 861);
             this.RecWalkinProdPanel.TabIndex = 205;
+            // 
+            // WalkinProductPreviousBtn
+            // 
+            this.WalkinProductPreviousBtn.AutoRoundedCorners = true;
+            this.WalkinProductPreviousBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.WalkinProductPreviousBtn.BorderRadius = 16;
+            this.WalkinProductPreviousBtn.BorderThickness = 2;
+            this.WalkinProductPreviousBtn.DefaultAutoSize = true;
+            this.WalkinProductPreviousBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.WalkinProductPreviousBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.WalkinProductPreviousBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.WalkinProductPreviousBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.WalkinProductPreviousBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinProductPreviousBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WalkinProductPreviousBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.WalkinProductPreviousBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.WalkinProductPreviousBtn.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinProductPreviousBtn.Location = new System.Drawing.Point(48, 734);
+            this.WalkinProductPreviousBtn.Name = "WalkinProductPreviousBtn";
+            this.WalkinProductPreviousBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinProductPreviousBtn.Size = new System.Drawing.Size(109, 34);
+            this.WalkinProductPreviousBtn.TabIndex = 181;
+            this.WalkinProductPreviousBtn.Text = "Previous";
+            this.WalkinProductPreviousBtn.Click += new System.EventHandler(this.WalkinProductPreviousBtn_Click);
+            // 
+            // WalkinProductNextBtn
+            // 
+            this.WalkinProductNextBtn.AutoRoundedCorners = true;
+            this.WalkinProductNextBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.WalkinProductNextBtn.BorderRadius = 16;
+            this.WalkinProductNextBtn.BorderThickness = 2;
+            this.WalkinProductNextBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.WalkinProductNextBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.WalkinProductNextBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.WalkinProductNextBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.WalkinProductNextBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinProductNextBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WalkinProductNextBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.WalkinProductNextBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.WalkinProductNextBtn.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinProductNextBtn.Location = new System.Drawing.Point(278, 734);
+            this.WalkinProductNextBtn.Name = "WalkinProductNextBtn";
+            this.WalkinProductNextBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinProductNextBtn.Size = new System.Drawing.Size(109, 34);
+            this.WalkinProductNextBtn.TabIndex = 180;
+            this.WalkinProductNextBtn.Text = "Next";
+            this.WalkinProductNextBtn.Click += new System.EventHandler(this.WalkinProductNextBtn_Click);
+            // 
+            // WalkinProductPageLbl
+            // 
+            this.WalkinProductPageLbl.AutoRoundedCorners = true;
+            this.WalkinProductPageLbl.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.WalkinProductPageLbl.BorderRadius = 16;
+            this.WalkinProductPageLbl.BorderThickness = 2;
+            this.WalkinProductPageLbl.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.WalkinProductPageLbl.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.WalkinProductPageLbl.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.WalkinProductPageLbl.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.WalkinProductPageLbl.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinProductPageLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WalkinProductPageLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.WalkinProductPageLbl.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.WalkinProductPageLbl.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinProductPageLbl.Location = new System.Drawing.Point(163, 734);
+            this.WalkinProductPageLbl.Name = "WalkinProductPageLbl";
+            this.WalkinProductPageLbl.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinProductPageLbl.Size = new System.Drawing.Size(109, 34);
+            this.WalkinProductPageLbl.TabIndex = 179;
+            this.WalkinProductPageLbl.Text = "10/10";
             // 
             // RecWalkinCheckoutBtn
             // 
@@ -10827,7 +10973,7 @@ namespace Enchante
             this.RecWalkinProductFlowLayoutPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RecWalkinProductFlowLayoutPanel.Location = new System.Drawing.Point(48, 218);
             this.RecWalkinProductFlowLayoutPanel.Name = "RecWalkinProductFlowLayoutPanel";
-            this.RecWalkinProductFlowLayoutPanel.Size = new System.Drawing.Size(808, 452);
+            this.RecWalkinProductFlowLayoutPanel.Size = new System.Drawing.Size(808, 510);
             this.RecWalkinProductFlowLayoutPanel.TabIndex = 164;
             // 
             // RecQueStartPanel
@@ -10838,13 +10984,9 @@ namespace Enchante
             this.RecQueStartPanel.Controls.Add(this.RecQueStartFooterStopperPanel);
             this.RecQueStartPanel.Controls.Add(this.RecQueStartInventoryLbl);
             this.RecQueStartPanel.Controls.Add(this.RecQueStartInventoryDGV);
-            this.RecQueStartPanel.Controls.Add(this.RecQueStartGenQueLbl);
-            this.RecQueStartPanel.Controls.Add(this.RecQueStartGenQuePanel);
-            this.RecQueStartPanel.Controls.Add(this.RecQueStartPrefQueLbl);
-            this.RecQueStartPanel.Controls.Add(this.RecQueStartPrefQuePanel);
             this.RecQueStartPanel.Controls.Add(this.RecQueStartNextCustLbl);
-            this.RecQueStartPanel.Controls.Add(this.RecQueStartPrioQueLbl);
-            this.RecQueStartPanel.Controls.Add(this.RecQueStartPrioQuePanel);
+            this.RecQueStartPanel.Controls.Add(this.RecOverallQueueLbl);
+            this.RecQueStartPanel.Controls.Add(this.RecQueueStartPanel);
             this.RecQueStartPanel.Controls.Add(this.RecQueStartCurrentCustLbl);
             this.RecQueStartPanel.Controls.Add(this.RecQueStartStaffLbl);
             this.RecQueStartPanel.Controls.Add(this.RecQueStartCurrentCustPanel);
@@ -10854,7 +10996,7 @@ namespace Enchante
             this.RecTransactionCard.SetMinimumSize(this.RecQueStartPanel, new System.Drawing.Size(200, 100));
             this.RecQueStartPanel.Name = "RecQueStartPanel";
             this.RecTransactionCard.SetPreferredSize(this.RecQueStartPanel, new System.Drawing.Size(200, 100));
-            this.RecQueStartPanel.Size = new System.Drawing.Size(1598, 1024);
+            this.RecQueStartPanel.Size = new System.Drawing.Size(1598, 732);
             this.RecQueStartPanel.TabIndex = 0;
             // 
             // RecQueStartFooterStopperPanel
@@ -10965,48 +11107,6 @@ namespace Enchante
             this.RecStaffItemStatus.Name = "RecStaffItemStatus";
             this.RecStaffItemStatus.ReadOnly = true;
             // 
-            // RecQueStartGenQueLbl
-            // 
-            this.RecQueStartGenQueLbl.AutoSize = true;
-            this.RecQueStartGenQueLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecQueStartGenQueLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecQueStartGenQueLbl.Location = new System.Drawing.Point(1303, 527);
-            this.RecQueStartGenQueLbl.Name = "RecQueStartGenQueLbl";
-            this.RecQueStartGenQueLbl.Size = new System.Drawing.Size(196, 26);
-            this.RecQueStartGenQueLbl.TabIndex = 134;
-            this.RecQueStartGenQueLbl.Text = "GENERAL QUEUE";
-            // 
-            // RecQueStartGenQuePanel
-            // 
-            this.RecQueStartGenQuePanel.AutoScroll = true;
-            this.RecQueStartGenQuePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecQueStartGenQuePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RecQueStartGenQuePanel.Location = new System.Drawing.Point(1289, 564);
-            this.RecQueStartGenQuePanel.Name = "RecQueStartGenQuePanel";
-            this.RecQueStartGenQuePanel.Size = new System.Drawing.Size(225, 225);
-            this.RecQueStartGenQuePanel.TabIndex = 133;
-            // 
-            // RecQueStartPrefQueLbl
-            // 
-            this.RecQueStartPrefQueLbl.AutoSize = true;
-            this.RecQueStartPrefQueLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecQueStartPrefQueLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecQueStartPrefQueLbl.Location = new System.Drawing.Point(1066, 527);
-            this.RecQueStartPrefQueLbl.Name = "RecQueStartPrefQueLbl";
-            this.RecQueStartPrefQueLbl.Size = new System.Drawing.Size(221, 26);
-            this.RecQueStartPrefQueLbl.TabIndex = 134;
-            this.RecQueStartPrefQueLbl.Text = "PREFERRED QUEUE";
-            // 
-            // RecQueStartPrefQuePanel
-            // 
-            this.RecQueStartPrefQuePanel.AutoScroll = true;
-            this.RecQueStartPrefQuePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecQueStartPrefQuePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RecQueStartPrefQuePanel.Location = new System.Drawing.Point(1064, 564);
-            this.RecQueStartPrefQuePanel.Name = "RecQueStartPrefQuePanel";
-            this.RecQueStartPrefQuePanel.Size = new System.Drawing.Size(225, 225);
-            this.RecQueStartPrefQuePanel.TabIndex = 133;
-            // 
             // RecQueStartNextCustLbl
             // 
             this.RecQueStartNextCustLbl.AutoSize = true;
@@ -11018,26 +11118,25 @@ namespace Enchante
             this.RecQueStartNextCustLbl.TabIndex = 132;
             this.RecQueStartNextCustLbl.Text = "Next Customer";
             // 
-            // RecQueStartPrioQueLbl
+            // RecOverallQueueLbl
             // 
-            this.RecQueStartPrioQueLbl.AutoSize = true;
-            this.RecQueStartPrioQueLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RecQueStartPrioQueLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecQueStartPrioQueLbl.Location = new System.Drawing.Point(854, 527);
-            this.RecQueStartPrioQueLbl.Name = "RecQueStartPrioQueLbl";
-            this.RecQueStartPrioQueLbl.Size = new System.Drawing.Size(194, 26);
-            this.RecQueStartPrioQueLbl.TabIndex = 131;
-            this.RecQueStartPrioQueLbl.Text = "PRIORITY QUEUE";
+            this.RecOverallQueueLbl.AutoSize = true;
+            this.RecOverallQueueLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecOverallQueueLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecOverallQueueLbl.Location = new System.Drawing.Point(854, 527);
+            this.RecOverallQueueLbl.Name = "RecOverallQueueLbl";
+            this.RecOverallQueueLbl.Size = new System.Drawing.Size(194, 26);
+            this.RecOverallQueueLbl.TabIndex = 131;
+            this.RecOverallQueueLbl.Text = "PRIORITY QUEUE";
             // 
-            // RecQueStartPrioQuePanel
+            // RecQueueStartPanel
             // 
-            this.RecQueStartPrioQuePanel.AutoScroll = true;
-            this.RecQueStartPrioQuePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.RecQueStartPrioQuePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RecQueStartPrioQuePanel.Location = new System.Drawing.Point(839, 564);
-            this.RecQueStartPrioQuePanel.Name = "RecQueStartPrioQuePanel";
-            this.RecQueStartPrioQuePanel.Size = new System.Drawing.Size(225, 225);
-            this.RecQueStartPrioQuePanel.TabIndex = 129;
+            this.RecQueueStartPanel.AutoScroll = true;
+            this.RecQueueStartPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecQueueStartPanel.Location = new System.Drawing.Point(839, 564);
+            this.RecQueueStartPanel.Name = "RecQueueStartPanel";
+            this.RecQueueStartPanel.Size = new System.Drawing.Size(674, 225);
+            this.RecQueueStartPanel.TabIndex = 129;
             // 
             // RecQueStartCurrentCustLbl
             // 
@@ -11159,7 +11258,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteStaffPage, new System.Drawing.Size(200, 100));
             this.EnchanteStaffPage.Name = "EnchanteStaffPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteStaffPage, new System.Drawing.Size(200, 100));
-            this.EnchanteStaffPage.Size = new System.Drawing.Size(1904, 1041);
+            this.EnchanteStaffPage.Size = new System.Drawing.Size(1370, 749);
             this.EnchanteStaffPage.TabIndex = 1;
             // 
             // StaffScrollPanel
@@ -11581,7 +11680,7 @@ namespace Enchante
             this.StaffNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.StaffNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.StaffNavBarPanel.Name = "StaffNavBarPanel";
-            this.StaffNavBarPanel.Size = new System.Drawing.Size(1904, 150);
+            this.StaffNavBarPanel.Size = new System.Drawing.Size(1370, 150);
             this.StaffNavBarPanel.TabIndex = 5;
             // 
             // StaffUserAccBtn
@@ -11646,7 +11745,7 @@ namespace Enchante
             // 
             this.RecTransactionCard.ContainerControl = this.ReceptionCreateTransactPanel;
             this.RecTransactionCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.RecTransactionCard.SelectedCard = "Walkin";
+            this.RecTransactionCard.SelectedCard = "QueStart";
             // 
             // DateTimePickerTimer
             // 
@@ -11694,7 +11793,7 @@ namespace Enchante
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.EnchanteParentContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -12436,13 +12535,9 @@ namespace Enchante
         private System.Windows.Forms.Label RecQueStartLbl;
         private System.Windows.Forms.Label RecQueStartCurrentCustLbl;
         private System.Windows.Forms.Label RecQueStartStaffLbl;
-        private System.Windows.Forms.Label RecQueStartGenQueLbl;
-        private System.Windows.Forms.FlowLayoutPanel RecQueStartGenQuePanel;
-        private System.Windows.Forms.Label RecQueStartPrefQueLbl;
-        private System.Windows.Forms.FlowLayoutPanel RecQueStartPrefQuePanel;
         private System.Windows.Forms.Label RecQueStartNextCustLbl;
-        private System.Windows.Forms.Label RecQueStartPrioQueLbl;
-        private System.Windows.Forms.FlowLayoutPanel RecQueStartPrioQuePanel;
+        private System.Windows.Forms.Label RecOverallQueueLbl;
+        private System.Windows.Forms.FlowLayoutPanel RecQueueStartPanel;
         public System.Windows.Forms.DataGridView RecQueStartInventoryDGV;
         private System.Windows.Forms.Label RecQueStartInventoryLbl;
         private System.Windows.Forms.Panel RecQueStartFooterStopperPanel;
@@ -12610,6 +12705,12 @@ namespace Enchante
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.FlowLayoutPanel ServicesFlowLayoutPanel;
         private System.Windows.Forms.FlowLayoutPanel RecApptServicesFLP;
+        private Guna.UI2.WinForms.Guna2Button ProductPreviousBtn;
+        private Guna.UI2.WinForms.Guna2Button ProductNextBtn;
+        private Guna.UI2.WinForms.Guna2Button ProductPageLbl;
+        private Guna.UI2.WinForms.Guna2Button WalkinProductPreviousBtn;
+        private Guna.UI2.WinForms.Guna2Button WalkinProductNextBtn;
+        private Guna.UI2.WinForms.Guna2Button WalkinProductPageLbl;
     }
 }
 
