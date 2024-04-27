@@ -1812,12 +1812,12 @@ namespace Enchante
                     doc.Add(new Chunk("\n")); // New line
 
                     // Total from your textboxes as decimal
-                    decimal netAmount = decimal.Parse(RecPayServiceNetAmountBox.Text);
+                    decimal netAmount = decimal.Parse(RecPayServiceWalkinNetAmountBox.Text);
                     decimal discount = decimal.Parse(RecPayServiceWalkinDiscountBox.Text);
-                    decimal vat = decimal.Parse(RecPayServiceVATBox.Text);
-                    decimal grossAmount = decimal.Parse(RecPayServiceGrossAmountBox.Text);
-                    decimal cash = decimal.Parse(RecPayServiceCashBox.Text);
-                    decimal change = decimal.Parse(RecPayServiceChangeBox.Text);
+                    decimal vat = decimal.Parse(RecPayServiceWalkinVATBox.Text);
+                    decimal grossAmount = decimal.Parse(RecPayServiceWalkinGrossAmountBox.Text);
+                    decimal cash = decimal.Parse(RecPayServiceWalkinCashBox.Text);
+                    decimal change = decimal.Parse(RecPayServiceWalkinChangeBox.Text);
 
                     // Create a new table for the "Total" section
                     PdfPTable totalTable = new PdfPTable(2); // 2 columns for the "Total" table
@@ -2679,14 +2679,14 @@ namespace Enchante
 
         #region Receptionist Payment Service
 
-        private void RecWalkinCalculateTotalPrice()
+        private void RecPayServiceWalkinCalculateTotalPrice()
         {
             decimal total1 = 0;
             decimal total2 = 0;
             decimal total3 = 0;
 
             // Assuming the "ServicePrice" column is of decimal type
-            int servicepriceColumnIndex = RecPayServiceWalkinAcquiredDGV.Columns["ServicePrice"].Index;
+            int servicepriceColumnIndex = RecPayServiceWalkinAcquiredDGV.Columns["WalkinServicePrice"].Index;
 
             foreach (DataGridViewRow row in RecPayServiceWalkinAcquiredDGV.Rows)
             {
@@ -2699,7 +2699,7 @@ namespace Enchante
             RecPayServiceWalkinAcquiredTotalText.Text = total1.ToString("F2");
 
             // Assuming the "ItemTotalPrice" column is of decimal type
-            int productpriceColumnIndex = RecPayServiceWalkinCOProdDGV.Columns["ItemTotalPrice"].Index;
+            int productpriceColumnIndex = RecPayServiceWalkinCOProdDGV.Columns["WalkinTotalPrice"].Index;
 
             foreach (DataGridViewRow row in RecPayServiceWalkinCOProdDGV.Rows)
             {
@@ -2715,7 +2715,7 @@ namespace Enchante
             total3 = total1 + total2;
 
             // Display the total price in the GrossAmountBox TextBox
-            RecPayServiceGrossAmountBox.Text = total3.ToString("F2"); // Format to two decimal places
+            RecPayServiceWalkinGrossAmountBox.Text = total3.ToString("F2"); // Format to two decimal places
 
             RecWalkinCalculateTotalVATAndNetAmountDB();
             RecWalkinProdCalculateTotalVATAndNetAmountDB();
@@ -2726,7 +2726,7 @@ namespace Enchante
         public void RecWalkinCalculateTotalVATAndNetAmountDB()
         {
             // Get the Gross Amount from the TextBox (MngrGrossAmountBox)
-            if (decimal.TryParse(RecPayServiceGrossAmountBox.Text, out decimal grossAmount))
+            if (decimal.TryParse(RecPayServiceWalkinGrossAmountBox.Text, out decimal grossAmount))
             {
                 // Fixed VAT rate of 12%
                 decimal rate = 12;
@@ -2738,8 +2738,8 @@ namespace Enchante
                 decimal vatAmount = grossAmount - netAmount;
 
                 // Display the calculated values in TextBoxes
-                RecPayServiceVATBox.Text = vatAmount.ToString("0.00");
-                RecPayServiceNetAmountBox.Text = netAmount.ToString("0.00");
+                RecPayServiceWalkinVATBox.Text = vatAmount.ToString("0.00");
+                RecPayServiceWalkinNetAmountBox.Text = netAmount.ToString("0.00");
             }
 
         }
@@ -2783,46 +2783,6 @@ namespace Enchante
             }
 
         }
-        private void RecApptCalculateTotalPrice()
-        {
-            decimal total1 = 0;
-            decimal total2 = 0;
-            decimal total3 = 0;
-
-            // Assuming the "ServicePrice" column is of decimal type
-            int servicepriceColumnIndex = RecPayServiceApptAcquiredDGV.Columns["ServicePrice"].Index;
-
-            foreach (DataGridViewRow row in RecPayServiceWalkinAcquiredDGV.Rows)
-            {
-                if (row.Cells[servicepriceColumnIndex].Value != null)
-                {
-                    decimal price = decimal.Parse(row.Cells[servicepriceColumnIndex].Value.ToString());
-                    total1 += price;
-                }
-            }
-            RecPayServiceWalkinAcquiredTotalText.Text = total1.ToString("F2");
-
-            // Assuming the "ItemTotalPrice" column is of decimal type
-            int productpriceColumnIndex = RecPayServiceWalkinCOProdDGV.Columns["ItemTotalPrice"].Index;
-
-            foreach (DataGridViewRow row in RecPayServiceWalkinCOProdDGV.Rows)
-            {
-                if (row.Cells[productpriceColumnIndex].Value != null)
-                {
-                    decimal price = decimal.Parse(row.Cells[productpriceColumnIndex].Value.ToString());
-                    total2 += price;
-                }
-            }
-            RecPayServiceWalkinCOProdTotalText.Text = total2.ToString("F2");
-
-
-            total3 = total1 + total2;
-
-            // Display the total price in the GrossAmountBox TextBox
-            RecPayServiceGrossAmountBox.Text = total3.ToString("F2"); // Format to two decimal places
-
-            //RecApptCalculateTotalVATAndNetAmountDB();
-        }
 
         private void DateTimePickerTimer_Tick(object sender, EventArgs e)
         {
@@ -2835,24 +2795,24 @@ namespace Enchante
 
         private void RecWalkinCashBox_TextChanged(object sender, EventArgs e)
         {
-            if (decimal.TryParse(RecPayServiceGrossAmountBox.Text, out decimal grossAmount))
+            if (decimal.TryParse(RecPayServiceWalkinGrossAmountBox.Text, out decimal grossAmount))
             {
                 // Get the Cash Amount from the TextBox (MngrCashBox)
-                if (decimal.TryParse(RecPayServiceCashBox.Text, out decimal cashAmount))
+                if (decimal.TryParse(RecPayServiceWalkinCashBox.Text, out decimal cashAmount))
                 {
                     // Calculate the Change
                     decimal change = cashAmount - grossAmount;
                     decimal walkChange = cashAmount - decimal.Parse(RecPayServiceWalkinAcquiredTotalText.Text);
                     decimal prodChange = walkChange - decimal.Parse(RecPayServiceWalkinCOProdTotalText.Text);
                     // Display the calculated change value in the MngrChangeBox
-                    RecPayServiceChangeBox.Text = change.ToString("0.00");
+                    RecPayServiceWalkinChangeBox.Text = change.ToString("0.00");
                     RecPayServiceWalkinAcquiredChangeText.Text = walkChange.ToString("0.00");
                     RecPayServiceWalkinCOProdChangeText.Text = prodChange.ToString("0.00");
                 }
                 else
                 {
                     // Handle invalid input in MngrCashBox, e.g., display an error message
-                    RecPayServiceChangeBox.Text = "Invalid Cash Input";
+                    RecPayServiceWalkinChangeBox.Text = "Invalid Cash Input";
                     RecPayServiceWalkinAcquiredChangeText.Text = "Invalid Cash Input";
                     RecPayServiceWalkinCOProdChangeText.Text = "Invalid Cash Input";
                 }
@@ -2860,33 +2820,33 @@ namespace Enchante
             else
             {
                 // Handle invalid input in MngrGrossAmountBox, e.g., display an error message
-                RecPayServiceChangeBox.Text = "0.00";
+                RecPayServiceWalkinChangeBox.Text = "0.00";
             }
         }
         private void RecWalkinGrossAmountBox_TextChanged(object sender, EventArgs e)
         {
             //RecWalkinCalculateTotalVATAndNetAmountDB();
-            if (decimal.TryParse(RecPayServiceGrossAmountBox.Text, out decimal grossAmount))
+            if (decimal.TryParse(RecPayServiceWalkinGrossAmountBox.Text, out decimal grossAmount))
             {
                 // Get the Cash Amount from the TextBox (MngrCashBox)
-                if (decimal.TryParse(RecPayServiceCashBox.Text, out decimal cashAmount))
+                if (decimal.TryParse(RecPayServiceWalkinCashBox.Text, out decimal cashAmount))
                 {
                     // Calculate the Change
                     decimal change = cashAmount - grossAmount;
 
                     // Display the calculated change value in the MngrChangeBox
-                    RecPayServiceChangeBox.Text = change.ToString("0.00");
+                    RecPayServiceWalkinChangeBox.Text = change.ToString("0.00");
                 }
                 else
                 {
                     // Handle invalid input in MngrCashBox, e.g., display an error message
-                    RecPayServiceChangeBox.Text = "0.00";
+                    RecPayServiceWalkinChangeBox.Text = "0.00";
                 }
             }
             else
             {
                 // Handle invalid input in MngrGrossAmountBox, e.g., display an error message
-                RecPayServiceChangeBox.Text = "0.00";
+                RecPayServiceWalkinChangeBox.Text = "0.00";
             }
         }
 
@@ -2912,26 +2872,26 @@ namespace Enchante
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
                     {
                         adapter.Fill(dataTable);
+                        RecPayServiceWalkinAcquiredDGV.Rows.Clear();
+                        foreach (DataRow row in dataTable.Rows)
+                        {
+                            string service = row["SelectedService"].ToString();
+                            string price = row["ServicePrice"].ToString();
+                            string staff = row["AttendingStaff"].ToString();
 
-                        RecPayServiceWalkinAcquiredDGV.DataSource = dataTable;
 
-                        RecPayServiceWalkinAcquiredDGV.Columns[0].Visible = false; //transact number
-                        RecPayServiceWalkinAcquiredDGV.Columns[1].Visible = false; //transact type
-                        RecPayServiceWalkinAcquiredDGV.Columns[2].Visible = false; //service status
-                        RecPayServiceWalkinAcquiredDGV.Columns[3].Visible = false; //appointment date
-                        RecPayServiceWalkinAcquiredDGV.Columns[4].Visible = false; //appointment time
-                        RecPayServiceWalkinAcquiredDGV.Columns[5].Visible = false; //client name
-                        RecPayServiceWalkinAcquiredDGV.Columns[6].Visible = false; //service category
-                        RecPayServiceWalkinAcquiredDGV.Columns[7].Visible = false; // attending staff
-                        RecPayServiceWalkinAcquiredDGV.Columns[8].Visible = false; //service ID
-                        RecPayServiceWalkinAcquiredDGV.Columns[11].Visible = false; //service start
-                        RecPayServiceWalkinAcquiredDGV.Columns[12].Visible = false; //service end 
-                        RecPayServiceWalkinAcquiredDGV.Columns[13].Visible = false; //service duration
-                        RecPayServiceWalkinAcquiredDGV.Columns[14].Visible = false; // preferred staff
-                        RecPayServiceWalkinAcquiredDGV.Columns[15].Visible = false; // que number
-                        RecPayServiceWalkinAcquiredDGV.Columns[16].Visible = false; // que type
-                        RecPayServiceWalkinAcquiredDGV.Columns[17].Visible = false; // prio number
-                        RecPayServiceWalkinAcquiredDGV.Columns[18].Visible = false; // prio number
+
+                            // Add a new row to the DataGridView
+                            int rowIndex = RecPayServiceWalkinAcquiredDGV.Rows.Add();
+
+                            // Set the values of cells in the DataGridView
+                            RecPayServiceWalkinAcquiredDGV.Rows[rowIndex].Cells["WalkinSelectedService"].Value = service;
+                            RecPayServiceWalkinAcquiredDGV.Rows[rowIndex].Cells["WalkinServicePrice"].Value = price;
+                            RecPayServiceWalkinAcquiredDGV.Rows[rowIndex].Cells["WalkinAttendingStaff"].Value = staff;
+
+
+                        }
+                       
 
                     }
                 }
@@ -2950,6 +2910,117 @@ namespace Enchante
             }
         }
 
+        
+
+        public void RecLoadOrderProdHistoryDB(string transactNumber)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                {
+                    connection.Open();
+
+                    // Modify the SQL query to filter based on TransactNumber and OrderNumber
+                    string sql = "SELECT ItemName, ItemID, Qty, ItemPrice, ItemTotalPrice FROM `orderproducthistory` WHERE TransactionNumber = @TransactionNumber AND ProductStatus = @status";
+                    MySqlCommand cmd = new MySqlCommand(sql, connection);
+
+                    // Add parameters to the query
+                    cmd.Parameters.AddWithValue("@TransactionNumber", transactNumber);
+                    cmd.Parameters.AddWithValue("@status", "Not Paid");
+
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+                        RecPayServiceWalkinCOProdDGV.Rows.Clear();
+                        foreach (DataRow row in dataTable.Rows)
+                        {
+                            string name = row["ItemName"].ToString();
+                            string id = row["ItemID"].ToString();
+                            string qty = row["Qty"].ToString();
+                            string price = row["ItemPrice"].ToString();
+                            string totalPrice = row["ItemTotalPrice"].ToString();
+
+
+                            // Add a new row to the DataGridView
+                            int rowIndex = RecPayServiceWalkinCOProdDGV.Rows.Add();
+
+                            // Set the values of cells in the DataGridView
+                            RecPayServiceWalkinCOProdDGV.Rows[rowIndex].Cells["WalkinItemName"].Value = name;
+                            RecPayServiceWalkinCOProdDGV.Rows[rowIndex].Cells["WalkinItemID"].Value = id;
+                            RecPayServiceWalkinCOProdDGV.Rows[rowIndex].Cells["WalkinQTY"].Value = qty;
+                            RecPayServiceWalkinCOProdDGV.Rows[rowIndex].Cells["WalkinPrice"].Value = price;
+                            RecPayServiceWalkinCOProdDGV.Rows[rowIndex].Cells["WalkinTotalPrice"].Value = totalPrice;
+
+
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Manager Order History List");
+            }
+            finally
+            {
+                // Make sure to close the connection (if it's open)
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+        private bool serviceHistoryLoaded = false;
+
+        private void RecPayServiceCompleteTransDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Check if a valid cell is clicked
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Get TransactNumber and OrderNumber from the clicked cell in MngrSalesTable
+                string transactNumber = RecPayServiceWalkinCompleteTransDGV.Rows[e.RowIndex].Cells["WalkinTransNum"].Value.ToString();
+                string clientName = RecPayServiceWalkinCompleteTransDGV.Rows[e.RowIndex].Cells["WalkinClientName"].Value.ToString();
+
+                RecPayServiceWalkinTransactNumLbl.Text = transactNumber;
+                RecPayServiceWalkinClientNameLbl.Text = $"{clientName}";
+
+                // Clear existing data in DGVs before loading new data
+                RecPayServiceWalkinAcquiredDGV.Rows.Clear();
+                RecPayServiceWalkinCOProdDGV.Rows.Clear();
+
+                // Load service history and order product history based on the clicked transaction number
+                RecWalkinLoadServiceHistoryDB(transactNumber);
+                RecLoadOrderProdHistoryDB(transactNumber);
+
+                RecPayServiceWalkinCalculateTotalPrice();
+                serviceHistoryLoaded = true; // Set the flag to true to indicate that service history is loaded
+                RecPayServiceApptTransTypeLbl.Text = "Walk-in";
+            }
+        }
+
+
+        private bool ApptserviceHistoryLoaded = false;
+
+        private void RecPayServiceApptCompleteTransDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                string transactNumber1 = RecPayServiceApptCompleteTransDGV.Rows[e.RowIndex].Cells["ApptTransNum"].Value.ToString();
+                string clientName1 = RecPayServiceApptCompleteTransDGV.Rows[e.RowIndex].Cells["ApptCustomerName"].Value.ToString();
+
+                RecPayServiceApptTransactNumLbl.Text = transactNumber1;
+                RecPayServiceApptClientNameLbl.Text = $"{clientName1}";
+                RecPayServiceApptTransTypeLbl.Text = "Appointment";
+                RecPayServiceApptAcquiredDGV.Rows.Clear();
+
+                // Load service history only if it hasn't been loaded before
+                    RecApptLoadServiceHistoryDB(transactNumber1);
+                    RecPayServiceApptCalculateTotalPrice();
+                    ApptserviceHistoryLoaded = true; // Set the flag to true to indicate that service history is loaded
+                
+            }
+        }
         public void RecApptLoadServiceHistoryDB(string transactNumber)
         {
             try
@@ -2972,7 +3043,7 @@ namespace Enchante
                     {
                         adapter.Fill(dataTable);
 
-
+                        RecPayServiceApptAcquiredDGV.Rows.Clear();
                         foreach (DataRow row in dataTable.Rows)
                         {
                             string service = row["SelectedService"].ToString();
@@ -3006,103 +3077,84 @@ namespace Enchante
                 }
             }
         }
-
-        public void RecLoadOrderProdHistoryDB(string transactNumber)
+        private void RecPayServiceApptCalculateTotalPrice()
         {
-            try
+            decimal total1 = 0;
+
+            int servicepriceColumnIndex = RecPayServiceApptAcquiredDGV.Columns["ApptServicePrice"].Index;
+
+            foreach (DataGridViewRow row in RecPayServiceApptAcquiredDGV.Rows)
             {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                if (row.Cells[servicepriceColumnIndex].Value != null)
                 {
-                    connection.Open();
-
-                    // Modify the SQL query to filter based on TransactNumber and OrderNumber
-                    string sql = "SELECT * FROM `orderproducthistory` WHERE TransactionNumber = @TransactionNumber AND ProductStatus = @status";
-                    MySqlCommand cmd = new MySqlCommand(sql, connection);
-
-                    // Add parameters to the query
-                    cmd.Parameters.AddWithValue("@TransactionNumber", transactNumber);
-                    cmd.Parameters.AddWithValue("@status", "Not Paid");
-
-                    System.Data.DataTable dataTable = new System.Data.DataTable();
-
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    decimal price;
+                    if (decimal.TryParse(row.Cells[servicepriceColumnIndex].Value.ToString(), out price))
                     {
-                        adapter.Fill(dataTable);
-
-                        RecPayServiceWalkinCOProdDGV.DataSource = dataTable;
-
-                        RecPayServiceWalkinCOProdDGV.Columns[0].Visible = false; //transact number
-                        RecPayServiceWalkinCOProdDGV.Columns[1].Visible = false; //product stats
-                        RecPayServiceWalkinCOProdDGV.Columns[2].Visible = false; // date
-                        RecPayServiceWalkinCOProdDGV.Columns[3].Visible = false; // time 
-                        RecPayServiceWalkinCOProdDGV.Columns[4].Visible = false; // by
-                        RecPayServiceWalkinCOProdDGV.Columns[5].Visible = false; //client name
-                        RecPayServiceWalkinCOProdDGV.Columns[6].Visible = false; // item ID
-                        RecPayServiceWalkinCOProdDGV.Columns[11].Visible = false; //checkedout
-                        RecPayServiceWalkinCOProdDGV.Columns[12].Visible = false; //void
-
-
+                        total1 += price;
+                    }
+                    else
+                    {
+                        // Handle invalid numeric value
+                        // For example, you can skip this row or display an error message
                     }
                 }
             }
-            catch (Exception ex)
+            RecPayServiceApptGrossAmountText.Text = total1.ToString("F2");
+            // Apply discount (for example, 20% discount)
+            decimal initialFee = 0.6m; // 20% discount
+            decimal inititalFeeTotal = total1 * (1 - initialFee);
+            RecPayServiceApptInitialFeeText.Text = inititalFeeTotal.ToString("F2");
+            decimal balance = total1 - inititalFeeTotal;
+            RecPayServiceApptRemainingBalText.Text = balance.ToString("F2");
+            RecPayServiceApptCalculateTotalVATAndNetAmountDB();
+
+        }
+
+        public void RecPayServiceApptCalculateTotalVATAndNetAmountDB()
+        {
+            // Get the Gross Amount from the TextBox (MngrGrossAmountBox)
+            if (decimal.TryParse(RecPayServiceApptGrossAmountText.Text, out decimal grossAmount))
             {
-                MessageBox.Show("An error occurred: " + ex.Message, "Manager Order History List");
+                // Fixed VAT rate of 12%
+                decimal rate = 12;
+
+                // Calculate the VAT Amount
+                decimal netAmount = grossAmount / ((rate / 100) + 1);
+
+                // Calculate the Net Amount
+                decimal vatAmount = grossAmount - netAmount;
+
+                // Display the calculated values in TextBoxes
+                RecPayServiceApptVATText.Text = vatAmount.ToString("0.00");
+                RecPayServiceApptNetAmountText.Text = netAmount.ToString("0.00");
             }
-            finally
+
+        }
+        private void RecPayServiceApptChangeCalculateAmount()
+        {
+            if (decimal.TryParse(RecPayServiceApptRemainingBalText.Text, out decimal grossAmount))
             {
-                // Make sure to close the connection (if it's open)
-                if (connection.State == ConnectionState.Open)
+                // Get the Cash Amount from the TextBox (MngrCashBox)
+                if (decimal.TryParse(RecPayServiceApptCashText.Text, out decimal cashAmount))
                 {
-                    connection.Close();
+                    // Calculate the Change
+                    decimal change = cashAmount - grossAmount;
+
+                    // Display the calculated change value in the MngrChangeBox
+                    RecPayServiceApptChangeText.Text = change.ToString("0.00");
+                }
+                else
+                {
+                    // Handle invalid input in MngrCashBox, e.g., display an error message
+                    RecPayServiceApptChangeText.Text = "Invalid Cash Input";
                 }
             }
-        }
-
-        private void RecPayServiceCompleteTransDGV_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Check if a valid cell is clicked
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            else
             {
-                // Get TransactNumber and OrderNumber from the clicked cell in MngrSalesTable
-                string transactNumber = RecPayServiceWalkinCompleteTransDGV.Rows[e.RowIndex].Cells["TransactionNumber"].Value.ToString();
-                string clientName = RecPayServiceWalkinCompleteTransDGV.Rows[e.RowIndex].Cells["ClientName"].Value.ToString();
-
-
-                RecPayServiceWalkinTransactNumLbl.Text = transactNumber;
-                RecPayServiceWalkinClientNameLbl.Text = $"{clientName}";
-
-                RecWalkinLoadServiceHistoryDB(transactNumber);
-                RecLoadOrderProdHistoryDB(transactNumber);
-
-                RecWalkinCalculateTotalPrice();
-                RecPayServiceApptTransTypeLbl.Text = "Walk-in";
-
+                // Handle invalid input in MngrGrossAmountBox, e.g., display an error message
+                RecPayServiceApptChangeText.Text = "0.00";
             }
         }
-
-        private bool serviceHistoryLoaded = false;
-
-        private void RecPayServiceApptCompleteTransDGV_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            {
-                string transactNumber1 = RecPayServiceApptCompleteTransDGV.Rows[e.RowIndex].Cells["ApptTransNum"].Value.ToString();
-                string clientName1 = RecPayServiceApptCompleteTransDGV.Rows[e.RowIndex].Cells["ApptCustomerName"].Value.ToString();
-
-                RecPayServiceApptTransactNumLbl.Text = transactNumber1;
-                RecPayServiceApptClientNameLbl.Text = $"{clientName1}";
-                RecPayServiceApptTransTypeLbl.Text = "Appointment";
-
-                // Load service history only if it hasn't been loaded before
-                if (!serviceHistoryLoaded)
-                {
-                    RecApptLoadServiceHistoryDB(transactNumber1);
-                    serviceHistoryLoaded = true; // Set the flag to true to indicate that service history is loaded
-                }
-            }
-        }
-
         public void RecLoadCompletedWalkinTrans()
         {
             string todayDate = DateTime.Today.ToString("MM-dd-yyyy dddd");
@@ -3115,7 +3167,8 @@ namespace Enchante
                     connection.Open();
 
                     // Filter and sort the data by FoodType
-                    string sql = "SELECT * FROM `walk_in_appointment` WHERE ServiceStatus = 'Completed' AND AppointmentDate = @todayDate ORDER BY ServiceStatus ";
+                    string sql = "SELECT TransactionNumber, ServiceStatus, ClientName, ClientCPNum FROM `walk_in_appointment` " +
+                                 "WHERE ServiceStatus = 'Completed' AND AppointmentDate = @todayDate ORDER BY ServiceStatus ";
                     MySqlCommand cmd = new MySqlCommand(sql, connection);
                     System.Data.DataTable dataTable = new System.Data.DataTable();
                     cmd.Parameters.AddWithValue("@todayDate", todayDate);
@@ -3123,36 +3176,29 @@ namespace Enchante
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
                     {
                         adapter.Fill(dataTable);
-
-                        RecPayServiceWalkinCompleteTransDGV.Columns.Clear();
-
-                        RecPayServiceWalkinCompleteTransDGV.DataSource = dataTable;
-
-                        if (RecPayServiceWalkinCompleteTransDGV.Columns.Count > 2)
+                        RecPayServiceWalkinCompleteTransDGV.Rows.Clear();
+                        foreach (DataRow row in dataTable.Rows)
                         {
-                            RecPayServiceWalkinCompleteTransDGV.Columns[2].Visible = false; //appointment date
-                            RecPayServiceWalkinCompleteTransDGV.Columns[3].Visible = false; //appointment time
-                            RecPayServiceWalkinCompleteTransDGV.Columns[5].Visible = false; // client cp num
-                            RecPayServiceWalkinCompleteTransDGV.Columns[6].Visible = false; // net price
-                            RecPayServiceWalkinCompleteTransDGV.Columns[7].Visible = false; // net price
-                            RecPayServiceWalkinCompleteTransDGV.Columns[8].Visible = false; // net price
-                            RecPayServiceWalkinCompleteTransDGV.Columns[9].Visible = false; // net price
-                            RecPayServiceWalkinCompleteTransDGV.Columns[10].Visible = false; // discount amount
-                            RecPayServiceWalkinCompleteTransDGV.Columns[11].Visible = false; // discount amount
-                            RecPayServiceWalkinCompleteTransDGV.Columns[12].Visible = false; // cash given
-                            RecPayServiceWalkinCompleteTransDGV.Columns[13].Visible = false; // due change
-                            RecPayServiceWalkinCompleteTransDGV.Columns[14].Visible = false; // payment method
-                            RecPayServiceWalkinCompleteTransDGV.Columns[15].Visible = false; // card name
-                            RecPayServiceWalkinCompleteTransDGV.Columns[16].Visible = false; // card num
-                            RecPayServiceWalkinCompleteTransDGV.Columns[17].Visible = false; // cvc
-                            RecPayServiceWalkinCompleteTransDGV.Columns[18].Visible = false; // card expiration
-                            RecPayServiceWalkinCompleteTransDGV.Columns[19].Visible = false; // wallet num
-                            RecPayServiceWalkinCompleteTransDGV.Columns[20].Visible = false; // wallet PIN
-                            RecPayServiceWalkinCompleteTransDGV.Columns[21].Visible = false; // wallet OTP
-                            RecPayServiceWalkinCompleteTransDGV.Columns[22].Visible = false; // service duration
-                            RecPayServiceWalkinCompleteTransDGV.Columns[23].Visible = false; // booked by
-                            RecPayServiceWalkinCompleteTransDGV.Columns[24].Visible = false; // booked date
+                            string transNum = row["TransactionNumber"].ToString();
+                            string status = row["ServiceStatus"].ToString();
+                            string name = row["ClientName"].ToString();
+                            string cpNum = row["ClientCPNum"].ToString();
+
+
+
+                            // Add a new row to the DataGridView
+                            int rowIndex = RecPayServiceWalkinCompleteTransDGV.Rows.Add();
+
+                            // Set the values of cells in the DataGridView
+                            RecPayServiceWalkinCompleteTransDGV.Rows[rowIndex].Cells["WalkinTransNum"].Value = transNum;
+                            RecPayServiceWalkinCompleteTransDGV.Rows[rowIndex].Cells["WalkinServiceStatus"].Value = status;
+                            RecPayServiceWalkinCompleteTransDGV.Rows[rowIndex].Cells["WalkinClientName"].Value = name;
+                            RecPayServiceWalkinCompleteTransDGV.Rows[rowIndex].Cells["WalkinClientCPNum"].Value = cpNum;
+                           
+
                         }
+
+
 
                         RecPayServiceWalkinCompleteTransDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                         RecPayServiceWalkinCompleteTransDGV.ClearSelection();
@@ -3207,6 +3253,8 @@ namespace Enchante
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
                     {
                         adapter.Fill(dataTable);
+
+                        RecPayServiceApptCompleteTransDGV.Rows.Clear();
 
                         foreach (DataRow row in dataTable.Rows)
                         {
@@ -3282,11 +3330,11 @@ namespace Enchante
 
             //string walkNetAmount = RecPayServiceNetAmountBox.Text; // net amount
             //string walkVat = RecPayServiceVATBox.Text; // vat 
-            string grossAmount = RecPayServiceGrossAmountBox.Text; // gross amount
+            string grossAmount = RecPayServiceWalkinGrossAmountBox.Text; // gross amount
 
             string discount = RecPayServiceWalkinDiscountBox.Text; // discount
-            string cash = RecPayServiceCashBox.Text; // cash given
-            string change = RecPayServiceChangeBox.Text; // due change
+            string cash = RecPayServiceWalkinCashBox.Text; // cash given
+            string change = RecPayServiceWalkinChangeBox.Text; // due change
             string paymentMethod = "Cash"; // payment method
             string mngr = RecNameLbl.Text;
             string transactNum = RecPayServiceWalkinTransactNumLbl.Text;
@@ -3418,8 +3466,9 @@ namespace Enchante
                 //RecPayServiceWalkinUpdateOrderProdHistory(RecPayServiceWalkinCOProdDGV);
                 RecLoadCompletedWalkinTrans();
                 RecLoadCompletedAppointmentTrans();
-                RecPayServiceWalkinInvoiceReceiptGenerator();
+                RecPayServiceWalkinInvoiceGenerator();
                 RecPayServiceClearAllField();
+                RecLoadCompletedWalkinTrans();
 
             }
         }
@@ -3435,8 +3484,8 @@ namespace Enchante
 
                     foreach (DataGridViewRow row in RecPayServiceWalkinCOProdDGV.Rows)
                     {
-                        string itemID = row.Cells["ItemID"].Value.ToString();
-                        int qty = Convert.ToInt32(row.Cells["Qty"].Value);
+                        string itemID = row.Cells["WalkinItemID"].Value.ToString();
+                        int qty = Convert.ToInt32(row.Cells["WalkinQTY"].Value);
 
                         MySqlCommand command = new MySqlCommand(updateQuery, connection);
                         command.Parameters.AddWithValue("@Qty", qty);
@@ -3487,12 +3536,12 @@ namespace Enchante
         }
         private void RecPayServiceClearAllField()
         {
-            RecPayServiceNetAmountBox.Text = "0.00";
-            RecPayServiceVATBox.Text = "0.00";
+            RecPayServiceWalkinNetAmountBox.Text = "0.00";
+            RecPayServiceWalkinVATBox.Text = "0.00";
             RecPayServiceWalkinDiscountBox.Text = "0.00";
-            RecPayServiceGrossAmountBox.Text = "0.00";
-            RecPayServiceCashBox.Text = "0";
-            RecPayServiceChangeBox.Text = "0.00";
+            RecPayServiceWalkinGrossAmountBox.Text = "0.00";
+            RecPayServiceWalkinCashBox.Text = "0";
+            RecPayServiceWalkinChangeBox.Text = "0.00";
 
 
 
@@ -3509,6 +3558,17 @@ namespace Enchante
 
             RecPayServiceWalkinTransactNumLbl.Text = "Transaction Number";
             RecPayServiceWalkinClientNameLbl.Text = "Client Name";
+
+            RecPayServiceApptClientNameLbl.Text = "";
+            RecPayServiceApptTransTypeLbl.Text = "";
+            // Clear rows from RecPayServiceAcquiredDGV
+            RecPayServiceApptAcquiredDGV.DataSource = null; // Set data source to null
+            RecPayServiceApptAcquiredDGV.Rows.Clear(); // Clear any remaining rows
+
+
+
+            RecPayServiceApptTransactNumLbl.Text = "Transaction Number";
+            RecPayServiceApptClientNameLbl.Text = "Client Name";
         }
 
         private bool CompletedTransLoad = false;
@@ -3559,7 +3619,7 @@ namespace Enchante
             }
         }
 
-        private void RecPayServiceWalkinInvoiceReceiptGenerator()
+        private void RecPayServiceWalkinInvoiceGenerator()
         {
             DateTime currentDate = RecDateTimePicker.Value;
             string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
@@ -3620,7 +3680,7 @@ namespace Enchante
                     centerAligned.Alignment = Element.ALIGN_CENTER;
 
                     // Add centered content to the centerAligned Paragraph
-                    centerAligned.Add(new Chunk("Enchanté Salon", headerFont));
+                    //centerAligned.Add(new Chunk("Enchanté Salon", headerFont));
                     centerAligned.Add(new Chunk("\n69th flr. Enchanté Bldg. Ortigas Ave. Ext.\nManggahan, Pasig City 1611 Philippines", font));
                     centerAligned.Add(new Chunk("\nTel. No.: (1101) 111-1010", font));
                     centerAligned.Add(new Chunk($"\nDate: {datetoday} Time: {timePrinted}", font));
@@ -3652,14 +3712,14 @@ namespace Enchante
                     {
                         try
                         {
-                            string serviceName = row.Cells["SelectedService"].Value?.ToString();
+                            string serviceName = row.Cells["WalkinSelectedService"].Value?.ToString();
                             if (string.IsNullOrEmpty(serviceName))
                             {
                                 continue; // Skip empty rows
                             }
 
-                            string staffID = row.Cells["AttendingStaff"].Value?.ToString();
-                            string itemTotalcost = row.Cells["ServicePrice"].Value?.ToString();
+                            string staffID = row.Cells["WalkinAttendingStaff"].Value?.ToString();
+                            string itemTotalcost = row.Cells["WalkinServicePrice"].Value?.ToString();
 
                             // Add cells to the item table
                             PdfPTable serviceTable = new PdfPTable(4);
@@ -3686,14 +3746,14 @@ namespace Enchante
                     {
                         try
                         {
-                            string itemName = row.Cells["ItemName"].Value?.ToString();
+                            string itemName = row.Cells["WalkinItemName"].Value?.ToString();
                             if (string.IsNullOrEmpty(itemName))
                             {
                                 continue; // Skip empty rows
                             }
-                            string itemID = row.Cells["ItemID"].Value?.ToString();
-                            string qty = row.Cells["Qty"].Value?.ToString();
-                            string itemTotalcost = row.Cells["ItemTotalPrice"].Value?.ToString();
+                            string itemID = row.Cells["WalkinItemID"].Value?.ToString();
+                            string qty = row.Cells["WalkinQTY"].Value?.ToString();
+                            string itemTotalcost = row.Cells["WalkinTotalPrice"].Value?.ToString();
 
                             // Add cells to the item table
                             PdfPTable productTable = new PdfPTable(4);
@@ -3723,12 +3783,12 @@ namespace Enchante
                     doc.Add(new Chunk("\n")); // New line
 
                     // Total from your textboxes as decimal
-                    decimal netAmount = decimal.Parse(RecPayServiceNetAmountBox.Text);
+                    decimal netAmount = decimal.Parse(RecPayServiceWalkinNetAmountBox.Text);
                     decimal discount = decimal.Parse(RecPayServiceWalkinDiscountBox.Text);
-                    decimal vat = decimal.Parse(RecPayServiceVATBox.Text);
-                    decimal grossAmount = decimal.Parse(RecPayServiceGrossAmountBox.Text);
-                    decimal cash = decimal.Parse(RecPayServiceCashBox.Text);
-                    decimal change = decimal.Parse(RecPayServiceChangeBox.Text);
+                    decimal vat = decimal.Parse(RecPayServiceWalkinVATBox.Text);
+                    decimal grossAmount = decimal.Parse(RecPayServiceWalkinGrossAmountBox.Text);
+                    decimal cash = decimal.Parse(RecPayServiceWalkinCashBox.Text);
+                    decimal change = decimal.Parse(RecPayServiceWalkinChangeBox.Text);
                     string paymentMethod = "Cash";
 
                     // Create a new table for the "Total" section
@@ -3739,7 +3799,7 @@ namespace Enchante
                     int totalRowCount = RecPayServiceWalkinAcquiredDGV.Rows.Count + RecPayServiceWalkinCOProdDGV.Rows.Count;
 
                     // Add cells to the "Total" table
-                    totalTable.AddCell(new Phrase($"Total # of Service/Products ({totalRowCount})", font));
+                    totalTable.AddCell(new Phrase($"Total ({totalRowCount})", font));
                     totalTable.AddCell(new Phrase($"Php {grossAmount:F2}", font));
                     totalTable.AddCell(new Phrase($"Cash Given", font));
                     totalTable.AddCell(new Phrase($"Php {cash:F2}", font));
@@ -3762,8 +3822,8 @@ namespace Enchante
                     vatTable.AddCell(new Phrase($"Php {netAmount:F2}", font));
                     vatTable.AddCell(new Phrase("VAT Tax (12%)", font));
                     vatTable.AddCell(new Phrase($"Php {vat:F2}", font));
-                    vatTable.AddCell(new Phrase("Discount (20%)", font));
-                    vatTable.AddCell(new Phrase($"Php {discount:F2}", font));
+                    //vatTable.AddCell(new Phrase("Discount (20%)", font));
+                    //vatTable.AddCell(new Phrase($"Php {discount:F2}", font));
 
                     // Add the "VATable" table to the document
                     doc.Add(vatTable);
@@ -4007,13 +4067,13 @@ namespace Enchante
         //    }
         //    else
         //    {
-        //        RecWalkinCalculateTotalPrice();
+        //        RecPayServiceWalkinCalculateTotalPrice();
         //    }
         //}
         public void ReceptionCalculateVATExemption()
         {
             // Get the Gross Amount from the TextBox (MngrGrossAmountBox)
-            if (decimal.TryParse(RecPayServiceNetAmountBox.Text, out decimal netAmount))
+            if (decimal.TryParse(RecPayServiceWalkinNetAmountBox.Text, out decimal netAmount))
             {
                 // For VAT exemption, set VAT Amount to zero
                 decimal vatAmount = 0;
@@ -4022,8 +4082,8 @@ namespace Enchante
                 decimal grossAmount = netAmount;
 
                 // Display the calculated values in TextBoxes
-                RecPayServiceVATBox.Text = vatAmount.ToString("0.00");
-                RecPayServiceVATBox.Text = vatAmount.ToString("0.00");
+                RecPayServiceWalkinVATBox.Text = vatAmount.ToString("0.00");
+                RecPayServiceWalkinVATBox.Text = vatAmount.ToString("0.00");
 
             }
         }
@@ -4672,7 +4732,7 @@ namespace Enchante
             }
             if (RecApptPreferredStaffToggleSwitch.Checked)
             {
-                selectedStaffID = RecWalkinAttendingStaffSelectedComboBox.SelectedItem.ToString();
+                selectedStaffID = RecApptAvailableAttendingStaffSelectedComboBox.SelectedItem.ToString();
             }
 
 
@@ -5058,22 +5118,22 @@ namespace Enchante
                     amount.DefaultCell.HorizontalAlignment = Element.ALIGN_LEFT; // Align cell content justified
 
                     amount.AddCell(new Phrase($"Total ({totalRowCount}): ", font));
-                    PdfPCell totalCell = new PdfPCell(new Phrase($"{total}", font));
+                    PdfPCell totalCell = new PdfPCell(new Phrase($"Php. {total}", font));
                     totalCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
                     amount.AddCell(totalCell);
 
                     amount.AddCell(new Phrase($"Initital Payment (40%): ", font));
-                    PdfPCell dpCell = new PdfPCell(new Phrase($"{downpayment}", font));
+                    PdfPCell dpCell = new PdfPCell(new Phrase($"Php. {downpayment}", font));
                     dpCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
                     amount.AddCell(dpCell);
 
                     amount.AddCell(new Phrase($"Cash Given: ", font));
-                    PdfPCell cashCell = new PdfPCell(new Phrase($"{cash}", font));
+                    PdfPCell cashCell = new PdfPCell(new Phrase($"Php. {cash}", font));
                     cashCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
                     amount.AddCell(cashCell);
 
                     amount.AddCell(new Phrase($"Change: ", font));
-                    PdfPCell changeCell = new PdfPCell(new Phrase($"{change}", font));
+                    PdfPCell changeCell = new PdfPCell(new Phrase($"Php. {change}", font));
                     changeCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
                     amount.AddCell(changeCell);
 
@@ -5337,12 +5397,12 @@ namespace Enchante
         private bool RecApptDownpayment()
         {
             // cash values
-            string netAmount = RecPayServiceNetAmountBox.Text; // net amount
-            string vat = RecPayServiceVATBox.Text; // vat 
+            string netAmount = RecPayServiceWalkinNetAmountBox.Text; // net amount
+            string vat = RecPayServiceWalkinVATBox.Text; // vat 
             string discount = RecPayServiceWalkinDiscountBox.Text; // discount
-            string grossAmount = RecPayServiceGrossAmountBox.Text; // gross amount
-            string cash = RecPayServiceCashBox.Text; // cash given
-            string change = RecPayServiceChangeBox.Text; // due change
+            string grossAmount = RecPayServiceWalkinGrossAmountBox.Text; // gross amount
+            string cash = RecPayServiceWalkinCashBox.Text; // cash given
+            string change = RecPayServiceWalkinChangeBox.Text; // due change
             string paymentMethod = "Cash"; // payment method
             string mngr = RecNameLbl.Text;
             string transactNum = RecPayServiceWalkinTransactNumLbl.Text;
@@ -13875,23 +13935,248 @@ namespace Enchante
             if (RecPayServiceUpdateApptDB())
             {
                 RecLoadCompletedAppointmentTrans();
-                RecPayServiceWalkinInvoiceReceiptGenerator();
+                RecPayServiceApptInvoiceGenerator();
                 RecPayServiceClearAllField();
+                RecLoadCompletedAppointmentTrans();
+            }
+        }
+        private void RecPayServiceApptInvoiceGenerator()
+        {
+            DateTime currentDate = RecDateTimePicker.Value;
+            string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
+            string timePrinted = currentDate.ToString("hh:mm tt");
+            string timePrintedFile = currentDate.ToString("hh-mm-ss");
+            string transactNum = RecPayServiceApptTransactNumLbl.Text;
+            string clientName = $"{RecPayServiceApptClientNameLbl}";
+            string recName = RecNameLbl.Text;
+            string apptNote = "This form will serves as your proof of appointment with Enchanté Salon. " +
+                                "Kindly present this form and one (1) Valid ID in our frontdesk and our " +
+                                "receptionist shall attend to your needs right away.";
+            string legal = "Thank you for trusting Enchanté Salon for your beauty needs." +
+                " This receipt will serve as your sales invoice of any services done in Enchanté Salon." +
+                " Any concerns about your services please ask and show this receipt in the frontdesk of Enchanté Salon.";
 
+            string total = RecPayServiceApptGrossAmountText.Text.ToString();
+            string downpayment = RecPayServiceApptInitialFeeText.Text;
+            string cash = RecPayServiceApptCashText.Text;
+            string change = RecPayServiceApptChangeText.Text;
+            string bal = RecPayServiceApptRemainingBalText.Text;
+
+            
+
+            // Increment the file name
+
+            // Generate a unique filename for the PDF
+            string fileName = $"Enchanté-Receipt-{transactNum}-{timePrintedFile}.pdf";
+
+            // Create a SaveFileDialog to choose the save location
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF Files|*.pdf";
+            saveFileDialog.FileName = fileName;
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = saveFileDialog.FileName;
+
+                // Create a new document with custom page size (8.5"x4.25" in landscape mode)
+                Document doc = new Document(new iTextSharp.text.Rectangle(Utilities.MillimetersToPoints(133.35f), Utilities.MillimetersToPoints(215.9f)));
+
+                try
+                {
+                    // Create a PdfWriter instance
+                    PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(filePath, FileMode.Create));
+
+                    // Open the document for writing
+                    doc.Open();
+
+                    Bitmap imagepath = Properties.Resources.Enchante_Logo__200_x_200_px__Green;
+                    iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imagepath, System.Drawing.Imaging.ImageFormat.Png);
+                    logo.Alignment = Element.ALIGN_CENTER;
+                    logo.ScaleAbsolute(100f, 100f);
+                    doc.Add(logo);
+
+                    iTextSharp.text.Font headerFont = FontFactory.GetFont("Courier", 16, iTextSharp.text.Font.BOLD);
+                    iTextSharp.text.Font boldfont = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.BOLD);
+                    iTextSharp.text.Font font = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.NORMAL);
+                    iTextSharp.text.Font italic = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.ITALIC);
+                    iTextSharp.text.Font right = FontFactory.GetFont("Courier", 10, Element.ALIGN_CENTER);
+
+                    // Create a centered alignment for text
+                    iTextSharp.text.Paragraph centerAligned = new Paragraph();
+                    centerAligned.Alignment = Element.ALIGN_CENTER;
+
+                    // Add centered content to the centerAligned Paragraph
+                    //centerAligned.Add(new Chunk("Enchanté Salon", headerFont));
+                    centerAligned.Add(new Chunk("\n69th flr. Enchanté Bldg. Ortigas Ave. Ext.\nManggahan, Pasig City 1611 Philippines", font));
+                    centerAligned.Add(new Chunk("\nTel. No.: (1101) 111-1010", font));
+                    centerAligned.Add(new Chunk($"\nDate: {datetoday} Time: {timePrinted}", font));
+
+                    // Add the centered content to the document
+                    doc.Add(centerAligned);
+
+                    int totalRowCount = RecPayServiceApptAcquiredDGV.Rows.Count;
+                    doc.Add(new Chunk("\n")); // New line
+
+                    doc.Add(new Paragraph($"Transaction No.: {transactNum}", font));
+                    doc.Add(new Paragraph($"Booked For: {clientName}", font));
+                    doc.Add(new Paragraph($"Booked By: {recName}", font));
+
+                    doc.Add(new Chunk("\n")); // New line
+
+                    doc.Add(new LineSeparator()); // Dotted line
+
+                    PdfPTable columnHeaderTable = new PdfPTable(3);
+                    columnHeaderTable.SetWidths(new float[] { 30f, 40f, 30f }); // Column widths
+                    columnHeaderTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+                    columnHeaderTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                    columnHeaderTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                    columnHeaderTable.AddCell(new Phrase("Staff ID", boldfont));
+                    columnHeaderTable.AddCell(new Phrase("Services", boldfont));
+                    columnHeaderTable.AddCell(new Phrase("Total Price", boldfont));
+
+                    doc.Add(columnHeaderTable);
+
+                    doc.Add(new LineSeparator()); // Dotted line
+                    // Iterate through the rows of your 
+
+                    foreach (DataGridViewRow row in RecPayServiceApptAcquiredDGV.Rows)
+                    {
+                        try
+                        {
+                            string serviceName = row.Cells["ApptSelectedService"].Value?.ToString();
+                            if (string.IsNullOrEmpty(serviceName))
+                            {
+                                continue; // Skip empty rows
+                            }
+
+                            string staffID = row.Cells["ApptStaffSelected"].Value?.ToString();
+                            string itemTotalcost = row.Cells["ApptServicePrice"].Value?.ToString();
+
+                            // Add cells to the item table
+                            PdfPTable serviceTable = new PdfPTable(3);
+                            serviceTable.SetWidths(new float[] { 30f, 40f, 30f}); // Column widths
+                            serviceTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+                            serviceTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                            serviceTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                            serviceTable.AddCell(new Phrase(staffID, font));
+                            serviceTable.AddCell(new Phrase(serviceName, font));
+                            serviceTable.AddCell(new Phrase(itemTotalcost, font));
+
+                            doc.Add(serviceTable);
+
+                        }
+                        catch (Exception ex)
+                        {
+                            // Handle or log any exceptions that occur while processing DataGridView data
+                            MessageBox.Show("An error occurred: " + ex.Message, "Appoint Form Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+                    doc.Add(new Chunk("\n")); // New line
+                    doc.Add(new LineSeparator()); // Dotted line
+                    doc.Add(new Chunk("\n")); // New line
+
+                    
+                    decimal netAmount = decimal.Parse(RecPayServiceApptNetAmountText.Text);
+                    decimal discount = decimal.Parse(RecPayServiceApptDiscountText.Text);
+                    decimal vat = decimal.Parse(RecPayServiceApptVATText.Text);
+
+                    string paymentMethod = "Cash";
+
+                    // Add cells to the INFO table
+                    PdfPTable amount = new PdfPTable(2);
+
+                    amount.HorizontalAlignment = Element.ALIGN_CENTER; // Center the table
+
+                    amount.SetWidths(new float[] { 60f, 40f }); // Column widths as percentage of the total width
+
+                    amount.DefaultCell.Border = PdfPCell.NO_BORDER;
+                    amount.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                    amount.DefaultCell.HorizontalAlignment = Element.ALIGN_LEFT; // Align cell content justified
+
+                    amount.AddCell(new Phrase($"Total ({totalRowCount}): ", font));
+                    PdfPCell totalCell = new PdfPCell(new Phrase($"Php. {total}", font));
+                    totalCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
+                    amount.AddCell(totalCell);
+
+                    amount.AddCell(new Phrase($"Initital Payment (40%): ", font));
+                    PdfPCell dpCell = new PdfPCell(new Phrase($"Php. {downpayment}", font));
+                    dpCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
+                    amount.AddCell(dpCell);
+
+                    amount.AddCell(new Phrase($"Balance Payment: ", font));
+                    PdfPCell balCell = new PdfPCell(new Phrase($"Php. {bal}", font));
+                    balCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
+                    amount.AddCell(balCell);
+
+                    amount.AddCell(new Phrase($"Cash Given: ", font));
+                    PdfPCell cashCell = new PdfPCell(new Phrase($"Php. {cash}", font));
+                    cashCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
+                    amount.AddCell(cashCell);
+
+                    amount.AddCell(new Phrase($"Change: ", font));
+                    PdfPCell changeCell = new PdfPCell(new Phrase($"Php. {change}", font));
+                    changeCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
+                    amount.AddCell(changeCell);
+
+                    doc.Add(amount); // Add the table to the document
+
+
+                    doc.Add(new Chunk("\n")); // New line
+                    // Create a new table for the "VATable" section
+                    PdfPTable vatTable = new PdfPTable(2); // 2 columns for the "VATable" table
+                    vatTable.SetWidths(new float[] { 5f, 3f }); // Column widths
+                    vatTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+
+                    // Add cells to the "VATable" table
+                    vatTable.AddCell(new Phrase("VATable ", font));
+                    vatTable.AddCell(new Phrase($"Php {netAmount:F2}", font));
+                    vatTable.AddCell(new Phrase("VAT Tax (12%)", font));
+                    vatTable.AddCell(new Phrase($"Php {vat:F2}", font));
+                    //vatTable.AddCell(new Phrase("Discount (20%)", font));
+                    //vatTable.AddCell(new Phrase($"Php {discount:F2}", font));
+
+                    // Add the "VATable" table to the document
+                    doc.Add(vatTable);
+
+                    // Add the legal string with center alignment
+                    Paragraph paragraph_footer = new Paragraph($"\n{legal}", italic);
+                    paragraph_footer.Alignment = Element.ALIGN_CENTER;
+                    doc.Add(paragraph_footer);
+                }
+                catch (DocumentException de)
+                {
+                    MessageBox.Show("An error occurred: " + de.Message, "Appoint Form Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (IOException ioe)
+                {
+                    MessageBox.Show("An error occurred: " + ioe.Message, "Appoint Form Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    // Close the document
+                    doc.Close();
+                }
+
+                //MessageBox.Show($"Receipt saved as {filePath}", "Receipt Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         private bool RecPayServiceUpdateApptDB()
         {
             // cash values
-            string netAmount = RecPayServiceNetAmountBox.Text; // net amount
-            string vat = RecPayServiceVATBox.Text; // vat 
-            string discount = RecPayServiceWalkinDiscountBox.Text; // discount
-            string grossAmount = RecPayServiceGrossAmountBox.Text; // gross amount
-            string cash = RecPayServiceCashBox.Text; // cash given
-            string change = RecPayServiceChangeBox.Text; // due change
+            string netAmount = RecPayServiceApptNetAmountText.Text; // net amount
+            string vat = RecPayServiceApptVATText.Text; // vat 
+            string discount = ""; // discount RecPayServiceApptDiscountText.Text
+            string grossAmount = RecPayServiceApptGrossAmountText.Text; // gross amount
+            string cash = RecPayServiceApptCashText.Text; // cash given
+            string change = RecPayServiceApptChangeText.Text; // due change
+            string bal = RecPayServiceApptRemainingBalText.Text;
+            string dp = RecPayServiceApptInitialFeeText.Text;
             string paymentMethod = "Cash"; // payment method
             string mngr = RecNameLbl.Text;
-            string transactNum = RecPayServiceWalkinTransactNumLbl.Text;
+            string transactNum = RecPayServiceApptTransactNumLbl.Text;
 
             // bank & wallet details
 
@@ -13916,7 +14201,7 @@ namespace Enchante
                         MessageBox.Show("Cash amount must be in numbers only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;
                     }
-                    else if (Convert.ToDecimal(cash) < Convert.ToDecimal(grossAmount))
+                    else if (Convert.ToDecimal(cash) < Convert.ToDecimal(bal))
                     {
                         MessageBox.Show("Insufficient amount. Please provide enough cash to cover the transaction.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;
@@ -13925,7 +14210,7 @@ namespace Enchante
                     {
                         //appointment transactions
                         string cashPaymentAppt = "UPDATE appointment SET ServiceStatus = @status, NetPrice = @net, VatAmount = @vat, DiscountAmount = @discount, " +
-                                            "GrossAmount = @gross, CashGiven = @cash, DueChange = @change, PaymentMethod = @payment, CheckedOutBy = @mngr " +
+                                            "GrossAmount = @gross, Downpayment = @dp, RemainingBal = @bal, CashGiven = @cash, DueChange = @change, PaymentMethod = @payment, CheckedOutBy = @mngr " +
                                             "WHERE TransactionNumber = @transactNum"; // cash query
                         MySqlCommand cmd2 = new MySqlCommand(cashPaymentAppt, connection);
                         cmd2.Parameters.AddWithValue("@status", "Paid");
@@ -13933,6 +14218,8 @@ namespace Enchante
                         cmd2.Parameters.AddWithValue("@vat", vat);
                         cmd2.Parameters.AddWithValue("@discount", discount);
                         cmd2.Parameters.AddWithValue("@gross", grossAmount);
+                        cmd2.Parameters.AddWithValue("@dp", dp);
+                        cmd2.Parameters.AddWithValue("@bal", bal); 
                         cmd2.Parameters.AddWithValue("@cash", cash);
                         cmd2.Parameters.AddWithValue("@change", change);
                         cmd2.Parameters.AddWithValue("@payment", paymentMethod);
@@ -13949,7 +14236,7 @@ namespace Enchante
             catch (MySqlException ex)
             {
                 // Handle MySQL database exception
-                MessageBox.Show("An error occurred: " + ex.Message, "Manager payment transaction failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred: " + ex.Message, "Receptionist appointment payment transaction failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false; // Return false in case of an exception
             }
             finally
@@ -14361,21 +14648,24 @@ namespace Enchante
         {
             if(PaymentTabs.SelectedIndex == 0)
             {
-                if (!CompletedTransLoad)
-                {
+                
                     RecLoadCompletedWalkinTrans();
-                    CompletedTransLoad = true; // Set the flag to true to indicate that service history is loaded
-                }
+                    TabCompletedTransLoad = true; // Set the flag to true to indicate that service history is loaded
+                
 
             }
             else if (PaymentTabs.SelectedIndex == 1)
             {
-                if (!CompletedTransLoad)
-                {
+                
                     RecLoadCompletedAppointmentTrans();
-                    CompletedTransLoad = true; // Set the flag to true to indicate that service history is loaded
-                }
+                    TabCompletedTransLoad = true; // Set the flag to true to indicate that service history is loaded
+                
             }
+        }
+
+        private void RecPayServiceApptCashText_TextChanged(object sender, EventArgs e)
+        {
+            RecPayServiceApptChangeCalculateAmount();
         }
     }
 }
