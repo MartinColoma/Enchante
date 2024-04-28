@@ -8487,7 +8487,7 @@ namespace Enchante
             this.RecPayServiceWalkinCOProdChangeText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecPayServiceWalkinCOProdChangeText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecPayServiceWalkinCOProdChangeText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecPayServiceWalkinCOProdChangeText.Location = new System.Drawing.Point(426, 593);
+            this.RecPayServiceWalkinCOProdChangeText.Location = new System.Drawing.Point(426, 823);
             this.RecPayServiceWalkinCOProdChangeText.MaxLength = 7;
             this.RecPayServiceWalkinCOProdChangeText.Name = "RecPayServiceWalkinCOProdChangeText";
             this.RecPayServiceWalkinCOProdChangeText.Size = new System.Drawing.Size(88, 30);
