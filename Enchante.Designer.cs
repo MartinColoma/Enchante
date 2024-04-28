@@ -569,6 +569,15 @@ namespace Enchante
             this.RecApptSearchServiceTypeText = new Guna.UI2.WinForms.Guna2TextBox();
             this.RecApptSelectServiceAndStaffBtn = new Guna.UI2.WinForms.Guna2Button();
             this.RecApptSelectedServiceDGV = new System.Windows.Forms.DataGridView();
+            this.ApptServiceVoid = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.RecApptSelectedService = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecApptServicePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecApptServiceCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecApptServiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecApptStaffSelected = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecApptPriorityNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecApptTimeSelected = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecApptQueType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecApptDeleteSelectedServiceAndStaffBtn = new Guna.UI2.WinForms.Guna2Button();
             this.RecQueWinPanel = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -609,9 +618,17 @@ namespace Enchante
             this.RecPayServiceWalkinVoucherText = new System.Windows.Forms.TextBox();
             this.RecPayServiceWalkinDiscountBox = new System.Windows.Forms.TextBox();
             this.RecPayServiceWalkinAcquiredDGV = new System.Windows.Forms.DataGridView();
+            this.WalkinSelectedService = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WalkinServicePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WalkinAttendingStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecPayServiceWalkinCashLbl = new System.Windows.Forms.Label();
             this.RecPayServiceWalkinChangeLbl = new System.Windows.Forms.Label();
             this.RecPayServiceWalkinCOProdDGV = new System.Windows.Forms.DataGridView();
+            this.WalkinItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WalkinQTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WalkinPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WalkinTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WalkinItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecPayServiceWalkinClientNameLbl = new System.Windows.Forms.Label();
             this.RecPayServiceWalkinVoucherLbl = new System.Windows.Forms.Label();
             this.RecPayServiceWalkinDiscountLbl = new System.Windows.Forms.Label();
@@ -619,6 +636,10 @@ namespace Enchante
             this.RecPayServiceWalkinCompleteTransLbl = new System.Windows.Forms.Label();
             this.RecPayServiceVATLbl = new System.Windows.Forms.Label();
             this.RecPayServiceWalkinCompleteTransDGV = new System.Windows.Forms.DataGridView();
+            this.WalkinTransNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WalkinClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WalkinClientCPNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WalkinServiceStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecPayServiceTotalAmountLbl = new System.Windows.Forms.Label();
             this.PaymentApptTab = new System.Windows.Forms.TabPage();
             this.RecPayServiceApptPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -646,10 +667,19 @@ namespace Enchante
             this.RecPayServiceApptAcquiredTotalText = new System.Windows.Forms.TextBox();
             this.RecPayServiceApptAcqLbl = new System.Windows.Forms.Label();
             this.RecPayServiceApptAcquiredDGV = new System.Windows.Forms.DataGridView();
+            this.ApptStaffSelected = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ApptSelectedService = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ApptServicePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecPayServiceApptTransTypeLbl = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.RecPayServiceApptCompleteTransLbl = new System.Windows.Forms.Label();
             this.RecPayServiceApptCompleteTransDGV = new System.Windows.Forms.DataGridView();
+            this.ApptTransNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ApptCustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ApptCustomerCPNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ApptDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ApptTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ApptServiceStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecPayServiceExitBtn = new FontAwesome.Sharp.IconButton();
             this.RecWalkinPanel = new System.Windows.Forms.Panel();
             this.WalkinTabs = new Guna.UI2.WinForms.Guna2TabControl();
@@ -791,36 +821,6 @@ namespace Enchante
             this.MngrDataTimer = new System.Windows.Forms.Timer(this.components);
             this.MngrReportsTimer = new System.Windows.Forms.Timer(this.components);
             this.MngrHistoryTimer = new System.Windows.Forms.Timer(this.components);
-            this.ApptStaffSelected = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApptSelectedService = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApptServicePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WalkinTransNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WalkinClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WalkinClientCPNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WalkinServiceStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApptTransNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApptCustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApptCustomerCPNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApptDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApptTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApptServiceStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WalkinSelectedService = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WalkinServicePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WalkinAttendingStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WalkinItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WalkinQTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WalkinPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WalkinTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WalkinItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApptServiceVoid = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.RecApptSelectedService = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecApptServicePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecApptServiceCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecApptServiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecApptStaffSelected = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecApptPriorityNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecApptTimeSelected = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecApptQueType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteMngrPage.SuspendLayout();
             this.MngrScrollPanel.SuspendLayout();
@@ -7971,6 +7971,69 @@ namespace Enchante
             this.RecApptSelectedServiceDGV.TabIndex = 162;
             this.RecApptSelectedServiceDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecApptSelectedServiceDGV_CellContentClick);
             // 
+            // ApptServiceVoid
+            // 
+            this.ApptServiceVoid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.ApptServiceVoid.HeaderText = "Void";
+            this.ApptServiceVoid.Name = "ApptServiceVoid";
+            this.ApptServiceVoid.ReadOnly = true;
+            this.ApptServiceVoid.Text = "x";
+            this.ApptServiceVoid.UseColumnTextForButtonValue = true;
+            this.ApptServiceVoid.Width = 64;
+            // 
+            // RecApptSelectedService
+            // 
+            this.RecApptSelectedService.HeaderText = "Selected Service";
+            this.RecApptSelectedService.Name = "RecApptSelectedService";
+            this.RecApptSelectedService.ReadOnly = true;
+            // 
+            // RecApptServicePrice
+            // 
+            this.RecApptServicePrice.HeaderText = "Service Price";
+            this.RecApptServicePrice.Name = "RecApptServicePrice";
+            this.RecApptServicePrice.ReadOnly = true;
+            // 
+            // RecApptServiceCategory
+            // 
+            this.RecApptServiceCategory.HeaderText = "Service Category";
+            this.RecApptServiceCategory.Name = "RecApptServiceCategory";
+            this.RecApptServiceCategory.ReadOnly = true;
+            this.RecApptServiceCategory.Visible = false;
+            // 
+            // RecApptServiceID
+            // 
+            this.RecApptServiceID.HeaderText = "Service ID";
+            this.RecApptServiceID.Name = "RecApptServiceID";
+            this.RecApptServiceID.ReadOnly = true;
+            this.RecApptServiceID.Visible = false;
+            // 
+            // RecApptStaffSelected
+            // 
+            this.RecApptStaffSelected.HeaderText = "Staff Selected";
+            this.RecApptStaffSelected.Name = "RecApptStaffSelected";
+            this.RecApptStaffSelected.ReadOnly = true;
+            // 
+            // RecApptPriorityNumber
+            // 
+            this.RecApptPriorityNumber.HeaderText = "Priority Number";
+            this.RecApptPriorityNumber.Name = "RecApptPriorityNumber";
+            this.RecApptPriorityNumber.ReadOnly = true;
+            this.RecApptPriorityNumber.Visible = false;
+            // 
+            // RecApptTimeSelected
+            // 
+            this.RecApptTimeSelected.HeaderText = "Time Selected";
+            this.RecApptTimeSelected.Name = "RecApptTimeSelected";
+            this.RecApptTimeSelected.ReadOnly = true;
+            this.RecApptTimeSelected.Visible = false;
+            // 
+            // RecApptQueType
+            // 
+            this.RecApptQueType.HeaderText = "Que Type";
+            this.RecApptQueType.Name = "RecApptQueType";
+            this.RecApptQueType.ReadOnly = true;
+            this.RecApptQueType.Visible = false;
+            // 
             // RecApptDeleteSelectedServiceAndStaffBtn
             // 
             this.RecApptDeleteSelectedServiceAndStaffBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
@@ -8377,9 +8440,9 @@ namespace Enchante
             this.RecPayServiceWalkinPanel.Controls.Add(this.RecPayServiceVATLbl);
             this.RecPayServiceWalkinPanel.Controls.Add(this.RecPayServiceWalkinCompleteTransDGV);
             this.RecPayServiceWalkinPanel.Controls.Add(this.RecPayServiceTotalAmountLbl);
-            this.RecPayServiceWalkinPanel.Location = new System.Drawing.Point(24, 28);
+            this.RecPayServiceWalkinPanel.Location = new System.Drawing.Point(50, 28);
             this.RecPayServiceWalkinPanel.Name = "RecPayServiceWalkinPanel";
-            this.RecPayServiceWalkinPanel.Size = new System.Drawing.Size(1514, 912);
+            this.RecPayServiceWalkinPanel.Size = new System.Drawing.Size(1488, 912);
             this.RecPayServiceWalkinPanel.TabIndex = 206;
             // 
             // RecPayServiceWalkinPaymentButton
@@ -8680,6 +8743,25 @@ namespace Enchante
             this.RecPayServiceWalkinAcquiredDGV.Size = new System.Drawing.Size(702, 162);
             this.RecPayServiceWalkinAcquiredDGV.TabIndex = 102;
             // 
+            // WalkinSelectedService
+            // 
+            this.WalkinSelectedService.HeaderText = "Selected Service";
+            this.WalkinSelectedService.Name = "WalkinSelectedService";
+            this.WalkinSelectedService.ReadOnly = true;
+            // 
+            // WalkinServicePrice
+            // 
+            this.WalkinServicePrice.HeaderText = "Service Price";
+            this.WalkinServicePrice.Name = "WalkinServicePrice";
+            this.WalkinServicePrice.ReadOnly = true;
+            // 
+            // WalkinAttendingStaff
+            // 
+            this.WalkinAttendingStaff.HeaderText = "Attending Staff";
+            this.WalkinAttendingStaff.Name = "WalkinAttendingStaff";
+            this.WalkinAttendingStaff.ReadOnly = true;
+            this.WalkinAttendingStaff.Visible = false;
+            // 
             // RecPayServiceWalkinCashLbl
             // 
             this.RecPayServiceWalkinCashLbl.AutoSize = true;
@@ -8743,8 +8825,39 @@ namespace Enchante
             this.RecPayServiceWalkinCOProdDGV.RowHeadersVisible = false;
             this.RecPayServiceWalkinCOProdDGV.RowHeadersWidth = 51;
             this.RecPayServiceWalkinCOProdDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.RecPayServiceWalkinCOProdDGV.Size = new System.Drawing.Size(702, 162);
+            this.RecPayServiceWalkinCOProdDGV.Size = new System.Drawing.Size(702, 170);
             this.RecPayServiceWalkinCOProdDGV.TabIndex = 140;
+            // 
+            // WalkinItemName
+            // 
+            this.WalkinItemName.HeaderText = "Item Name";
+            this.WalkinItemName.Name = "WalkinItemName";
+            this.WalkinItemName.ReadOnly = true;
+            // 
+            // WalkinQTY
+            // 
+            this.WalkinQTY.HeaderText = "Qty";
+            this.WalkinQTY.Name = "WalkinQTY";
+            this.WalkinQTY.ReadOnly = true;
+            // 
+            // WalkinPrice
+            // 
+            this.WalkinPrice.HeaderText = "Price";
+            this.WalkinPrice.Name = "WalkinPrice";
+            this.WalkinPrice.ReadOnly = true;
+            // 
+            // WalkinTotalPrice
+            // 
+            this.WalkinTotalPrice.HeaderText = "Total Price";
+            this.WalkinTotalPrice.Name = "WalkinTotalPrice";
+            this.WalkinTotalPrice.ReadOnly = true;
+            // 
+            // WalkinItemID
+            // 
+            this.WalkinItemID.HeaderText = "Item ID";
+            this.WalkinItemID.Name = "WalkinItemID";
+            this.WalkinItemID.ReadOnly = true;
+            this.WalkinItemID.Visible = false;
             // 
             // RecPayServiceWalkinClientNameLbl
             // 
@@ -8857,6 +8970,30 @@ namespace Enchante
             this.RecPayServiceWalkinCompleteTransDGV.Size = new System.Drawing.Size(1279, 194);
             this.RecPayServiceWalkinCompleteTransDGV.TabIndex = 99;
             this.RecPayServiceWalkinCompleteTransDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecPayServiceCompleteTransDGV_CellClick);
+            // 
+            // WalkinTransNum
+            // 
+            this.WalkinTransNum.HeaderText = "Transaction Number";
+            this.WalkinTransNum.Name = "WalkinTransNum";
+            this.WalkinTransNum.ReadOnly = true;
+            // 
+            // WalkinClientName
+            // 
+            this.WalkinClientName.HeaderText = "Client Name";
+            this.WalkinClientName.Name = "WalkinClientName";
+            this.WalkinClientName.ReadOnly = true;
+            // 
+            // WalkinClientCPNum
+            // 
+            this.WalkinClientCPNum.HeaderText = "Client CP No.";
+            this.WalkinClientCPNum.Name = "WalkinClientCPNum";
+            this.WalkinClientCPNum.ReadOnly = true;
+            // 
+            // WalkinServiceStatus
+            // 
+            this.WalkinServiceStatus.HeaderText = "Status";
+            this.WalkinServiceStatus.Name = "WalkinServiceStatus";
+            this.WalkinServiceStatus.ReadOnly = true;
             // 
             // RecPayServiceTotalAmountLbl
             // 
@@ -9252,6 +9389,25 @@ namespace Enchante
             this.RecPayServiceApptAcquiredDGV.Size = new System.Drawing.Size(702, 428);
             this.RecPayServiceApptAcquiredDGV.TabIndex = 176;
             // 
+            // ApptStaffSelected
+            // 
+            this.ApptStaffSelected.HeaderText = "Attending Staff";
+            this.ApptStaffSelected.Name = "ApptStaffSelected";
+            this.ApptStaffSelected.ReadOnly = true;
+            this.ApptStaffSelected.Visible = false;
+            // 
+            // ApptSelectedService
+            // 
+            this.ApptSelectedService.HeaderText = "Selected Service";
+            this.ApptSelectedService.Name = "ApptSelectedService";
+            this.ApptSelectedService.ReadOnly = true;
+            // 
+            // ApptServicePrice
+            // 
+            this.ApptServicePrice.HeaderText = "Service Price";
+            this.ApptServicePrice.Name = "ApptServicePrice";
+            this.ApptServicePrice.ReadOnly = true;
+            // 
             // RecPayServiceApptTransTypeLbl
             // 
             this.RecPayServiceApptTransTypeLbl.AutoSize = true;
@@ -9336,6 +9492,42 @@ namespace Enchante
             this.RecPayServiceApptCompleteTransDGV.Size = new System.Drawing.Size(1279, 194);
             this.RecPayServiceApptCompleteTransDGV.TabIndex = 146;
             this.RecPayServiceApptCompleteTransDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecPayServiceApptCompleteTransDGV_CellClick);
+            // 
+            // ApptTransNum
+            // 
+            this.ApptTransNum.HeaderText = "Transaction Number";
+            this.ApptTransNum.Name = "ApptTransNum";
+            this.ApptTransNum.ReadOnly = true;
+            // 
+            // ApptCustomerName
+            // 
+            this.ApptCustomerName.HeaderText = "Client Name";
+            this.ApptCustomerName.Name = "ApptCustomerName";
+            this.ApptCustomerName.ReadOnly = true;
+            // 
+            // ApptCustomerCPNum
+            // 
+            this.ApptCustomerCPNum.HeaderText = "Client CP No.";
+            this.ApptCustomerCPNum.Name = "ApptCustomerCPNum";
+            this.ApptCustomerCPNum.ReadOnly = true;
+            // 
+            // ApptDate
+            // 
+            this.ApptDate.HeaderText = "Appointment Date";
+            this.ApptDate.Name = "ApptDate";
+            this.ApptDate.ReadOnly = true;
+            // 
+            // ApptTime
+            // 
+            this.ApptTime.HeaderText = "AppointmentTime";
+            this.ApptTime.Name = "ApptTime";
+            this.ApptTime.ReadOnly = true;
+            // 
+            // ApptServiceStatus
+            // 
+            this.ApptServiceStatus.HeaderText = "Service Status";
+            this.ApptServiceStatus.Name = "ApptServiceStatus";
+            this.ApptServiceStatus.ReadOnly = true;
             // 
             // RecPayServiceExitBtn
             // 
@@ -9751,7 +9943,7 @@ namespace Enchante
             this.WalkinServiceCatNStaff.Location = new System.Drawing.Point(4, 44);
             this.WalkinServiceCatNStaff.Name = "WalkinServiceCatNStaff";
             this.WalkinServiceCatNStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.WalkinServiceCatNStaff.Size = new System.Drawing.Size(1030, 699);
+            this.WalkinServiceCatNStaff.Size = new System.Drawing.Size(1564, 991);
             this.WalkinServiceCatNStaff.TabIndex = 1;
             this.WalkinServiceCatNStaff.Text = "Services";
             // 
@@ -10387,7 +10579,7 @@ namespace Enchante
             this.WalkinProducts.Controls.Add(this.RecWalkinProdPanel);
             this.WalkinProducts.Location = new System.Drawing.Point(4, 44);
             this.WalkinProducts.Name = "WalkinProducts";
-            this.WalkinProducts.Size = new System.Drawing.Size(1030, 699);
+            this.WalkinProducts.Size = new System.Drawing.Size(1564, 991);
             this.WalkinProducts.TabIndex = 3;
             this.WalkinProducts.Text = "Products";
             // 
@@ -11423,198 +11615,6 @@ namespace Enchante
             // 
             this.MngrHistoryTimer.Interval = 1;
             this.MngrHistoryTimer.Tick += new System.EventHandler(this.MngrHistoryTimer_Tick);
-            // 
-            // ApptStaffSelected
-            // 
-            this.ApptStaffSelected.HeaderText = "Attending Staff";
-            this.ApptStaffSelected.Name = "ApptStaffSelected";
-            this.ApptStaffSelected.ReadOnly = true;
-            this.ApptStaffSelected.Visible = false;
-            // 
-            // ApptSelectedService
-            // 
-            this.ApptSelectedService.HeaderText = "Selected Service";
-            this.ApptSelectedService.Name = "ApptSelectedService";
-            this.ApptSelectedService.ReadOnly = true;
-            // 
-            // ApptServicePrice
-            // 
-            this.ApptServicePrice.HeaderText = "Service Price";
-            this.ApptServicePrice.Name = "ApptServicePrice";
-            this.ApptServicePrice.ReadOnly = true;
-            // 
-            // WalkinTransNum
-            // 
-            this.WalkinTransNum.HeaderText = "Transaction Number";
-            this.WalkinTransNum.Name = "WalkinTransNum";
-            this.WalkinTransNum.ReadOnly = true;
-            // 
-            // WalkinClientName
-            // 
-            this.WalkinClientName.HeaderText = "Client Name";
-            this.WalkinClientName.Name = "WalkinClientName";
-            this.WalkinClientName.ReadOnly = true;
-            // 
-            // WalkinClientCPNum
-            // 
-            this.WalkinClientCPNum.HeaderText = "Client CP No.";
-            this.WalkinClientCPNum.Name = "WalkinClientCPNum";
-            this.WalkinClientCPNum.ReadOnly = true;
-            // 
-            // WalkinServiceStatus
-            // 
-            this.WalkinServiceStatus.HeaderText = "Status";
-            this.WalkinServiceStatus.Name = "WalkinServiceStatus";
-            this.WalkinServiceStatus.ReadOnly = true;
-            // 
-            // ApptTransNum
-            // 
-            this.ApptTransNum.HeaderText = "Transaction Number";
-            this.ApptTransNum.Name = "ApptTransNum";
-            this.ApptTransNum.ReadOnly = true;
-            // 
-            // ApptCustomerName
-            // 
-            this.ApptCustomerName.HeaderText = "Client Name";
-            this.ApptCustomerName.Name = "ApptCustomerName";
-            this.ApptCustomerName.ReadOnly = true;
-            // 
-            // ApptCustomerCPNum
-            // 
-            this.ApptCustomerCPNum.HeaderText = "Client CP No.";
-            this.ApptCustomerCPNum.Name = "ApptCustomerCPNum";
-            this.ApptCustomerCPNum.ReadOnly = true;
-            // 
-            // ApptDate
-            // 
-            this.ApptDate.HeaderText = "Appointment Date";
-            this.ApptDate.Name = "ApptDate";
-            this.ApptDate.ReadOnly = true;
-            // 
-            // ApptTime
-            // 
-            this.ApptTime.HeaderText = "AppointmentTime";
-            this.ApptTime.Name = "ApptTime";
-            this.ApptTime.ReadOnly = true;
-            // 
-            // ApptServiceStatus
-            // 
-            this.ApptServiceStatus.HeaderText = "Service Status";
-            this.ApptServiceStatus.Name = "ApptServiceStatus";
-            this.ApptServiceStatus.ReadOnly = true;
-            // 
-            // WalkinSelectedService
-            // 
-            this.WalkinSelectedService.HeaderText = "Selected Service";
-            this.WalkinSelectedService.Name = "WalkinSelectedService";
-            this.WalkinSelectedService.ReadOnly = true;
-            // 
-            // WalkinServicePrice
-            // 
-            this.WalkinServicePrice.HeaderText = "Service Price";
-            this.WalkinServicePrice.Name = "WalkinServicePrice";
-            this.WalkinServicePrice.ReadOnly = true;
-            // 
-            // WalkinAttendingStaff
-            // 
-            this.WalkinAttendingStaff.HeaderText = "Attending Staff";
-            this.WalkinAttendingStaff.Name = "WalkinAttendingStaff";
-            this.WalkinAttendingStaff.ReadOnly = true;
-            this.WalkinAttendingStaff.Visible = false;
-            // 
-            // WalkinItemName
-            // 
-            this.WalkinItemName.HeaderText = "Item Name";
-            this.WalkinItemName.Name = "WalkinItemName";
-            this.WalkinItemName.ReadOnly = true;
-            // 
-            // WalkinQTY
-            // 
-            this.WalkinQTY.HeaderText = "Qty";
-            this.WalkinQTY.Name = "WalkinQTY";
-            this.WalkinQTY.ReadOnly = true;
-            // 
-            // WalkinPrice
-            // 
-            this.WalkinPrice.HeaderText = "Price";
-            this.WalkinPrice.Name = "WalkinPrice";
-            this.WalkinPrice.ReadOnly = true;
-            // 
-            // WalkinTotalPrice
-            // 
-            this.WalkinTotalPrice.HeaderText = "Total Price";
-            this.WalkinTotalPrice.Name = "WalkinTotalPrice";
-            this.WalkinTotalPrice.ReadOnly = true;
-            // 
-            // WalkinItemID
-            // 
-            this.WalkinItemID.HeaderText = "Item ID";
-            this.WalkinItemID.Name = "WalkinItemID";
-            this.WalkinItemID.ReadOnly = true;
-            this.WalkinItemID.Visible = false;
-            // 
-            // ApptServiceVoid
-            // 
-            this.ApptServiceVoid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.ApptServiceVoid.HeaderText = "Void";
-            this.ApptServiceVoid.Name = "ApptServiceVoid";
-            this.ApptServiceVoid.ReadOnly = true;
-            this.ApptServiceVoid.Text = "x";
-            this.ApptServiceVoid.UseColumnTextForButtonValue = true;
-            this.ApptServiceVoid.Width = 64;
-            // 
-            // RecApptSelectedService
-            // 
-            this.RecApptSelectedService.HeaderText = "Selected Service";
-            this.RecApptSelectedService.Name = "RecApptSelectedService";
-            this.RecApptSelectedService.ReadOnly = true;
-            // 
-            // RecApptServicePrice
-            // 
-            this.RecApptServicePrice.HeaderText = "Service Price";
-            this.RecApptServicePrice.Name = "RecApptServicePrice";
-            this.RecApptServicePrice.ReadOnly = true;
-            // 
-            // RecApptServiceCategory
-            // 
-            this.RecApptServiceCategory.HeaderText = "Service Category";
-            this.RecApptServiceCategory.Name = "RecApptServiceCategory";
-            this.RecApptServiceCategory.ReadOnly = true;
-            this.RecApptServiceCategory.Visible = false;
-            // 
-            // RecApptServiceID
-            // 
-            this.RecApptServiceID.HeaderText = "Service ID";
-            this.RecApptServiceID.Name = "RecApptServiceID";
-            this.RecApptServiceID.ReadOnly = true;
-            this.RecApptServiceID.Visible = false;
-            // 
-            // RecApptStaffSelected
-            // 
-            this.RecApptStaffSelected.HeaderText = "Staff Selected";
-            this.RecApptStaffSelected.Name = "RecApptStaffSelected";
-            this.RecApptStaffSelected.ReadOnly = true;
-            // 
-            // RecApptPriorityNumber
-            // 
-            this.RecApptPriorityNumber.HeaderText = "Priority Number";
-            this.RecApptPriorityNumber.Name = "RecApptPriorityNumber";
-            this.RecApptPriorityNumber.ReadOnly = true;
-            this.RecApptPriorityNumber.Visible = false;
-            // 
-            // RecApptTimeSelected
-            // 
-            this.RecApptTimeSelected.HeaderText = "Time Selected";
-            this.RecApptTimeSelected.Name = "RecApptTimeSelected";
-            this.RecApptTimeSelected.ReadOnly = true;
-            this.RecApptTimeSelected.Visible = false;
-            // 
-            // RecApptQueType
-            // 
-            this.RecApptQueType.HeaderText = "Que Type";
-            this.RecApptQueType.Name = "RecApptQueType";
-            this.RecApptQueType.ReadOnly = true;
-            this.RecApptQueType.Visible = false;
             // 
             // Enchante
             // 
