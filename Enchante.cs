@@ -903,11 +903,13 @@ namespace Enchante
         private void RecWalkInBtn_Click(object sender, EventArgs e)
         {
             WalkinTabs.SelectedIndex = 0;
-            RecApptTransactionClear(); 
+            RecApptTransactionClear();
             RecShopProdTransactionClear();
             InitialWalkinTransColor();
             RecWalkinBdayMaxDate();
             serviceappointment = false;
+            InitializeEmployeeCategory();
+            RefreshAvailableStaff();
         }
 
         private void RecWalkinBdayMaxDate()
@@ -1243,6 +1245,8 @@ namespace Enchante
         private void RecWalkInCatHSBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Hair Styling";
+            servicecurrentPage = 0;
+            servicecurrentPagefake = 1;
             RecWalkinServicesFlowLayoutPanel.Controls.Clear();
             InitializeServices(filterstaffbyservicecategory);
             serviceappointment = false;
@@ -1259,6 +1263,8 @@ namespace Enchante
         private void RecWalkInCatFSBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Face & Skin";
+            servicecurrentPage = 0;
+            servicecurrentPagefake = 1;
             RecWalkinServicesFlowLayoutPanel.Controls.Clear();
             InitializeServices(filterstaffbyservicecategory);
             serviceappointment = false;
@@ -1276,6 +1282,8 @@ namespace Enchante
         private void RecWalkInCatNCBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Nail Care";
+            servicecurrentPage = 0;
+            servicecurrentPagefake = 1;
             RecWalkinServicesFlowLayoutPanel.Controls.Clear();
             InitializeServices(filterstaffbyservicecategory);
             serviceappointment = false;
@@ -1292,6 +1300,8 @@ namespace Enchante
         private void RecWalkInCatSpaBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Spa";
+            servicecurrentPage = 0;
+            servicecurrentPagefake = 1;
             RecWalkinServicesFlowLayoutPanel.Controls.Clear();
             InitializeServices(filterstaffbyservicecategory);
             serviceappointment = false;
@@ -1308,6 +1318,8 @@ namespace Enchante
         private void RecWalkInCatMassageBtn_Click(object sender, EventArgs e)
         {
             filterstaffbyservicecategory = "Massage";
+            servicecurrentPage = 0;
+            servicecurrentPagefake = 1;
             RecWalkinServicesFlowLayoutPanel.Controls.Clear();
             InitializeServices(filterstaffbyservicecategory);
             serviceappointment = false;
@@ -1328,7 +1340,7 @@ namespace Enchante
             {
                 RecWalkinCatHSRB.Visible = true;
                 RecWalkinCatHSRB.Checked = true;
-                
+
 
                 RecWalkinCatFSRB.Visible = false;
                 RecWalkinCatNCRB.Visible = false;
@@ -1344,7 +1356,7 @@ namespace Enchante
             {
                 RecWalkinCatHSRB.Visible = true;
                 RecWalkinCatHSRB.Checked = true;
-               
+
 
                 RecWalkinCatFSRB.Visible = false;
                 RecWalkinCatNCRB.Visible = false;
@@ -1362,7 +1374,7 @@ namespace Enchante
             {
                 RecWalkinCatFSRB.Visible = true;
                 RecWalkinCatFSRB.Checked = true;
-                
+
 
                 RecWalkinCatHSRB.Visible = false;
                 RecWalkinCatNCRB.Visible = false;
@@ -1386,7 +1398,7 @@ namespace Enchante
             {
                 RecWalkinCatNCRB.Visible = true;
                 RecWalkinCatNCRB.Checked = true;
-                
+
 
                 RecWalkinCatHSRB.Visible = false;
                 RecWalkinCatFSRB.Visible = false;
@@ -1410,7 +1422,7 @@ namespace Enchante
             {
                 RecWalkinCatSpaRB.Visible = true;
                 RecWalkinCatSpaRB.Checked = true;
-                
+
 
                 RecWalkinCatHSRB.Visible = false;
                 RecWalkinCatFSRB.Visible = false;
@@ -1434,7 +1446,7 @@ namespace Enchante
             {
                 RecWalkinCatMassageRB.Visible = true;
                 RecWalkinCatMassageRB.Checked = true;
-                
+
 
                 RecWalkinCatHSRB.Visible = false;
                 RecWalkinCatFSRB.Visible = false;
@@ -1453,7 +1465,7 @@ namespace Enchante
             }
         }
 
-
+        //ditotayo
         private void SearchAcrossCategories(string searchText, string filterstaffbyservicecategory)
         {
             try
@@ -1507,7 +1519,8 @@ namespace Enchante
 
         private void RecWalkInSearchServiceTypeText_TextChanged(object sender, EventArgs e)
         {
-            RecWalkinSearchServicePerCat();
+            string searchKeyword = RecWalkinSearchServiceTypeText.Text.Trim().ToLower();
+            InitializeServices2(filterstaffbyservicecategory,searchKeyword);
         }
         private void RecWalkinSearchServicePerCat()
         {
@@ -1583,27 +1596,70 @@ namespace Enchante
 
         //ApptMember
         public bool isappointment;
+        public int age;
         public void QueTypeIdentifier(DataGridViewCell QueType)
         {
 
-
-            if (isappointment == true && RecApptAnyStaffToggleSwitch.Checked)
+            if (isappointment)
             {
-                QueType.Value = "AnyonePriority";
-            }
-            else if (isappointment == true && RecApptPreferredStaffToggleSwitch.Checked)
-            {
-                QueType.Value = "PreferredPriority";
-            }
-            else if (selectedStaffID == "Anyone")
-            {
-                QueType.Value = "GeneralQue";
+                string agetext = RecApptClientAgeText.Text.Trim();
+                age = Convert.ToInt32(agetext);
             }
             else
             {
-                QueType.Value = "Preferred";
+                string agetext = RecWalkinAgeBox.Text.Trim();
+                age = Convert.ToInt32(agetext);
+            }
+
+            if (isappointment == true && RecApptAnyStaffToggleSwitch.Checked)
+            {
+                if (age >= 60)
+                {
+                    QueType.Value = "Senior-Anyone-Priority";
+                }
+                else
+                {
+                    QueType.Value = "Anyone-Priority";
+                }
+
+            }
+            else if (isappointment == true && RecApptPreferredStaffToggleSwitch.Checked)
+            {
+                if (age >= 60)
+                {
+                    QueType.Value = "Senior-Preferred-Priority";
+                }
+                else
+                {
+                    QueType.Value = "Preferred-Priority";
+                }
+
+            }
+            else if (selectedStaffID == "Anyone")
+            {
+                if (age >= 60)
+                {
+                    QueType.Value = "Senior-Anyone";
+                }
+                else
+                {
+                    QueType.Value = "Anyone";
+                }
+            }
+            else
+            {
+                if (age >= 60)
+                {
+                    QueType.Value = "Senior-Preferred";
+                }
+                else
+                {
+                    QueType.Value = "Preferred";
+                }
+
             }
         }
+
         private void RecDeleteSelectedServiceAndStaffBtn_Click(object sender, EventArgs e)
         {
             if (RecWalkinSelectedServiceDGV.SelectedRows.Count > 0)
@@ -1997,7 +2053,7 @@ namespace Enchante
 
                             cmd.ExecuteNonQuery();
                         }
-                        
+
 
                     }
                 }
@@ -2753,7 +2809,7 @@ namespace Enchante
 
                 // Calculate the VAT Amount
                 decimal netAmount = grossAmount / ((rate / 100) + 1);
-                    
+
                 // Calculate the Net Amount
                 decimal vatAmount = grossAmount - netAmount;
 
@@ -2891,7 +2947,7 @@ namespace Enchante
 
 
                         }
-                       
+
 
                     }
                 }
@@ -2910,7 +2966,7 @@ namespace Enchante
             }
         }
 
-        
+
 
         public void RecLoadOrderProdHistoryDB(string transactNumber)
         {
@@ -3015,10 +3071,10 @@ namespace Enchante
                 RecPayServiceApptAcquiredDGV.Rows.Clear();
 
                 // Load service history only if it hasn't been loaded before
-                    RecApptLoadServiceHistoryDB(transactNumber1);
-                    RecPayServiceApptCalculateTotalPrice();
-                    ApptserviceHistoryLoaded = true; // Set the flag to true to indicate that service history is loaded
-                
+                RecApptLoadServiceHistoryDB(transactNumber1);
+                RecPayServiceApptCalculateTotalPrice();
+                ApptserviceHistoryLoaded = true; // Set the flag to true to indicate that service history is loaded
+
             }
         }
         public void RecApptLoadServiceHistoryDB(string transactNumber)
@@ -3194,7 +3250,7 @@ namespace Enchante
                             RecPayServiceWalkinCompleteTransDGV.Rows[rowIndex].Cells["WalkinServiceStatus"].Value = status;
                             RecPayServiceWalkinCompleteTransDGV.Rows[rowIndex].Cells["WalkinClientName"].Value = name;
                             RecPayServiceWalkinCompleteTransDGV.Rows[rowIndex].Cells["WalkinClientCPNum"].Value = cpNum;
-                           
+
 
                         }
 
@@ -3456,7 +3512,7 @@ namespace Enchante
             return true;
         }
 
-        
+
 
         private void RecPayServicePaymentButton_Click(object sender, EventArgs e)
         {
@@ -4501,7 +4557,9 @@ namespace Enchante
             filterstaffbyservicecategory = "Hair Styling";
             haschosenacategory = true;
             RecApptServicesFLP.Controls.Clear();
-            InitializeApptServices(filterstaffbyservicecategory);
+            servicecurrentPage = 0;
+            servicecurrentPagefake = 1;
+            InitializeServices(filterstaffbyservicecategory);
             serviceappointment = true;
             if (RecApptPreferredStaffToggleSwitch.Checked == true)
             {
@@ -4518,7 +4576,9 @@ namespace Enchante
             filterstaffbyservicecategory = "Face & Skin";
             haschosenacategory = true;
             RecApptServicesFLP.Controls.Clear();
-            InitializeApptServices(filterstaffbyservicecategory);
+            servicecurrentPage = 0;
+            servicecurrentPagefake = 1;
+            InitializeServices(filterstaffbyservicecategory);
             serviceappointment = true;
             if (RecApptPreferredStaffToggleSwitch.Checked == true)
             {
@@ -4535,7 +4595,9 @@ namespace Enchante
             filterstaffbyservicecategory = "Nail Care";
             haschosenacategory = true;
             RecApptServicesFLP.Controls.Clear();
-            InitializeApptServices(filterstaffbyservicecategory);
+            servicecurrentPage = 0;
+            servicecurrentPagefake = 1;
+            InitializeServices(filterstaffbyservicecategory);
             serviceappointment = true;
             if (RecApptPreferredStaffToggleSwitch.Checked == true)
             {
@@ -4552,7 +4614,9 @@ namespace Enchante
             filterstaffbyservicecategory = "Spa";
             haschosenacategory = true;
             RecApptServicesFLP.Controls.Clear();
-            InitializeApptServices(filterstaffbyservicecategory);
+            servicecurrentPage = 0;
+            servicecurrentPagefake = 1;
+            InitializeServices(filterstaffbyservicecategory);
             serviceappointment = true;
             if (RecApptPreferredStaffToggleSwitch.Checked == true)
             {
@@ -4569,7 +4633,9 @@ namespace Enchante
             filterstaffbyservicecategory = "Massage";
             haschosenacategory = true;
             RecApptServicesFLP.Controls.Clear();
-            InitializeApptServices(filterstaffbyservicecategory);
+            servicecurrentPage = 0;
+            servicecurrentPagefake = 1;
+            InitializeServices(filterstaffbyservicecategory);
             serviceappointment = true;
             if (RecApptPreferredStaffToggleSwitch.Checked == true)
             {
@@ -4602,7 +4668,7 @@ namespace Enchante
             {
                 RecApptCatHSRB.Visible = false;
                 RecApptCatHSRB.Checked = true;
-                
+
                 RecApptCatFSRB.Visible = false;
                 RecApptCatNCRB.Visible = false;
                 RecApptCatSpaRB.Visible = false;
@@ -4620,7 +4686,7 @@ namespace Enchante
             {
                 RecApptCatFSRB.Visible = true;
                 RecApptCatFSRB.Checked = true;
-                
+
                 RecApptCatHSRB.Visible = false;
                 RecApptCatNCRB.Visible = false;
                 RecApptCatSpaRB.Visible = false;
@@ -4644,7 +4710,7 @@ namespace Enchante
             {
                 RecApptCatNCRB.Visible = true;
                 RecApptCatNCRB.Checked = true;
-                
+
 
                 RecApptCatHSRB.Visible = false;
                 RecApptCatFSRB.Visible = false;
@@ -4669,7 +4735,7 @@ namespace Enchante
             {
                 RecApptCatSpaRB.Visible = true;
                 RecApptCatSpaRB.Checked = true;
-                
+
 
                 RecApptCatHSRB.Visible = false;
                 RecApptCatFSRB.Visible = false;
@@ -4694,7 +4760,7 @@ namespace Enchante
             {
                 RecApptCatMassRB.Visible = true;
                 RecApptCatMassRB.Checked = true;
-                
+
                 RecApptCatHSRB.Visible = false;
                 RecApptCatFSRB.Visible = false;
                 RecApptCatNCRB.Visible = false;
@@ -4714,7 +4780,7 @@ namespace Enchante
 
 
 
-       
+
 
         //ApptMember
         public void RecApptAddService()
@@ -4732,7 +4798,8 @@ namespace Enchante
             }
             if (RecApptPreferredStaffToggleSwitch.Checked)
             {
-                selectedStaffID = RecApptAvailableAttendingStaffSelectedComboBox.SelectedItem.ToString();
+                string selectedstaff = RecApptAvailableAttendingStaffSelectedComboBox.SelectedItem.ToString();
+                selectedStaffID = selectedstaff.Substring(0, 11);
             }
 
 
@@ -5301,9 +5368,9 @@ namespace Enchante
                     // Do something with the cell value
                     string cellContent = cellValue.ToString();
                 }
-                
+
             }
-            
+
 
 
 
@@ -5372,7 +5439,7 @@ namespace Enchante
                         cmd.Parameters.AddWithValue("@bookedDate", bookedDate);
                         cmd.Parameters.AddWithValue("@bookedTime", bookedTime);
 
-                       
+
 
 
                         cmd.ExecuteNonQuery();
@@ -11246,9 +11313,8 @@ namespace Enchante
 
         private void RecApptSearchServiceTypeText_TextChanged(object sender, EventArgs e)
         {
-            string searchText = RecApptSearchServiceTypeText.Text;
-            RecApptServicesFLP.Controls.Clear();
-            SearchRecApptAcrossCategories(searchText, filterstaffbyservicecategory);
+            string searchKeyword = RecApptSearchServiceTypeText.Text.Trim().ToLower();
+            InitializeServices2(filterstaffbyservicecategory, searchKeyword);
         }
 
         private void SearchRecApptAcrossCategories(string searchText, string filterstaffbyservicecategory)
@@ -11307,11 +11373,15 @@ namespace Enchante
             RecApptSearchServiceTypeText_TextChanged(sender, e);
         }
 
+
         public bool walkinproductsearch;
-       //ditokayo
+        //ditokayo
         private void RecWalkinSearchProductTextBox_TextChanged(object sender, EventArgs e)
         {
             string searchKeyword = RecWalkinSearchProductTextBox.Text.Trim().ToLower();
+            totalItems = 0;
+            currentPage = 0;
+            currentPagefake = 1;
 
             if (string.IsNullOrEmpty(searchKeyword))
             {
@@ -11349,6 +11419,17 @@ namespace Enchante
                 Size userControlSize = new Size(295, 275);
 
                 RecWalkinProductFlowLayoutPanel.Controls.Clear();
+                if (totalItems == 0)
+                {
+                    WalkinProductNextBtn.Enabled = false;
+                    WalkinProductPreviousBtn.Enabled = false;
+                    WalkinProductPageLbl.Text = $"0/0";
+                }
+                else
+                {
+                    WalkinProductNextBtn.Enabled = true;
+                    WalkinProductPreviousBtn.Enabled = true;
+                }
 
                 while (reader.Read())
                 {
@@ -11406,10 +11487,121 @@ namespace Enchante
             }
         }
 
+        private void RecWalkinSearchProductNextPrevious()
+        {
+            string searchKeyword = RecWalkinSearchProductTextBox.Text.Trim().ToLower();
+            totalItems = 0;
+
+            if (string.IsNullOrEmpty(searchKeyword))
+            {
+                RecWalkinProductFlowLayoutPanel.Controls.Clear();
+                RecShopProdProductFlowLayoutPanel.Controls.Clear();
+                InitializeProducts();
+                return;
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+
+                string countQuery = "SELECT COUNT(*) FROM inventory WHERE ProductType = 'Retail Product' AND ItemName LIKE @searchKeyword";
+                MySqlCommand countCommand = new MySqlCommand(countQuery, connection);
+                countCommand.Parameters.AddWithValue("@searchKeyword", "%" + searchKeyword + "%");
+                totalItems = Convert.ToInt32(countCommand.ExecuteScalar());
+
+                totalPages = (int)Math.Ceiling((double)totalItems / itemsPerPage);
+
+                int offset = currentPage * itemsPerPage;
+                ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+
+                string query = $@"SELECT ItemID, ItemName, ItemStock, ItemPrice, ItemStatus, ProductPicture 
+                  FROM inventory 
+                  WHERE ProductType = 'Retail Product' AND ItemName LIKE @searchKeyword 
+                  LIMIT {offset}, {itemsPerPage}";
+
+
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@searchKeyword", "%" + searchKeyword + "%");
+                MySqlDataReader reader = command.ExecuteReader();
+                Size userControlSize = new Size(295, 275);
+
+                RecWalkinProductFlowLayoutPanel.Controls.Clear();
+                if (totalItems == 0)
+                {
+                    WalkinProductNextBtn.Enabled = false;
+                    WalkinProductPreviousBtn.Enabled = false;
+                    WalkinProductPageLbl.Text = $"0/0";
+                }
+                else
+                {
+                    WalkinProductNextBtn.Enabled = true;
+                    WalkinProductPreviousBtn.Enabled = true;
+                }
+
+                while (reader.Read())
+                {
+                    string itemID = reader["ItemID"].ToString();
+                    string itemName = reader["ItemName"].ToString();
+                    string itemStock = reader["ItemStock"].ToString();
+                    string itemPrice = reader["ItemPrice"].ToString();
+                    string itemStatus = reader["ItemStatus"].ToString();
+                    byte[] productPicture = (byte[])reader["ProductPicture"];
+
+                    ProductUserControl recwalkinproductusercontrol = new ProductUserControl();
+
+                    // Set the properties of recwalkinproductusercontrol
+                    recwalkinproductusercontrol.ProductItemIDTextBox.Text = itemID;
+                    recwalkinproductusercontrol.ProductNameTextBox.Text = itemName;
+                    recwalkinproductusercontrol.ProductStockTextBox.Text = itemStock;
+                    recwalkinproductusercontrol.ProductPriceTextBox.Text = itemPrice;
+                    recwalkinproductusercontrol.ProductStatusTextBox.Text = itemStatus;
+
+                    if (itemStatus == "Low Stock")
+                    {
+                        recwalkinproductusercontrol.ProductOutOfStockPictureBox.Visible = true;
+                        recwalkinproductusercontrol.Enabled = false;
+                    }
+                    else
+                    {
+                        recwalkinproductusercontrol.ProductOutOfStockPictureBox.Visible = false;
+                        recwalkinproductusercontrol.Enabled = true;
+                    }
+
+                    if (productPicture != null && productPicture.Length > 0)
+                    {
+                        using (MemoryStream ms = new MemoryStream(productPicture))
+                        {
+                            System.Drawing.Image image = System.Drawing.Image.FromStream(ms);
+                            recwalkinproductusercontrol.ProductPicturePictureBox.Image = image;
+                        }
+                    }
+                    else
+                    {
+                        recwalkinproductusercontrol.ProductPicturePictureBox.Image = null;
+                    }
+
+                    foreach (System.Windows.Forms.Control control in recwalkinproductusercontrol.Controls)
+                    {
+                        control.Click += RecWalkinProductControlElement_Click;
+                    }
+
+                    recwalkinproductusercontrol.Click += RecWalkinProductUserControl_Click;
+
+                    RecWalkinProductFlowLayoutPanel.Controls.Add(recwalkinproductusercontrol);
+                }
+
+                reader.Close();
+            }
+        }
         //ditopala
         private void RecSearchProductTextBox_TextChanged(object sender, EventArgs e)
         {
             string searchKeyword = RecSearchProductTextBox.Text.Trim().ToLower();
+            totalItems = 0;
+            currentPage = 0;
+            currentPagefake = 1;
 
             if (string.IsNullOrEmpty(searchKeyword))
             {
@@ -11445,9 +11637,19 @@ namespace Enchante
                 MySqlDataReader reader = command.ExecuteReader();
                 Size userControlSize = new Size(419, 90);
 
-                RecWalkinProductFlowLayoutPanel.Controls.Clear();
                 RecShopProdProductFlowLayoutPanel.Controls.Clear();
 
+                if (totalItems == 0)
+                {
+                    ProductNextBtn.Enabled = false;
+                    ProductPreviousBtn.Enabled = false;
+                    ProductPageLbl.Text = $"0/0";
+                }
+                else
+                {
+                    ProductNextBtn.Enabled = true;
+                    ProductPreviousBtn.Enabled = true;
+                }
 
                 while (reader.Read())
                 {
@@ -11526,6 +11728,136 @@ namespace Enchante
             }
         }
 
+
+        private void RecSearchProductNextPrevious()
+        {
+            string searchKeyword = RecSearchProductTextBox.Text.Trim().ToLower();
+            totalItems = 0;
+
+            if (string.IsNullOrEmpty(searchKeyword))
+            {
+                RecWalkinProductFlowLayoutPanel.Controls.Clear();
+                RecShopProdProductFlowLayoutPanel.Controls.Clear();
+                InitializeProducts();
+                return;
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string countQuery = "SELECT COUNT(*) FROM inventory WHERE ProductType = 'Retail Product' AND ItemName LIKE @searchKeyword";
+                MySqlCommand countCommand = new MySqlCommand(countQuery, connection);
+                countCommand.Parameters.AddWithValue("@searchKeyword", "%" + searchKeyword + "%");
+                totalItems = Convert.ToInt32(countCommand.ExecuteScalar());
+
+                totalPages = (int)Math.Ceiling((double)totalItems / itemsPerPage);
+
+                int offset = currentPage * itemsPerPage;
+                ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+                WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
+
+                string query = $@"SELECT ItemID, ItemName, ItemStock, ItemPrice, ItemStatus, ProductPicture 
+                  FROM inventory 
+                  WHERE ProductType = 'Retail Product' AND ItemName LIKE @searchKeyword 
+                  LIMIT {offset}, {itemsPerPage}";
+
+
+                MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@searchKeyword", "%" + searchKeyword + "%");
+                MySqlDataReader reader = command.ExecuteReader();
+                Size userControlSize = new Size(419, 90);
+
+                RecShopProdProductFlowLayoutPanel.Controls.Clear();
+
+                if (totalItems == 0)
+                {
+                    ProductNextBtn.Enabled = false;
+                    ProductPreviousBtn.Enabled = false;
+                    ProductPageLbl.Text = $"0/0";
+                }
+                else
+                {
+                    ProductNextBtn.Enabled = true;
+                    ProductPreviousBtn.Enabled = true;
+                }
+
+                while (reader.Read())
+                {
+                    string itemID = reader["ItemID"].ToString();
+                    string itemName = reader["ItemName"].ToString();
+                    string itemStock = reader["ItemStock"].ToString();
+                    string itemPrice = reader["ItemPrice"].ToString();
+                    string itemStatus = reader["ItemStatus"].ToString();
+                    byte[] productPicture = (byte[])reader["ProductPicture"];
+
+                    ProductUserControl recshopproductusercontrol = new ProductUserControl();
+
+
+
+                    // Set the properties of recshopproductusercontrol
+                    recshopproductusercontrol.Size = userControlSize;
+                    recshopproductusercontrol.ProductNameTextBox.Size = new Size(235, 33);
+                    recshopproductusercontrol.ProductPriceTextBox.Size = new Size(90, 27);
+                    recshopproductusercontrol.ProductPicturePictureBox.Size = new Size(72, 72);
+                    recshopproductusercontrol.ProductNameTextBox.Location = new Point(90, 29);
+                    recshopproductusercontrol.ProductPriceTextBox.Location = new Point(318, 32);
+                    recshopproductusercontrol.PhpSignLbl.Location = new Point(280, 31);
+                    recshopproductusercontrol.ProductPicturePictureBox.Location = new Point(16, 9);
+                    //Border
+                    recshopproductusercontrol.LeftBorder.Size = new Size(5, 100);
+                    recshopproductusercontrol.LeftBorder.Location = new Point(-3, 0);
+                    recshopproductusercontrol.TopBorder.Size = new Size(425, 5);
+                    recshopproductusercontrol.TopBorder.Location = new Point(0, -3);
+                    recshopproductusercontrol.RightBorder.Size = new Size(5, 100);
+                    recshopproductusercontrol.RightBorder.Location = new Point(417, 0);
+                    recshopproductusercontrol.DownBorder.Size = new Size(425, 10);
+                    recshopproductusercontrol.DownBorder.Location = new Point(0, 88);
+
+
+                    recshopproductusercontrol.ProductItemIDTextBox.Text = itemID;
+                    recshopproductusercontrol.ProductNameTextBox.Text = itemName;
+                    recshopproductusercontrol.ProductStockTextBox.Text = itemStock;
+                    recshopproductusercontrol.ProductPriceTextBox.Text = itemPrice;
+                    recshopproductusercontrol.ProductStatusTextBox.Text = itemStatus;
+
+                    if (itemStatus == "Low Stock")
+                    {
+                        recshopproductusercontrol.ProductOutOfStockPictureBox.Visible = true;
+                        recshopproductusercontrol.Enabled = false;
+                    }
+                    else
+                    {
+                        recshopproductusercontrol.ProductOutOfStockPictureBox.Visible = false;
+                        recshopproductusercontrol.Enabled = true;
+                    }
+
+                    if (productPicture != null && productPicture.Length > 0)
+                    {
+                        using (MemoryStream ms = new MemoryStream(productPicture))
+                        {
+                            System.Drawing.Image image1 = System.Drawing.Image.FromStream(ms);
+                            recshopproductusercontrol.ProductPicturePictureBox.Image = image1;
+                        }
+                    }
+                    else
+                    {
+                        recshopproductusercontrol.ProductPicturePictureBox.Image = null;
+                    }
+
+                    foreach (System.Windows.Forms.Control control1 in recshopproductusercontrol.Controls)
+                    {
+                        control1.Click += RecShopProductControlElement_Click;
+                    }
+
+                    recshopproductusercontrol.Click += RecShopProdProductUserControl_Click;
+
+                    RecShopProdProductFlowLayoutPanel.Controls.Add(recshopproductusercontrol);
+                }
+
+                reader.Close();
+            }
+        }
 
         private void LoginPassText_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -11901,9 +12233,10 @@ namespace Enchante
             //RecQueStartColor();
             RecQueTimer.Start();
 
-            RecQueStartStaffDGV.Rows.Clear();
+            RecQueStartStaffFLP.Controls.Clear();
             RecQueStartInventoryDGV.Rows.Clear();
-            InitializeAvailableStaff();
+            InitializeEmployeeCategory();
+            InitializeStaffUserControl();
             InitializeMainInventory();
             InitializeInSessionCustomers();
 
@@ -11955,74 +12288,13 @@ namespace Enchante
         }
 
 
-        private void InitializeAvailableStaff()
-        {
-            string query = "SELECT FirstName, LastName, Gender, EmployeeCategory, EmployeeID FROM systemusers " +
-                           "WHERE EmployeeType = 'Staff' AND Availability = 'Available'";
-
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-            {
-                using (MySqlCommand command = new MySqlCommand(query, connection))
-                {
-                    try
-                    {
-                        connection.Open();
-                        MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                        DataTable dataTable = new DataTable();
-                        adapter.Fill(dataTable);
-
-                        RecQueStartStaffDGV.Rows.Clear(); // Clear existing rows in the DataGridView
-
-                        foreach (DataRow row in dataTable.Rows)
-                        {
-                            string firstName = row["FirstName"].ToString();
-                            string lastName = row["LastName"].ToString();
-                            string gender = row["Gender"].ToString();
-                            string employeecategory = row["EmployeeCategory"].ToString();
-                            string employeeID = row["EmployeeID"].ToString();
-
-                            // Add a new row to the DataGridView
-                            int rowIndex = RecQueStartStaffDGV.Rows.Add();
-
-                            // Set the values of cells in the DataGridView
-                            RecQueStartStaffDGV.Rows[rowIndex].Cells["StaffName"].Value = firstName + " " + lastName;
-                            RecQueStartStaffDGV.Rows[rowIndex].Cells["StaffCategory"].Value = employeecategory;
-                            RecQueStartStaffDGV.Rows[rowIndex].Cells["StaffGender"].Value = gender;
-                            RecQueStartStaffDGV.Rows[rowIndex].Cells["StaffEmployeeID"].Value = employeeID;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("An error occurred: " + ex.Message);
-                    }
-                }
-            }
-        }
-
-        public void RefreshAvailableStaff()
-        {
-            RecQueStartStaffDGV.Rows.Clear();
-            InitializeAvailableStaff();
-        }
+        
 
         public string CurrentStaffID;
 
-        private string selectedmembercategory;
-        private string selectedstaffemployeeid;
+        public string selectedmembercategory;
+        public string selectedstaffemployeeid;
 
-        private void RecQueStartStaffDGV_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0) // Make sure a valid row index is clicked
-            {
-                DataGridViewRow selectedRow = RecQueStartStaffDGV.Rows[e.RowIndex];
-                selectedmembercategory = selectedRow.Cells["StaffCategory"].Value.ToString();
-                selectedstaffemployeeid = selectedRow.Cells["StaffEmployeeID"].Value.ToString();
-                CurrentStaffID = selectedstaffemployeeid;
-                RecQueueStartPanel.Controls.Clear();
-                InitializeGeneralPendingCustomersForStaff();
-                RefreshFlowLayoutPanel();
-            }
-        }
 
         public void RefreshFlowLayoutPanel()
         {
@@ -12073,14 +12345,14 @@ namespace Enchante
                     connection.Open();
 
                     string generalpendingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber, sh.QueType 
-                                         FROM servicehistory sh 
-                                         LEFT JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber 
-                                         WHERE (sh.ServiceStatus = 'Pending' OR sh.ServiceStatus = 'Pending Paid')
-                                         AND sh.ServiceCategory = @membercategory 
-                                         AND (sh.QueType = 'GeneralQue' OR sh.PreferredStaff = @preferredstaff)
-                                         AND (app.ServiceStatus IS NULL OR app.ServiceStatus = 'Pending' OR app.ServiceStatus = 'Pending Paid')
-                                         AND (app.AppointmentStatus IS NULL OR app.AppointmentStatus = 'Confirmed')
-                                         AND sh.AppointmentDate = @datetoday";
+                                                 FROM servicehistory sh 
+                                                 LEFT JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber 
+                                                 WHERE sh.ServiceStatus = 'Pending'
+                                                 AND sh.ServiceCategory = @membercategory 
+                                                 AND (sh.QueType = 'Anyone' OR sh.QueType = 'Senior-Anyone' OR sh.QueType = 'Senior-Anyone-Priority' OR sh.PreferredStaff = @preferredstaff)
+                                                 AND (app.ServiceStatus IS NULL OR app.ServiceStatus = 'Pending')
+                                                 AND (app.AppointmentStatus IS NULL OR app.AppointmentStatus = 'Confirmed')
+                                                 AND sh.AppointmentDate = @datetoday";
 
                     MySqlCommand command = new MySqlCommand(generalpendingcustomersquery, connection);
                     command.Parameters.AddWithValue("@membercategory", selectedmembercategory);
@@ -12121,19 +12393,26 @@ namespace Enchante
 
         public int seniorcount;
         public bool ThereIsSenior = false;
+        public int apptpriocount;
+        public bool ThereisPriority = false;
         public void InitializeGeneralPendingCustomersForStaff()
         {
             List<GeneralPendingCustomers> generalpendingcustomers = RetrieveGeneralPendingCustomersFromDB();
+            seniorcount = 0;
+            apptpriocount = 0;
+            ThereisPriority = false;
+            ThereIsSenior = false;
 
             if (generalpendingcustomers.Count == 0)
             {
                 NoCustomerInQueueUserControl nocustomerusercontrol = new NoCustomerInQueueUserControl();
                 RecQueueStartPanel.Controls.Add(nocustomerusercontrol);
-
+                NextCustomerNumLbl.Text = "No customer in queue";
             }
 
-            int smallestQueNumber2 = int.MaxValue;
-            int smallestQueNumberAnyonePreferred = int.MaxValue;
+            int smallestgenqueue = int.MaxValue;
+            int smallestapptqueue = int.MaxValue;
+            int smallestqueuesenior = int.MaxValue;
 
 
             foreach (GeneralPendingCustomers customer in generalpendingcustomers)
@@ -12153,30 +12432,48 @@ namespace Enchante
                 RecQueueStartPanel.Controls.Add(availablecustomersusercontrol);
                 availablecustomersusercontrol.CurrentStaffID = selectedstaffemployeeid;
 
-                string queNumberText = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
-                if (int.TryParse(queNumberText, out int queNumber))
+                string generalqueuenumber = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
+                if (int.TryParse(generalqueuenumber, out int genqueueint))
                 {
-                    if (queNumber < smallestQueNumber2)
+                    if (genqueueint < smallestgenqueue)
                     {
-                        smallestQueNumber2 = queNumber;
+                        smallestgenqueue = genqueueint;
                     }
 
                 }
 
-                string queNumberText2 = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
-                if (int.TryParse(queNumberText2, out int queNumber2))
+                string apptprioquenumber = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
+                if (int.TryParse(apptprioquenumber, out int apptprioqueueint))
                 {
-                    if (customer.QueType == "AnyoneSenior" || customer.QueType == "PreferredSenior")
+                    if (customer.QueType == "Anyone-Priority" || customer.QueType == "Preferred-Priority")
                     {
-                        if (queNumber2 < smallestQueNumberAnyonePreferred)
+                        if (apptprioqueueint < smallestapptqueue)
                         {
-                            smallestQueNumberAnyonePreferred = queNumber2;
+                            smallestapptqueue = apptprioqueueint;
+                        }
+                        ThereisPriority = true;
+                        apptpriocount++;
+                    }
+
+                }
+
+                string seniorqueuenumber = availablecustomersusercontrol.StaffQueNumberTextBox.Text;
+                if (int.TryParse(seniorqueuenumber, out int seniorquenumberint))
+                {
+                    if (customer.QueType == "Senior-Anyone-Priority" || customer.QueType == "Senior-Anyone"
+                        || customer.QueType == "Senior-Preferred-Priority" || customer.QueType == "Senior-Preferred")
+                    {
+                        if (seniorquenumberint < smallestqueuesenior)
+                        {
+                            smallestqueuesenior = seniorquenumberint;
                         }
                         ThereIsSenior = true;
                         seniorcount++;
                     }
 
                 }
+
+
             }
 
 
@@ -12184,14 +12481,21 @@ namespace Enchante
             {
                 ThereIsSenior = false;
             }
-            UpdateStartServiceButtonStatusPriority(generalpendingcustomers, smallestQueNumber2, smallestQueNumberAnyonePreferred);
+            if (!ThereisPriority && apptpriocount == 0)
+            {
+                ThereisPriority = false;
+            }
+            UpdateStartServiceButtonStatusPriority(generalpendingcustomers, smallestqueuesenior, smallestapptqueue, smallestgenqueue);
+
 
         }
 
-        private void UpdateStartServiceButtonStatusPriority(List<GeneralPendingCustomers> generalpendingcustomers, int smallestQueNumber, int smallestQueNumberAnyonePreferred)
+        private void UpdateStartServiceButtonStatusPriority(List<GeneralPendingCustomers> generalpendingcustomers, int smallestqueuesenior, int smallestapptqueue, int smallestgenqueue)
         {
             bool hasAnyoneSPriorityOrPreferredSPriority = generalpendingcustomers
-                .Any(customer => customer.QueType == "AnyoneSenior" || customer.QueType == "PreferredSenior");
+                 .Any(customer => customer.QueType == "Senior-Anyone-Priority" || customer.QueType == "Senior-Anyone"
+                 || customer.QueType == "Senior-Preferred-Priority" || customer.QueType == "Senior-Preferred");
+
             if (ThereIsSenior == true)
             {
 
@@ -12199,11 +12503,31 @@ namespace Enchante
                 {
                     if (control is QueueUserControl userControl)
                     {
-                        int queNumber;
-                        int.TryParse(userControl.StaffQueNumberTextBox.Text, out queNumber);
-                        if (userControl.StaffQueTypeTextBox.Text == "AnyoneSenior" || userControl.StaffQueTypeTextBox.Text == "PreferredSenior")
+                        int currentseniorquenum;
+                        int.TryParse(userControl.StaffQueNumberTextBox.Text, out currentseniorquenum);
+                        if (userControl.StaffQueTypeTextBox.Text == "Senior-Anyone-Priority" || userControl.StaffQueTypeTextBox.Text == "Senior-Anyone" ||
+                            userControl.StaffQueTypeTextBox.Text == "Senior-Preferred-Priority" || userControl.StaffQueTypeTextBox.Text == "Preferred-Anyone")
                         {
-                            userControl.Enabled = (queNumber == smallestQueNumberAnyonePreferred);
+                            userControl.Enabled = (currentseniorquenum == smallestqueuesenior);
+                        }
+                        else
+                        {
+                            userControl.Enabled = false;
+                        }
+                    }
+                }
+            }
+            else if (ThereIsSenior == false && ThereisPriority == true)
+            {
+                foreach (System.Windows.Forms.Control control in RecQueueStartPanel.Controls)
+                {
+                    if (control is QueueUserControl userControl)
+                    {
+                        int currentapptqueuenum;
+                        int.TryParse(userControl.StaffQueNumberTextBox.Text, out currentapptqueuenum);
+                        if (userControl.StaffQueTypeTextBox.Text == "Anyone-Priority" || userControl.StaffQueTypeTextBox.Text == "Preferred-Priority")
+                        {
+                            userControl.Enabled = (currentapptqueuenum == smallestapptqueue);
                         }
                         else
                         {
@@ -12218,11 +12542,21 @@ namespace Enchante
                 {
                     if (control is QueueUserControl userControl)
                     {
-                        int queNumber;
-                        int.TryParse(userControl.StaffQueNumberTextBox.Text, out queNumber);
-                        userControl.Enabled = (queNumber == smallestQueNumber);
+                        int currentgeneralque;
+                        int.TryParse(userControl.StaffQueNumberTextBox.Text, out currentgeneralque);
+                        userControl.Enabled = (currentgeneralque == smallestgenqueue);
 
                     }
+                }
+            }
+
+            foreach (System.Windows.Forms.Control control in RecQueueStartPanel.Controls)
+            {
+                if (control is QueueUserControl userControl && userControl.Enabled)
+                {
+                    RecQueueStartPanel.Controls.SetChildIndex(userControl, 0);
+                    NextCustomerNumLbl.Text = userControl.StaffQueNumberTextBox.Text;
+                    break;
                 }
             }
         }
@@ -12235,11 +12569,11 @@ namespace Enchante
             {
                 if (!availablecustomersusercontrol.Viewing)
                 {
-                    availablecustomersusercontrol.Size = new System.Drawing.Size(448, 46);
+                    availablecustomersusercontrol.Size = new System.Drawing.Size(457, 29);
                 }
                 else
                 {
-                    availablecustomersusercontrol.Size = new System.Drawing.Size(448, 137);
+                    availablecustomersusercontrol.Size = new System.Drawing.Size(457, 186);
                 }
             }
         }
@@ -12360,6 +12694,23 @@ namespace Enchante
 
         }
 
+        private void InSessionCustomersUserControl_ExpandCollapseButtonClicked(object sender, EventArgs e)
+        {
+            InSessionUserControl availablecustomersusercontrol = (InSessionUserControl)sender;
+
+            if (availablecustomersusercontrol != null)
+            {
+                if (!availablecustomersusercontrol.Viewing)
+                {
+                    availablecustomersusercontrol.Size = new System.Drawing.Size(368, 67);
+                }
+                else
+                {
+                    availablecustomersusercontrol.Size = new System.Drawing.Size(368, 249);
+                }
+            }
+        }
+
         public class InSessionCustomers
         {
             public string TransactionNumber { get; set; }
@@ -12400,6 +12751,8 @@ namespace Enchante
                     availableinsessionusercontrol.StaffElapsedTimeTextBoxEnd_Clicked += AvailableCustomersUserControl_EndServiceButtonClicked;
                     availableinsessionusercontrol.StaffTransactionIDTextBoxEnd_Clicked += AvailableCustomersUserControl_EndServiceButtonClicked;
                     availableinsessionusercontrol.StaffCancelServiceBtnClicked += AvailableCustomerUserControl_CancelServiceButtonClicked;
+                    availableinsessionusercontrol.ExpandUserControlButton_Clicked += InSessionCustomersUserControl_ExpandCollapseButtonClicked;
+
 
                     availableinsessionusercontrol.StartTimer();
                     availableinsessionusercontrol.StaffQueTypeTextBox.Visible = true;
@@ -13244,8 +13597,10 @@ namespace Enchante
             }
         }
 
+
         private void RecWalkinBasicInfoNxtBtn_Click(object sender, EventArgs e)
         {
+
             if (string.IsNullOrWhiteSpace(RecWalkinFNameText.Text))
             {
                 MessageBox.Show("Please enter a first name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -13282,6 +13637,7 @@ namespace Enchante
             {
                 filterstaffbyservicecategory = "Hair Styling";
                 RecWalkinServicesFlowLayoutPanel.Controls.Clear();
+                walkinservices = true;
                 InitializeServices(filterstaffbyservicecategory);
                 serviceappointment = false;
                 haschosenacategory = true;
@@ -13293,6 +13649,7 @@ namespace Enchante
                 RecWalkinHairStyle();
                 WalkinTabs.SelectedIndex = 1;
             }
+            
         }
 
         private void RecWalkinProdCOBtn_Click(object sender, EventArgs e)
@@ -13433,7 +13790,7 @@ namespace Enchante
             else
             {
                 ApptTabs.SelectedIndex = 1;
-
+                walkinservices = false;
             }
         }
 
@@ -13449,7 +13806,7 @@ namespace Enchante
                 MessageBox.Show("Please select an appointment time.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-            else if(RecApptPreferredStaffToggleSwitch.Checked && RecApptAvailableAttendingStaffSelectedComboBox.Text == "Select a Preferred Staff")
+            else if (RecApptPreferredStaffToggleSwitch.Checked && RecApptAvailableAttendingStaffSelectedComboBox.Text == "Select a Preferred Staff")
             {
                 MessageBox.Show("Please select client's preferred staff.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -13459,6 +13816,7 @@ namespace Enchante
                 ApptTabs.SelectedIndex = 2;
                 RecApptCashText.Text = "";
                 RecApptCashText.Focus();
+                walkinservices = false;
             }
         }
 
@@ -13962,7 +14320,7 @@ namespace Enchante
             string change = RecPayServiceApptChangeText.Text;
             string bal = RecPayServiceApptRemainingBalText.Text;
 
-            
+
 
             // Increment the file name
 
@@ -14055,7 +14413,7 @@ namespace Enchante
 
                             // Add cells to the item table
                             PdfPTable serviceTable = new PdfPTable(3);
-                            serviceTable.SetWidths(new float[] { 30f, 40f, 30f}); // Column widths
+                            serviceTable.SetWidths(new float[] { 30f, 40f, 30f }); // Column widths
                             serviceTable.DefaultCell.Border = PdfPCell.NO_BORDER;
                             serviceTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
                             serviceTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
@@ -14078,7 +14436,7 @@ namespace Enchante
                     doc.Add(new LineSeparator()); // Dotted line
                     doc.Add(new Chunk("\n")); // New line
 
-                    
+
                     decimal netAmount = decimal.Parse(RecPayServiceApptNetAmountText.Text);
                     decimal discount = decimal.Parse(RecPayServiceApptDiscountText.Text);
                     decimal vat = decimal.Parse(RecPayServiceApptVATText.Text);
@@ -14219,7 +14577,7 @@ namespace Enchante
                         cmd2.Parameters.AddWithValue("@discount", discount);
                         cmd2.Parameters.AddWithValue("@gross", grossAmount);
                         cmd2.Parameters.AddWithValue("@dp", dp);
-                        cmd2.Parameters.AddWithValue("@bal", bal); 
+                        cmd2.Parameters.AddWithValue("@bal", bal);
                         cmd2.Parameters.AddWithValue("@cash", cash);
                         cmd2.Parameters.AddWithValue("@change", change);
                         cmd2.Parameters.AddWithValue("@payment", paymentMethod);
@@ -14264,6 +14622,17 @@ namespace Enchante
 
         public void InitializeServices(string category)
         {
+            if (walkinservices)
+            {
+                serviceitemsPerPage = 5;
+                RecWalkinServicesFlowLayoutPanel.Controls.Clear();
+            }
+            else
+            {
+                serviceitemsPerPage = 7;
+                RecApptServicesFLP.Controls.Clear();
+            }
+            
             List<Services> services = RetrieveServices(category);
 
             foreach (Services service in services)
@@ -14276,11 +14645,15 @@ namespace Enchante
                 servicesusercontrol.RecServiceDurationTextBox_Clicked += ServiceUserControl_Clicked;
                 servicesusercontrol.RecServiceNameTextBox_Clicked += ServiceUserControl_Clicked;
 
-
-                RecWalkinServicesFlowLayoutPanel.Controls.Add(servicesusercontrol);
-
-
-
+                if (walkinservices)
+                {
+                    RecWalkinServicesFlowLayoutPanel.Controls.Add(servicesusercontrol);
+                }
+                else
+                {
+                    RecApptServicesFLP.Controls.Add(servicesusercontrol);
+                }
+                
             }
         }
 
@@ -14296,13 +14669,18 @@ namespace Enchante
         }
 
 
-
+        private int servicecurrentPage = 0;
+        private int servicecurrentPagefake = 1;
+        private int serviceitemsPerPage = 5;
+        private int servicetotalItems = 0;
+        private int servicetotalPages = 0;
 
         public string servicecat;
 
         private List<Services> RetrieveServices(string category)
         {
             List<Services> result = new List<Services>();
+
 
             servicecat = category;
 
@@ -14312,7 +14690,27 @@ namespace Enchante
                 {
                     connection.Open();
 
-                    string servicesquery = "SELECT Category, ServiceID, Name, Duration, Price FROM services WHERE Category = @category";
+                    string countQuery = "SELECT COUNT(*) FROM services WHERE Category = @category";
+                    MySqlCommand countCommand = new MySqlCommand(countQuery, connection);
+                    countCommand.Parameters.AddWithValue("@category", servicecat);
+                    servicetotalItems = Convert.ToInt32(countCommand.ExecuteScalar());
+
+                    servicetotalPages = (int)Math.Ceiling((double)servicetotalItems / serviceitemsPerPage);
+
+                    int offset = servicecurrentPage * serviceitemsPerPage;
+                    if (walkinservices)
+                    {
+                        WalkinServicePageLbl.Text = $"{servicecurrentPagefake} / {servicetotalPages}";
+                    }
+                    else
+                    {
+                        ApptServicePageLbl.Text = $"{servicecurrentPagefake} / {servicetotalPages}";
+                    }
+
+                    string servicesquery = $@"SELECT Category, ServiceID, Name, Duration, Price FROM services WHERE Category = @category 
+                                            LIMIT { offset}, { serviceitemsPerPage}";
+
+
 
                     MySqlCommand command = new MySqlCommand(servicesquery, connection);
                     command.Parameters.AddWithValue("@category", servicecat);
@@ -14353,13 +14751,14 @@ namespace Enchante
                 MessageBox.Show("Please select a prefered staff or toggle anyone ", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (RecWalkinAnyStaffToggleSwitch.Checked )
+            if (RecWalkinAnyStaffToggleSwitch.Checked)
             {
                 selectedStaffID = "Anyone";
             }
             if (RecWalkinPreferredStaffToggleSwitch.Checked)
             {
-                selectedStaffID = RecWalkinAttendingStaffSelectedComboBox.SelectedItem.ToString();
+                string selectedstaff = RecWalkinAttendingStaffSelectedComboBox.SelectedItem.ToString();
+                selectedStaffID = selectedstaff.Substring(0, 11);
             }
 
             if (string.IsNullOrEmpty(selectedStaffID))
@@ -14425,25 +14824,7 @@ namespace Enchante
             }
         }
 
-        public void InitializeApptServices(string category)
-        {
-            List<Services> services = RetrieveServices(category);
-
-            foreach (Services service in services)
-            {
-
-                ServicesUserControl servicesusercontrol = new ServicesUserControl(this);
-                servicesusercontrol.SetServicesData(service);
-                servicesusercontrol.ServiceUserControl_Clicked += ServiceUserControl_Clicked;
-                servicesusercontrol.RecServicePriceTextBox_Clicked += ServiceUserControl_Clicked;
-                servicesusercontrol.RecServiceDurationTextBox_Clicked += ServiceUserControl_Clicked;
-                servicesusercontrol.RecServiceNameTextBox_Clicked += ServiceUserControl_Clicked;
-
-
-                RecApptServicesFLP.Controls.Add(servicesusercontrol);
-
-            }
-        }
+        
 
         private void ProductPreviousBtn_Click(object sender, EventArgs e)
         {
@@ -14476,7 +14857,7 @@ namespace Enchante
                     {
                         currentPagefake = totalPages;
                         currentPage = totalPages - 1;
-                        RecWalkinSearchProductTextBox_TextChanged(sender, e);
+                        RecWalkinSearchProductNextPrevious();
                         ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
                         WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
                     }
@@ -14484,7 +14865,7 @@ namespace Enchante
                     {
                         currentPage--;
                         currentPagefake--;
-                        RecWalkinSearchProductTextBox_TextChanged(sender, e);
+                        RecWalkinSearchProductNextPrevious();
                         ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
                         WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
                     }
@@ -14518,7 +14899,7 @@ namespace Enchante
                     {
                         currentPagefake = totalPages;
                         currentPage = totalPages - 1;
-                        RecSearchProductTextBox_TextChanged(sender, e);
+                        RecSearchProductNextPrevious();
                         ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
                         WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
                     }
@@ -14526,7 +14907,7 @@ namespace Enchante
                     {
                         currentPage--;
                         currentPagefake--;
-                        RecSearchProductTextBox_TextChanged(sender, e);
+                        RecSearchProductNextPrevious();
                         ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
                         WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
                     }
@@ -14568,7 +14949,7 @@ namespace Enchante
                         currentPage = 0;
                         currentPagefake = 0;
                         currentPagefake++;
-                        RecWalkinSearchProductTextBox_TextChanged(sender, e);
+                        RecWalkinSearchProductNextPrevious();
                         ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
                         WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
                     }
@@ -14576,7 +14957,7 @@ namespace Enchante
                     {
                         currentPage++;
                         currentPagefake++;
-                        RecWalkinSearchProductTextBox_TextChanged(sender, e);
+                        RecWalkinSearchProductNextPrevious();
                         ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
                         WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
                     }
@@ -14615,14 +14996,14 @@ namespace Enchante
                         currentPage = 0;
                         currentPagefake = 0;
                         currentPagefake++;
-                        RecSearchProductTextBox_TextChanged(sender, e);
+                        RecSearchProductNextPrevious();
                         WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
                     }
                     else
                     {
                         currentPage++;
                         currentPagefake++;
-                        RecSearchProductTextBox_TextChanged(sender, e);
+                        RecSearchProductNextPrevious();
                         ProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
                         WalkinProductPageLbl.Text = $"{currentPagefake} / {totalPages}";
                     }
@@ -14642,30 +15023,592 @@ namespace Enchante
         {
             ProductNextBtn_Click(sender, e);
         }
-        
+
         private bool TabCompletedTransLoad = false;
         private void PaymentTabs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(PaymentTabs.SelectedIndex == 0)
+            if (PaymentTabs.SelectedIndex == 0)
             {
-                
-                    RecLoadCompletedWalkinTrans();
-                    TabCompletedTransLoad = true; // Set the flag to true to indicate that service history is loaded
-                
+
+                RecLoadCompletedWalkinTrans();
+                TabCompletedTransLoad = true; // Set the flag to true to indicate that service history is loaded
+
 
             }
             else if (PaymentTabs.SelectedIndex == 1)
             {
-                
-                    RecLoadCompletedAppointmentTrans();
-                    TabCompletedTransLoad = true; // Set the flag to true to indicate that service history is loaded
-                
+
+                RecLoadCompletedAppointmentTrans();
+                TabCompletedTransLoad = true; // Set the flag to true to indicate that service history is loaded
+
             }
         }
 
         private void RecPayServiceApptCashText_TextChanged(object sender, EventArgs e)
         {
             RecPayServiceApptChangeCalculateAmount();
+        }
+
+
+        public class Staff
+        {
+            public string StaffName { get; set; }
+            public string StaffCategory { get; set; }
+            public string StaffGender { get; set; }
+            public string StaffID { get; set; }
+        }
+
+        public List<Staff> RetriveStaffinDB(string employeecategory)
+        {
+            List<Staff> result = new List<Staff>();
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string staffquery = "SELECT FirstName, LastName, Gender, EmployeeCategory, EmployeeID FROM systemusers " +
+                                        "WHERE EmployeeType = 'Staff' AND Availability = 'Available' AND EmployeeCategory = @employeecategory";
+
+                    MySqlCommand command = new MySqlCommand(staffquery, connection);
+                    command.Parameters.AddWithValue("@employeecategory", employeecategory);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string lastName = reader["LastName"] as string;
+                            string firstName = reader["FirstName"] as string;
+                            string staffName = $"{lastName}, {firstName}";
+
+                            Staff staff = new Staff
+                            {
+                                StaffName = staffName,
+                                StaffCategory = reader["EmployeeCategory"] as string,
+                                StaffGender = reader["Gender"] as string,
+                                StaffID = reader["EmployeeID"] as string
+                            };
+
+                            result.Add(staff);
+                        }
+                    }
+                    if (result.Count == 0)
+                    {
+                        //MessageBox.Show("No customers in the queue.", "Empty Queue", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
+
+            return result;
+        }
+
+
+        public void StaffClicked()
+        {
+            CurrentStaffID = selectedstaffemployeeid;
+
+            RecQueueStartPanel.Controls.Clear();
+            InitializeGeneralPendingCustomersForStaff();
+            RefreshFlowLayoutPanel();
+        }
+
+        public void RefreshAvailableStaff()
+        {
+            RecQueStartStaffFLP.Controls.Clear();
+            InitializeStaffUserControl();
+        }
+
+        public string selectedemployeecategory;
+        public void InitializeEmployeeCategory()
+        {
+            ServiceTypeComboBox.SelectedIndex = 0;
+        }
+
+        public void InitializeStaffUserControl()
+        {
+            selectedemployeecategory = ServiceTypeComboBox.SelectedItem.ToString();
+            RecQueStartStaffFLP.Controls.Clear();
+            List<Staff> staff = RetriveStaffinDB(selectedemployeecategory);
+            foreach (Staff staffs in staff)
+            {
+                StaffUserControl availablestaffusercontrol = new StaffUserControl(this);
+                availablestaffusercontrol.SetStaffData(staffs);
+
+                availablestaffusercontrol.StaffUserControl_Clicked += AvailableStaff_Clicked;
+                RecQueStartStaffFLP.Controls.Add(availablestaffusercontrol);
+            }
+        }
+
+        private void AvailableStaff_Clicked(object sender, EventArgs e)
+        {
+            StaffUserControl clickestaff = (StaffUserControl)sender;
+        }
+
+        private void ServiceTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RecQueueStartPanel.Controls.Clear();
+            InitializeStaffUserControl();
+        }
+
+        private void RecQueStartCurrentCustPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
+        public void InitializeServices2(string filterstaffbyservicecategory, string searchKeyword)
+        {
+            if (walkinservices)
+            {
+                serviceitemsPerPage = 5;
+                RecWalkinServicesFlowLayoutPanel.Controls.Clear();
+            }
+            else
+            {
+                serviceitemsPerPage = 7;
+                RecApptServicesFLP.Controls.Clear();
+            }
+            List<Services> services = RetrieveServices2(filterstaffbyservicecategory,searchKeyword);
+
+            foreach (Services service in services)
+            {
+
+                ServicesUserControl servicesusercontrol = new ServicesUserControl(this);
+                servicesusercontrol.SetServicesData(service);
+                servicesusercontrol.ServiceUserControl_Clicked += ServiceUserControl_Clicked;
+                servicesusercontrol.RecServicePriceTextBox_Clicked += ServiceUserControl_Clicked;
+                servicesusercontrol.RecServiceDurationTextBox_Clicked += ServiceUserControl_Clicked;
+                servicesusercontrol.RecServiceNameTextBox_Clicked += ServiceUserControl_Clicked;
+
+                if (walkinservices)
+                {
+                    RecWalkinServicesFlowLayoutPanel.Controls.Add(servicesusercontrol);
+                }
+                else
+                {
+                    RecApptServicesFLP.Controls.Add(servicesusercontrol);
+                }
+                
+            }
+        }
+
+        private List<Services> RetrieveServices2(string filterstaffbyservicecategory, string searchKeyword)
+        {
+            List<Services> result = new List<Services>();
+            servicetotalItems = 0;
+            servicecurrentPage = 0;
+            servicecurrentPagefake = 1;
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string countQuery = "SELECT COUNT(*) FROM services WHERE Category = @category AND Name LIKE @searchKeyword";
+                    MySqlCommand countCommand = new MySqlCommand(countQuery, connection);
+                    countCommand.Parameters.AddWithValue("@searchKeyword", "%" + searchKeyword + "%");
+                    countCommand.Parameters.AddWithValue("@category", filterstaffbyservicecategory);
+                    servicetotalItems = Convert.ToInt32(countCommand.ExecuteScalar());
+
+                    servicetotalPages = (int)Math.Ceiling((double)servicetotalItems / serviceitemsPerPage);
+
+                    int offset = servicecurrentPage * serviceitemsPerPage;
+                    if (walkinservices)
+                    {
+                        WalkinServicePageLbl.Text = $"{servicecurrentPagefake} / {servicetotalPages}";
+                    }
+                    else
+                    {
+                        ApptServicePageLbl.Text = $"{servicecurrentPagefake} / {servicetotalPages}";
+                    }
+                    string servicesquery = $@"SELECT Category, ServiceID, Name, Duration, Price FROM services WHERE Category = @category 
+                                            AND Name LIKE @searchKeyword
+                                            LIMIT {offset}, {serviceitemsPerPage}";
+                    if (walkinservices)
+                    {
+                        if (servicetotalItems == 0)
+                        {
+                            WalkinServiceNextButton.Enabled = false;
+                            WalkinServicePreviousButton.Enabled = false;
+                            WalkinServicePageLbl.Text = $"0/0";
+                        }
+                        else
+                        {
+                            WalkinServiceNextButton.Enabled = true;
+                            WalkinServicePreviousButton.Enabled = true;
+                        }
+                    }
+                    else
+                    {
+                        if (servicetotalItems == 0)
+                        {
+                            ApptServiceNextBtn.Enabled = false;
+                            ApptServicePreviousBtn.Enabled = false;
+                            ApptServicePageLbl.Text = $"0/0";
+                        }
+                        else
+                        {
+                            ApptServiceNextBtn.Enabled = true;
+                            ApptServicePreviousBtn.Enabled = true;
+                        }
+                    }
+
+
+                    MySqlCommand command = new MySqlCommand(servicesquery, connection);
+                    command.Parameters.AddWithValue("@category", servicecat);
+                    command.Parameters.AddWithValue("@searchKeyword", "%" + searchKeyword + "%");
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Services Services = new Services
+                            {
+                                ServiceName = reader["Name"].ToString(),
+                                ServicePrice = reader["Price"].ToString(),
+                                ServiceDuration = reader["Duration"].ToString(),
+                                ServiceCategory = reader["Category"].ToString(),
+                                ServiceID = reader["ServiceID"].ToString()
+                            };
+
+                            result.Add(Services);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
+
+            return result;
+        }
+
+        public void InitializeServices3(string filterstaffbyservicecategory, string searchKeyword)
+        {
+            if (string.IsNullOrEmpty(searchKeyword))
+            {
+                InitializeServices(filterstaffbyservicecategory);
+                return;
+            }
+
+            if (walkinservices)
+            {
+                serviceitemsPerPage = 5;
+                RecWalkinServicesFlowLayoutPanel.Controls.Clear();
+            }
+            else
+            {
+                serviceitemsPerPage = 7;
+                RecApptServicesFLP.Controls.Clear();
+            }
+
+            List<Services> services = RetrieveServices3(filterstaffbyservicecategory, searchKeyword);
+
+            foreach (Services service in services)
+            {
+
+                ServicesUserControl servicesusercontrol = new ServicesUserControl(this);
+                servicesusercontrol.SetServicesData(service);
+                servicesusercontrol.ServiceUserControl_Clicked += ServiceUserControl_Clicked;
+                servicesusercontrol.RecServicePriceTextBox_Clicked += ServiceUserControl_Clicked;
+                servicesusercontrol.RecServiceDurationTextBox_Clicked += ServiceUserControl_Clicked;
+                servicesusercontrol.RecServiceNameTextBox_Clicked += ServiceUserControl_Clicked;
+
+                if (walkinservices)
+                {
+                    RecWalkinServicesFlowLayoutPanel.Controls.Add(servicesusercontrol);
+                }
+                else
+                {
+                    RecApptServicesFLP.Controls.Add(servicesusercontrol);
+                }
+                
+            }
+        }
+
+        private List<Services> RetrieveServices3(string filterstaffbyservicecategory, string searchKeyword)
+        {
+            List<Services> result = new List<Services>();
+            servicetotalItems = 0;
+
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string countQuery = "SELECT COUNT(*) FROM services WHERE Category = @category AND Name LIKE @searchKeyword";
+                    MySqlCommand countCommand = new MySqlCommand(countQuery, connection);
+                    countCommand.Parameters.AddWithValue("@searchKeyword", "%" + searchKeyword + "%");
+                    countCommand.Parameters.AddWithValue("@category", filterstaffbyservicecategory);
+                    servicetotalItems = Convert.ToInt32(countCommand.ExecuteScalar());
+
+                    servicetotalPages = (int)Math.Ceiling((double)servicetotalItems / serviceitemsPerPage);
+
+                    int offset = servicecurrentPage * serviceitemsPerPage;
+                    if (walkinservices)
+                    {
+                        WalkinServicePageLbl.Text = $"{servicecurrentPagefake} / {servicetotalPages}";
+                    }
+                    else
+                    {
+                        ApptServicePageLbl.Text = $"{servicecurrentPagefake} / {servicetotalPages}";
+                    }
+
+                    string servicesquery = $@"SELECT Category, ServiceID, Name, Duration, Price FROM services WHERE Category = @category 
+                                            AND Name LIKE @searchKeyword
+                                            LIMIT {offset}, {serviceitemsPerPage}";
+
+                    MySqlCommand command = new MySqlCommand(servicesquery, connection);
+                    command.Parameters.AddWithValue("@category", servicecat);
+                    command.Parameters.AddWithValue("@searchKeyword", "%" + searchKeyword + "%");
+
+                    if (walkinservices)
+                    {
+                        if (servicetotalItems == 0)
+                        {
+                            WalkinServiceNextButton.Enabled = false;
+                            WalkinServicePreviousButton.Enabled = false;
+                            WalkinServicePageLbl.Text = $"0/0";
+                        }
+                        else
+                        {
+                            WalkinServiceNextButton.Enabled = true;
+                            WalkinServicePreviousButton.Enabled = true;
+                        }
+                    }
+                    else
+                    {
+                        if (servicetotalItems == 0)
+                        {
+                            ApptServiceNextBtn.Enabled = false;
+                            ApptServicePreviousBtn.Enabled = false;
+                            ApptServicePageLbl.Text = $"0/0";
+                        }
+                        else
+                        {
+                            ApptServiceNextBtn.Enabled = true;
+                            ApptServicePreviousBtn.Enabled = true;
+                        }
+                    }
+
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Services Services = new Services
+                            {
+                                ServiceName = reader["Name"].ToString(),
+                                ServicePrice = reader["Price"].ToString(),
+                                ServiceDuration = reader["Duration"].ToString(),
+                                ServiceCategory = reader["Category"].ToString(),
+                                ServiceID = reader["ServiceID"].ToString()
+                            };
+
+                            result.Add(Services);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
+
+            return result;
+        }
+
+        public bool walkinservices;
+
+        private void WalkinServicePreviousButton_Click(object sender, EventArgs e)
+        {
+            if (walkinservices)
+            {
+                string searchKeyword = RecWalkinSearchServiceTypeText.Text.Trim().ToLower();
+                
+                if (string.IsNullOrEmpty(searchKeyword))
+                {
+                    if (servicecurrentPagefake == 1)
+                    {
+                        servicecurrentPagefake = servicetotalPages;
+                        servicecurrentPage = servicetotalPages - 1;
+                        InitializeServices(filterstaffbyservicecategory);
+                        WalkinServicePageLbl.Text = $"{servicecurrentPagefake} / {servicetotalPages}";
+                    }
+                    else if (currentPagefake <= servicetotalPages)
+                    {
+                        servicecurrentPage--;
+                        servicecurrentPagefake--;
+                        InitializeServices(filterstaffbyservicecategory);
+                        WalkinServicePageLbl.Text = $"{servicecurrentPagefake} / {servicetotalPages}";
+                    }
+                }
+                else
+                {
+                    if (servicecurrentPagefake == 1)
+                    {
+                        servicecurrentPagefake = servicetotalPages;
+                        servicecurrentPage = servicetotalPages - 1;
+                        InitializeServices3(filterstaffbyservicecategory, searchKeyword);
+                        WalkinServicePageLbl.Text = $"{servicecurrentPagefake} / {servicetotalPages}";
+                    }
+                    else if (currentPagefake <= servicetotalPages)
+                    {
+                        servicecurrentPage--;
+                        servicecurrentPagefake--;
+                        InitializeServices3(filterstaffbyservicecategory, searchKeyword);
+                        WalkinServicePageLbl.Text = $"{servicecurrentPagefake} / {servicetotalPages}";
+                    }
+                }
+            }
+            else
+            {
+                string searchKeyword = RecApptSearchServiceTypeText.Text.Trim().ToLower();
+                if (string.IsNullOrEmpty(searchKeyword))
+                {
+                    if (servicecurrentPagefake == 1)
+                    {
+                        servicecurrentPagefake = servicetotalPages;
+                        servicecurrentPage = servicetotalPages - 1;
+                        InitializeServices(filterstaffbyservicecategory);
+                        ApptServicePageLbl.Text = $"{servicecurrentPagefake} / {servicetotalPages}";
+                    }
+                    else if (servicecurrentPagefake <= servicetotalPages)
+                    {
+                        servicecurrentPage--;
+                        servicecurrentPagefake--;
+                        InitializeServices(filterstaffbyservicecategory);
+                        ApptServicePageLbl.Text = $"{servicecurrentPagefake} / {servicetotalPages}";
+                    }
+                }
+                else
+                {
+                    if (servicecurrentPagefake == 1)
+                    {
+                        servicecurrentPagefake = servicetotalPages;
+                        servicecurrentPage = servicetotalPages - 1;
+                        InitializeServices3(filterstaffbyservicecategory, searchKeyword);
+                        ApptServicePageLbl.Text = $"{servicecurrentPagefake} / {servicetotalPages}";
+                    }
+                    else if (servicecurrentPagefake <= servicetotalPages)
+                    {
+                        servicecurrentPage--;
+                        servicecurrentPagefake--;
+                        InitializeServices3(filterstaffbyservicecategory, searchKeyword);
+                        ApptServicePageLbl.Text = $"{servicecurrentPagefake} / {servicetotalPages}";
+                    }
+                }
+            }
+        }
+
+        private void WalkinServiceNextButton_Click(object sender, EventArgs e)
+        {
+            if (walkinservices)
+            {
+                string searchKeyword = RecWalkinSearchServiceTypeText.Text.Trim().ToLower();
+
+                if (string.IsNullOrEmpty(searchKeyword))
+                {
+                    if (servicecurrentPagefake == servicetotalPages)
+                    {
+                        servicecurrentPage = 0;
+                        servicecurrentPagefake = 0;
+                        servicecurrentPagefake++;
+                        InitializeServices(filterstaffbyservicecategory);
+                        WalkinServicePageLbl.Text = $"{servicecurrentPagefake} / {servicetotalPages}";
+                    }
+                    else
+                    {
+                        servicecurrentPage++;
+                        servicecurrentPagefake++;
+                        InitializeServices(filterstaffbyservicecategory);
+                        WalkinServicePageLbl.Text = $"{servicecurrentPagefake} / {servicetotalPages}";
+                    }
+                }
+                else
+                {
+                    if (servicecurrentPagefake == servicetotalPages)
+                    {
+                        servicecurrentPage = 0;
+                        servicecurrentPagefake = 0;
+                        servicecurrentPagefake++;
+                        InitializeServices3(filterstaffbyservicecategory, searchKeyword);
+                        WalkinServicePageLbl.Text = $"{servicecurrentPagefake} / {servicetotalPages}";
+                    }
+                    else
+                    {
+                        servicecurrentPage++;
+                        servicecurrentPagefake++;
+                        InitializeServices3(filterstaffbyservicecategory, searchKeyword);
+                        WalkinServicePageLbl.Text = $"{servicecurrentPagefake} / {servicetotalPages}";
+                    }
+
+                }
+
+            }
+            else
+            {
+                string searchKeyword = RecApptSearchServiceTypeText.Text.Trim().ToLower();
+
+                if (string.IsNullOrEmpty(searchKeyword))
+                {
+                    if (servicecurrentPagefake == servicetotalPages)
+                    {
+                        servicecurrentPage = 0;
+                        servicecurrentPagefake = 0;
+                        servicecurrentPagefake++;
+                        InitializeServices(filterstaffbyservicecategory);
+                        ApptServicePageLbl.Text = $"{servicecurrentPagefake} / {servicetotalPages}";
+                    }
+                    else
+                    {
+                        servicecurrentPage++;
+                        servicecurrentPagefake++;
+                        InitializeServices(filterstaffbyservicecategory);
+                        ApptServicePageLbl.Text = $"{servicecurrentPagefake} / {servicetotalPages}";
+                    }
+                }
+                else
+                {
+                    if (servicecurrentPagefake == servicetotalPages)
+                    {
+                        servicecurrentPage = 0;
+                        servicecurrentPagefake = 0;
+                        servicecurrentPagefake++;
+                        InitializeServices3(filterstaffbyservicecategory, searchKeyword);
+                        ApptServicePageLbl.Text = $"{servicecurrentPagefake} / {servicetotalPages}";
+                    }
+                    else
+                    {
+                        servicecurrentPage++;
+                        servicecurrentPagefake++;
+                        InitializeServices3(filterstaffbyservicecategory, searchKeyword);
+                        ApptServicePageLbl.Text = $"{servicecurrentPagefake} / {servicetotalPages}";
+                    }
+
+                }
+
+            }
+
+        }
+
+        private void ApptServiceNextBtn_Click(object sender, EventArgs e)
+        {
+            WalkinServiceNextButton_Click(sender, e);
+        }
+
+        private void ApptServicePreviousBtn_Click(object sender, EventArgs e)
+        {
+            WalkinServicePreviousButton_Click(sender, e);
         }
     }
 }
