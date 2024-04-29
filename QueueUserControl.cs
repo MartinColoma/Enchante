@@ -22,7 +22,7 @@ namespace Enchante
         public event EventHandler StaffCustomerNameTextBox_Clicked;
         public event EventHandler StaffElapsedTimeTextBox_Clicked;
         public event EventHandler StaffTransactionIDTextBox_Clicked;
-
+        public event EventHandler ExpandUserControlButton_Clicked;
 
         public event EventHandler StaffCancelServiceBtnClicked;
         private bool viewing = false;
@@ -41,7 +41,7 @@ namespace Enchante
         }
 
 
-        public void AvailableCustomerSetData(Enchante.PendingCustomers customer)
+        public void AvailableGeneralCustomerSetData(Enchante.GeneralPendingCustomers customer)
         {
             StaffTransactionIDTextBox.Text = customer.TransactionNumber;
             StaffCustomerServiceNameSelectedTextBox.Text = customer.ServiceName;
@@ -50,17 +50,6 @@ namespace Enchante
             StaffQueTypeTextBox.Text = customer.QueType;
             StaffServiceIDTextBox.Text = customer.ServiceID;
             StaffQueNumberTextBox.Text = customer.QueNumber;
-        }
-
-        public void AvailablePriorityCustomerSetData(Enchante.PriorityPendingCustomers priocustomer)
-        {
-            StaffTransactionIDTextBox.Text = priocustomer.TransactionNumber;
-            StaffCustomerServiceNameSelectedTextBox.Text = priocustomer.ServiceName;
-            StaffCustomerServiceStatusTextBox.Text = priocustomer.ServiceStatus;
-            StaffCustomerNameTextBox.Text = priocustomer.ClientName;
-            StaffQueTypeTextBox.Text = priocustomer.QueType;
-            StaffServiceIDTextBox.Text = priocustomer.ServiceID;
-            StaffQueNumberTextBox.Text = priocustomer.QueNumber;
         }
 
 
@@ -630,6 +619,14 @@ namespace Enchante
             }
         }
 
-        
+        private void ExpandUserControlBtn_Click(object sender, EventArgs e)
+        {
+            viewing = !viewing;
+
+            if (ExpandUserControlButton_Clicked != null)
+            {
+                ExpandUserControlButton_Clicked(this, EventArgs.Empty);
+            }
+        }
     }
 }

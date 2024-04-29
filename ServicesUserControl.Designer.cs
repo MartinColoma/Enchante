@@ -38,10 +38,10 @@
             // RecServiceNameTextBox
             // 
             this.RecServiceNameTextBox.BorderRadius = 6;
-            this.RecServiceNameTextBox.BorderThickness = 0;
+            this.RecServiceNameTextBox.BorderThickness = 2;
             this.RecServiceNameTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RecServiceNameTextBox.DefaultText = "Service Name";
-            this.RecServiceNameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecServiceNameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.RecServiceNameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecServiceNameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.RecServiceNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
@@ -53,7 +53,7 @@
             this.RecServiceNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.RecServiceNameTextBox.IconLeftCursor = System.Windows.Forms.Cursors.Hand;
             this.RecServiceNameTextBox.Location = new System.Drawing.Point(3, 3);
-            this.RecServiceNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RecServiceNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.RecServiceNameTextBox.Name = "RecServiceNameTextBox";
             this.RecServiceNameTextBox.PasswordChar = '\0';
             this.RecServiceNameTextBox.PlaceholderText = "";
@@ -67,10 +67,10 @@
             // RecServiceDurationTextBox
             // 
             this.RecServiceDurationTextBox.BorderRadius = 6;
-            this.RecServiceDurationTextBox.BorderThickness = 0;
+            this.RecServiceDurationTextBox.BorderThickness = 2;
             this.RecServiceDurationTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RecServiceDurationTextBox.DefaultText = "Duration";
-            this.RecServiceDurationTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecServiceDurationTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.RecServiceDurationTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecServiceDurationTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.RecServiceDurationTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
@@ -82,7 +82,7 @@
             this.RecServiceDurationTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.RecServiceDurationTextBox.IconLeftCursor = System.Windows.Forms.Cursors.Hand;
             this.RecServiceDurationTextBox.Location = new System.Drawing.Point(167, 4);
-            this.RecServiceDurationTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RecServiceDurationTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.RecServiceDurationTextBox.Name = "RecServiceDurationTextBox";
             this.RecServiceDurationTextBox.PasswordChar = '\0';
             this.RecServiceDurationTextBox.PlaceholderText = "";
@@ -97,10 +97,10 @@
             // 
             this.RecServicePriceTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecServicePriceTextBox.BorderRadius = 6;
-            this.RecServicePriceTextBox.BorderThickness = 0;
+            this.RecServicePriceTextBox.BorderThickness = 2;
             this.RecServicePriceTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RecServicePriceTextBox.DefaultText = "Price";
-            this.RecServicePriceTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.RecServicePriceTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.RecServicePriceTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecServicePriceTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
             this.RecServicePriceTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
