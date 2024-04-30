@@ -6739,9 +6739,9 @@ namespace Enchante
 
         private void MngrInventoryProductsHistoryBtn_Click(object sender, EventArgs e)
         {
-            MngrProductHistoryColor();
-            ApplyRowAlternatingColors(MngrPDHistoryDGV);
+            MngrProductHistoryColor();       
             ExitFunction();
+            ApplyRowAlternatingColors(MngrPDHistoryDGV);
         }
 
         private void MngrInventoryStaffSchedBtn_Click(object sender, EventArgs e)
@@ -6761,10 +6761,10 @@ namespace Enchante
             ExitFunction();
         }
         private void MngrServicesHistoryBtn_Click(object sender, EventArgs e)
-        {
-            MngrServiceHistoryColor();
-            ApplyRowAlternatingColors(MngrSVHistoryDGV);
+        {        
+            MngrServiceHistoryColor();         
             ExitFunction();
+            ApplyRowAlternatingColors(MngrSVHistoryDGV);
         }
         private void MngrServiceHistoryExitBtn_Click(object sender, EventArgs e)
         {
@@ -16259,6 +16259,7 @@ namespace Enchante
         private void MngrRecOverrideBtn_Click(object sender, EventArgs e)
         {
             ReceptionHomePanelReset();
+            ExitFunction();
             RecNameLbl.Text = MngrNameLbl.Text;
             RecIDNumLbl.Text = MngrIDNumLbl.Text;
             RecEmplTypeLbl.Text = MngrEmplTypeLbl.Text;

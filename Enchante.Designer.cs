@@ -12945,7 +12945,7 @@ namespace Enchante
             // 
             this.EnchanteParentCard.ContainerControl = this.EnchanteParentContainer;
             this.EnchanteParentCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.EnchanteParentCard.SelectedCard = "AdminPage";
+            this.EnchanteParentCard.SelectedCard = "Mngr";
             // 
             // RecTransactionCard
             // 
@@ -12961,7 +12961,7 @@ namespace Enchante
             // 
             this.MngrInventoryCard.ContainerControl = this.MngrInventoryPanel;
             this.MngrInventoryCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.MngrInventoryCard.SelectedCard = "product sales";
+            this.MngrInventoryCard.SelectedCard = "prod history";
             // 
             // PictureSlideTimer
             // 
