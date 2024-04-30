@@ -172,7 +172,7 @@ namespace Enchante
             MngrIndemandSelectCatBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
             //Receptionist combobox
-            RecQueWinStaffCatComboText.Items.AddRange(SalesCategories);
+            RecQueWinStaffCatComboText.Items.AddRange(QCategories);
             RecQueWinStaffCatComboText.DropDownStyle = ComboBoxStyle.DropDownList;
             RecQueWinGenCatComboText.Items.AddRange(QCategories);
             RecQueWinGenCatComboText.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -3542,7 +3542,7 @@ namespace Enchante
                 RecLoadCompletedWalkinTrans();
                 RecLoadCompletedAppointmentTrans();
                 RecPayServiceWalkinInvoiceGenerator();
-                RecPayServiceClearAllField();
+                RecPayServiceWalkinClearAllField();
                 RecLoadCompletedWalkinTrans();
 
             }
@@ -3609,7 +3609,7 @@ namespace Enchante
                 connection.Close();
             }
         }
-        private void RecPayServiceClearAllField()
+        private void RecPayServiceWalkinClearAllField()
         {
             RecPayServiceWalkinNetAmountBox.Text = "0.00";
             RecPayServiceWalkinVATBox.Text = "0.00";
@@ -3619,6 +3619,42 @@ namespace Enchante
             RecPayServiceWalkinChangeBox.Text = "0.00";
 
 
+
+
+            RecPayServiceWalkinClientNameLbl.Text = "";
+            RecPayServiceApptTransTypeLbl.Text = "";
+            // Clear rows from RecPayServiceAcquiredDGV
+            RecPayServiceWalkinAcquiredDGV.DataSource = null; // Set data source to null
+            RecPayServiceWalkinAcquiredDGV.Rows.Clear(); // Clear any remaining rows
+
+            // Clear rows from RecPayServiceCOProdDGV
+            RecPayServiceWalkinCOProdDGV.DataSource = null; // Set data source to null
+            RecPayServiceWalkinCOProdDGV.Rows.Clear(); // Clear any remaining rows
+
+            RecPayServiceWalkinTransactNumLbl.Text = "Transaction Number";
+            RecPayServiceWalkinClientNameLbl.Text = "Client Name";
+
+            RecPayServiceApptClientNameLbl.Text = "";
+            RecPayServiceApptTransTypeLbl.Text = "";
+            // Clear rows from RecPayServiceAcquiredDGV
+            RecPayServiceApptAcquiredDGV.DataSource = null; // Set data source to null
+            RecPayServiceApptAcquiredDGV.Rows.Clear(); // Clear any remaining rows
+
+
+
+            RecPayServiceWalkinTransactNumLbl.Text = "Transaction Number";
+            RecPayServiceWalkinClientNameLbl.Text = "Client Name";
+        }
+        private void RecPayServiceApptClearAllField()
+        {
+
+
+            RecPayServiceApptNetAmountText.Text = "0.00";
+            RecPayServiceApptVATText.Text = "0.00";
+            RecPayServiceApptDiscountText.Text = "0.00";
+            RecPayServiceApptGrossAmountText.Text = "0.00";
+            RecPayServiceApptCashText.Text = "0";
+            RecPayServiceApptChangeText.Text = "0.00";
 
 
             RecPayServiceWalkinClientNameLbl.Text = "";
@@ -4046,7 +4082,8 @@ namespace Enchante
                     RecWalkinPreferredStaffToggleSwitch.Checked = false;
                     RecWalkinAttendingStaffSelectedComboBox.Enabled = false;
                     selectedStaffID = "Anyone";
-                    RecWalkinAttendingStaffSelectedComboBox.Items.Clear();
+                    RecWalkinAttendingStaffSelectedComboBox.Items.Add("Any available staff");
+                    RecWalkinAttendingStaffSelectedComboBox.SelectedIndex = 0;
                 }
             }
         }
@@ -4953,7 +4990,8 @@ namespace Enchante
                     RecApptPreferredStaffToggleSwitch.Checked = false;
                     RecApptAvailableAttendingStaffSelectedComboBox.Enabled = false;
                     selectedStaffID = "Anyone";
-                    RecApptAvailableAttendingStaffSelectedComboBox.Items.Clear();
+                    RecApptAvailableAttendingStaffSelectedComboBox.Items.Add("Any available staff");
+                    RecApptAvailableAttendingStaffSelectedComboBox.SelectedIndex = 0;
                 }
             }
         }
@@ -5659,8 +5697,9 @@ namespace Enchante
 
             if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay > new TimeSpan(14, 30, 0))  // Check if the selected date is today and if it's past 2:30 PM
             {
-                // Add "Cutoff Time" to ComboBox
+                RecApptBookingTimeComboBox.Items.Clear();
                 RecApptBookingTimeComboBox.Items.Add("Cutoff Time");
+                RecApptBookingTimeComboBox.SelectedIndex = 0;
                 cutoffTimeAdded = true;
             }
 
@@ -6784,7 +6823,7 @@ namespace Enchante
         private void RecPayServiceExitBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecQueStartPanel);
-            RecPayServiceClearAllField();
+            RecPayServiceWalkinClearAllField();
         }
 
         private void MngrInventoryWalkinSalesBtn_Click(object sender, EventArgs e)
@@ -15266,12 +15305,7 @@ namespace Enchante
             //RecQueStartColor();
             RecQueTimer.Start();
 
-            RecQueStartStaffFLP.Controls.Clear();
-            RecQueStartInventoryDGV.Rows.Clear();
-            InitializeEmployeeCategory();
-            InitializeStaffUserControl();
-            InitializeMainInventory();
-            InitializeInSessionCustomers();
+
 
         }
 
@@ -15289,6 +15323,12 @@ namespace Enchante
         private void RecQueStartBtn_Click(object sender, EventArgs e)
         {
             RecQueStartColor();
+            RecQueStartStaffFLP.Controls.Clear();
+            RecQueStartInventoryDGV.Rows.Clear();
+            InitializeEmployeeCategory();
+            InitializeStaffUserControl();
+            InitializeMainInventory();
+            InitializeInSessionCustomers();
         }
 
         private void RecQueStartColor()
@@ -15305,10 +15345,6 @@ namespace Enchante
 
             RecTransBtnResetColor();
 
-            RecQueueStartPanel.Controls.Clear();
-            NoCustomerInQueueUserControl nocustomerusercontrol = new NoCustomerInQueueUserControl();
-            RecQueueStartPanel.Controls.Add(nocustomerusercontrol);
-            NextCustomerNumLbl.Text = "No selected staff.";
         }
 
         private void RecQueWinColor()
@@ -15744,11 +15780,17 @@ namespace Enchante
             {
                 if (!availablecustomersusercontrol.Viewing)
                 {
-                    availablecustomersusercontrol.Size = new System.Drawing.Size(368, 67);
+                    availablecustomersusercontrol.Size = new System.Drawing.Size(500, 120);
+                    availablecustomersusercontrol.ExpandUserControlBtn1.IconChar = FontAwesome.Sharp.IconChar.CaretDown;
+                    availablecustomersusercontrol.ExpandUserControlBtn1.Text = "See more...";
                 }
                 else
                 {
-                    availablecustomersusercontrol.Size = new System.Drawing.Size(368, 249);
+                    availablecustomersusercontrol.Size = new System.Drawing.Size(500, 370);
+                    availablecustomersusercontrol.ExpandUserControlBtn1.IconChar = FontAwesome.Sharp.IconChar.CaretUp;
+                    availablecustomersusercontrol.ExpandUserControlBtn1.Text = "See less...";
+
+
                 }
             }
         }
@@ -16672,7 +16714,7 @@ namespace Enchante
             {
                 RecLoadCompletedAppointmentTrans();
                 RecPayServiceApptInvoiceGenerator();
-                RecPayServiceClearAllField();
+                RecPayServiceApptClearAllField();
                 RecLoadCompletedAppointmentTrans();
             }
         }
@@ -17990,6 +18032,11 @@ namespace Enchante
         }
 
         private void LoginPassText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RecCancelServicesDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

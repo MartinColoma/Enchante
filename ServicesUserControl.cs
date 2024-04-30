@@ -70,5 +70,10 @@ namespace Enchante
         {
             AddService();
         }
+
+        private void RecServicePriceTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -153,6 +153,8 @@
             this.StaffQueNumberTextBox.BorderRadius = 7;
             this.StaffQueNumberTextBox.BorderThickness = 2;
             this.StaffQueNumberTextBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.StaffQueNumberTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.StaffQueNumberTextBox.DisabledState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.StaffQueNumberTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.StaffQueNumberTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.StaffQueNumberTextBox.Enabled = false;
@@ -206,7 +208,7 @@
             this.StaffTransactionIDTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.StaffTransactionIDTextBox.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.StaffTransactionIDTextBox.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.StaffTransactionIDTextBox.Location = new System.Drawing.Point(90, 18);
+            this.StaffTransactionIDTextBox.Location = new System.Drawing.Point(90, 35);
             this.StaffTransactionIDTextBox.Name = "StaffTransactionIDTextBox";
             this.StaffTransactionIDTextBox.Size = new System.Drawing.Size(320, 50);
             this.StaffTransactionIDTextBox.TabIndex = 13;
@@ -394,9 +396,9 @@
             this.ExpandUserControlBtn1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ExpandUserControlBtn1.IconSize = 32;
             this.ExpandUserControlBtn1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ExpandUserControlBtn1.Location = new System.Drawing.Point(194, 72);
+            this.ExpandUserControlBtn1.Location = new System.Drawing.Point(365, 76);
             this.ExpandUserControlBtn1.Name = "ExpandUserControlBtn1";
-            this.ExpandUserControlBtn1.Size = new System.Drawing.Size(123, 38);
+            this.ExpandUserControlBtn1.Size = new System.Drawing.Size(118, 38);
             this.ExpandUserControlBtn1.TabIndex = 86;
             this.ExpandUserControlBtn1.Text = "See more...";
             this.ExpandUserControlBtn1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -416,9 +418,10 @@
             this.StaffCancelServiceBtn1.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.StaffCancelServiceBtn1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.StaffCancelServiceBtn1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.StaffCancelServiceBtn1.Location = new System.Drawing.Point(429, 16);
+            this.StaffCancelServiceBtn1.IconSize = 32;
+            this.StaffCancelServiceBtn1.Location = new System.Drawing.Point(445, 14);
             this.StaffCancelServiceBtn1.Name = "StaffCancelServiceBtn1";
-            this.StaffCancelServiceBtn1.Size = new System.Drawing.Size(54, 54);
+            this.StaffCancelServiceBtn1.Size = new System.Drawing.Size(38, 38);
             this.StaffCancelServiceBtn1.TabIndex = 87;
             this.StaffCancelServiceBtn1.UseVisualStyleBackColor = false;
             this.StaffCancelServiceBtn1.Click += new System.EventHandler(this.StaffCancelServiceBtn_Click);
@@ -499,9 +502,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.ExpandUserControlBtn1);
             this.Controls.Add(this.StaffQueNumberTextBox);
             this.Controls.Add(this.StaffTransactionIDTextBox);
-            this.Controls.Add(this.ExpandUserControlBtn1);
             this.Controls.Add(this.StaffCustomerServiceStatusTextBox);
             this.Controls.Add(this.StaffServiceIDTextBox);
             this.Controls.Add(this.StaffCustomerServiceNameSelectedTextBox);

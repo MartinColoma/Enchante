@@ -361,12 +361,7 @@ namespace Enchante
 
         private void StaffCancelServiceBtn_Click(object sender, EventArgs e)
         {
-            StaffUpdateServiceStatusOfCustomerinDB("Cancelled");
-            if (Parent != null)
-            {
-                Parent.Controls.Remove(this);
-            }
-            EnchanteForm.RefreshFlowLayoutPanel();
+
         }
 
         private void StaffElapsedTimeTextBox_Click(object sender, EventArgs e)
@@ -403,33 +398,7 @@ namespace Enchante
 
         private void StaffQueNumberTextBox_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to end this service?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (result == DialogResult.Yes)
-            {
-                StopTimer();
-                StaffElapsedTimeTextBox.Text = lastElapsedTime.ToString(@"hh\:mm\:ss");
-                if (StaffCustomerServiceStatusTextBox.Text == "In Session Paid")
-                {
-                    StaffCustomerServiceStatusTextBox.Text = "Completed Paid";
-                }
-                else if (StaffCustomerServiceStatusTextBox.Text == "In Session")
-                {
-                    StaffCustomerServiceStatusTextBox.Text = "Completed";
-                }
-                StaffUpdateServiceStatusOfCustomerinDB(StaffCustomerServiceStatusTextBox.Text);
-                if (Parent != null)
-                {
-                    Parent.Controls.Remove(this);
-                }
-                EnchanteForm.InitializeMainInventory();
-                EnchanteForm.RefreshFlowLayoutPanel();
-                EnchanteForm.RefreshAvailableStaff();
-            }
-            else
-            {
-                return;
-            }
         }
 
         private void StaffCancelServiceBtn_Click_1(object sender, EventArgs e)
