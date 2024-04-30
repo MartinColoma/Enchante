@@ -132,6 +132,7 @@
     <Compile Include="Enchante.Designer.cs">
       <DependentUpon>Enchante.cs</DependentUpon>
     </Compile>
+    <Compile Include="GlobalKeyHook.cs" />
     <Compile Include="InSessionUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

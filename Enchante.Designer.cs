@@ -441,13 +441,14 @@ namespace Enchante
             this.MngrMemAccAccCreateLbl = new System.Windows.Forms.Label();
             this.EnchanteAdminPage = new System.Windows.Forms.Panel();
             this.AdminScrollPanel = new System.Windows.Forms.Panel();
-            this.AdminUserAccPanel = new System.Windows.Forms.Panel();
-            this.AdminIDNumLbl = new System.Windows.Forms.Label();
-            this.AdminNameLbl = new System.Windows.Forms.Label();
-            this.AdminSignOutBtn = new FontAwesome.Sharp.IconButton();
             this.AdminFooterStopperPanel = new System.Windows.Forms.Panel();
             this.AdminFooterStopperLbl = new System.Windows.Forms.Label();
             this.AdminRegiformPanel = new System.Windows.Forms.Panel();
+            this.AdminPreviousBtn = new System.Windows.Forms.Button();
+            this.AdminCurrentRecordLbl = new System.Windows.Forms.Label();
+            this.AdminNextBtn = new System.Windows.Forms.Button();
+            this.AdminSearchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.AdminSearchLbl = new System.Windows.Forms.Label();
             this.AdminCancelEditBtn = new FontAwesome.Sharp.IconButton();
             this.AdminPassLbl = new System.Windows.Forms.Label();
             this.AdminGenderLbl = new System.Windows.Forms.Label();
@@ -497,6 +498,10 @@ namespace Enchante
             this.AdminCreateAccBtn = new FontAwesome.Sharp.IconButton();
             this.AdminAccountTable = new System.Windows.Forms.DataGridView();
             this.AdminNavBarPanel = new System.Windows.Forms.Panel();
+            this.AdminUserAccPanel = new System.Windows.Forms.Panel();
+            this.AdminIDNumLbl = new System.Windows.Forms.Label();
+            this.AdminNameLbl = new System.Windows.Forms.Label();
+            this.AdminSignOutBtn = new FontAwesome.Sharp.IconButton();
             this.AdminAccUserBtn = new FontAwesome.Sharp.IconButton();
             this.AdminHomeBtn = new FontAwesome.Sharp.IconButton();
             this.AdminHeaderLogo = new System.Windows.Forms.PictureBox();
@@ -911,11 +916,6 @@ namespace Enchante
             this.MngrDataTimer = new System.Windows.Forms.Timer(this.components);
             this.MngrReportsTimer = new System.Windows.Forms.Timer(this.components);
             this.MngrHistoryTimer = new System.Windows.Forms.Timer(this.components);
-            this.AdminSearchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.AdminSearchLbl = new System.Windows.Forms.Label();
-            this.AdminPreviousBtn = new System.Windows.Forms.Button();
-            this.AdminCurrentRecordLbl = new System.Windows.Forms.Label();
-            this.AdminNextBtn = new System.Windows.Forms.Button();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteMngrPage.SuspendLayout();
             this.MngrScrollPanel.SuspendLayout();
@@ -987,13 +987,13 @@ namespace Enchante
             ((System.ComponentModel.ISupportInitialize)(this.MngrMemAccDGV)).BeginInit();
             this.EnchanteAdminPage.SuspendLayout();
             this.AdminScrollPanel.SuspendLayout();
-            this.AdminUserAccPanel.SuspendLayout();
             this.AdminFooterStopperPanel.SuspendLayout();
             this.AdminRegiformPanel.SuspendLayout();
             this.AdminConfirmPassPanel.SuspendLayout();
             this.AdminPassPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AdminAccountTable)).BeginInit();
             this.AdminNavBarPanel.SuspendLayout();
+            this.AdminUserAccPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AdminHeaderLogo)).BeginInit();
             this.EnchanteHomePage.SuspendLayout();
             this.EnchanteHomeScrollPanel.SuspendLayout();
@@ -5919,67 +5919,6 @@ namespace Enchante
             this.AdminScrollPanel.Size = new System.Drawing.Size(1924, 911);
             this.AdminScrollPanel.TabIndex = 20;
             // 
-            // AdminUserAccPanel
-            // 
-            this.AdminUserAccPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.AdminUserAccPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.AdminUserAccPanel.Controls.Add(this.AdminIDNumLbl);
-            this.AdminUserAccPanel.Controls.Add(this.AdminNameLbl);
-            this.AdminUserAccPanel.Controls.Add(this.AdminSignOutBtn);
-            this.AdminUserAccPanel.Location = new System.Drawing.Point(1578, 25);
-            this.AdminUserAccPanel.Name = "AdminUserAccPanel";
-            this.AdminUserAccPanel.Size = new System.Drawing.Size(321, 216);
-            this.AdminUserAccPanel.TabIndex = 2;
-            this.AdminUserAccPanel.Visible = false;
-            // 
-            // AdminIDNumLbl
-            // 
-            this.AdminIDNumLbl.AutoEllipsis = true;
-            this.AdminIDNumLbl.AutoSize = true;
-            this.AdminIDNumLbl.Font = new System.Drawing.Font("TechnicBold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.AdminIDNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.AdminIDNumLbl.Location = new System.Drawing.Point(24, 63);
-            this.AdminIDNumLbl.Name = "AdminIDNumLbl";
-            this.AdminIDNumLbl.Size = new System.Drawing.Size(125, 18);
-            this.AdminIDNumLbl.TabIndex = 9;
-            this.AdminIDNumLbl.Text = "Admin ID Number";
-            // 
-            // AdminNameLbl
-            // 
-            this.AdminNameLbl.AutoEllipsis = true;
-            this.AdminNameLbl.AutoSize = true;
-            this.AdminNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.AdminNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.AdminNameLbl.Location = new System.Drawing.Point(22, 23);
-            this.AdminNameLbl.Name = "AdminNameLbl";
-            this.AdminNameLbl.Size = new System.Drawing.Size(153, 29);
-            this.AdminNameLbl.TabIndex = 8;
-            this.AdminNameLbl.Text = "Admin Name";
-            // 
-            // AdminSignOutBtn
-            // 
-            this.AdminSignOutBtn.AutoSize = true;
-            this.AdminSignOutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AdminSignOutBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.AdminSignOutBtn.FlatAppearance.BorderSize = 0;
-            this.AdminSignOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AdminSignOutBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.AdminSignOutBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.AdminSignOutBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
-            this.AdminSignOutBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.AdminSignOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.AdminSignOutBtn.IconSize = 32;
-            this.AdminSignOutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AdminSignOutBtn.Location = new System.Drawing.Point(74, 143);
-            this.AdminSignOutBtn.Name = "AdminSignOutBtn";
-            this.AdminSignOutBtn.Size = new System.Drawing.Size(231, 60);
-            this.AdminSignOutBtn.TabIndex = 7;
-            this.AdminSignOutBtn.Text = "LOGOUT";
-            this.AdminSignOutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AdminSignOutBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.AdminSignOutBtn.UseVisualStyleBackColor = true;
-            this.AdminSignOutBtn.Click += new System.EventHandler(this.AdminSignOutBtn_Click_1);
-            // 
             // AdminFooterStopperPanel
             // 
             this.AdminFooterStopperPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
@@ -6060,6 +5999,77 @@ namespace Enchante
             this.AdminRegiformPanel.Name = "AdminRegiformPanel";
             this.AdminRegiformPanel.Size = new System.Drawing.Size(1752, 796);
             this.AdminRegiformPanel.TabIndex = 5;
+            // 
+            // AdminPreviousBtn
+            // 
+            this.AdminPreviousBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.AdminPreviousBtn.Location = new System.Drawing.Point(958, 687);
+            this.AdminPreviousBtn.Name = "AdminPreviousBtn";
+            this.AdminPreviousBtn.Size = new System.Drawing.Size(75, 23);
+            this.AdminPreviousBtn.TabIndex = 196;
+            this.AdminPreviousBtn.Text = "<< Previous";
+            this.AdminPreviousBtn.UseVisualStyleBackColor = true;
+            this.AdminPreviousBtn.Click += new System.EventHandler(this.AdminPreviousBtn_Click);
+            // 
+            // AdminCurrentRecordLbl
+            // 
+            this.AdminCurrentRecordLbl.AutoSize = true;
+            this.AdminCurrentRecordLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminCurrentRecordLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminCurrentRecordLbl.Location = new System.Drawing.Point(1043, 689);
+            this.AdminCurrentRecordLbl.Name = "AdminCurrentRecordLbl";
+            this.AdminCurrentRecordLbl.Size = new System.Drawing.Size(49, 20);
+            this.AdminCurrentRecordLbl.TabIndex = 195;
+            this.AdminCurrentRecordLbl.Text = "n of n";
+            // 
+            // AdminNextBtn
+            // 
+            this.AdminNextBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.AdminNextBtn.Location = new System.Drawing.Point(1108, 687);
+            this.AdminNextBtn.Name = "AdminNextBtn";
+            this.AdminNextBtn.Size = new System.Drawing.Size(75, 23);
+            this.AdminNextBtn.TabIndex = 197;
+            this.AdminNextBtn.Text = "Next >>";
+            this.AdminNextBtn.UseVisualStyleBackColor = true;
+            this.AdminNextBtn.Click += new System.EventHandler(this.AdminNextBtn_Click);
+            // 
+            // AdminSearchTextBox
+            // 
+            this.AdminSearchTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.AdminSearchTextBox.BorderRadius = 15;
+            this.AdminSearchTextBox.BorderThickness = 2;
+            this.AdminSearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.AdminSearchTextBox.DefaultText = "";
+            this.AdminSearchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.AdminSearchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.AdminSearchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.AdminSearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.AdminSearchTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.AdminSearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.AdminSearchTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminSearchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.AdminSearchTextBox.Location = new System.Drawing.Point(1047, 39);
+            this.AdminSearchTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.AdminSearchTextBox.Name = "AdminSearchTextBox";
+            this.AdminSearchTextBox.PasswordChar = '\0';
+            this.AdminSearchTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminSearchTextBox.PlaceholderText = "";
+            this.AdminSearchTextBox.SelectedText = "";
+            this.AdminSearchTextBox.Size = new System.Drawing.Size(638, 34);
+            this.AdminSearchTextBox.TabIndex = 194;
+            this.AdminSearchTextBox.TextChanged += new System.EventHandler(this.AdminSearchTextBox_TextChanged);
+            // 
+            // AdminSearchLbl
+            // 
+            this.AdminSearchLbl.AutoSize = true;
+            this.AdminSearchLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
+            this.AdminSearchLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminSearchLbl.Location = new System.Drawing.Point(955, 43);
+            this.AdminSearchLbl.Name = "AdminSearchLbl";
+            this.AdminSearchLbl.Size = new System.Drawing.Size(78, 23);
+            this.AdminSearchLbl.TabIndex = 193;
+            this.AdminSearchLbl.Text = "Search:";
             // 
             // AdminCancelEditBtn
             // 
@@ -6768,6 +6778,67 @@ namespace Enchante
             this.AdminNavBarPanel.Size = new System.Drawing.Size(1924, 150);
             this.AdminNavBarPanel.TabIndex = 4;
             // 
+            // AdminUserAccPanel
+            // 
+            this.AdminUserAccPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.AdminUserAccPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.AdminUserAccPanel.Controls.Add(this.AdminIDNumLbl);
+            this.AdminUserAccPanel.Controls.Add(this.AdminNameLbl);
+            this.AdminUserAccPanel.Controls.Add(this.AdminSignOutBtn);
+            this.AdminUserAccPanel.Location = new System.Drawing.Point(1578, 25);
+            this.AdminUserAccPanel.Name = "AdminUserAccPanel";
+            this.AdminUserAccPanel.Size = new System.Drawing.Size(321, 216);
+            this.AdminUserAccPanel.TabIndex = 2;
+            this.AdminUserAccPanel.Visible = false;
+            // 
+            // AdminIDNumLbl
+            // 
+            this.AdminIDNumLbl.AutoEllipsis = true;
+            this.AdminIDNumLbl.AutoSize = true;
+            this.AdminIDNumLbl.Font = new System.Drawing.Font("TechnicBold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.AdminIDNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminIDNumLbl.Location = new System.Drawing.Point(24, 63);
+            this.AdminIDNumLbl.Name = "AdminIDNumLbl";
+            this.AdminIDNumLbl.Size = new System.Drawing.Size(125, 18);
+            this.AdminIDNumLbl.TabIndex = 9;
+            this.AdminIDNumLbl.Text = "Admin ID Number";
+            // 
+            // AdminNameLbl
+            // 
+            this.AdminNameLbl.AutoEllipsis = true;
+            this.AdminNameLbl.AutoSize = true;
+            this.AdminNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.AdminNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminNameLbl.Location = new System.Drawing.Point(22, 23);
+            this.AdminNameLbl.Name = "AdminNameLbl";
+            this.AdminNameLbl.Size = new System.Drawing.Size(153, 29);
+            this.AdminNameLbl.TabIndex = 8;
+            this.AdminNameLbl.Text = "Admin Name";
+            // 
+            // AdminSignOutBtn
+            // 
+            this.AdminSignOutBtn.AutoSize = true;
+            this.AdminSignOutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AdminSignOutBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.AdminSignOutBtn.FlatAppearance.BorderSize = 0;
+            this.AdminSignOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminSignOutBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.AdminSignOutBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminSignOutBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.AdminSignOutBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminSignOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.AdminSignOutBtn.IconSize = 32;
+            this.AdminSignOutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AdminSignOutBtn.Location = new System.Drawing.Point(74, 143);
+            this.AdminSignOutBtn.Name = "AdminSignOutBtn";
+            this.AdminSignOutBtn.Size = new System.Drawing.Size(231, 60);
+            this.AdminSignOutBtn.TabIndex = 7;
+            this.AdminSignOutBtn.Text = "LOGOUT";
+            this.AdminSignOutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AdminSignOutBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.AdminSignOutBtn.UseVisualStyleBackColor = true;
+            this.AdminSignOutBtn.Click += new System.EventHandler(this.AdminSignOutBtn_Click_1);
+            // 
             // AdminAccUserBtn
             // 
             this.AdminAccUserBtn.AutoSize = true;
@@ -6932,6 +7003,7 @@ namespace Enchante
             this.LoginPassText.Size = new System.Drawing.Size(497, 46);
             this.LoginPassText.TabIndex = 25;
             this.LoginPassText.UseSystemPasswordChar = true;
+            this.LoginPassText.TextChanged += new System.EventHandler(this.LoginPassText_TextChanged);
             this.LoginPassText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginPassText_KeyDown);
             this.LoginPassText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LoginPassText_KeyPress);
             // 
@@ -7465,7 +7537,7 @@ namespace Enchante
             this.RecShopProdFooterStopperPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecShopProdFooterStopperPanel.Controls.Add(this.RecShopProdFooterStopperLbl);
             this.RecShopProdFooterStopperPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.RecShopProdFooterStopperPanel.Location = new System.Drawing.Point(406, 1382);
+            this.RecShopProdFooterStopperPanel.Location = new System.Drawing.Point(392, 980);
             this.RecShopProdFooterStopperPanel.Name = "RecShopProdFooterStopperPanel";
             this.RecShopProdFooterStopperPanel.Size = new System.Drawing.Size(804, 30);
             this.RecShopProdFooterStopperPanel.TabIndex = 179;
@@ -7528,9 +7600,9 @@ namespace Enchante
             this.guna2GradientPanel2.Controls.Add(this.RecShopProdPaymentButton);
             this.guna2GradientPanel2.Controls.Add(this.RecShopProdCashLbl);
             this.guna2GradientPanel2.Controls.Add(this.RecShopProdSelectedProdVoidBtn);
-            this.guna2GradientPanel2.Location = new System.Drawing.Point(31, 133);
+            this.guna2GradientPanel2.Location = new System.Drawing.Point(31, 97);
             this.guna2GradientPanel2.Name = "guna2GradientPanel2";
-            this.guna2GradientPanel2.Size = new System.Drawing.Size(1518, 795);
+            this.guna2GradientPanel2.Size = new System.Drawing.Size(1527, 846);
             this.guna2GradientPanel2.TabIndex = 206;
             // 
             // ProductPreviousBtn
@@ -7932,11 +8004,12 @@ namespace Enchante
             this.ApptTabs.Controls.Add(this.ApptBasicInfo);
             this.ApptTabs.Controls.Add(this.ApptService);
             this.ApptTabs.Controls.Add(this.ApptAcqService);
+            this.ApptTabs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ApptTabs.ItemSize = new System.Drawing.Size(180, 40);
             this.ApptTabs.Location = new System.Drawing.Point(0, 0);
             this.ApptTabs.Name = "ApptTabs";
             this.ApptTabs.SelectedIndex = 0;
-            this.ApptTabs.Size = new System.Drawing.Size(1559, 747);
+            this.ApptTabs.Size = new System.Drawing.Size(1586, 1039);
             this.ApptTabs.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.ApptTabs.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.ApptTabs.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -7966,7 +8039,7 @@ namespace Enchante
             this.ApptBasicInfo.Location = new System.Drawing.Point(4, 44);
             this.ApptBasicInfo.Name = "ApptBasicInfo";
             this.ApptBasicInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.ApptBasicInfo.Size = new System.Drawing.Size(1551, 699);
+            this.ApptBasicInfo.Size = new System.Drawing.Size(1578, 991);
             this.ApptBasicInfo.TabIndex = 0;
             this.ApptBasicInfo.Text = "Basic Info";
             // 
@@ -12308,10 +12381,10 @@ namespace Enchante
             this.RecQueStartPanel.AutoScroll = true;
             this.RecQueStartPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecTransactionCard.SetCardName(this.RecQueStartPanel, "QueStart");
+            this.RecQueStartPanel.Controls.Add(this.RecQueStartFooterStopperPanel);
             this.RecQueStartPanel.Controls.Add(this.RecQueStartStaffFLP);
             this.RecQueStartPanel.Controls.Add(this.ServiceTypeComboBox);
             this.RecQueStartPanel.Controls.Add(this.NextCustomerNumLbl);
-            this.RecQueStartPanel.Controls.Add(this.RecQueStartFooterStopperPanel);
             this.RecQueStartPanel.Controls.Add(this.RecQueStartInventoryLbl);
             this.RecQueStartPanel.Controls.Add(this.RecQueStartInventoryDGV);
             this.RecQueStartPanel.Controls.Add(this.RecQueStartNextCustLbl);
@@ -12333,9 +12406,9 @@ namespace Enchante
             this.RecQueStartStaffFLP.AutoScroll = true;
             this.RecQueStartStaffFLP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecQueStartStaffFLP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RecQueStartStaffFLP.Location = new System.Drawing.Point(94, 182);
+            this.RecQueStartStaffFLP.Location = new System.Drawing.Point(262, 206);
             this.RecQueStartStaffFLP.Name = "RecQueStartStaffFLP";
-            this.RecQueStartStaffFLP.Size = new System.Drawing.Size(421, 283);
+            this.RecQueStartStaffFLP.Size = new System.Drawing.Size(475, 350);
             this.RecQueStartStaffFLP.TabIndex = 181;
             // 
             // ServiceTypeComboBox
@@ -12358,20 +12431,20 @@ namespace Enchante
             "Nail Care",
             "Massage",
             "Spa"});
-            this.ServiceTypeComboBox.Location = new System.Drawing.Point(250, 129);
+            this.ServiceTypeComboBox.Location = new System.Drawing.Point(475, 161);
             this.ServiceTypeComboBox.Name = "ServiceTypeComboBox";
-            this.ServiceTypeComboBox.Size = new System.Drawing.Size(250, 36);
+            this.ServiceTypeComboBox.Size = new System.Drawing.Size(208, 36);
             this.ServiceTypeComboBox.TabIndex = 183;
             this.ServiceTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.ServiceTypeComboBox_SelectedIndexChanged);
             // 
             // NextCustomerNumLbl
             // 
             this.NextCustomerNumLbl.AutoSize = true;
-            this.NextCustomerNumLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.NextCustomerNumLbl.Font = new System.Drawing.Font("TechnicBold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.NextCustomerNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.NextCustomerNumLbl.Location = new System.Drawing.Point(274, 491);
+            this.NextCustomerNumLbl.Location = new System.Drawing.Point(585, 572);
             this.NextCustomerNumLbl.Name = "NextCustomerNumLbl";
-            this.NextCustomerNumLbl.Size = new System.Drawing.Size(38, 26);
+            this.NextCustomerNumLbl.Size = new System.Drawing.Size(43, 29);
             this.NextCustomerNumLbl.TabIndex = 182;
             this.NextCustomerNumLbl.Text = "00";
             // 
@@ -12380,9 +12453,9 @@ namespace Enchante
             this.RecQueStartFooterStopperPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecQueStartFooterStopperPanel.Controls.Add(this.RecQueStartFooterStopperLbl);
             this.RecQueStartFooterStopperPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.RecQueStartFooterStopperPanel.Location = new System.Drawing.Point(750, 1607);
+            this.RecQueStartFooterStopperPanel.Location = new System.Drawing.Point(764, 992);
             this.RecQueStartFooterStopperPanel.Name = "RecQueStartFooterStopperPanel";
-            this.RecQueStartFooterStopperPanel.Size = new System.Drawing.Size(804, 81);
+            this.RecQueStartFooterStopperPanel.Size = new System.Drawing.Size(804, 46);
             this.RecQueStartFooterStopperPanel.TabIndex = 180;
             // 
             // RecQueStartFooterStopperLbl
@@ -12486,22 +12559,22 @@ namespace Enchante
             // RecQueStartNextCustLbl
             // 
             this.RecQueStartNextCustLbl.AutoSize = true;
-            this.RecQueStartNextCustLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecQueStartNextCustLbl.Font = new System.Drawing.Font("TechnicBold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecQueStartNextCustLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecQueStartNextCustLbl.Location = new System.Drawing.Point(89, 491);
+            this.RecQueStartNextCustLbl.Location = new System.Drawing.Point(378, 572);
             this.RecQueStartNextCustLbl.Name = "RecQueStartNextCustLbl";
-            this.RecQueStartNextCustLbl.Size = new System.Drawing.Size(188, 26);
+            this.RecQueStartNextCustLbl.Size = new System.Drawing.Size(215, 29);
             this.RecQueStartNextCustLbl.TabIndex = 132;
             this.RecQueStartNextCustLbl.Text = "Next Customer: ";
             // 
             // RecOverallQueueLbl
             // 
             this.RecOverallQueueLbl.AutoSize = true;
-            this.RecOverallQueueLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecOverallQueueLbl.Font = new System.Drawing.Font("TechnicBold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecOverallQueueLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecOverallQueueLbl.Location = new System.Drawing.Point(104, 534);
+            this.RecOverallQueueLbl.Location = new System.Drawing.Point(257, 572);
             this.RecOverallQueueLbl.Name = "RecOverallQueueLbl";
-            this.RecOverallQueueLbl.Size = new System.Drawing.Size(84, 26);
+            this.RecOverallQueueLbl.Size = new System.Drawing.Size(94, 29);
             this.RecOverallQueueLbl.TabIndex = 131;
             this.RecOverallQueueLbl.Text = "QUEUE";
             // 
@@ -12510,30 +12583,30 @@ namespace Enchante
             this.RecQueueStartPanel.AutoScroll = true;
             this.RecQueueStartPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecQueueStartPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RecQueueStartPanel.Location = new System.Drawing.Point(94, 563);
+            this.RecQueueStartPanel.Location = new System.Drawing.Point(264, 610);
             this.RecQueueStartPanel.Name = "RecQueueStartPanel";
-            this.RecQueueStartPanel.Size = new System.Drawing.Size(1322, 225);
+            this.RecQueueStartPanel.Size = new System.Drawing.Size(1050, 380);
             this.RecQueueStartPanel.TabIndex = 129;
             // 
             // RecQueStartCurrentCustLbl
             // 
             this.RecQueStartCurrentCustLbl.AutoSize = true;
-            this.RecQueStartCurrentCustLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecQueStartCurrentCustLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecQueStartCurrentCustLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecQueStartCurrentCustLbl.Location = new System.Drawing.Point(641, 137);
+            this.RecQueStartCurrentCustLbl.Location = new System.Drawing.Point(759, 144);
             this.RecQueStartCurrentCustLbl.Name = "RecQueStartCurrentCustLbl";
-            this.RecQueStartCurrentCustLbl.Size = new System.Drawing.Size(209, 26);
+            this.RecQueStartCurrentCustLbl.Size = new System.Drawing.Size(236, 29);
             this.RecQueStartCurrentCustLbl.TabIndex = 130;
             this.RecQueStartCurrentCustLbl.Text = "Current Customer";
             // 
             // RecQueStartStaffLbl
             // 
             this.RecQueStartStaffLbl.AutoSize = true;
-            this.RecQueStartStaffLbl.Font = new System.Drawing.Font("TechnicBold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.RecQueStartStaffLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecQueStartStaffLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecQueStartStaffLbl.Location = new System.Drawing.Point(89, 137);
+            this.RecQueStartStaffLbl.Location = new System.Drawing.Point(257, 168);
             this.RecQueStartStaffLbl.Name = "RecQueStartStaffLbl";
-            this.RecQueStartStaffLbl.Size = new System.Drawing.Size(128, 26);
+            this.RecQueStartStaffLbl.Size = new System.Drawing.Size(145, 29);
             this.RecQueStartStaffLbl.TabIndex = 129;
             this.RecQueStartStaffLbl.Text = "Staff List";
             // 
@@ -12542,9 +12615,9 @@ namespace Enchante
             this.RecQueStartCurrentCustPanel.AutoScroll = true;
             this.RecQueStartCurrentCustPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecQueStartCurrentCustPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RecQueStartCurrentCustPanel.Location = new System.Drawing.Point(646, 182);
+            this.RecQueStartCurrentCustPanel.Location = new System.Drawing.Point(764, 206);
             this.RecQueStartCurrentCustPanel.Name = "RecQueStartCurrentCustPanel";
-            this.RecQueStartCurrentCustPanel.Size = new System.Drawing.Size(770, 283);
+            this.RecQueStartCurrentCustPanel.Size = new System.Drawing.Size(550, 356);
             this.RecQueStartCurrentCustPanel.TabIndex = 128;
             this.RecQueStartCurrentCustPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.RecQueStartCurrentCustPanel_Paint);
             // 
@@ -12553,11 +12626,11 @@ namespace Enchante
             this.RecQueStartLbl.AutoSize = true;
             this.RecQueStartLbl.Font = new System.Drawing.Font("TechnicBold", 36F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RecQueStartLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecQueStartLbl.Location = new System.Drawing.Point(85, 67);
+            this.RecQueStartLbl.Location = new System.Drawing.Point(255, 72);
             this.RecQueStartLbl.Name = "RecQueStartLbl";
-            this.RecQueStartLbl.Size = new System.Drawing.Size(298, 51);
+            this.RecQueStartLbl.Size = new System.Drawing.Size(377, 51);
             this.RecQueStartLbl.TabIndex = 127;
-            this.RecQueStartLbl.Text = "Queue Start";
+            this.RecQueStartLbl.Text = "Start a Service";
             // 
             // RecBtnHolderPanel
             // 
@@ -12759,7 +12832,7 @@ namespace Enchante
             this.RecQueBtnFlowPanel.MaximumSize = new System.Drawing.Size(305, 330);
             this.RecQueBtnFlowPanel.MinimumSize = new System.Drawing.Size(305, 107);
             this.RecQueBtnFlowPanel.Name = "RecQueBtnFlowPanel";
-            this.RecQueBtnFlowPanel.Size = new System.Drawing.Size(305, 107);
+            this.RecQueBtnFlowPanel.Size = new System.Drawing.Size(305, 216);
             this.RecQueBtnFlowPanel.TabIndex = 22;
             // 
             // RecQueBtn
@@ -12844,7 +12917,7 @@ namespace Enchante
             this.ReceptionLogoutBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.ReceptionLogoutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ReceptionLogoutBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ReceptionLogoutBtn.Location = new System.Drawing.Point(3, 762);
+            this.ReceptionLogoutBtn.Location = new System.Drawing.Point(3, 871);
             this.ReceptionLogoutBtn.Name = "ReceptionLogoutBtn";
             this.ReceptionLogoutBtn.Size = new System.Drawing.Size(295, 100);
             this.ReceptionLogoutBtn.TabIndex = 7;
@@ -12867,7 +12940,7 @@ namespace Enchante
             this.RecOverrideBackBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.RecOverrideBackBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.RecOverrideBackBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RecOverrideBackBtn.Location = new System.Drawing.Point(3, 868);
+            this.RecOverrideBackBtn.Location = new System.Drawing.Point(3, 977);
             this.RecOverrideBackBtn.Name = "RecOverrideBackBtn";
             this.RecOverrideBackBtn.Size = new System.Drawing.Size(295, 100);
             this.RecOverrideBackBtn.TabIndex = 23;
@@ -12945,13 +13018,13 @@ namespace Enchante
             // 
             this.EnchanteParentCard.ContainerControl = this.EnchanteParentContainer;
             this.EnchanteParentCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.EnchanteParentCard.SelectedCard = "Mngr";
+            this.EnchanteParentCard.SelectedCard = "Reception";
             // 
             // RecTransactionCard
             // 
             this.RecTransactionCard.ContainerControl = this.ReceptionCreateTransactPanel;
             this.RecTransactionCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.RecTransactionCard.SelectedCard = "APPT";
+            this.RecTransactionCard.SelectedCard = "ApptConfirm";
             // 
             // DateTimePickerTimer
             // 
@@ -12961,7 +13034,7 @@ namespace Enchante
             // 
             this.MngrInventoryCard.ContainerControl = this.MngrInventoryPanel;
             this.MngrInventoryCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.MngrInventoryCard.SelectedCard = "prod history";
+            this.MngrInventoryCard.SelectedCard = "Appt Service";
             // 
             // PictureSlideTimer
             // 
@@ -12993,77 +13066,6 @@ namespace Enchante
             // 
             this.MngrHistoryTimer.Interval = 1;
             this.MngrHistoryTimer.Tick += new System.EventHandler(this.MngrHistoryTimer_Tick);
-            // 
-            // AdminSearchTextBox
-            // 
-            this.AdminSearchTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.AdminSearchTextBox.BorderRadius = 15;
-            this.AdminSearchTextBox.BorderThickness = 2;
-            this.AdminSearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.AdminSearchTextBox.DefaultText = "";
-            this.AdminSearchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.AdminSearchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.AdminSearchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.AdminSearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.AdminSearchTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.AdminSearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.AdminSearchTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AdminSearchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.AdminSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.AdminSearchTextBox.Location = new System.Drawing.Point(1047, 39);
-            this.AdminSearchTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.AdminSearchTextBox.Name = "AdminSearchTextBox";
-            this.AdminSearchTextBox.PasswordChar = '\0';
-            this.AdminSearchTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.AdminSearchTextBox.PlaceholderText = "";
-            this.AdminSearchTextBox.SelectedText = "";
-            this.AdminSearchTextBox.Size = new System.Drawing.Size(638, 34);
-            this.AdminSearchTextBox.TabIndex = 194;
-            this.AdminSearchTextBox.TextChanged += new System.EventHandler(this.AdminSearchTextBox_TextChanged);
-            // 
-            // AdminSearchLbl
-            // 
-            this.AdminSearchLbl.AutoSize = true;
-            this.AdminSearchLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
-            this.AdminSearchLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.AdminSearchLbl.Location = new System.Drawing.Point(955, 43);
-            this.AdminSearchLbl.Name = "AdminSearchLbl";
-            this.AdminSearchLbl.Size = new System.Drawing.Size(78, 23);
-            this.AdminSearchLbl.TabIndex = 193;
-            this.AdminSearchLbl.Text = "Search:";
-            // 
-            // AdminPreviousBtn
-            // 
-            this.AdminPreviousBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.AdminPreviousBtn.Location = new System.Drawing.Point(958, 687);
-            this.AdminPreviousBtn.Name = "AdminPreviousBtn";
-            this.AdminPreviousBtn.Size = new System.Drawing.Size(75, 23);
-            this.AdminPreviousBtn.TabIndex = 196;
-            this.AdminPreviousBtn.Text = "<< Previous";
-            this.AdminPreviousBtn.UseVisualStyleBackColor = true;
-            this.AdminPreviousBtn.Click += new System.EventHandler(this.AdminPreviousBtn_Click);
-            // 
-            // AdminCurrentRecordLbl
-            // 
-            this.AdminCurrentRecordLbl.AutoSize = true;
-            this.AdminCurrentRecordLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AdminCurrentRecordLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.AdminCurrentRecordLbl.Location = new System.Drawing.Point(1043, 689);
-            this.AdminCurrentRecordLbl.Name = "AdminCurrentRecordLbl";
-            this.AdminCurrentRecordLbl.Size = new System.Drawing.Size(49, 20);
-            this.AdminCurrentRecordLbl.TabIndex = 195;
-            this.AdminCurrentRecordLbl.Text = "n of n";
-            // 
-            // AdminNextBtn
-            // 
-            this.AdminNextBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.AdminNextBtn.Location = new System.Drawing.Point(1108, 687);
-            this.AdminNextBtn.Name = "AdminNextBtn";
-            this.AdminNextBtn.Size = new System.Drawing.Size(75, 23);
-            this.AdminNextBtn.TabIndex = 197;
-            this.AdminNextBtn.Text = "Next >>";
-            this.AdminNextBtn.UseVisualStyleBackColor = true;
-            this.AdminNextBtn.Click += new System.EventHandler(this.AdminNextBtn_Click);
             // 
             // Enchante
             // 
@@ -13181,8 +13183,6 @@ namespace Enchante
             ((System.ComponentModel.ISupportInitialize)(this.MngrMemAccDGV)).EndInit();
             this.EnchanteAdminPage.ResumeLayout(false);
             this.AdminScrollPanel.ResumeLayout(false);
-            this.AdminUserAccPanel.ResumeLayout(false);
-            this.AdminUserAccPanel.PerformLayout();
             this.AdminFooterStopperPanel.ResumeLayout(false);
             this.AdminFooterStopperPanel.PerformLayout();
             this.AdminRegiformPanel.ResumeLayout(false);
@@ -13194,6 +13194,8 @@ namespace Enchante
             ((System.ComponentModel.ISupportInitialize)(this.AdminAccountTable)).EndInit();
             this.AdminNavBarPanel.ResumeLayout(false);
             this.AdminNavBarPanel.PerformLayout();
+            this.AdminUserAccPanel.ResumeLayout(false);
+            this.AdminUserAccPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AdminHeaderLogo)).EndInit();
             this.EnchanteHomePage.ResumeLayout(false);
             this.EnchanteHomeScrollPanel.ResumeLayout(false);

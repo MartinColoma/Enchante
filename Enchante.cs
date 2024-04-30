@@ -85,6 +85,8 @@ namespace Enchante
         private string[] productType = { "Service Product", "Retail Product" };
         private string[] productStat = { "High Stock", "Low Stock" };
         private string[] SalesDatePeriod = { "Day", "Week", "Month", "Specific Date Range" };
+        private string[] QCategories = { "Hair Styling", "Face & Skin", "Nail Care", "Massage", "Spa", "All Categories" };
+
         private string[] SalesCategories = { "Hair Styling", "Face & Skin", "Nail Care", "Massage", "Spa" };
         private string[] BestCategories = { "Hair Styling", "Face & Skin", "Nail Care", "Massage", "Spa", "Top Service Category" };
 
@@ -105,10 +107,13 @@ namespace Enchante
         public string membercategory;
         public string membertype;
 
+        private GlobalKeyHook keyHook;
 
         public Enchante()
         {
             InitializeComponent();
+            keyHook = new GlobalKeyHook();
+            keyHook.KeyPressed += GlobalKeyHook_KeyPressed;
 
             // Exit MessageBox 
             this.FormClosing += new FormClosingEventHandler(MainForm_FormClosing);
@@ -169,7 +174,7 @@ namespace Enchante
             //Receptionist combobox
             RecQueWinStaffCatComboText.Items.AddRange(SalesCategories);
             RecQueWinStaffCatComboText.DropDownStyle = ComboBoxStyle.DropDownList;
-            RecQueWinGenCatComboText.Items.AddRange(SalesCategories);
+            RecQueWinGenCatComboText.Items.AddRange(QCategories);
             RecQueWinGenCatComboText.DropDownStyle = ComboBoxStyle.DropDownList;
             RecApptBookingTimeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
@@ -230,6 +235,57 @@ namespace Enchante
 
 
         }
+        private void GlobalKeyHook_KeyPressed(object sender, KeyPressedEventArgs e)
+        {
+            if (ReceptionScrollPanel.Visible)
+            {
+                if (e.KeyPressed == (Keys.Control | Keys.D1))
+                {
+                    if (!WalkinTabs.Visible)
+                    {
+                        RecWalkInBtn_Click(sender, EventArgs.Empty);
+
+                    }
+                }
+                if (e.KeyPressed == (Keys.Control | Keys.D2))
+                {
+                    if (!ApptTabs.Visible)
+                    {
+                        RecAppointmentBtn_Click(sender, EventArgs.Empty);
+
+                    }
+                }
+                if (e.KeyPressed == (Keys.Control | Keys.D3))
+                {
+                    if (!RecShopProdPanel.Visible)
+                    {
+                        RecShopProdBtn_Click(sender, EventArgs.Empty);
+                    }
+                }
+                if (e.KeyPressed == (Keys.Control | Keys.D4))
+                {
+                    if (!RecApptConfirmPanel.Visible)
+                    {
+                        RecApptConfirmBtn_Click(sender, EventArgs.Empty);
+                    }
+                }
+                if (e.KeyPressed == (Keys.Control | Keys.D5))
+                {
+                    if (!PaymentTabs.Visible)
+                    {
+                        RecPayServiceBtn_Click(sender, EventArgs.Empty);
+                    }
+                }
+            }
+            
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            keyHook.Dispose();
+            base.OnFormClosing(e);
+        }
+
 
         private void Enchante_Load(object sender, EventArgs e)
         {
@@ -786,7 +842,7 @@ namespace Enchante
             LoginEmailAddErrorLbl.Visible = false;
             LoginPassErrorLbl.Visible = false;
             LoginPassText.UseSystemPasswordChar = true;
-            ShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            ShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
 
         }
 
@@ -9575,28 +9631,48 @@ namespace Enchante
 
         private void ServicePeriodCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
-            DateTime selectedDate = MngrIndemandServicePeriodCalendar.SelectionStart;
-            string selectedPeriod = "";
-            string salePeriod = MngrIndemandServiceHistoryPeriod.SelectedItem.ToString();
-
-            switch (salePeriod)
+            if (MngrIndemandServicePeriodCalendar != null && MngrIndemandServiceHistoryPeriod != null && MngrIndemandSelectPeriod != null)
             {
-                case "Day":
-                    selectedPeriod = selectedDate.ToString("MM-dd-yyyy");
-                    break;
-                case "Week":
-                    DateTime monday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + (int)DayOfWeek.Monday);
-                    DateTime sunday = monday.AddDays(6);
-                    selectedPeriod = monday.ToString("MM-dd-yyyy") + " to " + sunday.ToString("MM-dd-yyyy");
-                    break;
-                case "Month":
-                    selectedPeriod = selectedDate.ToString("MMMM-yyyy");
-                    break;
-                default:
-                    break;
+                DateTime selectedDate = MngrIndemandServicePeriodCalendar.SelectionStart;
+                string selectedPeriod = "";
+
+                // Check if an item is selected before accessing it
+                if (MngrIndemandServiceHistoryPeriod.SelectedItem != null)
+                {
+                    string salePeriod = MngrIndemandServiceHistoryPeriod.SelectedItem.ToString();
+
+                    switch (salePeriod)
+                    {
+                        case "Day":
+                            selectedPeriod = selectedDate.ToString("MM-dd-yyyy");
+                            break;
+                        case "Week":
+                            DateTime monday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + (int)DayOfWeek.Monday);
+                            DateTime sunday = monday.AddDays(6);
+                            selectedPeriod = monday.ToString("MM-dd-yyyy") + " to " + sunday.ToString("MM-dd-yyyy");
+                            break;
+                        case "Month":
+                            selectedPeriod = selectedDate.ToString("MMMM-yyyy");
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                else
+                {
+                    // Handle the case where no item is selected
+                    // For example, you might want to provide a default value for selectedPeriod
+                }
+
+                MngrIndemandSelectPeriod.Text = selectedPeriod;
             }
-            MngrIndemandSelectPeriod.Text = selectedPeriod;
+            else
+            {
+                // Handle the case where one of the objects is null
+                // You can log an error message or perform other error handling here
+            }
         }
+
 
         private void MngrIndemandExitBtn_Click(object sender, EventArgs e)
         {
@@ -10334,28 +10410,37 @@ namespace Enchante
 
         private void MngrProductSalesPeriodCalendar_DateChanged_1(object sender, DateRangeEventArgs e)
         {
-            DateTime selectedDate = MngrProductSalesPeriodCalendar.SelectionStart;
-            string selectedPeriod = "";
-            string salePeriod = MngrProductSalesPeriod.SelectedItem.ToString();
-
-            switch (salePeriod)
+            if (MngrProductSalesPeriod.SelectedItem != null)
             {
-                case "Day":
-                    selectedPeriod = selectedDate.ToString("MM-dd-yyyy");
-                    break;
-                case "Week":
-                    DateTime monday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + (int)DayOfWeek.Monday);
-                    DateTime sunday = monday.AddDays(6);
-                    selectedPeriod = monday.ToString("MM-dd-yyyy") + " to " + sunday.ToString("MM-dd-yyyy");
-                    break;
-                case "Month":
-                    selectedPeriod = selectedDate.ToString("MMMM-yyyy");
-                    break;
-                default:
-                    break;
+                DateTime selectedDate = MngrProductSalesPeriodCalendar.SelectionStart;
+                string selectedPeriod = "";
+                string salePeriod = MngrProductSalesPeriod.SelectedItem.ToString();
+
+                switch (salePeriod)
+                {
+                    case "Day":
+                        selectedPeriod = selectedDate.ToString("MM-dd-yyyy");
+                        break;
+                    case "Week":
+                        DateTime monday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + (int)DayOfWeek.Monday);
+                        DateTime sunday = monday.AddDays(6);
+                        selectedPeriod = monday.ToString("MM-dd-yyyy") + " to " + sunday.ToString("MM-dd-yyyy");
+                        break;
+                    case "Month":
+                        selectedPeriod = selectedDate.ToString("MMMM-yyyy");
+                        break;
+                    default:
+                        break;
+                }
+                MngrProductSalesSelectedPeriodText.Text = selectedPeriod;
             }
-            MngrProductSalesSelectedPeriodText.Text = selectedPeriod;
+            else
+            {
+                // Handle the case where no item is selected
+                // For example, you might want to provide a default value for selectedPeriod
+            }
         }
+
         #endregion
 
         #region Mngr. PANEL OF APPOINTMENT Services REVENUE
@@ -10853,28 +10938,37 @@ namespace Enchante
 
         private void MngrAppSalesPeriodCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
-            DateTime selectedDate = MngrAppSalesPeriodCalendar.SelectionStart;
-            string selectedPeriod = "";
-            string salePeriod = MngrAppSalesPeriod.SelectedItem.ToString();
-
-            switch (salePeriod)
+            if (MngrAppSalesPeriod.SelectedItem != null)
             {
-                case "Day":
-                    selectedPeriod = selectedDate.ToString("MM-dd-yyyy");
-                    break;
-                case "Week":
-                    DateTime monday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + (int)DayOfWeek.Monday);
-                    DateTime sunday = monday.AddDays(6);
-                    selectedPeriod = monday.ToString("MM-dd-yyyy") + " to " + sunday.ToString("MM-dd-yyyy");
-                    break;
-                case "Month":
-                    selectedPeriod = selectedDate.ToString("MMMM-yyyy");
-                    break;
-                default:
-                    break;
+                DateTime selectedDate = MngrAppSalesPeriodCalendar.SelectionStart;
+                string selectedPeriod = "";
+                string salePeriod = MngrAppSalesPeriod.SelectedItem.ToString();
+
+                switch (salePeriod)
+                {
+                    case "Day":
+                        selectedPeriod = selectedDate.ToString("MM-dd-yyyy");
+                        break;
+                    case "Week":
+                        DateTime monday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + (int)DayOfWeek.Monday);
+                        DateTime sunday = monday.AddDays(6);
+                        selectedPeriod = monday.ToString("MM-dd-yyyy") + " to " + sunday.ToString("MM-dd-yyyy");
+                        break;
+                    case "Month":
+                        selectedPeriod = selectedDate.ToString("MMMM-yyyy");
+                        break;
+                    default:
+                        break;
+                }
+                MngrAppSalesSelectedPeriodText.Text = selectedPeriod;
             }
-            MngrAppSalesSelectedPeriodText.Text = selectedPeriod;
+            else
+            {
+                // Handle the case where no item is selected
+                // For example, you might want to provide a default value for selectedPeriod
+            }
         }
+
 
         private void MngrAppSalesTransRepDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -15210,6 +15304,11 @@ namespace Enchante
             RecQueWinBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
 
             RecTransBtnResetColor();
+
+            RecQueueStartPanel.Controls.Clear();
+            NoCustomerInQueueUserControl nocustomerusercontrol = new NoCustomerInQueueUserControl();
+            RecQueueStartPanel.Controls.Add(nocustomerusercontrol);
+            NextCustomerNumLbl.Text = "No selected staff.";
         }
 
         private void RecQueWinColor()
@@ -15500,7 +15599,7 @@ namespace Enchante
             }
         }
 
-        private void AvailableCustomersUserControl_ExpandCollapseButtonClicked(object sender, EventArgs e)
+        private void AvailableCustomersUserControl_ExpandCollapseButtonClicked(object sender, EventArgs e) //available customer userctrl
         {
             QueueUserControl availablecustomersusercontrol = (QueueUserControl)sender;
 
@@ -15508,11 +15607,15 @@ namespace Enchante
             {
                 if (!availablecustomersusercontrol.Viewing)
                 {
-                    availablecustomersusercontrol.Size = new System.Drawing.Size(457, 29);
+                    availablecustomersusercontrol.Size = new System.Drawing.Size(500, 120);
+                    availablecustomersusercontrol.ExpandUserControlBtn1.IconChar = FontAwesome.Sharp.IconChar.CaretDown;
+                    availablecustomersusercontrol.ExpandUserControlBtn1.Text = "See more...";
                 }
                 else
                 {
-                    availablecustomersusercontrol.Size = new System.Drawing.Size(457, 186);
+                    availablecustomersusercontrol.Size = new System.Drawing.Size(500, 370);
+                    availablecustomersusercontrol.ExpandUserControlBtn1.IconChar = FontAwesome.Sharp.IconChar.CaretUp;
+                    availablecustomersusercontrol.ExpandUserControlBtn1.Text = "See less...";
                 }
             }
         }
@@ -17884,6 +17987,11 @@ namespace Enchante
         private void ApptServicePreviousBtn_Click(object sender, EventArgs e)
         {
             WalkinServicePreviousButton_Click(sender, e);
+        }
+
+        private void LoginPassText_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
