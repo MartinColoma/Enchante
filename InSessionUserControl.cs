@@ -23,6 +23,8 @@ namespace Enchante
         public event EventHandler StaffCustomerNameTextBoxEnd_Clicked;
         public event EventHandler StaffElapsedTimeTextBoxEnd_Clicked;
         public event EventHandler StaffTransactionIDTextBoxEnd_Clicked;
+        public event EventHandler ExpandUserControlButton_Clicked;
+
 
         private System.Windows.Forms.Timer timer;
         private TimeSpan elapsedTime = TimeSpan.Zero;
@@ -574,6 +576,20 @@ namespace Enchante
             }
         }
 
+        public bool Viewing
+        {
+            get { return viewing; }
+            set { viewing = value; }
+        }
 
+        private void ExpandUserControlBtn_Click(object sender, EventArgs e)
+        {
+            viewing = !viewing;
+
+            if (ExpandUserControlButton_Clicked != null)
+            {
+                ExpandUserControlButton_Clicked(this, EventArgs.Empty);
+            }
+        }
     }
 }
