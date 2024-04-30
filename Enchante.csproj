@@ -181,6 +181,12 @@
     <Compile Include="ServicesUserControl.Designer.cs">
       <DependentUpon>ServicesUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="StaffUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StaffUserControl.Designer.cs">
+      <DependentUpon>StaffUserControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Enchante.resx">
       <DependentUpon>Enchante.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -215,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ServicesUserControl.resx">
       <DependentUpon>ServicesUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffUserControl.resx">
+      <DependentUpon>StaffUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
