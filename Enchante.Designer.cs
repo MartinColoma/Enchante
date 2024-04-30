@@ -38,36 +38,30 @@ namespace Enchante
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -75,12 +69,18 @@ namespace Enchante
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -103,6 +103,34 @@ namespace Enchante
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle67 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle68 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle69 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle70 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle73 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle74 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle75 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle76 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle77 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle78 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle79 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle80 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle81 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle82 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle83 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle84 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Enchante));
             this.EnchanteParentContainer = new System.Windows.Forms.Panel();
             this.EnchanteMngrPage = new System.Windows.Forms.Panel();
@@ -136,209 +164,270 @@ namespace Enchante
             this.MngrNameLbl = new System.Windows.Forms.Label();
             this.MngrInventoryPanel = new System.Windows.Forms.Panel();
             this.MngrInventoryProductsPanel = new System.Windows.Forms.Panel();
-            this.SelectImage = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.PDImage = new System.Windows.Forms.Label();
-            this.MngrInventoryProductsStatusComboText = new System.Windows.Forms.ComboBox();
-            this.MngrInventoryProductsIDLbl = new System.Windows.Forms.Label();
-            this.MngrInventoryProductsIDText = new System.Windows.Forms.TextBox();
-            this.MngrInventoryProductsTypeComboText = new System.Windows.Forms.ComboBox();
-            this.MngrInventoryProductsPriceLbl = new System.Windows.Forms.Label();
-            this.MngrInventoryProductsPriceText = new System.Windows.Forms.TextBox();
-            this.MngrInventoryProductsCatComboText = new System.Windows.Forms.ComboBox();
-            this.MngrInventoryProductsStockLbl = new System.Windows.Forms.Label();
-            this.MngrInventoryProductsStockText = new System.Windows.Forms.TextBox();
-            this.MngrInventoryProductsStatusLbl = new System.Windows.Forms.Label();
-            this.MngrInventoryProductsNameLbl = new System.Windows.Forms.Label();
-            this.MngrInventoryProductsNameText = new System.Windows.Forms.TextBox();
-            this.MngrInventoryProductsTypeLbl = new System.Windows.Forms.Label();
-            this.MngrInventoryProductsCatLbl = new System.Windows.Forms.Label();
-            this.MngrInventoryProductsTable = new System.Windows.Forms.DataGridView();
-            this.CancelEdit = new FontAwesome.Sharp.IconButton();
-            this.ProductImagePictureBox = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.MngrInventoryProductsInfoEditBtn = new FontAwesome.Sharp.IconButton();
             this.MngrInventoryProductsExitBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrInventoryProductsUpdateBtn = new FontAwesome.Sharp.IconButton();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.MngrInventoryProductsInfoEditBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrInventoryProductsSearchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.MngrInventoryProductsCurrentRecordLbl = new System.Windows.Forms.Label();
+            this.MngrInventoryProductsPreviousBtn = new System.Windows.Forms.Button();
+            this.MngrInventoryProductsTable = new System.Windows.Forms.DataGridView();
+            this.MngrInventoryProductsSearchLbl = new System.Windows.Forms.Label();
+            this.MngrInventoryProductsNextBtn = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.CancelEdit = new FontAwesome.Sharp.IconButton();
             this.MngrInventoryProductsInsertBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrInventoryProductsUpdateBtn = new FontAwesome.Sharp.IconButton();
+            this.SelectImage = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.ProductImagePictureBox = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.PDImage = new System.Windows.Forms.Label();
+            this.MngrInventoryProductsCatLbl = new System.Windows.Forms.Label();
+            this.MngrInventoryProductsStatusComboText = new System.Windows.Forms.ComboBox();
+            this.MngrInventoryProductsTypeLbl = new System.Windows.Forms.Label();
+            this.MngrInventoryProductsIDLbl = new System.Windows.Forms.Label();
+            this.MngrInventoryProductsNameText = new System.Windows.Forms.TextBox();
+            this.MngrInventoryProductsIDText = new System.Windows.Forms.TextBox();
+            this.MngrInventoryProductsNameLbl = new System.Windows.Forms.Label();
+            this.MngrInventoryProductsTypeComboText = new System.Windows.Forms.ComboBox();
+            this.MngrInventoryProductsStatusLbl = new System.Windows.Forms.Label();
+            this.MngrInventoryProductsPriceLbl = new System.Windows.Forms.Label();
+            this.MngrInventoryProductsStockText = new System.Windows.Forms.TextBox();
+            this.MngrInventoryProductsPriceText = new System.Windows.Forms.TextBox();
+            this.MngrInventoryProductsStockLbl = new System.Windows.Forms.Label();
+            this.MngrInventoryProductsCatComboText = new System.Windows.Forms.ComboBox();
+            this.RecSearchProductTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.MngrInventoryTypePanel = new System.Windows.Forms.Panel();
             this.iconButton11 = new FontAwesome.Sharp.IconButton();
             this.MngrServiceHistoryPanel = new System.Windows.Forms.Panel();
-            this.MngrSVHistoryServiceCatBox = new System.Windows.Forms.ComboBox();
-            this.MngrSVHistoryServiceCatLbl = new System.Windows.Forms.Label();
-            this.MngrSVHistoryToLbl = new System.Windows.Forms.Label();
-            this.MngrServiceHistoryExitBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrSVHistoryFromLbl = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.MngrSVHistoryPreviousBtn = new System.Windows.Forms.Button();
+            this.MngrSVHistoryCurrentRecordLbl = new System.Windows.Forms.Label();
+            this.MngrSVHistoryNextBtn = new System.Windows.Forms.Button();
+            this.MngrSVHistorySearchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.MngrSVHistorySearchLbl = new System.Windows.Forms.Label();
             this.MngrSVHistoryDGV = new System.Windows.Forms.DataGridView();
+            this.MngrSVHistoryDGVTwo = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.MngrServiceHistoryExitBtn = new FontAwesome.Sharp.IconButton();
+            this.panel13 = new System.Windows.Forms.Panel();
             this.MngrSVHistoryResetBtn = new System.Windows.Forms.Button();
-            this.MngrSVHistoryTransTypeBox = new System.Windows.Forms.ComboBox();
-            this.MngrSVHistoryDatePickTo = new System.Windows.Forms.DateTimePicker();
-            this.MngrSVHistoryTransTypeLbl = new System.Windows.Forms.Label();
-            this.MngrSVHistoryDatePickFrom = new System.Windows.Forms.DateTimePicker();
-            this.MngrSVHistoryDateLbl = new System.Windows.Forms.Label();
+            this.MngrSVHistoryServiceCatBox = new System.Windows.Forms.ComboBox();
             this.MngrSVHistoryServiceStatusBox = new System.Windows.Forms.ComboBox();
+            this.MngrSVHistoryTransTypeBox = new System.Windows.Forms.ComboBox();
             this.MngrSVHistoryServiceStatusLbl = new System.Windows.Forms.Label();
+            this.MngrSVHistoryDateLbl = new System.Windows.Forms.Label();
+            this.MngrSVHistoryServiceCatLbl = new System.Windows.Forms.Label();
+            this.MngrSVHistoryDatePickFrom = new System.Windows.Forms.DateTimePicker();
+            this.MngrSVHistoryToLbl = new System.Windows.Forms.Label();
+            this.MngrSVHistoryTransTypeLbl = new System.Windows.Forms.Label();
+            this.MngrSVHistoryDatePickTo = new System.Windows.Forms.DateTimePicker();
+            this.MngrSVHistoryFromLbl = new System.Windows.Forms.Label();
             this.MngrApptServicePanel = new System.Windows.Forms.Panel();
-            this.MngrAppSalesDataGraphLbl = new System.Windows.Forms.Label();
+            this.MngrApptServiceLbl = new System.Windows.Forms.Label();
+            this.MngrApptServiceExitBtn = new FontAwesome.Sharp.IconButton();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.MngrAppSalesPeriodCalendar = new System.Windows.Forms.MonthCalendar();
             this.MngrAppSalesPeriod = new System.Windows.Forms.ComboBox();
-            this.MngrAppSalesAppointmentSelect = new System.Windows.Forms.ComboBox();
+            this.MngrAppSalesCatLbl = new System.Windows.Forms.Label();
+            this.MngrAppSalesIncomeBtn = new System.Windows.Forms.Button();
             this.MngrAppSalesSelectedPeriodText = new System.Windows.Forms.TextBox();
+            this.MngrAppSalesToLbl = new System.Windows.Forms.Label();
             this.MngrAppSalesSelectCatBox = new System.Windows.Forms.ComboBox();
+            this.MngrAppSalesFromLbl = new System.Windows.Forms.Label();
+            this.MngrAppSalesToDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.MngrAppSalesFromDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.MngrAppSalesPeriodLbl = new System.Windows.Forms.Label();
+            this.MngrAppSalesSelectedPeriodLbl = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.MngrAppSalesPreviousBtn = new System.Windows.Forms.Button();
+            this.MngrAppSalesCurrentRecordLbl = new System.Windows.Forms.Label();
+            this.MngrAppSalesSearchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.MngrAppSalesNextBtn = new System.Windows.Forms.Button();
             this.MngrAppSalesTransServiceHisDGV = new System.Windows.Forms.DataGridView();
             this.MngrAppSalesTransIDShow = new System.Windows.Forms.TextBox();
-            this.MngrAppSalesTransRepDGV = new System.Windows.Forms.DataGridView();
-            this.MngrAppSalesTotalRevLbl = new System.Windows.Forms.Label();
-            this.MngrAppSalesSelectAppLbl = new System.Windows.Forms.Label();
-            this.MngrAppSalesTotalRevBox = new System.Windows.Forms.TextBox();
+            this.MngrAppSalesSearchLbl = new System.Windows.Forms.Label();
             this.MngrAppSalesTransServiceLbl = new System.Windows.Forms.Label();
+            this.MngrAppSalesTotalRevBox = new System.Windows.Forms.TextBox();
+            this.MngrAppSalesTotalRevLbl = new System.Windows.Forms.Label();
+            this.MngrAppSalesTransRepDGV = new System.Windows.Forms.DataGridView();
+            this.MngrAppSalesTransRepDGVTwo = new System.Windows.Forms.DataGridView();
+            this.panel12 = new System.Windows.Forms.Panel();
             this.MngrAppSalesGraph = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.MngrAppSalesSelectedPeriodLbl = new System.Windows.Forms.Label();
-            this.MngrApptServiceLbl = new System.Windows.Forms.Label();
-            this.MngrAppSalesPeriodLbl = new System.Windows.Forms.Label();
-            this.MngrAppSalesPeriodCalendar = new System.Windows.Forms.MonthCalendar();
-            this.MngrAppSalesFromDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.MngrAppSalesTransactionRepLbl = new System.Windows.Forms.Label();
-            this.MngrAppSalesToDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.MngrAppSalesFromLbl = new System.Windows.Forms.Label();
-            this.MngrAppSalesToLbl = new System.Windows.Forms.Label();
-            this.MngrAppSalesIncomeBtn = new System.Windows.Forms.Button();
-            this.MngrAppSalesCatLbl = new System.Windows.Forms.Label();
-            this.MngrApptServiceExitBtn = new FontAwesome.Sharp.IconButton();
             this.MngrWalkinProdSalesPanel = new System.Windows.Forms.Panel();
+            this.MngrWalkinProdSalesLbl = new System.Windows.Forms.Label();
+            this.MngrWalkinProdSalesExitBtn = new FontAwesome.Sharp.IconButton();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.MngrProductSalesIncomeBtn = new System.Windows.Forms.Button();
             this.MngrProductSalesPeriod = new System.Windows.Forms.ComboBox();
-            this.MngrProductSalesTransRepDGV = new System.Windows.Forms.DataGridView();
+            this.MngrProductSalesPeriodCalendar = new System.Windows.Forms.MonthCalendar();
+            this.MngrProductSalesCatLbl = new System.Windows.Forms.Label();
             this.MngrProductSalesSelectedPeriodText = new System.Windows.Forms.TextBox();
             this.MngrProductSalesSelectCatBox = new System.Windows.Forms.ComboBox();
-            this.MngrProductSalesTotalRevLbl = new System.Windows.Forms.Label();
-            this.MngrProductSalesTotalRevBox = new System.Windows.Forms.TextBox();
-            this.trydata = new System.Windows.Forms.DataGridView();
+            this.MngrProductSalesSelectedPeriodLbl = new System.Windows.Forms.Label();
+            this.MngrProductSalesPeriodLbl = new System.Windows.Forms.Label();
+            this.MngrProductSalesFromDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.MngrProductSalesToDatePicker = new System.Windows.Forms.DateTimePicker();
             this.MngrProductSalesToLbl = new System.Windows.Forms.Label();
             this.MngrProductSalesFromLbl = new System.Windows.Forms.Label();
-            this.MngrProductSalesToDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.MngrProductSalesFromDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.MngrProductSalesTransRepDGV = new System.Windows.Forms.DataGridView();
+            this.MngrProductSalesPreviousBtn = new System.Windows.Forms.Button();
+            this.MngrProductSalesCurrentRecordLbl = new System.Windows.Forms.Label();
+            this.MngrProductSalesNextBtn = new System.Windows.Forms.Button();
+            this.MngrProductSalesSearchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.MngrProductSalesSearchLbl = new System.Windows.Forms.Label();
+            this.MngrProductSalesTotalRevLbl = new System.Windows.Forms.Label();
+            this.MngrProductSalesTotalRevBox = new System.Windows.Forms.TextBox();
+            this.MngrProductSalesTransRepDGVTwo = new System.Windows.Forms.DataGridView();
+            this.panel19 = new System.Windows.Forms.Panel();
             this.MngrProductSalesLineGraph = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.MngrProductSalesGraph = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.MngrWalkinProdSalesLbl = new System.Windows.Forms.Label();
-            this.MngrProductSalesTransactionRepLbl = new System.Windows.Forms.Label();
-            this.MngrProductSalesPeriodLbl = new System.Windows.Forms.Label();
-            this.MngrProductSalesPeriodCalendar = new System.Windows.Forms.MonthCalendar();
-            this.MngrProductSalesSelectedPeriodLbl = new System.Windows.Forms.Label();
-            this.MngrProductSalesIncomeBtn = new System.Windows.Forms.Button();
-            this.MngrProductSalesCatLbl = new System.Windows.Forms.Label();
-            this.MngrWalkinProdSalesExitBtn = new FontAwesome.Sharp.IconButton();
+            this.trydata = new System.Windows.Forms.DataGridView();
             this.MngrWalkinSalesPanel = new System.Windows.Forms.Panel();
-            this.MngrWalkinSalesRevenueTextbox = new System.Windows.Forms.TextBox();
-            this.MngrWalkinSalesTotalRevenueLbl = new System.Windows.Forms.Label();
-            this.MngrWalkinSalesGraphLbl = new System.Windows.Forms.Label();
-            this.MngrWalkinSalesTransServiceHisDGV = new System.Windows.Forms.DataGridView();
-            this.MngrWalkinSalesTransRepDGV = new System.Windows.Forms.DataGridView();
             this.MngrWalkinSalesLbl = new System.Windows.Forms.Label();
-            this.MngrWalkinSalesGraph = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.MngrWalkinSalesTransIDShow = new System.Windows.Forms.TextBox();
+            this.MngrWalkinSalesExitBtn = new FontAwesome.Sharp.IconButton();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.MngrWalkinSalesIncomeBtn = new System.Windows.Forms.Button();
+            this.MngrWalkinSalesPeriodCalendar = new System.Windows.Forms.MonthCalendar();
+            this.MngrWalkinSalesFromDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.MngrWalkinSalesToDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.MngrWalkinSalesSelectCatBox = new System.Windows.Forms.ComboBox();
+            this.MngrWalkinSalesFromLbl = new System.Windows.Forms.Label();
+            this.MngrWalkinSalesToLbl = new System.Windows.Forms.Label();
+            this.MngrWalkinSalesCatLbl = new System.Windows.Forms.Label();
             this.MngrWalkinSalesSelectedPeriodText = new System.Windows.Forms.TextBox();
+            this.MngrWalkinSalesPeriod = new System.Windows.Forms.ComboBox();
             this.MngrWalkinSalesSelectedPeriodLbl = new System.Windows.Forms.Label();
             this.MngrWalkinSalesPeriodLbl = new System.Windows.Forms.Label();
-            this.MngrWalkinSalesPeriod = new System.Windows.Forms.ComboBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.MngrWalkinSalesPreviousBtn = new System.Windows.Forms.Button();
+            this.MngrWalkinSalesRevenueTextbox = new System.Windows.Forms.TextBox();
+            this.MngrWalkinSalesCurrentRecordLbl = new System.Windows.Forms.Label();
+            this.MngrWalkinSalesSearchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.MngrWalkinSalesNextBtn = new System.Windows.Forms.Button();
+            this.MngrWalkinSalesTotalRevenueLbl = new System.Windows.Forms.Label();
+            this.MngrWalkinSalesSearchLbl = new System.Windows.Forms.Label();
+            this.MngrWalkinSalesTransRepDGV = new System.Windows.Forms.DataGridView();
+            this.MngrWalkinSalesTransServiceHisDGV = new System.Windows.Forms.DataGridView();
             this.MngrWalkinSalesTransServiceLbl = new System.Windows.Forms.Label();
-            this.MngrWalkinSalesTransactionRepLbl = new System.Windows.Forms.Label();
-            this.MngrWalkinSalesIncomeBtn = new System.Windows.Forms.Button();
-            this.MngrWalkinSalesCatLbl = new System.Windows.Forms.Label();
-            this.MngrWalkinSalesToLbl = new System.Windows.Forms.Label();
-            this.MngrWalkinSalesFromLbl = new System.Windows.Forms.Label();
-            this.MngrWalkinSalesSelectCatBox = new System.Windows.Forms.ComboBox();
-            this.MngrWalkinSalesToDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.MngrWalkinSalesFromDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.MngrWalkinSalesPeriodCalendar = new System.Windows.Forms.MonthCalendar();
-            this.MngrWalkinSalesExitBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrWalkinSalesTransIDShow = new System.Windows.Forms.TextBox();
+            this.MngrWalkinSalesTransRepDGVTwo = new System.Windows.Forms.DataGridView();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.MngrWalkinSalesGraph = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.MngrIndemandPanel = new System.Windows.Forms.Panel();
-            this.MngrIndemandServiceGraphLbl = new System.Windows.Forms.Label();
             this.MngrIndemandLbl = new System.Windows.Forms.Label();
-            this.MngrIndemandBestEmployee = new System.Windows.Forms.DataGridView();
-            this.MngrIndemandServiceSelection = new System.Windows.Forms.DataGridView();
-            this.MngrIndemandServiceGraph = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.MngrIndemandSelectPeriod = new System.Windows.Forms.TextBox();
-            this.MngrIndemandSelectPeriodLbl = new System.Windows.Forms.Label();
-            this.MngrIndemandServiceHistoryPeriodLbl = new System.Windows.Forms.Label();
-            this.MngrIndemandServiceHistoryPeriod = new System.Windows.Forms.ComboBox();
-            this.MngrIndemandBestEmplLbl = new System.Windows.Forms.Label();
-            this.MngrIndemandFrequencyServiceLbl = new System.Windows.Forms.Label();
-            this.MngrIndemandServiceHistoryBtn = new System.Windows.Forms.Button();
-            this.MngrIndemandSelectCatLbl = new System.Windows.Forms.Label();
-            this.MngrIndemandToLbl = new System.Windows.Forms.Label();
-            this.MngrIndemandFromLbl = new System.Windows.Forms.Label();
-            this.MngrIndemandSelectCatBox = new System.Windows.Forms.ComboBox();
-            this.MngrIndemandDatePickerTo = new System.Windows.Forms.DateTimePicker();
-            this.MngrIndemandDatePickerFrom = new System.Windows.Forms.DateTimePicker();
-            this.MngrIndemandServicePeriodCalendar = new System.Windows.Forms.MonthCalendar();
             this.MngrIndemandExitBtn = new FontAwesome.Sharp.IconButton();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.MngrIndemandServiceHistoryBtn = new System.Windows.Forms.Button();
+            this.MngrIndemandServiceHistoryPeriodLbl = new System.Windows.Forms.Label();
+            this.MngrIndemandServicePeriodCalendar = new System.Windows.Forms.MonthCalendar();
+            this.MngrIndemandDatePickerFrom = new System.Windows.Forms.DateTimePicker();
+            this.MngrIndemandDatePickerTo = new System.Windows.Forms.DateTimePicker();
+            this.MngrIndemandSelectCatBox = new System.Windows.Forms.ComboBox();
+            this.MngrIndemandSelectPeriod = new System.Windows.Forms.TextBox();
+            this.MngrIndemandFromLbl = new System.Windows.Forms.Label();
+            this.MngrIndemandSelectPeriodLbl = new System.Windows.Forms.Label();
+            this.MngrIndemandToLbl = new System.Windows.Forms.Label();
+            this.MngrIndemandSelectCatLbl = new System.Windows.Forms.Label();
+            this.MngrIndemandServiceHistoryPeriod = new System.Windows.Forms.ComboBox();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.MngrIndemandPreviousBtn = new System.Windows.Forms.Button();
+            this.MngrIndemandServiceSelection = new System.Windows.Forms.DataGridView();
+            this.MngrIndemandCurrentRecordLbl = new System.Windows.Forms.Label();
+            this.MngrIndemandSearchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.MngrIndemandNextBtn = new System.Windows.Forms.Button();
+            this.MngrIndemandSearchLbl = new System.Windows.Forms.Label();
+            this.MngrIndemandServiceSelectionTwo = new System.Windows.Forms.DataGridView();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.MngrIndemandServiceGraph = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.MngrIndemandBestEmployee = new System.Windows.Forms.DataGridView();
             this.MngrInventoryProductHistoryPanel = new System.Windows.Forms.Panel();
-            this.MngrPDHistoryDGV = new System.Windows.Forms.DataGridView();
-            this.MngrPDHistoryToLbl = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.MngrInventoryProductHistoryExitBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrPDHistoryResetBtn = new System.Windows.Forms.Button();
-            this.MngrPDHistoryFromLbl = new System.Windows.Forms.Label();
+            this.panel15 = new System.Windows.Forms.Panel();
             this.MngrPDHistoryItemCatBox = new System.Windows.Forms.ComboBox();
             this.MngrPDHistoryStatusBox = new System.Windows.Forms.ComboBox();
-            this.MngrPDHistoryStatusLbl = new System.Windows.Forms.Label();
-            this.MngrPDHistoryDatePickTo = new System.Windows.Forms.DateTimePicker();
-            this.MngrPDHistoryItemCatLbl = new System.Windows.Forms.Label();
-            this.MngrPDHistoryDateLbl = new System.Windows.Forms.Label();
+            this.MngrPDHistoryResetBtn = new System.Windows.Forms.Button();
             this.MngrPDHistoryDatePickFrom = new System.Windows.Forms.DateTimePicker();
+            this.MngrPDHistoryDateLbl = new System.Windows.Forms.Label();
+            this.MngrPDHistoryItemCatLbl = new System.Windows.Forms.Label();
+            this.MngrPDHistoryDatePickTo = new System.Windows.Forms.DateTimePicker();
+            this.MngrPDHistoryStatusLbl = new System.Windows.Forms.Label();
+            this.MngrPDHistoryToLbl = new System.Windows.Forms.Label();
+            this.MngrPDHistoryFromLbl = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.MngrPDHistoryDGV = new System.Windows.Forms.DataGridView();
+            this.MngrPDSearchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.MngrPDHistoryPreviousBtn = new System.Windows.Forms.Button();
+            this.MngrPDHistorySearchLbl = new System.Windows.Forms.Label();
+            this.MngrPDCurrentRecordLbl = new System.Windows.Forms.Label();
+            this.MngrPDHistoryNextBtn = new System.Windows.Forms.Button();
+            this.MngrPDHistoryDGVTwo = new System.Windows.Forms.DataGridView();
             this.MngrPromoPanel = new System.Windows.Forms.Panel();
-            this.MngrVoucherXBtn = new System.Windows.Forms.Button();
-            this.MngrVoucherInsertBtn = new System.Windows.Forms.Button();
-            this.MngrVoucherPromoCodeTextBox = new System.Windows.Forms.TextBox();
-            this.MngrVoucherPromoCategoryComboBox = new System.Windows.Forms.ComboBox();
-            this.MngrVoucherSelectCatTextBox = new System.Windows.Forms.TextBox();
-            this.MngrVoucherAvailNumTextBox = new System.Windows.Forms.TextBox();
-            this.MngrVoucherPromoDiscTextBox = new System.Windows.Forms.TextBox();
-            this.MngrVoucherPromoNameTextBox = new System.Windows.Forms.TextBox();
-            this.MngrVoucherEditBtn = new System.Windows.Forms.Button();
-            this.MngrVoucherNextBtn = new System.Windows.Forms.Button();
-            this.MngrVoucherPreviousBtn = new System.Windows.Forms.Button();
-            this.MngrVoucherCurrentRecordLbl = new System.Windows.Forms.Label();
-            this.MngrVoucherCancelBtn = new System.Windows.Forms.Button();
-            this.MngrVoucherUpdateBtn = new System.Windows.Forms.Button();
-            this.MngrVoucherSelectedCatLbl = new System.Windows.Forms.Label();
-            this.MngrVoucherPromoCategoryLbl = new System.Windows.Forms.Label();
-            this.MngrVoucherAvailNumLbl = new System.Windows.Forms.Label();
-            this.MngrVoucherPromoDiscLbl = new System.Windows.Forms.Label();
-            this.MngrVoucherPromoCodeLbl = new System.Windows.Forms.Label();
-            this.MngrVoucherPromoNameLbl = new System.Windows.Forms.Label();
-            this.MngrVoucherDatePickerEnd = new System.Windows.Forms.DateTimePicker();
-            this.MngrVoucherDatePickerStart = new System.Windows.Forms.DateTimePicker();
-            this.MngrVoucherDateEndLbl = new System.Windows.Forms.Label();
-            this.MngrVoucherDateStartLbl = new System.Windows.Forms.Label();
             this.MngrSchedExitBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrVoucherDGV = new System.Windows.Forms.DataGridView();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.MngrVoucherSearchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.MngrVoucherSearchLbl = new System.Windows.Forms.Label();
-            this.MngrVoucherSearchTextBox = new System.Windows.Forms.TextBox();
+            this.MngrVoucherDGV = new System.Windows.Forms.DataGridView();
+            this.MngrVoucherPreviousBtn = new System.Windows.Forms.Button();
+            this.MngrVoucherEditBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrVoucherCurrentRecordLbl = new System.Windows.Forms.Label();
+            this.MngrVoucherNextBtn = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.MngrVoucherInsertBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrVoucherXBtn = new System.Windows.Forms.Button();
+            this.MngrVoucherUpdateBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrVoucherDateStartLbl = new System.Windows.Forms.Label();
+            this.MngrVoucherDateEndLbl = new System.Windows.Forms.Label();
+            this.MngrVoucherPromoCodeTextBox = new System.Windows.Forms.TextBox();
+            this.MngrVoucherDatePickerStart = new System.Windows.Forms.DateTimePicker();
+            this.MngrVoucherCancelBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrVoucherDatePickerEnd = new System.Windows.Forms.DateTimePicker();
+            this.MngrVoucherPromoCategoryComboBox = new System.Windows.Forms.ComboBox();
+            this.MngrVoucherPromoNameLbl = new System.Windows.Forms.Label();
+            this.MngrVoucherSelectCatTextBox = new System.Windows.Forms.TextBox();
+            this.MngrVoucherPromoCodeLbl = new System.Windows.Forms.Label();
+            this.MngrVoucherAvailNumTextBox = new System.Windows.Forms.TextBox();
+            this.MngrVoucherPromoDiscLbl = new System.Windows.Forms.Label();
+            this.MngrVoucherPromoDiscTextBox = new System.Windows.Forms.TextBox();
+            this.MngrVoucherAvailNumLbl = new System.Windows.Forms.Label();
+            this.MngrVoucherPromoNameTextBox = new System.Windows.Forms.TextBox();
+            this.MngrVoucherPromoCategoryLbl = new System.Windows.Forms.Label();
+            this.MngrVoucherSelectedCatLbl = new System.Windows.Forms.Label();
             this.MngrServicesPanel = new System.Windows.Forms.Panel();
-            this.MngrServicesDeleteBtn = new System.Windows.Forms.Button();
-            this.MngrServicesNumOfItems = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.MngrServicesSelectedReqItemText = new System.Windows.Forms.TextBox();
-            this.MngrServicesSelectedRequiredItemLbl = new System.Windows.Forms.Label();
-            this.MngrServicesRequiredItemBox = new System.Windows.Forms.ComboBox();
-            this.MngrServicesRequiredItemLbl = new System.Windows.Forms.Label();
-            this.MngrServicesIDNumLbl = new System.Windows.Forms.Label();
-            this.MngrServicesIDNumText = new System.Windows.Forms.TextBox();
-            this.MngrServicesTypeComboText = new System.Windows.Forms.ComboBox();
-            this.MngrServicesPriceLbl = new System.Windows.Forms.Label();
-            this.MngrServicesPriceText = new System.Windows.Forms.TextBox();
-            this.MngrServicesCategoryComboText = new System.Windows.Forms.ComboBox();
-            this.MngrServicesDurationLbl = new System.Windows.Forms.Label();
-            this.MngrServicesDurationText = new System.Windows.Forms.TextBox();
-            this.MngrServicesDescriptionLbl = new System.Windows.Forms.Label();
-            this.MngrServicesDescriptionText = new System.Windows.Forms.TextBox();
-            this.MngrServicesNameLbl = new System.Windows.Forms.Label();
-            this.MngrServicesNameText = new System.Windows.Forms.TextBox();
-            this.MngrServicesTypeLbl = new System.Windows.Forms.Label();
-            this.MngrServicesCategoryLbl = new System.Windows.Forms.Label();
-            this.MngrInventoryServicesTable = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.MngrServicesCancelButton = new FontAwesome.Sharp.IconButton();
-            this.MngrServicesUpdateBtn = new FontAwesome.Sharp.IconButton();
-            this.MngrServicesUpdateInfoBtn = new FontAwesome.Sharp.IconButton();
             this.MngrServicesCreateBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrServicesDeleteBtn = new System.Windows.Forms.Button();
+            this.MngrServicesCategoryLbl = new System.Windows.Forms.Label();
+            this.MngrServicesNumOfItems = new System.Windows.Forms.TextBox();
+            this.MngrServicesTypeLbl = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.MngrServicesNameText = new System.Windows.Forms.TextBox();
+            this.MngrServicesSelectedReqItemText = new System.Windows.Forms.TextBox();
+            this.MngrServicesNameLbl = new System.Windows.Forms.Label();
+            this.MngrServicesSelectedRequiredItemLbl = new System.Windows.Forms.Label();
+            this.MngrServicesDescriptionText = new System.Windows.Forms.TextBox();
+            this.MngrServicesRequiredItemBox = new System.Windows.Forms.ComboBox();
+            this.MngrServicesDescriptionLbl = new System.Windows.Forms.Label();
+            this.MngrServicesRequiredItemLbl = new System.Windows.Forms.Label();
+            this.MngrServicesDurationText = new System.Windows.Forms.TextBox();
+            this.MngrServicesIDNumLbl = new System.Windows.Forms.Label();
+            this.MngrServicesDurationLbl = new System.Windows.Forms.Label();
+            this.MngrServicesIDNumText = new System.Windows.Forms.TextBox();
+            this.MngrServicesCategoryComboText = new System.Windows.Forms.ComboBox();
+            this.MngrServicesTypeComboText = new System.Windows.Forms.ComboBox();
+            this.MngrServicesPriceText = new System.Windows.Forms.TextBox();
+            this.MngrServicesPriceLbl = new System.Windows.Forms.Label();
+            this.MngrServicesUpdateBtn = new FontAwesome.Sharp.IconButton();
             this.MngrServicesExitBtn = new FontAwesome.Sharp.IconButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.MngrServicesUpdateInfoBtn = new FontAwesome.Sharp.IconButton();
+            this.MngrServicesSearchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.MngrServicesSearchLbl = new System.Windows.Forms.Label();
+            this.MngrServicesCurrentRecordLbl = new System.Windows.Forms.Label();
+            this.MngrServicesPreviousBtn = new System.Windows.Forms.Button();
+            this.MngrServicesNextBtn = new System.Windows.Forms.Button();
+            this.MngrInventoryServicesTable = new System.Windows.Forms.DataGridView();
             this.MngrInventoryMembershipPanel = new System.Windows.Forms.Panel();
             this.MngrMemAccDGV = new System.Windows.Forms.DataGridView();
             this.MngrMemAccToLbl = new System.Windows.Forms.Label();
@@ -466,7 +555,6 @@ namespace Enchante
             this.RecShopProdCashBox = new System.Windows.Forms.TextBox();
             this.RecShopProdLbl = new System.Windows.Forms.Label();
             this.RecShopProdGrossAmountLbl = new System.Windows.Forms.Label();
-            this.RecSearchProductTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.RecShopProdGrossAmountBox = new System.Windows.Forms.TextBox();
             this.RecShopProdVATLbl = new System.Windows.Forms.Label();
             this.RecShopProdProductFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -544,6 +632,9 @@ namespace Enchante
             this.ApptAcqService = new System.Windows.Forms.TabPage();
             this.RecApptPanelExitBtn = new FontAwesome.Sharp.IconButton();
             this.RecApptAcqServicePanel = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.ApptServicePreviousBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.ApptServiceNextBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.ApptServicePageLbl = new Guna.UI2.WinForms.Guna2Button();
             this.RecApptServicesFLP = new System.Windows.Forms.FlowLayoutPanel();
             this.RecApptAddMoreServiceBtn = new System.Windows.Forms.Label();
             this.RecApptChangeText = new System.Windows.Forms.TextBox();
@@ -704,6 +795,9 @@ namespace Enchante
             this.RecWalkinCPNumErrorLbl = new System.Windows.Forms.Label();
             this.WalkinServiceCatNStaff = new System.Windows.Forms.TabPage();
             this.RecWalkinServicePanel = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.WalkinServicePreviousButton = new Guna.UI2.WinForms.Guna2Button();
+            this.WalkinServiceNextButton = new Guna.UI2.WinForms.Guna2Button();
+            this.WalkinServicePageLbl = new Guna.UI2.WinForms.Guna2Button();
             this.RecWalkinServicesFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.RecWalkinProdCOBtn = new System.Windows.Forms.Label();
             this.RecWalkinServicePrevBtn = new FontAwesome.Sharp.IconButton();
@@ -817,12 +911,11 @@ namespace Enchante
             this.MngrDataTimer = new System.Windows.Forms.Timer(this.components);
             this.MngrReportsTimer = new System.Windows.Forms.Timer(this.components);
             this.MngrHistoryTimer = new System.Windows.Forms.Timer(this.components);
-            this.WalkinServicePreviousButton = new Guna.UI2.WinForms.Guna2Button();
-            this.WalkinServiceNextButton = new Guna.UI2.WinForms.Guna2Button();
-            this.WalkinServicePageLbl = new Guna.UI2.WinForms.Guna2Button();
-            this.ApptServicePreviousBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.ApptServiceNextBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.ApptServicePageLbl = new Guna.UI2.WinForms.Guna2Button();
+            this.AdminSearchTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.AdminSearchLbl = new System.Windows.Forms.Label();
+            this.AdminPreviousBtn = new System.Windows.Forms.Button();
+            this.AdminCurrentRecordLbl = new System.Windows.Forms.Label();
+            this.AdminNextBtn = new System.Windows.Forms.Button();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteMngrPage.SuspendLayout();
             this.MngrScrollPanel.SuspendLayout();
@@ -834,33 +927,61 @@ namespace Enchante
             ((System.ComponentModel.ISupportInitialize)(this.MngrHeaderLogo)).BeginInit();
             this.MngrInventoryPanel.SuspendLayout();
             this.MngrInventoryProductsPanel.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrInventoryProductsTable)).BeginInit();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProductImagePictureBox)).BeginInit();
             this.MngrInventoryTypePanel.SuspendLayout();
             this.MngrServiceHistoryPanel.SuspendLayout();
+            this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrSVHistoryDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrSVHistoryDGVTwo)).BeginInit();
+            this.panel13.SuspendLayout();
             this.MngrApptServicePanel.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrAppSalesTransServiceHisDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrAppSalesTransRepDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrAppSalesTransRepDGVTwo)).BeginInit();
+            this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrAppSalesGraph)).BeginInit();
             this.MngrWalkinProdSalesPanel.SuspendLayout();
+            this.panel17.SuspendLayout();
+            this.panel18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrProductSalesTransRepDGV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trydata)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrProductSalesTransRepDGVTwo)).BeginInit();
+            this.panel19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrProductSalesLineGraph)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrProductSalesGraph)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trydata)).BeginInit();
             this.MngrWalkinSalesPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MngrWalkinSalesTransServiceHisDGV)).BeginInit();
+            this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrWalkinSalesTransRepDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrWalkinSalesTransServiceHisDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrWalkinSalesTransRepDGVTwo)).BeginInit();
+            this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrWalkinSalesGraph)).BeginInit();
             this.MngrIndemandPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MngrIndemandBestEmployee)).BeginInit();
+            this.panel20.SuspendLayout();
+            this.panel22.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrIndemandServiceSelection)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrIndemandServiceSelectionTwo)).BeginInit();
+            this.panel23.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrIndemandServiceGraph)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrIndemandBestEmployee)).BeginInit();
             this.MngrInventoryProductHistoryPanel.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrPDHistoryDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrPDHistoryDGVTwo)).BeginInit();
             this.MngrPromoPanel.SuspendLayout();
+            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrVoucherDGV)).BeginInit();
+            this.panel6.SuspendLayout();
             this.MngrServicesPanel.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrInventoryServicesTable)).BeginInit();
             this.MngrInventoryMembershipPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrMemAccDGV)).BeginInit();
@@ -961,7 +1082,7 @@ namespace Enchante
             this.EnchanteParentContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnchanteParentContainer.Location = new System.Drawing.Point(0, 0);
             this.EnchanteParentContainer.Name = "EnchanteParentContainer";
-            this.EnchanteParentContainer.Size = new System.Drawing.Size(1370, 749);
+            this.EnchanteParentContainer.Size = new System.Drawing.Size(1924, 1061);
             this.EnchanteParentContainer.TabIndex = 0;
             // 
             // EnchanteMngrPage
@@ -972,7 +1093,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteMngrPage, new System.Drawing.Size(200, 100));
             this.EnchanteMngrPage.Name = "EnchanteMngrPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteMngrPage, new System.Drawing.Size(200, 100));
-            this.EnchanteMngrPage.Size = new System.Drawing.Size(1370, 749);
+            this.EnchanteMngrPage.Size = new System.Drawing.Size(1924, 1061);
             this.EnchanteMngrPage.TabIndex = 6;
             // 
             // MngrScrollPanel
@@ -984,7 +1105,7 @@ namespace Enchante
             this.MngrScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MngrScrollPanel.Location = new System.Drawing.Point(0, 0);
             this.MngrScrollPanel.Name = "MngrScrollPanel";
-            this.MngrScrollPanel.Size = new System.Drawing.Size(1370, 749);
+            this.MngrScrollPanel.Size = new System.Drawing.Size(1924, 1061);
             this.MngrScrollPanel.TabIndex = 0;
             // 
             // MngrNavBarPanel
@@ -1001,7 +1122,7 @@ namespace Enchante
             this.MngrNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.MngrNavBarPanel.MaximumSize = new System.Drawing.Size(330, 1061);
             this.MngrNavBarPanel.Name = "MngrNavBarPanel";
-            this.MngrNavBarPanel.Size = new System.Drawing.Size(330, 732);
+            this.MngrNavBarPanel.Size = new System.Drawing.Size(330, 1061);
             this.MngrNavBarPanel.TabIndex = 3;
             // 
             // MngrDateTimeText
@@ -1027,7 +1148,7 @@ namespace Enchante
             this.MngrBtnHolderFlowPanel.Controls.Add(this.MngrSignOutBtn);
             this.MngrBtnHolderFlowPanel.Controls.Add(this.MngrOverrideBackBtn);
             this.MngrBtnHolderFlowPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.MngrBtnHolderFlowPanel.Location = new System.Drawing.Point(0, 34);
+            this.MngrBtnHolderFlowPanel.Location = new System.Drawing.Point(0, 363);
             this.MngrBtnHolderFlowPanel.Name = "MngrBtnHolderFlowPanel";
             this.MngrBtnHolderFlowPanel.Size = new System.Drawing.Size(330, 698);
             this.MngrBtnHolderFlowPanel.TabIndex = 64;
@@ -1527,237 +1648,130 @@ namespace Enchante
             this.MngrInventoryPanel.Controls.Add(this.MngrServicesPanel);
             this.MngrInventoryPanel.Controls.Add(this.MngrInventoryMembershipPanel);
             this.MngrInventoryPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.MngrInventoryPanel.Location = new System.Drawing.Point(330, 0);
+            this.MngrInventoryPanel.Location = new System.Drawing.Point(336, 0);
             this.MngrInventoryPanel.Name = "MngrInventoryPanel";
-            this.MngrInventoryPanel.Size = new System.Drawing.Size(1588, 732);
+            this.MngrInventoryPanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrInventoryPanel.TabIndex = 24;
             // 
             // MngrInventoryProductsPanel
             // 
             this.MngrInventoryProductsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrInventoryCard.SetCardName(this.MngrInventoryProductsPanel, "products");
-            this.MngrInventoryProductsPanel.Controls.Add(this.SelectImage);
-            this.MngrInventoryProductsPanel.Controls.Add(this.PDImage);
-            this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsStatusComboText);
-            this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsIDLbl);
-            this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsIDText);
-            this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsTypeComboText);
-            this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsPriceLbl);
-            this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsPriceText);
-            this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsCatComboText);
-            this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsStockLbl);
-            this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsStockText);
-            this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsStatusLbl);
-            this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsNameLbl);
-            this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsNameText);
-            this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsTypeLbl);
-            this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsCatLbl);
-            this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsTable);
-            this.MngrInventoryProductsPanel.Controls.Add(this.CancelEdit);
-            this.MngrInventoryProductsPanel.Controls.Add(this.ProductImagePictureBox);
-            this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsInfoEditBtn);
             this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsExitBtn);
-            this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsUpdateBtn);
-            this.MngrInventoryProductsPanel.Controls.Add(this.MngrInventoryProductsInsertBtn);
+            this.MngrInventoryProductsPanel.Controls.Add(this.panel3);
+            this.MngrInventoryProductsPanel.Controls.Add(this.panel4);
+            this.MngrInventoryProductsPanel.Controls.Add(this.RecSearchProductTextBox);
             this.MngrInventoryProductsPanel.Location = new System.Drawing.Point(0, 0);
             this.MngrInventoryCard.SetMinimumSize(this.MngrInventoryProductsPanel, new System.Drawing.Size(200, 100));
             this.MngrInventoryProductsPanel.Name = "MngrInventoryProductsPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrInventoryProductsPanel, new System.Drawing.Size(200, 100));
-            this.MngrInventoryProductsPanel.Size = new System.Drawing.Size(1588, 732);
+            this.MngrInventoryProductsPanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrInventoryProductsPanel.TabIndex = 0;
             this.MngrInventoryProductsPanel.Visible = false;
             // 
-            // SelectImage
+            // MngrInventoryProductsExitBtn
             // 
-            this.SelectImage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.SelectImage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.SelectImage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.SelectImage.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.SelectImage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.SelectImage.FillColor = System.Drawing.Color.Empty;
-            this.SelectImage.FillColor2 = System.Drawing.Color.Empty;
-            this.SelectImage.Font = new System.Drawing.Font("TechnicBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.SelectImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.SelectImage.Location = new System.Drawing.Point(1026, 730);
-            this.SelectImage.Name = "SelectImage";
-            this.SelectImage.Size = new System.Drawing.Size(183, 30);
-            this.SelectImage.TabIndex = 107;
-            this.SelectImage.Text = "Select Image";
-            this.SelectImage.Visible = false;
-            this.SelectImage.Click += new System.EventHandler(this.SelectImage_Click);
+            this.MngrInventoryProductsExitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.MngrInventoryProductsExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrInventoryProductsExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
+            this.MngrInventoryProductsExitBtn.FlatAppearance.BorderSize = 0;
+            this.MngrInventoryProductsExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrInventoryProductsExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.MngrInventoryProductsExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrInventoryProductsExitBtn.Location = new System.Drawing.Point(1717, 29);
+            this.MngrInventoryProductsExitBtn.Name = "MngrInventoryProductsExitBtn";
+            this.MngrInventoryProductsExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.MngrInventoryProductsExitBtn.TabIndex = 84;
+            this.MngrInventoryProductsExitBtn.UseVisualStyleBackColor = false;
+            this.MngrInventoryProductsExitBtn.Click += new System.EventHandler(this.MngrInventoryProductsExitBtn_Click);
             // 
-            // PDImage
+            // panel3
             // 
-            this.PDImage.AutoSize = true;
-            this.PDImage.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PDImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.PDImage.Location = new System.Drawing.Point(1020, 552);
-            this.PDImage.Name = "PDImage";
-            this.PDImage.Size = new System.Drawing.Size(195, 29);
-            this.PDImage.TabIndex = 104;
-            this.PDImage.Text = "Product Image:";
-            this.PDImage.Visible = false;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(155)))), ((int)(((byte)(91)))));
+            this.panel3.Controls.Add(this.MngrInventoryProductsInfoEditBtn);
+            this.panel3.Controls.Add(this.MngrInventoryProductsSearchTextBox);
+            this.panel3.Controls.Add(this.MngrInventoryProductsCurrentRecordLbl);
+            this.panel3.Controls.Add(this.MngrInventoryProductsPreviousBtn);
+            this.panel3.Controls.Add(this.MngrInventoryProductsTable);
+            this.panel3.Controls.Add(this.MngrInventoryProductsSearchLbl);
+            this.panel3.Controls.Add(this.MngrInventoryProductsNextBtn);
+            this.panel3.Location = new System.Drawing.Point(90, 18);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1415, 586);
+            this.panel3.TabIndex = 108;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.trypanel_Paint);
             // 
-            // MngrInventoryProductsStatusComboText
+            // MngrInventoryProductsInfoEditBtn
             // 
-            this.MngrInventoryProductsStatusComboText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrInventoryProductsStatusComboText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrInventoryProductsStatusComboText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrInventoryProductsStatusComboText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsStatusComboText.FormattingEnabled = true;
-            this.MngrInventoryProductsStatusComboText.Location = new System.Drawing.Point(659, 705);
-            this.MngrInventoryProductsStatusComboText.Name = "MngrInventoryProductsStatusComboText";
-            this.MngrInventoryProductsStatusComboText.Size = new System.Drawing.Size(296, 31);
-            this.MngrInventoryProductsStatusComboText.TabIndex = 102;
+            this.MngrInventoryProductsInfoEditBtn.AutoSize = true;
+            this.MngrInventoryProductsInfoEditBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrInventoryProductsInfoEditBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrInventoryProductsInfoEditBtn.FlatAppearance.BorderSize = 3;
+            this.MngrInventoryProductsInfoEditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrInventoryProductsInfoEditBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrInventoryProductsInfoEditBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsInfoEditBtn.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.MngrInventoryProductsInfoEditBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsInfoEditBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrInventoryProductsInfoEditBtn.IconSize = 32;
+            this.MngrInventoryProductsInfoEditBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrInventoryProductsInfoEditBtn.Location = new System.Drawing.Point(1181, 523);
+            this.MngrInventoryProductsInfoEditBtn.Name = "MngrInventoryProductsInfoEditBtn";
+            this.MngrInventoryProductsInfoEditBtn.Size = new System.Drawing.Size(175, 45);
+            this.MngrInventoryProductsInfoEditBtn.TabIndex = 118;
+            this.MngrInventoryProductsInfoEditBtn.Text = "Edit";
+            this.MngrInventoryProductsInfoEditBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.MngrInventoryProductsInfoEditBtn.UseVisualStyleBackColor = true;
+            this.MngrInventoryProductsInfoEditBtn.Click += new System.EventHandler(this.MngrInventoryProductsInfoEditBtn_Click);
             // 
-            // MngrInventoryProductsIDLbl
+            // MngrInventoryProductsSearchTextBox
             // 
-            this.MngrInventoryProductsIDLbl.AutoSize = true;
-            this.MngrInventoryProductsIDLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrInventoryProductsIDLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsIDLbl.Location = new System.Drawing.Point(333, 665);
-            this.MngrInventoryProductsIDLbl.Name = "MngrInventoryProductsIDLbl";
-            this.MngrInventoryProductsIDLbl.Size = new System.Drawing.Size(152, 29);
-            this.MngrInventoryProductsIDLbl.TabIndex = 100;
-            this.MngrInventoryProductsIDLbl.Text = "Product ID:";
+            this.MngrInventoryProductsSearchTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrInventoryProductsSearchTextBox.BorderRadius = 15;
+            this.MngrInventoryProductsSearchTextBox.BorderThickness = 2;
+            this.MngrInventoryProductsSearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.MngrInventoryProductsSearchTextBox.DefaultText = "";
+            this.MngrInventoryProductsSearchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.MngrInventoryProductsSearchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.MngrInventoryProductsSearchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.MngrInventoryProductsSearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.MngrInventoryProductsSearchTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrInventoryProductsSearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.MngrInventoryProductsSearchTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrInventoryProductsSearchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrInventoryProductsSearchTextBox.Location = new System.Drawing.Point(160, 25);
+            this.MngrInventoryProductsSearchTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.MngrInventoryProductsSearchTextBox.Name = "MngrInventoryProductsSearchTextBox";
+            this.MngrInventoryProductsSearchTextBox.PasswordChar = '\0';
+            this.MngrInventoryProductsSearchTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsSearchTextBox.PlaceholderText = "";
+            this.MngrInventoryProductsSearchTextBox.SelectedText = "";
+            this.MngrInventoryProductsSearchTextBox.Size = new System.Drawing.Size(1196, 34);
+            this.MngrInventoryProductsSearchTextBox.TabIndex = 184;
+            this.MngrInventoryProductsSearchTextBox.TextChanged += new System.EventHandler(this.MngrInventoryProductsSearchTextBox_TextChanged);
             // 
-            // MngrInventoryProductsIDText
+            // MngrInventoryProductsCurrentRecordLbl
             // 
-            this.MngrInventoryProductsIDText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrInventoryProductsIDText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrInventoryProductsIDText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsIDText.Location = new System.Drawing.Point(338, 708);
-            this.MngrInventoryProductsIDText.Name = "MngrInventoryProductsIDText";
-            this.MngrInventoryProductsIDText.ReadOnly = true;
-            this.MngrInventoryProductsIDText.Size = new System.Drawing.Size(296, 30);
-            this.MngrInventoryProductsIDText.TabIndex = 99;
-            this.MngrInventoryProductsIDText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrInventoryProductsIDText_KeyPress);
+            this.MngrInventoryProductsCurrentRecordLbl.AutoSize = true;
+            this.MngrInventoryProductsCurrentRecordLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrInventoryProductsCurrentRecordLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsCurrentRecordLbl.Location = new System.Drawing.Point(137, 526);
+            this.MngrInventoryProductsCurrentRecordLbl.Name = "MngrInventoryProductsCurrentRecordLbl";
+            this.MngrInventoryProductsCurrentRecordLbl.Size = new System.Drawing.Size(49, 20);
+            this.MngrInventoryProductsCurrentRecordLbl.TabIndex = 118;
+            this.MngrInventoryProductsCurrentRecordLbl.Text = "n of n";
             // 
-            // MngrInventoryProductsTypeComboText
+            // MngrInventoryProductsPreviousBtn
             // 
-            this.MngrInventoryProductsTypeComboText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrInventoryProductsTypeComboText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrInventoryProductsTypeComboText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrInventoryProductsTypeComboText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsTypeComboText.FormattingEnabled = true;
-            this.MngrInventoryProductsTypeComboText.Location = new System.Drawing.Point(659, 611);
-            this.MngrInventoryProductsTypeComboText.Name = "MngrInventoryProductsTypeComboText";
-            this.MngrInventoryProductsTypeComboText.Size = new System.Drawing.Size(296, 31);
-            this.MngrInventoryProductsTypeComboText.TabIndex = 96;
-            this.MngrInventoryProductsTypeComboText.SelectedIndexChanged += new System.EventHandler(this.MngrInventoryProductsTypeComboText_SelectedIndexChanged);
-            // 
-            // MngrInventoryProductsPriceLbl
-            // 
-            this.MngrInventoryProductsPriceLbl.AutoSize = true;
-            this.MngrInventoryProductsPriceLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrInventoryProductsPriceLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsPriceLbl.Location = new System.Drawing.Point(654, 764);
-            this.MngrInventoryProductsPriceLbl.Name = "MngrInventoryProductsPriceLbl";
-            this.MngrInventoryProductsPriceLbl.Size = new System.Drawing.Size(189, 29);
-            this.MngrInventoryProductsPriceLbl.TabIndex = 95;
-            this.MngrInventoryProductsPriceLbl.Text = "Product Price:";
-            // 
-            // MngrInventoryProductsPriceText
-            // 
-            this.MngrInventoryProductsPriceText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrInventoryProductsPriceText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrInventoryProductsPriceText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsPriceText.Location = new System.Drawing.Point(659, 805);
-            this.MngrInventoryProductsPriceText.Name = "MngrInventoryProductsPriceText";
-            this.MngrInventoryProductsPriceText.Size = new System.Drawing.Size(296, 30);
-            this.MngrInventoryProductsPriceText.TabIndex = 94;
-            this.MngrInventoryProductsPriceText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrInventoryProductsPriceText_KeyPress);
-            // 
-            // MngrInventoryProductsCatComboText
-            // 
-            this.MngrInventoryProductsCatComboText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrInventoryProductsCatComboText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrInventoryProductsCatComboText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrInventoryProductsCatComboText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsCatComboText.FormattingEnabled = true;
-            this.MngrInventoryProductsCatComboText.Location = new System.Drawing.Point(969, 807);
-            this.MngrInventoryProductsCatComboText.Name = "MngrInventoryProductsCatComboText";
-            this.MngrInventoryProductsCatComboText.Size = new System.Drawing.Size(296, 31);
-            this.MngrInventoryProductsCatComboText.TabIndex = 93;
-            this.MngrInventoryProductsCatComboText.SelectedIndexChanged += new System.EventHandler(this.MngrInventoryProductsCatComboText_SelectedIndexChanged);
-            // 
-            // MngrInventoryProductsStockLbl
-            // 
-            this.MngrInventoryProductsStockLbl.AutoSize = true;
-            this.MngrInventoryProductsStockLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrInventoryProductsStockLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsStockLbl.Location = new System.Drawing.Point(333, 764);
-            this.MngrInventoryProductsStockLbl.Name = "MngrInventoryProductsStockLbl";
-            this.MngrInventoryProductsStockLbl.Size = new System.Drawing.Size(175, 29);
-            this.MngrInventoryProductsStockLbl.TabIndex = 92;
-            this.MngrInventoryProductsStockLbl.Text = "Total Stock:";
-            // 
-            // MngrInventoryProductsStockText
-            // 
-            this.MngrInventoryProductsStockText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrInventoryProductsStockText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrInventoryProductsStockText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsStockText.Location = new System.Drawing.Point(338, 807);
-            this.MngrInventoryProductsStockText.Name = "MngrInventoryProductsStockText";
-            this.MngrInventoryProductsStockText.Size = new System.Drawing.Size(296, 30);
-            this.MngrInventoryProductsStockText.TabIndex = 91;
-            this.MngrInventoryProductsStockText.TextChanged += new System.EventHandler(this.MngrInventoryProductsStockText_TextChanged);
-            this.MngrInventoryProductsStockText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrInventoryProductsStockText_KeyPress);
-            // 
-            // MngrInventoryProductsStatusLbl
-            // 
-            this.MngrInventoryProductsStatusLbl.AutoSize = true;
-            this.MngrInventoryProductsStatusLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrInventoryProductsStatusLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsStatusLbl.Location = new System.Drawing.Point(654, 665);
-            this.MngrInventoryProductsStatusLbl.Name = "MngrInventoryProductsStatusLbl";
-            this.MngrInventoryProductsStatusLbl.Size = new System.Drawing.Size(215, 29);
-            this.MngrInventoryProductsStatusLbl.TabIndex = 90;
-            this.MngrInventoryProductsStatusLbl.Text = "Product Status:";
-            // 
-            // MngrInventoryProductsNameLbl
-            // 
-            this.MngrInventoryProductsNameLbl.AutoSize = true;
-            this.MngrInventoryProductsNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrInventoryProductsNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsNameLbl.Location = new System.Drawing.Point(333, 568);
-            this.MngrInventoryProductsNameLbl.Name = "MngrInventoryProductsNameLbl";
-            this.MngrInventoryProductsNameLbl.Size = new System.Drawing.Size(190, 29);
-            this.MngrInventoryProductsNameLbl.TabIndex = 88;
-            this.MngrInventoryProductsNameLbl.Text = "Product Name:";
-            // 
-            // MngrInventoryProductsNameText
-            // 
-            this.MngrInventoryProductsNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrInventoryProductsNameText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrInventoryProductsNameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsNameText.Location = new System.Drawing.Point(338, 611);
-            this.MngrInventoryProductsNameText.Name = "MngrInventoryProductsNameText";
-            this.MngrInventoryProductsNameText.Size = new System.Drawing.Size(296, 30);
-            this.MngrInventoryProductsNameText.TabIndex = 87;
-            this.MngrInventoryProductsNameText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrInventoryProductsNameText_KeyPress);
-            // 
-            // MngrInventoryProductsTypeLbl
-            // 
-            this.MngrInventoryProductsTypeLbl.AutoSize = true;
-            this.MngrInventoryProductsTypeLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrInventoryProductsTypeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsTypeLbl.Location = new System.Drawing.Point(654, 568);
-            this.MngrInventoryProductsTypeLbl.Name = "MngrInventoryProductsTypeLbl";
-            this.MngrInventoryProductsTypeLbl.Size = new System.Drawing.Size(184, 29);
-            this.MngrInventoryProductsTypeLbl.TabIndex = 86;
-            this.MngrInventoryProductsTypeLbl.Text = "Product Type:";
-            // 
-            // MngrInventoryProductsCatLbl
-            // 
-            this.MngrInventoryProductsCatLbl.AutoSize = true;
-            this.MngrInventoryProductsCatLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrInventoryProductsCatLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsCatLbl.Location = new System.Drawing.Point(964, 764);
-            this.MngrInventoryProductsCatLbl.Name = "MngrInventoryProductsCatLbl";
-            this.MngrInventoryProductsCatLbl.Size = new System.Drawing.Size(243, 29);
-            this.MngrInventoryProductsCatLbl.TabIndex = 85;
-            this.MngrInventoryProductsCatLbl.Text = "Product Category:";
+            this.MngrInventoryProductsPreviousBtn.Location = new System.Drawing.Point(56, 524);
+            this.MngrInventoryProductsPreviousBtn.Name = "MngrInventoryProductsPreviousBtn";
+            this.MngrInventoryProductsPreviousBtn.Size = new System.Drawing.Size(75, 23);
+            this.MngrInventoryProductsPreviousBtn.TabIndex = 119;
+            this.MngrInventoryProductsPreviousBtn.Text = "<< Previous";
+            this.MngrInventoryProductsPreviousBtn.UseVisualStyleBackColor = true;
+            this.MngrInventoryProductsPreviousBtn.Click += new System.EventHandler(this.MngrInventoryProductsPreviousBtn_Click);
             // 
             // MngrInventoryProductsTable
             // 
@@ -1787,111 +1801,89 @@ namespace Enchante
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.MngrInventoryProductsTable.DefaultCellStyle = dataGridViewCellStyle2;
             this.MngrInventoryProductsTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrInventoryProductsTable.Location = new System.Drawing.Point(143, 112);
+            this.MngrInventoryProductsTable.Location = new System.Drawing.Point(56, 67);
             this.MngrInventoryProductsTable.Name = "MngrInventoryProductsTable";
             this.MngrInventoryProductsTable.ReadOnly = true;
             this.MngrInventoryProductsTable.RowHeadersVisible = false;
             this.MngrInventoryProductsTable.RowHeadersWidth = 51;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrInventoryProductsTable.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.MngrInventoryProductsTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MngrInventoryProductsTable.Size = new System.Drawing.Size(1313, 332);
+            this.MngrInventoryProductsTable.Size = new System.Drawing.Size(1300, 445);
             this.MngrInventoryProductsTable.TabIndex = 83;
+            // 
+            // MngrInventoryProductsSearchLbl
+            // 
+            this.MngrInventoryProductsSearchLbl.AutoSize = true;
+            this.MngrInventoryProductsSearchLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
+            this.MngrInventoryProductsSearchLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsSearchLbl.Location = new System.Drawing.Point(56, 29);
+            this.MngrInventoryProductsSearchLbl.Name = "MngrInventoryProductsSearchLbl";
+            this.MngrInventoryProductsSearchLbl.Size = new System.Drawing.Size(106, 29);
+            this.MngrInventoryProductsSearchLbl.TabIndex = 119;
+            this.MngrInventoryProductsSearchLbl.Text = "Search:";
+            // 
+            // MngrInventoryProductsNextBtn
+            // 
+            this.MngrInventoryProductsNextBtn.Location = new System.Drawing.Point(198, 524);
+            this.MngrInventoryProductsNextBtn.Name = "MngrInventoryProductsNextBtn";
+            this.MngrInventoryProductsNextBtn.Size = new System.Drawing.Size(75, 23);
+            this.MngrInventoryProductsNextBtn.TabIndex = 120;
+            this.MngrInventoryProductsNextBtn.Text = "Next >>";
+            this.MngrInventoryProductsNextBtn.UseVisualStyleBackColor = true;
+            this.MngrInventoryProductsNextBtn.Click += new System.EventHandler(this.MngrInventoryProductsNextBtn_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(155)))), ((int)(((byte)(91)))));
+            this.panel4.Controls.Add(this.CancelEdit);
+            this.panel4.Controls.Add(this.MngrInventoryProductsInsertBtn);
+            this.panel4.Controls.Add(this.MngrInventoryProductsUpdateBtn);
+            this.panel4.Controls.Add(this.SelectImage);
+            this.panel4.Controls.Add(this.ProductImagePictureBox);
+            this.panel4.Controls.Add(this.PDImage);
+            this.panel4.Controls.Add(this.MngrInventoryProductsCatLbl);
+            this.panel4.Controls.Add(this.MngrInventoryProductsStatusComboText);
+            this.panel4.Controls.Add(this.MngrInventoryProductsTypeLbl);
+            this.panel4.Controls.Add(this.MngrInventoryProductsIDLbl);
+            this.panel4.Controls.Add(this.MngrInventoryProductsNameText);
+            this.panel4.Controls.Add(this.MngrInventoryProductsIDText);
+            this.panel4.Controls.Add(this.MngrInventoryProductsNameLbl);
+            this.panel4.Controls.Add(this.MngrInventoryProductsTypeComboText);
+            this.panel4.Controls.Add(this.MngrInventoryProductsStatusLbl);
+            this.panel4.Controls.Add(this.MngrInventoryProductsPriceLbl);
+            this.panel4.Controls.Add(this.MngrInventoryProductsStockText);
+            this.panel4.Controls.Add(this.MngrInventoryProductsPriceText);
+            this.panel4.Controls.Add(this.MngrInventoryProductsStockLbl);
+            this.panel4.Controls.Add(this.MngrInventoryProductsCatComboText);
+            this.panel4.Location = new System.Drawing.Point(90, 618);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1415, 380);
+            this.panel4.TabIndex = 121;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.trypanel_Paint);
             // 
             // CancelEdit
             // 
             this.CancelEdit.AutoSize = true;
             this.CancelEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CancelEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.CancelEdit.FlatAppearance.BorderSize = 0;
+            this.CancelEdit.FlatAppearance.BorderSize = 3;
             this.CancelEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelEdit.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.CancelEdit.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.CancelEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.CancelEdit.IconChar = FontAwesome.Sharp.IconChar.None;
             this.CancelEdit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.CancelEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CancelEdit.IconSize = 32;
             this.CancelEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CancelEdit.Location = new System.Drawing.Point(823, 866);
+            this.CancelEdit.Location = new System.Drawing.Point(1000, 317);
             this.CancelEdit.Name = "CancelEdit";
-            this.CancelEdit.Size = new System.Drawing.Size(160, 39);
-            this.CancelEdit.TabIndex = 105;
+            this.CancelEdit.Size = new System.Drawing.Size(175, 45);
+            this.CancelEdit.TabIndex = 109;
             this.CancelEdit.Text = "CANCEL";
             this.CancelEdit.UseVisualStyleBackColor = true;
             this.CancelEdit.Visible = false;
             this.CancelEdit.Click += new System.EventHandler(this.CancelEdit_Click);
-            // 
-            // ProductImagePictureBox
-            // 
-            this.ProductImagePictureBox.ImageRotate = 0F;
-            this.ProductImagePictureBox.Location = new System.Drawing.Point(1051, 595);
-            this.ProductImagePictureBox.Name = "ProductImagePictureBox";
-            this.ProductImagePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.ProductImagePictureBox.Size = new System.Drawing.Size(132, 129);
-            this.ProductImagePictureBox.TabIndex = 103;
-            this.ProductImagePictureBox.TabStop = false;
-            this.ProductImagePictureBox.Visible = false;
-            // 
-            // MngrInventoryProductsInfoEditBtn
-            // 
-            this.MngrInventoryProductsInfoEditBtn.AutoSize = true;
-            this.MngrInventoryProductsInfoEditBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrInventoryProductsInfoEditBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrInventoryProductsInfoEditBtn.FlatAppearance.BorderSize = 0;
-            this.MngrInventoryProductsInfoEditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrInventoryProductsInfoEditBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrInventoryProductsInfoEditBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsInfoEditBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.MngrInventoryProductsInfoEditBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsInfoEditBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrInventoryProductsInfoEditBtn.IconSize = 32;
-            this.MngrInventoryProductsInfoEditBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrInventoryProductsInfoEditBtn.Location = new System.Drawing.Point(1383, 450);
-            this.MngrInventoryProductsInfoEditBtn.Name = "MngrInventoryProductsInfoEditBtn";
-            this.MngrInventoryProductsInfoEditBtn.Size = new System.Drawing.Size(73, 39);
-            this.MngrInventoryProductsInfoEditBtn.TabIndex = 98;
-            this.MngrInventoryProductsInfoEditBtn.Text = "Edit";
-            this.MngrInventoryProductsInfoEditBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrInventoryProductsInfoEditBtn.UseVisualStyleBackColor = true;
-            this.MngrInventoryProductsInfoEditBtn.Click += new System.EventHandler(this.MngrInventoryProductsInfoEditBtn_Click);
-            // 
-            // MngrInventoryProductsExitBtn
-            // 
-            this.MngrInventoryProductsExitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.MngrInventoryProductsExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrInventoryProductsExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
-            this.MngrInventoryProductsExitBtn.FlatAppearance.BorderSize = 0;
-            this.MngrInventoryProductsExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrInventoryProductsExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            this.MngrInventoryProductsExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrInventoryProductsExitBtn.Location = new System.Drawing.Point(1717, 29);
-            this.MngrInventoryProductsExitBtn.Name = "MngrInventoryProductsExitBtn";
-            this.MngrInventoryProductsExitBtn.Size = new System.Drawing.Size(48, 48);
-            this.MngrInventoryProductsExitBtn.TabIndex = 84;
-            this.MngrInventoryProductsExitBtn.UseVisualStyleBackColor = false;
-            this.MngrInventoryProductsExitBtn.Click += new System.EventHandler(this.MngrInventoryProductsExitBtn_Click);
-            // 
-            // MngrInventoryProductsUpdateBtn
-            // 
-            this.MngrInventoryProductsUpdateBtn.AutoSize = true;
-            this.MngrInventoryProductsUpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrInventoryProductsUpdateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrInventoryProductsUpdateBtn.FlatAppearance.BorderSize = 3;
-            this.MngrInventoryProductsUpdateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrInventoryProductsUpdateBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrInventoryProductsUpdateBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsUpdateBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.MngrInventoryProductsUpdateBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsUpdateBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrInventoryProductsUpdateBtn.IconSize = 32;
-            this.MngrInventoryProductsUpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrInventoryProductsUpdateBtn.Location = new System.Drawing.Point(989, 863);
-            this.MngrInventoryProductsUpdateBtn.Name = "MngrInventoryProductsUpdateBtn";
-            this.MngrInventoryProductsUpdateBtn.Size = new System.Drawing.Size(276, 45);
-            this.MngrInventoryProductsUpdateBtn.TabIndex = 101;
-            this.MngrInventoryProductsUpdateBtn.Text = "UPDATE PRODUCT";
-            this.MngrInventoryProductsUpdateBtn.UseVisualStyleBackColor = true;
-            this.MngrInventoryProductsUpdateBtn.Visible = false;
-            this.MngrInventoryProductsUpdateBtn.Click += new System.EventHandler(this.MngrInventoryProductsUpdateBtn_Click);
             // 
             // MngrInventoryProductsInsertBtn
             // 
@@ -1902,18 +1894,276 @@ namespace Enchante
             this.MngrInventoryProductsInsertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MngrInventoryProductsInsertBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrInventoryProductsInsertBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrInventoryProductsInsertBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.MngrInventoryProductsInsertBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
             this.MngrInventoryProductsInsertBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrInventoryProductsInsertBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MngrInventoryProductsInsertBtn.IconSize = 32;
             this.MngrInventoryProductsInsertBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrInventoryProductsInsertBtn.Location = new System.Drawing.Point(989, 863);
+            this.MngrInventoryProductsInsertBtn.Location = new System.Drawing.Point(1181, 317);
             this.MngrInventoryProductsInsertBtn.Name = "MngrInventoryProductsInsertBtn";
-            this.MngrInventoryProductsInsertBtn.Size = new System.Drawing.Size(276, 45);
-            this.MngrInventoryProductsInsertBtn.TabIndex = 97;
-            this.MngrInventoryProductsInsertBtn.Text = "INSERT PRODUCT";
+            this.MngrInventoryProductsInsertBtn.Size = new System.Drawing.Size(175, 45);
+            this.MngrInventoryProductsInsertBtn.TabIndex = 120;
+            this.MngrInventoryProductsInsertBtn.Text = "Create";
+            this.MngrInventoryProductsInsertBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrInventoryProductsInsertBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.MngrInventoryProductsInsertBtn.UseVisualStyleBackColor = true;
             this.MngrInventoryProductsInsertBtn.Click += new System.EventHandler(this.MngrInventoryProductsInsertBtn_Click);
+            // 
+            // MngrInventoryProductsUpdateBtn
+            // 
+            this.MngrInventoryProductsUpdateBtn.AutoSize = true;
+            this.MngrInventoryProductsUpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrInventoryProductsUpdateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrInventoryProductsUpdateBtn.FlatAppearance.BorderSize = 3;
+            this.MngrInventoryProductsUpdateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrInventoryProductsUpdateBtn.Font = new System.Drawing.Font("TechnicBold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrInventoryProductsUpdateBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsUpdateBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.MngrInventoryProductsUpdateBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsUpdateBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrInventoryProductsUpdateBtn.IconSize = 32;
+            this.MngrInventoryProductsUpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrInventoryProductsUpdateBtn.Location = new System.Drawing.Point(1181, 317);
+            this.MngrInventoryProductsUpdateBtn.Name = "MngrInventoryProductsUpdateBtn";
+            this.MngrInventoryProductsUpdateBtn.Size = new System.Drawing.Size(175, 45);
+            this.MngrInventoryProductsUpdateBtn.TabIndex = 101;
+            this.MngrInventoryProductsUpdateBtn.Text = "UPDATE";
+            this.MngrInventoryProductsUpdateBtn.UseVisualStyleBackColor = true;
+            this.MngrInventoryProductsUpdateBtn.Visible = false;
+            this.MngrInventoryProductsUpdateBtn.Click += new System.EventHandler(this.MngrInventoryProductsUpdateBtn_Click);
+            // 
+            // SelectImage
+            // 
+            this.SelectImage.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.SelectImage.BorderThickness = 2;
+            this.SelectImage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.SelectImage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.SelectImage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.SelectImage.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.SelectImage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.SelectImage.FillColor = System.Drawing.Color.Empty;
+            this.SelectImage.FillColor2 = System.Drawing.Color.Empty;
+            this.SelectImage.Font = new System.Drawing.Font("TechnicBold", 8.999999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.SelectImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.SelectImage.Location = new System.Drawing.Point(1079, 263);
+            this.SelectImage.Name = "SelectImage";
+            this.SelectImage.Size = new System.Drawing.Size(197, 30);
+            this.SelectImage.TabIndex = 107;
+            this.SelectImage.Text = "Select Image";
+            this.SelectImage.Visible = false;
+            this.SelectImage.Click += new System.EventHandler(this.SelectImage_Click);
+            // 
+            // ProductImagePictureBox
+            // 
+            this.ProductImagePictureBox.ImageRotate = 0F;
+            this.ProductImagePictureBox.Location = new System.Drawing.Point(1089, 70);
+            this.ProductImagePictureBox.Name = "ProductImagePictureBox";
+            this.ProductImagePictureBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.ProductImagePictureBox.Size = new System.Drawing.Size(168, 168);
+            this.ProductImagePictureBox.TabIndex = 103;
+            this.ProductImagePictureBox.TabStop = false;
+            this.ProductImagePictureBox.Visible = false;
+            // 
+            // PDImage
+            // 
+            this.PDImage.AutoSize = true;
+            this.PDImage.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.PDImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.PDImage.Location = new System.Drawing.Point(1074, 28);
+            this.PDImage.Name = "PDImage";
+            this.PDImage.Size = new System.Drawing.Size(195, 29);
+            this.PDImage.TabIndex = 104;
+            this.PDImage.Text = "Product Image:";
+            this.PDImage.Visible = false;
+            // 
+            // MngrInventoryProductsCatLbl
+            // 
+            this.MngrInventoryProductsCatLbl.AutoSize = true;
+            this.MngrInventoryProductsCatLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrInventoryProductsCatLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsCatLbl.Location = new System.Drawing.Point(534, 220);
+            this.MngrInventoryProductsCatLbl.Name = "MngrInventoryProductsCatLbl";
+            this.MngrInventoryProductsCatLbl.Size = new System.Drawing.Size(243, 29);
+            this.MngrInventoryProductsCatLbl.TabIndex = 85;
+            this.MngrInventoryProductsCatLbl.Text = "Product Category:";
+            // 
+            // MngrInventoryProductsStatusComboText
+            // 
+            this.MngrInventoryProductsStatusComboText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrInventoryProductsStatusComboText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrInventoryProductsStatusComboText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrInventoryProductsStatusComboText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsStatusComboText.FormattingEnabled = true;
+            this.MngrInventoryProductsStatusComboText.Location = new System.Drawing.Point(538, 168);
+            this.MngrInventoryProductsStatusComboText.Name = "MngrInventoryProductsStatusComboText";
+            this.MngrInventoryProductsStatusComboText.Size = new System.Drawing.Size(375, 31);
+            this.MngrInventoryProductsStatusComboText.TabIndex = 102;
+            // 
+            // MngrInventoryProductsTypeLbl
+            // 
+            this.MngrInventoryProductsTypeLbl.AutoSize = true;
+            this.MngrInventoryProductsTypeLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrInventoryProductsTypeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsTypeLbl.Location = new System.Drawing.Point(534, 29);
+            this.MngrInventoryProductsTypeLbl.Name = "MngrInventoryProductsTypeLbl";
+            this.MngrInventoryProductsTypeLbl.Size = new System.Drawing.Size(184, 29);
+            this.MngrInventoryProductsTypeLbl.TabIndex = 86;
+            this.MngrInventoryProductsTypeLbl.Text = "Product Type:";
+            // 
+            // MngrInventoryProductsIDLbl
+            // 
+            this.MngrInventoryProductsIDLbl.AutoSize = true;
+            this.MngrInventoryProductsIDLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrInventoryProductsIDLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsIDLbl.Location = new System.Drawing.Point(81, 123);
+            this.MngrInventoryProductsIDLbl.Name = "MngrInventoryProductsIDLbl";
+            this.MngrInventoryProductsIDLbl.Size = new System.Drawing.Size(152, 29);
+            this.MngrInventoryProductsIDLbl.TabIndex = 100;
+            this.MngrInventoryProductsIDLbl.Text = "Product ID:";
+            // 
+            // MngrInventoryProductsNameText
+            // 
+            this.MngrInventoryProductsNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrInventoryProductsNameText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrInventoryProductsNameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsNameText.Location = new System.Drawing.Point(81, 68);
+            this.MngrInventoryProductsNameText.Name = "MngrInventoryProductsNameText";
+            this.MngrInventoryProductsNameText.Size = new System.Drawing.Size(375, 30);
+            this.MngrInventoryProductsNameText.TabIndex = 87;
+            this.MngrInventoryProductsNameText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrInventoryProductsNameText_KeyPress);
+            // 
+            // MngrInventoryProductsIDText
+            // 
+            this.MngrInventoryProductsIDText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrInventoryProductsIDText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrInventoryProductsIDText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsIDText.Location = new System.Drawing.Point(81, 162);
+            this.MngrInventoryProductsIDText.Name = "MngrInventoryProductsIDText";
+            this.MngrInventoryProductsIDText.ReadOnly = true;
+            this.MngrInventoryProductsIDText.Size = new System.Drawing.Size(375, 30);
+            this.MngrInventoryProductsIDText.TabIndex = 99;
+            this.MngrInventoryProductsIDText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrInventoryProductsIDText_KeyPress);
+            // 
+            // MngrInventoryProductsNameLbl
+            // 
+            this.MngrInventoryProductsNameLbl.AutoSize = true;
+            this.MngrInventoryProductsNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrInventoryProductsNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsNameLbl.Location = new System.Drawing.Point(81, 28);
+            this.MngrInventoryProductsNameLbl.Name = "MngrInventoryProductsNameLbl";
+            this.MngrInventoryProductsNameLbl.Size = new System.Drawing.Size(190, 29);
+            this.MngrInventoryProductsNameLbl.TabIndex = 88;
+            this.MngrInventoryProductsNameLbl.Text = "Product Name:";
+            // 
+            // MngrInventoryProductsTypeComboText
+            // 
+            this.MngrInventoryProductsTypeComboText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrInventoryProductsTypeComboText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrInventoryProductsTypeComboText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrInventoryProductsTypeComboText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsTypeComboText.FormattingEnabled = true;
+            this.MngrInventoryProductsTypeComboText.Location = new System.Drawing.Point(539, 71);
+            this.MngrInventoryProductsTypeComboText.Name = "MngrInventoryProductsTypeComboText";
+            this.MngrInventoryProductsTypeComboText.Size = new System.Drawing.Size(375, 31);
+            this.MngrInventoryProductsTypeComboText.TabIndex = 96;
+            this.MngrInventoryProductsTypeComboText.SelectedIndexChanged += new System.EventHandler(this.MngrInventoryProductsTypeComboText_SelectedIndexChanged);
+            // 
+            // MngrInventoryProductsStatusLbl
+            // 
+            this.MngrInventoryProductsStatusLbl.AutoSize = true;
+            this.MngrInventoryProductsStatusLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrInventoryProductsStatusLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsStatusLbl.Location = new System.Drawing.Point(534, 126);
+            this.MngrInventoryProductsStatusLbl.Name = "MngrInventoryProductsStatusLbl";
+            this.MngrInventoryProductsStatusLbl.Size = new System.Drawing.Size(215, 29);
+            this.MngrInventoryProductsStatusLbl.TabIndex = 90;
+            this.MngrInventoryProductsStatusLbl.Text = "Product Status:";
+            // 
+            // MngrInventoryProductsPriceLbl
+            // 
+            this.MngrInventoryProductsPriceLbl.AutoSize = true;
+            this.MngrInventoryProductsPriceLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrInventoryProductsPriceLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsPriceLbl.Location = new System.Drawing.Point(278, 225);
+            this.MngrInventoryProductsPriceLbl.Name = "MngrInventoryProductsPriceLbl";
+            this.MngrInventoryProductsPriceLbl.Size = new System.Drawing.Size(82, 29);
+            this.MngrInventoryProductsPriceLbl.TabIndex = 95;
+            this.MngrInventoryProductsPriceLbl.Text = "Price:";
+            // 
+            // MngrInventoryProductsStockText
+            // 
+            this.MngrInventoryProductsStockText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrInventoryProductsStockText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrInventoryProductsStockText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsStockText.Location = new System.Drawing.Point(81, 263);
+            this.MngrInventoryProductsStockText.Name = "MngrInventoryProductsStockText";
+            this.MngrInventoryProductsStockText.Size = new System.Drawing.Size(178, 30);
+            this.MngrInventoryProductsStockText.TabIndex = 91;
+            this.MngrInventoryProductsStockText.TextChanged += new System.EventHandler(this.MngrInventoryProductsStockText_TextChanged);
+            this.MngrInventoryProductsStockText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrInventoryProductsStockText_KeyPress);
+            // 
+            // MngrInventoryProductsPriceText
+            // 
+            this.MngrInventoryProductsPriceText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrInventoryProductsPriceText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrInventoryProductsPriceText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsPriceText.Location = new System.Drawing.Point(278, 263);
+            this.MngrInventoryProductsPriceText.Name = "MngrInventoryProductsPriceText";
+            this.MngrInventoryProductsPriceText.Size = new System.Drawing.Size(178, 30);
+            this.MngrInventoryProductsPriceText.TabIndex = 94;
+            this.MngrInventoryProductsPriceText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrInventoryProductsPriceText_KeyPress);
+            // 
+            // MngrInventoryProductsStockLbl
+            // 
+            this.MngrInventoryProductsStockLbl.AutoSize = true;
+            this.MngrInventoryProductsStockLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrInventoryProductsStockLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsStockLbl.Location = new System.Drawing.Point(81, 225);
+            this.MngrInventoryProductsStockLbl.Name = "MngrInventoryProductsStockLbl";
+            this.MngrInventoryProductsStockLbl.Size = new System.Drawing.Size(104, 29);
+            this.MngrInventoryProductsStockLbl.TabIndex = 92;
+            this.MngrInventoryProductsStockLbl.Text = "Stocks:";
+            // 
+            // MngrInventoryProductsCatComboText
+            // 
+            this.MngrInventoryProductsCatComboText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrInventoryProductsCatComboText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrInventoryProductsCatComboText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrInventoryProductsCatComboText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrInventoryProductsCatComboText.FormattingEnabled = true;
+            this.MngrInventoryProductsCatComboText.Location = new System.Drawing.Point(537, 262);
+            this.MngrInventoryProductsCatComboText.Name = "MngrInventoryProductsCatComboText";
+            this.MngrInventoryProductsCatComboText.Size = new System.Drawing.Size(375, 31);
+            this.MngrInventoryProductsCatComboText.TabIndex = 93;
+            this.MngrInventoryProductsCatComboText.SelectedIndexChanged += new System.EventHandler(this.MngrInventoryProductsCatComboText_SelectedIndexChanged);
+            // 
+            // RecSearchProductTextBox
+            // 
+            this.RecSearchProductTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecSearchProductTextBox.BorderRadius = 15;
+            this.RecSearchProductTextBox.BorderThickness = 2;
+            this.RecSearchProductTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.RecSearchProductTextBox.DefaultText = "";
+            this.RecSearchProductTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.RecSearchProductTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.RecSearchProductTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.RecSearchProductTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.RecSearchProductTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.RecSearchProductTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.RecSearchProductTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecSearchProductTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecSearchProductTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.RecSearchProductTextBox.Location = new System.Drawing.Point(100, 700);
+            this.RecSearchProductTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.RecSearchProductTextBox.Name = "RecSearchProductTextBox";
+            this.RecSearchProductTextBox.PasswordChar = '\0';
+            this.RecSearchProductTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.RecSearchProductTextBox.PlaceholderText = "Search an item...";
+            this.RecSearchProductTextBox.SelectedText = "";
+            this.RecSearchProductTextBox.Size = new System.Drawing.Size(869, 34);
+            this.RecSearchProductTextBox.TabIndex = 183;
+            this.RecSearchProductTextBox.TextChanged += new System.EventHandler(this.RecSearchProductTextBox_TextChanged);
+            this.RecSearchProductTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecSearchProductTextBox_KeyPress);
             // 
             // MngrInventoryTypePanel
             // 
@@ -1923,7 +2173,7 @@ namespace Enchante
             this.MngrInventoryCard.SetMinimumSize(this.MngrInventoryTypePanel, new System.Drawing.Size(0, 0));
             this.MngrInventoryTypePanel.Name = "MngrInventoryTypePanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrInventoryTypePanel, new System.Drawing.Size(1797, 749));
-            this.MngrInventoryTypePanel.Size = new System.Drawing.Size(1588, 732);
+            this.MngrInventoryTypePanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrInventoryTypePanel.TabIndex = 1;
             // 
             // iconButton11
@@ -1956,59 +2206,190 @@ namespace Enchante
             this.MngrServiceHistoryPanel.AutoScroll = true;
             this.MngrServiceHistoryPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrInventoryCard.SetCardName(this.MngrServiceHistoryPanel, "service history");
-            this.MngrServiceHistoryPanel.Controls.Add(this.MngrSVHistoryServiceCatBox);
-            this.MngrServiceHistoryPanel.Controls.Add(this.MngrSVHistoryServiceCatLbl);
-            this.MngrServiceHistoryPanel.Controls.Add(this.MngrSVHistoryToLbl);
+            this.MngrServiceHistoryPanel.Controls.Add(this.panel14);
+            this.MngrServiceHistoryPanel.Controls.Add(this.label1);
             this.MngrServiceHistoryPanel.Controls.Add(this.MngrServiceHistoryExitBtn);
-            this.MngrServiceHistoryPanel.Controls.Add(this.MngrSVHistoryFromLbl);
-            this.MngrServiceHistoryPanel.Controls.Add(this.MngrSVHistoryDGV);
-            this.MngrServiceHistoryPanel.Controls.Add(this.MngrSVHistoryResetBtn);
-            this.MngrServiceHistoryPanel.Controls.Add(this.MngrSVHistoryTransTypeBox);
-            this.MngrServiceHistoryPanel.Controls.Add(this.MngrSVHistoryDatePickTo);
-            this.MngrServiceHistoryPanel.Controls.Add(this.MngrSVHistoryTransTypeLbl);
-            this.MngrServiceHistoryPanel.Controls.Add(this.MngrSVHistoryDatePickFrom);
-            this.MngrServiceHistoryPanel.Controls.Add(this.MngrSVHistoryDateLbl);
-            this.MngrServiceHistoryPanel.Controls.Add(this.MngrSVHistoryServiceStatusBox);
-            this.MngrServiceHistoryPanel.Controls.Add(this.MngrSVHistoryServiceStatusLbl);
+            this.MngrServiceHistoryPanel.Controls.Add(this.panel13);
             this.MngrServiceHistoryPanel.Location = new System.Drawing.Point(0, 0);
             this.MngrInventoryCard.SetMinimumSize(this.MngrServiceHistoryPanel, new System.Drawing.Size(200, 100));
             this.MngrServiceHistoryPanel.Name = "MngrServiceHistoryPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrServiceHistoryPanel, new System.Drawing.Size(200, 100));
-            this.MngrServiceHistoryPanel.Size = new System.Drawing.Size(1588, 732);
+            this.MngrServiceHistoryPanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrServiceHistoryPanel.TabIndex = 30;
             // 
-            // MngrSVHistoryServiceCatBox
+            // panel14
             // 
-            this.MngrSVHistoryServiceCatBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MngrSVHistoryServiceCatBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrSVHistoryServiceCatBox.FormattingEnabled = true;
-            this.MngrSVHistoryServiceCatBox.Location = new System.Drawing.Point(636, 172);
-            this.MngrSVHistoryServiceCatBox.Name = "MngrSVHistoryServiceCatBox";
-            this.MngrSVHistoryServiceCatBox.Size = new System.Drawing.Size(261, 24);
-            this.MngrSVHistoryServiceCatBox.TabIndex = 11;
-            this.MngrSVHistoryServiceCatBox.SelectedIndexChanged += new System.EventHandler(this.MngrSVHistoryServiceCatBox_SelectedIndexChanged);
+            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(155)))), ((int)(((byte)(91)))));
+            this.panel14.Controls.Add(this.MngrSVHistoryPreviousBtn);
+            this.panel14.Controls.Add(this.MngrSVHistoryCurrentRecordLbl);
+            this.panel14.Controls.Add(this.MngrSVHistoryNextBtn);
+            this.panel14.Controls.Add(this.MngrSVHistorySearchTextBox);
+            this.panel14.Controls.Add(this.MngrSVHistorySearchLbl);
+            this.panel14.Controls.Add(this.MngrSVHistoryDGV);
+            this.panel14.Controls.Add(this.MngrSVHistoryDGVTwo);
+            this.panel14.Location = new System.Drawing.Point(52, 333);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(1481, 639);
+            this.panel14.TabIndex = 123;
+            this.panel14.Paint += new System.Windows.Forms.PaintEventHandler(this.trypanel_Paint);
             // 
-            // MngrSVHistoryServiceCatLbl
+            // MngrSVHistoryPreviousBtn
             // 
-            this.MngrSVHistoryServiceCatLbl.AutoSize = true;
-            this.MngrSVHistoryServiceCatLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrSVHistoryServiceCatLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrSVHistoryServiceCatLbl.Location = new System.Drawing.Point(631, 137);
-            this.MngrSVHistoryServiceCatLbl.Name = "MngrSVHistoryServiceCatLbl";
-            this.MngrSVHistoryServiceCatLbl.Size = new System.Drawing.Size(177, 25);
-            this.MngrSVHistoryServiceCatLbl.TabIndex = 10;
-            this.MngrSVHistoryServiceCatLbl.Text = "Service Category";
+            this.MngrSVHistoryPreviousBtn.Location = new System.Drawing.Point(32, 584);
+            this.MngrSVHistoryPreviousBtn.Name = "MngrSVHistoryPreviousBtn";
+            this.MngrSVHistoryPreviousBtn.Size = new System.Drawing.Size(75, 23);
+            this.MngrSVHistoryPreviousBtn.TabIndex = 195;
+            this.MngrSVHistoryPreviousBtn.Text = "<< Previous";
+            this.MngrSVHistoryPreviousBtn.UseVisualStyleBackColor = true;
+            this.MngrSVHistoryPreviousBtn.Click += new System.EventHandler(this.MngrSVHistoryPreviousBtn_Click);
             // 
-            // MngrSVHistoryToLbl
+            // MngrSVHistoryCurrentRecordLbl
             // 
-            this.MngrSVHistoryToLbl.AutoSize = true;
-            this.MngrSVHistoryToLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrSVHistoryToLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrSVHistoryToLbl.Location = new System.Drawing.Point(1239, 174);
-            this.MngrSVHistoryToLbl.Name = "MngrSVHistoryToLbl";
-            this.MngrSVHistoryToLbl.Size = new System.Drawing.Size(24, 16);
-            this.MngrSVHistoryToLbl.TabIndex = 9;
-            this.MngrSVHistoryToLbl.Text = "To";
+            this.MngrSVHistoryCurrentRecordLbl.AutoSize = true;
+            this.MngrSVHistoryCurrentRecordLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrSVHistoryCurrentRecordLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrSVHistoryCurrentRecordLbl.Location = new System.Drawing.Point(117, 586);
+            this.MngrSVHistoryCurrentRecordLbl.Name = "MngrSVHistoryCurrentRecordLbl";
+            this.MngrSVHistoryCurrentRecordLbl.Size = new System.Drawing.Size(49, 20);
+            this.MngrSVHistoryCurrentRecordLbl.TabIndex = 194;
+            this.MngrSVHistoryCurrentRecordLbl.Text = "n of n";
+            // 
+            // MngrSVHistoryNextBtn
+            // 
+            this.MngrSVHistoryNextBtn.Location = new System.Drawing.Point(182, 584);
+            this.MngrSVHistoryNextBtn.Name = "MngrSVHistoryNextBtn";
+            this.MngrSVHistoryNextBtn.Size = new System.Drawing.Size(75, 23);
+            this.MngrSVHistoryNextBtn.TabIndex = 196;
+            this.MngrSVHistoryNextBtn.Text = "Next >>";
+            this.MngrSVHistoryNextBtn.UseVisualStyleBackColor = true;
+            this.MngrSVHistoryNextBtn.Click += new System.EventHandler(this.MngrSVHistoryNextBtn_Click);
+            // 
+            // MngrSVHistorySearchTextBox
+            // 
+            this.MngrSVHistorySearchTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrSVHistorySearchTextBox.BorderRadius = 15;
+            this.MngrSVHistorySearchTextBox.BorderThickness = 2;
+            this.MngrSVHistorySearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.MngrSVHistorySearchTextBox.DefaultText = "";
+            this.MngrSVHistorySearchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.MngrSVHistorySearchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.MngrSVHistorySearchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.MngrSVHistorySearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.MngrSVHistorySearchTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrSVHistorySearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.MngrSVHistorySearchTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrSVHistorySearchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrSVHistorySearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrSVHistorySearchTextBox.Location = new System.Drawing.Point(131, 29);
+            this.MngrSVHistorySearchTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.MngrSVHistorySearchTextBox.Name = "MngrSVHistorySearchTextBox";
+            this.MngrSVHistorySearchTextBox.PasswordChar = '\0';
+            this.MngrSVHistorySearchTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrSVHistorySearchTextBox.PlaceholderText = "";
+            this.MngrSVHistorySearchTextBox.SelectedText = "";
+            this.MngrSVHistorySearchTextBox.Size = new System.Drawing.Size(1323, 34);
+            this.MngrSVHistorySearchTextBox.TabIndex = 188;
+            this.MngrSVHistorySearchTextBox.TextChanged += new System.EventHandler(this.MngrSVHistorySearchTextBox_TextChanged);
+            // 
+            // MngrSVHistorySearchLbl
+            // 
+            this.MngrSVHistorySearchLbl.AutoSize = true;
+            this.MngrSVHistorySearchLbl.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold);
+            this.MngrSVHistorySearchLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrSVHistorySearchLbl.Location = new System.Drawing.Point(32, 33);
+            this.MngrSVHistorySearchLbl.Name = "MngrSVHistorySearchLbl";
+            this.MngrSVHistorySearchLbl.Size = new System.Drawing.Size(92, 27);
+            this.MngrSVHistorySearchLbl.TabIndex = 187;
+            this.MngrSVHistorySearchLbl.Text = "Search:";
+            // 
+            // MngrSVHistoryDGV
+            // 
+            this.MngrSVHistoryDGV.AllowUserToAddRows = false;
+            this.MngrSVHistoryDGV.AllowUserToDeleteRows = false;
+            this.MngrSVHistoryDGV.AllowUserToResizeColumns = false;
+            this.MngrSVHistoryDGV.AllowUserToResizeRows = false;
+            this.MngrSVHistoryDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MngrSVHistoryDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.MngrSVHistoryDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrSVHistoryDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.MngrSVHistoryDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MngrSVHistoryDGV.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrSVHistoryDGV.DefaultCellStyle = dataGridViewCellStyle5;
+            this.MngrSVHistoryDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrSVHistoryDGV.Location = new System.Drawing.Point(32, 84);
+            this.MngrSVHistoryDGV.Name = "MngrSVHistoryDGV";
+            this.MngrSVHistoryDGV.ReadOnly = true;
+            this.MngrSVHistoryDGV.RowHeadersVisible = false;
+            this.MngrSVHistoryDGV.RowHeadersWidth = 51;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrSVHistoryDGV.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.MngrSVHistoryDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MngrSVHistoryDGV.Size = new System.Drawing.Size(1422, 485);
+            this.MngrSVHistoryDGV.TabIndex = 124;
+            // 
+            // MngrSVHistoryDGVTwo
+            // 
+            this.MngrSVHistoryDGVTwo.AllowUserToAddRows = false;
+            this.MngrSVHistoryDGVTwo.AllowUserToDeleteRows = false;
+            this.MngrSVHistoryDGVTwo.AllowUserToResizeColumns = false;
+            this.MngrSVHistoryDGVTwo.AllowUserToResizeRows = false;
+            this.MngrSVHistoryDGVTwo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MngrSVHistoryDGVTwo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.MngrSVHistoryDGVTwo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrSVHistoryDGVTwo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.MngrSVHistoryDGVTwo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MngrSVHistoryDGVTwo.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrSVHistoryDGVTwo.DefaultCellStyle = dataGridViewCellStyle8;
+            this.MngrSVHistoryDGVTwo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrSVHistoryDGVTwo.Location = new System.Drawing.Point(32, 84);
+            this.MngrSVHistoryDGVTwo.Name = "MngrSVHistoryDGVTwo";
+            this.MngrSVHistoryDGVTwo.ReadOnly = true;
+            this.MngrSVHistoryDGVTwo.RowHeadersVisible = false;
+            this.MngrSVHistoryDGVTwo.RowHeadersWidth = 51;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrSVHistoryDGVTwo.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.MngrSVHistoryDGVTwo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MngrSVHistoryDGVTwo.Size = new System.Drawing.Size(1422, 485);
+            this.MngrSVHistoryDGVTwo.TabIndex = 197;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.label1.Location = new System.Drawing.Point(46, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(257, 35);
+            this.label1.TabIndex = 85;
+            this.label1.Text = "Service History";
             // 
             // MngrServiceHistoryExitBtn
             // 
@@ -2020,7 +2401,7 @@ namespace Enchante
             this.MngrServiceHistoryExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.MngrServiceHistoryExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrServiceHistoryExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrServiceHistoryExitBtn.Location = new System.Drawing.Point(1479, 57);
+            this.MngrServiceHistoryExitBtn.Location = new System.Drawing.Point(1540, 3);
             this.MngrServiceHistoryExitBtn.Name = "MngrServiceHistoryExitBtn";
             this.MngrServiceHistoryExitBtn.Size = new System.Drawing.Size(48, 48);
             this.MngrServiceHistoryExitBtn.TabIndex = 84;
@@ -2028,483 +2409,191 @@ namespace Enchante
             this.MngrServiceHistoryExitBtn.Visible = false;
             this.MngrServiceHistoryExitBtn.Click += new System.EventHandler(this.MngrServiceHistoryExitBtn_Click);
             // 
-            // MngrSVHistoryFromLbl
+            // panel13
             // 
-            this.MngrSVHistoryFromLbl.AutoSize = true;
-            this.MngrSVHistoryFromLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrSVHistoryFromLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrSVHistoryFromLbl.Location = new System.Drawing.Point(912, 174);
-            this.MngrSVHistoryFromLbl.Name = "MngrSVHistoryFromLbl";
-            this.MngrSVHistoryFromLbl.Size = new System.Drawing.Size(38, 16);
-            this.MngrSVHistoryFromLbl.TabIndex = 8;
-            this.MngrSVHistoryFromLbl.Text = "From";
-            // 
-            // MngrSVHistoryDGV
-            // 
-            this.MngrSVHistoryDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.MngrSVHistoryDGV.BackgroundColor = System.Drawing.Color.GhostWhite;
-            this.MngrSVHistoryDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MngrSVHistoryDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.MngrSVHistoryDGV.Location = new System.Drawing.Point(73, 240);
-            this.MngrSVHistoryDGV.MultiSelect = false;
-            this.MngrSVHistoryDGV.Name = "MngrSVHistoryDGV";
-            this.MngrSVHistoryDGV.ReadOnly = true;
-            this.MngrSVHistoryDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MngrSVHistoryDGV.Size = new System.Drawing.Size(1454, 364);
-            this.MngrSVHistoryDGV.TabIndex = 0;
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(155)))), ((int)(((byte)(91)))));
+            this.panel13.Controls.Add(this.MngrSVHistoryResetBtn);
+            this.panel13.Controls.Add(this.MngrSVHistoryServiceCatBox);
+            this.panel13.Controls.Add(this.MngrSVHistoryServiceStatusBox);
+            this.panel13.Controls.Add(this.MngrSVHistoryTransTypeBox);
+            this.panel13.Controls.Add(this.MngrSVHistoryServiceStatusLbl);
+            this.panel13.Controls.Add(this.MngrSVHistoryDateLbl);
+            this.panel13.Controls.Add(this.MngrSVHistoryServiceCatLbl);
+            this.panel13.Controls.Add(this.MngrSVHistoryDatePickFrom);
+            this.panel13.Controls.Add(this.MngrSVHistoryToLbl);
+            this.panel13.Controls.Add(this.MngrSVHistoryTransTypeLbl);
+            this.panel13.Controls.Add(this.MngrSVHistoryDatePickTo);
+            this.panel13.Controls.Add(this.MngrSVHistoryFromLbl);
+            this.panel13.Location = new System.Drawing.Point(52, 121);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(1481, 177);
+            this.panel13.TabIndex = 86;
+            this.panel13.Paint += new System.Windows.Forms.PaintEventHandler(this.trypanel_Paint);
             // 
             // MngrSVHistoryResetBtn
             // 
-            this.MngrSVHistoryResetBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrSVHistoryResetBtn.Location = new System.Drawing.Point(1424, 203);
-            this.MngrSVHistoryResetBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrSVHistoryResetBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrSVHistoryResetBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.MngrSVHistoryResetBtn.Location = new System.Drawing.Point(1312, 69);
             this.MngrSVHistoryResetBtn.Name = "MngrSVHistoryResetBtn";
-            this.MngrSVHistoryResetBtn.Size = new System.Drawing.Size(103, 24);
-            this.MngrSVHistoryResetBtn.TabIndex = 5;
+            this.MngrSVHistoryResetBtn.Size = new System.Drawing.Size(128, 55);
+            this.MngrSVHistoryResetBtn.TabIndex = 104;
             this.MngrSVHistoryResetBtn.Text = "Reset";
-            this.MngrSVHistoryResetBtn.UseVisualStyleBackColor = true;
+            this.MngrSVHistoryResetBtn.UseVisualStyleBackColor = false;
             this.MngrSVHistoryResetBtn.Click += new System.EventHandler(this.MngrSVHistoryResetBtn_Click);
+            // 
+            // MngrSVHistoryServiceCatBox
+            // 
+            this.MngrSVHistoryServiceCatBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrSVHistoryServiceCatBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MngrSVHistoryServiceCatBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrSVHistoryServiceCatBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrSVHistoryServiceCatBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrSVHistoryServiceCatBox.FormattingEnabled = true;
+            this.MngrSVHistoryServiceCatBox.Location = new System.Drawing.Point(662, 82);
+            this.MngrSVHistoryServiceCatBox.Name = "MngrSVHistoryServiceCatBox";
+            this.MngrSVHistoryServiceCatBox.Size = new System.Drawing.Size(280, 31);
+            this.MngrSVHistoryServiceCatBox.TabIndex = 122;
+            this.MngrSVHistoryServiceCatBox.SelectedIndexChanged += new System.EventHandler(this.MngrSVHistoryServiceCatBox_SelectedIndexChanged);
+            // 
+            // MngrSVHistoryServiceStatusBox
+            // 
+            this.MngrSVHistoryServiceStatusBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrSVHistoryServiceStatusBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MngrSVHistoryServiceStatusBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrSVHistoryServiceStatusBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrSVHistoryServiceStatusBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrSVHistoryServiceStatusBox.FormattingEnabled = true;
+            this.MngrSVHistoryServiceStatusBox.Location = new System.Drawing.Point(344, 83);
+            this.MngrSVHistoryServiceStatusBox.Name = "MngrSVHistoryServiceStatusBox";
+            this.MngrSVHistoryServiceStatusBox.Size = new System.Drawing.Size(280, 31);
+            this.MngrSVHistoryServiceStatusBox.TabIndex = 121;
+            this.MngrSVHistoryServiceStatusBox.SelectedIndexChanged += new System.EventHandler(this.MngrSVHistoryServiceStatusBox_SelectedIndexChanged);
             // 
             // MngrSVHistoryTransTypeBox
             // 
+            this.MngrSVHistoryTransTypeBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrSVHistoryTransTypeBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MngrSVHistoryTransTypeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrSVHistoryTransTypeBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrSVHistoryTransTypeBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrSVHistoryTransTypeBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrSVHistoryTransTypeBox.FormattingEnabled = true;
-            this.MngrSVHistoryTransTypeBox.Location = new System.Drawing.Point(73, 172);
+            this.MngrSVHistoryTransTypeBox.Location = new System.Drawing.Point(27, 82);
             this.MngrSVHistoryTransTypeBox.Name = "MngrSVHistoryTransTypeBox";
-            this.MngrSVHistoryTransTypeBox.Size = new System.Drawing.Size(261, 24);
-            this.MngrSVHistoryTransTypeBox.TabIndex = 1;
+            this.MngrSVHistoryTransTypeBox.Size = new System.Drawing.Size(280, 31);
+            this.MngrSVHistoryTransTypeBox.TabIndex = 120;
             this.MngrSVHistoryTransTypeBox.SelectedIndexChanged += new System.EventHandler(this.MngrSVHistoryTransTypeBox_SelectedIndexChanged);
             // 
-            // MngrSVHistoryDatePickTo
+            // MngrSVHistoryServiceStatusLbl
             // 
-            this.MngrSVHistoryDatePickTo.Location = new System.Drawing.Point(1267, 172);
-            this.MngrSVHistoryDatePickTo.Name = "MngrSVHistoryDatePickTo";
-            this.MngrSVHistoryDatePickTo.Size = new System.Drawing.Size(260, 20);
-            this.MngrSVHistoryDatePickTo.TabIndex = 7;
-            this.MngrSVHistoryDatePickTo.ValueChanged += new System.EventHandler(this.MngrSVHistoryDatePickTo_ValueChanged);
+            this.MngrSVHistoryServiceStatusLbl.AutoSize = true;
+            this.MngrSVHistoryServiceStatusLbl.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold);
+            this.MngrSVHistoryServiceStatusLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.MngrSVHistoryServiceStatusLbl.Location = new System.Drawing.Point(344, 38);
+            this.MngrSVHistoryServiceStatusLbl.Name = "MngrSVHistoryServiceStatusLbl";
+            this.MngrSVHistoryServiceStatusLbl.Size = new System.Drawing.Size(166, 27);
+            this.MngrSVHistoryServiceStatusLbl.TabIndex = 4;
+            this.MngrSVHistoryServiceStatusLbl.Text = "Service Status";
             // 
-            // MngrSVHistoryTransTypeLbl
+            // MngrSVHistoryDateLbl
             // 
-            this.MngrSVHistoryTransTypeLbl.AutoSize = true;
-            this.MngrSVHistoryTransTypeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrSVHistoryTransTypeLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrSVHistoryTransTypeLbl.Location = new System.Drawing.Point(68, 137);
-            this.MngrSVHistoryTransTypeLbl.Name = "MngrSVHistoryTransTypeLbl";
-            this.MngrSVHistoryTransTypeLbl.Size = new System.Drawing.Size(179, 25);
-            this.MngrSVHistoryTransTypeLbl.TabIndex = 2;
-            this.MngrSVHistoryTransTypeLbl.Text = "Transaction Type";
+            this.MngrSVHistoryDateLbl.AutoSize = true;
+            this.MngrSVHistoryDateLbl.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold);
+            this.MngrSVHistoryDateLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.MngrSVHistoryDateLbl.Location = new System.Drawing.Point(1013, 39);
+            this.MngrSVHistoryDateLbl.Name = "MngrSVHistoryDateLbl";
+            this.MngrSVHistoryDateLbl.Size = new System.Drawing.Size(61, 27);
+            this.MngrSVHistoryDateLbl.TabIndex = 3;
+            this.MngrSVHistoryDateLbl.Text = "Date";
+            // 
+            // MngrSVHistoryServiceCatLbl
+            // 
+            this.MngrSVHistoryServiceCatLbl.AutoSize = true;
+            this.MngrSVHistoryServiceCatLbl.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold);
+            this.MngrSVHistoryServiceCatLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.MngrSVHistoryServiceCatLbl.Location = new System.Drawing.Point(662, 38);
+            this.MngrSVHistoryServiceCatLbl.Name = "MngrSVHistoryServiceCatLbl";
+            this.MngrSVHistoryServiceCatLbl.Size = new System.Drawing.Size(194, 27);
+            this.MngrSVHistoryServiceCatLbl.TabIndex = 10;
+            this.MngrSVHistoryServiceCatLbl.Text = "Service Category";
             // 
             // MngrSVHistoryDatePickFrom
             // 
-            this.MngrSVHistoryDatePickFrom.Location = new System.Drawing.Point(956, 172);
+            this.MngrSVHistoryDatePickFrom.Location = new System.Drawing.Point(1018, 69);
             this.MngrSVHistoryDatePickFrom.Name = "MngrSVHistoryDatePickFrom";
             this.MngrSVHistoryDatePickFrom.Size = new System.Drawing.Size(260, 20);
             this.MngrSVHistoryDatePickFrom.TabIndex = 6;
             this.MngrSVHistoryDatePickFrom.ValueChanged += new System.EventHandler(this.MngrSVHistoryDatePickFrom_ValueChanged);
             // 
-            // MngrSVHistoryDateLbl
+            // MngrSVHistoryToLbl
             // 
-            this.MngrSVHistoryDateLbl.AutoSize = true;
-            this.MngrSVHistoryDateLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrSVHistoryDateLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrSVHistoryDateLbl.Location = new System.Drawing.Point(910, 137);
-            this.MngrSVHistoryDateLbl.Name = "MngrSVHistoryDateLbl";
-            this.MngrSVHistoryDateLbl.Size = new System.Drawing.Size(57, 25);
-            this.MngrSVHistoryDateLbl.TabIndex = 3;
-            this.MngrSVHistoryDateLbl.Text = "Date";
+            this.MngrSVHistoryToLbl.AutoSize = true;
+            this.MngrSVHistoryToLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrSVHistoryToLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.MngrSVHistoryToLbl.Location = new System.Drawing.Point(990, 104);
+            this.MngrSVHistoryToLbl.Name = "MngrSVHistoryToLbl";
+            this.MngrSVHistoryToLbl.Size = new System.Drawing.Size(22, 16);
+            this.MngrSVHistoryToLbl.TabIndex = 9;
+            this.MngrSVHistoryToLbl.Text = "To";
             // 
-            // MngrSVHistoryServiceStatusBox
+            // MngrSVHistoryTransTypeLbl
             // 
-            this.MngrSVHistoryServiceStatusBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MngrSVHistoryServiceStatusBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrSVHistoryServiceStatusBox.FormattingEnabled = true;
-            this.MngrSVHistoryServiceStatusBox.Location = new System.Drawing.Point(349, 172);
-            this.MngrSVHistoryServiceStatusBox.Name = "MngrSVHistoryServiceStatusBox";
-            this.MngrSVHistoryServiceStatusBox.Size = new System.Drawing.Size(261, 24);
-            this.MngrSVHistoryServiceStatusBox.TabIndex = 5;
-            this.MngrSVHistoryServiceStatusBox.SelectedIndexChanged += new System.EventHandler(this.MngrSVHistoryServiceStatusBox_SelectedIndexChanged);
+            this.MngrSVHistoryTransTypeLbl.AutoSize = true;
+            this.MngrSVHistoryTransTypeLbl.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold);
+            this.MngrSVHistoryTransTypeLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.MngrSVHistoryTransTypeLbl.Location = new System.Drawing.Point(27, 38);
+            this.MngrSVHistoryTransTypeLbl.Name = "MngrSVHistoryTransTypeLbl";
+            this.MngrSVHistoryTransTypeLbl.Size = new System.Drawing.Size(195, 27);
+            this.MngrSVHistoryTransTypeLbl.TabIndex = 2;
+            this.MngrSVHistoryTransTypeLbl.Text = "Transaction Type";
             // 
-            // MngrSVHistoryServiceStatusLbl
+            // MngrSVHistoryDatePickTo
             // 
-            this.MngrSVHistoryServiceStatusLbl.AutoSize = true;
-            this.MngrSVHistoryServiceStatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrSVHistoryServiceStatusLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrSVHistoryServiceStatusLbl.Location = new System.Drawing.Point(344, 137);
-            this.MngrSVHistoryServiceStatusLbl.Name = "MngrSVHistoryServiceStatusLbl";
-            this.MngrSVHistoryServiceStatusLbl.Size = new System.Drawing.Size(151, 25);
-            this.MngrSVHistoryServiceStatusLbl.TabIndex = 4;
-            this.MngrSVHistoryServiceStatusLbl.Text = "Service Status";
+            this.MngrSVHistoryDatePickTo.Location = new System.Drawing.Point(1018, 104);
+            this.MngrSVHistoryDatePickTo.Name = "MngrSVHistoryDatePickTo";
+            this.MngrSVHistoryDatePickTo.Size = new System.Drawing.Size(260, 20);
+            this.MngrSVHistoryDatePickTo.TabIndex = 7;
+            this.MngrSVHistoryDatePickTo.ValueChanged += new System.EventHandler(this.MngrSVHistoryDatePickTo_ValueChanged);
+            // 
+            // MngrSVHistoryFromLbl
+            // 
+            this.MngrSVHistoryFromLbl.AutoSize = true;
+            this.MngrSVHistoryFromLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrSVHistoryFromLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.MngrSVHistoryFromLbl.Location = new System.Drawing.Point(972, 73);
+            this.MngrSVHistoryFromLbl.Name = "MngrSVHistoryFromLbl";
+            this.MngrSVHistoryFromLbl.Size = new System.Drawing.Size(40, 16);
+            this.MngrSVHistoryFromLbl.TabIndex = 8;
+            this.MngrSVHistoryFromLbl.Text = "From";
             // 
             // MngrApptServicePanel
             // 
             this.MngrApptServicePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrInventoryCard.SetCardName(this.MngrApptServicePanel, "Appt Service");
-            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesDataGraphLbl);
-            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesPeriod);
-            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesAppointmentSelect);
-            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesSelectedPeriodText);
-            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesSelectCatBox);
-            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesTransServiceHisDGV);
-            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesTransIDShow);
-            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesTransRepDGV);
-            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesTotalRevLbl);
-            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesSelectAppLbl);
-            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesTotalRevBox);
-            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesTransServiceLbl);
-            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesGraph);
-            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesSelectedPeriodLbl);
             this.MngrApptServicePanel.Controls.Add(this.MngrApptServiceLbl);
-            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesPeriodLbl);
-            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesPeriodCalendar);
-            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesFromDatePicker);
-            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesTransactionRepLbl);
-            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesToDatePicker);
-            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesFromLbl);
-            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesToLbl);
-            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesIncomeBtn);
-            this.MngrApptServicePanel.Controls.Add(this.MngrAppSalesCatLbl);
             this.MngrApptServicePanel.Controls.Add(this.MngrApptServiceExitBtn);
+            this.MngrApptServicePanel.Controls.Add(this.panel10);
+            this.MngrApptServicePanel.Controls.Add(this.panel11);
+            this.MngrApptServicePanel.Controls.Add(this.panel12);
             this.MngrApptServicePanel.Location = new System.Drawing.Point(0, 0);
             this.MngrApptServicePanel.Margin = new System.Windows.Forms.Padding(2);
             this.MngrInventoryCard.SetMinimumSize(this.MngrApptServicePanel, new System.Drawing.Size(1132, 505));
             this.MngrApptServicePanel.Name = "MngrApptServicePanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrApptServicePanel, new System.Drawing.Size(1132, 505));
-            this.MngrApptServicePanel.Size = new System.Drawing.Size(1588, 732);
+            this.MngrApptServicePanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrApptServicePanel.TabIndex = 100;
             this.MngrApptServicePanel.Visible = false;
-            // 
-            // MngrAppSalesDataGraphLbl
-            // 
-            this.MngrAppSalesDataGraphLbl.AutoSize = true;
-            this.MngrAppSalesDataGraphLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesDataGraphLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrAppSalesDataGraphLbl.Location = new System.Drawing.Point(1060, 212);
-            this.MngrAppSalesDataGraphLbl.Name = "MngrAppSalesDataGraphLbl";
-            this.MngrAppSalesDataGraphLbl.Size = new System.Drawing.Size(122, 23);
-            this.MngrAppSalesDataGraphLbl.TabIndex = 90;
-            this.MngrAppSalesDataGraphLbl.Text = "DATA GRAPH";
-            this.MngrAppSalesDataGraphLbl.Visible = false;
-            // 
-            // MngrAppSalesPeriod
-            // 
-            this.MngrAppSalesPeriod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrAppSalesPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MngrAppSalesPeriod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesPeriod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrAppSalesPeriod.FormattingEnabled = true;
-            this.MngrAppSalesPeriod.Location = new System.Drawing.Point(183, 238);
-            this.MngrAppSalesPeriod.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrAppSalesPeriod.Name = "MngrAppSalesPeriod";
-            this.MngrAppSalesPeriod.Size = new System.Drawing.Size(311, 24);
-            this.MngrAppSalesPeriod.TabIndex = 103;
-            this.MngrAppSalesPeriod.SelectedIndexChanged += new System.EventHandler(this.MngrAppSalesPeriod_SelectedIndexChanged);
-            // 
-            // MngrAppSalesAppointmentSelect
-            // 
-            this.MngrAppSalesAppointmentSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrAppSalesAppointmentSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MngrAppSalesAppointmentSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesAppointmentSelect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrAppSalesAppointmentSelect.FormattingEnabled = true;
-            this.MngrAppSalesAppointmentSelect.Location = new System.Drawing.Point(183, 300);
-            this.MngrAppSalesAppointmentSelect.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrAppSalesAppointmentSelect.Name = "MngrAppSalesAppointmentSelect";
-            this.MngrAppSalesAppointmentSelect.Size = new System.Drawing.Size(311, 24);
-            this.MngrAppSalesAppointmentSelect.TabIndex = 93;
-            // 
-            // MngrAppSalesSelectedPeriodText
-            // 
-            this.MngrAppSalesSelectedPeriodText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrAppSalesSelectedPeriodText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesSelectedPeriodText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrAppSalesSelectedPeriodText.Location = new System.Drawing.Point(183, 422);
-            this.MngrAppSalesSelectedPeriodText.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrAppSalesSelectedPeriodText.Name = "MngrAppSalesSelectedPeriodText";
-            this.MngrAppSalesSelectedPeriodText.ReadOnly = true;
-            this.MngrAppSalesSelectedPeriodText.Size = new System.Drawing.Size(311, 22);
-            this.MngrAppSalesSelectedPeriodText.TabIndex = 92;
-            // 
-            // MngrAppSalesSelectCatBox
-            // 
-            this.MngrAppSalesSelectCatBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrAppSalesSelectCatBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MngrAppSalesSelectCatBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesSelectCatBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrAppSalesSelectCatBox.FormattingEnabled = true;
-            this.MngrAppSalesSelectCatBox.Location = new System.Drawing.Point(183, 362);
-            this.MngrAppSalesSelectCatBox.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrAppSalesSelectCatBox.Name = "MngrAppSalesSelectCatBox";
-            this.MngrAppSalesSelectCatBox.Size = new System.Drawing.Size(311, 24);
-            this.MngrAppSalesSelectCatBox.TabIndex = 92;
-            // 
-            // MngrAppSalesTransServiceHisDGV
-            // 
-            this.MngrAppSalesTransServiceHisDGV.AllowUserToAddRows = false;
-            this.MngrAppSalesTransServiceHisDGV.AllowUserToDeleteRows = false;
-            this.MngrAppSalesTransServiceHisDGV.AllowUserToResizeColumns = false;
-            this.MngrAppSalesTransServiceHisDGV.AllowUserToResizeRows = false;
-            this.MngrAppSalesTransServiceHisDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.MngrAppSalesTransServiceHisDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.MngrAppSalesTransServiceHisDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrAppSalesTransServiceHisDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.MngrAppSalesTransServiceHisDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MngrAppSalesTransServiceHisDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrAppSalesTransServiceHisDGV.DefaultCellStyle = dataGridViewCellStyle4;
-            this.MngrAppSalesTransServiceHisDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrAppSalesTransServiceHisDGV.Location = new System.Drawing.Point(824, 546);
-            this.MngrAppSalesTransServiceHisDGV.Name = "MngrAppSalesTransServiceHisDGV";
-            this.MngrAppSalesTransServiceHisDGV.ReadOnly = true;
-            this.MngrAppSalesTransServiceHisDGV.RowHeadersVisible = false;
-            this.MngrAppSalesTransServiceHisDGV.RowHeadersWidth = 51;
-            this.MngrAppSalesTransServiceHisDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MngrAppSalesTransServiceHisDGV.Size = new System.Drawing.Size(594, 258);
-            this.MngrAppSalesTransServiceHisDGV.TabIndex = 102;
-            // 
-            // MngrAppSalesTransIDShow
-            // 
-            this.MngrAppSalesTransIDShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrAppSalesTransIDShow.Font = new System.Drawing.Font("Arial Black", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesTransIDShow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrAppSalesTransIDShow.Location = new System.Drawing.Point(1271, 512);
-            this.MngrAppSalesTransIDShow.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrAppSalesTransIDShow.Name = "MngrAppSalesTransIDShow";
-            this.MngrAppSalesTransIDShow.ReadOnly = true;
-            this.MngrAppSalesTransIDShow.Size = new System.Drawing.Size(146, 29);
-            this.MngrAppSalesTransIDShow.TabIndex = 92;
-            this.MngrAppSalesTransIDShow.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // MngrAppSalesTransRepDGV
-            // 
-            this.MngrAppSalesTransRepDGV.AllowUserToAddRows = false;
-            this.MngrAppSalesTransRepDGV.AllowUserToDeleteRows = false;
-            this.MngrAppSalesTransRepDGV.AllowUserToResizeColumns = false;
-            this.MngrAppSalesTransRepDGV.AllowUserToResizeRows = false;
-            this.MngrAppSalesTransRepDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.MngrAppSalesTransRepDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.MngrAppSalesTransRepDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrAppSalesTransRepDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.MngrAppSalesTransRepDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MngrAppSalesTransRepDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrAppSalesTransRepDGV.DefaultCellStyle = dataGridViewCellStyle6;
-            this.MngrAppSalesTransRepDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrAppSalesTransRepDGV.Location = new System.Drawing.Point(183, 546);
-            this.MngrAppSalesTransRepDGV.Name = "MngrAppSalesTransRepDGV";
-            this.MngrAppSalesTransRepDGV.ReadOnly = true;
-            this.MngrAppSalesTransRepDGV.RowHeadersVisible = false;
-            this.MngrAppSalesTransRepDGV.RowHeadersWidth = 51;
-            this.MngrAppSalesTransRepDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MngrAppSalesTransRepDGV.Size = new System.Drawing.Size(594, 258);
-            this.MngrAppSalesTransRepDGV.TabIndex = 92;
-            this.MngrAppSalesTransRepDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MngrAppSalesTransRepDGV_CellContentClick);
-            // 
-            // MngrAppSalesTotalRevLbl
-            // 
-            this.MngrAppSalesTotalRevLbl.AutoSize = true;
-            this.MngrAppSalesTotalRevLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesTotalRevLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrAppSalesTotalRevLbl.Location = new System.Drawing.Point(183, 812);
-            this.MngrAppSalesTotalRevLbl.Name = "MngrAppSalesTotalRevLbl";
-            this.MngrAppSalesTotalRevLbl.Size = new System.Drawing.Size(142, 23);
-            this.MngrAppSalesTotalRevLbl.TabIndex = 100;
-            this.MngrAppSalesTotalRevLbl.Text = "Total Revenue:";
-            // 
-            // MngrAppSalesSelectAppLbl
-            // 
-            this.MngrAppSalesSelectAppLbl.AutoSize = true;
-            this.MngrAppSalesSelectAppLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesSelectAppLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrAppSalesSelectAppLbl.Location = new System.Drawing.Point(183, 268);
-            this.MngrAppSalesSelectAppLbl.Name = "MngrAppSalesSelectAppLbl";
-            this.MngrAppSalesSelectAppLbl.Size = new System.Drawing.Size(190, 23);
-            this.MngrAppSalesSelectAppLbl.TabIndex = 87;
-            this.MngrAppSalesSelectAppLbl.Text = "Select Appointment:";
-            // 
-            // MngrAppSalesTotalRevBox
-            // 
-            this.MngrAppSalesTotalRevBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrAppSalesTotalRevBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesTotalRevBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrAppSalesTotalRevBox.Location = new System.Drawing.Point(327, 812);
-            this.MngrAppSalesTotalRevBox.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrAppSalesTotalRevBox.Name = "MngrAppSalesTotalRevBox";
-            this.MngrAppSalesTotalRevBox.ReadOnly = true;
-            this.MngrAppSalesTotalRevBox.Size = new System.Drawing.Size(146, 24);
-            this.MngrAppSalesTotalRevBox.TabIndex = 101;
-            // 
-            // MngrAppSalesTransServiceLbl
-            // 
-            this.MngrAppSalesTransServiceLbl.AutoSize = true;
-            this.MngrAppSalesTransServiceLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesTransServiceLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrAppSalesTransServiceLbl.Location = new System.Drawing.Point(824, 512);
-            this.MngrAppSalesTransServiceLbl.Name = "MngrAppSalesTransServiceLbl";
-            this.MngrAppSalesTransServiceLbl.Size = new System.Drawing.Size(401, 23);
-            this.MngrAppSalesTransServiceLbl.TabIndex = 13;
-            this.MngrAppSalesTransServiceLbl.Text = "Service Breakdown for Each Transaction ID:";
-            // 
-            // MngrAppSalesGraph
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.MngrAppSalesGraph.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.MngrAppSalesGraph.Legends.Add(legend1);
-            this.MngrAppSalesGraph.Location = new System.Drawing.Point(824, 242);
-            this.MngrAppSalesGraph.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrAppSalesGraph.Name = "MngrAppSalesGraph";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.MngrAppSalesGraph.Series.Add(series1);
-            this.MngrAppSalesGraph.Size = new System.Drawing.Size(597, 258);
-            this.MngrAppSalesGraph.TabIndex = 9;
-            this.MngrAppSalesGraph.Text = "chart1";
-            // 
-            // MngrAppSalesSelectedPeriodLbl
-            // 
-            this.MngrAppSalesSelectedPeriodLbl.AutoSize = true;
-            this.MngrAppSalesSelectedPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesSelectedPeriodLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrAppSalesSelectedPeriodLbl.Location = new System.Drawing.Point(183, 392);
-            this.MngrAppSalesSelectedPeriodLbl.Name = "MngrAppSalesSelectedPeriodLbl";
-            this.MngrAppSalesSelectedPeriodLbl.Size = new System.Drawing.Size(156, 23);
-            this.MngrAppSalesSelectedPeriodLbl.TabIndex = 17;
-            this.MngrAppSalesSelectedPeriodLbl.Text = "Selected Period:";
             // 
             // MngrApptServiceLbl
             // 
             this.MngrApptServiceLbl.AutoSize = true;
             this.MngrApptServiceLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrApptServiceLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrApptServiceLbl.Location = new System.Drawing.Point(181, 145);
+            this.MngrApptServiceLbl.Location = new System.Drawing.Point(46, 25);
             this.MngrApptServiceLbl.Name = "MngrApptServiceLbl";
             this.MngrApptServiceLbl.Size = new System.Drawing.Size(505, 35);
             this.MngrApptServiceLbl.TabIndex = 24;
             this.MngrApptServiceLbl.Text = "Appointment Transaction Sales";
-            // 
-            // MngrAppSalesPeriodLbl
-            // 
-            this.MngrAppSalesPeriodLbl.AutoSize = true;
-            this.MngrAppSalesPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesPeriodLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrAppSalesPeriodLbl.Location = new System.Drawing.Point(183, 208);
-            this.MngrAppSalesPeriodLbl.Name = "MngrAppSalesPeriodLbl";
-            this.MngrAppSalesPeriodLbl.Size = new System.Drawing.Size(197, 23);
-            this.MngrAppSalesPeriodLbl.TabIndex = 15;
-            this.MngrAppSalesPeriodLbl.Text = "Choose Sales Period:";
-            // 
-            // MngrAppSalesPeriodCalendar
-            // 
-            this.MngrAppSalesPeriodCalendar.Location = new System.Drawing.Point(550, 262);
-            this.MngrAppSalesPeriodCalendar.Margin = new System.Windows.Forms.Padding(7);
-            this.MngrAppSalesPeriodCalendar.Name = "MngrAppSalesPeriodCalendar";
-            this.MngrAppSalesPeriodCalendar.TabIndex = 16;
-            this.MngrAppSalesPeriodCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.MngrAppSalesPeriodCalendar_DateChanged);
-            // 
-            // MngrAppSalesFromDatePicker
-            // 
-            this.MngrAppSalesFromDatePicker.Location = new System.Drawing.Point(537, 302);
-            this.MngrAppSalesFromDatePicker.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrAppSalesFromDatePicker.Name = "MngrAppSalesFromDatePicker";
-            this.MngrAppSalesFromDatePicker.Size = new System.Drawing.Size(252, 20);
-            this.MngrAppSalesFromDatePicker.TabIndex = 0;
-            this.MngrAppSalesFromDatePicker.Visible = false;
-            // 
-            // MngrAppSalesTransactionRepLbl
-            // 
-            this.MngrAppSalesTransactionRepLbl.AutoSize = true;
-            this.MngrAppSalesTransactionRepLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesTransactionRepLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrAppSalesTransactionRepLbl.Location = new System.Drawing.Point(183, 512);
-            this.MngrAppSalesTransactionRepLbl.Name = "MngrAppSalesTransactionRepLbl";
-            this.MngrAppSalesTransactionRepLbl.Size = new System.Drawing.Size(479, 23);
-            this.MngrAppSalesTransactionRepLbl.TabIndex = 12;
-            this.MngrAppSalesTransactionRepLbl.Text = "Transaction ID Report within a Specified Date Range:";
-            // 
-            // MngrAppSalesToDatePicker
-            // 
-            this.MngrAppSalesToDatePicker.Location = new System.Drawing.Point(537, 364);
-            this.MngrAppSalesToDatePicker.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrAppSalesToDatePicker.Name = "MngrAppSalesToDatePicker";
-            this.MngrAppSalesToDatePicker.Size = new System.Drawing.Size(252, 20);
-            this.MngrAppSalesToDatePicker.TabIndex = 1;
-            this.MngrAppSalesToDatePicker.Visible = false;
-            // 
-            // MngrAppSalesFromLbl
-            // 
-            this.MngrAppSalesFromLbl.AutoSize = true;
-            this.MngrAppSalesFromLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesFromLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrAppSalesFromLbl.Location = new System.Drawing.Point(533, 268);
-            this.MngrAppSalesFromLbl.Name = "MngrAppSalesFromLbl";
-            this.MngrAppSalesFromLbl.Size = new System.Drawing.Size(59, 23);
-            this.MngrAppSalesFromLbl.TabIndex = 4;
-            this.MngrAppSalesFromLbl.Text = "From:";
-            this.MngrAppSalesFromLbl.Visible = false;
-            // 
-            // MngrAppSalesToLbl
-            // 
-            this.MngrAppSalesToLbl.AutoSize = true;
-            this.MngrAppSalesToLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesToLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrAppSalesToLbl.Location = new System.Drawing.Point(533, 330);
-            this.MngrAppSalesToLbl.Name = "MngrAppSalesToLbl";
-            this.MngrAppSalesToLbl.Size = new System.Drawing.Size(37, 23);
-            this.MngrAppSalesToLbl.TabIndex = 5;
-            this.MngrAppSalesToLbl.Text = "To:";
-            this.MngrAppSalesToLbl.Visible = false;
-            // 
-            // MngrAppSalesIncomeBtn
-            // 
-            this.MngrAppSalesIncomeBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesIncomeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MngrAppSalesIncomeBtn.Location = new System.Drawing.Point(183, 456);
-            this.MngrAppSalesIncomeBtn.Name = "MngrAppSalesIncomeBtn";
-            this.MngrAppSalesIncomeBtn.Size = new System.Drawing.Size(606, 46);
-            this.MngrAppSalesIncomeBtn.TabIndex = 7;
-            this.MngrAppSalesIncomeBtn.Text = "View Income";
-            this.MngrAppSalesIncomeBtn.UseVisualStyleBackColor = false;
-            this.MngrAppSalesIncomeBtn.Click += new System.EventHandler(this.MngrAppSalesIncomeBtn_Click);
-            // 
-            // MngrAppSalesCatLbl
-            // 
-            this.MngrAppSalesCatLbl.AutoSize = true;
-            this.MngrAppSalesCatLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrAppSalesCatLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrAppSalesCatLbl.Location = new System.Drawing.Point(183, 330);
-            this.MngrAppSalesCatLbl.Name = "MngrAppSalesCatLbl";
-            this.MngrAppSalesCatLbl.Size = new System.Drawing.Size(158, 23);
-            this.MngrAppSalesCatLbl.TabIndex = 6;
-            this.MngrAppSalesCatLbl.Text = "Select Category:";
             // 
             // MngrApptServiceExitBtn
             // 
@@ -2516,7 +2605,7 @@ namespace Enchante
             this.MngrApptServiceExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.MngrApptServiceExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrApptServiceExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrApptServiceExitBtn.Location = new System.Drawing.Point(1369, 145);
+            this.MngrApptServiceExitBtn.Location = new System.Drawing.Point(1528, 15);
             this.MngrApptServiceExitBtn.Name = "MngrApptServiceExitBtn";
             this.MngrApptServiceExitBtn.Size = new System.Drawing.Size(48, 48);
             this.MngrApptServiceExitBtn.TabIndex = 85;
@@ -2524,300 +2613,471 @@ namespace Enchante
             this.MngrApptServiceExitBtn.Visible = false;
             this.MngrApptServiceExitBtn.Click += new System.EventHandler(this.MngrApptServiceExitBtn_Click);
             // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(155)))), ((int)(((byte)(91)))));
+            this.panel10.Controls.Add(this.MngrAppSalesPeriodCalendar);
+            this.panel10.Controls.Add(this.MngrAppSalesPeriod);
+            this.panel10.Controls.Add(this.MngrAppSalesCatLbl);
+            this.panel10.Controls.Add(this.MngrAppSalesIncomeBtn);
+            this.panel10.Controls.Add(this.MngrAppSalesSelectedPeriodText);
+            this.panel10.Controls.Add(this.MngrAppSalesToLbl);
+            this.panel10.Controls.Add(this.MngrAppSalesSelectCatBox);
+            this.panel10.Controls.Add(this.MngrAppSalesFromLbl);
+            this.panel10.Controls.Add(this.MngrAppSalesToDatePicker);
+            this.panel10.Controls.Add(this.MngrAppSalesFromDatePicker);
+            this.panel10.Controls.Add(this.MngrAppSalesPeriodLbl);
+            this.panel10.Controls.Add(this.MngrAppSalesSelectedPeriodLbl);
+            this.panel10.Location = new System.Drawing.Point(46, 80);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(700, 367);
+            this.panel10.TabIndex = 104;
+            this.panel10.Paint += new System.Windows.Forms.PaintEventHandler(this.trypanel_Paint);
+            // 
+            // MngrAppSalesPeriodCalendar
+            // 
+            this.MngrAppSalesPeriodCalendar.Location = new System.Drawing.Point(417, 58);
+            this.MngrAppSalesPeriodCalendar.Margin = new System.Windows.Forms.Padding(7);
+            this.MngrAppSalesPeriodCalendar.Name = "MngrAppSalesPeriodCalendar";
+            this.MngrAppSalesPeriodCalendar.TabIndex = 16;
+            this.MngrAppSalesPeriodCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.MngrAppSalesPeriodCalendar_DateChanged);
+            // 
+            // MngrAppSalesPeriod
+            // 
+            this.MngrAppSalesPeriod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrAppSalesPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MngrAppSalesPeriod.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
+            this.MngrAppSalesPeriod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrAppSalesPeriod.FormattingEnabled = true;
+            this.MngrAppSalesPeriod.Location = new System.Drawing.Point(34, 58);
+            this.MngrAppSalesPeriod.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrAppSalesPeriod.Name = "MngrAppSalesPeriod";
+            this.MngrAppSalesPeriod.Size = new System.Drawing.Size(337, 31);
+            this.MngrAppSalesPeriod.TabIndex = 103;
+            this.MngrAppSalesPeriod.SelectedIndexChanged += new System.EventHandler(this.MngrAppSalesPeriod_SelectedIndexChanged);
+            // 
+            // MngrAppSalesCatLbl
+            // 
+            this.MngrAppSalesCatLbl.AutoSize = true;
+            this.MngrAppSalesCatLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesCatLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.MngrAppSalesCatLbl.Location = new System.Drawing.Point(34, 110);
+            this.MngrAppSalesCatLbl.Name = "MngrAppSalesCatLbl";
+            this.MngrAppSalesCatLbl.Size = new System.Drawing.Size(158, 23);
+            this.MngrAppSalesCatLbl.TabIndex = 6;
+            this.MngrAppSalesCatLbl.Text = "Select Category:";
+            // 
+            // MngrAppSalesIncomeBtn
+            // 
+            this.MngrAppSalesIncomeBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesIncomeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.MngrAppSalesIncomeBtn.Location = new System.Drawing.Point(34, 290);
+            this.MngrAppSalesIncomeBtn.Name = "MngrAppSalesIncomeBtn";
+            this.MngrAppSalesIncomeBtn.Size = new System.Drawing.Size(629, 44);
+            this.MngrAppSalesIncomeBtn.TabIndex = 7;
+            this.MngrAppSalesIncomeBtn.Text = "View Income";
+            this.MngrAppSalesIncomeBtn.UseVisualStyleBackColor = false;
+            this.MngrAppSalesIncomeBtn.Click += new System.EventHandler(this.MngrAppSalesIncomeBtn_Click);
+            // 
+            // MngrAppSalesSelectedPeriodText
+            // 
+            this.MngrAppSalesSelectedPeriodText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrAppSalesSelectedPeriodText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
+            this.MngrAppSalesSelectedPeriodText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrAppSalesSelectedPeriodText.Location = new System.Drawing.Point(34, 235);
+            this.MngrAppSalesSelectedPeriodText.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrAppSalesSelectedPeriodText.Name = "MngrAppSalesSelectedPeriodText";
+            this.MngrAppSalesSelectedPeriodText.ReadOnly = true;
+            this.MngrAppSalesSelectedPeriodText.Size = new System.Drawing.Size(337, 30);
+            this.MngrAppSalesSelectedPeriodText.TabIndex = 92;
+            // 
+            // MngrAppSalesToLbl
+            // 
+            this.MngrAppSalesToLbl.AutoSize = true;
+            this.MngrAppSalesToLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesToLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.MngrAppSalesToLbl.Location = new System.Drawing.Point(413, 112);
+            this.MngrAppSalesToLbl.Name = "MngrAppSalesToLbl";
+            this.MngrAppSalesToLbl.Size = new System.Drawing.Size(37, 23);
+            this.MngrAppSalesToLbl.TabIndex = 5;
+            this.MngrAppSalesToLbl.Text = "To:";
+            this.MngrAppSalesToLbl.Visible = false;
+            // 
+            // MngrAppSalesSelectCatBox
+            // 
+            this.MngrAppSalesSelectCatBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrAppSalesSelectCatBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MngrAppSalesSelectCatBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
+            this.MngrAppSalesSelectCatBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrAppSalesSelectCatBox.FormattingEnabled = true;
+            this.MngrAppSalesSelectCatBox.Location = new System.Drawing.Point(34, 142);
+            this.MngrAppSalesSelectCatBox.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrAppSalesSelectCatBox.Name = "MngrAppSalesSelectCatBox";
+            this.MngrAppSalesSelectCatBox.Size = new System.Drawing.Size(337, 31);
+            this.MngrAppSalesSelectCatBox.TabIndex = 92;
+            // 
+            // MngrAppSalesFromLbl
+            // 
+            this.MngrAppSalesFromLbl.AutoSize = true;
+            this.MngrAppSalesFromLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesFromLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.MngrAppSalesFromLbl.Location = new System.Drawing.Point(413, 27);
+            this.MngrAppSalesFromLbl.Name = "MngrAppSalesFromLbl";
+            this.MngrAppSalesFromLbl.Size = new System.Drawing.Size(59, 23);
+            this.MngrAppSalesFromLbl.TabIndex = 4;
+            this.MngrAppSalesFromLbl.Text = "From:";
+            this.MngrAppSalesFromLbl.Visible = false;
+            // 
+            // MngrAppSalesToDatePicker
+            // 
+            this.MngrAppSalesToDatePicker.Location = new System.Drawing.Point(413, 148);
+            this.MngrAppSalesToDatePicker.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrAppSalesToDatePicker.Name = "MngrAppSalesToDatePicker";
+            this.MngrAppSalesToDatePicker.Size = new System.Drawing.Size(250, 20);
+            this.MngrAppSalesToDatePicker.TabIndex = 1;
+            this.MngrAppSalesToDatePicker.Visible = false;
+            // 
+            // MngrAppSalesFromDatePicker
+            // 
+            this.MngrAppSalesFromDatePicker.Location = new System.Drawing.Point(413, 62);
+            this.MngrAppSalesFromDatePicker.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrAppSalesFromDatePicker.Name = "MngrAppSalesFromDatePicker";
+            this.MngrAppSalesFromDatePicker.Size = new System.Drawing.Size(250, 20);
+            this.MngrAppSalesFromDatePicker.TabIndex = 0;
+            this.MngrAppSalesFromDatePicker.Visible = false;
+            // 
+            // MngrAppSalesPeriodLbl
+            // 
+            this.MngrAppSalesPeriodLbl.AutoSize = true;
+            this.MngrAppSalesPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesPeriodLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.MngrAppSalesPeriodLbl.Location = new System.Drawing.Point(34, 27);
+            this.MngrAppSalesPeriodLbl.Name = "MngrAppSalesPeriodLbl";
+            this.MngrAppSalesPeriodLbl.Size = new System.Drawing.Size(197, 23);
+            this.MngrAppSalesPeriodLbl.TabIndex = 15;
+            this.MngrAppSalesPeriodLbl.Text = "Choose Sales Period:";
+            // 
+            // MngrAppSalesSelectedPeriodLbl
+            // 
+            this.MngrAppSalesSelectedPeriodLbl.AutoSize = true;
+            this.MngrAppSalesSelectedPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesSelectedPeriodLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.MngrAppSalesSelectedPeriodLbl.Location = new System.Drawing.Point(34, 201);
+            this.MngrAppSalesSelectedPeriodLbl.Name = "MngrAppSalesSelectedPeriodLbl";
+            this.MngrAppSalesSelectedPeriodLbl.Size = new System.Drawing.Size(156, 23);
+            this.MngrAppSalesSelectedPeriodLbl.TabIndex = 17;
+            this.MngrAppSalesSelectedPeriodLbl.Text = "Selected Period:";
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(155)))), ((int)(((byte)(91)))));
+            this.panel11.Controls.Add(this.MngrAppSalesPreviousBtn);
+            this.panel11.Controls.Add(this.MngrAppSalesCurrentRecordLbl);
+            this.panel11.Controls.Add(this.MngrAppSalesSearchTextBox);
+            this.panel11.Controls.Add(this.MngrAppSalesNextBtn);
+            this.panel11.Controls.Add(this.MngrAppSalesTransServiceHisDGV);
+            this.panel11.Controls.Add(this.MngrAppSalesTransIDShow);
+            this.panel11.Controls.Add(this.MngrAppSalesSearchLbl);
+            this.panel11.Controls.Add(this.MngrAppSalesTransServiceLbl);
+            this.panel11.Controls.Add(this.MngrAppSalesTotalRevBox);
+            this.panel11.Controls.Add(this.MngrAppSalesTotalRevLbl);
+            this.panel11.Controls.Add(this.MngrAppSalesTransRepDGV);
+            this.panel11.Controls.Add(this.MngrAppSalesTransRepDGVTwo);
+            this.panel11.Location = new System.Drawing.Point(46, 475);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(700, 522);
+            this.panel11.TabIndex = 105;
+            this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.trypanel_Paint);
+            // 
+            // MngrAppSalesPreviousBtn
+            // 
+            this.MngrAppSalesPreviousBtn.Location = new System.Drawing.Point(20, 284);
+            this.MngrAppSalesPreviousBtn.Name = "MngrAppSalesPreviousBtn";
+            this.MngrAppSalesPreviousBtn.Size = new System.Drawing.Size(75, 23);
+            this.MngrAppSalesPreviousBtn.TabIndex = 192;
+            this.MngrAppSalesPreviousBtn.Text = "<< Previous";
+            this.MngrAppSalesPreviousBtn.UseVisualStyleBackColor = true;
+            this.MngrAppSalesPreviousBtn.Click += new System.EventHandler(this.MngrAppSalesPreviousBtn_Click);
+            // 
+            // MngrAppSalesCurrentRecordLbl
+            // 
+            this.MngrAppSalesCurrentRecordLbl.AutoSize = true;
+            this.MngrAppSalesCurrentRecordLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesCurrentRecordLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrAppSalesCurrentRecordLbl.Location = new System.Drawing.Point(105, 286);
+            this.MngrAppSalesCurrentRecordLbl.Name = "MngrAppSalesCurrentRecordLbl";
+            this.MngrAppSalesCurrentRecordLbl.Size = new System.Drawing.Size(49, 20);
+            this.MngrAppSalesCurrentRecordLbl.TabIndex = 191;
+            this.MngrAppSalesCurrentRecordLbl.Text = "n of n";
+            // 
+            // MngrAppSalesSearchTextBox
+            // 
+            this.MngrAppSalesSearchTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrAppSalesSearchTextBox.BorderRadius = 15;
+            this.MngrAppSalesSearchTextBox.BorderThickness = 2;
+            this.MngrAppSalesSearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.MngrAppSalesSearchTextBox.DefaultText = "";
+            this.MngrAppSalesSearchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.MngrAppSalesSearchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.MngrAppSalesSearchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.MngrAppSalesSearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.MngrAppSalesSearchTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrAppSalesSearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.MngrAppSalesSearchTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesSearchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrAppSalesSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrAppSalesSearchTextBox.Location = new System.Drawing.Point(106, 14);
+            this.MngrAppSalesSearchTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.MngrAppSalesSearchTextBox.Name = "MngrAppSalesSearchTextBox";
+            this.MngrAppSalesSearchTextBox.PasswordChar = '\0';
+            this.MngrAppSalesSearchTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrAppSalesSearchTextBox.PlaceholderText = "";
+            this.MngrAppSalesSearchTextBox.SelectedText = "";
+            this.MngrAppSalesSearchTextBox.Size = new System.Drawing.Size(573, 34);
+            this.MngrAppSalesSearchTextBox.TabIndex = 192;
+            this.MngrAppSalesSearchTextBox.TextChanged += new System.EventHandler(this.MngrAppSalesSearchTextBox_TextChanged);
+            // 
+            // MngrAppSalesNextBtn
+            // 
+            this.MngrAppSalesNextBtn.Location = new System.Drawing.Point(170, 284);
+            this.MngrAppSalesNextBtn.Name = "MngrAppSalesNextBtn";
+            this.MngrAppSalesNextBtn.Size = new System.Drawing.Size(75, 23);
+            this.MngrAppSalesNextBtn.TabIndex = 193;
+            this.MngrAppSalesNextBtn.Text = "Next >>";
+            this.MngrAppSalesNextBtn.UseVisualStyleBackColor = true;
+            this.MngrAppSalesNextBtn.Click += new System.EventHandler(this.MngrAppSalesNextBtn_Click);
+            // 
+            // MngrAppSalesTransServiceHisDGV
+            // 
+            this.MngrAppSalesTransServiceHisDGV.AllowUserToAddRows = false;
+            this.MngrAppSalesTransServiceHisDGV.AllowUserToDeleteRows = false;
+            this.MngrAppSalesTransServiceHisDGV.AllowUserToResizeColumns = false;
+            this.MngrAppSalesTransServiceHisDGV.AllowUserToResizeRows = false;
+            this.MngrAppSalesTransServiceHisDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MngrAppSalesTransServiceHisDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.MngrAppSalesTransServiceHisDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrAppSalesTransServiceHisDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.MngrAppSalesTransServiceHisDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MngrAppSalesTransServiceHisDGV.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrAppSalesTransServiceHisDGV.DefaultCellStyle = dataGridViewCellStyle11;
+            this.MngrAppSalesTransServiceHisDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrAppSalesTransServiceHisDGV.Location = new System.Drawing.Point(20, 350);
+            this.MngrAppSalesTransServiceHisDGV.Name = "MngrAppSalesTransServiceHisDGV";
+            this.MngrAppSalesTransServiceHisDGV.ReadOnly = true;
+            this.MngrAppSalesTransServiceHisDGV.RowHeadersVisible = false;
+            this.MngrAppSalesTransServiceHisDGV.RowHeadersWidth = 51;
+            this.MngrAppSalesTransServiceHisDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MngrAppSalesTransServiceHisDGV.Size = new System.Drawing.Size(659, 153);
+            this.MngrAppSalesTransServiceHisDGV.TabIndex = 102;
+            // 
+            // MngrAppSalesTransIDShow
+            // 
+            this.MngrAppSalesTransIDShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrAppSalesTransIDShow.Font = new System.Drawing.Font("Arial Black", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesTransIDShow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrAppSalesTransIDShow.Location = new System.Drawing.Point(426, 316);
+            this.MngrAppSalesTransIDShow.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrAppSalesTransIDShow.Name = "MngrAppSalesTransIDShow";
+            this.MngrAppSalesTransIDShow.ReadOnly = true;
+            this.MngrAppSalesTransIDShow.Size = new System.Drawing.Size(253, 29);
+            this.MngrAppSalesTransIDShow.TabIndex = 92;
+            // 
+            // MngrAppSalesSearchLbl
+            // 
+            this.MngrAppSalesSearchLbl.AutoSize = true;
+            this.MngrAppSalesSearchLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
+            this.MngrAppSalesSearchLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrAppSalesSearchLbl.Location = new System.Drawing.Point(20, 21);
+            this.MngrAppSalesSearchLbl.Name = "MngrAppSalesSearchLbl";
+            this.MngrAppSalesSearchLbl.Size = new System.Drawing.Size(78, 23);
+            this.MngrAppSalesSearchLbl.TabIndex = 191;
+            this.MngrAppSalesSearchLbl.Text = "Search:";
+            // 
+            // MngrAppSalesTransServiceLbl
+            // 
+            this.MngrAppSalesTransServiceLbl.AutoSize = true;
+            this.MngrAppSalesTransServiceLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesTransServiceLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.MngrAppSalesTransServiceLbl.Location = new System.Drawing.Point(20, 319);
+            this.MngrAppSalesTransServiceLbl.Name = "MngrAppSalesTransServiceLbl";
+            this.MngrAppSalesTransServiceLbl.Size = new System.Drawing.Size(401, 23);
+            this.MngrAppSalesTransServiceLbl.TabIndex = 13;
+            this.MngrAppSalesTransServiceLbl.Text = "Service Breakdown for Each Transaction ID:";
+            // 
+            // MngrAppSalesTotalRevBox
+            // 
+            this.MngrAppSalesTotalRevBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrAppSalesTotalRevBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesTotalRevBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrAppSalesTotalRevBox.Location = new System.Drawing.Point(426, 284);
+            this.MngrAppSalesTotalRevBox.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrAppSalesTotalRevBox.Name = "MngrAppSalesTotalRevBox";
+            this.MngrAppSalesTotalRevBox.ReadOnly = true;
+            this.MngrAppSalesTotalRevBox.Size = new System.Drawing.Size(253, 24);
+            this.MngrAppSalesTotalRevBox.TabIndex = 101;
+            // 
+            // MngrAppSalesTotalRevLbl
+            // 
+            this.MngrAppSalesTotalRevLbl.AutoSize = true;
+            this.MngrAppSalesTotalRevLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesTotalRevLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrAppSalesTotalRevLbl.Location = new System.Drawing.Point(279, 284);
+            this.MngrAppSalesTotalRevLbl.Name = "MngrAppSalesTotalRevLbl";
+            this.MngrAppSalesTotalRevLbl.Size = new System.Drawing.Size(142, 23);
+            this.MngrAppSalesTotalRevLbl.TabIndex = 100;
+            this.MngrAppSalesTotalRevLbl.Text = "Total Revenue:";
+            // 
+            // MngrAppSalesTransRepDGV
+            // 
+            this.MngrAppSalesTransRepDGV.AllowUserToAddRows = false;
+            this.MngrAppSalesTransRepDGV.AllowUserToDeleteRows = false;
+            this.MngrAppSalesTransRepDGV.AllowUserToResizeColumns = false;
+            this.MngrAppSalesTransRepDGV.AllowUserToResizeRows = false;
+            this.MngrAppSalesTransRepDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MngrAppSalesTransRepDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.MngrAppSalesTransRepDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrAppSalesTransRepDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.MngrAppSalesTransRepDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MngrAppSalesTransRepDGV.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrAppSalesTransRepDGV.DefaultCellStyle = dataGridViewCellStyle13;
+            this.MngrAppSalesTransRepDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrAppSalesTransRepDGV.Location = new System.Drawing.Point(20, 53);
+            this.MngrAppSalesTransRepDGV.Name = "MngrAppSalesTransRepDGV";
+            this.MngrAppSalesTransRepDGV.ReadOnly = true;
+            this.MngrAppSalesTransRepDGV.RowHeadersVisible = false;
+            this.MngrAppSalesTransRepDGV.RowHeadersWidth = 51;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrAppSalesTransRepDGV.RowsDefaultCellStyle = dataGridViewCellStyle14;
+            this.MngrAppSalesTransRepDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MngrAppSalesTransRepDGV.Size = new System.Drawing.Size(659, 220);
+            this.MngrAppSalesTransRepDGV.TabIndex = 92;
+            this.MngrAppSalesTransRepDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MngrAppSalesTransRepDGV_CellContentClick);
+            // 
+            // MngrAppSalesTransRepDGVTwo
+            // 
+            this.MngrAppSalesTransRepDGVTwo.AllowUserToAddRows = false;
+            this.MngrAppSalesTransRepDGVTwo.AllowUserToDeleteRows = false;
+            this.MngrAppSalesTransRepDGVTwo.AllowUserToResizeColumns = false;
+            this.MngrAppSalesTransRepDGVTwo.AllowUserToResizeRows = false;
+            this.MngrAppSalesTransRepDGVTwo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MngrAppSalesTransRepDGVTwo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.MngrAppSalesTransRepDGVTwo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrAppSalesTransRepDGVTwo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.MngrAppSalesTransRepDGVTwo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MngrAppSalesTransRepDGVTwo.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrAppSalesTransRepDGVTwo.DefaultCellStyle = dataGridViewCellStyle16;
+            this.MngrAppSalesTransRepDGVTwo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrAppSalesTransRepDGVTwo.Location = new System.Drawing.Point(20, 53);
+            this.MngrAppSalesTransRepDGVTwo.Name = "MngrAppSalesTransRepDGVTwo";
+            this.MngrAppSalesTransRepDGVTwo.ReadOnly = true;
+            this.MngrAppSalesTransRepDGVTwo.RowHeadersVisible = false;
+            this.MngrAppSalesTransRepDGVTwo.RowHeadersWidth = 51;
+            this.MngrAppSalesTransRepDGVTwo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MngrAppSalesTransRepDGVTwo.Size = new System.Drawing.Size(659, 220);
+            this.MngrAppSalesTransRepDGVTwo.TabIndex = 194;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(155)))), ((int)(((byte)(91)))));
+            this.panel12.Controls.Add(this.MngrAppSalesGraph);
+            this.panel12.Location = new System.Drawing.Point(773, 80);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(771, 917);
+            this.panel12.TabIndex = 106;
+            this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.trypanel_Paint);
+            // 
+            // MngrAppSalesGraph
+            // 
+            this.MngrAppSalesGraph.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(186)))), ((int)(((byte)(121)))));
+            this.MngrAppSalesGraph.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+            this.MngrAppSalesGraph.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(201)))), ((int)(((byte)(79)))));
+            this.MngrAppSalesGraph.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            this.MngrAppSalesGraph.BorderlineWidth = 3;
+            chartArea1.Name = "ChartArea1";
+            this.MngrAppSalesGraph.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.MngrAppSalesGraph.Legends.Add(legend1);
+            this.MngrAppSalesGraph.Location = new System.Drawing.Point(35, 30);
+            this.MngrAppSalesGraph.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrAppSalesGraph.Name = "MngrAppSalesGraph";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.MngrAppSalesGraph.Series.Add(series1);
+            this.MngrAppSalesGraph.Size = new System.Drawing.Size(704, 844);
+            this.MngrAppSalesGraph.TabIndex = 9;
+            this.MngrAppSalesGraph.Text = "chart1";
+            // 
             // MngrWalkinProdSalesPanel
             // 
             this.MngrWalkinProdSalesPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrInventoryCard.SetCardName(this.MngrWalkinProdSalesPanel, "product sales");
-            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesPeriod);
-            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesTransRepDGV);
-            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesSelectedPeriodText);
-            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesSelectCatBox);
-            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesTotalRevLbl);
-            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesTotalRevBox);
-            this.MngrWalkinProdSalesPanel.Controls.Add(this.trydata);
-            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesToLbl);
-            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesFromLbl);
-            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesToDatePicker);
-            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesFromDatePicker);
-            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesLineGraph);
-            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesGraph);
             this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrWalkinProdSalesLbl);
-            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesTransactionRepLbl);
-            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesPeriodLbl);
-            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesPeriodCalendar);
-            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesSelectedPeriodLbl);
-            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesIncomeBtn);
-            this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrProductSalesCatLbl);
             this.MngrWalkinProdSalesPanel.Controls.Add(this.MngrWalkinProdSalesExitBtn);
+            this.MngrWalkinProdSalesPanel.Controls.Add(this.panel17);
+            this.MngrWalkinProdSalesPanel.Controls.Add(this.panel18);
+            this.MngrWalkinProdSalesPanel.Controls.Add(this.panel19);
+            this.MngrWalkinProdSalesPanel.Controls.Add(this.trydata);
             this.MngrWalkinProdSalesPanel.Location = new System.Drawing.Point(0, 0);
             this.MngrInventoryCard.SetMinimumSize(this.MngrWalkinProdSalesPanel, new System.Drawing.Size(200, 100));
             this.MngrWalkinProdSalesPanel.Name = "MngrWalkinProdSalesPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrWalkinProdSalesPanel, new System.Drawing.Size(200, 100));
-            this.MngrWalkinProdSalesPanel.Size = new System.Drawing.Size(1588, 732);
+            this.MngrWalkinProdSalesPanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrWalkinProdSalesPanel.TabIndex = 99;
-            // 
-            // MngrProductSalesPeriod
-            // 
-            this.MngrProductSalesPeriod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrProductSalesPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MngrProductSalesPeriod.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrProductSalesPeriod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrProductSalesPeriod.FormattingEnabled = true;
-            this.MngrProductSalesPeriod.Location = new System.Drawing.Point(188, 266);
-            this.MngrProductSalesPeriod.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrProductSalesPeriod.Name = "MngrProductSalesPeriod";
-            this.MngrProductSalesPeriod.Size = new System.Drawing.Size(299, 31);
-            this.MngrProductSalesPeriod.TabIndex = 93;
-            this.MngrProductSalesPeriod.SelectedIndexChanged += new System.EventHandler(this.MngrProductSalesPeriod_SelectedIndexChanged_1);
-            // 
-            // MngrProductSalesTransRepDGV
-            // 
-            this.MngrProductSalesTransRepDGV.AllowUserToAddRows = false;
-            this.MngrProductSalesTransRepDGV.AllowUserToDeleteRows = false;
-            this.MngrProductSalesTransRepDGV.AllowUserToResizeColumns = false;
-            this.MngrProductSalesTransRepDGV.AllowUserToResizeRows = false;
-            this.MngrProductSalesTransRepDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.MngrProductSalesTransRepDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.MngrProductSalesTransRepDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrProductSalesTransRepDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.MngrProductSalesTransRepDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MngrProductSalesTransRepDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrProductSalesTransRepDGV.DefaultCellStyle = dataGridViewCellStyle8;
-            this.MngrProductSalesTransRepDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrProductSalesTransRepDGV.Location = new System.Drawing.Point(822, 242);
-            this.MngrProductSalesTransRepDGV.Name = "MngrProductSalesTransRepDGV";
-            this.MngrProductSalesTransRepDGV.ReadOnly = true;
-            this.MngrProductSalesTransRepDGV.RowHeadersVisible = false;
-            this.MngrProductSalesTransRepDGV.RowHeadersWidth = 51;
-            this.MngrProductSalesTransRepDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MngrProductSalesTransRepDGV.Size = new System.Drawing.Size(594, 258);
-            this.MngrProductSalesTransRepDGV.TabIndex = 92;
-            // 
-            // MngrProductSalesSelectedPeriodText
-            // 
-            this.MngrProductSalesSelectedPeriodText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrProductSalesSelectedPeriodText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrProductSalesSelectedPeriodText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrProductSalesSelectedPeriodText.Location = new System.Drawing.Point(188, 410);
-            this.MngrProductSalesSelectedPeriodText.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrProductSalesSelectedPeriodText.Name = "MngrProductSalesSelectedPeriodText";
-            this.MngrProductSalesSelectedPeriodText.ReadOnly = true;
-            this.MngrProductSalesSelectedPeriodText.Size = new System.Drawing.Size(300, 30);
-            this.MngrProductSalesSelectedPeriodText.TabIndex = 92;
-            // 
-            // MngrProductSalesSelectCatBox
-            // 
-            this.MngrProductSalesSelectCatBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrProductSalesSelectCatBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MngrProductSalesSelectCatBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrProductSalesSelectCatBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrProductSalesSelectCatBox.FormattingEnabled = true;
-            this.MngrProductSalesSelectCatBox.Location = new System.Drawing.Point(188, 338);
-            this.MngrProductSalesSelectCatBox.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrProductSalesSelectCatBox.Name = "MngrProductSalesSelectCatBox";
-            this.MngrProductSalesSelectCatBox.Size = new System.Drawing.Size(299, 31);
-            this.MngrProductSalesSelectCatBox.TabIndex = 92;
-            // 
-            // MngrProductSalesTotalRevLbl
-            // 
-            this.MngrProductSalesTotalRevLbl.AutoSize = true;
-            this.MngrProductSalesTotalRevLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrProductSalesTotalRevLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrProductSalesTotalRevLbl.Location = new System.Drawing.Point(818, 833);
-            this.MngrProductSalesTotalRevLbl.Name = "MngrProductSalesTotalRevLbl";
-            this.MngrProductSalesTotalRevLbl.Size = new System.Drawing.Size(142, 23);
-            this.MngrProductSalesTotalRevLbl.TabIndex = 92;
-            this.MngrProductSalesTotalRevLbl.Text = "Total Revenue:";
-            // 
-            // MngrProductSalesTotalRevBox
-            // 
-            this.MngrProductSalesTotalRevBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrProductSalesTotalRevBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrProductSalesTotalRevBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrProductSalesTotalRevBox.Location = new System.Drawing.Point(965, 831);
-            this.MngrProductSalesTotalRevBox.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrProductSalesTotalRevBox.Name = "MngrProductSalesTotalRevBox";
-            this.MngrProductSalesTotalRevBox.ReadOnly = true;
-            this.MngrProductSalesTotalRevBox.Size = new System.Drawing.Size(146, 24);
-            this.MngrProductSalesTotalRevBox.TabIndex = 92;
-            // 
-            // trydata
-            // 
-            this.trydata.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.trydata.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
-            this.trydata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.trydata.Location = new System.Drawing.Point(822, 506);
-            this.trydata.Name = "trydata";
-            this.trydata.Size = new System.Drawing.Size(594, 324);
-            this.trydata.TabIndex = 26;
-            this.trydata.Visible = false;
-            // 
-            // MngrProductSalesToLbl
-            // 
-            this.MngrProductSalesToLbl.AutoSize = true;
-            this.MngrProductSalesToLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrProductSalesToLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrProductSalesToLbl.Location = new System.Drawing.Point(513, 305);
-            this.MngrProductSalesToLbl.Name = "MngrProductSalesToLbl";
-            this.MngrProductSalesToLbl.Size = new System.Drawing.Size(37, 23);
-            this.MngrProductSalesToLbl.TabIndex = 5;
-            this.MngrProductSalesToLbl.Text = "To:";
-            this.MngrProductSalesToLbl.Visible = false;
-            // 
-            // MngrProductSalesFromLbl
-            // 
-            this.MngrProductSalesFromLbl.AutoSize = true;
-            this.MngrProductSalesFromLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrProductSalesFromLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrProductSalesFromLbl.Location = new System.Drawing.Point(513, 235);
-            this.MngrProductSalesFromLbl.Name = "MngrProductSalesFromLbl";
-            this.MngrProductSalesFromLbl.Size = new System.Drawing.Size(59, 23);
-            this.MngrProductSalesFromLbl.TabIndex = 4;
-            this.MngrProductSalesFromLbl.Text = "From:";
-            this.MngrProductSalesFromLbl.Visible = false;
-            // 
-            // MngrProductSalesToDatePicker
-            // 
-            this.MngrProductSalesToDatePicker.Location = new System.Drawing.Point(517, 342);
-            this.MngrProductSalesToDatePicker.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrProductSalesToDatePicker.Name = "MngrProductSalesToDatePicker";
-            this.MngrProductSalesToDatePicker.Size = new System.Drawing.Size(265, 20);
-            this.MngrProductSalesToDatePicker.TabIndex = 1;
-            this.MngrProductSalesToDatePicker.Visible = false;
-            // 
-            // MngrProductSalesFromDatePicker
-            // 
-            this.MngrProductSalesFromDatePicker.Location = new System.Drawing.Point(517, 272);
-            this.MngrProductSalesFromDatePicker.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrProductSalesFromDatePicker.Name = "MngrProductSalesFromDatePicker";
-            this.MngrProductSalesFromDatePicker.Size = new System.Drawing.Size(265, 20);
-            this.MngrProductSalesFromDatePicker.TabIndex = 0;
-            this.MngrProductSalesFromDatePicker.Visible = false;
-            // 
-            // MngrProductSalesLineGraph
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.MngrProductSalesLineGraph.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.MngrProductSalesLineGraph.Legends.Add(legend2);
-            this.MngrProductSalesLineGraph.Location = new System.Drawing.Point(822, 506);
-            this.MngrProductSalesLineGraph.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrProductSalesLineGraph.Name = "MngrProductSalesLineGraph";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.MngrProductSalesLineGraph.Series.Add(series2);
-            this.MngrProductSalesLineGraph.Size = new System.Drawing.Size(594, 324);
-            this.MngrProductSalesLineGraph.TabIndex = 25;
-            this.MngrProductSalesLineGraph.Text = "chart1";
-            // 
-            // MngrProductSalesGraph
-            // 
-            chartArea3.Name = "ChartArea1";
-            this.MngrProductSalesGraph.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.MngrProductSalesGraph.Legends.Add(legend3);
-            this.MngrProductSalesGraph.Location = new System.Drawing.Point(188, 506);
-            this.MngrProductSalesGraph.Name = "MngrProductSalesGraph";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.MngrProductSalesGraph.Series.Add(series3);
-            this.MngrProductSalesGraph.Size = new System.Drawing.Size(594, 324);
-            this.MngrProductSalesGraph.TabIndex = 23;
-            this.MngrProductSalesGraph.Text = "chart1";
             // 
             // MngrWalkinProdSalesLbl
             // 
             this.MngrWalkinProdSalesLbl.AutoSize = true;
             this.MngrWalkinProdSalesLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrWalkinProdSalesLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinProdSalesLbl.Location = new System.Drawing.Point(186, 154);
+            this.MngrWalkinProdSalesLbl.Location = new System.Drawing.Point(46, 25);
             this.MngrWalkinProdSalesLbl.Name = "MngrWalkinProdSalesLbl";
-            this.MngrWalkinProdSalesLbl.Size = new System.Drawing.Size(371, 35);
+            this.MngrWalkinProdSalesLbl.Size = new System.Drawing.Size(238, 35);
             this.MngrWalkinProdSalesLbl.TabIndex = 99;
-            this.MngrWalkinProdSalesLbl.Text = "Walk-in Product Sales\r\n";
-            // 
-            // MngrProductSalesTransactionRepLbl
-            // 
-            this.MngrProductSalesTransactionRepLbl.AutoSize = true;
-            this.MngrProductSalesTransactionRepLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrProductSalesTransactionRepLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MngrProductSalesTransactionRepLbl.Location = new System.Drawing.Point(822, 215);
-            this.MngrProductSalesTransactionRepLbl.Name = "MngrProductSalesTransactionRepLbl";
-            this.MngrProductSalesTransactionRepLbl.Size = new System.Drawing.Size(187, 23);
-            this.MngrProductSalesTransactionRepLbl.TabIndex = 12;
-            this.MngrProductSalesTransactionRepLbl.Text = "Transaction Details:";
-            // 
-            // MngrProductSalesPeriodLbl
-            // 
-            this.MngrProductSalesPeriodLbl.AutoSize = true;
-            this.MngrProductSalesPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrProductSalesPeriodLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrProductSalesPeriodLbl.Location = new System.Drawing.Point(188, 235);
-            this.MngrProductSalesPeriodLbl.Name = "MngrProductSalesPeriodLbl";
-            this.MngrProductSalesPeriodLbl.Size = new System.Drawing.Size(197, 23);
-            this.MngrProductSalesPeriodLbl.TabIndex = 15;
-            this.MngrProductSalesPeriodLbl.Text = "Choose Sales Period:";
-            // 
-            // MngrProductSalesPeriodCalendar
-            // 
-            this.MngrProductSalesPeriodCalendar.Location = new System.Drawing.Point(529, 265);
-            this.MngrProductSalesPeriodCalendar.Margin = new System.Windows.Forms.Padding(7);
-            this.MngrProductSalesPeriodCalendar.Name = "MngrProductSalesPeriodCalendar";
-            this.MngrProductSalesPeriodCalendar.TabIndex = 16;
-            this.MngrProductSalesPeriodCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.MngrProductSalesPeriodCalendar_DateChanged_1);
-            // 
-            // MngrProductSalesSelectedPeriodLbl
-            // 
-            this.MngrProductSalesSelectedPeriodLbl.AutoSize = true;
-            this.MngrProductSalesSelectedPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrProductSalesSelectedPeriodLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrProductSalesSelectedPeriodLbl.Location = new System.Drawing.Point(188, 378);
-            this.MngrProductSalesSelectedPeriodLbl.Name = "MngrProductSalesSelectedPeriodLbl";
-            this.MngrProductSalesSelectedPeriodLbl.Size = new System.Drawing.Size(156, 23);
-            this.MngrProductSalesSelectedPeriodLbl.TabIndex = 17;
-            this.MngrProductSalesSelectedPeriodLbl.Text = "Selected Period:";
-            // 
-            // MngrProductSalesIncomeBtn
-            // 
-            this.MngrProductSalesIncomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrProductSalesIncomeBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrProductSalesIncomeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MngrProductSalesIncomeBtn.Location = new System.Drawing.Point(188, 455);
-            this.MngrProductSalesIncomeBtn.Name = "MngrProductSalesIncomeBtn";
-            this.MngrProductSalesIncomeBtn.Size = new System.Drawing.Size(594, 40);
-            this.MngrProductSalesIncomeBtn.TabIndex = 7;
-            this.MngrProductSalesIncomeBtn.Text = "View Income";
-            this.MngrProductSalesIncomeBtn.UseVisualStyleBackColor = true;
-            this.MngrProductSalesIncomeBtn.Click += new System.EventHandler(this.MngrProductSalesIncomeBtn_Click);
-            // 
-            // MngrProductSalesCatLbl
-            // 
-            this.MngrProductSalesCatLbl.AutoSize = true;
-            this.MngrProductSalesCatLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrProductSalesCatLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.MngrProductSalesCatLbl.Location = new System.Drawing.Point(188, 305);
-            this.MngrProductSalesCatLbl.Name = "MngrProductSalesCatLbl";
-            this.MngrProductSalesCatLbl.Size = new System.Drawing.Size(158, 23);
-            this.MngrProductSalesCatLbl.TabIndex = 6;
-            this.MngrProductSalesCatLbl.Text = "Select Category:";
+            this.MngrWalkinProdSalesLbl.Text = "Product Sales\r\n";
             // 
             // MngrWalkinProdSalesExitBtn
             // 
@@ -2829,7 +3089,7 @@ namespace Enchante
             this.MngrWalkinProdSalesExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.MngrWalkinProdSalesExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrWalkinProdSalesExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrWalkinProdSalesExitBtn.Location = new System.Drawing.Point(1368, 154);
+            this.MngrWalkinProdSalesExitBtn.Location = new System.Drawing.Point(1528, 15);
             this.MngrWalkinProdSalesExitBtn.Name = "MngrWalkinProdSalesExitBtn";
             this.MngrWalkinProdSalesExitBtn.Size = new System.Drawing.Size(48, 48);
             this.MngrWalkinProdSalesExitBtn.TabIndex = 84;
@@ -2837,353 +3097,442 @@ namespace Enchante
             this.MngrWalkinProdSalesExitBtn.Visible = false;
             this.MngrWalkinProdSalesExitBtn.Click += new System.EventHandler(this.MngrWalkinProdSalesExitBtn_Click);
             // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(155)))), ((int)(((byte)(91)))));
+            this.panel17.Controls.Add(this.MngrProductSalesIncomeBtn);
+            this.panel17.Controls.Add(this.MngrProductSalesPeriod);
+            this.panel17.Controls.Add(this.MngrProductSalesPeriodCalendar);
+            this.panel17.Controls.Add(this.MngrProductSalesCatLbl);
+            this.panel17.Controls.Add(this.MngrProductSalesSelectedPeriodText);
+            this.panel17.Controls.Add(this.MngrProductSalesSelectCatBox);
+            this.panel17.Controls.Add(this.MngrProductSalesSelectedPeriodLbl);
+            this.panel17.Controls.Add(this.MngrProductSalesPeriodLbl);
+            this.panel17.Controls.Add(this.MngrProductSalesFromDatePicker);
+            this.panel17.Controls.Add(this.MngrProductSalesToDatePicker);
+            this.panel17.Controls.Add(this.MngrProductSalesToLbl);
+            this.panel17.Controls.Add(this.MngrProductSalesFromLbl);
+            this.panel17.Location = new System.Drawing.Point(46, 80);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(700, 367);
+            this.panel17.TabIndex = 100;
+            this.panel17.Paint += new System.Windows.Forms.PaintEventHandler(this.trypanel_Paint);
+            // 
+            // MngrProductSalesIncomeBtn
+            // 
+            this.MngrProductSalesIncomeBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrProductSalesIncomeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.MngrProductSalesIncomeBtn.Location = new System.Drawing.Point(34, 290);
+            this.MngrProductSalesIncomeBtn.Name = "MngrProductSalesIncomeBtn";
+            this.MngrProductSalesIncomeBtn.Size = new System.Drawing.Size(629, 44);
+            this.MngrProductSalesIncomeBtn.TabIndex = 105;
+            this.MngrProductSalesIncomeBtn.Text = "View Income";
+            this.MngrProductSalesIncomeBtn.UseVisualStyleBackColor = false;
+            this.MngrProductSalesIncomeBtn.Click += new System.EventHandler(this.MngrProductSalesIncomeBtn_Click);
+            // 
+            // MngrProductSalesPeriod
+            // 
+            this.MngrProductSalesPeriod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrProductSalesPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MngrProductSalesPeriod.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrProductSalesPeriod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrProductSalesPeriod.FormattingEnabled = true;
+            this.MngrProductSalesPeriod.Location = new System.Drawing.Point(34, 58);
+            this.MngrProductSalesPeriod.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrProductSalesPeriod.Name = "MngrProductSalesPeriod";
+            this.MngrProductSalesPeriod.Size = new System.Drawing.Size(337, 31);
+            this.MngrProductSalesPeriod.TabIndex = 93;
+            this.MngrProductSalesPeriod.SelectedIndexChanged += new System.EventHandler(this.MngrProductSalesPeriod_SelectedIndexChanged_1);
+            // 
+            // MngrProductSalesPeriodCalendar
+            // 
+            this.MngrProductSalesPeriodCalendar.Location = new System.Drawing.Point(417, 58);
+            this.MngrProductSalesPeriodCalendar.Margin = new System.Windows.Forms.Padding(7);
+            this.MngrProductSalesPeriodCalendar.Name = "MngrProductSalesPeriodCalendar";
+            this.MngrProductSalesPeriodCalendar.TabIndex = 16;
+            this.MngrProductSalesPeriodCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.MngrProductSalesPeriodCalendar_DateChanged_1);
+            // 
+            // MngrProductSalesCatLbl
+            // 
+            this.MngrProductSalesCatLbl.AutoSize = true;
+            this.MngrProductSalesCatLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrProductSalesCatLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.MngrProductSalesCatLbl.Location = new System.Drawing.Point(34, 110);
+            this.MngrProductSalesCatLbl.Name = "MngrProductSalesCatLbl";
+            this.MngrProductSalesCatLbl.Size = new System.Drawing.Size(158, 23);
+            this.MngrProductSalesCatLbl.TabIndex = 6;
+            this.MngrProductSalesCatLbl.Text = "Select Category:";
+            // 
+            // MngrProductSalesSelectedPeriodText
+            // 
+            this.MngrProductSalesSelectedPeriodText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrProductSalesSelectedPeriodText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrProductSalesSelectedPeriodText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrProductSalesSelectedPeriodText.Location = new System.Drawing.Point(34, 235);
+            this.MngrProductSalesSelectedPeriodText.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrProductSalesSelectedPeriodText.Name = "MngrProductSalesSelectedPeriodText";
+            this.MngrProductSalesSelectedPeriodText.ReadOnly = true;
+            this.MngrProductSalesSelectedPeriodText.Size = new System.Drawing.Size(337, 30);
+            this.MngrProductSalesSelectedPeriodText.TabIndex = 92;
+            // 
+            // MngrProductSalesSelectCatBox
+            // 
+            this.MngrProductSalesSelectCatBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrProductSalesSelectCatBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MngrProductSalesSelectCatBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrProductSalesSelectCatBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrProductSalesSelectCatBox.FormattingEnabled = true;
+            this.MngrProductSalesSelectCatBox.Location = new System.Drawing.Point(34, 142);
+            this.MngrProductSalesSelectCatBox.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrProductSalesSelectCatBox.Name = "MngrProductSalesSelectCatBox";
+            this.MngrProductSalesSelectCatBox.Size = new System.Drawing.Size(337, 31);
+            this.MngrProductSalesSelectCatBox.TabIndex = 92;
+            // 
+            // MngrProductSalesSelectedPeriodLbl
+            // 
+            this.MngrProductSalesSelectedPeriodLbl.AutoSize = true;
+            this.MngrProductSalesSelectedPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrProductSalesSelectedPeriodLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.MngrProductSalesSelectedPeriodLbl.Location = new System.Drawing.Point(34, 201);
+            this.MngrProductSalesSelectedPeriodLbl.Name = "MngrProductSalesSelectedPeriodLbl";
+            this.MngrProductSalesSelectedPeriodLbl.Size = new System.Drawing.Size(156, 23);
+            this.MngrProductSalesSelectedPeriodLbl.TabIndex = 17;
+            this.MngrProductSalesSelectedPeriodLbl.Text = "Selected Period:";
+            // 
+            // MngrProductSalesPeriodLbl
+            // 
+            this.MngrProductSalesPeriodLbl.AutoSize = true;
+            this.MngrProductSalesPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrProductSalesPeriodLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.MngrProductSalesPeriodLbl.Location = new System.Drawing.Point(34, 27);
+            this.MngrProductSalesPeriodLbl.Name = "MngrProductSalesPeriodLbl";
+            this.MngrProductSalesPeriodLbl.Size = new System.Drawing.Size(197, 23);
+            this.MngrProductSalesPeriodLbl.TabIndex = 15;
+            this.MngrProductSalesPeriodLbl.Text = "Choose Sales Period:";
+            // 
+            // MngrProductSalesFromDatePicker
+            // 
+            this.MngrProductSalesFromDatePicker.Location = new System.Drawing.Point(413, 62);
+            this.MngrProductSalesFromDatePicker.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrProductSalesFromDatePicker.Name = "MngrProductSalesFromDatePicker";
+            this.MngrProductSalesFromDatePicker.Size = new System.Drawing.Size(265, 20);
+            this.MngrProductSalesFromDatePicker.TabIndex = 0;
+            this.MngrProductSalesFromDatePicker.Visible = false;
+            // 
+            // MngrProductSalesToDatePicker
+            // 
+            this.MngrProductSalesToDatePicker.Location = new System.Drawing.Point(413, 148);
+            this.MngrProductSalesToDatePicker.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrProductSalesToDatePicker.Name = "MngrProductSalesToDatePicker";
+            this.MngrProductSalesToDatePicker.Size = new System.Drawing.Size(265, 20);
+            this.MngrProductSalesToDatePicker.TabIndex = 1;
+            this.MngrProductSalesToDatePicker.Visible = false;
+            // 
+            // MngrProductSalesToLbl
+            // 
+            this.MngrProductSalesToLbl.AutoSize = true;
+            this.MngrProductSalesToLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrProductSalesToLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.MngrProductSalesToLbl.Location = new System.Drawing.Point(413, 112);
+            this.MngrProductSalesToLbl.Name = "MngrProductSalesToLbl";
+            this.MngrProductSalesToLbl.Size = new System.Drawing.Size(37, 23);
+            this.MngrProductSalesToLbl.TabIndex = 5;
+            this.MngrProductSalesToLbl.Text = "To:";
+            this.MngrProductSalesToLbl.Visible = false;
+            // 
+            // MngrProductSalesFromLbl
+            // 
+            this.MngrProductSalesFromLbl.AutoSize = true;
+            this.MngrProductSalesFromLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrProductSalesFromLbl.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.MngrProductSalesFromLbl.Location = new System.Drawing.Point(413, 27);
+            this.MngrProductSalesFromLbl.Name = "MngrProductSalesFromLbl";
+            this.MngrProductSalesFromLbl.Size = new System.Drawing.Size(59, 23);
+            this.MngrProductSalesFromLbl.TabIndex = 4;
+            this.MngrProductSalesFromLbl.Text = "From:";
+            this.MngrProductSalesFromLbl.Visible = false;
+            // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(155)))), ((int)(((byte)(91)))));
+            this.panel18.Controls.Add(this.MngrProductSalesTransRepDGV);
+            this.panel18.Controls.Add(this.MngrProductSalesPreviousBtn);
+            this.panel18.Controls.Add(this.MngrProductSalesCurrentRecordLbl);
+            this.panel18.Controls.Add(this.MngrProductSalesNextBtn);
+            this.panel18.Controls.Add(this.MngrProductSalesSearchTextBox);
+            this.panel18.Controls.Add(this.MngrProductSalesSearchLbl);
+            this.panel18.Controls.Add(this.MngrProductSalesTotalRevLbl);
+            this.panel18.Controls.Add(this.MngrProductSalesTotalRevBox);
+            this.panel18.Controls.Add(this.MngrProductSalesTransRepDGVTwo);
+            this.panel18.Location = new System.Drawing.Point(46, 475);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(700, 522);
+            this.panel18.TabIndex = 101;
+            this.panel18.Paint += new System.Windows.Forms.PaintEventHandler(this.trypanel_Paint);
+            // 
+            // MngrProductSalesTransRepDGV
+            // 
+            this.MngrProductSalesTransRepDGV.AllowUserToAddRows = false;
+            this.MngrProductSalesTransRepDGV.AllowUserToDeleteRows = false;
+            this.MngrProductSalesTransRepDGV.AllowUserToResizeColumns = false;
+            this.MngrProductSalesTransRepDGV.AllowUserToResizeRows = false;
+            this.MngrProductSalesTransRepDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MngrProductSalesTransRepDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.MngrProductSalesTransRepDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrProductSalesTransRepDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            this.MngrProductSalesTransRepDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MngrProductSalesTransRepDGV.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrProductSalesTransRepDGV.DefaultCellStyle = dataGridViewCellStyle18;
+            this.MngrProductSalesTransRepDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrProductSalesTransRepDGV.Location = new System.Drawing.Point(20, 53);
+            this.MngrProductSalesTransRepDGV.Name = "MngrProductSalesTransRepDGV";
+            this.MngrProductSalesTransRepDGV.ReadOnly = true;
+            this.MngrProductSalesTransRepDGV.RowHeadersVisible = false;
+            this.MngrProductSalesTransRepDGV.RowHeadersWidth = 51;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrProductSalesTransRepDGV.RowsDefaultCellStyle = dataGridViewCellStyle19;
+            this.MngrProductSalesTransRepDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MngrProductSalesTransRepDGV.Size = new System.Drawing.Size(659, 415);
+            this.MngrProductSalesTransRepDGV.TabIndex = 103;
+            // 
+            // MngrProductSalesPreviousBtn
+            // 
+            this.MngrProductSalesPreviousBtn.Location = new System.Drawing.Point(20, 478);
+            this.MngrProductSalesPreviousBtn.Name = "MngrProductSalesPreviousBtn";
+            this.MngrProductSalesPreviousBtn.Size = new System.Drawing.Size(75, 23);
+            this.MngrProductSalesPreviousBtn.TabIndex = 194;
+            this.MngrProductSalesPreviousBtn.Text = "<< Previous";
+            this.MngrProductSalesPreviousBtn.UseVisualStyleBackColor = true;
+            this.MngrProductSalesPreviousBtn.Click += new System.EventHandler(this.MngrProductSalesPreviousBtn_Click);
+            // 
+            // MngrProductSalesCurrentRecordLbl
+            // 
+            this.MngrProductSalesCurrentRecordLbl.AutoSize = true;
+            this.MngrProductSalesCurrentRecordLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrProductSalesCurrentRecordLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrProductSalesCurrentRecordLbl.Location = new System.Drawing.Point(105, 480);
+            this.MngrProductSalesCurrentRecordLbl.Name = "MngrProductSalesCurrentRecordLbl";
+            this.MngrProductSalesCurrentRecordLbl.Size = new System.Drawing.Size(49, 20);
+            this.MngrProductSalesCurrentRecordLbl.TabIndex = 193;
+            this.MngrProductSalesCurrentRecordLbl.Text = "n of n";
+            // 
+            // MngrProductSalesNextBtn
+            // 
+            this.MngrProductSalesNextBtn.Location = new System.Drawing.Point(170, 478);
+            this.MngrProductSalesNextBtn.Name = "MngrProductSalesNextBtn";
+            this.MngrProductSalesNextBtn.Size = new System.Drawing.Size(75, 23);
+            this.MngrProductSalesNextBtn.TabIndex = 195;
+            this.MngrProductSalesNextBtn.Text = "Next >>";
+            this.MngrProductSalesNextBtn.UseVisualStyleBackColor = true;
+            this.MngrProductSalesNextBtn.Click += new System.EventHandler(this.MngrProductSalesNextBtn_Click);
+            // 
+            // MngrProductSalesSearchTextBox
+            // 
+            this.MngrProductSalesSearchTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrProductSalesSearchTextBox.BorderRadius = 15;
+            this.MngrProductSalesSearchTextBox.BorderThickness = 2;
+            this.MngrProductSalesSearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.MngrProductSalesSearchTextBox.DefaultText = "";
+            this.MngrProductSalesSearchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.MngrProductSalesSearchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.MngrProductSalesSearchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.MngrProductSalesSearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.MngrProductSalesSearchTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrProductSalesSearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.MngrProductSalesSearchTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrProductSalesSearchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrProductSalesSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrProductSalesSearchTextBox.Location = new System.Drawing.Point(106, 14);
+            this.MngrProductSalesSearchTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.MngrProductSalesSearchTextBox.Name = "MngrProductSalesSearchTextBox";
+            this.MngrProductSalesSearchTextBox.PasswordChar = '\0';
+            this.MngrProductSalesSearchTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrProductSalesSearchTextBox.PlaceholderText = "";
+            this.MngrProductSalesSearchTextBox.SelectedText = "";
+            this.MngrProductSalesSearchTextBox.Size = new System.Drawing.Size(573, 34);
+            this.MngrProductSalesSearchTextBox.TabIndex = 192;
+            this.MngrProductSalesSearchTextBox.TextChanged += new System.EventHandler(this.MngrProductSalesSearchTextBox_TextChanged);
+            // 
+            // MngrProductSalesSearchLbl
+            // 
+            this.MngrProductSalesSearchLbl.AutoSize = true;
+            this.MngrProductSalesSearchLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
+            this.MngrProductSalesSearchLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrProductSalesSearchLbl.Location = new System.Drawing.Point(20, 21);
+            this.MngrProductSalesSearchLbl.Name = "MngrProductSalesSearchLbl";
+            this.MngrProductSalesSearchLbl.Size = new System.Drawing.Size(78, 23);
+            this.MngrProductSalesSearchLbl.TabIndex = 191;
+            this.MngrProductSalesSearchLbl.Text = "Search:";
+            // 
+            // MngrProductSalesTotalRevLbl
+            // 
+            this.MngrProductSalesTotalRevLbl.AutoSize = true;
+            this.MngrProductSalesTotalRevLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrProductSalesTotalRevLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrProductSalesTotalRevLbl.Location = new System.Drawing.Point(385, 478);
+            this.MngrProductSalesTotalRevLbl.Name = "MngrProductSalesTotalRevLbl";
+            this.MngrProductSalesTotalRevLbl.Size = new System.Drawing.Size(142, 23);
+            this.MngrProductSalesTotalRevLbl.TabIndex = 92;
+            this.MngrProductSalesTotalRevLbl.Text = "Total Revenue:";
+            // 
+            // MngrProductSalesTotalRevBox
+            // 
+            this.MngrProductSalesTotalRevBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrProductSalesTotalRevBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrProductSalesTotalRevBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrProductSalesTotalRevBox.Location = new System.Drawing.Point(532, 478);
+            this.MngrProductSalesTotalRevBox.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrProductSalesTotalRevBox.Name = "MngrProductSalesTotalRevBox";
+            this.MngrProductSalesTotalRevBox.ReadOnly = true;
+            this.MngrProductSalesTotalRevBox.Size = new System.Drawing.Size(146, 24);
+            this.MngrProductSalesTotalRevBox.TabIndex = 92;
+            // 
+            // MngrProductSalesTransRepDGVTwo
+            // 
+            this.MngrProductSalesTransRepDGVTwo.AllowUserToAddRows = false;
+            this.MngrProductSalesTransRepDGVTwo.AllowUserToDeleteRows = false;
+            this.MngrProductSalesTransRepDGVTwo.AllowUserToResizeColumns = false;
+            this.MngrProductSalesTransRepDGVTwo.AllowUserToResizeRows = false;
+            this.MngrProductSalesTransRepDGVTwo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MngrProductSalesTransRepDGVTwo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.MngrProductSalesTransRepDGVTwo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrProductSalesTransRepDGVTwo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            this.MngrProductSalesTransRepDGVTwo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MngrProductSalesTransRepDGVTwo.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrProductSalesTransRepDGVTwo.DefaultCellStyle = dataGridViewCellStyle21;
+            this.MngrProductSalesTransRepDGVTwo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrProductSalesTransRepDGVTwo.Location = new System.Drawing.Point(20, 53);
+            this.MngrProductSalesTransRepDGVTwo.Name = "MngrProductSalesTransRepDGVTwo";
+            this.MngrProductSalesTransRepDGVTwo.ReadOnly = true;
+            this.MngrProductSalesTransRepDGVTwo.RowHeadersVisible = false;
+            this.MngrProductSalesTransRepDGVTwo.RowHeadersWidth = 51;
+            this.MngrProductSalesTransRepDGVTwo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MngrProductSalesTransRepDGVTwo.Size = new System.Drawing.Size(659, 415);
+            this.MngrProductSalesTransRepDGVTwo.TabIndex = 196;
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(155)))), ((int)(((byte)(91)))));
+            this.panel19.Controls.Add(this.MngrProductSalesLineGraph);
+            this.panel19.Controls.Add(this.MngrProductSalesGraph);
+            this.panel19.Location = new System.Drawing.Point(773, 80);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(771, 917);
+            this.panel19.TabIndex = 102;
+            this.panel19.Paint += new System.Windows.Forms.PaintEventHandler(this.trypanel_Paint);
+            // 
+            // MngrProductSalesLineGraph
+            // 
+            this.MngrProductSalesLineGraph.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(186)))), ((int)(((byte)(121)))));
+            this.MngrProductSalesLineGraph.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+            this.MngrProductSalesLineGraph.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(201)))), ((int)(((byte)(79)))));
+            this.MngrProductSalesLineGraph.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            this.MngrProductSalesLineGraph.BorderlineWidth = 3;
+            chartArea2.Name = "ChartArea1";
+            this.MngrProductSalesLineGraph.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.MngrProductSalesLineGraph.Legends.Add(legend2);
+            this.MngrProductSalesLineGraph.Location = new System.Drawing.Point(31, 467);
+            this.MngrProductSalesLineGraph.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrProductSalesLineGraph.Name = "MngrProductSalesLineGraph";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.MngrProductSalesLineGraph.Series.Add(series2);
+            this.MngrProductSalesLineGraph.Size = new System.Drawing.Size(704, 400);
+            this.MngrProductSalesLineGraph.TabIndex = 25;
+            this.MngrProductSalesLineGraph.Text = "chart1";
+            // 
+            // MngrProductSalesGraph
+            // 
+            this.MngrProductSalesGraph.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(186)))), ((int)(((byte)(121)))));
+            this.MngrProductSalesGraph.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+            this.MngrProductSalesGraph.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(201)))), ((int)(((byte)(79)))));
+            this.MngrProductSalesGraph.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            this.MngrProductSalesGraph.BorderlineWidth = 3;
+            chartArea3.Name = "ChartArea1";
+            this.MngrProductSalesGraph.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.MngrProductSalesGraph.Legends.Add(legend3);
+            this.MngrProductSalesGraph.Location = new System.Drawing.Point(31, 39);
+            this.MngrProductSalesGraph.Name = "MngrProductSalesGraph";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.MngrProductSalesGraph.Series.Add(series3);
+            this.MngrProductSalesGraph.Size = new System.Drawing.Size(704, 400);
+            this.MngrProductSalesGraph.TabIndex = 23;
+            this.MngrProductSalesGraph.Text = "chart1";
+            // 
+            // trydata
+            // 
+            this.trydata.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.trydata.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
+            this.trydata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.trydata.Location = new System.Drawing.Point(850, 500);
+            this.trydata.Name = "trydata";
+            this.trydata.Size = new System.Drawing.Size(594, 324);
+            this.trydata.TabIndex = 26;
+            this.trydata.Visible = false;
+            // 
             // MngrWalkinSalesPanel
             // 
             this.MngrWalkinSalesPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrInventoryCard.SetCardName(this.MngrWalkinSalesPanel, "walkin sales");
-            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesRevenueTextbox);
-            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesTotalRevenueLbl);
-            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesGraphLbl);
-            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesTransServiceHisDGV);
-            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesTransRepDGV);
             this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesLbl);
-            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesGraph);
-            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesTransIDShow);
-            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesSelectedPeriodText);
-            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesSelectedPeriodLbl);
-            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesPeriodLbl);
-            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesPeriod);
-            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesTransServiceLbl);
-            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesTransactionRepLbl);
-            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesIncomeBtn);
-            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesCatLbl);
-            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesToLbl);
-            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesFromLbl);
-            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesSelectCatBox);
-            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesToDatePicker);
-            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesFromDatePicker);
-            this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesPeriodCalendar);
             this.MngrWalkinSalesPanel.Controls.Add(this.MngrWalkinSalesExitBtn);
+            this.MngrWalkinSalesPanel.Controls.Add(this.panel7);
+            this.MngrWalkinSalesPanel.Controls.Add(this.panel8);
+            this.MngrWalkinSalesPanel.Controls.Add(this.panel9);
             this.MngrWalkinSalesPanel.Location = new System.Drawing.Point(0, 0);
             this.MngrWalkinSalesPanel.Margin = new System.Windows.Forms.Padding(2);
             this.MngrInventoryCard.SetMinimumSize(this.MngrWalkinSalesPanel, new System.Drawing.Size(1132, 505));
             this.MngrWalkinSalesPanel.Name = "MngrWalkinSalesPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrWalkinSalesPanel, new System.Drawing.Size(1132, 505));
-            this.MngrWalkinSalesPanel.Size = new System.Drawing.Size(1588, 732);
+            this.MngrWalkinSalesPanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrWalkinSalesPanel.TabIndex = 28;
             this.MngrWalkinSalesPanel.Visible = false;
-            // 
-            // MngrWalkinSalesRevenueTextbox
-            // 
-            this.MngrWalkinSalesRevenueTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrWalkinSalesRevenueTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrWalkinSalesRevenueTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesRevenueTextbox.Location = new System.Drawing.Point(327, 728);
-            this.MngrWalkinSalesRevenueTextbox.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrWalkinSalesRevenueTextbox.Name = "MngrWalkinSalesRevenueTextbox";
-            this.MngrWalkinSalesRevenueTextbox.ReadOnly = true;
-            this.MngrWalkinSalesRevenueTextbox.Size = new System.Drawing.Size(146, 24);
-            this.MngrWalkinSalesRevenueTextbox.TabIndex = 91;
-            // 
-            // MngrWalkinSalesTotalRevenueLbl
-            // 
-            this.MngrWalkinSalesTotalRevenueLbl.AutoSize = true;
-            this.MngrWalkinSalesTotalRevenueLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrWalkinSalesTotalRevenueLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesTotalRevenueLbl.Location = new System.Drawing.Point(183, 728);
-            this.MngrWalkinSalesTotalRevenueLbl.Name = "MngrWalkinSalesTotalRevenueLbl";
-            this.MngrWalkinSalesTotalRevenueLbl.Size = new System.Drawing.Size(142, 23);
-            this.MngrWalkinSalesTotalRevenueLbl.TabIndex = 90;
-            this.MngrWalkinSalesTotalRevenueLbl.Text = "Total Revenue:";
-            // 
-            // MngrWalkinSalesGraphLbl
-            // 
-            this.MngrWalkinSalesGraphLbl.AutoSize = true;
-            this.MngrWalkinSalesGraphLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrWalkinSalesGraphLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesGraphLbl.Location = new System.Drawing.Point(1060, 123);
-            this.MngrWalkinSalesGraphLbl.Name = "MngrWalkinSalesGraphLbl";
-            this.MngrWalkinSalesGraphLbl.Size = new System.Drawing.Size(122, 23);
-            this.MngrWalkinSalesGraphLbl.TabIndex = 89;
-            this.MngrWalkinSalesGraphLbl.Text = "DATA GRAPH";
-            this.MngrWalkinSalesGraphLbl.Visible = false;
-            // 
-            // MngrWalkinSalesTransServiceHisDGV
-            // 
-            this.MngrWalkinSalesTransServiceHisDGV.AllowUserToAddRows = false;
-            this.MngrWalkinSalesTransServiceHisDGV.AllowUserToDeleteRows = false;
-            this.MngrWalkinSalesTransServiceHisDGV.AllowUserToResizeColumns = false;
-            this.MngrWalkinSalesTransServiceHisDGV.AllowUserToResizeRows = false;
-            this.MngrWalkinSalesTransServiceHisDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.MngrWalkinSalesTransServiceHisDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.MngrWalkinSalesTransServiceHisDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrWalkinSalesTransServiceHisDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.MngrWalkinSalesTransServiceHisDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MngrWalkinSalesTransServiceHisDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrWalkinSalesTransServiceHisDGV.DefaultCellStyle = dataGridViewCellStyle10;
-            this.MngrWalkinSalesTransServiceHisDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrWalkinSalesTransServiceHisDGV.Location = new System.Drawing.Point(824, 457);
-            this.MngrWalkinSalesTransServiceHisDGV.Name = "MngrWalkinSalesTransServiceHisDGV";
-            this.MngrWalkinSalesTransServiceHisDGV.ReadOnly = true;
-            this.MngrWalkinSalesTransServiceHisDGV.RowHeadersVisible = false;
-            this.MngrWalkinSalesTransServiceHisDGV.RowHeadersWidth = 51;
-            this.MngrWalkinSalesTransServiceHisDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MngrWalkinSalesTransServiceHisDGV.Size = new System.Drawing.Size(594, 258);
-            this.MngrWalkinSalesTransServiceHisDGV.TabIndex = 87;
-            // 
-            // MngrWalkinSalesTransRepDGV
-            // 
-            this.MngrWalkinSalesTransRepDGV.AllowUserToAddRows = false;
-            this.MngrWalkinSalesTransRepDGV.AllowUserToDeleteRows = false;
-            this.MngrWalkinSalesTransRepDGV.AllowUserToResizeColumns = false;
-            this.MngrWalkinSalesTransRepDGV.AllowUserToResizeRows = false;
-            this.MngrWalkinSalesTransRepDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.MngrWalkinSalesTransRepDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.MngrWalkinSalesTransRepDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrWalkinSalesTransRepDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.MngrWalkinSalesTransRepDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MngrWalkinSalesTransRepDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrWalkinSalesTransRepDGV.DefaultCellStyle = dataGridViewCellStyle12;
-            this.MngrWalkinSalesTransRepDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrWalkinSalesTransRepDGV.Location = new System.Drawing.Point(183, 457);
-            this.MngrWalkinSalesTransRepDGV.Name = "MngrWalkinSalesTransRepDGV";
-            this.MngrWalkinSalesTransRepDGV.ReadOnly = true;
-            this.MngrWalkinSalesTransRepDGV.RowHeadersVisible = false;
-            this.MngrWalkinSalesTransRepDGV.RowHeadersWidth = 51;
-            this.MngrWalkinSalesTransRepDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MngrWalkinSalesTransRepDGV.Size = new System.Drawing.Size(594, 258);
-            this.MngrWalkinSalesTransRepDGV.TabIndex = 86;
-            this.MngrWalkinSalesTransRepDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MngrWalkinSalesTransRepDGV_CellContentClick);
             // 
             // MngrWalkinSalesLbl
             // 
             this.MngrWalkinSalesLbl.AutoSize = true;
             this.MngrWalkinSalesLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrWalkinSalesLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesLbl.Location = new System.Drawing.Point(181, 60);
+            this.MngrWalkinSalesLbl.Location = new System.Drawing.Point(46, 25);
             this.MngrWalkinSalesLbl.Name = "MngrWalkinSalesLbl";
             this.MngrWalkinSalesLbl.Size = new System.Drawing.Size(438, 35);
             this.MngrWalkinSalesLbl.TabIndex = 24;
             this.MngrWalkinSalesLbl.Text = "Walk-in Transaction Sales";
-            // 
-            // MngrWalkinSalesGraph
-            // 
-            chartArea4.BorderColor = System.Drawing.Color.White;
-            chartArea4.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea4.BorderWidth = 3;
-            chartArea4.Name = "ChartArea1";
-            this.MngrWalkinSalesGraph.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.MngrWalkinSalesGraph.Legends.Add(legend4);
-            this.MngrWalkinSalesGraph.Location = new System.Drawing.Point(824, 153);
-            this.MngrWalkinSalesGraph.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrWalkinSalesGraph.Name = "MngrWalkinSalesGraph";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.MngrWalkinSalesGraph.Series.Add(series4);
-            this.MngrWalkinSalesGraph.Size = new System.Drawing.Size(594, 258);
-            this.MngrWalkinSalesGraph.TabIndex = 23;
-            this.MngrWalkinSalesGraph.Text = "Walk-in Sales";
-            // 
-            // MngrWalkinSalesTransIDShow
-            // 
-            this.MngrWalkinSalesTransIDShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrWalkinSalesTransIDShow.Font = new System.Drawing.Font("Arial Black", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrWalkinSalesTransIDShow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesTransIDShow.Location = new System.Drawing.Point(1125, 421);
-            this.MngrWalkinSalesTransIDShow.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrWalkinSalesTransIDShow.Name = "MngrWalkinSalesTransIDShow";
-            this.MngrWalkinSalesTransIDShow.ReadOnly = true;
-            this.MngrWalkinSalesTransIDShow.Size = new System.Drawing.Size(188, 29);
-            this.MngrWalkinSalesTransIDShow.TabIndex = 21;
-            this.MngrWalkinSalesTransIDShow.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // MngrWalkinSalesSelectedPeriodText
-            // 
-            this.MngrWalkinSalesSelectedPeriodText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrWalkinSalesSelectedPeriodText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrWalkinSalesSelectedPeriodText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesSelectedPeriodText.Location = new System.Drawing.Point(183, 310);
-            this.MngrWalkinSalesSelectedPeriodText.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrWalkinSalesSelectedPeriodText.Name = "MngrWalkinSalesSelectedPeriodText";
-            this.MngrWalkinSalesSelectedPeriodText.ReadOnly = true;
-            this.MngrWalkinSalesSelectedPeriodText.Size = new System.Drawing.Size(311, 30);
-            this.MngrWalkinSalesSelectedPeriodText.TabIndex = 18;
-            // 
-            // MngrWalkinSalesSelectedPeriodLbl
-            // 
-            this.MngrWalkinSalesSelectedPeriodLbl.AutoSize = true;
-            this.MngrWalkinSalesSelectedPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrWalkinSalesSelectedPeriodLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesSelectedPeriodLbl.Location = new System.Drawing.Point(183, 276);
-            this.MngrWalkinSalesSelectedPeriodLbl.Name = "MngrWalkinSalesSelectedPeriodLbl";
-            this.MngrWalkinSalesSelectedPeriodLbl.Size = new System.Drawing.Size(156, 23);
-            this.MngrWalkinSalesSelectedPeriodLbl.TabIndex = 17;
-            this.MngrWalkinSalesSelectedPeriodLbl.Text = "Selected Period:";
-            // 
-            // MngrWalkinSalesPeriodLbl
-            // 
-            this.MngrWalkinSalesPeriodLbl.AutoSize = true;
-            this.MngrWalkinSalesPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrWalkinSalesPeriodLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesPeriodLbl.Location = new System.Drawing.Point(183, 133);
-            this.MngrWalkinSalesPeriodLbl.Name = "MngrWalkinSalesPeriodLbl";
-            this.MngrWalkinSalesPeriodLbl.Size = new System.Drawing.Size(197, 23);
-            this.MngrWalkinSalesPeriodLbl.TabIndex = 15;
-            this.MngrWalkinSalesPeriodLbl.Text = "Choose Sales Period:";
-            // 
-            // MngrWalkinSalesPeriod
-            // 
-            this.MngrWalkinSalesPeriod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrWalkinSalesPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MngrWalkinSalesPeriod.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrWalkinSalesPeriod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesPeriod.FormattingEnabled = true;
-            this.MngrWalkinSalesPeriod.Location = new System.Drawing.Point(183, 164);
-            this.MngrWalkinSalesPeriod.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrWalkinSalesPeriod.Name = "MngrWalkinSalesPeriod";
-            this.MngrWalkinSalesPeriod.Size = new System.Drawing.Size(311, 31);
-            this.MngrWalkinSalesPeriod.TabIndex = 14;
-            this.MngrWalkinSalesPeriod.SelectedIndexChanged += new System.EventHandler(this.SalePeriod_SelectedIndexChanged);
-            // 
-            // MngrWalkinSalesTransServiceLbl
-            // 
-            this.MngrWalkinSalesTransServiceLbl.AutoSize = true;
-            this.MngrWalkinSalesTransServiceLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrWalkinSalesTransServiceLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesTransServiceLbl.Location = new System.Drawing.Point(824, 423);
-            this.MngrWalkinSalesTransServiceLbl.Name = "MngrWalkinSalesTransServiceLbl";
-            this.MngrWalkinSalesTransServiceLbl.Size = new System.Drawing.Size(401, 23);
-            this.MngrWalkinSalesTransServiceLbl.TabIndex = 13;
-            this.MngrWalkinSalesTransServiceLbl.Text = "Service Breakdown for Each Transaction ID:";
-            // 
-            // MngrWalkinSalesTransactionRepLbl
-            // 
-            this.MngrWalkinSalesTransactionRepLbl.AutoSize = true;
-            this.MngrWalkinSalesTransactionRepLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrWalkinSalesTransactionRepLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesTransactionRepLbl.Location = new System.Drawing.Point(183, 423);
-            this.MngrWalkinSalesTransactionRepLbl.Name = "MngrWalkinSalesTransactionRepLbl";
-            this.MngrWalkinSalesTransactionRepLbl.Size = new System.Drawing.Size(479, 23);
-            this.MngrWalkinSalesTransactionRepLbl.TabIndex = 12;
-            this.MngrWalkinSalesTransactionRepLbl.Text = "Transaction ID Report within a Specified Date Range:";
-            // 
-            // MngrWalkinSalesIncomeBtn
-            // 
-            this.MngrWalkinSalesIncomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrWalkinSalesIncomeBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrWalkinSalesIncomeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesIncomeBtn.Location = new System.Drawing.Point(183, 367);
-            this.MngrWalkinSalesIncomeBtn.Name = "MngrWalkinSalesIncomeBtn";
-            this.MngrWalkinSalesIncomeBtn.Size = new System.Drawing.Size(594, 44);
-            this.MngrWalkinSalesIncomeBtn.TabIndex = 7;
-            this.MngrWalkinSalesIncomeBtn.Text = "View Income";
-            this.MngrWalkinSalesIncomeBtn.UseVisualStyleBackColor = true;
-            this.MngrWalkinSalesIncomeBtn.Click += new System.EventHandler(this.IncomeBtn_Click);
-            // 
-            // MngrWalkinSalesCatLbl
-            // 
-            this.MngrWalkinSalesCatLbl.AutoSize = true;
-            this.MngrWalkinSalesCatLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrWalkinSalesCatLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesCatLbl.Location = new System.Drawing.Point(183, 204);
-            this.MngrWalkinSalesCatLbl.Name = "MngrWalkinSalesCatLbl";
-            this.MngrWalkinSalesCatLbl.Size = new System.Drawing.Size(158, 23);
-            this.MngrWalkinSalesCatLbl.TabIndex = 6;
-            this.MngrWalkinSalesCatLbl.Text = "Select Category:";
-            // 
-            // MngrWalkinSalesToLbl
-            // 
-            this.MngrWalkinSalesToLbl.AutoSize = true;
-            this.MngrWalkinSalesToLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrWalkinSalesToLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesToLbl.Location = new System.Drawing.Point(537, 204);
-            this.MngrWalkinSalesToLbl.Name = "MngrWalkinSalesToLbl";
-            this.MngrWalkinSalesToLbl.Size = new System.Drawing.Size(37, 23);
-            this.MngrWalkinSalesToLbl.TabIndex = 5;
-            this.MngrWalkinSalesToLbl.Text = "To:";
-            this.MngrWalkinSalesToLbl.Visible = false;
-            // 
-            // MngrWalkinSalesFromLbl
-            // 
-            this.MngrWalkinSalesFromLbl.AutoSize = true;
-            this.MngrWalkinSalesFromLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrWalkinSalesFromLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesFromLbl.Location = new System.Drawing.Point(537, 133);
-            this.MngrWalkinSalesFromLbl.Name = "MngrWalkinSalesFromLbl";
-            this.MngrWalkinSalesFromLbl.Size = new System.Drawing.Size(59, 23);
-            this.MngrWalkinSalesFromLbl.TabIndex = 4;
-            this.MngrWalkinSalesFromLbl.Text = "From:";
-            this.MngrWalkinSalesFromLbl.Visible = false;
-            // 
-            // MngrWalkinSalesSelectCatBox
-            // 
-            this.MngrWalkinSalesSelectCatBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrWalkinSalesSelectCatBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MngrWalkinSalesSelectCatBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrWalkinSalesSelectCatBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrWalkinSalesSelectCatBox.FormattingEnabled = true;
-            this.MngrWalkinSalesSelectCatBox.Location = new System.Drawing.Point(183, 236);
-            this.MngrWalkinSalesSelectCatBox.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrWalkinSalesSelectCatBox.Name = "MngrWalkinSalesSelectCatBox";
-            this.MngrWalkinSalesSelectCatBox.Size = new System.Drawing.Size(311, 31);
-            this.MngrWalkinSalesSelectCatBox.TabIndex = 2;
-            // 
-            // MngrWalkinSalesToDatePicker
-            // 
-            this.MngrWalkinSalesToDatePicker.Location = new System.Drawing.Point(537, 241);
-            this.MngrWalkinSalesToDatePicker.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrWalkinSalesToDatePicker.Name = "MngrWalkinSalesToDatePicker";
-            this.MngrWalkinSalesToDatePicker.Size = new System.Drawing.Size(239, 20);
-            this.MngrWalkinSalesToDatePicker.TabIndex = 1;
-            this.MngrWalkinSalesToDatePicker.Visible = false;
-            // 
-            // MngrWalkinSalesFromDatePicker
-            // 
-            this.MngrWalkinSalesFromDatePicker.Location = new System.Drawing.Point(537, 168);
-            this.MngrWalkinSalesFromDatePicker.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrWalkinSalesFromDatePicker.Name = "MngrWalkinSalesFromDatePicker";
-            this.MngrWalkinSalesFromDatePicker.Size = new System.Drawing.Size(239, 20);
-            this.MngrWalkinSalesFromDatePicker.TabIndex = 0;
-            this.MngrWalkinSalesFromDatePicker.Visible = false;
-            // 
-            // MngrWalkinSalesPeriodCalendar
-            // 
-            this.MngrWalkinSalesPeriodCalendar.Location = new System.Drawing.Point(537, 168);
-            this.MngrWalkinSalesPeriodCalendar.Margin = new System.Windows.Forms.Padding(7);
-            this.MngrWalkinSalesPeriodCalendar.Name = "MngrWalkinSalesPeriodCalendar";
-            this.MngrWalkinSalesPeriodCalendar.TabIndex = 16;
-            this.MngrWalkinSalesPeriodCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.SalesPeriodCalendar_DateChanged);
             // 
             // MngrWalkinSalesExitBtn
             // 
@@ -3195,7 +3544,7 @@ namespace Enchante
             this.MngrWalkinSalesExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.MngrWalkinSalesExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrWalkinSalesExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrWalkinSalesExitBtn.Location = new System.Drawing.Point(1416, 20);
+            this.MngrWalkinSalesExitBtn.Location = new System.Drawing.Point(1537, 12);
             this.MngrWalkinSalesExitBtn.Name = "MngrWalkinSalesExitBtn";
             this.MngrWalkinSalesExitBtn.Size = new System.Drawing.Size(48, 48);
             this.MngrWalkinSalesExitBtn.TabIndex = 85;
@@ -3203,311 +3552,476 @@ namespace Enchante
             this.MngrWalkinSalesExitBtn.Visible = false;
             this.MngrWalkinSalesExitBtn.Click += new System.EventHandler(this.MngrWalkinSalesExitBtn_Click);
             // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(155)))), ((int)(((byte)(91)))));
+            this.panel7.Controls.Add(this.MngrWalkinSalesIncomeBtn);
+            this.panel7.Controls.Add(this.MngrWalkinSalesPeriodCalendar);
+            this.panel7.Controls.Add(this.MngrWalkinSalesFromDatePicker);
+            this.panel7.Controls.Add(this.MngrWalkinSalesToDatePicker);
+            this.panel7.Controls.Add(this.MngrWalkinSalesSelectCatBox);
+            this.panel7.Controls.Add(this.MngrWalkinSalesFromLbl);
+            this.panel7.Controls.Add(this.MngrWalkinSalesToLbl);
+            this.panel7.Controls.Add(this.MngrWalkinSalesCatLbl);
+            this.panel7.Controls.Add(this.MngrWalkinSalesSelectedPeriodText);
+            this.panel7.Controls.Add(this.MngrWalkinSalesPeriod);
+            this.panel7.Controls.Add(this.MngrWalkinSalesSelectedPeriodLbl);
+            this.panel7.Controls.Add(this.MngrWalkinSalesPeriodLbl);
+            this.panel7.Location = new System.Drawing.Point(46, 80);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(700, 367);
+            this.panel7.TabIndex = 92;
+            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.trypanel_Paint);
+            // 
+            // MngrWalkinSalesIncomeBtn
+            // 
+            this.MngrWalkinSalesIncomeBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrWalkinSalesIncomeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.MngrWalkinSalesIncomeBtn.Location = new System.Drawing.Point(34, 290);
+            this.MngrWalkinSalesIncomeBtn.Name = "MngrWalkinSalesIncomeBtn";
+            this.MngrWalkinSalesIncomeBtn.Size = new System.Drawing.Size(629, 44);
+            this.MngrWalkinSalesIncomeBtn.TabIndex = 104;
+            this.MngrWalkinSalesIncomeBtn.Text = "View Income";
+            this.MngrWalkinSalesIncomeBtn.UseVisualStyleBackColor = false;
+            this.MngrWalkinSalesIncomeBtn.Click += new System.EventHandler(this.IncomeBtn_Click);
+            // 
+            // MngrWalkinSalesPeriodCalendar
+            // 
+            this.MngrWalkinSalesPeriodCalendar.Location = new System.Drawing.Point(417, 58);
+            this.MngrWalkinSalesPeriodCalendar.Margin = new System.Windows.Forms.Padding(7);
+            this.MngrWalkinSalesPeriodCalendar.Name = "MngrWalkinSalesPeriodCalendar";
+            this.MngrWalkinSalesPeriodCalendar.TabIndex = 16;
+            this.MngrWalkinSalesPeriodCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.SalesPeriodCalendar_DateChanged);
+            // 
+            // MngrWalkinSalesFromDatePicker
+            // 
+            this.MngrWalkinSalesFromDatePicker.Location = new System.Drawing.Point(413, 62);
+            this.MngrWalkinSalesFromDatePicker.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrWalkinSalesFromDatePicker.Name = "MngrWalkinSalesFromDatePicker";
+            this.MngrWalkinSalesFromDatePicker.Size = new System.Drawing.Size(250, 20);
+            this.MngrWalkinSalesFromDatePicker.TabIndex = 0;
+            this.MngrWalkinSalesFromDatePicker.Visible = false;
+            // 
+            // MngrWalkinSalesToDatePicker
+            // 
+            this.MngrWalkinSalesToDatePicker.Location = new System.Drawing.Point(413, 148);
+            this.MngrWalkinSalesToDatePicker.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrWalkinSalesToDatePicker.Name = "MngrWalkinSalesToDatePicker";
+            this.MngrWalkinSalesToDatePicker.Size = new System.Drawing.Size(250, 20);
+            this.MngrWalkinSalesToDatePicker.TabIndex = 1;
+            this.MngrWalkinSalesToDatePicker.Visible = false;
+            // 
+            // MngrWalkinSalesSelectCatBox
+            // 
+            this.MngrWalkinSalesSelectCatBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrWalkinSalesSelectCatBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MngrWalkinSalesSelectCatBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrWalkinSalesSelectCatBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinSalesSelectCatBox.FormattingEnabled = true;
+            this.MngrWalkinSalesSelectCatBox.Location = new System.Drawing.Point(34, 142);
+            this.MngrWalkinSalesSelectCatBox.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrWalkinSalesSelectCatBox.Name = "MngrWalkinSalesSelectCatBox";
+            this.MngrWalkinSalesSelectCatBox.Size = new System.Drawing.Size(337, 31);
+            this.MngrWalkinSalesSelectCatBox.TabIndex = 2;
+            // 
+            // MngrWalkinSalesFromLbl
+            // 
+            this.MngrWalkinSalesFromLbl.AutoSize = true;
+            this.MngrWalkinSalesFromLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrWalkinSalesFromLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinSalesFromLbl.Location = new System.Drawing.Point(413, 27);
+            this.MngrWalkinSalesFromLbl.Name = "MngrWalkinSalesFromLbl";
+            this.MngrWalkinSalesFromLbl.Size = new System.Drawing.Size(59, 23);
+            this.MngrWalkinSalesFromLbl.TabIndex = 4;
+            this.MngrWalkinSalesFromLbl.Text = "From:";
+            this.MngrWalkinSalesFromLbl.Visible = false;
+            // 
+            // MngrWalkinSalesToLbl
+            // 
+            this.MngrWalkinSalesToLbl.AutoSize = true;
+            this.MngrWalkinSalesToLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrWalkinSalesToLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinSalesToLbl.Location = new System.Drawing.Point(413, 112);
+            this.MngrWalkinSalesToLbl.Name = "MngrWalkinSalesToLbl";
+            this.MngrWalkinSalesToLbl.Size = new System.Drawing.Size(37, 23);
+            this.MngrWalkinSalesToLbl.TabIndex = 5;
+            this.MngrWalkinSalesToLbl.Text = "To:";
+            this.MngrWalkinSalesToLbl.Visible = false;
+            // 
+            // MngrWalkinSalesCatLbl
+            // 
+            this.MngrWalkinSalesCatLbl.AutoSize = true;
+            this.MngrWalkinSalesCatLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrWalkinSalesCatLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinSalesCatLbl.Location = new System.Drawing.Point(34, 110);
+            this.MngrWalkinSalesCatLbl.Name = "MngrWalkinSalesCatLbl";
+            this.MngrWalkinSalesCatLbl.Size = new System.Drawing.Size(158, 23);
+            this.MngrWalkinSalesCatLbl.TabIndex = 6;
+            this.MngrWalkinSalesCatLbl.Text = "Select Category:";
+            // 
+            // MngrWalkinSalesSelectedPeriodText
+            // 
+            this.MngrWalkinSalesSelectedPeriodText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrWalkinSalesSelectedPeriodText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrWalkinSalesSelectedPeriodText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinSalesSelectedPeriodText.Location = new System.Drawing.Point(34, 235);
+            this.MngrWalkinSalesSelectedPeriodText.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrWalkinSalesSelectedPeriodText.Name = "MngrWalkinSalesSelectedPeriodText";
+            this.MngrWalkinSalesSelectedPeriodText.ReadOnly = true;
+            this.MngrWalkinSalesSelectedPeriodText.Size = new System.Drawing.Size(337, 30);
+            this.MngrWalkinSalesSelectedPeriodText.TabIndex = 18;
+            // 
+            // MngrWalkinSalesPeriod
+            // 
+            this.MngrWalkinSalesPeriod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrWalkinSalesPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MngrWalkinSalesPeriod.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrWalkinSalesPeriod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinSalesPeriod.FormattingEnabled = true;
+            this.MngrWalkinSalesPeriod.Location = new System.Drawing.Point(34, 58);
+            this.MngrWalkinSalesPeriod.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrWalkinSalesPeriod.Name = "MngrWalkinSalesPeriod";
+            this.MngrWalkinSalesPeriod.Size = new System.Drawing.Size(337, 31);
+            this.MngrWalkinSalesPeriod.TabIndex = 14;
+            this.MngrWalkinSalesPeriod.SelectedIndexChanged += new System.EventHandler(this.SalePeriod_SelectedIndexChanged);
+            // 
+            // MngrWalkinSalesSelectedPeriodLbl
+            // 
+            this.MngrWalkinSalesSelectedPeriodLbl.AutoSize = true;
+            this.MngrWalkinSalesSelectedPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrWalkinSalesSelectedPeriodLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinSalesSelectedPeriodLbl.Location = new System.Drawing.Point(34, 201);
+            this.MngrWalkinSalesSelectedPeriodLbl.Name = "MngrWalkinSalesSelectedPeriodLbl";
+            this.MngrWalkinSalesSelectedPeriodLbl.Size = new System.Drawing.Size(156, 23);
+            this.MngrWalkinSalesSelectedPeriodLbl.TabIndex = 17;
+            this.MngrWalkinSalesSelectedPeriodLbl.Text = "Selected Period:";
+            // 
+            // MngrWalkinSalesPeriodLbl
+            // 
+            this.MngrWalkinSalesPeriodLbl.AutoSize = true;
+            this.MngrWalkinSalesPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrWalkinSalesPeriodLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinSalesPeriodLbl.Location = new System.Drawing.Point(34, 27);
+            this.MngrWalkinSalesPeriodLbl.Name = "MngrWalkinSalesPeriodLbl";
+            this.MngrWalkinSalesPeriodLbl.Size = new System.Drawing.Size(197, 23);
+            this.MngrWalkinSalesPeriodLbl.TabIndex = 15;
+            this.MngrWalkinSalesPeriodLbl.Text = "Choose Sales Period:";
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(155)))), ((int)(((byte)(91)))));
+            this.panel8.Controls.Add(this.MngrWalkinSalesPreviousBtn);
+            this.panel8.Controls.Add(this.MngrWalkinSalesRevenueTextbox);
+            this.panel8.Controls.Add(this.MngrWalkinSalesCurrentRecordLbl);
+            this.panel8.Controls.Add(this.MngrWalkinSalesSearchTextBox);
+            this.panel8.Controls.Add(this.MngrWalkinSalesNextBtn);
+            this.panel8.Controls.Add(this.MngrWalkinSalesTotalRevenueLbl);
+            this.panel8.Controls.Add(this.MngrWalkinSalesSearchLbl);
+            this.panel8.Controls.Add(this.MngrWalkinSalesTransRepDGV);
+            this.panel8.Controls.Add(this.MngrWalkinSalesTransServiceHisDGV);
+            this.panel8.Controls.Add(this.MngrWalkinSalesTransServiceLbl);
+            this.panel8.Controls.Add(this.MngrWalkinSalesTransIDShow);
+            this.panel8.Controls.Add(this.MngrWalkinSalesTransRepDGVTwo);
+            this.panel8.Location = new System.Drawing.Point(46, 475);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(700, 522);
+            this.panel8.TabIndex = 93;
+            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.trypanel_Paint);
+            // 
+            // MngrWalkinSalesPreviousBtn
+            // 
+            this.MngrWalkinSalesPreviousBtn.Location = new System.Drawing.Point(20, 284);
+            this.MngrWalkinSalesPreviousBtn.Name = "MngrWalkinSalesPreviousBtn";
+            this.MngrWalkinSalesPreviousBtn.Size = new System.Drawing.Size(75, 23);
+            this.MngrWalkinSalesPreviousBtn.TabIndex = 188;
+            this.MngrWalkinSalesPreviousBtn.Text = "<< Previous";
+            this.MngrWalkinSalesPreviousBtn.UseVisualStyleBackColor = true;
+            this.MngrWalkinSalesPreviousBtn.Click += new System.EventHandler(this.MngrWalkinSalesPreviousBtn_Click);
+            // 
+            // MngrWalkinSalesRevenueTextbox
+            // 
+            this.MngrWalkinSalesRevenueTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrWalkinSalesRevenueTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrWalkinSalesRevenueTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinSalesRevenueTextbox.Location = new System.Drawing.Point(426, 284);
+            this.MngrWalkinSalesRevenueTextbox.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrWalkinSalesRevenueTextbox.Name = "MngrWalkinSalesRevenueTextbox";
+            this.MngrWalkinSalesRevenueTextbox.ReadOnly = true;
+            this.MngrWalkinSalesRevenueTextbox.Size = new System.Drawing.Size(253, 24);
+            this.MngrWalkinSalesRevenueTextbox.TabIndex = 91;
+            // 
+            // MngrWalkinSalesCurrentRecordLbl
+            // 
+            this.MngrWalkinSalesCurrentRecordLbl.AutoSize = true;
+            this.MngrWalkinSalesCurrentRecordLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrWalkinSalesCurrentRecordLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinSalesCurrentRecordLbl.Location = new System.Drawing.Point(105, 286);
+            this.MngrWalkinSalesCurrentRecordLbl.Name = "MngrWalkinSalesCurrentRecordLbl";
+            this.MngrWalkinSalesCurrentRecordLbl.Size = new System.Drawing.Size(49, 20);
+            this.MngrWalkinSalesCurrentRecordLbl.TabIndex = 187;
+            this.MngrWalkinSalesCurrentRecordLbl.Text = "n of n";
+            // 
+            // MngrWalkinSalesSearchTextBox
+            // 
+            this.MngrWalkinSalesSearchTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrWalkinSalesSearchTextBox.BorderRadius = 15;
+            this.MngrWalkinSalesSearchTextBox.BorderThickness = 2;
+            this.MngrWalkinSalesSearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.MngrWalkinSalesSearchTextBox.DefaultText = "";
+            this.MngrWalkinSalesSearchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.MngrWalkinSalesSearchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.MngrWalkinSalesSearchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.MngrWalkinSalesSearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.MngrWalkinSalesSearchTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrWalkinSalesSearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.MngrWalkinSalesSearchTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrWalkinSalesSearchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinSalesSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrWalkinSalesSearchTextBox.Location = new System.Drawing.Point(106, 14);
+            this.MngrWalkinSalesSearchTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.MngrWalkinSalesSearchTextBox.Name = "MngrWalkinSalesSearchTextBox";
+            this.MngrWalkinSalesSearchTextBox.PasswordChar = '\0';
+            this.MngrWalkinSalesSearchTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinSalesSearchTextBox.PlaceholderText = "";
+            this.MngrWalkinSalesSearchTextBox.SelectedText = "";
+            this.MngrWalkinSalesSearchTextBox.Size = new System.Drawing.Size(573, 34);
+            this.MngrWalkinSalesSearchTextBox.TabIndex = 188;
+            this.MngrWalkinSalesSearchTextBox.TextChanged += new System.EventHandler(this.MngrWalkinSalesSearchTextBox_TextChanged);
+            // 
+            // MngrWalkinSalesNextBtn
+            // 
+            this.MngrWalkinSalesNextBtn.Location = new System.Drawing.Point(170, 284);
+            this.MngrWalkinSalesNextBtn.Name = "MngrWalkinSalesNextBtn";
+            this.MngrWalkinSalesNextBtn.Size = new System.Drawing.Size(75, 23);
+            this.MngrWalkinSalesNextBtn.TabIndex = 189;
+            this.MngrWalkinSalesNextBtn.Text = "Next >>";
+            this.MngrWalkinSalesNextBtn.UseVisualStyleBackColor = true;
+            this.MngrWalkinSalesNextBtn.Click += new System.EventHandler(this.MngrWalkinSalesNextBtn_Click);
+            // 
+            // MngrWalkinSalesTotalRevenueLbl
+            // 
+            this.MngrWalkinSalesTotalRevenueLbl.AutoSize = true;
+            this.MngrWalkinSalesTotalRevenueLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrWalkinSalesTotalRevenueLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinSalesTotalRevenueLbl.Location = new System.Drawing.Point(279, 284);
+            this.MngrWalkinSalesTotalRevenueLbl.Name = "MngrWalkinSalesTotalRevenueLbl";
+            this.MngrWalkinSalesTotalRevenueLbl.Size = new System.Drawing.Size(142, 23);
+            this.MngrWalkinSalesTotalRevenueLbl.TabIndex = 90;
+            this.MngrWalkinSalesTotalRevenueLbl.Text = "Total Revenue:";
+            // 
+            // MngrWalkinSalesSearchLbl
+            // 
+            this.MngrWalkinSalesSearchLbl.AutoSize = true;
+            this.MngrWalkinSalesSearchLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
+            this.MngrWalkinSalesSearchLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinSalesSearchLbl.Location = new System.Drawing.Point(20, 21);
+            this.MngrWalkinSalesSearchLbl.Name = "MngrWalkinSalesSearchLbl";
+            this.MngrWalkinSalesSearchLbl.Size = new System.Drawing.Size(78, 23);
+            this.MngrWalkinSalesSearchLbl.TabIndex = 187;
+            this.MngrWalkinSalesSearchLbl.Text = "Search:";
+            // 
+            // MngrWalkinSalesTransRepDGV
+            // 
+            this.MngrWalkinSalesTransRepDGV.AllowUserToAddRows = false;
+            this.MngrWalkinSalesTransRepDGV.AllowUserToDeleteRows = false;
+            this.MngrWalkinSalesTransRepDGV.AllowUserToResizeColumns = false;
+            this.MngrWalkinSalesTransRepDGV.AllowUserToResizeRows = false;
+            this.MngrWalkinSalesTransRepDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MngrWalkinSalesTransRepDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.MngrWalkinSalesTransRepDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrWalkinSalesTransRepDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            this.MngrWalkinSalesTransRepDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MngrWalkinSalesTransRepDGV.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrWalkinSalesTransRepDGV.DefaultCellStyle = dataGridViewCellStyle23;
+            this.MngrWalkinSalesTransRepDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrWalkinSalesTransRepDGV.Location = new System.Drawing.Point(20, 53);
+            this.MngrWalkinSalesTransRepDGV.Name = "MngrWalkinSalesTransRepDGV";
+            this.MngrWalkinSalesTransRepDGV.ReadOnly = true;
+            this.MngrWalkinSalesTransRepDGV.RowHeadersVisible = false;
+            this.MngrWalkinSalesTransRepDGV.RowHeadersWidth = 51;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrWalkinSalesTransRepDGV.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            this.MngrWalkinSalesTransRepDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MngrWalkinSalesTransRepDGV.Size = new System.Drawing.Size(659, 220);
+            this.MngrWalkinSalesTransRepDGV.TabIndex = 86;
+            this.MngrWalkinSalesTransRepDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MngrWalkinSalesTransRepDGV_CellContentClick);
+            // 
+            // MngrWalkinSalesTransServiceHisDGV
+            // 
+            this.MngrWalkinSalesTransServiceHisDGV.AllowUserToAddRows = false;
+            this.MngrWalkinSalesTransServiceHisDGV.AllowUserToDeleteRows = false;
+            this.MngrWalkinSalesTransServiceHisDGV.AllowUserToResizeColumns = false;
+            this.MngrWalkinSalesTransServiceHisDGV.AllowUserToResizeRows = false;
+            this.MngrWalkinSalesTransServiceHisDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MngrWalkinSalesTransServiceHisDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.MngrWalkinSalesTransServiceHisDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrWalkinSalesTransServiceHisDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            this.MngrWalkinSalesTransServiceHisDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MngrWalkinSalesTransServiceHisDGV.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrWalkinSalesTransServiceHisDGV.DefaultCellStyle = dataGridViewCellStyle26;
+            this.MngrWalkinSalesTransServiceHisDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrWalkinSalesTransServiceHisDGV.Location = new System.Drawing.Point(20, 350);
+            this.MngrWalkinSalesTransServiceHisDGV.Name = "MngrWalkinSalesTransServiceHisDGV";
+            this.MngrWalkinSalesTransServiceHisDGV.ReadOnly = true;
+            this.MngrWalkinSalesTransServiceHisDGV.RowHeadersVisible = false;
+            this.MngrWalkinSalesTransServiceHisDGV.RowHeadersWidth = 51;
+            this.MngrWalkinSalesTransServiceHisDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MngrWalkinSalesTransServiceHisDGV.Size = new System.Drawing.Size(659, 153);
+            this.MngrWalkinSalesTransServiceHisDGV.TabIndex = 87;
+            // 
+            // MngrWalkinSalesTransServiceLbl
+            // 
+            this.MngrWalkinSalesTransServiceLbl.AutoSize = true;
+            this.MngrWalkinSalesTransServiceLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrWalkinSalesTransServiceLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinSalesTransServiceLbl.Location = new System.Drawing.Point(20, 319);
+            this.MngrWalkinSalesTransServiceLbl.Name = "MngrWalkinSalesTransServiceLbl";
+            this.MngrWalkinSalesTransServiceLbl.Size = new System.Drawing.Size(401, 23);
+            this.MngrWalkinSalesTransServiceLbl.TabIndex = 13;
+            this.MngrWalkinSalesTransServiceLbl.Text = "Service Breakdown for Each Transaction ID:";
+            // 
+            // MngrWalkinSalesTransIDShow
+            // 
+            this.MngrWalkinSalesTransIDShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrWalkinSalesTransIDShow.Font = new System.Drawing.Font("Arial Black", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrWalkinSalesTransIDShow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrWalkinSalesTransIDShow.Location = new System.Drawing.Point(426, 316);
+            this.MngrWalkinSalesTransIDShow.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrWalkinSalesTransIDShow.Name = "MngrWalkinSalesTransIDShow";
+            this.MngrWalkinSalesTransIDShow.ReadOnly = true;
+            this.MngrWalkinSalesTransIDShow.Size = new System.Drawing.Size(253, 29);
+            this.MngrWalkinSalesTransIDShow.TabIndex = 21;
+            // 
+            // MngrWalkinSalesTransRepDGVTwo
+            // 
+            this.MngrWalkinSalesTransRepDGVTwo.AllowUserToAddRows = false;
+            this.MngrWalkinSalesTransRepDGVTwo.AllowUserToDeleteRows = false;
+            this.MngrWalkinSalesTransRepDGVTwo.AllowUserToResizeColumns = false;
+            this.MngrWalkinSalesTransRepDGVTwo.AllowUserToResizeRows = false;
+            this.MngrWalkinSalesTransRepDGVTwo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MngrWalkinSalesTransRepDGVTwo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.MngrWalkinSalesTransRepDGVTwo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrWalkinSalesTransRepDGVTwo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            this.MngrWalkinSalesTransRepDGVTwo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MngrWalkinSalesTransRepDGVTwo.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrWalkinSalesTransRepDGVTwo.DefaultCellStyle = dataGridViewCellStyle28;
+            this.MngrWalkinSalesTransRepDGVTwo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrWalkinSalesTransRepDGVTwo.Location = new System.Drawing.Point(20, 53);
+            this.MngrWalkinSalesTransRepDGVTwo.Name = "MngrWalkinSalesTransRepDGVTwo";
+            this.MngrWalkinSalesTransRepDGVTwo.ReadOnly = true;
+            this.MngrWalkinSalesTransRepDGVTwo.RowHeadersVisible = false;
+            this.MngrWalkinSalesTransRepDGVTwo.RowHeadersWidth = 51;
+            this.MngrWalkinSalesTransRepDGVTwo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MngrWalkinSalesTransRepDGVTwo.Size = new System.Drawing.Size(659, 220);
+            this.MngrWalkinSalesTransRepDGVTwo.TabIndex = 190;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(155)))), ((int)(((byte)(91)))));
+            this.panel9.Controls.Add(this.MngrWalkinSalesGraph);
+            this.panel9.Location = new System.Drawing.Point(773, 80);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(771, 917);
+            this.panel9.TabIndex = 94;
+            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.trypanel_Paint);
+            // 
+            // MngrWalkinSalesGraph
+            // 
+            this.MngrWalkinSalesGraph.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(186)))), ((int)(((byte)(121)))));
+            this.MngrWalkinSalesGraph.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+            this.MngrWalkinSalesGraph.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(201)))), ((int)(((byte)(79)))));
+            this.MngrWalkinSalesGraph.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            this.MngrWalkinSalesGraph.BorderlineWidth = 3;
+            chartArea4.BorderColor = System.Drawing.Color.White;
+            chartArea4.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea4.BorderWidth = 3;
+            chartArea4.Name = "ChartArea1";
+            this.MngrWalkinSalesGraph.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.MngrWalkinSalesGraph.Legends.Add(legend4);
+            this.MngrWalkinSalesGraph.Location = new System.Drawing.Point(35, 30);
+            this.MngrWalkinSalesGraph.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrWalkinSalesGraph.Name = "MngrWalkinSalesGraph";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.MngrWalkinSalesGraph.Series.Add(series4);
+            this.MngrWalkinSalesGraph.Size = new System.Drawing.Size(704, 844);
+            this.MngrWalkinSalesGraph.TabIndex = 23;
+            this.MngrWalkinSalesGraph.Text = "Walk-in Sales";
+            // 
             // MngrIndemandPanel
             // 
             this.MngrIndemandPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrInventoryCard.SetCardName(this.MngrIndemandPanel, "in demand");
-            this.MngrIndemandPanel.Controls.Add(this.MngrIndemandServiceGraphLbl);
             this.MngrIndemandPanel.Controls.Add(this.MngrIndemandLbl);
-            this.MngrIndemandPanel.Controls.Add(this.MngrIndemandBestEmployee);
-            this.MngrIndemandPanel.Controls.Add(this.MngrIndemandServiceSelection);
-            this.MngrIndemandPanel.Controls.Add(this.MngrIndemandServiceGraph);
-            this.MngrIndemandPanel.Controls.Add(this.MngrIndemandSelectPeriod);
-            this.MngrIndemandPanel.Controls.Add(this.MngrIndemandSelectPeriodLbl);
-            this.MngrIndemandPanel.Controls.Add(this.MngrIndemandServiceHistoryPeriodLbl);
-            this.MngrIndemandPanel.Controls.Add(this.MngrIndemandServiceHistoryPeriod);
-            this.MngrIndemandPanel.Controls.Add(this.MngrIndemandBestEmplLbl);
-            this.MngrIndemandPanel.Controls.Add(this.MngrIndemandFrequencyServiceLbl);
-            this.MngrIndemandPanel.Controls.Add(this.MngrIndemandServiceHistoryBtn);
-            this.MngrIndemandPanel.Controls.Add(this.MngrIndemandSelectCatLbl);
-            this.MngrIndemandPanel.Controls.Add(this.MngrIndemandToLbl);
-            this.MngrIndemandPanel.Controls.Add(this.MngrIndemandFromLbl);
-            this.MngrIndemandPanel.Controls.Add(this.MngrIndemandSelectCatBox);
-            this.MngrIndemandPanel.Controls.Add(this.MngrIndemandDatePickerTo);
-            this.MngrIndemandPanel.Controls.Add(this.MngrIndemandDatePickerFrom);
-            this.MngrIndemandPanel.Controls.Add(this.MngrIndemandServicePeriodCalendar);
             this.MngrIndemandPanel.Controls.Add(this.MngrIndemandExitBtn);
+            this.MngrIndemandPanel.Controls.Add(this.panel20);
+            this.MngrIndemandPanel.Controls.Add(this.panel22);
+            this.MngrIndemandPanel.Controls.Add(this.panel23);
+            this.MngrIndemandPanel.Controls.Add(this.MngrIndemandBestEmployee);
             this.MngrIndemandPanel.Location = new System.Drawing.Point(0, 0);
             this.MngrIndemandPanel.Margin = new System.Windows.Forms.Padding(2);
             this.MngrInventoryCard.SetMinimumSize(this.MngrIndemandPanel, new System.Drawing.Size(1132, 505));
             this.MngrIndemandPanel.Name = "MngrIndemandPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrIndemandPanel, new System.Drawing.Size(1132, 505));
-            this.MngrIndemandPanel.Size = new System.Drawing.Size(1588, 732);
+            this.MngrIndemandPanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrIndemandPanel.TabIndex = 29;
             this.MngrIndemandPanel.Visible = false;
-            // 
-            // MngrIndemandServiceGraphLbl
-            // 
-            this.MngrIndemandServiceGraphLbl.AutoSize = true;
-            this.MngrIndemandServiceGraphLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrIndemandServiceGraphLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandServiceGraphLbl.Location = new System.Drawing.Point(1062, 127);
-            this.MngrIndemandServiceGraphLbl.Name = "MngrIndemandServiceGraphLbl";
-            this.MngrIndemandServiceGraphLbl.Size = new System.Drawing.Size(122, 23);
-            this.MngrIndemandServiceGraphLbl.TabIndex = 91;
-            this.MngrIndemandServiceGraphLbl.Text = "DATA GRAPH";
-            this.MngrIndemandServiceGraphLbl.Visible = false;
             // 
             // MngrIndemandLbl
             // 
             this.MngrIndemandLbl.AutoSize = true;
             this.MngrIndemandLbl.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrIndemandLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandLbl.Location = new System.Drawing.Point(179, 80);
+            this.MngrIndemandLbl.Location = new System.Drawing.Point(46, 25);
             this.MngrIndemandLbl.Name = "MngrIndemandLbl";
-            this.MngrIndemandLbl.Size = new System.Drawing.Size(663, 35);
+            this.MngrIndemandLbl.Size = new System.Drawing.Size(355, 35);
             this.MngrIndemandLbl.TabIndex = 90;
-            this.MngrIndemandLbl.Text = "IN DEMAND SERVICES && BEST EMPLOYEE\r\n";
-            // 
-            // MngrIndemandBestEmployee
-            // 
-            this.MngrIndemandBestEmployee.AllowUserToAddRows = false;
-            this.MngrIndemandBestEmployee.AllowUserToDeleteRows = false;
-            this.MngrIndemandBestEmployee.AllowUserToResizeColumns = false;
-            this.MngrIndemandBestEmployee.AllowUserToResizeRows = false;
-            this.MngrIndemandBestEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.MngrIndemandBestEmployee.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.MngrIndemandBestEmployee.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrIndemandBestEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
-            this.MngrIndemandBestEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MngrIndemandBestEmployee.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrIndemandBestEmployee.DefaultCellStyle = dataGridViewCellStyle14;
-            this.MngrIndemandBestEmployee.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrIndemandBestEmployee.Location = new System.Drawing.Point(826, 461);
-            this.MngrIndemandBestEmployee.Name = "MngrIndemandBestEmployee";
-            this.MngrIndemandBestEmployee.ReadOnly = true;
-            this.MngrIndemandBestEmployee.RowHeadersVisible = false;
-            this.MngrIndemandBestEmployee.RowHeadersWidth = 51;
-            this.MngrIndemandBestEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MngrIndemandBestEmployee.Size = new System.Drawing.Size(594, 258);
-            this.MngrIndemandBestEmployee.TabIndex = 89;
-            // 
-            // MngrIndemandServiceSelection
-            // 
-            this.MngrIndemandServiceSelection.AllowUserToAddRows = false;
-            this.MngrIndemandServiceSelection.AllowUserToDeleteRows = false;
-            this.MngrIndemandServiceSelection.AllowUserToResizeColumns = false;
-            this.MngrIndemandServiceSelection.AllowUserToResizeRows = false;
-            this.MngrIndemandServiceSelection.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.MngrIndemandServiceSelection.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.MngrIndemandServiceSelection.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrIndemandServiceSelection.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
-            this.MngrIndemandServiceSelection.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MngrIndemandServiceSelection.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrIndemandServiceSelection.DefaultCellStyle = dataGridViewCellStyle16;
-            this.MngrIndemandServiceSelection.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrIndemandServiceSelection.Location = new System.Drawing.Point(185, 461);
-            this.MngrIndemandServiceSelection.Name = "MngrIndemandServiceSelection";
-            this.MngrIndemandServiceSelection.ReadOnly = true;
-            this.MngrIndemandServiceSelection.RowHeadersVisible = false;
-            this.MngrIndemandServiceSelection.RowHeadersWidth = 51;
-            this.MngrIndemandServiceSelection.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MngrIndemandServiceSelection.Size = new System.Drawing.Size(594, 258);
-            this.MngrIndemandServiceSelection.TabIndex = 88;
-            // 
-            // MngrIndemandServiceGraph
-            // 
-            chartArea5.Name = "ChartArea1";
-            this.MngrIndemandServiceGraph.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.MngrIndemandServiceGraph.Legends.Add(legend5);
-            this.MngrIndemandServiceGraph.Location = new System.Drawing.Point(826, 157);
-            this.MngrIndemandServiceGraph.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrIndemandServiceGraph.Name = "MngrIndemandServiceGraph";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series5.LabelBorderWidth = 2;
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.MngrIndemandServiceGraph.Series.Add(series5);
-            this.MngrIndemandServiceGraph.Size = new System.Drawing.Size(594, 258);
-            this.MngrIndemandServiceGraph.TabIndex = 20;
-            this.MngrIndemandServiceGraph.Text = "chart1";
-            // 
-            // MngrIndemandSelectPeriod
-            // 
-            this.MngrIndemandSelectPeriod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrIndemandSelectPeriod.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrIndemandSelectPeriod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandSelectPeriod.Location = new System.Drawing.Point(185, 314);
-            this.MngrIndemandSelectPeriod.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrIndemandSelectPeriod.Name = "MngrIndemandSelectPeriod";
-            this.MngrIndemandSelectPeriod.ReadOnly = true;
-            this.MngrIndemandSelectPeriod.Size = new System.Drawing.Size(311, 30);
-            this.MngrIndemandSelectPeriod.TabIndex = 18;
-            // 
-            // MngrIndemandSelectPeriodLbl
-            // 
-            this.MngrIndemandSelectPeriodLbl.AutoSize = true;
-            this.MngrIndemandSelectPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrIndemandSelectPeriodLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandSelectPeriodLbl.Location = new System.Drawing.Point(185, 280);
-            this.MngrIndemandSelectPeriodLbl.Name = "MngrIndemandSelectPeriodLbl";
-            this.MngrIndemandSelectPeriodLbl.Size = new System.Drawing.Size(156, 23);
-            this.MngrIndemandSelectPeriodLbl.TabIndex = 17;
-            this.MngrIndemandSelectPeriodLbl.Text = "Selected Period:";
-            // 
-            // MngrIndemandServiceHistoryPeriodLbl
-            // 
-            this.MngrIndemandServiceHistoryPeriodLbl.AutoSize = true;
-            this.MngrIndemandServiceHistoryPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrIndemandServiceHistoryPeriodLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandServiceHistoryPeriodLbl.Location = new System.Drawing.Point(185, 137);
-            this.MngrIndemandServiceHistoryPeriodLbl.Name = "MngrIndemandServiceHistoryPeriodLbl";
-            this.MngrIndemandServiceHistoryPeriodLbl.Size = new System.Drawing.Size(285, 23);
-            this.MngrIndemandServiceHistoryPeriodLbl.TabIndex = 15;
-            this.MngrIndemandServiceHistoryPeriodLbl.Text = "Choose Service History Period:";
-            // 
-            // MngrIndemandServiceHistoryPeriod
-            // 
-            this.MngrIndemandServiceHistoryPeriod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrIndemandServiceHistoryPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MngrIndemandServiceHistoryPeriod.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrIndemandServiceHistoryPeriod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandServiceHistoryPeriod.FormattingEnabled = true;
-            this.MngrIndemandServiceHistoryPeriod.Location = new System.Drawing.Point(185, 168);
-            this.MngrIndemandServiceHistoryPeriod.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrIndemandServiceHistoryPeriod.Name = "MngrIndemandServiceHistoryPeriod";
-            this.MngrIndemandServiceHistoryPeriod.Size = new System.Drawing.Size(311, 31);
-            this.MngrIndemandServiceHistoryPeriod.TabIndex = 14;
-            this.MngrIndemandServiceHistoryPeriod.SelectedIndexChanged += new System.EventHandler(this.ServiceHistoryPeriod_SelectedIndexChanged);
-            // 
-            // MngrIndemandBestEmplLbl
-            // 
-            this.MngrIndemandBestEmplLbl.AutoSize = true;
-            this.MngrIndemandBestEmplLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrIndemandBestEmplLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandBestEmplLbl.Location = new System.Drawing.Point(826, 427);
-            this.MngrIndemandBestEmplLbl.Name = "MngrIndemandBestEmplLbl";
-            this.MngrIndemandBestEmplLbl.Size = new System.Drawing.Size(147, 23);
-            this.MngrIndemandBestEmplLbl.TabIndex = 13;
-            this.MngrIndemandBestEmplLbl.Text = "Best Employee:";
-            // 
-            // MngrIndemandFrequencyServiceLbl
-            // 
-            this.MngrIndemandFrequencyServiceLbl.AutoSize = true;
-            this.MngrIndemandFrequencyServiceLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrIndemandFrequencyServiceLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandFrequencyServiceLbl.Location = new System.Drawing.Point(185, 427);
-            this.MngrIndemandFrequencyServiceLbl.Name = "MngrIndemandFrequencyServiceLbl";
-            this.MngrIndemandFrequencyServiceLbl.Size = new System.Drawing.Size(303, 23);
-            this.MngrIndemandFrequencyServiceLbl.TabIndex = 12;
-            this.MngrIndemandFrequencyServiceLbl.Text = "Frequency of Service Selections:";
-            // 
-            // MngrIndemandServiceHistoryBtn
-            // 
-            this.MngrIndemandServiceHistoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrIndemandServiceHistoryBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrIndemandServiceHistoryBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandServiceHistoryBtn.Location = new System.Drawing.Point(185, 371);
-            this.MngrIndemandServiceHistoryBtn.Name = "MngrIndemandServiceHistoryBtn";
-            this.MngrIndemandServiceHistoryBtn.Size = new System.Drawing.Size(594, 40);
-            this.MngrIndemandServiceHistoryBtn.TabIndex = 7;
-            this.MngrIndemandServiceHistoryBtn.Text = "View Service History";
-            this.MngrIndemandServiceHistoryBtn.UseVisualStyleBackColor = true;
-            this.MngrIndemandServiceHistoryBtn.Click += new System.EventHandler(this.ServiceHistoryBtn_Click);
-            // 
-            // MngrIndemandSelectCatLbl
-            // 
-            this.MngrIndemandSelectCatLbl.AutoSize = true;
-            this.MngrIndemandSelectCatLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrIndemandSelectCatLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandSelectCatLbl.Location = new System.Drawing.Point(185, 208);
-            this.MngrIndemandSelectCatLbl.Name = "MngrIndemandSelectCatLbl";
-            this.MngrIndemandSelectCatLbl.Size = new System.Drawing.Size(158, 23);
-            this.MngrIndemandSelectCatLbl.TabIndex = 6;
-            this.MngrIndemandSelectCatLbl.Text = "Select Category:";
-            // 
-            // MngrIndemandToLbl
-            // 
-            this.MngrIndemandToLbl.AutoSize = true;
-            this.MngrIndemandToLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrIndemandToLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandToLbl.Location = new System.Drawing.Point(539, 208);
-            this.MngrIndemandToLbl.Name = "MngrIndemandToLbl";
-            this.MngrIndemandToLbl.Size = new System.Drawing.Size(37, 23);
-            this.MngrIndemandToLbl.TabIndex = 5;
-            this.MngrIndemandToLbl.Text = "To:";
-            this.MngrIndemandToLbl.Visible = false;
-            // 
-            // MngrIndemandFromLbl
-            // 
-            this.MngrIndemandFromLbl.AutoSize = true;
-            this.MngrIndemandFromLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrIndemandFromLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandFromLbl.Location = new System.Drawing.Point(539, 137);
-            this.MngrIndemandFromLbl.Name = "MngrIndemandFromLbl";
-            this.MngrIndemandFromLbl.Size = new System.Drawing.Size(59, 23);
-            this.MngrIndemandFromLbl.TabIndex = 4;
-            this.MngrIndemandFromLbl.Text = "From:";
-            this.MngrIndemandFromLbl.Visible = false;
-            // 
-            // MngrIndemandSelectCatBox
-            // 
-            this.MngrIndemandSelectCatBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrIndemandSelectCatBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MngrIndemandSelectCatBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrIndemandSelectCatBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrIndemandSelectCatBox.FormattingEnabled = true;
-            this.MngrIndemandSelectCatBox.Location = new System.Drawing.Point(185, 240);
-            this.MngrIndemandSelectCatBox.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrIndemandSelectCatBox.Name = "MngrIndemandSelectCatBox";
-            this.MngrIndemandSelectCatBox.Size = new System.Drawing.Size(311, 31);
-            this.MngrIndemandSelectCatBox.TabIndex = 2;
-            // 
-            // MngrIndemandDatePickerTo
-            // 
-            this.MngrIndemandDatePickerTo.Location = new System.Drawing.Point(539, 245);
-            this.MngrIndemandDatePickerTo.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrIndemandDatePickerTo.Name = "MngrIndemandDatePickerTo";
-            this.MngrIndemandDatePickerTo.Size = new System.Drawing.Size(239, 20);
-            this.MngrIndemandDatePickerTo.TabIndex = 1;
-            this.MngrIndemandDatePickerTo.Visible = false;
-            // 
-            // MngrIndemandDatePickerFrom
-            // 
-            this.MngrIndemandDatePickerFrom.Location = new System.Drawing.Point(539, 172);
-            this.MngrIndemandDatePickerFrom.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrIndemandDatePickerFrom.Name = "MngrIndemandDatePickerFrom";
-            this.MngrIndemandDatePickerFrom.Size = new System.Drawing.Size(239, 20);
-            this.MngrIndemandDatePickerFrom.TabIndex = 0;
-            this.MngrIndemandDatePickerFrom.Visible = false;
-            // 
-            // MngrIndemandServicePeriodCalendar
-            // 
-            this.MngrIndemandServicePeriodCalendar.Location = new System.Drawing.Point(539, 172);
-            this.MngrIndemandServicePeriodCalendar.Margin = new System.Windows.Forms.Padding(7);
-            this.MngrIndemandServicePeriodCalendar.Name = "MngrIndemandServicePeriodCalendar";
-            this.MngrIndemandServicePeriodCalendar.TabIndex = 16;
-            this.MngrIndemandServicePeriodCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.ServicePeriodCalendar_DateChanged);
+            this.MngrIndemandLbl.Text = "IN DEMAND SERVICES";
             // 
             // MngrIndemandExitBtn
             // 
@@ -3519,7 +4033,7 @@ namespace Enchante
             this.MngrIndemandExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.MngrIndemandExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrIndemandExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrIndemandExitBtn.Location = new System.Drawing.Point(1432, 15);
+            this.MngrIndemandExitBtn.Location = new System.Drawing.Point(1496, 15);
             this.MngrIndemandExitBtn.Name = "MngrIndemandExitBtn";
             this.MngrIndemandExitBtn.Size = new System.Drawing.Size(48, 48);
             this.MngrIndemandExitBtn.TabIndex = 85;
@@ -3527,54 +4041,421 @@ namespace Enchante
             this.MngrIndemandExitBtn.Visible = false;
             this.MngrIndemandExitBtn.Click += new System.EventHandler(this.MngrIndemandExitBtn_Click);
             // 
+            // panel20
+            // 
+            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(155)))), ((int)(((byte)(91)))));
+            this.panel20.Controls.Add(this.MngrIndemandServiceHistoryBtn);
+            this.panel20.Controls.Add(this.MngrIndemandServiceHistoryPeriodLbl);
+            this.panel20.Controls.Add(this.MngrIndemandServicePeriodCalendar);
+            this.panel20.Controls.Add(this.MngrIndemandDatePickerFrom);
+            this.panel20.Controls.Add(this.MngrIndemandDatePickerTo);
+            this.panel20.Controls.Add(this.MngrIndemandSelectCatBox);
+            this.panel20.Controls.Add(this.MngrIndemandSelectPeriod);
+            this.panel20.Controls.Add(this.MngrIndemandFromLbl);
+            this.panel20.Controls.Add(this.MngrIndemandSelectPeriodLbl);
+            this.panel20.Controls.Add(this.MngrIndemandToLbl);
+            this.panel20.Controls.Add(this.MngrIndemandSelectCatLbl);
+            this.panel20.Controls.Add(this.MngrIndemandServiceHistoryPeriod);
+            this.panel20.Location = new System.Drawing.Point(46, 80);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(700, 367);
+            this.panel20.TabIndex = 92;
+            this.panel20.Paint += new System.Windows.Forms.PaintEventHandler(this.trypanel_Paint);
+            // 
+            // MngrIndemandServiceHistoryBtn
+            // 
+            this.MngrIndemandServiceHistoryBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrIndemandServiceHistoryBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.MngrIndemandServiceHistoryBtn.Location = new System.Drawing.Point(34, 290);
+            this.MngrIndemandServiceHistoryBtn.Name = "MngrIndemandServiceHistoryBtn";
+            this.MngrIndemandServiceHistoryBtn.Size = new System.Drawing.Size(629, 44);
+            this.MngrIndemandServiceHistoryBtn.TabIndex = 105;
+            this.MngrIndemandServiceHistoryBtn.Text = "View Income";
+            this.MngrIndemandServiceHistoryBtn.UseVisualStyleBackColor = false;
+            this.MngrIndemandServiceHistoryBtn.Click += new System.EventHandler(this.ServiceHistoryBtn_Click);
+            // 
+            // MngrIndemandServiceHistoryPeriodLbl
+            // 
+            this.MngrIndemandServiceHistoryPeriodLbl.AutoSize = true;
+            this.MngrIndemandServiceHistoryPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrIndemandServiceHistoryPeriodLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrIndemandServiceHistoryPeriodLbl.Location = new System.Drawing.Point(34, 27);
+            this.MngrIndemandServiceHistoryPeriodLbl.Name = "MngrIndemandServiceHistoryPeriodLbl";
+            this.MngrIndemandServiceHistoryPeriodLbl.Size = new System.Drawing.Size(285, 23);
+            this.MngrIndemandServiceHistoryPeriodLbl.TabIndex = 15;
+            this.MngrIndemandServiceHistoryPeriodLbl.Text = "Choose Service History Period:";
+            // 
+            // MngrIndemandServicePeriodCalendar
+            // 
+            this.MngrIndemandServicePeriodCalendar.Location = new System.Drawing.Point(417, 58);
+            this.MngrIndemandServicePeriodCalendar.Margin = new System.Windows.Forms.Padding(7);
+            this.MngrIndemandServicePeriodCalendar.Name = "MngrIndemandServicePeriodCalendar";
+            this.MngrIndemandServicePeriodCalendar.TabIndex = 16;
+            this.MngrIndemandServicePeriodCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.ServicePeriodCalendar_DateChanged);
+            // 
+            // MngrIndemandDatePickerFrom
+            // 
+            this.MngrIndemandDatePickerFrom.Location = new System.Drawing.Point(413, 62);
+            this.MngrIndemandDatePickerFrom.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrIndemandDatePickerFrom.Name = "MngrIndemandDatePickerFrom";
+            this.MngrIndemandDatePickerFrom.Size = new System.Drawing.Size(250, 20);
+            this.MngrIndemandDatePickerFrom.TabIndex = 0;
+            this.MngrIndemandDatePickerFrom.Visible = false;
+            // 
+            // MngrIndemandDatePickerTo
+            // 
+            this.MngrIndemandDatePickerTo.Location = new System.Drawing.Point(413, 148);
+            this.MngrIndemandDatePickerTo.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrIndemandDatePickerTo.Name = "MngrIndemandDatePickerTo";
+            this.MngrIndemandDatePickerTo.Size = new System.Drawing.Size(250, 20);
+            this.MngrIndemandDatePickerTo.TabIndex = 1;
+            this.MngrIndemandDatePickerTo.Visible = false;
+            // 
+            // MngrIndemandSelectCatBox
+            // 
+            this.MngrIndemandSelectCatBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrIndemandSelectCatBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MngrIndemandSelectCatBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrIndemandSelectCatBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrIndemandSelectCatBox.FormattingEnabled = true;
+            this.MngrIndemandSelectCatBox.Location = new System.Drawing.Point(34, 142);
+            this.MngrIndemandSelectCatBox.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrIndemandSelectCatBox.Name = "MngrIndemandSelectCatBox";
+            this.MngrIndemandSelectCatBox.Size = new System.Drawing.Size(337, 31);
+            this.MngrIndemandSelectCatBox.TabIndex = 2;
+            // 
+            // MngrIndemandSelectPeriod
+            // 
+            this.MngrIndemandSelectPeriod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrIndemandSelectPeriod.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrIndemandSelectPeriod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrIndemandSelectPeriod.Location = new System.Drawing.Point(34, 235);
+            this.MngrIndemandSelectPeriod.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrIndemandSelectPeriod.Name = "MngrIndemandSelectPeriod";
+            this.MngrIndemandSelectPeriod.ReadOnly = true;
+            this.MngrIndemandSelectPeriod.Size = new System.Drawing.Size(337, 30);
+            this.MngrIndemandSelectPeriod.TabIndex = 18;
+            // 
+            // MngrIndemandFromLbl
+            // 
+            this.MngrIndemandFromLbl.AutoSize = true;
+            this.MngrIndemandFromLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrIndemandFromLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrIndemandFromLbl.Location = new System.Drawing.Point(413, 27);
+            this.MngrIndemandFromLbl.Name = "MngrIndemandFromLbl";
+            this.MngrIndemandFromLbl.Size = new System.Drawing.Size(59, 23);
+            this.MngrIndemandFromLbl.TabIndex = 4;
+            this.MngrIndemandFromLbl.Text = "From:";
+            this.MngrIndemandFromLbl.Visible = false;
+            // 
+            // MngrIndemandSelectPeriodLbl
+            // 
+            this.MngrIndemandSelectPeriodLbl.AutoSize = true;
+            this.MngrIndemandSelectPeriodLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrIndemandSelectPeriodLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrIndemandSelectPeriodLbl.Location = new System.Drawing.Point(34, 201);
+            this.MngrIndemandSelectPeriodLbl.Name = "MngrIndemandSelectPeriodLbl";
+            this.MngrIndemandSelectPeriodLbl.Size = new System.Drawing.Size(156, 23);
+            this.MngrIndemandSelectPeriodLbl.TabIndex = 17;
+            this.MngrIndemandSelectPeriodLbl.Text = "Selected Period:";
+            // 
+            // MngrIndemandToLbl
+            // 
+            this.MngrIndemandToLbl.AutoSize = true;
+            this.MngrIndemandToLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrIndemandToLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrIndemandToLbl.Location = new System.Drawing.Point(413, 112);
+            this.MngrIndemandToLbl.Name = "MngrIndemandToLbl";
+            this.MngrIndemandToLbl.Size = new System.Drawing.Size(37, 23);
+            this.MngrIndemandToLbl.TabIndex = 5;
+            this.MngrIndemandToLbl.Text = "To:";
+            this.MngrIndemandToLbl.Visible = false;
+            // 
+            // MngrIndemandSelectCatLbl
+            // 
+            this.MngrIndemandSelectCatLbl.AutoSize = true;
+            this.MngrIndemandSelectCatLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrIndemandSelectCatLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrIndemandSelectCatLbl.Location = new System.Drawing.Point(34, 110);
+            this.MngrIndemandSelectCatLbl.Name = "MngrIndemandSelectCatLbl";
+            this.MngrIndemandSelectCatLbl.Size = new System.Drawing.Size(158, 23);
+            this.MngrIndemandSelectCatLbl.TabIndex = 6;
+            this.MngrIndemandSelectCatLbl.Text = "Select Category:";
+            // 
+            // MngrIndemandServiceHistoryPeriod
+            // 
+            this.MngrIndemandServiceHistoryPeriod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrIndemandServiceHistoryPeriod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MngrIndemandServiceHistoryPeriod.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrIndemandServiceHistoryPeriod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrIndemandServiceHistoryPeriod.FormattingEnabled = true;
+            this.MngrIndemandServiceHistoryPeriod.Location = new System.Drawing.Point(34, 58);
+            this.MngrIndemandServiceHistoryPeriod.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrIndemandServiceHistoryPeriod.Name = "MngrIndemandServiceHistoryPeriod";
+            this.MngrIndemandServiceHistoryPeriod.Size = new System.Drawing.Size(337, 31);
+            this.MngrIndemandServiceHistoryPeriod.TabIndex = 14;
+            this.MngrIndemandServiceHistoryPeriod.SelectedIndexChanged += new System.EventHandler(this.ServiceHistoryPeriod_SelectedIndexChanged);
+            // 
+            // panel22
+            // 
+            this.panel22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(155)))), ((int)(((byte)(91)))));
+            this.panel22.Controls.Add(this.MngrIndemandPreviousBtn);
+            this.panel22.Controls.Add(this.MngrIndemandServiceSelection);
+            this.panel22.Controls.Add(this.MngrIndemandCurrentRecordLbl);
+            this.panel22.Controls.Add(this.MngrIndemandSearchTextBox);
+            this.panel22.Controls.Add(this.MngrIndemandNextBtn);
+            this.panel22.Controls.Add(this.MngrIndemandSearchLbl);
+            this.panel22.Controls.Add(this.MngrIndemandServiceSelectionTwo);
+            this.panel22.Location = new System.Drawing.Point(46, 475);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(700, 522);
+            this.panel22.TabIndex = 93;
+            this.panel22.Paint += new System.Windows.Forms.PaintEventHandler(this.trypanel_Paint);
+            // 
+            // MngrIndemandPreviousBtn
+            // 
+            this.MngrIndemandPreviousBtn.Location = new System.Drawing.Point(20, 478);
+            this.MngrIndemandPreviousBtn.Name = "MngrIndemandPreviousBtn";
+            this.MngrIndemandPreviousBtn.Size = new System.Drawing.Size(75, 23);
+            this.MngrIndemandPreviousBtn.TabIndex = 192;
+            this.MngrIndemandPreviousBtn.Text = "<< Previous";
+            this.MngrIndemandPreviousBtn.UseVisualStyleBackColor = true;
+            this.MngrIndemandPreviousBtn.Click += new System.EventHandler(this.MngrIndemandPreviousBtn_Click);
+            // 
+            // MngrIndemandServiceSelection
+            // 
+            this.MngrIndemandServiceSelection.AllowUserToAddRows = false;
+            this.MngrIndemandServiceSelection.AllowUserToDeleteRows = false;
+            this.MngrIndemandServiceSelection.AllowUserToResizeColumns = false;
+            this.MngrIndemandServiceSelection.AllowUserToResizeRows = false;
+            this.MngrIndemandServiceSelection.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MngrIndemandServiceSelection.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.MngrIndemandServiceSelection.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrIndemandServiceSelection.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            this.MngrIndemandServiceSelection.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MngrIndemandServiceSelection.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrIndemandServiceSelection.DefaultCellStyle = dataGridViewCellStyle30;
+            this.MngrIndemandServiceSelection.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrIndemandServiceSelection.Location = new System.Drawing.Point(20, 53);
+            this.MngrIndemandServiceSelection.Name = "MngrIndemandServiceSelection";
+            this.MngrIndemandServiceSelection.ReadOnly = true;
+            this.MngrIndemandServiceSelection.RowHeadersVisible = false;
+            this.MngrIndemandServiceSelection.RowHeadersWidth = 51;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrIndemandServiceSelection.RowsDefaultCellStyle = dataGridViewCellStyle31;
+            this.MngrIndemandServiceSelection.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MngrIndemandServiceSelection.Size = new System.Drawing.Size(659, 415);
+            this.MngrIndemandServiceSelection.TabIndex = 191;
+            // 
+            // MngrIndemandCurrentRecordLbl
+            // 
+            this.MngrIndemandCurrentRecordLbl.AutoSize = true;
+            this.MngrIndemandCurrentRecordLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrIndemandCurrentRecordLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrIndemandCurrentRecordLbl.Location = new System.Drawing.Point(105, 480);
+            this.MngrIndemandCurrentRecordLbl.Name = "MngrIndemandCurrentRecordLbl";
+            this.MngrIndemandCurrentRecordLbl.Size = new System.Drawing.Size(49, 20);
+            this.MngrIndemandCurrentRecordLbl.TabIndex = 191;
+            this.MngrIndemandCurrentRecordLbl.Text = "n of n";
+            // 
+            // MngrIndemandSearchTextBox
+            // 
+            this.MngrIndemandSearchTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrIndemandSearchTextBox.BorderRadius = 15;
+            this.MngrIndemandSearchTextBox.BorderThickness = 2;
+            this.MngrIndemandSearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.MngrIndemandSearchTextBox.DefaultText = "";
+            this.MngrIndemandSearchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.MngrIndemandSearchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.MngrIndemandSearchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.MngrIndemandSearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.MngrIndemandSearchTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrIndemandSearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.MngrIndemandSearchTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrIndemandSearchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrIndemandSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrIndemandSearchTextBox.Location = new System.Drawing.Point(106, 14);
+            this.MngrIndemandSearchTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.MngrIndemandSearchTextBox.Name = "MngrIndemandSearchTextBox";
+            this.MngrIndemandSearchTextBox.PasswordChar = '\0';
+            this.MngrIndemandSearchTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrIndemandSearchTextBox.PlaceholderText = "";
+            this.MngrIndemandSearchTextBox.SelectedText = "";
+            this.MngrIndemandSearchTextBox.Size = new System.Drawing.Size(573, 34);
+            this.MngrIndemandSearchTextBox.TabIndex = 192;
+            this.MngrIndemandSearchTextBox.TextChanged += new System.EventHandler(this.MngrIndemandSearchTextBox_TextChanged);
+            // 
+            // MngrIndemandNextBtn
+            // 
+            this.MngrIndemandNextBtn.Location = new System.Drawing.Point(170, 478);
+            this.MngrIndemandNextBtn.Name = "MngrIndemandNextBtn";
+            this.MngrIndemandNextBtn.Size = new System.Drawing.Size(75, 23);
+            this.MngrIndemandNextBtn.TabIndex = 193;
+            this.MngrIndemandNextBtn.Text = "Next >>";
+            this.MngrIndemandNextBtn.UseVisualStyleBackColor = true;
+            this.MngrIndemandNextBtn.Click += new System.EventHandler(this.MngrIndemandNextBtn_Click);
+            // 
+            // MngrIndemandSearchLbl
+            // 
+            this.MngrIndemandSearchLbl.AutoSize = true;
+            this.MngrIndemandSearchLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
+            this.MngrIndemandSearchLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrIndemandSearchLbl.Location = new System.Drawing.Point(20, 21);
+            this.MngrIndemandSearchLbl.Name = "MngrIndemandSearchLbl";
+            this.MngrIndemandSearchLbl.Size = new System.Drawing.Size(78, 23);
+            this.MngrIndemandSearchLbl.TabIndex = 191;
+            this.MngrIndemandSearchLbl.Text = "Search:";
+            // 
+            // MngrIndemandServiceSelectionTwo
+            // 
+            this.MngrIndemandServiceSelectionTwo.AllowUserToAddRows = false;
+            this.MngrIndemandServiceSelectionTwo.AllowUserToDeleteRows = false;
+            this.MngrIndemandServiceSelectionTwo.AllowUserToResizeColumns = false;
+            this.MngrIndemandServiceSelectionTwo.AllowUserToResizeRows = false;
+            this.MngrIndemandServiceSelectionTwo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MngrIndemandServiceSelectionTwo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.MngrIndemandServiceSelectionTwo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrIndemandServiceSelectionTwo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
+            this.MngrIndemandServiceSelectionTwo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MngrIndemandServiceSelectionTwo.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrIndemandServiceSelectionTwo.DefaultCellStyle = dataGridViewCellStyle33;
+            this.MngrIndemandServiceSelectionTwo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrIndemandServiceSelectionTwo.Location = new System.Drawing.Point(20, 53);
+            this.MngrIndemandServiceSelectionTwo.Name = "MngrIndemandServiceSelectionTwo";
+            this.MngrIndemandServiceSelectionTwo.ReadOnly = true;
+            this.MngrIndemandServiceSelectionTwo.RowHeadersVisible = false;
+            this.MngrIndemandServiceSelectionTwo.RowHeadersWidth = 51;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrIndemandServiceSelectionTwo.RowsDefaultCellStyle = dataGridViewCellStyle34;
+            this.MngrIndemandServiceSelectionTwo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MngrIndemandServiceSelectionTwo.Size = new System.Drawing.Size(659, 415);
+            this.MngrIndemandServiceSelectionTwo.TabIndex = 194;
+            // 
+            // panel23
+            // 
+            this.panel23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(155)))), ((int)(((byte)(91)))));
+            this.panel23.Controls.Add(this.MngrIndemandServiceGraph);
+            this.panel23.Location = new System.Drawing.Point(773, 80);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(771, 917);
+            this.panel23.TabIndex = 94;
+            this.panel23.Paint += new System.Windows.Forms.PaintEventHandler(this.trypanel_Paint);
+            // 
+            // MngrIndemandServiceGraph
+            // 
+            this.MngrIndemandServiceGraph.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(186)))), ((int)(((byte)(121)))));
+            this.MngrIndemandServiceGraph.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+            this.MngrIndemandServiceGraph.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(201)))), ((int)(((byte)(79)))));
+            this.MngrIndemandServiceGraph.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            this.MngrIndemandServiceGraph.BorderlineWidth = 3;
+            chartArea5.Name = "ChartArea1";
+            this.MngrIndemandServiceGraph.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.MngrIndemandServiceGraph.Legends.Add(legend5);
+            this.MngrIndemandServiceGraph.Location = new System.Drawing.Point(35, 30);
+            this.MngrIndemandServiceGraph.Margin = new System.Windows.Forms.Padding(2);
+            this.MngrIndemandServiceGraph.Name = "MngrIndemandServiceGraph";
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series5.LabelBorderWidth = 2;
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.MngrIndemandServiceGraph.Series.Add(series5);
+            this.MngrIndemandServiceGraph.Size = new System.Drawing.Size(704, 844);
+            this.MngrIndemandServiceGraph.TabIndex = 20;
+            this.MngrIndemandServiceGraph.Text = "chart1";
+            // 
+            // MngrIndemandBestEmployee
+            // 
+            this.MngrIndemandBestEmployee.AllowUserToAddRows = false;
+            this.MngrIndemandBestEmployee.AllowUserToDeleteRows = false;
+            this.MngrIndemandBestEmployee.AllowUserToResizeColumns = false;
+            this.MngrIndemandBestEmployee.AllowUserToResizeRows = false;
+            this.MngrIndemandBestEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MngrIndemandBestEmployee.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.MngrIndemandBestEmployee.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrIndemandBestEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
+            this.MngrIndemandBestEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MngrIndemandBestEmployee.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrIndemandBestEmployee.DefaultCellStyle = dataGridViewCellStyle36;
+            this.MngrIndemandBestEmployee.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrIndemandBestEmployee.Location = new System.Drawing.Point(84, 600);
+            this.MngrIndemandBestEmployee.Name = "MngrIndemandBestEmployee";
+            this.MngrIndemandBestEmployee.ReadOnly = true;
+            this.MngrIndemandBestEmployee.RowHeadersVisible = false;
+            this.MngrIndemandBestEmployee.RowHeadersWidth = 51;
+            this.MngrIndemandBestEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MngrIndemandBestEmployee.Size = new System.Drawing.Size(594, 258);
+            this.MngrIndemandBestEmployee.TabIndex = 89;
+            // 
             // MngrInventoryProductHistoryPanel
             // 
             this.MngrInventoryProductHistoryPanel.AutoScroll = true;
             this.MngrInventoryProductHistoryPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrInventoryCard.SetCardName(this.MngrInventoryProductHistoryPanel, "prod history");
-            this.MngrInventoryProductHistoryPanel.Controls.Add(this.MngrPDHistoryDGV);
-            this.MngrInventoryProductHistoryPanel.Controls.Add(this.MngrPDHistoryToLbl);
+            this.MngrInventoryProductHistoryPanel.Controls.Add(this.label3);
             this.MngrInventoryProductHistoryPanel.Controls.Add(this.MngrInventoryProductHistoryExitBtn);
-            this.MngrInventoryProductHistoryPanel.Controls.Add(this.MngrPDHistoryResetBtn);
-            this.MngrInventoryProductHistoryPanel.Controls.Add(this.MngrPDHistoryFromLbl);
-            this.MngrInventoryProductHistoryPanel.Controls.Add(this.MngrPDHistoryItemCatBox);
-            this.MngrInventoryProductHistoryPanel.Controls.Add(this.MngrPDHistoryStatusBox);
-            this.MngrInventoryProductHistoryPanel.Controls.Add(this.MngrPDHistoryStatusLbl);
-            this.MngrInventoryProductHistoryPanel.Controls.Add(this.MngrPDHistoryDatePickTo);
-            this.MngrInventoryProductHistoryPanel.Controls.Add(this.MngrPDHistoryItemCatLbl);
-            this.MngrInventoryProductHistoryPanel.Controls.Add(this.MngrPDHistoryDateLbl);
-            this.MngrInventoryProductHistoryPanel.Controls.Add(this.MngrPDHistoryDatePickFrom);
+            this.MngrInventoryProductHistoryPanel.Controls.Add(this.panel15);
+            this.MngrInventoryProductHistoryPanel.Controls.Add(this.panel16);
             this.MngrInventoryProductHistoryPanel.Location = new System.Drawing.Point(0, 0);
             this.MngrInventoryCard.SetMinimumSize(this.MngrInventoryProductHistoryPanel, new System.Drawing.Size(200, 100));
             this.MngrInventoryProductHistoryPanel.Name = "MngrInventoryProductHistoryPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrInventoryProductHistoryPanel, new System.Drawing.Size(200, 100));
-            this.MngrInventoryProductHistoryPanel.Size = new System.Drawing.Size(1588, 732);
+            this.MngrInventoryProductHistoryPanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrInventoryProductHistoryPanel.TabIndex = 4;
             // 
-            // MngrPDHistoryDGV
+            // label3
             // 
-            this.MngrPDHistoryDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.MngrPDHistoryDGV.BackgroundColor = System.Drawing.Color.GhostWhite;
-            this.MngrPDHistoryDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MngrPDHistoryDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.MngrPDHistoryDGV.Location = new System.Drawing.Point(92, 192);
-            this.MngrPDHistoryDGV.MultiSelect = false;
-            this.MngrPDHistoryDGV.Name = "MngrPDHistoryDGV";
-            this.MngrPDHistoryDGV.ReadOnly = true;
-            this.MngrPDHistoryDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MngrPDHistoryDGV.Size = new System.Drawing.Size(1419, 365);
-            this.MngrPDHistoryDGV.TabIndex = 0;
-            // 
-            // MngrPDHistoryToLbl
-            // 
-            this.MngrPDHistoryToLbl.AutoSize = true;
-            this.MngrPDHistoryToLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrPDHistoryToLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MngrPDHistoryToLbl.Location = new System.Drawing.Point(1213, 121);
-            this.MngrPDHistoryToLbl.Name = "MngrPDHistoryToLbl";
-            this.MngrPDHistoryToLbl.Size = new System.Drawing.Size(24, 16);
-            this.MngrPDHistoryToLbl.TabIndex = 9;
-            this.MngrPDHistoryToLbl.Text = "To";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("TechnicBold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.label3.Location = new System.Drawing.Point(46, 41);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(265, 35);
+            this.label3.TabIndex = 124;
+            this.label3.Text = "Product History";
             // 
             // MngrInventoryProductHistoryExitBtn
             // 
@@ -3583,408 +4464,326 @@ namespace Enchante
             this.MngrInventoryProductHistoryExitBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(51)))), ((int)(((byte)(68)))));
             this.MngrInventoryProductHistoryExitBtn.FlatAppearance.BorderSize = 0;
             this.MngrInventoryProductHistoryExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrInventoryProductHistoryExitBtn.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.MngrInventoryProductHistoryExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.MngrInventoryProductHistoryExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrInventoryProductHistoryExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrInventoryProductHistoryExitBtn.Location = new System.Drawing.Point(1458, 41);
+            this.MngrInventoryProductHistoryExitBtn.Location = new System.Drawing.Point(1511, 41);
             this.MngrInventoryProductHistoryExitBtn.Name = "MngrInventoryProductHistoryExitBtn";
-            this.MngrInventoryProductHistoryExitBtn.Size = new System.Drawing.Size(48, 48);
+            this.MngrInventoryProductHistoryExitBtn.Size = new System.Drawing.Size(38, 48);
             this.MngrInventoryProductHistoryExitBtn.TabIndex = 84;
+            this.MngrInventoryProductHistoryExitBtn.Text = "X";
             this.MngrInventoryProductHistoryExitBtn.UseVisualStyleBackColor = false;
             this.MngrInventoryProductHistoryExitBtn.Visible = false;
             this.MngrInventoryProductHistoryExitBtn.Click += new System.EventHandler(this.MngrInventoryProductHistoryExitBtn_Click);
             // 
-            // MngrPDHistoryResetBtn
+            // panel15
             // 
-            this.MngrPDHistoryResetBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrPDHistoryResetBtn.Location = new System.Drawing.Point(1408, 163);
-            this.MngrPDHistoryResetBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.MngrPDHistoryResetBtn.Name = "MngrPDHistoryResetBtn";
-            this.MngrPDHistoryResetBtn.Size = new System.Drawing.Size(103, 24);
-            this.MngrPDHistoryResetBtn.TabIndex = 5;
-            this.MngrPDHistoryResetBtn.Text = "Reset";
-            this.MngrPDHistoryResetBtn.UseVisualStyleBackColor = true;
-            this.MngrPDHistoryResetBtn.Click += new System.EventHandler(this.MngrPDHistoryResetBtn_Click);
-            // 
-            // MngrPDHistoryFromLbl
-            // 
-            this.MngrPDHistoryFromLbl.AutoSize = true;
-            this.MngrPDHistoryFromLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrPDHistoryFromLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MngrPDHistoryFromLbl.Location = new System.Drawing.Point(882, 118);
-            this.MngrPDHistoryFromLbl.Name = "MngrPDHistoryFromLbl";
-            this.MngrPDHistoryFromLbl.Size = new System.Drawing.Size(38, 16);
-            this.MngrPDHistoryFromLbl.TabIndex = 8;
-            this.MngrPDHistoryFromLbl.Text = "From";
+            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(155)))), ((int)(((byte)(91)))));
+            this.panel15.Controls.Add(this.MngrPDHistoryItemCatBox);
+            this.panel15.Controls.Add(this.MngrPDHistoryStatusBox);
+            this.panel15.Controls.Add(this.MngrPDHistoryResetBtn);
+            this.panel15.Controls.Add(this.MngrPDHistoryDatePickFrom);
+            this.panel15.Controls.Add(this.MngrPDHistoryDateLbl);
+            this.panel15.Controls.Add(this.MngrPDHistoryItemCatLbl);
+            this.panel15.Controls.Add(this.MngrPDHistoryDatePickTo);
+            this.panel15.Controls.Add(this.MngrPDHistoryStatusLbl);
+            this.panel15.Controls.Add(this.MngrPDHistoryToLbl);
+            this.panel15.Controls.Add(this.MngrPDHistoryFromLbl);
+            this.panel15.Location = new System.Drawing.Point(52, 121);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(1481, 177);
+            this.panel15.TabIndex = 201;
+            this.panel15.Paint += new System.Windows.Forms.PaintEventHandler(this.trypanel_Paint);
             // 
             // MngrPDHistoryItemCatBox
             // 
+            this.MngrPDHistoryItemCatBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrPDHistoryItemCatBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MngrPDHistoryItemCatBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrPDHistoryItemCatBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrPDHistoryItemCatBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrPDHistoryItemCatBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrPDHistoryItemCatBox.FormattingEnabled = true;
-            this.MngrPDHistoryItemCatBox.Location = new System.Drawing.Point(481, 115);
+            this.MngrPDHistoryItemCatBox.Location = new System.Drawing.Point(469, 82);
             this.MngrPDHistoryItemCatBox.Name = "MngrPDHistoryItemCatBox";
-            this.MngrPDHistoryItemCatBox.Size = new System.Drawing.Size(370, 24);
-            this.MngrPDHistoryItemCatBox.TabIndex = 5;
+            this.MngrPDHistoryItemCatBox.Size = new System.Drawing.Size(370, 31);
+            this.MngrPDHistoryItemCatBox.TabIndex = 202;
             this.MngrPDHistoryItemCatBox.SelectedIndexChanged += new System.EventHandler(this.MngrPDHistoryItemCatBox_SelectedIndexChanged);
             // 
             // MngrPDHistoryStatusBox
             // 
+            this.MngrPDHistoryStatusBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrPDHistoryStatusBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MngrPDHistoryStatusBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrPDHistoryStatusBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrPDHistoryStatusBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrPDHistoryStatusBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrPDHistoryStatusBox.FormattingEnabled = true;
-            this.MngrPDHistoryStatusBox.Location = new System.Drawing.Point(92, 115);
+            this.MngrPDHistoryStatusBox.Location = new System.Drawing.Point(42, 82);
             this.MngrPDHistoryStatusBox.Name = "MngrPDHistoryStatusBox";
-            this.MngrPDHistoryStatusBox.Size = new System.Drawing.Size(370, 24);
-            this.MngrPDHistoryStatusBox.TabIndex = 1;
+            this.MngrPDHistoryStatusBox.Size = new System.Drawing.Size(370, 31);
+            this.MngrPDHistoryStatusBox.TabIndex = 123;
             this.MngrPDHistoryStatusBox.SelectedIndexChanged += new System.EventHandler(this.MngrPDHistoryStatusBox_SelectedIndexChanged);
             // 
-            // MngrPDHistoryStatusLbl
+            // MngrPDHistoryResetBtn
             // 
-            this.MngrPDHistoryStatusLbl.AutoSize = true;
-            this.MngrPDHistoryStatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrPDHistoryStatusLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MngrPDHistoryStatusLbl.Location = new System.Drawing.Point(87, 84);
-            this.MngrPDHistoryStatusLbl.Name = "MngrPDHistoryStatusLbl";
-            this.MngrPDHistoryStatusLbl.Size = new System.Drawing.Size(153, 25);
-            this.MngrPDHistoryStatusLbl.TabIndex = 2;
-            this.MngrPDHistoryStatusLbl.Text = "Product Status";
+            this.MngrPDHistoryResetBtn.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrPDHistoryResetBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.MngrPDHistoryResetBtn.Location = new System.Drawing.Point(1312, 69);
+            this.MngrPDHistoryResetBtn.Name = "MngrPDHistoryResetBtn";
+            this.MngrPDHistoryResetBtn.Size = new System.Drawing.Size(128, 55);
+            this.MngrPDHistoryResetBtn.TabIndex = 123;
+            this.MngrPDHistoryResetBtn.Text = "Reset";
+            this.MngrPDHistoryResetBtn.UseVisualStyleBackColor = false;
+            this.MngrPDHistoryResetBtn.Click += new System.EventHandler(this.MngrPDHistoryResetBtn_Click);
             // 
-            // MngrPDHistoryDatePickTo
+            // MngrPDHistoryDatePickFrom
             // 
-            this.MngrPDHistoryDatePickTo.Location = new System.Drawing.Point(1242, 119);
-            this.MngrPDHistoryDatePickTo.Name = "MngrPDHistoryDatePickTo";
-            this.MngrPDHistoryDatePickTo.Size = new System.Drawing.Size(264, 20);
-            this.MngrPDHistoryDatePickTo.TabIndex = 7;
-            this.MngrPDHistoryDatePickTo.ValueChanged += new System.EventHandler(this.MngrPDHistoryDatePickTo_ValueChanged);
-            // 
-            // MngrPDHistoryItemCatLbl
-            // 
-            this.MngrPDHistoryItemCatLbl.AutoSize = true;
-            this.MngrPDHistoryItemCatLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrPDHistoryItemCatLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MngrPDHistoryItemCatLbl.Location = new System.Drawing.Point(476, 88);
-            this.MngrPDHistoryItemCatLbl.Name = "MngrPDHistoryItemCatLbl";
-            this.MngrPDHistoryItemCatLbl.Size = new System.Drawing.Size(145, 25);
-            this.MngrPDHistoryItemCatLbl.TabIndex = 4;
-            this.MngrPDHistoryItemCatLbl.Text = "Item Category";
+            this.MngrPDHistoryDatePickFrom.Location = new System.Drawing.Point(935, 68);
+            this.MngrPDHistoryDatePickFrom.Name = "MngrPDHistoryDatePickFrom";
+            this.MngrPDHistoryDatePickFrom.Size = new System.Drawing.Size(320, 20);
+            this.MngrPDHistoryDatePickFrom.TabIndex = 6;
+            this.MngrPDHistoryDatePickFrom.ValueChanged += new System.EventHandler(this.MngrPDHistoryDatePickFrom_ValueChanged);
             // 
             // MngrPDHistoryDateLbl
             // 
             this.MngrPDHistoryDateLbl.AutoSize = true;
-            this.MngrPDHistoryDateLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrPDHistoryDateLbl.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold);
             this.MngrPDHistoryDateLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MngrPDHistoryDateLbl.Location = new System.Drawing.Point(880, 88);
+            this.MngrPDHistoryDateLbl.Location = new System.Drawing.Point(930, 37);
             this.MngrPDHistoryDateLbl.Name = "MngrPDHistoryDateLbl";
-            this.MngrPDHistoryDateLbl.Size = new System.Drawing.Size(57, 25);
+            this.MngrPDHistoryDateLbl.Size = new System.Drawing.Size(61, 27);
             this.MngrPDHistoryDateLbl.TabIndex = 3;
             this.MngrPDHistoryDateLbl.Text = "Date";
             // 
-            // MngrPDHistoryDatePickFrom
+            // MngrPDHistoryItemCatLbl
             // 
-            this.MngrPDHistoryDatePickFrom.Location = new System.Drawing.Point(933, 116);
-            this.MngrPDHistoryDatePickFrom.Name = "MngrPDHistoryDatePickFrom";
-            this.MngrPDHistoryDatePickFrom.Size = new System.Drawing.Size(264, 20);
-            this.MngrPDHistoryDatePickFrom.TabIndex = 6;
-            this.MngrPDHistoryDatePickFrom.ValueChanged += new System.EventHandler(this.MngrPDHistoryDatePickFrom_ValueChanged);
+            this.MngrPDHistoryItemCatLbl.AutoSize = true;
+            this.MngrPDHistoryItemCatLbl.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold);
+            this.MngrPDHistoryItemCatLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.MngrPDHistoryItemCatLbl.Location = new System.Drawing.Point(469, 38);
+            this.MngrPDHistoryItemCatLbl.Name = "MngrPDHistoryItemCatLbl";
+            this.MngrPDHistoryItemCatLbl.Size = new System.Drawing.Size(161, 27);
+            this.MngrPDHistoryItemCatLbl.TabIndex = 4;
+            this.MngrPDHistoryItemCatLbl.Text = "Item Category";
+            // 
+            // MngrPDHistoryDatePickTo
+            // 
+            this.MngrPDHistoryDatePickTo.Location = new System.Drawing.Point(935, 103);
+            this.MngrPDHistoryDatePickTo.Name = "MngrPDHistoryDatePickTo";
+            this.MngrPDHistoryDatePickTo.Size = new System.Drawing.Size(320, 20);
+            this.MngrPDHistoryDatePickTo.TabIndex = 7;
+            this.MngrPDHistoryDatePickTo.ValueChanged += new System.EventHandler(this.MngrPDHistoryDatePickTo_ValueChanged);
+            // 
+            // MngrPDHistoryStatusLbl
+            // 
+            this.MngrPDHistoryStatusLbl.AutoSize = true;
+            this.MngrPDHistoryStatusLbl.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold);
+            this.MngrPDHistoryStatusLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.MngrPDHistoryStatusLbl.Location = new System.Drawing.Point(42, 38);
+            this.MngrPDHistoryStatusLbl.Name = "MngrPDHistoryStatusLbl";
+            this.MngrPDHistoryStatusLbl.Size = new System.Drawing.Size(168, 27);
+            this.MngrPDHistoryStatusLbl.TabIndex = 2;
+            this.MngrPDHistoryStatusLbl.Text = "Product Status";
+            // 
+            // MngrPDHistoryToLbl
+            // 
+            this.MngrPDHistoryToLbl.AutoSize = true;
+            this.MngrPDHistoryToLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrPDHistoryToLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.MngrPDHistoryToLbl.Location = new System.Drawing.Point(907, 107);
+            this.MngrPDHistoryToLbl.Name = "MngrPDHistoryToLbl";
+            this.MngrPDHistoryToLbl.Size = new System.Drawing.Size(22, 16);
+            this.MngrPDHistoryToLbl.TabIndex = 9;
+            this.MngrPDHistoryToLbl.Text = "To";
+            // 
+            // MngrPDHistoryFromLbl
+            // 
+            this.MngrPDHistoryFromLbl.AutoSize = true;
+            this.MngrPDHistoryFromLbl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrPDHistoryFromLbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.MngrPDHistoryFromLbl.Location = new System.Drawing.Point(889, 72);
+            this.MngrPDHistoryFromLbl.Name = "MngrPDHistoryFromLbl";
+            this.MngrPDHistoryFromLbl.Size = new System.Drawing.Size(40, 16);
+            this.MngrPDHistoryFromLbl.TabIndex = 8;
+            this.MngrPDHistoryFromLbl.Text = "From";
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(155)))), ((int)(((byte)(91)))));
+            this.panel16.Controls.Add(this.MngrPDHistoryDGV);
+            this.panel16.Controls.Add(this.MngrPDSearchTextBox);
+            this.panel16.Controls.Add(this.MngrPDHistoryPreviousBtn);
+            this.panel16.Controls.Add(this.MngrPDHistorySearchLbl);
+            this.panel16.Controls.Add(this.MngrPDCurrentRecordLbl);
+            this.panel16.Controls.Add(this.MngrPDHistoryNextBtn);
+            this.panel16.Controls.Add(this.MngrPDHistoryDGVTwo);
+            this.panel16.Location = new System.Drawing.Point(52, 333);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(1481, 639);
+            this.panel16.TabIndex = 203;
+            this.panel16.Paint += new System.Windows.Forms.PaintEventHandler(this.trypanel_Paint);
+            // 
+            // MngrPDHistoryDGV
+            // 
+            this.MngrPDHistoryDGV.AllowUserToAddRows = false;
+            this.MngrPDHistoryDGV.AllowUserToDeleteRows = false;
+            this.MngrPDHistoryDGV.AllowUserToResizeColumns = false;
+            this.MngrPDHistoryDGV.AllowUserToResizeRows = false;
+            this.MngrPDHistoryDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MngrPDHistoryDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.MngrPDHistoryDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrPDHistoryDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
+            this.MngrPDHistoryDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MngrPDHistoryDGV.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrPDHistoryDGV.DefaultCellStyle = dataGridViewCellStyle38;
+            this.MngrPDHistoryDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrPDHistoryDGV.Location = new System.Drawing.Point(32, 84);
+            this.MngrPDHistoryDGV.Name = "MngrPDHistoryDGV";
+            this.MngrPDHistoryDGV.ReadOnly = true;
+            this.MngrPDHistoryDGV.RowHeadersVisible = false;
+            this.MngrPDHistoryDGV.RowHeadersWidth = 51;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrPDHistoryDGV.RowsDefaultCellStyle = dataGridViewCellStyle39;
+            this.MngrPDHistoryDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MngrPDHistoryDGV.Size = new System.Drawing.Size(1422, 485);
+            this.MngrPDHistoryDGV.TabIndex = 198;
+            // 
+            // MngrPDSearchTextBox
+            // 
+            this.MngrPDSearchTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrPDSearchTextBox.BorderRadius = 15;
+            this.MngrPDSearchTextBox.BorderThickness = 2;
+            this.MngrPDSearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.MngrPDSearchTextBox.DefaultText = "";
+            this.MngrPDSearchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.MngrPDSearchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.MngrPDSearchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.MngrPDSearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.MngrPDSearchTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrPDSearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.MngrPDSearchTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrPDSearchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrPDSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrPDSearchTextBox.Location = new System.Drawing.Point(131, 29);
+            this.MngrPDSearchTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.MngrPDSearchTextBox.Name = "MngrPDSearchTextBox";
+            this.MngrPDSearchTextBox.PasswordChar = '\0';
+            this.MngrPDSearchTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrPDSearchTextBox.PlaceholderText = "";
+            this.MngrPDSearchTextBox.SelectedText = "";
+            this.MngrPDSearchTextBox.Size = new System.Drawing.Size(1323, 34);
+            this.MngrPDSearchTextBox.TabIndex = 199;
+            this.MngrPDSearchTextBox.TextChanged += new System.EventHandler(this.MngrPDSearchTextBox_TextChanged);
+            // 
+            // MngrPDHistoryPreviousBtn
+            // 
+            this.MngrPDHistoryPreviousBtn.Location = new System.Drawing.Point(32, 584);
+            this.MngrPDHistoryPreviousBtn.Name = "MngrPDHistoryPreviousBtn";
+            this.MngrPDHistoryPreviousBtn.Size = new System.Drawing.Size(75, 23);
+            this.MngrPDHistoryPreviousBtn.TabIndex = 199;
+            this.MngrPDHistoryPreviousBtn.Text = "<< Previous";
+            this.MngrPDHistoryPreviousBtn.UseVisualStyleBackColor = true;
+            this.MngrPDHistoryPreviousBtn.Click += new System.EventHandler(this.MngrPDPreviousBtn_Click);
+            // 
+            // MngrPDHistorySearchLbl
+            // 
+            this.MngrPDHistorySearchLbl.AutoSize = true;
+            this.MngrPDHistorySearchLbl.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold);
+            this.MngrPDHistorySearchLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrPDHistorySearchLbl.Location = new System.Drawing.Point(32, 33);
+            this.MngrPDHistorySearchLbl.Name = "MngrPDHistorySearchLbl";
+            this.MngrPDHistorySearchLbl.Size = new System.Drawing.Size(92, 27);
+            this.MngrPDHistorySearchLbl.TabIndex = 198;
+            this.MngrPDHistorySearchLbl.Text = "Search:";
+            // 
+            // MngrPDCurrentRecordLbl
+            // 
+            this.MngrPDCurrentRecordLbl.AutoSize = true;
+            this.MngrPDCurrentRecordLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrPDCurrentRecordLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrPDCurrentRecordLbl.Location = new System.Drawing.Point(117, 586);
+            this.MngrPDCurrentRecordLbl.Name = "MngrPDCurrentRecordLbl";
+            this.MngrPDCurrentRecordLbl.Size = new System.Drawing.Size(49, 20);
+            this.MngrPDCurrentRecordLbl.TabIndex = 198;
+            this.MngrPDCurrentRecordLbl.Text = "n of n";
+            // 
+            // MngrPDHistoryNextBtn
+            // 
+            this.MngrPDHistoryNextBtn.Location = new System.Drawing.Point(182, 584);
+            this.MngrPDHistoryNextBtn.Name = "MngrPDHistoryNextBtn";
+            this.MngrPDHistoryNextBtn.Size = new System.Drawing.Size(75, 23);
+            this.MngrPDHistoryNextBtn.TabIndex = 200;
+            this.MngrPDHistoryNextBtn.Text = "Next >>";
+            this.MngrPDHistoryNextBtn.UseVisualStyleBackColor = true;
+            this.MngrPDHistoryNextBtn.Click += new System.EventHandler(this.MngrPDNextBtn_Click);
+            // 
+            // MngrPDHistoryDGVTwo
+            // 
+            this.MngrPDHistoryDGVTwo.AllowUserToAddRows = false;
+            this.MngrPDHistoryDGVTwo.AllowUserToDeleteRows = false;
+            this.MngrPDHistoryDGVTwo.AllowUserToResizeColumns = false;
+            this.MngrPDHistoryDGVTwo.AllowUserToResizeRows = false;
+            this.MngrPDHistoryDGVTwo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MngrPDHistoryDGVTwo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.MngrPDHistoryDGVTwo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrPDHistoryDGVTwo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle40;
+            this.MngrPDHistoryDGVTwo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MngrPDHistoryDGVTwo.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrPDHistoryDGVTwo.DefaultCellStyle = dataGridViewCellStyle41;
+            this.MngrPDHistoryDGVTwo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrPDHistoryDGVTwo.Location = new System.Drawing.Point(32, 84);
+            this.MngrPDHistoryDGVTwo.Name = "MngrPDHistoryDGVTwo";
+            this.MngrPDHistoryDGVTwo.ReadOnly = true;
+            this.MngrPDHistoryDGVTwo.RowHeadersVisible = false;
+            this.MngrPDHistoryDGVTwo.RowHeadersWidth = 51;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrPDHistoryDGVTwo.RowsDefaultCellStyle = dataGridViewCellStyle42;
+            this.MngrPDHistoryDGVTwo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MngrPDHistoryDGVTwo.Size = new System.Drawing.Size(1422, 485);
+            this.MngrPDHistoryDGVTwo.TabIndex = 201;
             // 
             // MngrPromoPanel
             // 
             this.MngrPromoPanel.AutoScroll = true;
             this.MngrPromoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrInventoryCard.SetCardName(this.MngrPromoPanel, "promo");
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherXBtn);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherInsertBtn);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherPromoCodeTextBox);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherPromoCategoryComboBox);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherSelectCatTextBox);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherAvailNumTextBox);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherPromoDiscTextBox);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherPromoNameTextBox);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherEditBtn);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherNextBtn);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherPreviousBtn);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherCurrentRecordLbl);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherCancelBtn);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherUpdateBtn);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherSelectedCatLbl);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherPromoCategoryLbl);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherAvailNumLbl);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherPromoDiscLbl);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherPromoCodeLbl);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherPromoNameLbl);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherDatePickerEnd);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherDatePickerStart);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherDateEndLbl);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherDateStartLbl);
             this.MngrPromoPanel.Controls.Add(this.MngrSchedExitBtn);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherDGV);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherSearchLbl);
-            this.MngrPromoPanel.Controls.Add(this.MngrVoucherSearchTextBox);
+            this.MngrPromoPanel.Controls.Add(this.panel5);
+            this.MngrPromoPanel.Controls.Add(this.panel6);
             this.MngrPromoPanel.Location = new System.Drawing.Point(0, 0);
             this.MngrInventoryCard.SetMinimumSize(this.MngrPromoPanel, new System.Drawing.Size(1697, 557));
             this.MngrPromoPanel.Name = "MngrPromoPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrPromoPanel, new System.Drawing.Size(1697, 557));
-            this.MngrPromoPanel.Size = new System.Drawing.Size(1588, 732);
+            this.MngrPromoPanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrPromoPanel.TabIndex = 25;
-            // 
-            // MngrVoucherXBtn
-            // 
-            this.MngrVoucherXBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrVoucherXBtn.Location = new System.Drawing.Point(1376, 760);
-            this.MngrVoucherXBtn.Name = "MngrVoucherXBtn";
-            this.MngrVoucherXBtn.Size = new System.Drawing.Size(24, 21);
-            this.MngrVoucherXBtn.TabIndex = 105;
-            this.MngrVoucherXBtn.Text = "X";
-            this.MngrVoucherXBtn.UseVisualStyleBackColor = true;
-            this.MngrVoucherXBtn.Click += new System.EventHandler(this.MngrVoucherXBtn_Click);
-            // 
-            // MngrVoucherInsertBtn
-            // 
-            this.MngrVoucherInsertBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrVoucherInsertBtn.Location = new System.Drawing.Point(714, 884);
-            this.MngrVoucherInsertBtn.Name = "MngrVoucherInsertBtn";
-            this.MngrVoucherInsertBtn.Size = new System.Drawing.Size(167, 45);
-            this.MngrVoucherInsertBtn.TabIndex = 98;
-            this.MngrVoucherInsertBtn.Text = "Insert";
-            this.MngrVoucherInsertBtn.UseVisualStyleBackColor = true;
-            this.MngrVoucherInsertBtn.Click += new System.EventHandler(this.MngrVoucherInsertBtn_Click);
-            // 
-            // MngrVoucherPromoCodeTextBox
-            // 
-            this.MngrVoucherPromoCodeTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrVoucherPromoCodeTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrVoucherPromoCodeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherPromoCodeTextBox.Location = new System.Drawing.Point(201, 755);
-            this.MngrVoucherPromoCodeTextBox.Name = "MngrVoucherPromoCodeTextBox";
-            this.MngrVoucherPromoCodeTextBox.ReadOnly = true;
-            this.MngrVoucherPromoCodeTextBox.Size = new System.Drawing.Size(380, 30);
-            this.MngrVoucherPromoCodeTextBox.TabIndex = 120;
-            // 
-            // MngrVoucherPromoCategoryComboBox
-            // 
-            this.MngrVoucherPromoCategoryComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrVoucherPromoCategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MngrVoucherPromoCategoryComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrVoucherPromoCategoryComboBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrVoucherPromoCategoryComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherPromoCategoryComboBox.FormattingEnabled = true;
-            this.MngrVoucherPromoCategoryComboBox.Location = new System.Drawing.Point(600, 755);
-            this.MngrVoucherPromoCategoryComboBox.Name = "MngrVoucherPromoCategoryComboBox";
-            this.MngrVoucherPromoCategoryComboBox.Size = new System.Drawing.Size(380, 31);
-            this.MngrVoucherPromoCategoryComboBox.TabIndex = 119;
-            this.MngrVoucherPromoCategoryComboBox.SelectedIndexChanged += new System.EventHandler(this.MngrVoucherPromoCategoryComboBox_SelectedIndexChanged);
-            // 
-            // MngrVoucherSelectCatTextBox
-            // 
-            this.MngrVoucherSelectCatTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrVoucherSelectCatTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrVoucherSelectCatTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherSelectCatTextBox.Location = new System.Drawing.Point(1020, 755);
-            this.MngrVoucherSelectCatTextBox.Name = "MngrVoucherSelectCatTextBox";
-            this.MngrVoucherSelectCatTextBox.Size = new System.Drawing.Size(380, 30);
-            this.MngrVoucherSelectCatTextBox.TabIndex = 118;
-            // 
-            // MngrVoucherAvailNumTextBox
-            // 
-            this.MngrVoucherAvailNumTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrVoucherAvailNumTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrVoucherAvailNumTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherAvailNumTextBox.Location = new System.Drawing.Point(1020, 689);
-            this.MngrVoucherAvailNumTextBox.Name = "MngrVoucherAvailNumTextBox";
-            this.MngrVoucherAvailNumTextBox.Size = new System.Drawing.Size(380, 30);
-            this.MngrVoucherAvailNumTextBox.TabIndex = 117;
-            this.MngrVoucherAvailNumTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrVoucherAvailNumTextBox_KeyPress);
-            // 
-            // MngrVoucherPromoDiscTextBox
-            // 
-            this.MngrVoucherPromoDiscTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrVoucherPromoDiscTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrVoucherPromoDiscTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherPromoDiscTextBox.Location = new System.Drawing.Point(600, 689);
-            this.MngrVoucherPromoDiscTextBox.Name = "MngrVoucherPromoDiscTextBox";
-            this.MngrVoucherPromoDiscTextBox.Size = new System.Drawing.Size(380, 30);
-            this.MngrVoucherPromoDiscTextBox.TabIndex = 116;
-            this.MngrVoucherPromoDiscTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrVoucherPromoDiscTextBox_KeyPress);
-            // 
-            // MngrVoucherPromoNameTextBox
-            // 
-            this.MngrVoucherPromoNameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrVoucherPromoNameTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrVoucherPromoNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherPromoNameTextBox.Location = new System.Drawing.Point(201, 689);
-            this.MngrVoucherPromoNameTextBox.Name = "MngrVoucherPromoNameTextBox";
-            this.MngrVoucherPromoNameTextBox.Size = new System.Drawing.Size(380, 30);
-            this.MngrVoucherPromoNameTextBox.TabIndex = 114;
-            this.MngrVoucherPromoNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrVoucherPromoNameTextBox_KeyPress);
-            // 
-            // MngrVoucherEditBtn
-            // 
-            this.MngrVoucherEditBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrVoucherEditBtn.Location = new System.Drawing.Point(1269, 551);
-            this.MngrVoucherEditBtn.Name = "MngrVoucherEditBtn";
-            this.MngrVoucherEditBtn.Size = new System.Drawing.Size(131, 30);
-            this.MngrVoucherEditBtn.TabIndex = 107;
-            this.MngrVoucherEditBtn.Text = "Edit";
-            this.MngrVoucherEditBtn.UseVisualStyleBackColor = true;
-            this.MngrVoucherEditBtn.Click += new System.EventHandler(this.MngrVoucherEditBtn_Click);
-            // 
-            // MngrVoucherNextBtn
-            // 
-            this.MngrVoucherNextBtn.Location = new System.Drawing.Point(337, 558);
-            this.MngrVoucherNextBtn.Name = "MngrVoucherNextBtn";
-            this.MngrVoucherNextBtn.Size = new System.Drawing.Size(75, 23);
-            this.MngrVoucherNextBtn.TabIndex = 112;
-            this.MngrVoucherNextBtn.Text = "Next >>";
-            this.MngrVoucherNextBtn.UseVisualStyleBackColor = true;
-            this.MngrVoucherNextBtn.Click += new System.EventHandler(this.MngrVoucherNextBtn_Click);
-            // 
-            // MngrVoucherPreviousBtn
-            // 
-            this.MngrVoucherPreviousBtn.Location = new System.Drawing.Point(201, 558);
-            this.MngrVoucherPreviousBtn.Name = "MngrVoucherPreviousBtn";
-            this.MngrVoucherPreviousBtn.Size = new System.Drawing.Size(75, 23);
-            this.MngrVoucherPreviousBtn.TabIndex = 111;
-            this.MngrVoucherPreviousBtn.Text = "<< Previous";
-            this.MngrVoucherPreviousBtn.UseVisualStyleBackColor = true;
-            this.MngrVoucherPreviousBtn.Click += new System.EventHandler(this.MngrVoucherPreviousBtn_Click);
-            // 
-            // MngrVoucherCurrentRecordLbl
-            // 
-            this.MngrVoucherCurrentRecordLbl.AutoSize = true;
-            this.MngrVoucherCurrentRecordLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrVoucherCurrentRecordLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherCurrentRecordLbl.Location = new System.Drawing.Point(282, 561);
-            this.MngrVoucherCurrentRecordLbl.Name = "MngrVoucherCurrentRecordLbl";
-            this.MngrVoucherCurrentRecordLbl.Size = new System.Drawing.Size(49, 20);
-            this.MngrVoucherCurrentRecordLbl.TabIndex = 110;
-            this.MngrVoucherCurrentRecordLbl.Text = "n of n";
-            // 
-            // MngrVoucherCancelBtn
-            // 
-            this.MngrVoucherCancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrVoucherCancelBtn.Location = new System.Drawing.Point(714, 884);
-            this.MngrVoucherCancelBtn.Name = "MngrVoucherCancelBtn";
-            this.MngrVoucherCancelBtn.Size = new System.Drawing.Size(167, 45);
-            this.MngrVoucherCancelBtn.TabIndex = 109;
-            this.MngrVoucherCancelBtn.Text = "Cancel";
-            this.MngrVoucherCancelBtn.UseVisualStyleBackColor = true;
-            this.MngrVoucherCancelBtn.Visible = false;
-            this.MngrVoucherCancelBtn.Click += new System.EventHandler(this.MngrVoucherCancelBtn_Click);
-            // 
-            // MngrVoucherUpdateBtn
-            // 
-            this.MngrVoucherUpdateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrVoucherUpdateBtn.Location = new System.Drawing.Point(1132, 551);
-            this.MngrVoucherUpdateBtn.Name = "MngrVoucherUpdateBtn";
-            this.MngrVoucherUpdateBtn.Size = new System.Drawing.Size(131, 30);
-            this.MngrVoucherUpdateBtn.TabIndex = 108;
-            this.MngrVoucherUpdateBtn.Text = "Update";
-            this.MngrVoucherUpdateBtn.UseVisualStyleBackColor = true;
-            this.MngrVoucherUpdateBtn.Visible = false;
-            this.MngrVoucherUpdateBtn.Click += new System.EventHandler(this.MngrVoucherUpdateBtn_Click);
-            // 
-            // MngrVoucherSelectedCatLbl
-            // 
-            this.MngrVoucherSelectedCatLbl.AutoSize = true;
-            this.MngrVoucherSelectedCatLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
-            this.MngrVoucherSelectedCatLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherSelectedCatLbl.Location = new System.Drawing.Point(1015, 723);
-            this.MngrVoucherSelectedCatLbl.Name = "MngrVoucherSelectedCatLbl";
-            this.MngrVoucherSelectedCatLbl.Size = new System.Drawing.Size(254, 29);
-            this.MngrVoucherSelectedCatLbl.TabIndex = 103;
-            this.MngrVoucherSelectedCatLbl.Text = "Selected Category:";
-            // 
-            // MngrVoucherPromoCategoryLbl
-            // 
-            this.MngrVoucherPromoCategoryLbl.AutoSize = true;
-            this.MngrVoucherPromoCategoryLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
-            this.MngrVoucherPromoCategoryLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherPromoCategoryLbl.Location = new System.Drawing.Point(595, 723);
-            this.MngrVoucherPromoCategoryLbl.Name = "MngrVoucherPromoCategoryLbl";
-            this.MngrVoucherPromoCategoryLbl.Size = new System.Drawing.Size(219, 29);
-            this.MngrVoucherPromoCategoryLbl.TabIndex = 101;
-            this.MngrVoucherPromoCategoryLbl.Text = "Promo Category:";
-            // 
-            // MngrVoucherAvailNumLbl
-            // 
-            this.MngrVoucherAvailNumLbl.AutoSize = true;
-            this.MngrVoucherAvailNumLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
-            this.MngrVoucherAvailNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherAvailNumLbl.Location = new System.Drawing.Point(1015, 653);
-            this.MngrVoucherAvailNumLbl.Name = "MngrVoucherAvailNumLbl";
-            this.MngrVoucherAvailNumLbl.Size = new System.Drawing.Size(237, 29);
-            this.MngrVoucherAvailNumLbl.TabIndex = 96;
-            this.MngrVoucherAvailNumLbl.Text = "Available Number:";
-            // 
-            // MngrVoucherPromoDiscLbl
-            // 
-            this.MngrVoucherPromoDiscLbl.AutoSize = true;
-            this.MngrVoucherPromoDiscLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
-            this.MngrVoucherPromoDiscLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherPromoDiscLbl.Location = new System.Drawing.Point(595, 653);
-            this.MngrVoucherPromoDiscLbl.Name = "MngrVoucherPromoDiscLbl";
-            this.MngrVoucherPromoDiscLbl.Size = new System.Drawing.Size(209, 29);
-            this.MngrVoucherPromoDiscLbl.TabIndex = 93;
-            this.MngrVoucherPromoDiscLbl.Text = "Promo Discount:";
-            // 
-            // MngrVoucherPromoCodeLbl
-            // 
-            this.MngrVoucherPromoCodeLbl.AutoSize = true;
-            this.MngrVoucherPromoCodeLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
-            this.MngrVoucherPromoCodeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherPromoCodeLbl.Location = new System.Drawing.Point(196, 723);
-            this.MngrVoucherPromoCodeLbl.Name = "MngrVoucherPromoCodeLbl";
-            this.MngrVoucherPromoCodeLbl.Size = new System.Drawing.Size(161, 29);
-            this.MngrVoucherPromoCodeLbl.TabIndex = 92;
-            this.MngrVoucherPromoCodeLbl.Text = "Promo Code:";
-            // 
-            // MngrVoucherPromoNameLbl
-            // 
-            this.MngrVoucherPromoNameLbl.AutoSize = true;
-            this.MngrVoucherPromoNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
-            this.MngrVoucherPromoNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherPromoNameLbl.Location = new System.Drawing.Point(196, 653);
-            this.MngrVoucherPromoNameLbl.Name = "MngrVoucherPromoNameLbl";
-            this.MngrVoucherPromoNameLbl.Size = new System.Drawing.Size(166, 29);
-            this.MngrVoucherPromoNameLbl.TabIndex = 90;
-            this.MngrVoucherPromoNameLbl.Text = "Promo Name:";
-            // 
-            // MngrVoucherDatePickerEnd
-            // 
-            this.MngrVoucherDatePickerEnd.Location = new System.Drawing.Point(818, 833);
-            this.MngrVoucherDatePickerEnd.Name = "MngrVoucherDatePickerEnd";
-            this.MngrVoucherDatePickerEnd.Size = new System.Drawing.Size(382, 20);
-            this.MngrVoucherDatePickerEnd.TabIndex = 89;
-            // 
-            // MngrVoucherDatePickerStart
-            // 
-            this.MngrVoucherDatePickerStart.Location = new System.Drawing.Point(406, 833);
-            this.MngrVoucherDatePickerStart.Name = "MngrVoucherDatePickerStart";
-            this.MngrVoucherDatePickerStart.Size = new System.Drawing.Size(382, 20);
-            this.MngrVoucherDatePickerStart.TabIndex = 88;
-            // 
-            // MngrVoucherDateEndLbl
-            // 
-            this.MngrVoucherDateEndLbl.AutoSize = true;
-            this.MngrVoucherDateEndLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
-            this.MngrVoucherDateEndLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherDateEndLbl.Location = new System.Drawing.Point(813, 801);
-            this.MngrVoucherDateEndLbl.Name = "MngrVoucherDateEndLbl";
-            this.MngrVoucherDateEndLbl.Size = new System.Drawing.Size(134, 29);
-            this.MngrVoucherDateEndLbl.TabIndex = 87;
-            this.MngrVoucherDateEndLbl.Text = "Date End:";
-            // 
-            // MngrVoucherDateStartLbl
-            // 
-            this.MngrVoucherDateStartLbl.AutoSize = true;
-            this.MngrVoucherDateStartLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
-            this.MngrVoucherDateStartLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherDateStartLbl.Location = new System.Drawing.Point(401, 801);
-            this.MngrVoucherDateStartLbl.Name = "MngrVoucherDateStartLbl";
-            this.MngrVoucherDateStartLbl.Size = new System.Drawing.Size(164, 29);
-            this.MngrVoucherDateStartLbl.TabIndex = 86;
-            this.MngrVoucherDateStartLbl.Text = "Date Start:";
             // 
             // MngrSchedExitBtn
             // 
@@ -3996,13 +4795,67 @@ namespace Enchante
             this.MngrSchedExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.MngrSchedExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrSchedExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrSchedExitBtn.Location = new System.Drawing.Point(1230, 40);
+            this.MngrSchedExitBtn.Location = new System.Drawing.Point(1528, 15);
             this.MngrSchedExitBtn.Name = "MngrSchedExitBtn";
             this.MngrSchedExitBtn.Size = new System.Drawing.Size(48, 48);
             this.MngrSchedExitBtn.TabIndex = 85;
             this.MngrSchedExitBtn.UseVisualStyleBackColor = false;
             this.MngrSchedExitBtn.Visible = false;
             this.MngrSchedExitBtn.Click += new System.EventHandler(this.MngrSchedExitBtn_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(155)))), ((int)(((byte)(91)))));
+            this.panel5.Controls.Add(this.MngrVoucherSearchTextBox);
+            this.panel5.Controls.Add(this.MngrVoucherSearchLbl);
+            this.panel5.Controls.Add(this.MngrVoucherDGV);
+            this.panel5.Controls.Add(this.MngrVoucherPreviousBtn);
+            this.panel5.Controls.Add(this.MngrVoucherEditBtn);
+            this.panel5.Controls.Add(this.MngrVoucherCurrentRecordLbl);
+            this.panel5.Controls.Add(this.MngrVoucherNextBtn);
+            this.panel5.Location = new System.Drawing.Point(90, 18);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1415, 586);
+            this.panel5.TabIndex = 187;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.trypanel_Paint);
+            // 
+            // MngrVoucherSearchTextBox
+            // 
+            this.MngrVoucherSearchTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrVoucherSearchTextBox.BorderRadius = 15;
+            this.MngrVoucherSearchTextBox.BorderThickness = 2;
+            this.MngrVoucherSearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.MngrVoucherSearchTextBox.DefaultText = "";
+            this.MngrVoucherSearchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.MngrVoucherSearchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.MngrVoucherSearchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.MngrVoucherSearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.MngrVoucherSearchTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrVoucherSearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.MngrVoucherSearchTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrVoucherSearchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrVoucherSearchTextBox.Location = new System.Drawing.Point(160, 25);
+            this.MngrVoucherSearchTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.MngrVoucherSearchTextBox.Name = "MngrVoucherSearchTextBox";
+            this.MngrVoucherSearchTextBox.PasswordChar = '\0';
+            this.MngrVoucherSearchTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherSearchTextBox.PlaceholderText = "";
+            this.MngrVoucherSearchTextBox.SelectedText = "";
+            this.MngrVoucherSearchTextBox.Size = new System.Drawing.Size(1196, 34);
+            this.MngrVoucherSearchTextBox.TabIndex = 186;
+            this.MngrVoucherSearchTextBox.TextChanged += new System.EventHandler(this.MngrVoucherSearchTextBox_TextChanged);
+            // 
+            // MngrVoucherSearchLbl
+            // 
+            this.MngrVoucherSearchLbl.AutoSize = true;
+            this.MngrVoucherSearchLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
+            this.MngrVoucherSearchLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherSearchLbl.Location = new System.Drawing.Point(56, 29);
+            this.MngrVoucherSearchLbl.Name = "MngrVoucherSearchLbl";
+            this.MngrVoucherSearchLbl.Size = new System.Drawing.Size(106, 29);
+            this.MngrVoucherSearchLbl.TabIndex = 100;
+            this.MngrVoucherSearchLbl.Text = "Search:";
             // 
             // MngrVoucherDGV
             // 
@@ -4013,375 +4866,425 @@ namespace Enchante
             this.MngrVoucherDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MngrVoucherDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.MngrVoucherDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrVoucherDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle43.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrVoucherDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle43;
             this.MngrVoucherDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MngrVoucherDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrVoucherDGV.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrVoucherDGV.DefaultCellStyle = dataGridViewCellStyle44;
             this.MngrVoucherDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrVoucherDGV.Location = new System.Drawing.Point(201, 187);
+            this.MngrVoucherDGV.Location = new System.Drawing.Point(56, 67);
             this.MngrVoucherDGV.Name = "MngrVoucherDGV";
             this.MngrVoucherDGV.ReadOnly = true;
             this.MngrVoucherDGV.RowHeadersVisible = false;
             this.MngrVoucherDGV.RowHeadersWidth = 51;
+            dataGridViewCellStyle45.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrVoucherDGV.RowsDefaultCellStyle = dataGridViewCellStyle45;
             this.MngrVoucherDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MngrVoucherDGV.Size = new System.Drawing.Size(1199, 358);
+            this.MngrVoucherDGV.Size = new System.Drawing.Size(1300, 445);
             this.MngrVoucherDGV.TabIndex = 113;
             // 
-            // MngrVoucherSearchLbl
+            // MngrVoucherPreviousBtn
             // 
-            this.MngrVoucherSearchLbl.AutoSize = true;
-            this.MngrVoucherSearchLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
-            this.MngrVoucherSearchLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrVoucherSearchLbl.Location = new System.Drawing.Point(201, 143);
-            this.MngrVoucherSearchLbl.Name = "MngrVoucherSearchLbl";
-            this.MngrVoucherSearchLbl.Size = new System.Drawing.Size(106, 29);
-            this.MngrVoucherSearchLbl.TabIndex = 100;
-            this.MngrVoucherSearchLbl.Text = "Search:";
+            this.MngrVoucherPreviousBtn.Location = new System.Drawing.Point(56, 524);
+            this.MngrVoucherPreviousBtn.Name = "MngrVoucherPreviousBtn";
+            this.MngrVoucherPreviousBtn.Size = new System.Drawing.Size(75, 23);
+            this.MngrVoucherPreviousBtn.TabIndex = 111;
+            this.MngrVoucherPreviousBtn.Text = "<< Previous";
+            this.MngrVoucherPreviousBtn.UseVisualStyleBackColor = true;
+            this.MngrVoucherPreviousBtn.Click += new System.EventHandler(this.MngrVoucherPreviousBtn_Click);
             // 
-            // MngrVoucherSearchTextBox
+            // MngrVoucherEditBtn
             // 
-            this.MngrVoucherSearchTextBox.Location = new System.Drawing.Point(317, 152);
-            this.MngrVoucherSearchTextBox.Name = "MngrVoucherSearchTextBox";
-            this.MngrVoucherSearchTextBox.Size = new System.Drawing.Size(1083, 20);
-            this.MngrVoucherSearchTextBox.TabIndex = 99;
-            this.MngrVoucherSearchTextBox.TextChanged += new System.EventHandler(this.MngrVoucherSearchTextBox_TextChanged);
+            this.MngrVoucherEditBtn.AutoSize = true;
+            this.MngrVoucherEditBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrVoucherEditBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrVoucherEditBtn.FlatAppearance.BorderSize = 3;
+            this.MngrVoucherEditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrVoucherEditBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrVoucherEditBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherEditBtn.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.MngrVoucherEditBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherEditBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrVoucherEditBtn.IconSize = 32;
+            this.MngrVoucherEditBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrVoucherEditBtn.Location = new System.Drawing.Point(1181, 523);
+            this.MngrVoucherEditBtn.Name = "MngrVoucherEditBtn";
+            this.MngrVoucherEditBtn.Size = new System.Drawing.Size(175, 45);
+            this.MngrVoucherEditBtn.TabIndex = 186;
+            this.MngrVoucherEditBtn.Text = "Edit";
+            this.MngrVoucherEditBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.MngrVoucherEditBtn.UseVisualStyleBackColor = true;
+            this.MngrVoucherEditBtn.Click += new System.EventHandler(this.MngrVoucherEditBtn_Click);
+            // 
+            // MngrVoucherCurrentRecordLbl
+            // 
+            this.MngrVoucherCurrentRecordLbl.AutoSize = true;
+            this.MngrVoucherCurrentRecordLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrVoucherCurrentRecordLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherCurrentRecordLbl.Location = new System.Drawing.Point(137, 526);
+            this.MngrVoucherCurrentRecordLbl.Name = "MngrVoucherCurrentRecordLbl";
+            this.MngrVoucherCurrentRecordLbl.Size = new System.Drawing.Size(49, 20);
+            this.MngrVoucherCurrentRecordLbl.TabIndex = 110;
+            this.MngrVoucherCurrentRecordLbl.Text = "n of n";
+            // 
+            // MngrVoucherNextBtn
+            // 
+            this.MngrVoucherNextBtn.Location = new System.Drawing.Point(198, 524);
+            this.MngrVoucherNextBtn.Name = "MngrVoucherNextBtn";
+            this.MngrVoucherNextBtn.Size = new System.Drawing.Size(75, 23);
+            this.MngrVoucherNextBtn.TabIndex = 112;
+            this.MngrVoucherNextBtn.Text = "Next >>";
+            this.MngrVoucherNextBtn.UseVisualStyleBackColor = true;
+            this.MngrVoucherNextBtn.Click += new System.EventHandler(this.MngrVoucherNextBtn_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(155)))), ((int)(((byte)(91)))));
+            this.panel6.Controls.Add(this.MngrVoucherInsertBtn);
+            this.panel6.Controls.Add(this.MngrVoucherXBtn);
+            this.panel6.Controls.Add(this.MngrVoucherUpdateBtn);
+            this.panel6.Controls.Add(this.MngrVoucherDateStartLbl);
+            this.panel6.Controls.Add(this.MngrVoucherDateEndLbl);
+            this.panel6.Controls.Add(this.MngrVoucherPromoCodeTextBox);
+            this.panel6.Controls.Add(this.MngrVoucherDatePickerStart);
+            this.panel6.Controls.Add(this.MngrVoucherCancelBtn);
+            this.panel6.Controls.Add(this.MngrVoucherDatePickerEnd);
+            this.panel6.Controls.Add(this.MngrVoucherPromoCategoryComboBox);
+            this.panel6.Controls.Add(this.MngrVoucherPromoNameLbl);
+            this.panel6.Controls.Add(this.MngrVoucherSelectCatTextBox);
+            this.panel6.Controls.Add(this.MngrVoucherPromoCodeLbl);
+            this.panel6.Controls.Add(this.MngrVoucherAvailNumTextBox);
+            this.panel6.Controls.Add(this.MngrVoucherPromoDiscLbl);
+            this.panel6.Controls.Add(this.MngrVoucherPromoDiscTextBox);
+            this.panel6.Controls.Add(this.MngrVoucherAvailNumLbl);
+            this.panel6.Controls.Add(this.MngrVoucherPromoNameTextBox);
+            this.panel6.Controls.Add(this.MngrVoucherPromoCategoryLbl);
+            this.panel6.Controls.Add(this.MngrVoucherSelectedCatLbl);
+            this.panel6.Location = new System.Drawing.Point(90, 618);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1415, 380);
+            this.panel6.TabIndex = 188;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.trypanel_Paint);
+            // 
+            // MngrVoucherInsertBtn
+            // 
+            this.MngrVoucherInsertBtn.AutoSize = true;
+            this.MngrVoucherInsertBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrVoucherInsertBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrVoucherInsertBtn.FlatAppearance.BorderSize = 3;
+            this.MngrVoucherInsertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrVoucherInsertBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrVoucherInsertBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherInsertBtn.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.MngrVoucherInsertBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherInsertBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrVoucherInsertBtn.IconSize = 32;
+            this.MngrVoucherInsertBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrVoucherInsertBtn.Location = new System.Drawing.Point(625, 302);
+            this.MngrVoucherInsertBtn.Name = "MngrVoucherInsertBtn";
+            this.MngrVoucherInsertBtn.Size = new System.Drawing.Size(175, 45);
+            this.MngrVoucherInsertBtn.TabIndex = 120;
+            this.MngrVoucherInsertBtn.Text = "Create";
+            this.MngrVoucherInsertBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrVoucherInsertBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.MngrVoucherInsertBtn.UseVisualStyleBackColor = true;
+            this.MngrVoucherInsertBtn.Click += new System.EventHandler(this.MngrVoucherInsertBtn_Click);
+            // 
+            // MngrVoucherXBtn
+            // 
+            this.MngrVoucherXBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrVoucherXBtn.Location = new System.Drawing.Point(1332, 138);
+            this.MngrVoucherXBtn.Name = "MngrVoucherXBtn";
+            this.MngrVoucherXBtn.Size = new System.Drawing.Size(24, 24);
+            this.MngrVoucherXBtn.TabIndex = 105;
+            this.MngrVoucherXBtn.Text = "X";
+            this.MngrVoucherXBtn.UseVisualStyleBackColor = true;
+            this.MngrVoucherXBtn.Click += new System.EventHandler(this.MngrVoucherXBtn_Click);
+            // 
+            // MngrVoucherUpdateBtn
+            // 
+            this.MngrVoucherUpdateBtn.AutoSize = true;
+            this.MngrVoucherUpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrVoucherUpdateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrVoucherUpdateBtn.FlatAppearance.BorderSize = 3;
+            this.MngrVoucherUpdateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrVoucherUpdateBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrVoucherUpdateBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherUpdateBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.MngrVoucherUpdateBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherUpdateBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrVoucherUpdateBtn.IconSize = 32;
+            this.MngrVoucherUpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrVoucherUpdateBtn.Location = new System.Drawing.Point(726, 302);
+            this.MngrVoucherUpdateBtn.Name = "MngrVoucherUpdateBtn";
+            this.MngrVoucherUpdateBtn.Size = new System.Drawing.Size(175, 45);
+            this.MngrVoucherUpdateBtn.TabIndex = 121;
+            this.MngrVoucherUpdateBtn.Text = "Update";
+            this.MngrVoucherUpdateBtn.UseVisualStyleBackColor = true;
+            this.MngrVoucherUpdateBtn.Visible = false;
+            this.MngrVoucherUpdateBtn.Click += new System.EventHandler(this.MngrVoucherUpdateBtn_Click);
+            // 
+            // MngrVoucherDateStartLbl
+            // 
+            this.MngrVoucherDateStartLbl.AutoSize = true;
+            this.MngrVoucherDateStartLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
+            this.MngrVoucherDateStartLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherDateStartLbl.Location = new System.Drawing.Point(312, 217);
+            this.MngrVoucherDateStartLbl.Name = "MngrVoucherDateStartLbl";
+            this.MngrVoucherDateStartLbl.Size = new System.Drawing.Size(164, 29);
+            this.MngrVoucherDateStartLbl.TabIndex = 86;
+            this.MngrVoucherDateStartLbl.Text = "Date Start:";
+            // 
+            // MngrVoucherDateEndLbl
+            // 
+            this.MngrVoucherDateEndLbl.AutoSize = true;
+            this.MngrVoucherDateEndLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
+            this.MngrVoucherDateEndLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherDateEndLbl.Location = new System.Drawing.Point(726, 217);
+            this.MngrVoucherDateEndLbl.Name = "MngrVoucherDateEndLbl";
+            this.MngrVoucherDateEndLbl.Size = new System.Drawing.Size(134, 29);
+            this.MngrVoucherDateEndLbl.TabIndex = 87;
+            this.MngrVoucherDateEndLbl.Text = "Date End:";
+            // 
+            // MngrVoucherPromoCodeTextBox
+            // 
+            this.MngrVoucherPromoCodeTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrVoucherPromoCodeTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrVoucherPromoCodeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherPromoCodeTextBox.Location = new System.Drawing.Point(56, 166);
+            this.MngrVoucherPromoCodeTextBox.Name = "MngrVoucherPromoCodeTextBox";
+            this.MngrVoucherPromoCodeTextBox.ReadOnly = true;
+            this.MngrVoucherPromoCodeTextBox.Size = new System.Drawing.Size(400, 30);
+            this.MngrVoucherPromoCodeTextBox.TabIndex = 120;
+            // 
+            // MngrVoucherDatePickerStart
+            // 
+            this.MngrVoucherDatePickerStart.Location = new System.Drawing.Point(312, 254);
+            this.MngrVoucherDatePickerStart.Name = "MngrVoucherDatePickerStart";
+            this.MngrVoucherDatePickerStart.Size = new System.Drawing.Size(382, 20);
+            this.MngrVoucherDatePickerStart.TabIndex = 88;
+            // 
+            // MngrVoucherCancelBtn
+            // 
+            this.MngrVoucherCancelBtn.AutoSize = true;
+            this.MngrVoucherCancelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrVoucherCancelBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrVoucherCancelBtn.FlatAppearance.BorderSize = 3;
+            this.MngrVoucherCancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrVoucherCancelBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrVoucherCancelBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherCancelBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.MngrVoucherCancelBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherCancelBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrVoucherCancelBtn.IconSize = 32;
+            this.MngrVoucherCancelBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrVoucherCancelBtn.Location = new System.Drawing.Point(519, 302);
+            this.MngrVoucherCancelBtn.Name = "MngrVoucherCancelBtn";
+            this.MngrVoucherCancelBtn.Size = new System.Drawing.Size(175, 45);
+            this.MngrVoucherCancelBtn.TabIndex = 122;
+            this.MngrVoucherCancelBtn.Text = "Cancel";
+            this.MngrVoucherCancelBtn.UseVisualStyleBackColor = true;
+            this.MngrVoucherCancelBtn.Visible = false;
+            this.MngrVoucherCancelBtn.Click += new System.EventHandler(this.MngrVoucherCancelBtn_Click);
+            // 
+            // MngrVoucherDatePickerEnd
+            // 
+            this.MngrVoucherDatePickerEnd.Location = new System.Drawing.Point(726, 254);
+            this.MngrVoucherDatePickerEnd.Name = "MngrVoucherDatePickerEnd";
+            this.MngrVoucherDatePickerEnd.Size = new System.Drawing.Size(382, 20);
+            this.MngrVoucherDatePickerEnd.TabIndex = 89;
+            // 
+            // MngrVoucherPromoCategoryComboBox
+            // 
+            this.MngrVoucherPromoCategoryComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrVoucherPromoCategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MngrVoucherPromoCategoryComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrVoucherPromoCategoryComboBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrVoucherPromoCategoryComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherPromoCategoryComboBox.FormattingEnabled = true;
+            this.MngrVoucherPromoCategoryComboBox.Location = new System.Drawing.Point(956, 72);
+            this.MngrVoucherPromoCategoryComboBox.Name = "MngrVoucherPromoCategoryComboBox";
+            this.MngrVoucherPromoCategoryComboBox.Size = new System.Drawing.Size(400, 31);
+            this.MngrVoucherPromoCategoryComboBox.TabIndex = 119;
+            this.MngrVoucherPromoCategoryComboBox.SelectedIndexChanged += new System.EventHandler(this.MngrVoucherPromoCategoryComboBox_SelectedIndexChanged);
+            // 
+            // MngrVoucherPromoNameLbl
+            // 
+            this.MngrVoucherPromoNameLbl.AutoSize = true;
+            this.MngrVoucherPromoNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
+            this.MngrVoucherPromoNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherPromoNameLbl.Location = new System.Drawing.Point(56, 32);
+            this.MngrVoucherPromoNameLbl.Name = "MngrVoucherPromoNameLbl";
+            this.MngrVoucherPromoNameLbl.Size = new System.Drawing.Size(166, 29);
+            this.MngrVoucherPromoNameLbl.TabIndex = 90;
+            this.MngrVoucherPromoNameLbl.Text = "Promo Name:";
+            // 
+            // MngrVoucherSelectCatTextBox
+            // 
+            this.MngrVoucherSelectCatTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrVoucherSelectCatTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrVoucherSelectCatTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherSelectCatTextBox.Location = new System.Drawing.Point(956, 166);
+            this.MngrVoucherSelectCatTextBox.Name = "MngrVoucherSelectCatTextBox";
+            this.MngrVoucherSelectCatTextBox.Size = new System.Drawing.Size(400, 30);
+            this.MngrVoucherSelectCatTextBox.TabIndex = 118;
+            // 
+            // MngrVoucherPromoCodeLbl
+            // 
+            this.MngrVoucherPromoCodeLbl.AutoSize = true;
+            this.MngrVoucherPromoCodeLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
+            this.MngrVoucherPromoCodeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherPromoCodeLbl.Location = new System.Drawing.Point(56, 128);
+            this.MngrVoucherPromoCodeLbl.Name = "MngrVoucherPromoCodeLbl";
+            this.MngrVoucherPromoCodeLbl.Size = new System.Drawing.Size(161, 29);
+            this.MngrVoucherPromoCodeLbl.TabIndex = 92;
+            this.MngrVoucherPromoCodeLbl.Text = "Promo Code:";
+            // 
+            // MngrVoucherAvailNumTextBox
+            // 
+            this.MngrVoucherAvailNumTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrVoucherAvailNumTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrVoucherAvailNumTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherAvailNumTextBox.Location = new System.Drawing.Point(507, 72);
+            this.MngrVoucherAvailNumTextBox.Name = "MngrVoucherAvailNumTextBox";
+            this.MngrVoucherAvailNumTextBox.Size = new System.Drawing.Size(400, 30);
+            this.MngrVoucherAvailNumTextBox.TabIndex = 117;
+            this.MngrVoucherAvailNumTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrVoucherAvailNumTextBox_KeyPress);
+            // 
+            // MngrVoucherPromoDiscLbl
+            // 
+            this.MngrVoucherPromoDiscLbl.AutoSize = true;
+            this.MngrVoucherPromoDiscLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
+            this.MngrVoucherPromoDiscLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherPromoDiscLbl.Location = new System.Drawing.Point(507, 128);
+            this.MngrVoucherPromoDiscLbl.Name = "MngrVoucherPromoDiscLbl";
+            this.MngrVoucherPromoDiscLbl.Size = new System.Drawing.Size(209, 29);
+            this.MngrVoucherPromoDiscLbl.TabIndex = 93;
+            this.MngrVoucherPromoDiscLbl.Text = "Promo Discount:";
+            // 
+            // MngrVoucherPromoDiscTextBox
+            // 
+            this.MngrVoucherPromoDiscTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrVoucherPromoDiscTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrVoucherPromoDiscTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherPromoDiscTextBox.Location = new System.Drawing.Point(507, 166);
+            this.MngrVoucherPromoDiscTextBox.Name = "MngrVoucherPromoDiscTextBox";
+            this.MngrVoucherPromoDiscTextBox.Size = new System.Drawing.Size(400, 30);
+            this.MngrVoucherPromoDiscTextBox.TabIndex = 116;
+            this.MngrVoucherPromoDiscTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrVoucherPromoDiscTextBox_KeyPress);
+            // 
+            // MngrVoucherAvailNumLbl
+            // 
+            this.MngrVoucherAvailNumLbl.AutoSize = true;
+            this.MngrVoucherAvailNumLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
+            this.MngrVoucherAvailNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherAvailNumLbl.Location = new System.Drawing.Point(507, 32);
+            this.MngrVoucherAvailNumLbl.Name = "MngrVoucherAvailNumLbl";
+            this.MngrVoucherAvailNumLbl.Size = new System.Drawing.Size(237, 29);
+            this.MngrVoucherAvailNumLbl.TabIndex = 96;
+            this.MngrVoucherAvailNumLbl.Text = "Available Number:";
+            // 
+            // MngrVoucherPromoNameTextBox
+            // 
+            this.MngrVoucherPromoNameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrVoucherPromoNameTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.MngrVoucherPromoNameTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrVoucherPromoNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherPromoNameTextBox.Location = new System.Drawing.Point(56, 72);
+            this.MngrVoucherPromoNameTextBox.Name = "MngrVoucherPromoNameTextBox";
+            this.MngrVoucherPromoNameTextBox.Size = new System.Drawing.Size(400, 30);
+            this.MngrVoucherPromoNameTextBox.TabIndex = 114;
+            this.MngrVoucherPromoNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrVoucherPromoNameTextBox_KeyPress);
+            // 
+            // MngrVoucherPromoCategoryLbl
+            // 
+            this.MngrVoucherPromoCategoryLbl.AutoSize = true;
+            this.MngrVoucherPromoCategoryLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
+            this.MngrVoucherPromoCategoryLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherPromoCategoryLbl.Location = new System.Drawing.Point(951, 32);
+            this.MngrVoucherPromoCategoryLbl.Name = "MngrVoucherPromoCategoryLbl";
+            this.MngrVoucherPromoCategoryLbl.Size = new System.Drawing.Size(219, 29);
+            this.MngrVoucherPromoCategoryLbl.TabIndex = 101;
+            this.MngrVoucherPromoCategoryLbl.Text = "Promo Category:";
+            // 
+            // MngrVoucherSelectedCatLbl
+            // 
+            this.MngrVoucherSelectedCatLbl.AutoSize = true;
+            this.MngrVoucherSelectedCatLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
+            this.MngrVoucherSelectedCatLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrVoucherSelectedCatLbl.Location = new System.Drawing.Point(951, 128);
+            this.MngrVoucherSelectedCatLbl.Name = "MngrVoucherSelectedCatLbl";
+            this.MngrVoucherSelectedCatLbl.Size = new System.Drawing.Size(254, 29);
+            this.MngrVoucherSelectedCatLbl.TabIndex = 103;
+            this.MngrVoucherSelectedCatLbl.Text = "Selected Category:";
             // 
             // MngrServicesPanel
             // 
             this.MngrServicesPanel.AutoScroll = true;
             this.MngrServicesPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.MngrInventoryCard.SetCardName(this.MngrServicesPanel, "services");
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesDeleteBtn);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesNumOfItems);
-            this.MngrServicesPanel.Controls.Add(this.label6);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesSelectedReqItemText);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesSelectedRequiredItemLbl);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesRequiredItemBox);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesRequiredItemLbl);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesIDNumLbl);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesIDNumText);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesTypeComboText);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesPriceLbl);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesPriceText);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesCategoryComboText);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesDurationLbl);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesDurationText);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesDescriptionLbl);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesDescriptionText);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesNameLbl);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesNameText);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesTypeLbl);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesCategoryLbl);
-            this.MngrServicesPanel.Controls.Add(this.MngrInventoryServicesTable);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesCancelButton);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesUpdateBtn);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesUpdateInfoBtn);
-            this.MngrServicesPanel.Controls.Add(this.MngrServicesCreateBtn);
+            this.MngrServicesPanel.Controls.Add(this.panel2);
             this.MngrServicesPanel.Controls.Add(this.MngrServicesExitBtn);
+            this.MngrServicesPanel.Controls.Add(this.panel1);
             this.MngrServicesPanel.Location = new System.Drawing.Point(0, 0);
             this.MngrInventoryCard.SetMinimumSize(this.MngrServicesPanel, new System.Drawing.Size(1857, 839));
             this.MngrServicesPanel.Name = "MngrServicesPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrServicesPanel, new System.Drawing.Size(1857, 839));
-            this.MngrServicesPanel.Size = new System.Drawing.Size(1588, 732);
+            this.MngrServicesPanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrServicesPanel.TabIndex = 0;
             // 
-            // MngrServicesDeleteBtn
+            // panel2
             // 
-            this.MngrServicesDeleteBtn.Font = new System.Drawing.Font("Arial Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrServicesDeleteBtn.Location = new System.Drawing.Point(961, 911);
-            this.MngrServicesDeleteBtn.Name = "MngrServicesDeleteBtn";
-            this.MngrServicesDeleteBtn.Size = new System.Drawing.Size(30, 30);
-            this.MngrServicesDeleteBtn.TabIndex = 88;
-            this.MngrServicesDeleteBtn.Text = "X";
-            this.MngrServicesDeleteBtn.UseVisualStyleBackColor = true;
-            this.MngrServicesDeleteBtn.Click += new System.EventHandler(this.MngrServicesDeleteBtn_Click);
-            // 
-            // MngrServicesNumOfItems
-            // 
-            this.MngrServicesNumOfItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrServicesNumOfItems.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrServicesNumOfItems.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesNumOfItems.Location = new System.Drawing.Point(1009, 909);
-            this.MngrServicesNumOfItems.Name = "MngrServicesNumOfItems";
-            this.MngrServicesNumOfItems.Size = new System.Drawing.Size(407, 30);
-            this.MngrServicesNumOfItems.TabIndex = 112;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.label6.Location = new System.Drawing.Point(1004, 879);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(220, 29);
-            this.label6.TabIndex = 111;
-            this.label6.Text = "Number of Items:";
-            // 
-            // MngrServicesSelectedReqItemText
-            // 
-            this.MngrServicesSelectedReqItemText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrServicesSelectedReqItemText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrServicesSelectedReqItemText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesSelectedReqItemText.Location = new System.Drawing.Point(591, 911);
-            this.MngrServicesSelectedReqItemText.Name = "MngrServicesSelectedReqItemText";
-            this.MngrServicesSelectedReqItemText.ReadOnly = true;
-            this.MngrServicesSelectedReqItemText.Size = new System.Drawing.Size(407, 30);
-            this.MngrServicesSelectedReqItemText.TabIndex = 108;
-            // 
-            // MngrServicesSelectedRequiredItemLbl
-            // 
-            this.MngrServicesSelectedRequiredItemLbl.AutoSize = true;
-            this.MngrServicesSelectedRequiredItemLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrServicesSelectedRequiredItemLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesSelectedRequiredItemLbl.Location = new System.Drawing.Point(586, 879);
-            this.MngrServicesSelectedRequiredItemLbl.Name = "MngrServicesSelectedRequiredItemLbl";
-            this.MngrServicesSelectedRequiredItemLbl.Size = new System.Drawing.Size(304, 29);
-            this.MngrServicesSelectedRequiredItemLbl.TabIndex = 87;
-            this.MngrServicesSelectedRequiredItemLbl.Text = "Selected Required Item:";
-            // 
-            // MngrServicesRequiredItemBox
-            // 
-            this.MngrServicesRequiredItemBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrServicesRequiredItemBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MngrServicesRequiredItemBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrServicesRequiredItemBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrServicesRequiredItemBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesRequiredItemBox.FormattingEnabled = true;
-            this.MngrServicesRequiredItemBox.Location = new System.Drawing.Point(160, 908);
-            this.MngrServicesRequiredItemBox.Name = "MngrServicesRequiredItemBox";
-            this.MngrServicesRequiredItemBox.Size = new System.Drawing.Size(407, 31);
-            this.MngrServicesRequiredItemBox.TabIndex = 86;
-            this.MngrServicesRequiredItemBox.SelectedIndexChanged += new System.EventHandler(this.MngrServicesRequiredItemBox_SelectedIndexChanged);
-            // 
-            // MngrServicesRequiredItemLbl
-            // 
-            this.MngrServicesRequiredItemLbl.AutoSize = true;
-            this.MngrServicesRequiredItemLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrServicesRequiredItemLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesRequiredItemLbl.Location = new System.Drawing.Point(156, 879);
-            this.MngrServicesRequiredItemLbl.Name = "MngrServicesRequiredItemLbl";
-            this.MngrServicesRequiredItemLbl.Size = new System.Drawing.Size(186, 29);
-            this.MngrServicesRequiredItemLbl.TabIndex = 83;
-            this.MngrServicesRequiredItemLbl.Text = "Required Item:";
-            // 
-            // MngrServicesIDNumLbl
-            // 
-            this.MngrServicesIDNumLbl.AutoSize = true;
-            this.MngrServicesIDNumLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrServicesIDNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesIDNumLbl.Location = new System.Drawing.Point(156, 713);
-            this.MngrServicesIDNumLbl.Name = "MngrServicesIDNumLbl";
-            this.MngrServicesIDNumLbl.Size = new System.Drawing.Size(144, 29);
-            this.MngrServicesIDNumLbl.TabIndex = 81;
-            this.MngrServicesIDNumLbl.Text = "Service ID:";
-            // 
-            // MngrServicesIDNumText
-            // 
-            this.MngrServicesIDNumText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrServicesIDNumText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrServicesIDNumText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesIDNumText.Location = new System.Drawing.Point(161, 745);
-            this.MngrServicesIDNumText.Name = "MngrServicesIDNumText";
-            this.MngrServicesIDNumText.ReadOnly = true;
-            this.MngrServicesIDNumText.Size = new System.Drawing.Size(407, 30);
-            this.MngrServicesIDNumText.TabIndex = 80;
-            this.MngrServicesIDNumText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrServicesIDNumText_KeyPress);
-            // 
-            // MngrServicesTypeComboText
-            // 
-            this.MngrServicesTypeComboText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrServicesTypeComboText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrServicesTypeComboText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrServicesTypeComboText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesTypeComboText.FormattingEnabled = true;
-            this.MngrServicesTypeComboText.Location = new System.Drawing.Point(1008, 666);
-            this.MngrServicesTypeComboText.Name = "MngrServicesTypeComboText";
-            this.MngrServicesTypeComboText.Size = new System.Drawing.Size(407, 31);
-            this.MngrServicesTypeComboText.TabIndex = 77;
-            this.MngrServicesTypeComboText.SelectedIndexChanged += new System.EventHandler(this.RecServicesTypeComboText_SelectedIndexChanged);
-            // 
-            // MngrServicesPriceLbl
-            // 
-            this.MngrServicesPriceLbl.AutoSize = true;
-            this.MngrServicesPriceLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrServicesPriceLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesPriceLbl.Location = new System.Drawing.Point(157, 791);
-            this.MngrServicesPriceLbl.Name = "MngrServicesPriceLbl";
-            this.MngrServicesPriceLbl.Size = new System.Drawing.Size(82, 29);
-            this.MngrServicesPriceLbl.TabIndex = 76;
-            this.MngrServicesPriceLbl.Text = "Price:";
-            // 
-            // MngrServicesPriceText
-            // 
-            this.MngrServicesPriceText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrServicesPriceText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrServicesPriceText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesPriceText.Location = new System.Drawing.Point(161, 826);
-            this.MngrServicesPriceText.Name = "MngrServicesPriceText";
-            this.MngrServicesPriceText.Size = new System.Drawing.Size(191, 30);
-            this.MngrServicesPriceText.TabIndex = 75;
-            this.MngrServicesPriceText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrServicesPriceText_KeyPress);
-            // 
-            // MngrServicesCategoryComboText
-            // 
-            this.MngrServicesCategoryComboText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrServicesCategoryComboText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrServicesCategoryComboText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrServicesCategoryComboText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesCategoryComboText.FormattingEnabled = true;
-            this.MngrServicesCategoryComboText.Location = new System.Drawing.Point(585, 668);
-            this.MngrServicesCategoryComboText.Name = "MngrServicesCategoryComboText";
-            this.MngrServicesCategoryComboText.Size = new System.Drawing.Size(407, 31);
-            this.MngrServicesCategoryComboText.TabIndex = 74;
-            this.MngrServicesCategoryComboText.SelectedIndexChanged += new System.EventHandler(this.RecServicesCategoryComboText_SelectedIndexChanged);
-            // 
-            // MngrServicesDurationLbl
-            // 
-            this.MngrServicesDurationLbl.AutoSize = true;
-            this.MngrServicesDurationLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrServicesDurationLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesDurationLbl.Location = new System.Drawing.Point(372, 792);
-            this.MngrServicesDurationLbl.Name = "MngrServicesDurationLbl";
-            this.MngrServicesDurationLbl.Size = new System.Drawing.Size(129, 29);
-            this.MngrServicesDurationLbl.TabIndex = 73;
-            this.MngrServicesDurationLbl.Text = "Duration:";
-            // 
-            // MngrServicesDurationText
-            // 
-            this.MngrServicesDurationText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrServicesDurationText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrServicesDurationText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesDurationText.Location = new System.Drawing.Point(377, 826);
-            this.MngrServicesDurationText.Name = "MngrServicesDurationText";
-            this.MngrServicesDurationText.Size = new System.Drawing.Size(191, 30);
-            this.MngrServicesDurationText.TabIndex = 72;
-            this.MngrServicesDurationText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrServicesDurationText_KeyPress);
-            // 
-            // MngrServicesDescriptionLbl
-            // 
-            this.MngrServicesDescriptionLbl.AutoSize = true;
-            this.MngrServicesDescriptionLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrServicesDescriptionLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesDescriptionLbl.Location = new System.Drawing.Point(580, 713);
-            this.MngrServicesDescriptionLbl.Name = "MngrServicesDescriptionLbl";
-            this.MngrServicesDescriptionLbl.Size = new System.Drawing.Size(157, 29);
-            this.MngrServicesDescriptionLbl.TabIndex = 71;
-            this.MngrServicesDescriptionLbl.Text = "Description:";
-            // 
-            // MngrServicesDescriptionText
-            // 
-            this.MngrServicesDescriptionText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrServicesDescriptionText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrServicesDescriptionText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesDescriptionText.Location = new System.Drawing.Point(585, 747);
-            this.MngrServicesDescriptionText.Multiline = true;
-            this.MngrServicesDescriptionText.Name = "MngrServicesDescriptionText";
-            this.MngrServicesDescriptionText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.MngrServicesDescriptionText.Size = new System.Drawing.Size(830, 109);
-            this.MngrServicesDescriptionText.TabIndex = 70;
-            this.MngrServicesDescriptionText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrServicesDescriptionText_KeyPress);
-            // 
-            // MngrServicesNameLbl
-            // 
-            this.MngrServicesNameLbl.AutoSize = true;
-            this.MngrServicesNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrServicesNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesNameLbl.Location = new System.Drawing.Point(156, 636);
-            this.MngrServicesNameLbl.Name = "MngrServicesNameLbl";
-            this.MngrServicesNameLbl.Size = new System.Drawing.Size(83, 29);
-            this.MngrServicesNameLbl.TabIndex = 69;
-            this.MngrServicesNameLbl.Text = "Name:";
-            // 
-            // MngrServicesNameText
-            // 
-            this.MngrServicesNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.MngrServicesNameText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MngrServicesNameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesNameText.Location = new System.Drawing.Point(161, 668);
-            this.MngrServicesNameText.Name = "MngrServicesNameText";
-            this.MngrServicesNameText.Size = new System.Drawing.Size(407, 30);
-            this.MngrServicesNameText.TabIndex = 68;
-            this.MngrServicesNameText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrServicesNameText_KeyPress);
-            // 
-            // MngrServicesTypeLbl
-            // 
-            this.MngrServicesTypeLbl.AutoSize = true;
-            this.MngrServicesTypeLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrServicesTypeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesTypeLbl.Location = new System.Drawing.Point(1003, 638);
-            this.MngrServicesTypeLbl.Name = "MngrServicesTypeLbl";
-            this.MngrServicesTypeLbl.Size = new System.Drawing.Size(77, 29);
-            this.MngrServicesTypeLbl.TabIndex = 67;
-            this.MngrServicesTypeLbl.Text = "Type:";
-            // 
-            // MngrServicesCategoryLbl
-            // 
-            this.MngrServicesCategoryLbl.AutoSize = true;
-            this.MngrServicesCategoryLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrServicesCategoryLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesCategoryLbl.Location = new System.Drawing.Point(580, 636);
-            this.MngrServicesCategoryLbl.Name = "MngrServicesCategoryLbl";
-            this.MngrServicesCategoryLbl.Size = new System.Drawing.Size(136, 29);
-            this.MngrServicesCategoryLbl.TabIndex = 65;
-            this.MngrServicesCategoryLbl.Text = "Category:";
-            // 
-            // MngrInventoryServicesTable
-            // 
-            this.MngrInventoryServicesTable.AllowUserToAddRows = false;
-            this.MngrInventoryServicesTable.AllowUserToDeleteRows = false;
-            this.MngrInventoryServicesTable.AllowUserToResizeColumns = false;
-            this.MngrInventoryServicesTable.AllowUserToResizeRows = false;
-            this.MngrInventoryServicesTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.MngrInventoryServicesTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.MngrInventoryServicesTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MngrInventoryServicesTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
-            this.MngrInventoryServicesTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MngrInventoryServicesTable.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MngrInventoryServicesTable.DefaultCellStyle = dataGridViewCellStyle20;
-            this.MngrInventoryServicesTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.MngrInventoryServicesTable.Location = new System.Drawing.Point(141, 91);
-            this.MngrInventoryServicesTable.Name = "MngrInventoryServicesTable";
-            this.MngrInventoryServicesTable.ReadOnly = true;
-            this.MngrInventoryServicesTable.RowHeadersVisible = false;
-            this.MngrInventoryServicesTable.RowHeadersWidth = 51;
-            this.MngrInventoryServicesTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MngrInventoryServicesTable.Size = new System.Drawing.Size(1300, 467);
-            this.MngrInventoryServicesTable.TabIndex = 12;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(155)))), ((int)(((byte)(91)))));
+            this.panel2.Controls.Add(this.MngrServicesCancelButton);
+            this.panel2.Controls.Add(this.MngrServicesCreateBtn);
+            this.panel2.Controls.Add(this.MngrServicesDeleteBtn);
+            this.panel2.Controls.Add(this.MngrServicesCategoryLbl);
+            this.panel2.Controls.Add(this.MngrServicesNumOfItems);
+            this.panel2.Controls.Add(this.MngrServicesTypeLbl);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.MngrServicesNameText);
+            this.panel2.Controls.Add(this.MngrServicesSelectedReqItemText);
+            this.panel2.Controls.Add(this.MngrServicesNameLbl);
+            this.panel2.Controls.Add(this.MngrServicesSelectedRequiredItemLbl);
+            this.panel2.Controls.Add(this.MngrServicesDescriptionText);
+            this.panel2.Controls.Add(this.MngrServicesRequiredItemBox);
+            this.panel2.Controls.Add(this.MngrServicesDescriptionLbl);
+            this.panel2.Controls.Add(this.MngrServicesRequiredItemLbl);
+            this.panel2.Controls.Add(this.MngrServicesDurationText);
+            this.panel2.Controls.Add(this.MngrServicesIDNumLbl);
+            this.panel2.Controls.Add(this.MngrServicesDurationLbl);
+            this.panel2.Controls.Add(this.MngrServicesIDNumText);
+            this.panel2.Controls.Add(this.MngrServicesCategoryComboText);
+            this.panel2.Controls.Add(this.MngrServicesTypeComboText);
+            this.panel2.Controls.Add(this.MngrServicesPriceText);
+            this.panel2.Controls.Add(this.MngrServicesPriceLbl);
+            this.panel2.Controls.Add(this.MngrServicesUpdateBtn);
+            this.panel2.Location = new System.Drawing.Point(90, 618);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1415, 380);
+            this.panel2.TabIndex = 119;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.trypanel_Paint);
             // 
             // MngrServicesCancelButton
             // 
             this.MngrServicesCancelButton.AutoSize = true;
             this.MngrServicesCancelButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MngrServicesCancelButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrServicesCancelButton.FlatAppearance.BorderSize = 0;
+            this.MngrServicesCancelButton.FlatAppearance.BorderSize = 3;
             this.MngrServicesCancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MngrServicesCancelButton.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.MngrServicesCancelButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
@@ -4390,62 +5293,14 @@ namespace Enchante
             this.MngrServicesCancelButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MngrServicesCancelButton.IconSize = 32;
             this.MngrServicesCancelButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrServicesCancelButton.Location = new System.Drawing.Point(1097, 962);
+            this.MngrServicesCancelButton.Location = new System.Drawing.Point(1000, 320);
             this.MngrServicesCancelButton.Name = "MngrServicesCancelButton";
-            this.MngrServicesCancelButton.Size = new System.Drawing.Size(162, 39);
-            this.MngrServicesCancelButton.TabIndex = 109;
+            this.MngrServicesCancelButton.Size = new System.Drawing.Size(175, 45);
+            this.MngrServicesCancelButton.TabIndex = 119;
             this.MngrServicesCancelButton.Text = "Cancel";
-            this.MngrServicesCancelButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.MngrServicesCancelButton.UseVisualStyleBackColor = true;
             this.MngrServicesCancelButton.Visible = false;
             this.MngrServicesCancelButton.Click += new System.EventHandler(this.MngrServicesCancelButton_Click);
-            // 
-            // MngrServicesUpdateBtn
-            // 
-            this.MngrServicesUpdateBtn.AutoSize = true;
-            this.MngrServicesUpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrServicesUpdateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrServicesUpdateBtn.FlatAppearance.BorderSize = 3;
-            this.MngrServicesUpdateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrServicesUpdateBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrServicesUpdateBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesUpdateBtn.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.MngrServicesUpdateBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesUpdateBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrServicesUpdateBtn.IconSize = 32;
-            this.MngrServicesUpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrServicesUpdateBtn.Location = new System.Drawing.Point(1270, 962);
-            this.MngrServicesUpdateBtn.Name = "MngrServicesUpdateBtn";
-            this.MngrServicesUpdateBtn.Size = new System.Drawing.Size(145, 45);
-            this.MngrServicesUpdateBtn.TabIndex = 82;
-            this.MngrServicesUpdateBtn.Text = "Update";
-            this.MngrServicesUpdateBtn.UseVisualStyleBackColor = true;
-            this.MngrServicesUpdateBtn.Visible = false;
-            this.MngrServicesUpdateBtn.Click += new System.EventHandler(this.RecServicesUpdateBtn_Click);
-            // 
-            // MngrServicesUpdateInfoBtn
-            // 
-            this.MngrServicesUpdateInfoBtn.AutoSize = true;
-            this.MngrServicesUpdateInfoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MngrServicesUpdateInfoBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.MngrServicesUpdateInfoBtn.FlatAppearance.BorderSize = 3;
-            this.MngrServicesUpdateInfoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MngrServicesUpdateInfoBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MngrServicesUpdateInfoBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesUpdateInfoBtn.IconChar = FontAwesome.Sharp.IconChar.Pen;
-            this.MngrServicesUpdateInfoBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.MngrServicesUpdateInfoBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrServicesUpdateInfoBtn.IconSize = 32;
-            this.MngrServicesUpdateInfoBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrServicesUpdateInfoBtn.Location = new System.Drawing.Point(1330, 564);
-            this.MngrServicesUpdateInfoBtn.Name = "MngrServicesUpdateInfoBtn";
-            this.MngrServicesUpdateInfoBtn.Size = new System.Drawing.Size(111, 45);
-            this.MngrServicesUpdateInfoBtn.TabIndex = 79;
-            this.MngrServicesUpdateInfoBtn.Text = "Edit";
-            this.MngrServicesUpdateInfoBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrServicesUpdateInfoBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.MngrServicesUpdateInfoBtn.UseVisualStyleBackColor = true;
-            this.MngrServicesUpdateInfoBtn.Click += new System.EventHandler(this.RecServicesUpdateInfoBtn_Click);
             // 
             // MngrServicesCreateBtn
             // 
@@ -4461,13 +5316,281 @@ namespace Enchante
             this.MngrServicesCreateBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.MngrServicesCreateBtn.IconSize = 32;
             this.MngrServicesCreateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.MngrServicesCreateBtn.Location = new System.Drawing.Point(1269, 962);
+            this.MngrServicesCreateBtn.Location = new System.Drawing.Point(1181, 320);
             this.MngrServicesCreateBtn.Name = "MngrServicesCreateBtn";
-            this.MngrServicesCreateBtn.Size = new System.Drawing.Size(147, 45);
+            this.MngrServicesCreateBtn.Size = new System.Drawing.Size(175, 45);
             this.MngrServicesCreateBtn.TabIndex = 78;
             this.MngrServicesCreateBtn.Text = "Create";
+            this.MngrServicesCreateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrServicesCreateBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.MngrServicesCreateBtn.UseVisualStyleBackColor = true;
             this.MngrServicesCreateBtn.Click += new System.EventHandler(this.RecServicesCreateBtn_Click);
+            // 
+            // MngrServicesDeleteBtn
+            // 
+            this.MngrServicesDeleteBtn.Font = new System.Drawing.Font("Arial Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrServicesDeleteBtn.Location = new System.Drawing.Point(885, 251);
+            this.MngrServicesDeleteBtn.Name = "MngrServicesDeleteBtn";
+            this.MngrServicesDeleteBtn.Size = new System.Drawing.Size(24, 24);
+            this.MngrServicesDeleteBtn.TabIndex = 88;
+            this.MngrServicesDeleteBtn.Text = "X";
+            this.MngrServicesDeleteBtn.UseVisualStyleBackColor = true;
+            this.MngrServicesDeleteBtn.Click += new System.EventHandler(this.MngrServicesDeleteBtn_Click);
+            // 
+            // MngrServicesCategoryLbl
+            // 
+            this.MngrServicesCategoryLbl.AutoSize = true;
+            this.MngrServicesCategoryLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrServicesCategoryLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesCategoryLbl.Location = new System.Drawing.Point(502, 19);
+            this.MngrServicesCategoryLbl.Name = "MngrServicesCategoryLbl";
+            this.MngrServicesCategoryLbl.Size = new System.Drawing.Size(136, 29);
+            this.MngrServicesCategoryLbl.TabIndex = 65;
+            this.MngrServicesCategoryLbl.Text = "Category:";
+            // 
+            // MngrServicesNumOfItems
+            // 
+            this.MngrServicesNumOfItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrServicesNumOfItems.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrServicesNumOfItems.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesNumOfItems.Location = new System.Drawing.Point(949, 281);
+            this.MngrServicesNumOfItems.Name = "MngrServicesNumOfItems";
+            this.MngrServicesNumOfItems.Size = new System.Drawing.Size(407, 30);
+            this.MngrServicesNumOfItems.TabIndex = 112;
+            // 
+            // MngrServicesTypeLbl
+            // 
+            this.MngrServicesTypeLbl.AutoSize = true;
+            this.MngrServicesTypeLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrServicesTypeLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesTypeLbl.Location = new System.Drawing.Point(949, 19);
+            this.MngrServicesTypeLbl.Name = "MngrServicesTypeLbl";
+            this.MngrServicesTypeLbl.Size = new System.Drawing.Size(77, 29);
+            this.MngrServicesTypeLbl.TabIndex = 67;
+            this.MngrServicesTypeLbl.Text = "Type:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.label6.Location = new System.Drawing.Point(949, 248);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(220, 29);
+            this.label6.TabIndex = 111;
+            this.label6.Text = "Number of Items:";
+            // 
+            // MngrServicesNameText
+            // 
+            this.MngrServicesNameText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrServicesNameText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrServicesNameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesNameText.Location = new System.Drawing.Point(58, 51);
+            this.MngrServicesNameText.Name = "MngrServicesNameText";
+            this.MngrServicesNameText.Size = new System.Drawing.Size(407, 30);
+            this.MngrServicesNameText.TabIndex = 68;
+            this.MngrServicesNameText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrServicesNameText_KeyPress);
+            // 
+            // MngrServicesSelectedReqItemText
+            // 
+            this.MngrServicesSelectedReqItemText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrServicesSelectedReqItemText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrServicesSelectedReqItemText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesSelectedReqItemText.Location = new System.Drawing.Point(502, 281);
+            this.MngrServicesSelectedReqItemText.Name = "MngrServicesSelectedReqItemText";
+            this.MngrServicesSelectedReqItemText.ReadOnly = true;
+            this.MngrServicesSelectedReqItemText.Size = new System.Drawing.Size(407, 30);
+            this.MngrServicesSelectedReqItemText.TabIndex = 108;
+            // 
+            // MngrServicesNameLbl
+            // 
+            this.MngrServicesNameLbl.AutoSize = true;
+            this.MngrServicesNameLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrServicesNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesNameLbl.Location = new System.Drawing.Point(58, 19);
+            this.MngrServicesNameLbl.Name = "MngrServicesNameLbl";
+            this.MngrServicesNameLbl.Size = new System.Drawing.Size(83, 29);
+            this.MngrServicesNameLbl.TabIndex = 69;
+            this.MngrServicesNameLbl.Text = "Name:";
+            // 
+            // MngrServicesSelectedRequiredItemLbl
+            // 
+            this.MngrServicesSelectedRequiredItemLbl.AutoSize = true;
+            this.MngrServicesSelectedRequiredItemLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrServicesSelectedRequiredItemLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesSelectedRequiredItemLbl.Location = new System.Drawing.Point(502, 248);
+            this.MngrServicesSelectedRequiredItemLbl.Name = "MngrServicesSelectedRequiredItemLbl";
+            this.MngrServicesSelectedRequiredItemLbl.Size = new System.Drawing.Size(304, 29);
+            this.MngrServicesSelectedRequiredItemLbl.TabIndex = 87;
+            this.MngrServicesSelectedRequiredItemLbl.Text = "Selected Required Item:";
+            // 
+            // MngrServicesDescriptionText
+            // 
+            this.MngrServicesDescriptionText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrServicesDescriptionText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrServicesDescriptionText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesDescriptionText.Location = new System.Drawing.Point(502, 130);
+            this.MngrServicesDescriptionText.Multiline = true;
+            this.MngrServicesDescriptionText.Name = "MngrServicesDescriptionText";
+            this.MngrServicesDescriptionText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.MngrServicesDescriptionText.Size = new System.Drawing.Size(854, 106);
+            this.MngrServicesDescriptionText.TabIndex = 70;
+            this.MngrServicesDescriptionText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrServicesDescriptionText_KeyPress);
+            // 
+            // MngrServicesRequiredItemBox
+            // 
+            this.MngrServicesRequiredItemBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrServicesRequiredItemBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MngrServicesRequiredItemBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrServicesRequiredItemBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrServicesRequiredItemBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesRequiredItemBox.FormattingEnabled = true;
+            this.MngrServicesRequiredItemBox.Location = new System.Drawing.Point(58, 281);
+            this.MngrServicesRequiredItemBox.Name = "MngrServicesRequiredItemBox";
+            this.MngrServicesRequiredItemBox.Size = new System.Drawing.Size(407, 31);
+            this.MngrServicesRequiredItemBox.TabIndex = 86;
+            this.MngrServicesRequiredItemBox.SelectedIndexChanged += new System.EventHandler(this.MngrServicesRequiredItemBox_SelectedIndexChanged);
+            // 
+            // MngrServicesDescriptionLbl
+            // 
+            this.MngrServicesDescriptionLbl.AutoSize = true;
+            this.MngrServicesDescriptionLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrServicesDescriptionLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesDescriptionLbl.Location = new System.Drawing.Point(502, 98);
+            this.MngrServicesDescriptionLbl.Name = "MngrServicesDescriptionLbl";
+            this.MngrServicesDescriptionLbl.Size = new System.Drawing.Size(157, 29);
+            this.MngrServicesDescriptionLbl.TabIndex = 71;
+            this.MngrServicesDescriptionLbl.Text = "Description:";
+            // 
+            // MngrServicesRequiredItemLbl
+            // 
+            this.MngrServicesRequiredItemLbl.AutoSize = true;
+            this.MngrServicesRequiredItemLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrServicesRequiredItemLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesRequiredItemLbl.Location = new System.Drawing.Point(58, 248);
+            this.MngrServicesRequiredItemLbl.Name = "MngrServicesRequiredItemLbl";
+            this.MngrServicesRequiredItemLbl.Size = new System.Drawing.Size(186, 29);
+            this.MngrServicesRequiredItemLbl.TabIndex = 83;
+            this.MngrServicesRequiredItemLbl.Text = "Required Item:";
+            // 
+            // MngrServicesDurationText
+            // 
+            this.MngrServicesDurationText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrServicesDurationText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrServicesDurationText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesDurationText.Location = new System.Drawing.Point(274, 208);
+            this.MngrServicesDurationText.Name = "MngrServicesDurationText";
+            this.MngrServicesDurationText.Size = new System.Drawing.Size(191, 30);
+            this.MngrServicesDurationText.TabIndex = 72;
+            this.MngrServicesDurationText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrServicesDurationText_KeyPress);
+            // 
+            // MngrServicesIDNumLbl
+            // 
+            this.MngrServicesIDNumLbl.AutoSize = true;
+            this.MngrServicesIDNumLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrServicesIDNumLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesIDNumLbl.Location = new System.Drawing.Point(58, 98);
+            this.MngrServicesIDNumLbl.Name = "MngrServicesIDNumLbl";
+            this.MngrServicesIDNumLbl.Size = new System.Drawing.Size(144, 29);
+            this.MngrServicesIDNumLbl.TabIndex = 81;
+            this.MngrServicesIDNumLbl.Text = "Service ID:";
+            // 
+            // MngrServicesDurationLbl
+            // 
+            this.MngrServicesDurationLbl.AutoSize = true;
+            this.MngrServicesDurationLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrServicesDurationLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesDurationLbl.Location = new System.Drawing.Point(269, 173);
+            this.MngrServicesDurationLbl.Name = "MngrServicesDurationLbl";
+            this.MngrServicesDurationLbl.Size = new System.Drawing.Size(129, 29);
+            this.MngrServicesDurationLbl.TabIndex = 73;
+            this.MngrServicesDurationLbl.Text = "Duration:";
+            // 
+            // MngrServicesIDNumText
+            // 
+            this.MngrServicesIDNumText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrServicesIDNumText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrServicesIDNumText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesIDNumText.Location = new System.Drawing.Point(58, 130);
+            this.MngrServicesIDNumText.Name = "MngrServicesIDNumText";
+            this.MngrServicesIDNumText.ReadOnly = true;
+            this.MngrServicesIDNumText.Size = new System.Drawing.Size(407, 30);
+            this.MngrServicesIDNumText.TabIndex = 80;
+            this.MngrServicesIDNumText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrServicesIDNumText_KeyPress);
+            // 
+            // MngrServicesCategoryComboText
+            // 
+            this.MngrServicesCategoryComboText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrServicesCategoryComboText.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MngrServicesCategoryComboText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrServicesCategoryComboText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrServicesCategoryComboText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesCategoryComboText.FormattingEnabled = true;
+            this.MngrServicesCategoryComboText.Location = new System.Drawing.Point(502, 51);
+            this.MngrServicesCategoryComboText.Name = "MngrServicesCategoryComboText";
+            this.MngrServicesCategoryComboText.Size = new System.Drawing.Size(407, 31);
+            this.MngrServicesCategoryComboText.TabIndex = 74;
+            this.MngrServicesCategoryComboText.SelectedIndexChanged += new System.EventHandler(this.RecServicesCategoryComboText_SelectedIndexChanged);
+            // 
+            // MngrServicesTypeComboText
+            // 
+            this.MngrServicesTypeComboText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrServicesTypeComboText.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MngrServicesTypeComboText.Enabled = false;
+            this.MngrServicesTypeComboText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrServicesTypeComboText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrServicesTypeComboText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesTypeComboText.FormattingEnabled = true;
+            this.MngrServicesTypeComboText.Location = new System.Drawing.Point(949, 51);
+            this.MngrServicesTypeComboText.Name = "MngrServicesTypeComboText";
+            this.MngrServicesTypeComboText.Size = new System.Drawing.Size(407, 31);
+            this.MngrServicesTypeComboText.TabIndex = 77;
+            this.MngrServicesTypeComboText.SelectedIndexChanged += new System.EventHandler(this.RecServicesTypeComboText_SelectedIndexChanged);
+            // 
+            // MngrServicesPriceText
+            // 
+            this.MngrServicesPriceText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrServicesPriceText.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrServicesPriceText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesPriceText.Location = new System.Drawing.Point(58, 208);
+            this.MngrServicesPriceText.Name = "MngrServicesPriceText";
+            this.MngrServicesPriceText.Size = new System.Drawing.Size(191, 30);
+            this.MngrServicesPriceText.TabIndex = 75;
+            this.MngrServicesPriceText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MngrServicesPriceText_KeyPress);
+            // 
+            // MngrServicesPriceLbl
+            // 
+            this.MngrServicesPriceLbl.AutoSize = true;
+            this.MngrServicesPriceLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrServicesPriceLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesPriceLbl.Location = new System.Drawing.Point(58, 173);
+            this.MngrServicesPriceLbl.Name = "MngrServicesPriceLbl";
+            this.MngrServicesPriceLbl.Size = new System.Drawing.Size(82, 29);
+            this.MngrServicesPriceLbl.TabIndex = 76;
+            this.MngrServicesPriceLbl.Text = "Price:";
+            // 
+            // MngrServicesUpdateBtn
+            // 
+            this.MngrServicesUpdateBtn.AutoSize = true;
+            this.MngrServicesUpdateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrServicesUpdateBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrServicesUpdateBtn.FlatAppearance.BorderSize = 3;
+            this.MngrServicesUpdateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrServicesUpdateBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrServicesUpdateBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesUpdateBtn.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.MngrServicesUpdateBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesUpdateBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrServicesUpdateBtn.IconSize = 32;
+            this.MngrServicesUpdateBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrServicesUpdateBtn.Location = new System.Drawing.Point(1181, 320);
+            this.MngrServicesUpdateBtn.Name = "MngrServicesUpdateBtn";
+            this.MngrServicesUpdateBtn.Size = new System.Drawing.Size(175, 45);
+            this.MngrServicesUpdateBtn.TabIndex = 82;
+            this.MngrServicesUpdateBtn.Text = "Update";
+            this.MngrServicesUpdateBtn.UseVisualStyleBackColor = true;
+            this.MngrServicesUpdateBtn.Visible = false;
+            this.MngrServicesUpdateBtn.Click += new System.EventHandler(this.RecServicesUpdateBtn_Click);
             // 
             // MngrServicesExitBtn
             // 
@@ -4479,13 +5602,160 @@ namespace Enchante
             this.MngrServicesExitBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.MngrServicesExitBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.MngrServicesExitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.MngrServicesExitBtn.Location = new System.Drawing.Point(1412, 78);
+            this.MngrServicesExitBtn.Location = new System.Drawing.Point(1528, 15);
             this.MngrServicesExitBtn.Name = "MngrServicesExitBtn";
             this.MngrServicesExitBtn.Size = new System.Drawing.Size(48, 48);
             this.MngrServicesExitBtn.TabIndex = 46;
             this.MngrServicesExitBtn.UseVisualStyleBackColor = false;
             this.MngrServicesExitBtn.Visible = false;
             this.MngrServicesExitBtn.Click += new System.EventHandler(this.RecInventoryServicesExitBtn_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(155)))), ((int)(((byte)(91)))));
+            this.panel1.Controls.Add(this.MngrServicesUpdateInfoBtn);
+            this.panel1.Controls.Add(this.MngrServicesSearchTextBox);
+            this.panel1.Controls.Add(this.MngrServicesSearchLbl);
+            this.panel1.Controls.Add(this.MngrServicesCurrentRecordLbl);
+            this.panel1.Controls.Add(this.MngrServicesPreviousBtn);
+            this.panel1.Controls.Add(this.MngrServicesNextBtn);
+            this.panel1.Controls.Add(this.MngrInventoryServicesTable);
+            this.panel1.Location = new System.Drawing.Point(90, 18);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1415, 586);
+            this.panel1.TabIndex = 118;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.trypanel_Paint);
+            // 
+            // MngrServicesUpdateInfoBtn
+            // 
+            this.MngrServicesUpdateInfoBtn.AutoSize = true;
+            this.MngrServicesUpdateInfoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MngrServicesUpdateInfoBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrServicesUpdateInfoBtn.FlatAppearance.BorderSize = 3;
+            this.MngrServicesUpdateInfoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MngrServicesUpdateInfoBtn.Font = new System.Drawing.Font("TechnicBold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MngrServicesUpdateInfoBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesUpdateInfoBtn.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            this.MngrServicesUpdateInfoBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesUpdateInfoBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.MngrServicesUpdateInfoBtn.IconSize = 32;
+            this.MngrServicesUpdateInfoBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MngrServicesUpdateInfoBtn.Location = new System.Drawing.Point(1181, 520);
+            this.MngrServicesUpdateInfoBtn.Name = "MngrServicesUpdateInfoBtn";
+            this.MngrServicesUpdateInfoBtn.Size = new System.Drawing.Size(175, 45);
+            this.MngrServicesUpdateInfoBtn.TabIndex = 120;
+            this.MngrServicesUpdateInfoBtn.Text = "Edit";
+            this.MngrServicesUpdateInfoBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.MngrServicesUpdateInfoBtn.UseVisualStyleBackColor = true;
+            this.MngrServicesUpdateInfoBtn.Click += new System.EventHandler(this.RecServicesUpdateInfoBtn_Click);
+            // 
+            // MngrServicesSearchTextBox
+            // 
+            this.MngrServicesSearchTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrServicesSearchTextBox.BorderRadius = 15;
+            this.MngrServicesSearchTextBox.BorderThickness = 2;
+            this.MngrServicesSearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.MngrServicesSearchTextBox.DefaultText = "";
+            this.MngrServicesSearchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.MngrServicesSearchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.MngrServicesSearchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.MngrServicesSearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.MngrServicesSearchTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.MngrServicesSearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.MngrServicesSearchTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrServicesSearchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.MngrServicesSearchTextBox.Location = new System.Drawing.Point(160, 25);
+            this.MngrServicesSearchTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.MngrServicesSearchTextBox.Name = "MngrServicesSearchTextBox";
+            this.MngrServicesSearchTextBox.PasswordChar = '\0';
+            this.MngrServicesSearchTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesSearchTextBox.PlaceholderText = "";
+            this.MngrServicesSearchTextBox.SelectedText = "";
+            this.MngrServicesSearchTextBox.Size = new System.Drawing.Size(1196, 34);
+            this.MngrServicesSearchTextBox.TabIndex = 185;
+            this.MngrServicesSearchTextBox.TextChanged += new System.EventHandler(this.MngrServicesSearchTextBox_TextChanged);
+            // 
+            // MngrServicesSearchLbl
+            // 
+            this.MngrServicesSearchLbl.AutoSize = true;
+            this.MngrServicesSearchLbl.Font = new System.Drawing.Font("TechnicBold", 20.25F);
+            this.MngrServicesSearchLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesSearchLbl.Location = new System.Drawing.Point(56, 29);
+            this.MngrServicesSearchLbl.Name = "MngrServicesSearchLbl";
+            this.MngrServicesSearchLbl.Size = new System.Drawing.Size(106, 29);
+            this.MngrServicesSearchLbl.TabIndex = 117;
+            this.MngrServicesSearchLbl.Text = "Search:";
+            // 
+            // MngrServicesCurrentRecordLbl
+            // 
+            this.MngrServicesCurrentRecordLbl.AutoSize = true;
+            this.MngrServicesCurrentRecordLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrServicesCurrentRecordLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.MngrServicesCurrentRecordLbl.Location = new System.Drawing.Point(137, 526);
+            this.MngrServicesCurrentRecordLbl.Name = "MngrServicesCurrentRecordLbl";
+            this.MngrServicesCurrentRecordLbl.Size = new System.Drawing.Size(49, 20);
+            this.MngrServicesCurrentRecordLbl.TabIndex = 113;
+            this.MngrServicesCurrentRecordLbl.Text = "n of n";
+            // 
+            // MngrServicesPreviousBtn
+            // 
+            this.MngrServicesPreviousBtn.Location = new System.Drawing.Point(56, 524);
+            this.MngrServicesPreviousBtn.Name = "MngrServicesPreviousBtn";
+            this.MngrServicesPreviousBtn.Size = new System.Drawing.Size(75, 23);
+            this.MngrServicesPreviousBtn.TabIndex = 114;
+            this.MngrServicesPreviousBtn.Text = "<< Previous";
+            this.MngrServicesPreviousBtn.UseVisualStyleBackColor = true;
+            this.MngrServicesPreviousBtn.Click += new System.EventHandler(this.MngrServicesPreviousBtn_Click);
+            // 
+            // MngrServicesNextBtn
+            // 
+            this.MngrServicesNextBtn.Location = new System.Drawing.Point(198, 524);
+            this.MngrServicesNextBtn.Name = "MngrServicesNextBtn";
+            this.MngrServicesNextBtn.Size = new System.Drawing.Size(75, 23);
+            this.MngrServicesNextBtn.TabIndex = 115;
+            this.MngrServicesNextBtn.Text = "Next >>";
+            this.MngrServicesNextBtn.UseVisualStyleBackColor = true;
+            this.MngrServicesNextBtn.Click += new System.EventHandler(this.MngrServicesNextBtn_Click);
+            // 
+            // MngrInventoryServicesTable
+            // 
+            this.MngrInventoryServicesTable.AllowUserToAddRows = false;
+            this.MngrInventoryServicesTable.AllowUserToDeleteRows = false;
+            this.MngrInventoryServicesTable.AllowUserToResizeColumns = false;
+            this.MngrInventoryServicesTable.AllowUserToResizeRows = false;
+            this.MngrInventoryServicesTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MngrInventoryServicesTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.MngrInventoryServicesTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle46.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MngrInventoryServicesTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle46;
+            this.MngrInventoryServicesTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MngrInventoryServicesTable.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle47.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MngrInventoryServicesTable.DefaultCellStyle = dataGridViewCellStyle47;
+            this.MngrInventoryServicesTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.MngrInventoryServicesTable.Location = new System.Drawing.Point(56, 67);
+            this.MngrInventoryServicesTable.Name = "MngrInventoryServicesTable";
+            this.MngrInventoryServicesTable.ReadOnly = true;
+            this.MngrInventoryServicesTable.RowHeadersVisible = false;
+            this.MngrInventoryServicesTable.RowHeadersWidth = 51;
+            dataGridViewCellStyle48.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MngrInventoryServicesTable.RowsDefaultCellStyle = dataGridViewCellStyle48;
+            this.MngrInventoryServicesTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MngrInventoryServicesTable.Size = new System.Drawing.Size(1300, 445);
+            this.MngrInventoryServicesTable.TabIndex = 12;
             // 
             // MngrInventoryMembershipPanel
             // 
@@ -4506,7 +5776,7 @@ namespace Enchante
             this.MngrInventoryCard.SetMinimumSize(this.MngrInventoryMembershipPanel, new System.Drawing.Size(1857, 839));
             this.MngrInventoryMembershipPanel.Name = "MngrInventoryMembershipPanel";
             this.MngrInventoryCard.SetPreferredSize(this.MngrInventoryMembershipPanel, new System.Drawing.Size(1857, 839));
-            this.MngrInventoryMembershipPanel.Size = new System.Drawing.Size(1588, 732);
+            this.MngrInventoryMembershipPanel.Size = new System.Drawing.Size(1588, 1061);
             this.MngrInventoryMembershipPanel.TabIndex = 3;
             // 
             // MngrMemAccDGV
@@ -4634,20 +5904,19 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteAdminPage, new System.Drawing.Size(200, 100));
             this.EnchanteAdminPage.Name = "EnchanteAdminPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteAdminPage, new System.Drawing.Size(200, 100));
-            this.EnchanteAdminPage.Size = new System.Drawing.Size(1370, 749);
+            this.EnchanteAdminPage.Size = new System.Drawing.Size(1924, 1061);
             this.EnchanteAdminPage.TabIndex = 5;
             // 
             // AdminScrollPanel
             // 
             this.AdminScrollPanel.AutoScroll = true;
             this.AdminScrollPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            this.AdminScrollPanel.Controls.Add(this.AdminUserAccPanel);
             this.AdminScrollPanel.Controls.Add(this.AdminFooterStopperPanel);
             this.AdminScrollPanel.Controls.Add(this.AdminRegiformPanel);
             this.AdminScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AdminScrollPanel.Location = new System.Drawing.Point(0, 150);
             this.AdminScrollPanel.Name = "AdminScrollPanel";
-            this.AdminScrollPanel.Size = new System.Drawing.Size(1370, 599);
+            this.AdminScrollPanel.Size = new System.Drawing.Size(1924, 911);
             this.AdminScrollPanel.TabIndex = 20;
             // 
             // AdminUserAccPanel
@@ -4657,7 +5926,7 @@ namespace Enchante
             this.AdminUserAccPanel.Controls.Add(this.AdminIDNumLbl);
             this.AdminUserAccPanel.Controls.Add(this.AdminNameLbl);
             this.AdminUserAccPanel.Controls.Add(this.AdminSignOutBtn);
-            this.AdminUserAccPanel.Location = new System.Drawing.Point(1573, 15);
+            this.AdminUserAccPanel.Location = new System.Drawing.Point(1578, 25);
             this.AdminUserAccPanel.Name = "AdminUserAccPanel";
             this.AdminUserAccPanel.Size = new System.Drawing.Size(321, 216);
             this.AdminUserAccPanel.TabIndex = 2;
@@ -4737,6 +6006,11 @@ namespace Enchante
             // 
             this.AdminRegiformPanel.AutoScroll = true;
             this.AdminRegiformPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.AdminRegiformPanel.Controls.Add(this.AdminPreviousBtn);
+            this.AdminRegiformPanel.Controls.Add(this.AdminCurrentRecordLbl);
+            this.AdminRegiformPanel.Controls.Add(this.AdminNextBtn);
+            this.AdminRegiformPanel.Controls.Add(this.AdminSearchTextBox);
+            this.AdminRegiformPanel.Controls.Add(this.AdminSearchLbl);
             this.AdminRegiformPanel.Controls.Add(this.AdminCancelEditBtn);
             this.AdminRegiformPanel.Controls.Add(this.AdminPassLbl);
             this.AdminRegiformPanel.Controls.Add(this.AdminGenderLbl);
@@ -5452,24 +6726,24 @@ namespace Enchante
             this.AdminAccountTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.AdminAccountTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.AdminAccountTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AdminAccountTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle49.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle49.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle49.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle49.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle49.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AdminAccountTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle49;
             this.AdminAccountTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AdminAccountTable.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.AdminAccountTable.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle50.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle50.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle50.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle50.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle50.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle50.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.AdminAccountTable.DefaultCellStyle = dataGridViewCellStyle50;
             this.AdminAccountTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.AdminAccountTable.Location = new System.Drawing.Point(955, 81);
             this.AdminAccountTable.Name = "AdminAccountTable";
@@ -5484,13 +6758,14 @@ namespace Enchante
             // 
             this.AdminNavBarPanel.AutoScroll = true;
             this.AdminNavBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.AdminNavBarPanel.Controls.Add(this.AdminUserAccPanel);
             this.AdminNavBarPanel.Controls.Add(this.AdminAccUserBtn);
             this.AdminNavBarPanel.Controls.Add(this.AdminHomeBtn);
             this.AdminNavBarPanel.Controls.Add(this.AdminHeaderLogo);
             this.AdminNavBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.AdminNavBarPanel.Location = new System.Drawing.Point(0, 0);
             this.AdminNavBarPanel.Name = "AdminNavBarPanel";
-            this.AdminNavBarPanel.Size = new System.Drawing.Size(1370, 150);
+            this.AdminNavBarPanel.Size = new System.Drawing.Size(1924, 150);
             this.AdminNavBarPanel.TabIndex = 4;
             // 
             // AdminAccUserBtn
@@ -5558,7 +6833,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteHomePage, new System.Drawing.Size(200, 100));
             this.EnchanteHomePage.Name = "EnchanteHomePage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteHomePage, new System.Drawing.Size(200, 100));
-            this.EnchanteHomePage.Size = new System.Drawing.Size(1370, 749);
+            this.EnchanteHomePage.Size = new System.Drawing.Size(1924, 1061);
             this.EnchanteHomePage.TabIndex = 4;
             // 
             // EnchanteHomeScrollPanel
@@ -5571,7 +6846,7 @@ namespace Enchante
             this.EnchanteHomeScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnchanteHomeScrollPanel.Location = new System.Drawing.Point(0, 0);
             this.EnchanteHomeScrollPanel.Name = "EnchanteHomeScrollPanel";
-            this.EnchanteHomeScrollPanel.Size = new System.Drawing.Size(1370, 749);
+            this.EnchanteHomeScrollPanel.Size = new System.Drawing.Size(1924, 1061);
             this.EnchanteHomeScrollPanel.TabIndex = 18;
             this.EnchanteHomeScrollPanel.Click += new System.EventHandler(this.EnchanteHomeScrollPanel_Click);
             // 
@@ -5591,7 +6866,7 @@ namespace Enchante
             this.EnchanteLoginForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnchanteLoginForm.Location = new System.Drawing.Point(1248, 0);
             this.EnchanteLoginForm.Name = "EnchanteLoginForm";
-            this.EnchanteLoginForm.Size = new System.Drawing.Size(636, 732);
+            this.EnchanteLoginForm.Size = new System.Drawing.Size(676, 1061);
             this.EnchanteLoginForm.TabIndex = 21;
             // 
             // LoginPassReqBtn
@@ -5771,7 +7046,7 @@ namespace Enchante
             this.EDP1.Image = global::Enchante.Properties.Resources.Lobby;
             this.EDP1.Location = new System.Drawing.Point(0, 0);
             this.EDP1.Name = "EDP1";
-            this.EDP1.Size = new System.Drawing.Size(1248, 732);
+            this.EDP1.Size = new System.Drawing.Size(1248, 1061);
             this.EDP1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.EDP1.TabIndex = 24;
             this.EDP1.TabStop = false;
@@ -5807,7 +7082,7 @@ namespace Enchante
             this.EnchanteParentCard.SetMinimumSize(this.EnchanteReceptionPage, new System.Drawing.Size(200, 100));
             this.EnchanteReceptionPage.Name = "EnchanteReceptionPage";
             this.EnchanteParentCard.SetPreferredSize(this.EnchanteReceptionPage, new System.Drawing.Size(200, 100));
-            this.EnchanteReceptionPage.Size = new System.Drawing.Size(1370, 749);
+            this.EnchanteReceptionPage.Size = new System.Drawing.Size(1924, 1061);
             this.EnchanteReceptionPage.TabIndex = 2;
             // 
             // ReceptionScrollPanel
@@ -5819,7 +7094,7 @@ namespace Enchante
             this.ReceptionScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ReceptionScrollPanel.Location = new System.Drawing.Point(0, 0);
             this.ReceptionScrollPanel.Name = "ReceptionScrollPanel";
-            this.ReceptionScrollPanel.Size = new System.Drawing.Size(1370, 749);
+            this.ReceptionScrollPanel.Size = new System.Drawing.Size(1924, 1061);
             this.ReceptionScrollPanel.TabIndex = 20;
             this.ReceptionScrollPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.ReceptionScrollPanel_Paint);
             // 
@@ -5836,7 +7111,7 @@ namespace Enchante
             this.ReceptionCreateTransactPanel.Location = new System.Drawing.Point(330, 0);
             this.ReceptionCreateTransactPanel.MaximumSize = new System.Drawing.Size(1588, 1041);
             this.ReceptionCreateTransactPanel.Name = "ReceptionCreateTransactPanel";
-            this.ReceptionCreateTransactPanel.Size = new System.Drawing.Size(1040, 749);
+            this.ReceptionCreateTransactPanel.Size = new System.Drawing.Size(1588, 1041);
             this.ReceptionCreateTransactPanel.TabIndex = 21;
             // 
             // RecApptConfirmPanel
@@ -5858,7 +7133,7 @@ namespace Enchante
             this.RecTransactionCard.SetMinimumSize(this.RecApptConfirmPanel, new System.Drawing.Size(200, 100));
             this.RecApptConfirmPanel.Name = "RecApptConfirmPanel";
             this.RecTransactionCard.SetPreferredSize(this.RecApptConfirmPanel, new System.Drawing.Size(200, 100));
-            this.RecApptConfirmPanel.Size = new System.Drawing.Size(1040, 749);
+            this.RecApptConfirmPanel.Size = new System.Drawing.Size(1588, 1041);
             this.RecApptConfirmPanel.TabIndex = 31;
             // 
             // RecCancelServiceBtn
@@ -5882,16 +7157,16 @@ namespace Enchante
             // 
             this.RecCancelServicesDGV.AllowUserToAddRows = false;
             this.RecCancelServicesDGV.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
-            this.RecCancelServicesDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle23;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecCancelServicesDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle51.BackColor = System.Drawing.Color.White;
+            this.RecCancelServicesDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle52.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle52.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle52.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle52.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecCancelServicesDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle52;
             this.RecCancelServicesDGV.ColumnHeadersHeight = 25;
             this.RecCancelServicesDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.RecCancelServicesDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -5899,26 +7174,26 @@ namespace Enchante
             this.RecServiceServiceCategory,
             this.RecServiceServiceID,
             this.RecServiceSelectedService});
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecCancelServicesDGV.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle53.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle53.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle53.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle53.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle53.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecCancelServicesDGV.DefaultCellStyle = dataGridViewCellStyle53;
             this.RecCancelServicesDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.RecCancelServicesDGV.Location = new System.Drawing.Point(859, 165);
             this.RecCancelServicesDGV.Name = "RecCancelServicesDGV";
             this.RecCancelServicesDGV.ReadOnly = true;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecCancelServicesDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle54.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle54.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle54.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle54.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle54.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle54.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecCancelServicesDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle54;
             this.RecCancelServicesDGV.RowHeadersVisible = false;
             this.RecCancelServicesDGV.Size = new System.Drawing.Size(666, 336);
             this.RecCancelServicesDGV.TabIndex = 197;
@@ -6055,16 +7330,16 @@ namespace Enchante
             // 
             this.RecApptAcceptLateDeclineDGV.AllowUserToAddRows = false;
             this.RecApptAcceptLateDeclineDGV.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.White;
-            this.RecApptAcceptLateDeclineDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle27;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecApptAcceptLateDeclineDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle55.BackColor = System.Drawing.Color.White;
+            this.RecApptAcceptLateDeclineDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle56.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle56.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle56.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle56.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle56.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecApptAcceptLateDeclineDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle56;
             this.RecApptAcceptLateDeclineDGV.ColumnHeadersHeight = 25;
             this.RecApptAcceptLateDeclineDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.RecApptAcceptLateDeclineDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -6072,26 +7347,26 @@ namespace Enchante
             this.AppointmentDate,
             this.ApptClientName,
             this.AppointmentTime});
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecApptAcceptLateDeclineDGV.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle57.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle57.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle57.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle57.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle57.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecApptAcceptLateDeclineDGV.DefaultCellStyle = dataGridViewCellStyle57;
             this.RecApptAcceptLateDeclineDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.RecApptAcceptLateDeclineDGV.Location = new System.Drawing.Point(79, 166);
             this.RecApptAcceptLateDeclineDGV.Name = "RecApptAcceptLateDeclineDGV";
             this.RecApptAcceptLateDeclineDGV.ReadOnly = true;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecApptAcceptLateDeclineDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle58.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle58.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle58.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle58.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle58.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle58.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecApptAcceptLateDeclineDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle58;
             this.RecApptAcceptLateDeclineDGV.RowHeadersVisible = false;
             this.RecApptAcceptLateDeclineDGV.Size = new System.Drawing.Size(749, 335);
             this.RecApptAcceptLateDeclineDGV.TabIndex = 193;
@@ -6182,7 +7457,7 @@ namespace Enchante
             this.RecTransactionCard.SetMinimumSize(this.RecShopProdPanel, new System.Drawing.Size(200, 100));
             this.RecShopProdPanel.Name = "RecShopProdPanel";
             this.RecTransactionCard.SetPreferredSize(this.RecShopProdPanel, new System.Drawing.Size(200, 100));
-            this.RecShopProdPanel.Size = new System.Drawing.Size(1040, 749);
+            this.RecShopProdPanel.Size = new System.Drawing.Size(1588, 1041);
             this.RecShopProdPanel.TabIndex = 30;
             // 
             // RecShopProdFooterStopperPanel
@@ -6239,7 +7514,6 @@ namespace Enchante
             this.guna2GradientPanel2.Controls.Add(this.RecShopProdCashBox);
             this.guna2GradientPanel2.Controls.Add(this.RecShopProdLbl);
             this.guna2GradientPanel2.Controls.Add(this.RecShopProdGrossAmountLbl);
-            this.guna2GradientPanel2.Controls.Add(this.RecSearchProductTextBox);
             this.guna2GradientPanel2.Controls.Add(this.RecShopProdGrossAmountBox);
             this.guna2GradientPanel2.Controls.Add(this.RecShopProdVATLbl);
             this.guna2GradientPanel2.Controls.Add(this.RecShopProdProductFlowLayoutPanel);
@@ -6412,34 +7686,6 @@ namespace Enchante
             this.RecShopProdGrossAmountLbl.TabIndex = 23;
             this.RecShopProdGrossAmountLbl.Text = "Total Amount:";
             // 
-            // RecSearchProductTextBox
-            // 
-            this.RecSearchProductTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecSearchProductTextBox.BorderRadius = 15;
-            this.RecSearchProductTextBox.BorderThickness = 2;
-            this.RecSearchProductTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.RecSearchProductTextBox.DefaultText = "";
-            this.RecSearchProductTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.RecSearchProductTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.RecSearchProductTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.RecSearchProductTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.RecSearchProductTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.RecSearchProductTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.RecSearchProductTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecSearchProductTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecSearchProductTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.RecSearchProductTextBox.Location = new System.Drawing.Point(61, 148);
-            this.RecSearchProductTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.RecSearchProductTextBox.Name = "RecSearchProductTextBox";
-            this.RecSearchProductTextBox.PasswordChar = '\0';
-            this.RecSearchProductTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.RecSearchProductTextBox.PlaceholderText = "Search an item...";
-            this.RecSearchProductTextBox.SelectedText = "";
-            this.RecSearchProductTextBox.Size = new System.Drawing.Size(869, 34);
-            this.RecSearchProductTextBox.TabIndex = 183;
-            this.RecSearchProductTextBox.TextChanged += new System.EventHandler(this.RecSearchProductTextBox_TextChanged);
-            this.RecSearchProductTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RecSearchProductTextBox_KeyPress);
-            // 
             // RecShopProdGrossAmountBox
             // 
             this.RecShopProdGrossAmountBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
@@ -6555,27 +7801,27 @@ namespace Enchante
             this.RecShopProdSelectedProdDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecShopProdSelectedProdDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecShopProdSelectedProdDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecShopProdSelectedProdDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle59.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle59.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle59.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle59.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle59.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecShopProdSelectedProdDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle59;
             this.RecShopProdSelectedProdDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecShopProdSelectedProdDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RecShopProdItemID,
             this.RecShopProdDiscountAmount});
             this.RecShopProdSelectedProdDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecShopProdSelectedProdDGV.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle60.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle60.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle60.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle60.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle60.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle60.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecShopProdSelectedProdDGV.DefaultCellStyle = dataGridViewCellStyle60;
             this.RecShopProdSelectedProdDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecShopProdSelectedProdDGV.Location = new System.Drawing.Point(960, 200);
             this.RecShopProdSelectedProdDGV.Name = "RecShopProdSelectedProdDGV";
@@ -6678,7 +7924,7 @@ namespace Enchante
             this.RecTransactionCard.SetMinimumSize(this.RecApptPanel, new System.Drawing.Size(1371, 807));
             this.RecApptPanel.Name = "RecApptPanel";
             this.RecTransactionCard.SetPreferredSize(this.RecApptPanel, new System.Drawing.Size(1371, 807));
-            this.RecApptPanel.Size = new System.Drawing.Size(1040, 749);
+            this.RecApptPanel.Size = new System.Drawing.Size(1588, 1041);
             this.RecApptPanel.TabIndex = 29;
             // 
             // ApptTabs
@@ -7622,6 +8868,75 @@ namespace Enchante
             this.RecApptAcqServicePanel.Size = new System.Drawing.Size(1454, 861);
             this.RecApptAcqServicePanel.TabIndex = 205;
             // 
+            // ApptServicePreviousBtn
+            // 
+            this.ApptServicePreviousBtn.AutoRoundedCorners = true;
+            this.ApptServicePreviousBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.ApptServicePreviousBtn.BorderRadius = 13;
+            this.ApptServicePreviousBtn.BorderThickness = 2;
+            this.ApptServicePreviousBtn.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.ApptServicePreviousBtn.DisabledState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.ApptServicePreviousBtn.DisabledState.FillColor = System.Drawing.Color.Silver;
+            this.ApptServicePreviousBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ApptServicePreviousBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ApptServicePreviousBtn.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold);
+            this.ApptServicePreviousBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ApptServicePreviousBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ApptServicePreviousBtn.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ApptServicePreviousBtn.Location = new System.Drawing.Point(87, 637);
+            this.ApptServicePreviousBtn.Name = "ApptServicePreviousBtn";
+            this.ApptServicePreviousBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ApptServicePreviousBtn.Size = new System.Drawing.Size(90, 29);
+            this.ApptServicePreviousBtn.TabIndex = 195;
+            this.ApptServicePreviousBtn.Text = "Previous";
+            this.ApptServicePreviousBtn.Click += new System.EventHandler(this.ApptServicePreviousBtn_Click);
+            // 
+            // ApptServiceNextBtn
+            // 
+            this.ApptServiceNextBtn.AutoRoundedCorners = true;
+            this.ApptServiceNextBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.ApptServiceNextBtn.BorderRadius = 13;
+            this.ApptServiceNextBtn.BorderThickness = 2;
+            this.ApptServiceNextBtn.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.ApptServiceNextBtn.DisabledState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.ApptServiceNextBtn.DisabledState.FillColor = System.Drawing.Color.Silver;
+            this.ApptServiceNextBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ApptServiceNextBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ApptServiceNextBtn.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold);
+            this.ApptServiceNextBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ApptServiceNextBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ApptServiceNextBtn.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ApptServiceNextBtn.Location = new System.Drawing.Point(273, 637);
+            this.ApptServiceNextBtn.Name = "ApptServiceNextBtn";
+            this.ApptServiceNextBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ApptServiceNextBtn.Size = new System.Drawing.Size(90, 29);
+            this.ApptServiceNextBtn.TabIndex = 194;
+            this.ApptServiceNextBtn.Text = "Next";
+            this.ApptServiceNextBtn.Click += new System.EventHandler(this.ApptServiceNextBtn_Click);
+            // 
+            // ApptServicePageLbl
+            // 
+            this.ApptServicePageLbl.AutoRoundedCorners = true;
+            this.ApptServicePageLbl.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.ApptServicePageLbl.BorderRadius = 13;
+            this.ApptServicePageLbl.BorderThickness = 2;
+            this.ApptServicePageLbl.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ApptServicePageLbl.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ApptServicePageLbl.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ApptServicePageLbl.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ApptServicePageLbl.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ApptServicePageLbl.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold);
+            this.ApptServicePageLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ApptServicePageLbl.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.ApptServicePageLbl.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ApptServicePageLbl.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.ApptServicePageLbl.Location = new System.Drawing.Point(180, 637);
+            this.ApptServicePageLbl.Name = "ApptServicePageLbl";
+            this.ApptServicePageLbl.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.ApptServicePageLbl.Size = new System.Drawing.Size(90, 29);
+            this.ApptServicePageLbl.TabIndex = 193;
+            this.ApptServicePageLbl.Text = "10/10";
+            // 
             // RecApptServicesFLP
             // 
             this.RecApptServicesFLP.AutoScroll = true;
@@ -7939,14 +9254,14 @@ namespace Enchante
             this.RecApptSelectedServiceDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecApptSelectedServiceDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecApptSelectedServiceDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecApptSelectedServiceDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle61.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle61.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle61.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle61.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle61.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle61.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle61.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecApptSelectedServiceDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle61;
             this.RecApptSelectedServiceDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecApptSelectedServiceDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ApptServiceVoid,
@@ -7959,14 +9274,14 @@ namespace Enchante
             this.RecApptTimeSelected,
             this.RecApptQueType});
             this.RecApptSelectedServiceDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecApptSelectedServiceDGV.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle62.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle62.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle62.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle62.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle62.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle62.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecApptSelectedServiceDGV.DefaultCellStyle = dataGridViewCellStyle62;
             this.RecApptSelectedServiceDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecApptSelectedServiceDGV.Location = new System.Drawing.Point(851, 203);
             this.RecApptSelectedServiceDGV.Name = "RecApptSelectedServiceDGV";
@@ -8083,7 +9398,7 @@ namespace Enchante
             this.RecTransactionCard.SetMinimumSize(this.RecQueWinPanel, new System.Drawing.Size(1797, 749));
             this.RecQueWinPanel.Name = "RecQueWinPanel";
             this.RecTransactionCard.SetPreferredSize(this.RecQueWinPanel, new System.Drawing.Size(1797, 749));
-            this.RecQueWinPanel.Size = new System.Drawing.Size(1040, 749);
+            this.RecQueWinPanel.Size = new System.Drawing.Size(1588, 1041);
             this.RecQueWinPanel.TabIndex = 28;
             // 
             // label7
@@ -8106,24 +9421,24 @@ namespace Enchante
             this.RecQueWinPrefNextCustomerDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecQueWinPrefNextCustomerDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecQueWinPrefNextCustomerDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecQueWinPrefNextCustomerDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle63.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle63.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle63.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle63.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle63.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle63.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle63.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecQueWinPrefNextCustomerDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle63;
             this.RecQueWinPrefNextCustomerDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecQueWinPrefNextCustomerDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecQueWinPrefNextCustomerDGV.DefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle64.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle64.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle64.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle64.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle64.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle64.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle64.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecQueWinPrefNextCustomerDGV.DefaultCellStyle = dataGridViewCellStyle64;
             this.RecQueWinPrefNextCustomerDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecQueWinPrefNextCustomerDGV.Location = new System.Drawing.Point(89, 727);
             this.RecQueWinPrefNextCustomerDGV.Name = "RecQueWinPrefNextCustomerDGV";
@@ -8267,24 +9582,24 @@ namespace Enchante
             this.RecQueWinNextCustomerDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecQueWinNextCustomerDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecQueWinNextCustomerDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecQueWinNextCustomerDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle65.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle65.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle65.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle65.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle65.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle65.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle65.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecQueWinNextCustomerDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle65;
             this.RecQueWinNextCustomerDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecQueWinNextCustomerDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecQueWinNextCustomerDGV.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle66.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle66.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle66.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle66.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle66.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle66.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle66.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecQueWinNextCustomerDGV.DefaultCellStyle = dataGridViewCellStyle66;
             this.RecQueWinNextCustomerDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecQueWinNextCustomerDGV.Location = new System.Drawing.Point(88, 141);
             this.RecQueWinNextCustomerDGV.Name = "RecQueWinNextCustomerDGV";
@@ -8304,24 +9619,24 @@ namespace Enchante
             this.RecQueWinStaffListDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecQueWinStaffListDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecQueWinStaffListDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecQueWinStaffListDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle67.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle67.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle67.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle67.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle67.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle67.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle67.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecQueWinStaffListDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle67;
             this.RecQueWinStaffListDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecQueWinStaffListDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecQueWinStaffListDGV.DefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle68.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle68.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle68.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle68.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle68.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle68.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle68.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecQueWinStaffListDGV.DefaultCellStyle = dataGridViewCellStyle68;
             this.RecQueWinStaffListDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecQueWinStaffListDGV.Location = new System.Drawing.Point(89, 431);
             this.RecQueWinStaffListDGV.Name = "RecQueWinStaffListDGV";
@@ -8362,7 +9677,7 @@ namespace Enchante
             this.RecTransactionCard.SetMinimumSize(this.RecPayServicePanel, new System.Drawing.Size(1797, 749));
             this.RecPayServicePanel.Name = "RecPayServicePanel";
             this.RecTransactionCard.SetPreferredSize(this.RecPayServicePanel, new System.Drawing.Size(1797, 749));
-            this.RecPayServicePanel.Size = new System.Drawing.Size(1040, 749);
+            this.RecPayServicePanel.Size = new System.Drawing.Size(1588, 1041);
             this.RecPayServicePanel.TabIndex = 27;
             // 
             // PaymentTabs
@@ -8375,7 +9690,7 @@ namespace Enchante
             this.PaymentTabs.Location = new System.Drawing.Point(0, 0);
             this.PaymentTabs.Name = "PaymentTabs";
             this.PaymentTabs.SelectedIndex = 0;
-            this.PaymentTabs.Size = new System.Drawing.Size(1552, 732);
+            this.PaymentTabs.Size = new System.Drawing.Size(1588, 1041);
             this.PaymentTabs.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.PaymentTabs.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.PaymentTabs.TabButtonHoverState.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -8406,7 +9721,7 @@ namespace Enchante
             this.PaymentWalkinTab.Location = new System.Drawing.Point(4, 64);
             this.PaymentWalkinTab.Name = "PaymentWalkinTab";
             this.PaymentWalkinTab.Padding = new System.Windows.Forms.Padding(3);
-            this.PaymentWalkinTab.Size = new System.Drawing.Size(1544, 664);
+            this.PaymentWalkinTab.Size = new System.Drawing.Size(1580, 973);
             this.PaymentWalkinTab.TabIndex = 0;
             this.PaymentWalkinTab.Text = "Walk-in Transactions";
             // 
@@ -8717,28 +10032,28 @@ namespace Enchante
             this.RecPayServiceWalkinAcquiredDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecPayServiceWalkinAcquiredDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecPayServiceWalkinAcquiredDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecPayServiceWalkinAcquiredDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle69.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle69.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle69.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle69.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle69.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle69.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle69.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecPayServiceWalkinAcquiredDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle69;
             this.RecPayServiceWalkinAcquiredDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecPayServiceWalkinAcquiredDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.WalkinSelectedService,
             this.WalkinServicePrice,
             this.WalkinAttendingStaff});
             this.RecPayServiceWalkinAcquiredDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecPayServiceWalkinAcquiredDGV.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle70.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle70.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle70.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle70.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle70.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle70.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle70.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecPayServiceWalkinAcquiredDGV.DefaultCellStyle = dataGridViewCellStyle70;
             this.RecPayServiceWalkinAcquiredDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecPayServiceWalkinAcquiredDGV.Location = new System.Drawing.Point(121, 388);
             this.RecPayServiceWalkinAcquiredDGV.MultiSelect = false;
@@ -8800,14 +10115,14 @@ namespace Enchante
             this.RecPayServiceWalkinCOProdDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecPayServiceWalkinCOProdDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecPayServiceWalkinCOProdDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecPayServiceWalkinCOProdDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle71.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle71.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle71.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle71.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle71.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle71.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle71.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecPayServiceWalkinCOProdDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle71;
             this.RecPayServiceWalkinCOProdDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecPayServiceWalkinCOProdDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.WalkinItemName,
@@ -8816,14 +10131,14 @@ namespace Enchante
             this.WalkinTotalPrice,
             this.WalkinItemID});
             this.RecPayServiceWalkinCOProdDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecPayServiceWalkinCOProdDGV.DefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle72.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle72.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle72.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle72.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle72.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle72.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle72.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecPayServiceWalkinCOProdDGV.DefaultCellStyle = dataGridViewCellStyle72;
             this.RecPayServiceWalkinCOProdDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecPayServiceWalkinCOProdDGV.Location = new System.Drawing.Point(124, 636);
             this.RecPayServiceWalkinCOProdDGV.MultiSelect = false;
@@ -8943,14 +10258,14 @@ namespace Enchante
             this.RecPayServiceWalkinCompleteTransDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecPayServiceWalkinCompleteTransDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecPayServiceWalkinCompleteTransDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle45.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecPayServiceWalkinCompleteTransDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle73.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle73.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle73.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle73.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle73.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle73.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle73.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecPayServiceWalkinCompleteTransDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle73;
             this.RecPayServiceWalkinCompleteTransDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecPayServiceWalkinCompleteTransDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.WalkinTransNum,
@@ -8958,14 +10273,14 @@ namespace Enchante
             this.WalkinClientCPNum,
             this.WalkinServiceStatus});
             this.RecPayServiceWalkinCompleteTransDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle46.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecPayServiceWalkinCompleteTransDGV.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle74.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle74.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle74.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle74.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle74.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle74.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle74.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecPayServiceWalkinCompleteTransDGV.DefaultCellStyle = dataGridViewCellStyle74;
             this.RecPayServiceWalkinCompleteTransDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecPayServiceWalkinCompleteTransDGV.Location = new System.Drawing.Point(121, 118);
             this.RecPayServiceWalkinCompleteTransDGV.MultiSelect = false;
@@ -9022,7 +10337,7 @@ namespace Enchante
             this.PaymentApptTab.Location = new System.Drawing.Point(4, 64);
             this.PaymentApptTab.Name = "PaymentApptTab";
             this.PaymentApptTab.Padding = new System.Windows.Forms.Padding(3);
-            this.PaymentApptTab.Size = new System.Drawing.Size(1544, 664);
+            this.PaymentApptTab.Size = new System.Drawing.Size(1580, 973);
             this.PaymentApptTab.TabIndex = 1;
             this.PaymentApptTab.Text = "Appointment Transactions";
             this.PaymentApptTab.Click += new System.EventHandler(this.tabPage2_Click);
@@ -9364,28 +10679,28 @@ namespace Enchante
             this.RecPayServiceApptAcquiredDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecPayServiceApptAcquiredDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecPayServiceApptAcquiredDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecPayServiceApptAcquiredDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle75.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle75.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle75.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle75.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle75.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle75.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle75.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecPayServiceApptAcquiredDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle75;
             this.RecPayServiceApptAcquiredDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecPayServiceApptAcquiredDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ApptStaffSelected,
             this.ApptSelectedService,
             this.ApptServicePrice});
             this.RecPayServiceApptAcquiredDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle48.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecPayServiceApptAcquiredDGV.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle76.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle76.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle76.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle76.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle76.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle76.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle76.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecPayServiceApptAcquiredDGV.DefaultCellStyle = dataGridViewCellStyle76;
             this.RecPayServiceApptAcquiredDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecPayServiceApptAcquiredDGV.Location = new System.Drawing.Point(120, 382);
             this.RecPayServiceApptAcquiredDGV.MultiSelect = false;
@@ -9464,14 +10779,14 @@ namespace Enchante
             this.RecPayServiceApptCompleteTransDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecPayServiceApptCompleteTransDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecPayServiceApptCompleteTransDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle49.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle49.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle49.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle49.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle49.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecPayServiceApptCompleteTransDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle77.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle77.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle77.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle77.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle77.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle77.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle77.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecPayServiceApptCompleteTransDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle77;
             this.RecPayServiceApptCompleteTransDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecPayServiceApptCompleteTransDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ApptTransNum,
@@ -9481,14 +10796,14 @@ namespace Enchante
             this.ApptTime,
             this.ApptServiceStatus});
             this.RecPayServiceApptCompleteTransDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle50.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle50.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle50.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle50.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle50.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle50.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecPayServiceApptCompleteTransDGV.DefaultCellStyle = dataGridViewCellStyle50;
+            dataGridViewCellStyle78.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle78.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle78.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle78.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle78.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle78.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle78.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecPayServiceApptCompleteTransDGV.DefaultCellStyle = dataGridViewCellStyle78;
             this.RecPayServiceApptCompleteTransDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecPayServiceApptCompleteTransDGV.Location = new System.Drawing.Point(118, 119);
             this.RecPayServiceApptCompleteTransDGV.MultiSelect = false;
@@ -9567,7 +10882,7 @@ namespace Enchante
             this.RecTransactionCard.SetMinimumSize(this.RecWalkinPanel, new System.Drawing.Size(1371, 807));
             this.RecWalkinPanel.Name = "RecWalkinPanel";
             this.RecTransactionCard.SetPreferredSize(this.RecWalkinPanel, new System.Drawing.Size(1371, 807));
-            this.RecWalkinPanel.Size = new System.Drawing.Size(1040, 749);
+            this.RecWalkinPanel.Size = new System.Drawing.Size(1588, 1041);
             this.RecWalkinPanel.TabIndex = 7;
             // 
             // WalkinTabs
@@ -9580,7 +10895,7 @@ namespace Enchante
             this.WalkinTabs.Location = new System.Drawing.Point(0, 0);
             this.WalkinTabs.Name = "WalkinTabs";
             this.WalkinTabs.SelectedIndex = 0;
-            this.WalkinTabs.Size = new System.Drawing.Size(1038, 747);
+            this.WalkinTabs.Size = new System.Drawing.Size(1586, 1039);
             this.WalkinTabs.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.WalkinTabs.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.WalkinTabs.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -9610,7 +10925,7 @@ namespace Enchante
             this.WalkinBasicInfo.Location = new System.Drawing.Point(4, 44);
             this.WalkinBasicInfo.Name = "WalkinBasicInfo";
             this.WalkinBasicInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.WalkinBasicInfo.Size = new System.Drawing.Size(1030, 699);
+            this.WalkinBasicInfo.Size = new System.Drawing.Size(1578, 991);
             this.WalkinBasicInfo.TabIndex = 0;
             this.WalkinBasicInfo.Text = "Basic Info";
             // 
@@ -9951,7 +11266,7 @@ namespace Enchante
             this.WalkinServiceCatNStaff.Location = new System.Drawing.Point(4, 44);
             this.WalkinServiceCatNStaff.Name = "WalkinServiceCatNStaff";
             this.WalkinServiceCatNStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.WalkinServiceCatNStaff.Size = new System.Drawing.Size(1030, 699);
+            this.WalkinServiceCatNStaff.Size = new System.Drawing.Size(1578, 991);
             this.WalkinServiceCatNStaff.TabIndex = 1;
             this.WalkinServiceCatNStaff.Text = "Services";
             // 
@@ -9992,6 +11307,75 @@ namespace Enchante
             this.RecWalkinServicePanel.Name = "RecWalkinServicePanel";
             this.RecWalkinServicePanel.Size = new System.Drawing.Size(1514, 938);
             this.RecWalkinServicePanel.TabIndex = 205;
+            // 
+            // WalkinServicePreviousButton
+            // 
+            this.WalkinServicePreviousButton.AutoRoundedCorners = true;
+            this.WalkinServicePreviousButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.WalkinServicePreviousButton.BorderRadius = 13;
+            this.WalkinServicePreviousButton.BorderThickness = 2;
+            this.WalkinServicePreviousButton.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.WalkinServicePreviousButton.DisabledState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.WalkinServicePreviousButton.DisabledState.FillColor = System.Drawing.Color.Silver;
+            this.WalkinServicePreviousButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.WalkinServicePreviousButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinServicePreviousButton.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold);
+            this.WalkinServicePreviousButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.WalkinServicePreviousButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.WalkinServicePreviousButton.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinServicePreviousButton.Location = new System.Drawing.Point(122, 787);
+            this.WalkinServicePreviousButton.Name = "WalkinServicePreviousButton";
+            this.WalkinServicePreviousButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinServicePreviousButton.Size = new System.Drawing.Size(90, 29);
+            this.WalkinServicePreviousButton.TabIndex = 184;
+            this.WalkinServicePreviousButton.Text = "Previous";
+            this.WalkinServicePreviousButton.Click += new System.EventHandler(this.WalkinServicePreviousButton_Click);
+            // 
+            // WalkinServiceNextButton
+            // 
+            this.WalkinServiceNextButton.AutoRoundedCorners = true;
+            this.WalkinServiceNextButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.WalkinServiceNextButton.BorderRadius = 13;
+            this.WalkinServiceNextButton.BorderThickness = 2;
+            this.WalkinServiceNextButton.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.WalkinServiceNextButton.DisabledState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.WalkinServiceNextButton.DisabledState.FillColor = System.Drawing.Color.Silver;
+            this.WalkinServiceNextButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.WalkinServiceNextButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinServiceNextButton.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold);
+            this.WalkinServiceNextButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.WalkinServiceNextButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.WalkinServiceNextButton.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinServiceNextButton.Location = new System.Drawing.Point(308, 787);
+            this.WalkinServiceNextButton.Name = "WalkinServiceNextButton";
+            this.WalkinServiceNextButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinServiceNextButton.Size = new System.Drawing.Size(90, 29);
+            this.WalkinServiceNextButton.TabIndex = 183;
+            this.WalkinServiceNextButton.Text = "Next";
+            this.WalkinServiceNextButton.Click += new System.EventHandler(this.WalkinServiceNextButton_Click);
+            // 
+            // WalkinServicePageLbl
+            // 
+            this.WalkinServicePageLbl.AutoRoundedCorners = true;
+            this.WalkinServicePageLbl.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.WalkinServicePageLbl.BorderRadius = 13;
+            this.WalkinServicePageLbl.BorderThickness = 2;
+            this.WalkinServicePageLbl.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.WalkinServicePageLbl.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.WalkinServicePageLbl.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.WalkinServicePageLbl.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.WalkinServicePageLbl.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinServicePageLbl.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold);
+            this.WalkinServicePageLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.WalkinServicePageLbl.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.WalkinServicePageLbl.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinServicePageLbl.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.WalkinServicePageLbl.Location = new System.Drawing.Point(215, 787);
+            this.WalkinServicePageLbl.Name = "WalkinServicePageLbl";
+            this.WalkinServicePageLbl.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.WalkinServicePageLbl.Size = new System.Drawing.Size(90, 29);
+            this.WalkinServicePageLbl.TabIndex = 182;
+            this.WalkinServicePageLbl.Text = "10/10";
             // 
             // RecWalkinServicesFlowLayoutPanel
             // 
@@ -10259,14 +11643,14 @@ namespace Enchante
             this.RecWalkinSelectedServiceDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecWalkinSelectedServiceDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecWalkinSelectedServiceDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle51.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle51.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle51.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle51.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecWalkinSelectedServiceDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle79.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle79.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle79.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle79.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle79.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle79.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle79.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecWalkinSelectedServiceDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle79;
             this.RecWalkinSelectedServiceDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecWalkinSelectedServiceDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.WalkinServiceVoid,
@@ -10278,14 +11662,14 @@ namespace Enchante
             this.QueNumber,
             this.QueType});
             this.RecWalkinSelectedServiceDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle52.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle52.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle52.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle52.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecWalkinSelectedServiceDGV.DefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle80.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle80.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle80.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle80.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle80.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle80.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle80.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecWalkinSelectedServiceDGV.DefaultCellStyle = dataGridViewCellStyle80;
             this.RecWalkinSelectedServiceDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecWalkinSelectedServiceDGV.Location = new System.Drawing.Point(770, 472);
             this.RecWalkinSelectedServiceDGV.Name = "RecWalkinSelectedServiceDGV";
@@ -10589,7 +11973,7 @@ namespace Enchante
             this.WalkinProducts.Controls.Add(this.RecWalkinProdPanel);
             this.WalkinProducts.Location = new System.Drawing.Point(4, 44);
             this.WalkinProducts.Name = "WalkinProducts";
-            this.WalkinProducts.Size = new System.Drawing.Size(1030, 699);
+            this.WalkinProducts.Size = new System.Drawing.Size(1578, 991);
             this.WalkinProducts.TabIndex = 3;
             this.WalkinProducts.Text = "Products";
             // 
@@ -10795,26 +12179,26 @@ namespace Enchante
             this.RecWalkinSelectedProdDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecWalkinSelectedProdDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecWalkinSelectedProdDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle53.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle53.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle53.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle53.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle53.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecWalkinSelectedProdDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle53;
+            dataGridViewCellStyle81.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle81.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle81.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle81.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle81.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle81.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle81.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecWalkinSelectedProdDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle81;
             this.RecWalkinSelectedProdDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecWalkinSelectedProdDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.OrderProdItemID});
             this.RecWalkinSelectedProdDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle54.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle54.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle54.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle54.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle54.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle54.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecWalkinSelectedProdDGV.DefaultCellStyle = dataGridViewCellStyle54;
+            dataGridViewCellStyle82.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle82.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle82.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle82.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle82.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle82.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle82.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecWalkinSelectedProdDGV.DefaultCellStyle = dataGridViewCellStyle82;
             this.RecWalkinSelectedProdDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecWalkinSelectedProdDGV.Location = new System.Drawing.Point(874, 162);
             this.RecWalkinSelectedProdDGV.Name = "RecWalkinSelectedProdDGV";
@@ -10941,7 +12325,7 @@ namespace Enchante
             this.RecTransactionCard.SetMinimumSize(this.RecQueStartPanel, new System.Drawing.Size(200, 100));
             this.RecQueStartPanel.Name = "RecQueStartPanel";
             this.RecTransactionCard.SetPreferredSize(this.RecQueStartPanel, new System.Drawing.Size(200, 100));
-            this.RecQueStartPanel.Size = new System.Drawing.Size(1040, 749);
+            this.RecQueStartPanel.Size = new System.Drawing.Size(1588, 1041);
             this.RecQueStartPanel.TabIndex = 0;
             // 
             // RecQueStartStaffFLP
@@ -11034,14 +12418,14 @@ namespace Enchante
             this.RecQueStartInventoryDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RecQueStartInventoryDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.RecQueStartInventoryDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle55.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle55.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle55.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle55.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle55.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle55.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecQueStartInventoryDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewCellStyle83.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle83.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle83.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle83.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle83.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle83.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle83.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecQueStartInventoryDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle83;
             this.RecQueStartInventoryDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecQueStartInventoryDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RecStaffItemID,
@@ -11050,14 +12434,14 @@ namespace Enchante
             this.RecStaffItemStock,
             this.RecStaffItemStatus});
             this.RecQueStartInventoryDGV.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle56.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle56.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle56.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
-            dataGridViewCellStyle56.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle56.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecQueStartInventoryDGV.DefaultCellStyle = dataGridViewCellStyle56;
+            dataGridViewCellStyle84.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle84.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle84.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle84.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle84.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            dataGridViewCellStyle84.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle84.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecQueStartInventoryDGV.DefaultCellStyle = dataGridViewCellStyle84;
             this.RecQueStartInventoryDGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.RecQueStartInventoryDGV.Location = new System.Drawing.Point(89, 972);
             this.RecQueStartInventoryDGV.Name = "RecQueStartInventoryDGV";
@@ -11187,7 +12571,7 @@ namespace Enchante
             this.RecBtnHolderPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.RecBtnHolderPanel.Location = new System.Drawing.Point(0, 0);
             this.RecBtnHolderPanel.Name = "RecBtnHolderPanel";
-            this.RecBtnHolderPanel.Size = new System.Drawing.Size(330, 749);
+            this.RecBtnHolderPanel.Size = new System.Drawing.Size(330, 1061);
             this.RecBtnHolderPanel.TabIndex = 22;
             // 
             // RecDateTimePicker
@@ -11209,7 +12593,7 @@ namespace Enchante
             this.RecBtnHolderFlowPanel.Controls.Add(this.ReceptionLogoutBtn);
             this.RecBtnHolderFlowPanel.Controls.Add(this.RecOverrideBackBtn);
             this.RecBtnHolderFlowPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.RecBtnHolderFlowPanel.Location = new System.Drawing.Point(0, 51);
+            this.RecBtnHolderFlowPanel.Location = new System.Drawing.Point(0, 363);
             this.RecBtnHolderFlowPanel.Name = "RecBtnHolderFlowPanel";
             this.RecBtnHolderFlowPanel.Size = new System.Drawing.Size(330, 698);
             this.RecBtnHolderFlowPanel.TabIndex = 63;
@@ -11561,7 +12945,7 @@ namespace Enchante
             // 
             this.EnchanteParentCard.ContainerControl = this.EnchanteParentContainer;
             this.EnchanteParentCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.EnchanteParentCard.SelectedCard = "Reception";
+            this.EnchanteParentCard.SelectedCard = "AdminPage";
             // 
             // RecTransactionCard
             // 
@@ -11577,7 +12961,7 @@ namespace Enchante
             // 
             this.MngrInventoryCard.ContainerControl = this.MngrInventoryPanel;
             this.MngrInventoryCard.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.MngrInventoryCard.SelectedCard = "walkin sales";
+            this.MngrInventoryCard.SelectedCard = "product sales";
             // 
             // PictureSlideTimer
             // 
@@ -11610,150 +12994,83 @@ namespace Enchante
             this.MngrHistoryTimer.Interval = 1;
             this.MngrHistoryTimer.Tick += new System.EventHandler(this.MngrHistoryTimer_Tick);
             // 
-            // WalkinServicePreviousButton
+            // AdminSearchTextBox
             // 
-            this.WalkinServicePreviousButton.AutoRoundedCorners = true;
-            this.WalkinServicePreviousButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.WalkinServicePreviousButton.BorderRadius = 13;
-            this.WalkinServicePreviousButton.BorderThickness = 2;
-            this.WalkinServicePreviousButton.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.WalkinServicePreviousButton.DisabledState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.WalkinServicePreviousButton.DisabledState.FillColor = System.Drawing.Color.Silver;
-            this.WalkinServicePreviousButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.WalkinServicePreviousButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.WalkinServicePreviousButton.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold);
-            this.WalkinServicePreviousButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.WalkinServicePreviousButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.WalkinServicePreviousButton.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.WalkinServicePreviousButton.Location = new System.Drawing.Point(122, 787);
-            this.WalkinServicePreviousButton.Name = "WalkinServicePreviousButton";
-            this.WalkinServicePreviousButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.WalkinServicePreviousButton.Size = new System.Drawing.Size(90, 29);
-            this.WalkinServicePreviousButton.TabIndex = 184;
-            this.WalkinServicePreviousButton.Text = "Previous";
-            this.WalkinServicePreviousButton.Click += new System.EventHandler(this.WalkinServicePreviousButton_Click);
+            this.AdminSearchTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.AdminSearchTextBox.BorderRadius = 15;
+            this.AdminSearchTextBox.BorderThickness = 2;
+            this.AdminSearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.AdminSearchTextBox.DefaultText = "";
+            this.AdminSearchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.AdminSearchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.AdminSearchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.AdminSearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.AdminSearchTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.AdminSearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.AdminSearchTextBox.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminSearchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.AdminSearchTextBox.Location = new System.Drawing.Point(1047, 39);
+            this.AdminSearchTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.AdminSearchTextBox.Name = "AdminSearchTextBox";
+            this.AdminSearchTextBox.PasswordChar = '\0';
+            this.AdminSearchTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminSearchTextBox.PlaceholderText = "";
+            this.AdminSearchTextBox.SelectedText = "";
+            this.AdminSearchTextBox.Size = new System.Drawing.Size(638, 34);
+            this.AdminSearchTextBox.TabIndex = 194;
+            this.AdminSearchTextBox.TextChanged += new System.EventHandler(this.AdminSearchTextBox_TextChanged);
             // 
-            // WalkinServiceNextButton
+            // AdminSearchLbl
             // 
-            this.WalkinServiceNextButton.AutoRoundedCorners = true;
-            this.WalkinServiceNextButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.WalkinServiceNextButton.BorderRadius = 13;
-            this.WalkinServiceNextButton.BorderThickness = 2;
-            this.WalkinServiceNextButton.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.WalkinServiceNextButton.DisabledState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.WalkinServiceNextButton.DisabledState.FillColor = System.Drawing.Color.Silver;
-            this.WalkinServiceNextButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.WalkinServiceNextButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.WalkinServiceNextButton.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold);
-            this.WalkinServiceNextButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.WalkinServiceNextButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.WalkinServiceNextButton.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.WalkinServiceNextButton.Location = new System.Drawing.Point(308, 787);
-            this.WalkinServiceNextButton.Name = "WalkinServiceNextButton";
-            this.WalkinServiceNextButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.WalkinServiceNextButton.Size = new System.Drawing.Size(90, 29);
-            this.WalkinServiceNextButton.TabIndex = 183;
-            this.WalkinServiceNextButton.Text = "Next";
-            this.WalkinServiceNextButton.Click += new System.EventHandler(this.WalkinServiceNextButton_Click);
+            this.AdminSearchLbl.AutoSize = true;
+            this.AdminSearchLbl.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold);
+            this.AdminSearchLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminSearchLbl.Location = new System.Drawing.Point(955, 43);
+            this.AdminSearchLbl.Name = "AdminSearchLbl";
+            this.AdminSearchLbl.Size = new System.Drawing.Size(78, 23);
+            this.AdminSearchLbl.TabIndex = 193;
+            this.AdminSearchLbl.Text = "Search:";
             // 
-            // WalkinServicePageLbl
+            // AdminPreviousBtn
             // 
-            this.WalkinServicePageLbl.AutoRoundedCorners = true;
-            this.WalkinServicePageLbl.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.WalkinServicePageLbl.BorderRadius = 13;
-            this.WalkinServicePageLbl.BorderThickness = 2;
-            this.WalkinServicePageLbl.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.WalkinServicePageLbl.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.WalkinServicePageLbl.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.WalkinServicePageLbl.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.WalkinServicePageLbl.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.WalkinServicePageLbl.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold);
-            this.WalkinServicePageLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.WalkinServicePageLbl.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.WalkinServicePageLbl.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.WalkinServicePageLbl.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.WalkinServicePageLbl.Location = new System.Drawing.Point(215, 787);
-            this.WalkinServicePageLbl.Name = "WalkinServicePageLbl";
-            this.WalkinServicePageLbl.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.WalkinServicePageLbl.Size = new System.Drawing.Size(90, 29);
-            this.WalkinServicePageLbl.TabIndex = 182;
-            this.WalkinServicePageLbl.Text = "10/10";
+            this.AdminPreviousBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.AdminPreviousBtn.Location = new System.Drawing.Point(958, 687);
+            this.AdminPreviousBtn.Name = "AdminPreviousBtn";
+            this.AdminPreviousBtn.Size = new System.Drawing.Size(75, 23);
+            this.AdminPreviousBtn.TabIndex = 196;
+            this.AdminPreviousBtn.Text = "<< Previous";
+            this.AdminPreviousBtn.UseVisualStyleBackColor = true;
+            this.AdminPreviousBtn.Click += new System.EventHandler(this.AdminPreviousBtn_Click);
             // 
-            // ApptServicePreviousBtn
+            // AdminCurrentRecordLbl
             // 
-            this.ApptServicePreviousBtn.AutoRoundedCorners = true;
-            this.ApptServicePreviousBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.ApptServicePreviousBtn.BorderRadius = 13;
-            this.ApptServicePreviousBtn.BorderThickness = 2;
-            this.ApptServicePreviousBtn.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.ApptServicePreviousBtn.DisabledState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.ApptServicePreviousBtn.DisabledState.FillColor = System.Drawing.Color.Silver;
-            this.ApptServicePreviousBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.ApptServicePreviousBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ApptServicePreviousBtn.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold);
-            this.ApptServicePreviousBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.ApptServicePreviousBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.ApptServicePreviousBtn.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ApptServicePreviousBtn.Location = new System.Drawing.Point(87, 637);
-            this.ApptServicePreviousBtn.Name = "ApptServicePreviousBtn";
-            this.ApptServicePreviousBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ApptServicePreviousBtn.Size = new System.Drawing.Size(90, 29);
-            this.ApptServicePreviousBtn.TabIndex = 195;
-            this.ApptServicePreviousBtn.Text = "Previous";
-            this.ApptServicePreviousBtn.Click += new System.EventHandler(this.ApptServicePreviousBtn_Click);
+            this.AdminCurrentRecordLbl.AutoSize = true;
+            this.AdminCurrentRecordLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminCurrentRecordLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.AdminCurrentRecordLbl.Location = new System.Drawing.Point(1043, 689);
+            this.AdminCurrentRecordLbl.Name = "AdminCurrentRecordLbl";
+            this.AdminCurrentRecordLbl.Size = new System.Drawing.Size(49, 20);
+            this.AdminCurrentRecordLbl.TabIndex = 195;
+            this.AdminCurrentRecordLbl.Text = "n of n";
             // 
-            // ApptServiceNextBtn
+            // AdminNextBtn
             // 
-            this.ApptServiceNextBtn.AutoRoundedCorners = true;
-            this.ApptServiceNextBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.ApptServiceNextBtn.BorderRadius = 13;
-            this.ApptServiceNextBtn.BorderThickness = 2;
-            this.ApptServiceNextBtn.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.ApptServiceNextBtn.DisabledState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.ApptServiceNextBtn.DisabledState.FillColor = System.Drawing.Color.Silver;
-            this.ApptServiceNextBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.ApptServiceNextBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ApptServiceNextBtn.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold);
-            this.ApptServiceNextBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.ApptServiceNextBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.ApptServiceNextBtn.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ApptServiceNextBtn.Location = new System.Drawing.Point(273, 637);
-            this.ApptServiceNextBtn.Name = "ApptServiceNextBtn";
-            this.ApptServiceNextBtn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ApptServiceNextBtn.Size = new System.Drawing.Size(90, 29);
-            this.ApptServiceNextBtn.TabIndex = 194;
-            this.ApptServiceNextBtn.Text = "Next";
-            this.ApptServiceNextBtn.Click += new System.EventHandler(this.ApptServiceNextBtn_Click);
-            // 
-            // ApptServicePageLbl
-            // 
-            this.ApptServicePageLbl.AutoRoundedCorners = true;
-            this.ApptServicePageLbl.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.ApptServicePageLbl.BorderRadius = 13;
-            this.ApptServicePageLbl.BorderThickness = 2;
-            this.ApptServicePageLbl.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ApptServicePageLbl.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ApptServicePageLbl.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ApptServicePageLbl.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ApptServicePageLbl.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ApptServicePageLbl.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold);
-            this.ApptServicePageLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.ApptServicePageLbl.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
-            this.ApptServicePageLbl.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ApptServicePageLbl.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
-            this.ApptServicePageLbl.Location = new System.Drawing.Point(180, 637);
-            this.ApptServicePageLbl.Name = "ApptServicePageLbl";
-            this.ApptServicePageLbl.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
-            this.ApptServicePageLbl.Size = new System.Drawing.Size(90, 29);
-            this.ApptServicePageLbl.TabIndex = 193;
-            this.ApptServicePageLbl.Text = "10/10";
+            this.AdminNextBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.AdminNextBtn.Location = new System.Drawing.Point(1108, 687);
+            this.AdminNextBtn.Name = "AdminNextBtn";
+            this.AdminNextBtn.Size = new System.Drawing.Size(75, 23);
+            this.AdminNextBtn.TabIndex = 197;
+            this.AdminNextBtn.Text = "Next >>";
+            this.AdminNextBtn.UseVisualStyleBackColor = true;
+            this.AdminNextBtn.Click += new System.EventHandler(this.AdminNextBtn_Click);
             // 
             // Enchante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1924, 1061);
             this.Controls.Add(this.EnchanteParentContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -11778,43 +13095,86 @@ namespace Enchante
             ((System.ComponentModel.ISupportInitialize)(this.MngrHeaderLogo)).EndInit();
             this.MngrInventoryPanel.ResumeLayout(false);
             this.MngrInventoryProductsPanel.ResumeLayout(false);
-            this.MngrInventoryProductsPanel.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrInventoryProductsTable)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProductImagePictureBox)).EndInit();
             this.MngrInventoryTypePanel.ResumeLayout(false);
             this.MngrInventoryTypePanel.PerformLayout();
             this.MngrServiceHistoryPanel.ResumeLayout(false);
             this.MngrServiceHistoryPanel.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrSVHistoryDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrSVHistoryDGVTwo)).EndInit();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
             this.MngrApptServicePanel.ResumeLayout(false);
             this.MngrApptServicePanel.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrAppSalesTransServiceHisDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrAppSalesTransRepDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrAppSalesTransRepDGVTwo)).EndInit();
+            this.panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MngrAppSalesGraph)).EndInit();
             this.MngrWalkinProdSalesPanel.ResumeLayout(false);
             this.MngrWalkinProdSalesPanel.PerformLayout();
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
+            this.panel18.ResumeLayout(false);
+            this.panel18.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrProductSalesTransRepDGV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trydata)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrProductSalesTransRepDGVTwo)).EndInit();
+            this.panel19.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MngrProductSalesLineGraph)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MngrProductSalesGraph)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trydata)).EndInit();
             this.MngrWalkinSalesPanel.ResumeLayout(false);
             this.MngrWalkinSalesPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MngrWalkinSalesTransServiceHisDGV)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrWalkinSalesTransRepDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrWalkinSalesTransServiceHisDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrWalkinSalesTransRepDGVTwo)).EndInit();
+            this.panel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MngrWalkinSalesGraph)).EndInit();
             this.MngrIndemandPanel.ResumeLayout(false);
             this.MngrIndemandPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MngrIndemandBestEmployee)).EndInit();
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrIndemandServiceSelection)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrIndemandServiceSelectionTwo)).EndInit();
+            this.panel23.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MngrIndemandServiceGraph)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrIndemandBestEmployee)).EndInit();
             this.MngrInventoryProductHistoryPanel.ResumeLayout(false);
             this.MngrInventoryProductHistoryPanel.PerformLayout();
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrPDHistoryDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MngrPDHistoryDGVTwo)).EndInit();
             this.MngrPromoPanel.ResumeLayout(false);
-            this.MngrPromoPanel.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrVoucherDGV)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.MngrServicesPanel.ResumeLayout(false);
-            this.MngrServicesPanel.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MngrInventoryServicesTable)).EndInit();
             this.MngrInventoryMembershipPanel.ResumeLayout(false);
             this.MngrInventoryMembershipPanel.PerformLayout();
@@ -12097,7 +13457,6 @@ namespace Enchante
         private System.Windows.Forms.Label MngrServicesTypeLbl;
         private System.Windows.Forms.Label MngrServicesCategoryLbl;
         private System.Windows.Forms.DataGridView MngrInventoryServicesTable;
-        private FontAwesome.Sharp.IconButton MngrServicesUpdateInfoBtn;
         private FontAwesome.Sharp.IconButton MngrServicesCreateBtn;
         private FontAwesome.Sharp.IconButton MngrServicesExitBtn;
         private System.Windows.Forms.Label MngrIDNumLbl;
@@ -12107,25 +13466,8 @@ namespace Enchante
         private System.Windows.Forms.Panel MngrInventoryMembershipPanel;
         private FontAwesome.Sharp.IconButton MngrWalkinServiceSalesBtn;
         private FontAwesome.Sharp.IconButton MngrProductsHistoryBtn;
-        private FontAwesome.Sharp.IconButton MngrInventoryProductsUpdateBtn;
-        private System.Windows.Forms.Label MngrInventoryProductsIDLbl;
-        private System.Windows.Forms.TextBox MngrInventoryProductsIDText;
-        private System.Windows.Forms.ComboBox MngrInventoryProductsTypeComboText;
-        private System.Windows.Forms.Label MngrInventoryProductsPriceLbl;
-        private System.Windows.Forms.TextBox MngrInventoryProductsPriceText;
-        private System.Windows.Forms.ComboBox MngrInventoryProductsCatComboText;
-        private System.Windows.Forms.Label MngrInventoryProductsStockLbl;
-        private System.Windows.Forms.TextBox MngrInventoryProductsStockText;
-        private System.Windows.Forms.Label MngrInventoryProductsStatusLbl;
-        private System.Windows.Forms.Label MngrInventoryProductsNameLbl;
-        private System.Windows.Forms.TextBox MngrInventoryProductsNameText;
-        private System.Windows.Forms.Label MngrInventoryProductsTypeLbl;
-        private System.Windows.Forms.Label MngrInventoryProductsCatLbl;
         private System.Windows.Forms.DataGridView MngrInventoryProductsTable;
-        private FontAwesome.Sharp.IconButton MngrInventoryProductsInfoEditBtn;
-        private FontAwesome.Sharp.IconButton MngrInventoryProductsInsertBtn;
         private FontAwesome.Sharp.IconButton MngrInventoryProductsExitBtn;
-        private System.Windows.Forms.ComboBox MngrInventoryProductsStatusComboText;
         private System.Windows.Forms.Panel MngrInventoryProductHistoryPanel;
         private FontAwesome.Sharp.IconButton MngrInventoryProductHistoryExitBtn;
         private FontAwesome.Sharp.IconButton MngrPromoBtn;
@@ -12165,8 +13507,6 @@ namespace Enchante
         private System.Windows.Forms.Label MngrWalkinSalesPeriodLbl;
         private System.Windows.Forms.ComboBox MngrWalkinSalesPeriod;
         private System.Windows.Forms.Label MngrWalkinSalesTransServiceLbl;
-        private System.Windows.Forms.Label MngrWalkinSalesTransactionRepLbl;
-        private System.Windows.Forms.Button MngrWalkinSalesIncomeBtn;
         private System.Windows.Forms.Label MngrWalkinSalesCatLbl;
         private System.Windows.Forms.Label MngrWalkinSalesToLbl;
         private System.Windows.Forms.Label MngrWalkinSalesFromLbl;
@@ -12181,9 +13521,6 @@ namespace Enchante
         private System.Windows.Forms.Label MngrIndemandSelectPeriodLbl;
         private System.Windows.Forms.Label MngrIndemandServiceHistoryPeriodLbl;
         private System.Windows.Forms.ComboBox MngrIndemandServiceHistoryPeriod;
-        private System.Windows.Forms.Label MngrIndemandBestEmplLbl;
-        private System.Windows.Forms.Label MngrIndemandFrequencyServiceLbl;
-        private System.Windows.Forms.Button MngrIndemandServiceHistoryBtn;
         private System.Windows.Forms.Label MngrIndemandSelectCatLbl;
         private System.Windows.Forms.Label MngrIndemandToLbl;
         private System.Windows.Forms.Label MngrIndemandFromLbl;
@@ -12198,10 +13535,7 @@ namespace Enchante
         private System.Windows.Forms.DataGridView MngrWalkinSalesTransServiceHisDGV;
         private FontAwesome.Sharp.IconButton MngrIndemandExitBtn;
         private System.Windows.Forms.DataGridView MngrIndemandBestEmployee;
-        private System.Windows.Forms.DataGridView MngrIndemandServiceSelection;
         private System.Windows.Forms.Label MngrIndemandLbl;
-        private System.Windows.Forms.Label MngrWalkinSalesGraphLbl;
-        private System.Windows.Forms.Label MngrIndemandServiceGraphLbl;
         private FontAwesome.Sharp.IconButton RecQueWinBtn;
         private System.Windows.Forms.Panel RecQueWinPanel;
         private System.Windows.Forms.Label RecQueWinNextCustomerLbl;
@@ -12217,10 +13551,6 @@ namespace Enchante
         private Guna.UI2.WinForms.Guna2ComboBox RecQueWinGenCatComboText;
         private System.Windows.Forms.FlowLayoutPanel RecWalkinProductFlowLayoutPanel;
         private Guna.UI2.WinForms.Guna2Button RecWalkinSelectedProdVoidButton;
-        private System.Windows.Forms.Label PDImage;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox ProductImagePictureBox;
-        private FontAwesome.Sharp.IconButton CancelEdit;
-        private Guna.UI2.WinForms.Guna2GradientButton SelectImage;
         private System.Windows.Forms.DataGridView RecWalkinSelectedProdDGV;
         private System.Windows.Forms.Label RecWalkinProdLbl;
         private System.Windows.Forms.Label RecPayServiceCOProdLbl;
@@ -12293,7 +13623,6 @@ namespace Enchante
         private System.Windows.Forms.DataGridView trydata;
         private Chart MngrProductSalesGraph;
         private Chart MngrProductSalesLineGraph;
-        private System.Windows.Forms.Label MngrProductSalesTransactionRepLbl;
         private System.Windows.Forms.Label MngrProductSalesPeriodLbl;
         private System.Windows.Forms.MonthCalendar MngrProductSalesPeriodCalendar;
         private System.Windows.Forms.Label MngrProductSalesSelectedPeriodLbl;
@@ -12301,7 +13630,6 @@ namespace Enchante
         private System.Windows.Forms.DateTimePicker MngrProductSalesToDatePicker;
         private System.Windows.Forms.Label MngrProductSalesFromLbl;
         private System.Windows.Forms.Label MngrProductSalesToLbl;
-        private System.Windows.Forms.Button MngrProductSalesIncomeBtn;
         private System.Windows.Forms.Label MngrProductSalesCatLbl;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2DataGridView RecApptAcceptLateDeclineDGV;
@@ -12355,7 +13683,6 @@ namespace Enchante
         private System.Windows.Forms.Label MngrAppSalesPeriodLbl;
         private System.Windows.Forms.MonthCalendar MngrAppSalesPeriodCalendar;
         private System.Windows.Forms.DateTimePicker MngrAppSalesFromDatePicker;
-        private System.Windows.Forms.Label MngrAppSalesTransactionRepLbl;
         private System.Windows.Forms.DateTimePicker MngrAppSalesToDatePicker;
         private System.Windows.Forms.Label MngrAppSalesFromLbl;
         private System.Windows.Forms.Label MngrAppSalesToLbl;
@@ -12371,29 +13698,20 @@ namespace Enchante
         private System.Windows.Forms.DataGridViewTextBoxColumn AppointmentDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ApptClientName;
         private System.Windows.Forms.DataGridViewTextBoxColumn AppointmentTime;
-        private System.Windows.Forms.DataGridView MngrPDHistoryDGV;
         private System.Windows.Forms.Label MngrPDHistoryToLbl;
         private System.Windows.Forms.Label MngrPDHistoryFromLbl;
-        private System.Windows.Forms.Button MngrPDHistoryResetBtn;
-        private System.Windows.Forms.ComboBox MngrPDHistoryItemCatBox;
         private System.Windows.Forms.DateTimePicker MngrPDHistoryDatePickTo;
-        private System.Windows.Forms.ComboBox MngrPDHistoryStatusBox;
         private System.Windows.Forms.DateTimePicker MngrPDHistoryDatePickFrom;
         private System.Windows.Forms.Label MngrPDHistoryStatusLbl;
         private System.Windows.Forms.Label MngrPDHistoryDateLbl;
         private System.Windows.Forms.Label MngrPDHistoryItemCatLbl;
-        private System.Windows.Forms.ComboBox MngrSVHistoryServiceCatBox;
         private System.Windows.Forms.Label MngrSVHistoryServiceCatLbl;
         private System.Windows.Forms.Label MngrSVHistoryToLbl;
         private System.Windows.Forms.Label MngrSVHistoryFromLbl;
-        private System.Windows.Forms.DataGridView MngrSVHistoryDGV;
-        private System.Windows.Forms.Button MngrSVHistoryResetBtn;
-        private System.Windows.Forms.ComboBox MngrSVHistoryTransTypeBox;
         private System.Windows.Forms.DateTimePicker MngrSVHistoryDatePickTo;
         private System.Windows.Forms.Label MngrSVHistoryTransTypeLbl;
         private System.Windows.Forms.DateTimePicker MngrSVHistoryDatePickFrom;
         private System.Windows.Forms.Label MngrSVHistoryDateLbl;
-        private System.Windows.Forms.ComboBox MngrSVHistoryServiceStatusBox;
         private System.Windows.Forms.Label MngrSVHistoryServiceStatusLbl;
         private System.Windows.Forms.DataGridView MngrMemAccDGV;
         private System.Windows.Forms.Label MngrMemAccToLbl;
@@ -12409,7 +13727,6 @@ namespace Enchante
         private System.Windows.Forms.Label MngrServicesRequiredItemLbl;
         private System.Windows.Forms.Button MngrServicesDeleteBtn;
         private System.Windows.Forms.TextBox MngrServicesSelectedReqItemText;
-        private FontAwesome.Sharp.IconButton MngrServicesCancelButton;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox MngrServicesNumOfItems;
         private System.Windows.Forms.Timer PictureSlideTimer;
@@ -12417,22 +13734,18 @@ namespace Enchante
         private Guna.UI2.WinForms.Guna2TextBox RecSearchProductTextBox;
         private FontAwesome.Sharp.IconButton RecWalkinSearchProductBtn;
         private FontAwesome.Sharp.IconButton iconButton2;
-        private System.Windows.Forms.Label MngrAppSalesSelectAppLbl;
         private System.Windows.Forms.Label MngrWalkinSalesTotalRevenueLbl;
         private System.Windows.Forms.TextBox MngrWalkinSalesRevenueTextbox;
         private System.Windows.Forms.Label MngrProductSalesTotalRevLbl;
         private System.Windows.Forms.TextBox MngrProductSalesTotalRevBox;
         private System.Windows.Forms.Label MngrAppSalesTotalRevLbl;
         private System.Windows.Forms.TextBox MngrAppSalesTotalRevBox;
-        private System.Windows.Forms.ComboBox MngrAppSalesAppointmentSelect;
         private System.Windows.Forms.TextBox MngrAppSalesSelectedPeriodText;
         private System.Windows.Forms.ComboBox MngrAppSalesSelectCatBox;
         private System.Windows.Forms.DataGridView MngrAppSalesTransServiceHisDGV;
         private System.Windows.Forms.TextBox MngrAppSalesTransIDShow;
         private System.Windows.Forms.DataGridView MngrAppSalesTransRepDGV;
         private System.Windows.Forms.ComboBox MngrAppSalesPeriod;
-        private System.Windows.Forms.Label MngrAppSalesDataGraphLbl;
-        private System.Windows.Forms.DataGridView MngrProductSalesTransRepDGV;
         private System.Windows.Forms.TextBox MngrProductSalesSelectedPeriodText;
         private System.Windows.Forms.ComboBox MngrProductSalesPeriod;
         private System.Windows.Forms.ComboBox MngrProductSalesSelectCatBox;
@@ -12461,17 +13774,13 @@ namespace Enchante
         private System.Windows.Forms.DataGridViewTextBoxColumn RecStaffItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn RecStaffItemStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn RecStaffItemStatus;
-        private System.Windows.Forms.Button MngrVoucherEditBtn;
         private System.Windows.Forms.Button MngrVoucherNextBtn;
         private System.Windows.Forms.Button MngrVoucherPreviousBtn;
         private System.Windows.Forms.Label MngrVoucherCurrentRecordLbl;
-        private System.Windows.Forms.Button MngrVoucherCancelBtn;
-        private System.Windows.Forms.Button MngrVoucherUpdateBtn;
         private System.Windows.Forms.Button MngrVoucherXBtn;
         private System.Windows.Forms.Label MngrVoucherSelectedCatLbl;
         private System.Windows.Forms.Label MngrVoucherPromoCategoryLbl;
         private System.Windows.Forms.Label MngrVoucherSearchLbl;
-        private System.Windows.Forms.TextBox MngrVoucherSearchTextBox;
         private System.Windows.Forms.Label MngrVoucherAvailNumLbl;
         private System.Windows.Forms.Label MngrVoucherPromoDiscLbl;
         private System.Windows.Forms.Label MngrVoucherPromoCodeLbl;
@@ -12486,7 +13795,6 @@ namespace Enchante
         private System.Windows.Forms.TextBox MngrVoucherSelectCatTextBox;
         private System.Windows.Forms.TextBox MngrVoucherAvailNumTextBox;
         private System.Windows.Forms.TextBox MngrVoucherPromoDiscTextBox;
-        private System.Windows.Forms.Button MngrVoucherInsertBtn;
         private System.Windows.Forms.TextBox MngrVoucherPromoCodeTextBox;
         private System.Windows.Forms.Panel RecBtnHolderPanel;
         private System.Windows.Forms.FlowLayoutPanel RecQueBtnFlowPanel;
@@ -12663,6 +13971,123 @@ namespace Enchante
         private Guna.UI2.WinForms.Guna2Button ApptServicePreviousBtn;
         private Guna.UI2.WinForms.Guna2Button ApptServiceNextBtn;
         private Guna.UI2.WinForms.Guna2Button ApptServicePageLbl;
+        private System.Windows.Forms.Label MngrServicesSearchLbl;
+        private System.Windows.Forms.Button MngrServicesNextBtn;
+        private System.Windows.Forms.Button MngrServicesPreviousBtn;
+        private System.Windows.Forms.Label MngrServicesCurrentRecordLbl;
+        private System.Windows.Forms.Panel panel1;
+        private FontAwesome.Sharp.IconButton MngrServicesCancelButton;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label MngrInventoryProductsCurrentRecordLbl;
+        private System.Windows.Forms.Button MngrInventoryProductsPreviousBtn;
+        private System.Windows.Forms.Label MngrInventoryProductsSearchLbl;
+        private System.Windows.Forms.Button MngrInventoryProductsNextBtn;
+        private Guna.UI2.WinForms.Guna2TextBox MngrInventoryProductsSearchTextBox;
+        private System.Windows.Forms.Panel panel4;
+        private FontAwesome.Sharp.IconButton CancelEdit;
+        private FontAwesome.Sharp.IconButton MngrInventoryProductsUpdateBtn;
+        private Guna.UI2.WinForms.Guna2GradientButton SelectImage;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox ProductImagePictureBox;
+        private System.Windows.Forms.Label PDImage;
+        private System.Windows.Forms.Label MngrInventoryProductsCatLbl;
+        private System.Windows.Forms.ComboBox MngrInventoryProductsStatusComboText;
+        private System.Windows.Forms.Label MngrInventoryProductsTypeLbl;
+        private System.Windows.Forms.Label MngrInventoryProductsIDLbl;
+        private System.Windows.Forms.TextBox MngrInventoryProductsNameText;
+        private System.Windows.Forms.TextBox MngrInventoryProductsIDText;
+        private System.Windows.Forms.Label MngrInventoryProductsNameLbl;
+        private System.Windows.Forms.ComboBox MngrInventoryProductsTypeComboText;
+        private System.Windows.Forms.Label MngrInventoryProductsStatusLbl;
+        private System.Windows.Forms.Label MngrInventoryProductsPriceLbl;
+        private System.Windows.Forms.TextBox MngrInventoryProductsStockText;
+        private System.Windows.Forms.TextBox MngrInventoryProductsPriceText;
+        private System.Windows.Forms.Label MngrInventoryProductsStockLbl;
+        private System.Windows.Forms.ComboBox MngrInventoryProductsCatComboText;
+        private FontAwesome.Sharp.IconButton MngrInventoryProductsInsertBtn;
+        private FontAwesome.Sharp.IconButton MngrInventoryProductsInfoEditBtn;
+        private Guna.UI2.WinForms.Guna2TextBox MngrServicesSearchTextBox;
+        private Guna.UI2.WinForms.Guna2TextBox MngrVoucherSearchTextBox;
+        private System.Windows.Forms.Panel panel5;
+        private FontAwesome.Sharp.IconButton MngrVoucherUpdateBtn;
+        private FontAwesome.Sharp.IconButton MngrVoucherInsertBtn;
+        private FontAwesome.Sharp.IconButton MngrVoucherCancelBtn;
+        private FontAwesome.Sharp.IconButton MngrVoucherEditBtn;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel8;
+        private Guna.UI2.WinForms.Guna2TextBox MngrWalkinSalesSearchTextBox;
+        private System.Windows.Forms.Label MngrWalkinSalesSearchLbl;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.DataGridView MngrWalkinSalesTransRepDGVTwo;
+        private System.Windows.Forms.Button MngrAppSalesPreviousBtn;
+        private Guna.UI2.WinForms.Guna2TextBox MngrAppSalesSearchTextBox;
+        private System.Windows.Forms.Label MngrAppSalesCurrentRecordLbl;
+        private System.Windows.Forms.Button MngrAppSalesNextBtn;
+        private System.Windows.Forms.Label MngrAppSalesSearchLbl;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Button MngrWalkinSalesIncomeBtn;
+        private System.Windows.Forms.DataGridView MngrAppSalesTransRepDGVTwo;
+        private System.Windows.Forms.ComboBox MngrSVHistoryTransTypeBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.ComboBox MngrSVHistoryServiceCatBox;
+        private System.Windows.Forms.ComboBox MngrSVHistoryServiceStatusBox;
+        private System.Windows.Forms.Button MngrSVHistoryResetBtn;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.DataGridView MngrSVHistoryDGV;
+        private Guna.UI2.WinForms.Guna2TextBox MngrSVHistorySearchTextBox;
+        private System.Windows.Forms.Label MngrSVHistorySearchLbl;
+        private System.Windows.Forms.Button MngrSVHistoryPreviousBtn;
+        private System.Windows.Forms.Label MngrSVHistoryCurrentRecordLbl;
+        private System.Windows.Forms.Button MngrSVHistoryNextBtn;
+        private System.Windows.Forms.DataGridView MngrSVHistoryDGVTwo;
+        private System.Windows.Forms.ComboBox MngrPDHistoryStatusBox;
+        private System.Windows.Forms.Button MngrPDHistoryPreviousBtn;
+        private System.Windows.Forms.DataGridView MngrPDHistoryDGV;
+        private Guna.UI2.WinForms.Guna2TextBox MngrPDSearchTextBox;
+        private System.Windows.Forms.Label MngrPDCurrentRecordLbl;
+        private System.Windows.Forms.Button MngrPDHistoryNextBtn;
+        private System.Windows.Forms.Label MngrPDHistorySearchLbl;
+        private System.Windows.Forms.Button MngrPDHistoryResetBtn;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox MngrPDHistoryItemCatBox;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.DataGridView MngrPDHistoryDGVTwo;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Button MngrProductSalesIncomeBtn;
+        private Guna.UI2.WinForms.Guna2TextBox MngrProductSalesSearchTextBox;
+        private System.Windows.Forms.Label MngrProductSalesSearchLbl;
+        private System.Windows.Forms.Button MngrProductSalesPreviousBtn;
+        private System.Windows.Forms.Label MngrProductSalesCurrentRecordLbl;
+        private System.Windows.Forms.Button MngrProductSalesNextBtn;
+        private System.Windows.Forms.DataGridView MngrProductSalesTransRepDGVTwo;
+        private System.Windows.Forms.DataGridView MngrProductSalesTransRepDGV;
+        private FontAwesome.Sharp.IconButton MngrServicesUpdateInfoBtn;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.Panel panel23;
+        private System.Windows.Forms.Button MngrIndemandServiceHistoryBtn;
+        private System.Windows.Forms.Button MngrWalkinSalesPreviousBtn;
+        private System.Windows.Forms.Label MngrWalkinSalesCurrentRecordLbl;
+        private System.Windows.Forms.Button MngrWalkinSalesNextBtn;
+        private System.Windows.Forms.Button MngrIndemandPreviousBtn;
+        private System.Windows.Forms.DataGridView MngrIndemandServiceSelection;
+        private System.Windows.Forms.Label MngrIndemandCurrentRecordLbl;
+        private Guna.UI2.WinForms.Guna2TextBox MngrIndemandSearchTextBox;
+        private System.Windows.Forms.Button MngrIndemandNextBtn;
+        private System.Windows.Forms.Label MngrIndemandSearchLbl;
+        private System.Windows.Forms.DataGridView MngrIndemandServiceSelectionTwo;
+        private Guna.UI2.WinForms.Guna2TextBox AdminSearchTextBox;
+        private System.Windows.Forms.Label AdminSearchLbl;
+        private System.Windows.Forms.Button AdminPreviousBtn;
+        private System.Windows.Forms.Label AdminCurrentRecordLbl;
+        private System.Windows.Forms.Button AdminNextBtn;
     }
 }
 
