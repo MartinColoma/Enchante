@@ -489,6 +489,7 @@ namespace Enchante
         private void AdminHomePanelReset()
         {
             ParentPanelShow.PanelShow(EnchanteAdminPage);
+            AdminEmplAccDataColor();
 
         }
 
@@ -660,12 +661,14 @@ namespace Enchante
         }
         private void LoginEmailAddText_TextChanged(object sender, EventArgs e)
         {
-
+            LoginEmailAddErrorLbl.Visible = false;
+            LoginPassErrorLbl.Visible = false;
         }
 
         private void LoginPassText_TextChanged(object sender, EventArgs e)
         {
-
+            LoginEmailAddErrorLbl.Visible = false;
+            LoginPassErrorLbl.Visible = false;
         }
         private void LoginEmailAddText_KeyDown(object sender, KeyEventArgs e)
         {
@@ -680,10 +683,12 @@ namespace Enchante
             if (LoginEmailAddText.Text == "Admin" && LoginPassText.Text == "Admin123")
             {
                 //Test Admin
-                MessageBox.Show("Welcome back, Admin.", "Login Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Welcome back, Admin.", "Login Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 AdminHomePanelReset();
                 AdminNameLbl.Text = "Admin Tester";
                 AdminIDNumLbl.Text = "AT-0000-0000";
+                AdminEmplTypeLbl.Text = "Admin";
+
                 PopulateUserInfoDataGrid();
                 logincredclear();
                 return;
@@ -711,7 +716,7 @@ namespace Enchante
             else if (LoginEmailAddText.Text == "Manager" && LoginPassText.Text == "Manager123")
             {
                 //Test Mngr
-                MessageBox.Show("Welcome back, Manager.", "Login Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Welcome back, Manager.", "Login Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 MngrHomePanelReset();
                 MngrNameLbl.Text = "Manager Tester";
                 MngrIDNumLbl.Text = "MT-0000-0000";
@@ -800,12 +805,38 @@ namespace Enchante
                 string password = LoginPassText.Text;
                 string passchecker = HashHelper.HashString(password); // Assuming "enteredPassword" is supposed to be "LoginPassText"
 
-                try //admin, staff, reception and manager login
+                try
                 {
                     connection.Open();
 
-                    string queryApproved = "SELECT FirstName, LastName, EmployeeID, EmployeeType, EmployeeCategory, HashedPass FROM systemusers WHERE Email = @email";
+                    string queryApproved = @"SELECT 
+                                                FirstName, 
+                                                LastName, 
+                                                EmployeeID, 
+                                                EmployeeType, 
+                                                EmployeeCategory, 
+                                                HashedPass
+                                            FROM 
+                                                systemusers 
+                                            WHERE 
+                                                Email = @email";
+                    string queryCheckEmail = "SELECT COUNT(*) FROM systemusers WHERE Email = @email";
 
+                    using (MySqlCommand cmdCheckEmail = new MySqlCommand(queryCheckEmail, connection))
+                    {
+                        cmdCheckEmail.Parameters.AddWithValue("@email", email);
+
+                        int emailCount = Convert.ToInt32(cmdCheckEmail.ExecuteScalar());
+
+                        if (emailCount == 0)
+                        {
+                            // Email does not exist in the database
+                            LoginEmailAddErrorLbl.Visible = true;
+                            LoginPassErrorLbl.Visible = false;
+                            LoginEmailAddErrorLbl.Text = "Email Address Does Not Match Any Existing Email";
+                            return;
+                        }
+                    }
                     using (MySqlCommand cmdApproved = new MySqlCommand(queryApproved, connection))
                     {
                         cmdApproved.Parameters.AddWithValue("@email", email);
@@ -818,43 +849,32 @@ namespace Enchante
                                 string lastname = readerApproved["LastName"].ToString();
                                 string ID = readerApproved["EmployeeID"].ToString();
                                 string membertype = readerApproved["EmployeeType"].ToString();
-                                string category = readerApproved["EmployeeCategory"].ToString();
+                                string hashedPasswordFromDB = readerApproved["HashedPass"].ToString();
+                                bool passwordMatches = hashedPasswordFromDB.Equals(passchecker); // Check if the entered password matches
 
-                                if (membertype == "Admin")
+
+                                if (!passwordMatches)
                                 {
-                                    // Retrieve the HashedPass column
-                                    string hashedPasswordFromDB = readerApproved["HashedPass"].ToString();
-
-                                    // Check if the entered password matches
-                                    bool passwordMatches = hashedPasswordFromDB.Equals(passchecker);
-
-                                    if (passwordMatches)
+                                    LoginEmailAddErrorLbl.Visible = false;
+                                    LoginPassErrorLbl.Visible = true;
+                                    LoginPassErrorLbl.Text = "Incorrect Password";
+                                    return;
+                                }
+                                else
+                                {
+                                    // Both email and password are correct
+                                    if (membertype == "Admin")
                                     {
                                         MessageBox.Show($"Welcome back, Admin {name}.", "System User Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         AdminNameLbl.Text = name + " " + lastname;
                                         AdminIDNumLbl.Text = ID;
+                                        AdminEmplTypeLbl.Text = membertype;
+
                                         AdminHomePanelReset();
                                         PopulateUserInfoDataGrid();
                                         logincredclear();
-
                                     }
-                                    else
-                                    {
-                                        LoginEmailAddErrorLbl.Visible = false;
-                                        LoginPassErrorLbl.Visible = true;
-                                        LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
-                                    }
-                                    return;
-                                }
-                                else if (membertype == "Manager")
-                                {
-                                    // Retrieve the HashedPass column
-                                    string hashedPasswordFromDB = readerApproved["HashedPass"].ToString();
-
-                                    // Check if the entered password matches
-                                    bool passwordMatches = hashedPasswordFromDB.Equals(passchecker);
-
-                                    if (passwordMatches)
+                                    else if (membertype == "Manager")
                                     {
                                         MessageBox.Show($"Welcome back, Manager {name}.", "System User Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         MngrNameLbl.Text = name + " " + lastname;
@@ -863,25 +883,8 @@ namespace Enchante
 
                                         MngrHomePanelReset();
                                         logincredclear();
-
                                     }
-                                    else
-                                    {
-                                        LoginEmailAddErrorLbl.Visible = false;
-                                        LoginPassErrorLbl.Visible = true;
-                                        LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
-                                    }
-                                    return;
-                                }
-                                else if (membertype == "Receptionist")
-                                {
-                                    // Retrieve the HashedPass column
-                                    string hashedPasswordFromDB = readerApproved["HashedPass"].ToString();
-
-                                    // Check if the entered password matches
-                                    bool passwordMatches = hashedPasswordFromDB.Equals(passchecker);
-
-                                    if (passwordMatches)
+                                    else if (membertype == "Receptionist")
                                     {
                                         MessageBox.Show($"Welcome back, Receptionist {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         RecNameLbl.Text = name + " " + lastname;
@@ -892,24 +895,14 @@ namespace Enchante
                                         RecWalkinBdayMaxDate();
                                         RecApptBdayMaxDate();
                                         logincredclear();
-
                                     }
-                                    else
-                                    {
-                                        LoginEmailAddErrorLbl.Visible = false;
-                                        LoginPassErrorLbl.Visible = true;
-                                        LoginPassErrorLbl.Text = "INCORRECT PASSWORD";
-                                    }
-                                    return;
                                 }
                             }
-
                         }
-
-
                     }
-
                 }
+                
+
                 catch (Exception ex)
                 {
                     string errorMessage = "An error occurred: " + ex.Message + "\n\n" + ex.StackTrace;
@@ -968,7 +961,6 @@ namespace Enchante
                 RecApptAcceptLateDeclineDGV.Rows.Clear();
                 membercategory = "";
 
-                AdminUserAccPanel.Visible = false;
 
                 RecWalkinTransactionClear();
                 WalkinTabs.SelectedIndex = 0;
@@ -2958,6 +2950,7 @@ namespace Enchante
             string Cashiertoday = cashierrcurrentDate.ToString("MMMM dd, yyyy dddd hh:mm tt");
             RecDateTimeText.Text = Cashiertoday;
             MngrDateTimeText.Text = Cashiertoday;
+            AdminDateTimeText.Text = Cashiertoday;
         }
 
         private void RecWalkinCashBox_TextChanged(object sender, EventArgs e)
@@ -13326,18 +13319,7 @@ namespace Enchante
             LogoutChecker();
 
         }
-        private void AdminAccUserBtn_Click(object sender, EventArgs e)
-        {
-            if (AdminUserAccPanel.Visible == false)
-            {
-                AdminUserAccPanel.Visible = true;
 
-            }
-            else
-            {
-                AdminUserAccPanel.Visible = false;
-            }
-        }
 
         private void AdminBdayPicker_ValueChanged(object sender, EventArgs e)
         {
@@ -13441,7 +13423,7 @@ namespace Enchante
                 AdminCreateAccBtn.Visible = false;
                 AdminUpdateAccBtn.Visible = true;
                 AdminCancelEditBtn.Visible = true;
-
+                AdminCreateAccForm.Visible = true;
             }
             else
             {
@@ -13709,6 +13691,7 @@ namespace Enchante
             AdminEmplCatLvlComboText.SelectedItem = null;
             AdminGenderComboText.SelectedItem = null;
             AdminBdayPicker.Value = DateTime.Now;
+            AdminCreateAccForm.Visible = false;
         }
 
 
@@ -13898,11 +13881,13 @@ namespace Enchante
                             AdminAccountTable.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
                             AdminAccountTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
                             ApplyRowAlternatingColors(AdminAccountTable);
-
                             int currentBatch = totalRows > 0 ? 1 : 0;
                             int totalBatches = (int)Math.Ceiling((double)totalRows / 10);
 
                             AdminCurrentRecordLbl.Text = $"{currentBatch} of {totalBatches}";
+                            AdminAccountTable.Columns["HashedPass"].Visible = false;
+                            AdminAccountTable.Columns["HashedFixedSalt"].Visible = false;
+                            AdminAccountTable.Columns["HashedPerUser"].Visible = false;
 
                         }
                     }
@@ -16497,13 +16482,27 @@ namespace Enchante
 
         private void MngrRecOverrideBtn_Click(object sender, EventArgs e)
         {
-            ReceptionHomePanelReset();
-            ExitFunction();
-            RecNameLbl.Text = MngrNameLbl.Text;
-            RecIDNumLbl.Text = MngrIDNumLbl.Text;
-            RecEmplTypeLbl.Text = MngrEmplTypeLbl.Text;
-            ReceptionLogoutBtn.Visible = false;
-            RecOverrideBackBtn.Visible = true;
+            if (MngrEmplTypeLbl.Text == "Manager")
+            {
+                ReceptionHomePanelReset();
+                ExitFunction();
+                RecNameLbl.Text = MngrNameLbl.Text;
+                RecIDNumLbl.Text = MngrIDNumLbl.Text;
+                RecEmplTypeLbl.Text = MngrEmplTypeLbl.Text;
+                ReceptionLogoutBtn.Visible = false;
+                RecOverrideBackBtn.Visible = true;
+            }
+            else if (MngrEmplTypeLbl.Text == "Admin")
+            {
+                ReceptionHomePanelReset();
+                ExitFunction();
+                RecNameLbl.Text = MngrNameLbl.Text;
+                RecIDNumLbl.Text = MngrIDNumLbl.Text;
+                RecEmplTypeLbl.Text = MngrEmplTypeLbl.Text;
+                ReceptionLogoutBtn.Visible = false;
+                RecOverrideBackBtn.Visible = true;
+            }
+
         }
 
         private void MngrServiceDataColor()
@@ -16780,7 +16779,15 @@ namespace Enchante
 
         private void RecOverrideBackBtn_Click(object sender, EventArgs e)
         {
-            MngrHomePanelReset();
+            if(RecEmplTypeLbl.Text == "Admin")
+            {
+                AdminHomePanelReset();
+            }
+            else if (RecEmplTypeLbl.Text == "Manager")
+            {
+                MngrHomePanelReset();
+            }
+
             RecNameLbl.Text = "";
             RecIDNumLbl.Text = "";
             RecEmplTypeLbl.Text = "";
@@ -18130,6 +18137,73 @@ namespace Enchante
 
         }
 
+        private void AdminOpenCreateAccFormBtn_Click(object sender, EventArgs e)
+        {
+            if (AdminCreateAccForm.Visible)
+            {
+                AdminCreateAccForm.Visible = false;
+            }
+            else
+            {
+                AdminCreateAccForm.Visible = true;
+            }
+        }
 
+        private void AdminCreateAccExitBtn_Click(object sender, EventArgs e)
+        {
+            if (AdminCreateAccForm.Visible)
+            {
+                AdminCreateAccForm.Visible = false;
+            }
+            else
+            {
+                AdminCreateAccForm.Visible = true;
+            }
+        }
+
+        private void AdminEmplAccBtn_Click(object sender, EventArgs e)
+        {
+            AdminEmplAccDataColor();
+            PopulateUserInfoDataGrid();
+        }
+        private void AdminEmplAccDataColor()
+        {
+
+            AdminEmplAccBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            AdminEmplAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            AdminEmplAccBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+
+            //MngrProductsDataBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            //MngrProductsDataBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            //MngrProductsDataBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+
+
+        }
+        private void AdminMngrOverrideBtn_Click(object sender, EventArgs e)
+        {
+            MngrHomePanelReset();
+            ExitFunction();
+            MngrNameLbl.Text = AdminNameLbl.Text;
+            MngrIDNumLbl.Text = AdminIDNumLbl.Text;
+            MngrEmplTypeLbl.Text = AdminEmplTypeLbl.Text;
+            MngrSignOutBtn.Visible = false;
+            MngrOverrideBackBtn.Visible = true;
+        }
+
+        private void AdminRecOverrideBtn_Click(object sender, EventArgs e)
+        {
+            ReceptionHomePanelReset();
+            ExitFunction();
+            RecNameLbl.Text = AdminNameLbl.Text;
+            RecIDNumLbl.Text = AdminIDNumLbl.Text;
+            RecEmplTypeLbl.Text = AdminEmplTypeLbl.Text;
+            ReceptionLogoutBtn.Visible = false;
+            RecOverrideBackBtn.Visible = true;
+        }
+
+        private void MngrOverrideBackBtn_Click(object sender, EventArgs e)
+        {
+            AdminHomePanelReset();
+        }
     }
 }
