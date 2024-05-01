@@ -294,5 +294,68 @@
   <ItemGroup>
     <None Include="Resources\Enchante GCash QR.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Enchante Logo 275x100 Green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Acne treatment-bro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Acne treatment-pana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Beauty salon-amico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Beauty salon-pana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Beauty salon-rafiki.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Curly hair-bro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hair-pulling disorder.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hair-pulling disorder-cuate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Jade roller-bro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Makeup artist-bro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Massage therapist-amico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Massage therapist-bro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rhinoplasty-bro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rhinoplasty-pana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Self confidence-amico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Team spirit-pana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Waterproof makeup-pana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\women in hair salon-amico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\women in hair salon-bro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3 in One.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -92,9 +92,18 @@ namespace Enchante
 
         //picture slide landing page
         private int currentIndex = 0;
-        private System.Drawing.Image[] images = { Properties.Resources.Enchante_Bldg,  Properties.Resources.Hair,
-                                    Properties.Resources.Olga_Collection, Properties.Resources.download,
-                                    Properties.Resources.Green___Gold_Collection___Salon_Equipment_Centre}; // Replace with your resource names
+        private System.Drawing.Image[] images = { 
+            Properties.Resources.Acne_treatment_bro,  Properties.Resources.Acne_treatment_pana,
+            Properties.Resources.Beauty_salon_amico, Properties.Resources.Beauty_salon_pana,
+            Properties.Resources.Beauty_salon_rafiki, Properties.Resources.Curly_hair_bro,
+            Properties.Resources.Hair_pulling_disorder_cuate, Properties.Resources.Jade_roller_bro,
+            Properties.Resources.Makeup_artist_bro, Properties.Resources.Massage_therapist_amico,
+            Properties.Resources.Massage_therapist_bro, Properties.Resources.Rhinoplasty_bro,
+            Properties.Resources.Rhinoplasty_pana, Properties.Resources.Self_confidence_amico,
+            Properties.Resources.Team_spirit_pana, Properties.Resources.Waterproof_makeup_pana,
+            Properties.Resources.women_in_hair_salon_amico, Properties.Resources.women_in_hair_salon_bro,
+            Properties.Resources._3_in_One
+        }; 
 
         // public List<AvailableStaff> filteredbyschedstaff;
         // public Guna.UI2.WinForms.Guna2ToggleSwitch AvailableStaffActiveToggleSwitch;
@@ -501,22 +510,82 @@ namespace Enchante
 
             }
         }
+        private bool isTimerPaused = false;
+
+        private void EDPPrevBtn_Click(object sender, EventArgs e)
+        {
+            // Stop the timer
+            PictureSlideTimer.Stop();
+
+            // Decrement the index, looping to the end if necessary
+            currentIndex = (currentIndex - 1 + images.Length) % images.Length;
+
+            // Display the previous image
+            DisplayCurrentImage();
+
+            // Start the timer after 5 seconds
+            isTimerPaused = true;
+            Timer pauseTimer = new Timer();
+            pauseTimer.Interval = 5000; // 5 seconds
+            pauseTimer.Tick += (s, args) => // Changed 'sender' to 's'
+            {
+                pauseTimer.Stop();
+                isTimerPaused = false;
+                PictureSlideTimer.Start();
+            };
+            pauseTimer.Start();
+        }
+
+        private void EDPNextBtn_Click(object sender, EventArgs e)
+        {
+            // Stop the timer
+            PictureSlideTimer.Stop();
+
+            // Increment the index, looping back to the beginning if necessary
+            currentIndex = (currentIndex + 1) % images.Length;
+
+            // Display the next image
+            DisplayCurrentImage();
+
+            // Start the timer after 5 seconds
+            isTimerPaused = true;
+            Timer pauseTimer = new Timer();
+            pauseTimer.Interval = 5000; // 5 seconds
+            pauseTimer.Tick += (s, args) => // Changed 'sender' to 's'
+            {
+                pauseTimer.Stop();
+                isTimerPaused = false;
+                PictureSlideTimer.Start();
+            };
+            pauseTimer.Start();
+        }
+
+
+        private void DisplayCurrentImage()
+        {
+            System.Drawing.Image image = images[currentIndex];
+            EDP1.Image = image;
+        }
+
         private void PictureSlideTimer_Tick(object sender, EventArgs e)
         {
-
-            DisplayNextImage();
-
+            if (!isTimerPaused)
+            {
+                // Display the next image if the timer is not paused
+                DisplayNextImage();
+            }
         }
 
         private void DisplayNextImage()
         {
-            // Load the next image
-            System.Drawing.Image image = images[currentIndex];
-            EDP1.Image = image;
-
             // Increment the index, looping back to the beginning if necessary
             currentIndex = (currentIndex + 1) % images.Length;
+
+            // Load the next image
+            DisplayCurrentImage();
         }
+
+
         private void ScrollToCoordinates(int x, int y)
         {
             // Set the AutoScrollPosition to the desired coordinates
@@ -529,14 +598,28 @@ namespace Enchante
             if (LoginPassText.UseSystemPasswordChar == true)
             {
                 LoginPassText.UseSystemPasswordChar = false;
+                LoginPassText.PasswordChar = '\0';
+
                 ShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
             }
             else if (LoginPassText.UseSystemPasswordChar == false)
             {
                 LoginPassText.UseSystemPasswordChar = true;
+                LoginPassText.PasswordChar = '●';
                 ShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
             }
+            
+            //if (LoginPassText.PasswordChar == '*')
+            //{
+            //    LoginPassText.PasswordChar = '\0';
+            //}
+            //else
+            //{
+            //    LoginPassText.PasswordChar = '*';
+            //}
         }
+
+        
         private void ShowHidePassBtn_MouseHover(object sender, EventArgs e)
         {
             if (LoginPassText.UseSystemPasswordChar == true)
@@ -575,9 +658,18 @@ namespace Enchante
             }
 
         }
+        private void LoginEmailAddText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoginPassText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
         private void LoginEmailAddText_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Down)
+            if (e.KeyCode == (Keys.Down) || e.KeyCode == (Keys.Tab))
             {
                 LoginPassText.Focus();
             }
@@ -1756,7 +1848,7 @@ namespace Enchante
         }
 
 
-        private void QueueNumReceiptGenerator() // to be discarded
+        private void RecWalkinQueTicketGenerator() // to be discarded
         {
             DateTime currentDate = RecDateTimePicker.Value;
             string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
@@ -5884,6 +5976,7 @@ namespace Enchante
                                     RecApptAcceptLateDeclineDGV.Rows.Clear();
                                     RecCancelServicesDGV.Rows.Clear();
                                     InitializeAppointmentDataGrid();
+                                    RecQueStartBtn_Click(sender, EventArgs.Empty);
 
                                 }
                                 else
@@ -14136,6 +14229,7 @@ namespace Enchante
             {
                 DataGridViewRow selectedRow = RecApptAcceptLateDeclineDGV.Rows[e.RowIndex];
                 string transactionNumber = selectedRow.Cells["TransactionID"].Value.ToString();
+                RecApptConfirmTransNumText.Text = transactionNumber;
                 string serviceHistoryQuery = "SELECT TransactionNumber, ServiceCategory, ServiceID, SelectedService " +
                                              "FROM servicehistory " +
                                              "WHERE TransactionNumber = @transactionNumber AND (ServiceStatus = 'Pending' OR ServiceStatus = 'PendingPaid')";
@@ -18031,14 +18125,11 @@ namespace Enchante
             WalkinServicePreviousButton_Click(sender, e);
         }
 
-        private void LoginPassText_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void RecCancelServicesDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
+
+
     }
 }
