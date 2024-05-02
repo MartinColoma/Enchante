@@ -47,6 +47,7 @@ using Mysqlx.Crud;
 using System.Web.Util;
 using System.Web.UI;
 using System.Runtime.Remoting.Messaging;
+using iTextSharp.text.pdf.parser;
 
 namespace Enchante
 {
@@ -688,6 +689,7 @@ namespace Enchante
                 AdminNameLbl.Text = "Admin Tester";
                 AdminIDNumLbl.Text = "AT-0000-0000";
                 AdminEmplTypeLbl.Text = "Admin";
+                PictureSlideTimer.Stop();
 
                 PopulateUserInfoDataGrid();
                 logincredclear();
@@ -721,6 +723,8 @@ namespace Enchante
                 MngrNameLbl.Text = "Manager Tester";
                 MngrIDNumLbl.Text = "MT-0000-0000";
                 MngrEmplTypeLbl.Text = "Manager";
+                PictureSlideTimer.Stop();
+
                 logincredclear();
 
 
@@ -754,6 +758,8 @@ namespace Enchante
 
                 RecWalkinBdayMaxDate();
                 RecApptBdayMaxDate();
+                PictureSlideTimer.Stop();
+
                 logincredclear();
 
                 return;
@@ -871,7 +877,9 @@ namespace Enchante
                                         AdminEmplTypeLbl.Text = membertype;
 
                                         AdminHomePanelReset();
-                                        PopulateUserInfoDataGrid();
+                                        PopulateUserInfoDataGrid(); 
+                                        PictureSlideTimer.Stop();
+
                                         logincredclear();
                                     }
                                     else if (membertype == "Manager")
@@ -882,6 +890,8 @@ namespace Enchante
                                         MngrEmplTypeLbl.Text = membertype;
 
                                         MngrHomePanelReset();
+                                        PictureSlideTimer.Stop();
+
                                         logincredclear();
                                     }
                                     else if (membertype == "Receptionist")
@@ -894,6 +904,8 @@ namespace Enchante
                                         ReceptionHomePanelReset();
                                         RecWalkinBdayMaxDate();
                                         RecApptBdayMaxDate();
+                                        PictureSlideTimer.Stop();
+
                                         logincredclear();
                                     }
                                 }
@@ -968,7 +980,7 @@ namespace Enchante
                 ApptTabs.SelectedIndex = 0;
                 RecShopProdTransactionClear();
 
-
+                PictureSlideTimer.Start();
                 RecTransTimer.Stop();
                 RecQueTimer.Stop();
             }
@@ -1674,7 +1686,7 @@ namespace Enchante
 
                 using (MySqlCommand command = connection.CreateCommand())
                 {
-                    string query = "SELECT MAX(CAST(QueNumber AS UNSIGNED)) FROM servicehistory WHERE AppointmentDate = @AppointmentDate AND ServiceCategory = @ServiceCategory";
+                    string query = "SELECT MAX(CAST(QueNumber AS UNSIGNED)) FROM servicehistory WHERE AppointmentDate = @AppointmentDate";
                     command.CommandText = query;
 
                     command.Parameters.AddWithValue("@AppointmentDate", appointmentDate);
@@ -1806,6 +1818,7 @@ namespace Enchante
                 RecWalkinOrderProdHistoryDB(RecWalkinSelectedProdDGV);
                 RecWalkinServiceHistoryDB(RecWalkinSelectedServiceDGV); //service history db
                 ReceptionistWalk_in_AppointmentDB(); //walk-in transaction db
+                RecWalkinQueTicketGenerator();
                 RecWalkinTransactNumRefresh();
                 WalkinTabs.SelectedIndex = 0;
                 RecWalkinTransactionClear();
@@ -1846,16 +1859,15 @@ namespace Enchante
             string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
             string timePrinted = currentDate.ToString("hh:mm tt");
             string timePrintedFile = currentDate.ToString("hh-mm-ss");
-            string transactNum = RecPayServiceWalkinTransactNumLbl.Text;
-            string clientName = RecPayServiceWalkinClientNameLbl.Text;
+            string transactNum = RecWalkinTransNumText.Text;
+            string clientName = $"{RecWalkinFNameText.Text} {RecWalkinLNameText.Text}";
+            string clientCPNum = RecWalkinCPNumText.Text;
             string receptionName = RecNameLbl.Text;
-            string legal = "Thank you for trusting Enchanté Salon for your beauty needs." +
-                " This receipt will serve as your sales invoice of any services done in Enchanté Salon." +
-                " Any concerns about your services please ask and show this receipt in the frontdesk of Enchanté Salon.";
-            // Increment the file name
+            string num = RecWalkinSelectedServiceDGV.Rows[0].Cells["QueNumber"].Value?.ToString();
+
 
             // Generate a unique filename for the PDF
-            string fileName = $"Enchanté-Receipt-{transactNum}-{timePrintedFile}.pdf";
+            string fileName = $"Enchanté-QueueTicket-{transactNum}-{timePrintedFile}.pdf";
 
             // Create a SaveFileDialog to choose the save location
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -1866,8 +1878,7 @@ namespace Enchante
             {
                 string filePath = saveFileDialog.FileName;
 
-                // Create a new document with custom page size (8.5"x4.25" in landscape mode)
-                Document doc = new Document(new iTextSharp.text.Rectangle(Utilities.MillimetersToPoints(133f), Utilities.MillimetersToPoints(203f)));
+                Document doc = new Document(new iTextSharp.text.Rectangle(Utilities.MillimetersToPoints(127F), Utilities.MillimetersToPoints(165.1f)));
 
                 try
                 {
@@ -1877,64 +1888,51 @@ namespace Enchante
                     // Open the document for writing
                     doc.Open();
 
-                    //string imagePath = "C:\\Users\\Pepper\\source\\repos\\Enchante\\Resources\\Enchante Logo (200 x 200 px) (1).png"; // Replace with the path to your logo image
                     // Load the image from project resources
-                    //if (File.Exists(imagePath))
-                    //{
-                    //    //iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imagePath);
-                    //}
+                    Bitmap imagepath = Properties.Resources.Enchante_Logo__200_x_200_px__Green;
+                    iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imagepath, System.Drawing.Imaging.ImageFormat.Png);
+                    logo.Alignment = Element.ALIGN_CENTER;
+                    logo.ScaleAbsolute(100f, 100f);
+                    doc.Add(logo);
 
-                    // Load the image from project resources
-                    byte[] imageBytes = GetImageBytesFromResource("Enchante.Resources.Enchante Logo (200 x 200 px) (1).png");
-
-                    if (imageBytes != null)
-                    {
-                        iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imageBytes);
-                        logo.ScaleAbsolute(50f, 50f);
-                        logo.Alignment = Element.ALIGN_CENTER;
-                        doc.Add(logo);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error loading image from resources.", "Manager Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    };
-
-                    iTextSharp.text.Font headerFont = FontFactory.GetFont("Courier", 16, iTextSharp.text.Font.BOLD);
+                    iTextSharp.text.Font headerFont = FontFactory.GetFont("Courier", 25, iTextSharp.text.Font.BOLD);
                     iTextSharp.text.Font boldfont = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.BOLD);
                     iTextSharp.text.Font font = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.NORMAL);
 
                     // Create a centered alignment for text
                     iTextSharp.text.Paragraph centerAligned = new Paragraph();
                     centerAligned.Alignment = Element.ALIGN_CENTER;
-
-                    // Add centered content to the centerAligned Paragraph
-                    centerAligned.Add(new Chunk("Enchanté Salon", headerFont));
-                    centerAligned.Add(new Chunk("\n69th flr. Enchanté Bldg. Ortigas Ave. Ext.\nManggahan, Pasig City 1611 Philippines", font));
-                    centerAligned.Add(new Chunk("\nTel. No.: (1101) 111-1010", font));
-                    centerAligned.Add(new Chunk($"\nDate: {datetoday} Time: {timePrinted}", font));
-
-                    // Add the centered content to the document
+                    centerAligned.Add(new Chunk("Your number is:", font));
+                    centerAligned.Add(new Chunk($"\n\n{num}", headerFont));
                     doc.Add(centerAligned);
+
+                    //// Draw a broken line separator
+                    //PdfContentByte cb = writer.DirectContent;
+                    //cb.SetLineDash(5, 5); // Set dash pattern for the line
+                    //cb.MoveTo(doc.LeftMargin, doc.Top - 50); // Start drawing from left margin, 50 points below the top
+                    //cb.LineTo(doc.PageSize.Width - doc.RightMargin, doc.Top - 50); // Draw line to right margin, 50 points below the top
+                    //cb.Stroke(); // Draw the line
+                            
+                    // Add some space after the broken line
                     doc.Add(new Chunk("\n")); // New line
 
-                    doc.Add(new Paragraph($"Transaction No.: {transactNum}", font));
-                    //doc.Add(new Paragraph($"Order Date: {today}", font));
-                    doc.Add(new Paragraph($"Reception Name: {receptionName}", font));
-                    doc.Add(new Chunk("\n")); // New line
 
-                    doc.Add(new LineSeparator()); // Dotted line
+
+                    doc.Add(new LineSeparator()); 
+
                     PdfPTable itemTable = new PdfPTable(3); // 3 columns for the item table
                     itemTable.SetWidths(new float[] { 5f, 10f, 5f }); // Column widths
                     itemTable.DefaultCell.Border = PdfPCell.NO_BORDER;
                     itemTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
                     itemTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
-                    itemTable.AddCell(new Phrase("Staff ID", boldfont));
-                    itemTable.AddCell(new Phrase("Service", boldfont));
-                    itemTable.AddCell(new Phrase("Price", boldfont));
+                    itemTable.AddCell(new Phrase("Services", boldfont));
+                    itemTable.AddCell(new Phrase("Attending\nStaff", boldfont));
+                    itemTable.AddCell(new Phrase("Done (✓) ", boldfont));
                     doc.Add(itemTable);
-                    doc.Add(new LineSeparator()); // Dotted line
+
+                    doc.Add(new LineSeparator()); 
                     // Iterate through the rows of your 
-                    foreach (DataGridViewRow row in RecPayServiceWalkinAcquiredDGV.Rows)
+                    foreach (DataGridViewRow row in RecWalkinSelectedServiceDGV.Rows)
                     {
                         try
                         {
@@ -1944,18 +1942,19 @@ namespace Enchante
                                 continue; // Skip empty rows
                             }
 
-                            string staffID = row.Cells["AttendingStaff"].Value?.ToString();
-                            string itemTotalcost = row.Cells["ServicePrice"].Value?.ToString();
+                            string staff = row.Cells["StaffSelected"].Value?.ToString();
+                            string chk = "▢";
 
                             // Add cells to the item table
-                            PdfPTable serviceTable = new PdfPTable(3); // 4 columns for the item table
+                            PdfPTable serviceTable = new PdfPTable(3); // 
                             serviceTable.SetWidths(new float[] { 3f, 5f, 3f }); // Column widths
                             serviceTable.DefaultCell.Border = PdfPCell.NO_BORDER;
                             serviceTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
                             serviceTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
-                            serviceTable.AddCell(new Phrase(staffID, font));
+
                             serviceTable.AddCell(new Phrase(itemName, font));
-                            serviceTable.AddCell(new Phrase(itemTotalcost, font));
+                            serviceTable.AddCell(new Phrase(staff, font));
+                            serviceTable.AddCell(new Phrase(chk, font));
 
                             // Add the item table to the document
                             doc.Add(serviceTable);
@@ -1963,73 +1962,30 @@ namespace Enchante
                         catch (Exception ex)
                         {
                             // Handle or log any exceptions that occur while processing DataGridView data
-                            MessageBox.Show("An error occurred: " + ex.Message, "Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("An error occurred: " + ex.Message, "Walkin Queue Ticket Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     doc.Add(new Chunk("\n")); // New line
                     doc.Add(new LineSeparator()); // Dotted line
                     doc.Add(new Chunk("\n")); // New line
 
-                    // Total from your textboxes as decimal
-                    decimal netAmount = decimal.Parse(RecPayServiceWalkinNetAmountBox.Text);
-                    decimal discount = decimal.Parse(RecPayServiceWalkinDiscountBox.Text);
-                    decimal vat = decimal.Parse(RecPayServiceWalkinVATBox.Text);
-                    decimal grossAmount = decimal.Parse(RecPayServiceWalkinGrossAmountBox.Text);
-                    decimal cash = decimal.Parse(RecPayServiceWalkinCashBox.Text);
-                    decimal change = decimal.Parse(RecPayServiceWalkinChangeBox.Text);
-
-                    // Create a new table for the "Total" section
-                    PdfPTable totalTable = new PdfPTable(2); // 2 columns for the "Total" table
-                    totalTable.SetWidths(new float[] { 5f, 3f }); // Column widths
-                    totalTable.DefaultCell.Border = PdfPCell.NO_BORDER;
-
-                    // Add cells to the "Total" table
-                    totalTable.AddCell(new Phrase($"Total # of Service ({RecPayServiceWalkinAcquiredDGV.Rows.Count})", font));
-                    totalTable.AddCell(new Phrase($"Php {grossAmount:F2}", font));
-                    totalTable.AddCell(new Phrase($"Cash Given", font));
-                    totalTable.AddCell(new Phrase($"Php {cash:F2}", font));
-                    totalTable.AddCell(new Phrase($"Change", font));
-                    totalTable.AddCell(new Phrase($"Php {change:F2}", font));
-
-                    // Add the "Total" table to the document
-                    doc.Add(totalTable);
-                    doc.Add(new Chunk("\n")); // New line
-
-                    // Create a new table for the "VATable" section
-                    PdfPTable vatTable = new PdfPTable(2); // 2 columns for the "VATable" table
-                    vatTable.SetWidths(new float[] { 5f, 3f }); // Column widths
-                    vatTable.DefaultCell.Border = PdfPCell.NO_BORDER;
-
-                    // Add cells to the "VATable" table
-                    vatTable.AddCell(new Phrase("VATable ", font));
-                    vatTable.AddCell(new Phrase($"Php {netAmount:F2}", font));
-                    vatTable.AddCell(new Phrase("VAT Tax (12%)", font));
-                    vatTable.AddCell(new Phrase($"Php {vat:F2}", font));
-                    vatTable.AddCell(new Phrase("Discount (20%)", font));
-                    vatTable.AddCell(new Phrase($"Php {discount:F2}", font));
-
-                    // Add the "VATable" table to the document
-                    doc.Add(vatTable);
-
-
-                    // Add the "Served To" section
-                    doc.Add(new Chunk("\n")); // New line
                     doc.Add(new Paragraph($"Served To: {clientName}", font));
+                    doc.Add(new Paragraph($"CP #: {clientCPNum}", font));
                     doc.Add(new Paragraph("Address:_______________________________", font));
                     doc.Add(new Paragraph("TIN No.:_______________________________", font));
 
                     // Add the legal string with center alignment
-                    Paragraph paragraph_footer = new Paragraph($"\n\n{legal}", font);
-                    paragraph_footer.Alignment = Element.ALIGN_CENTER;
-                    doc.Add(paragraph_footer);
+                    //Paragraph paragraph_footer = new Paragraph($"\n\n{legal}", font);
+                    //paragraph_footer.Alignment = Element.ALIGN_CENTER;
+                    //doc.Add(paragraph_footer);
                 }
                 catch (DocumentException de)
                 {
-                    MessageBox.Show("An error occurred: " + de.Message, "Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("An error occurred: " + de.Message, "Walkin Queue Ticket Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (IOException ioe)
                 {
-                    MessageBox.Show("An error occurred: " + ioe.Message, "Receipt Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("An error occurred: " + ioe.Message, "Walkin Queue Ticket Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -5170,6 +5126,7 @@ namespace Enchante
             string downpayment = RecApptInitialFeeText.Text;
             string cash = RecApptCashText.Text;
             string change = RecApptChangeText.Text;
+            string bal = RecApptBalanceText.Text;
 
             DateTime bookeddate = RecApptBookingDatePicker.Value;
             string apptdate = bookeddate.ToString("MM-dd-yyyy dddd");
@@ -5222,9 +5179,10 @@ namespace Enchante
                     centerAligned.Add(new Chunk("\nTel. No.: (1101) 111-1010", font));
                     centerAligned.Add(new Chunk($"\nDate: {datetoday} Time: {timePrinted}", font));
 
-                    // Add the centered content to the document
-                    doc.Add(centerAligned);
 
+
+                    // Add some space after the broken line
+                    doc.Add(new Chunk("\n")); // New line
                     int totalRowCount = RecApptSelectedServiceDGV.Rows.Count;
                     doc.Add(new Chunk("\n")); // New line
 
@@ -5336,10 +5294,18 @@ namespace Enchante
                     dpCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
                     amount.AddCell(dpCell);
 
+
                     amount.AddCell(new Phrase($"Cash Given: ", font));
                     PdfPCell cashCell = new PdfPCell(new Phrase($"Php. {cash}", font));
                     cashCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
                     amount.AddCell(cashCell);
+
+                    amount.AddCell(new Phrase($"Balance left: ", font));
+                    PdfPCell ballCell = new PdfPCell(new Phrase($"Php. {bal}", font));
+                    dpCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
+                    amount.AddCell(ballCell);
+
+
 
                     amount.AddCell(new Phrase($"Change: ", font));
                     PdfPCell changeCell = new PdfPCell(new Phrase($"Php. {change}", font));
@@ -5964,7 +5930,7 @@ namespace Enchante
                                     string updateAppointmentStatusQuery = $"UPDATE appointment SET AppointmentStatus = 'Confirmed' WHERE TransactionNumber = '{transactionID}'";
                                     ExecuteQuery(updateAppointmentStatusQuery);
 
-                                    MessageBox.Show("Appointment Confirmed");
+                                    MessageBox.Show("Booked Appointment Accepted.", "Appointment Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                     RecApptAcceptLateDeclineDGV.Rows.Clear();
                                     RecCancelServicesDGV.Rows.Clear();
@@ -5994,7 +5960,7 @@ namespace Enchante
                                     string updateAppointmentStatusQuery = $"UPDATE appointment SET AppointmentStatus = 'Confirmed' WHERE TransactionNumber = '{transactionID}'";
                                     ExecuteQuery(updateAppointmentStatusQuery);
 
-                                    MessageBox.Show("Appointment Confirmed");
+                                    MessageBox.Show("Booked Appointment Accepted.", "Appointment Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                     RecApptAcceptLateDeclineDGV.Rows.Clear();
                                     RecCancelServicesDGV.Rows.Clear();
@@ -6021,13 +5987,16 @@ namespace Enchante
         private int GetLargestQueNumberFromDatabase(string serviceCategory)
         {
             int largestQueNumber = 0;
+            DateTime currentDate = DateTime.Now;
+            string dateToday = currentDate.ToString("MM-dd-yyyy dddd");
 
             using (MySqlConnection connection = new MySqlConnection(mysqlconn))
             {
                 connection.Open();
 
-                string query = $"SELECT MAX(QueNumber) FROM servicehistory WHERE ServiceCategory = '{serviceCategory}'";
+                string query = "SELECT MAX(CAST(QueNumber AS UNSIGNED)) FROM servicehistory WHERE AppointmentDate = @AppointmentDate ";
                 MySqlCommand command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@AppointmentDate", dateToday);
                 object result = command.ExecuteScalar();
 
                 if (result != null && !DBNull.Value.Equals(result))
@@ -6639,7 +6608,6 @@ namespace Enchante
                     iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(imagepath, System.Drawing.Imaging.ImageFormat.Png);
                     logo.Alignment = Element.ALIGN_CENTER;
                     logo.ScaleAbsolute(100f, 100f);
-                    logo.Alignment = Element.ALIGN_CENTER;
                     doc.Add(logo);
 
                     iTextSharp.text.Font headerFont = FontFactory.GetFont("Courier", 16, iTextSharp.text.Font.BOLD);
