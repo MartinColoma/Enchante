@@ -226,6 +226,7 @@
     <EmbeddedResource Include="StaffUserControl.resx">
       <DependentUpon>StaffUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="cour.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

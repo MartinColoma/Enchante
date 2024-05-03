@@ -49,6 +49,7 @@ using System.Web.UI;
 using System.Runtime.Remoting.Messaging;
 using iTextSharp.text.pdf.parser;
 
+
 namespace Enchante
 {
     public partial class Enchante : Form
@@ -1853,7 +1854,7 @@ namespace Enchante
         }
 
 
-        private void RecWalkinQueTicketGenerator() // to be discarded
+        private void RecWalkinQueTicketGenerator()
         {
             DateTime currentDate = RecDateTimePicker.Value;
             string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
@@ -1864,7 +1865,8 @@ namespace Enchante
             string clientCPNum = RecWalkinCPNumText.Text;
             string receptionName = RecNameLbl.Text;
             string num = RecWalkinSelectedServiceDGV.Rows[0].Cells["QueNumber"].Value?.ToString();
-
+            string checkboxUnchecked = "\u2610";
+            string checkmark = "\u2713";
 
             // Generate a unique filename for the PDF
             string fileName = $"Enchanté-QueueTicket-{transactNum}-{timePrintedFile}.pdf";
@@ -1895,43 +1897,34 @@ namespace Enchante
                     logo.ScaleAbsolute(100f, 100f);
                     doc.Add(logo);
 
-                    iTextSharp.text.Font headerFont = FontFactory.GetFont("Courier", 25, iTextSharp.text.Font.BOLD);
-                    iTextSharp.text.Font boldfont = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.BOLD);
+                    // Add your PDF generation logic here
+                    iTextSharp.text.Font headerFont = FontFactory.GetFont("Courier", 40, iTextSharp.text.Font.BOLD);
                     iTextSharp.text.Font font = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.NORMAL);
 
-                    // Create a centered alignment for text
                     iTextSharp.text.Paragraph centerAligned = new Paragraph();
                     centerAligned.Alignment = Element.ALIGN_CENTER;
-                    centerAligned.Add(new Chunk("Your number is:", font));
+                    centerAligned.Add(new Chunk("Your service number is", font));
                     centerAligned.Add(new Chunk($"\n\n{num}", headerFont));
                     doc.Add(centerAligned);
 
-                    //// Draw a broken line separator
-                    //PdfContentByte cb = writer.DirectContent;
-                    //cb.SetLineDash(5, 5); // Set dash pattern for the line
-                    //cb.MoveTo(doc.LeftMargin, doc.Top - 50); // Start drawing from left margin, 50 points below the top
-                    //cb.LineTo(doc.PageSize.Width - doc.RightMargin, doc.Top - 50); // Draw line to right margin, 50 points below the top
-                    //cb.Stroke(); // Draw the line
-                            
                     // Add some space after the broken line
                     doc.Add(new Chunk("\n")); // New line
 
-
-
-                    doc.Add(new LineSeparator()); 
+                    doc.Add(new LineSeparator());
 
                     PdfPTable itemTable = new PdfPTable(3); // 3 columns for the item table
                     itemTable.SetWidths(new float[] { 5f, 10f, 5f }); // Column widths
                     itemTable.DefaultCell.Border = PdfPCell.NO_BORDER;
                     itemTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
                     itemTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
-                    itemTable.AddCell(new Phrase("Services", boldfont));
-                    itemTable.AddCell(new Phrase("Attending\nStaff", boldfont));
-                    itemTable.AddCell(new Phrase("Done (✓) ", boldfont));
+                    itemTable.AddCell(new Phrase("Services", font));
+                    itemTable.AddCell(new Phrase("Attending\nStaff", font));
+                    itemTable.AddCell(new Phrase($"Done", font));
                     doc.Add(itemTable);
 
-                    doc.Add(new LineSeparator()); 
-                    // Iterate through the rows of your 
+                    doc.Add(new LineSeparator());
+
+                    // Iterate through the rows of your DataGridView
                     foreach (DataGridViewRow row in RecWalkinSelectedServiceDGV.Rows)
                     {
                         try
@@ -1943,7 +1936,6 @@ namespace Enchante
                             }
 
                             string staff = row.Cells["StaffSelected"].Value?.ToString();
-                            string chk = "▢";
 
                             // Add cells to the item table
                             PdfPTable serviceTable = new PdfPTable(3); // 
@@ -1954,7 +1946,7 @@ namespace Enchante
 
                             serviceTable.AddCell(new Phrase(itemName, font));
                             serviceTable.AddCell(new Phrase(staff, font));
-                            serviceTable.AddCell(new Phrase(chk, font));
+                            serviceTable.AddCell(new Phrase("[  ]", font));
 
                             // Add the item table to the document
                             doc.Add(serviceTable);
@@ -1965,19 +1957,18 @@ namespace Enchante
                             MessageBox.Show("An error occurred: " + ex.Message, "Walkin Queue Ticket Generator Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
+
                     doc.Add(new Chunk("\n")); // New line
                     doc.Add(new LineSeparator()); // Dotted line
                     doc.Add(new Chunk("\n")); // New line
 
                     doc.Add(new Paragraph($"Served To: {clientName}", font));
+                    doc.Add(new Paragraph($"Transaction Number: {transactNum}", font));
                     doc.Add(new Paragraph($"CP #: {clientCPNum}", font));
                     doc.Add(new Paragraph("Address:_______________________________", font));
                     doc.Add(new Paragraph("TIN No.:_______________________________", font));
 
-                    // Add the legal string with center alignment
-                    //Paragraph paragraph_footer = new Paragraph($"\n\n{legal}", font);
-                    //paragraph_footer.Alignment = Element.ALIGN_CENTER;
-                    //doc.Add(paragraph_footer);
+                    
                 }
                 catch (DocumentException de)
                 {
@@ -1992,10 +1983,9 @@ namespace Enchante
                     // Close the document
                     doc.Close();
                 }
-
-                //MessageBox.Show($"Receipt saved as {filePath}", "Receipt Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
 
         private void RecWalkinOrderProdHistoryDB(DataGridView RecWalkinOrderHistoryView)
         {
