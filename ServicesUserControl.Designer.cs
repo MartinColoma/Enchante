@@ -53,14 +53,14 @@
             this.RecServiceNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             this.RecServiceNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.RecServiceNameTextBox.IconLeftCursor = System.Windows.Forms.Cursors.Hand;
-            this.RecServiceNameTextBox.Location = new System.Drawing.Point(16, 9);
-            this.RecServiceNameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.RecServiceNameTextBox.Location = new System.Drawing.Point(17, 7);
+            this.RecServiceNameTextBox.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.RecServiceNameTextBox.Name = "RecServiceNameTextBox";
             this.RecServiceNameTextBox.PasswordChar = '\0';
             this.RecServiceNameTextBox.PlaceholderText = "";
             this.RecServiceNameTextBox.ReadOnly = true;
             this.RecServiceNameTextBox.SelectedText = "";
-            this.RecServiceNameTextBox.Size = new System.Drawing.Size(222, 26);
+            this.RecServiceNameTextBox.Size = new System.Drawing.Size(228, 31);
             this.RecServiceNameTextBox.TabIndex = 0;
             this.RecServiceNameTextBox.Click += new System.EventHandler(this.RecServiceNameTextBox_Click);
             // 
@@ -112,6 +112,7 @@
             this.RecServicePriceTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.RecServicePriceTextBox.IconLeftCursor = System.Windows.Forms.Cursors.Hand;
             this.RecServicePriceTextBox.Location = new System.Drawing.Point(231, 17);
+            this.RecServicePriceTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.RecServicePriceTextBox.Name = "RecServicePriceTextBox";
             this.RecServicePriceTextBox.PasswordChar = '\0';
             this.RecServicePriceTextBox.PlaceholderText = "";
@@ -196,11 +197,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.RecServiceNameTextBox);
             this.Controls.Add(this.RecServiceIDTextBox);
             this.Controls.Add(this.RecServiceCategoryTextBox);
             this.Controls.Add(this.RecServicePriceTextBox);
             this.Controls.Add(this.RecServiceDurationTextBox);
-            this.Controls.Add(this.RecServiceNameTextBox);
             this.Controls.Add(this.ServicesBGDockBtn);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "ServicesUserControl";

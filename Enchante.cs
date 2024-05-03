@@ -183,8 +183,7 @@ namespace Enchante
             MngrIndemandSelectCatBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
             //Receptionist combobox
-            RecQueWinStaffCatComboText.Items.AddRange(QCategories);
-            RecQueWinStaffCatComboText.DropDownStyle = ComboBoxStyle.DropDownList;
+
             RecQueWinGenCatComboText.Items.AddRange(QCategories);
             RecQueWinGenCatComboText.DropDownStyle = ComboBoxStyle.DropDownList;
             RecApptBookingTimeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -4236,372 +4235,21 @@ namespace Enchante
         private void RecQueWinBtn_Click(object sender, EventArgs e)
         {
             RecQueWinColor();
-            RecQuePreferredStaffLoadData();
-            RecQueGeneralStaffLoadData();
-            RecQueWinNextCustomerLbl.Text = "| NEXT IN LINE [GENERAL QUEUE]";
+
             RecQueWinGenCatComboText.Visible = true;
             RecQueWinGenCatComboText.SelectedIndex = 5;
-            RecQueWinStaffCatComboText.SelectedIndex = 5;
-
+            RecQueWinInitializeGeneralPendingCustomersForStaff();
+            RecQueWinInitializeInSessionCustomers();
         }
 
         private void RecQueWinExitBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecQueStartPanel);
             RecQueWinGenCatComboText.SelectedIndex = -1;
-            RecQueWinStaffCatComboText.SelectedIndex = -1;
-
-        }
-        private void RecQuePreferredStaffLoadData()
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-                {
-                    connection.Open();
-
-                    string sql = "SELECT * FROM `systemusers` WHERE EmployeeType = 'Staff' ORDER BY EmployeeType";
-
-                    MySqlCommand cmd = new MySqlCommand(sql, connection);
-                    System.Data.DataTable dataTable = new System.Data.DataTable();
-
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
-                    {
-                        adapter.Fill(dataTable);
-
-
-                        RecQueWinStaffListDGV.DataSource = dataTable;
-                        RecQueWinStaffListDGV.Columns[0].Visible = false;
-                        RecQueWinStaffListDGV.Columns[1].Visible = false;
-                        RecQueWinStaffListDGV.Columns[2].Visible = false;
-                        RecQueWinStaffListDGV.Columns[3].Visible = false;
-                        RecQueWinStaffListDGV.Columns[4].Visible = false;
-                        RecQueWinStaffListDGV.Columns[5].Visible = false;
-                        RecQueWinStaffListDGV.Columns[6].Visible = false;
-                        RecQueWinStaffListDGV.Columns[7].Visible = false;
-                        RecQueWinStaffListDGV.Columns[8].Visible = false;
-                        RecQueWinStaffListDGV.Columns[9].Visible = false;
-                        RecQueWinStaffListDGV.Columns[11].Visible = false;
-                        RecQueWinStaffListDGV.Columns[15].Visible = false;
-                        RecQueWinStaffListDGV.Columns[16].Visible = false;
-                        RecQueWinStaffListDGV.Columns[17].Visible = false;
-
-
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("An error occurred: " + e.Message, "Inventory Service List");
-            }
-            finally
-            {
-                // Make sure to close the connection (if it's open)
-                if (connection.State == ConnectionState.Open)
-                {
-                    connection.Close();
-                }
-            }
-        }
-        private void RecQuePreferredStaffCatLoadData(string category)
-        {
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-                {
-                    connection.Open();
-
-                    string sql = "SELECT * FROM `systemusers` WHERE EmployeeType = 'Staff' AND EmployeeCategory = @category";
-
-                    MySqlCommand cmd = new MySqlCommand(sql, connection);
-                    System.Data.DataTable dataTable = new System.Data.DataTable();
-                    cmd.Parameters.AddWithValue("@category", category);
-
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
-                    {
-                        adapter.Fill(dataTable);
-
-
-                        RecQueWinStaffListDGV.DataSource = dataTable;
-                        RecQueWinStaffListDGV.Columns[0].Visible = false;
-                        RecQueWinStaffListDGV.Columns[1].Visible = false;
-                        RecQueWinStaffListDGV.Columns[2].Visible = false;
-                        RecQueWinStaffListDGV.Columns[3].Visible = false;
-                        RecQueWinStaffListDGV.Columns[4].Visible = false;
-                        RecQueWinStaffListDGV.Columns[5].Visible = false;
-                        RecQueWinStaffListDGV.Columns[6].Visible = false;
-                        RecQueWinStaffListDGV.Columns[7].Visible = false;
-                        RecQueWinStaffListDGV.Columns[8].Visible = false;
-                        RecQueWinStaffListDGV.Columns[9].Visible = false;
-                        RecQueWinStaffListDGV.Columns[11].Visible = false;
-                        RecQueWinStaffListDGV.Columns[15].Visible = false;
-                        RecQueWinStaffListDGV.Columns[16].Visible = false;
-                        RecQueWinStaffListDGV.Columns[17].Visible = false;
-
-
-
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("An error occurred: " + e.Message, "Inventory Service List");
-            }
-            finally
-            {
-                // Make sure to close the connection (if it's open)
-                if (connection.State == ConnectionState.Open)
-                {
-                    connection.Close();
-                }
-            }
-        }
-        private void RecQueGeneralStaffLoadData()
-        {
-            string todayDate = DateTime.Today.ToString("MM-dd-yyyy dddd");
-
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-                {
-                    connection.Open();
-
-                    string sql = "SELECT * FROM `servicehistory` WHERE (QueType = 'GeneralQue' OR QueType = 'AnyonePriority') AND ServiceStatus = 'Pending' AND AppointmentDate = @todayDate";
-                    MySqlCommand cmd = new MySqlCommand(sql, connection);
-                    System.Data.DataTable dataTable = new System.Data.DataTable();
-                    cmd.Parameters.AddWithValue("@todayDate", todayDate);
-
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
-                    {
-                        adapter.Fill(dataTable);
-
-
-                        RecQueWinNextCustomerDGV.DataSource = dataTable;
-
-                        RecQueWinNextCustomerDGV.Columns[1].Visible = false; //appointment time
-                        RecQueWinNextCustomerDGV.Columns[3].Visible = false; //appointment time
-                        RecQueWinNextCustomerDGV.Columns[5].Visible = false; //service category
-                        RecQueWinNextCustomerDGV.Columns[6].Visible = false; //attending staff
-                        RecQueWinNextCustomerDGV.Columns[7].Visible = false; //attending staff
-                        RecQueWinNextCustomerDGV.Columns[8].Visible = false; //attending staff
-                        RecQueWinNextCustomerDGV.Columns[10].Visible = false; //service start
-                        RecQueWinNextCustomerDGV.Columns[11].Visible = false; //service end
-                        RecQueWinNextCustomerDGV.Columns[12].Visible = false; //service duration
-                        RecQueWinNextCustomerDGV.Columns[13].Visible = false; //service duration
-                        RecQueWinNextCustomerDGV.Columns[14].Visible = false; //service duration
-                        RecQueWinNextCustomerDGV.Columns[18].Visible = false; // que type
-
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("An error occurred: " + e.Message, "Inventory Service List");
-            }
-            finally
-            {
-                // Make sure to close the connection (if it's open)
-                if (connection.State == ConnectionState.Open)
-                {
-                    connection.Close();
-                }
-            }
-        }
-        private void RecQueGeneralStaffCatLoadData(string category)
-        {
-            string todayDate = DateTime.Today.ToString("MM-dd-yyyy dddd");
-
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-                {
-                    connection.Open();
-
-                    string sql = "SELECT * FROM `servicehistory` WHERE (QueType = 'GeneralQue' OR QueType = 'AnyonePriority') AND ServiceStatus = 'Pending' AND AppointmentDate = @todayDate AND ServiceCategory = @category";
-                    MySqlCommand cmd = new MySqlCommand(sql, connection);
-                    System.Data.DataTable dataTable = new System.Data.DataTable();
-                    cmd.Parameters.AddWithValue("@todayDate", todayDate);
-                    cmd.Parameters.AddWithValue("@category", category);
-
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
-                    {
-                        adapter.Fill(dataTable);
-
-
-                        RecQueWinNextCustomerDGV.DataSource = dataTable;
-
-                        RecQueWinNextCustomerDGV.Columns[1].Visible = false; //appointment time
-                        RecQueWinNextCustomerDGV.Columns[3].Visible = false; //appointment time
-                        RecQueWinNextCustomerDGV.Columns[5].Visible = false; //service category
-                        RecQueWinNextCustomerDGV.Columns[6].Visible = false; //attending staff
-                        RecQueWinNextCustomerDGV.Columns[7].Visible = false; //attending staff
-                        RecQueWinNextCustomerDGV.Columns[8].Visible = false; //attending staff
-                        RecQueWinNextCustomerDGV.Columns[10].Visible = false; //service start
-                        RecQueWinNextCustomerDGV.Columns[11].Visible = false; //service end
-                        RecQueWinNextCustomerDGV.Columns[12].Visible = false; //service duration
-                        RecQueWinNextCustomerDGV.Columns[13].Visible = false; //service duration
-                        RecQueWinNextCustomerDGV.Columns[14].Visible = false; //service duration
-                        RecQueWinNextCustomerDGV.Columns[18].Visible = false; // que type
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("An error occurred: " + e.Message, "Inventory Service List");
-            }
-            finally
-            {
-                // Make sure to close the connection (if it's open)
-                if (connection.State == ConnectionState.Open)
-                {
-                    connection.Close();
-                }
-            }
-        }
-        private void RecQueWinStaffListDGV_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Check if a valid cell is clicked
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            {
-                string ID = RecQueWinStaffListDGV.Rows[e.RowIndex].Cells["EmployeeID"].Value.ToString();
-                string emplFName = RecQueWinStaffListDGV.Rows[e.RowIndex].Cells["FirstName"].Value.ToString();
-                string emplLName = RecQueWinStaffListDGV.Rows[e.RowIndex].Cells["LastName"].Value.ToString();
-
-                RecQueWinEmplIDLbl.Text = ID;
-                RecLoadQueuedClient(ID);
-                RecQueWinNextCustomerLbl.Text = $"| Queue Line for {emplFName} {emplLName}";
-            }
-            else
-            {
-                RecQueWinGenCatComboText.Visible = true;
-            }
-        }
-        public void RecLoadQueuedClient(string ID)
-        {
-            string todayDate = DateTime.Today.ToString("MM-dd-yyyy dddd");
-
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
-                {
-                    connection.Open();
-
-                    string sql = "SELECT * FROM `servicehistory` WHERE PreferredStaff = @emplID AND ServiceStatus = 'Pending' AND " +
-                        "(QueType = 'Preferred' OR QueType = 'PreferredPriority') AND AppointmentDate = @todayDate";
-                    MySqlCommand cmd = new MySqlCommand(sql, connection);
-
-                    // Add parameters to the query
-                    cmd.Parameters.AddWithValue("@emplID", ID);
-                    cmd.Parameters.AddWithValue("@todayDate", todayDate);
-
-
-                    System.Data.DataTable dataTable = new System.Data.DataTable();
-
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
-                    {
-                        adapter.Fill(dataTable);
-
-                        RecQueWinPrefNextCustomerDGV.DataSource = dataTable;
-                        RecQueWinPrefNextCustomerDGV.Columns[1].Visible = false; //appointment time
-                        RecQueWinPrefNextCustomerDGV.Columns[3].Visible = false; //appointment time
-                        RecQueWinPrefNextCustomerDGV.Columns[5].Visible = false; //service category
-                        RecQueWinPrefNextCustomerDGV.Columns[6].Visible = false; //attending staff
-                        RecQueWinPrefNextCustomerDGV.Columns[7].Visible = false; //attending staff
-                        RecQueWinPrefNextCustomerDGV.Columns[8].Visible = false; //attending staff
-                        RecQueWinPrefNextCustomerDGV.Columns[10].Visible = false; //service start
-                        RecQueWinPrefNextCustomerDGV.Columns[11].Visible = false; //service end
-                        RecQueWinPrefNextCustomerDGV.Columns[12].Visible = false; //service duration
-                        RecQueWinPrefNextCustomerDGV.Columns[13].Visible = false; //service duration
-                        RecQueWinPrefNextCustomerDGV.Columns[14].Visible = false; //service duration
-                        RecQueWinPrefNextCustomerDGV.Columns[18].Visible = false; // que type
-
-
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message, "Manager Order History List");
-            }
-            finally
-            {
-                // Make sure to close the connection (if it's open)
-                if (connection.State == ConnectionState.Open)
-                {
-                    connection.Close();
-                }
-            }
-        }
-
-        private void RecQueWinStaffCatComboText_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (RecQueWinStaffCatComboText.Text == "Hair Styling")
-            {
-                RecQuePreferredStaffCatLoadData("Hair Styling");
-                return;
-            }
-            else if (RecQueWinStaffCatComboText.Text == "Face & Skin")
-            {
-                RecQuePreferredStaffCatLoadData("Face & Skin");
-                return;
-            }
-            else if (RecQueWinStaffCatComboText.Text == "Nail Care")
-            {
-                RecQuePreferredStaffCatLoadData("Nail Care");
-                return;
-            }
-            else if (RecQueWinStaffCatComboText.Text == "Spa")
-            {
-                RecQuePreferredStaffCatLoadData("Spa");
-                return;
-            }
-            else if (RecQueWinStaffCatComboText.Text == "Massage")
-            {
-                RecQuePreferredStaffCatLoadData("Massage");
-                return;
-            }
-            else if (RecQueWinStaffCatComboText.Text == "All Categories")
-            {
-                RecQuePreferredStaffLoadData();
-
-                return;
-            }
 
         }
 
-        private void RecQueWinGenCatComboText_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (RecQueWinGenCatComboText.Text == "Hair Styling")
-            {
-                RecQueGeneralStaffCatLoadData("Hair Styling");
-                return;
-            }
-            else if (RecQueWinGenCatComboText.Text == "Face & Skin")
-            {
-                RecQueGeneralStaffCatLoadData("Face & Skin");
-                return;
-            }
-            else if (RecQueWinGenCatComboText.Text == "Nail Care")
-            {
-                RecQueGeneralStaffCatLoadData("Nail Care");
-                return;
-            }
-            else if (RecQueWinGenCatComboText.Text == "Spa")
-            {
-                RecQueGeneralStaffCatLoadData("Spa");
-                return;
-            }
-            else if (RecQueWinGenCatComboText.Text == "Massage")
-            {
-                RecQueGeneralStaffCatLoadData("Massage");
-                return;
-            }
-            else if (RecQueWinGenCatComboText.Text == "All Categories")
-            {
-                RecQueGeneralStaffLoadData();
-                return;
-            }
-        }
+        
         #endregion
 
         #region Receptionsit Walk-in Appointment
@@ -15063,17 +14711,7 @@ namespace Enchante
             }
         }
 
-        private void RecQueWinSearchText_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (RecQueWinSearchText.Text.Length >= 100 && e.KeyChar != '\b')
-            {
-                e.Handled = true;
-            }
-            if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecQueWinSearchText.Text))
-            {
-                e.Handled = true;
-            }
-        }
+
 
 
 
@@ -15599,6 +15237,8 @@ namespace Enchante
 
         }
 
+        
+
         private void UpdateStartServiceButtonStatusPriority(List<GeneralPendingCustomers> generalpendingcustomers, int smallestqueuesenior, int smallestapptqueue, int smallestgenqueue)
         {
             bool hasAnyoneSPriorityOrPreferredSPriority = generalpendingcustomers
@@ -15876,11 +15516,70 @@ namespace Enchante
                     availableinsessionusercontrol.StartTimer();
                     availableinsessionusercontrol.StaffQueTypeTextBox.Visible = true;
                     RecQueStartCurrentCustPanel.Controls.Add(availableinsessionusercontrol);
+                    RecQueWinInitializeGeneralPendingCustomersForStaff();
+                    RecQueWinInitializeInSessionCustomers();
+                    // Add the user control to the existingUserControls dictionary
+                    existingUserControls.Add(controlID, availableinsessionusercontrol);
+                }
+            }
+        }
+
+        public void RecQueWinInitializeInSessionCustomers()
+        {
+            List<InSessionCustomers> insessioncustomers = RetrieveInSessionCustomersFromDB();
+
+            foreach (InSessionCustomers customer in insessioncustomers)
+            {
+                // Generate a unique identifier for the user control
+                string controlID = GenerateControlID(customer);
+
+                // Check if the user control already exists in the FlowLayoutPanel or in the existingUserControls dictionary
+                bool userControlExists = RecQueStartCurrentCustPanel.Controls
+                    .OfType<InSessionUserControl>()
+                    .Any(control => control.ControlID == controlID) || existingUserControls.ContainsKey(controlID);
+
+                if (!userControlExists)
+                {
+                    InSessionUserControl availableinsessionusercontrol = new InSessionUserControl(this);
+                    availableinsessionusercontrol.ControlID = controlID;
+                    availableinsessionusercontrol.AvailableCustomerSetData(customer);
+                    
+                    availableinsessionusercontrol.StaffQueTypeTextBox.Visible = true;
+                    RecQueWinCurrentCustPanel.Controls.Add(availableinsessionusercontrol);
 
                     // Add the user control to the existingUserControls dictionary
                     existingUserControls.Add(controlID, availableinsessionusercontrol);
                 }
             }
+        }
+        public void RecQueWinInitializeGeneralPendingCustomersForStaff()
+        {
+            List<GeneralPendingCustomers> generalpendingcustomers = RetrieveGeneralPendingCustomersFromDB();
+            seniorcount = 0;
+            apptpriocount = 0;
+            ThereisPriority = false;
+            ThereIsSenior = false;
+
+            if (generalpendingcustomers.Count == 0)
+            {
+                NoCustomerInQueueUserControl nocustomerusercontrol = new NoCustomerInQueueUserControl();
+                RecQueueStartPanel.Controls.Add(nocustomerusercontrol);
+                NextCustomerNumLbl.Text = "No customer in queue";
+            }
+
+            foreach (GeneralPendingCustomers customer in generalpendingcustomers)
+            {
+                QueueUserControl availablecustomersusercontrol = new QueueUserControl(this);
+                availablecustomersusercontrol.AvailableGeneralCustomerSetData(customer);
+                // usercontrol click event add
+
+                RecQueWinStartPanel.Controls.Add(availablecustomersusercontrol);
+                availablecustomersusercontrol.CurrentStaffID = selectedstaffemployeeid;
+
+            }
+
+
+
         }
 
         // Generate a unique identifier for the user control based on the customer information
