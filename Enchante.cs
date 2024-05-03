@@ -5305,8 +5305,6 @@ namespace Enchante
                     dpCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
                     amount.AddCell(ballCell);
 
-
-
                     amount.AddCell(new Phrase($"Change: ", font));
                     PdfPCell changeCell = new PdfPCell(new Phrase($"Php. {change}", font));
                     changeCell.Border = PdfPCell.NO_BORDER; // Remove border from this cell
