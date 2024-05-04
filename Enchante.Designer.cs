@@ -562,7 +562,16 @@ namespace Enchante
             this.RecApptConfirmClientNameLbl = new System.Windows.Forms.Label();
             this.RecCancelServiceBtn = new Guna.UI2.WinForms.Guna2Button();
             this.RecApptAcceptLateDeclineDGV = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.TransactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ApptClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AppointmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AppointmentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecCancelServicesDGV = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.RecServiceTransactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecServiceServiceCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecServiceServiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecServiceSelectedService = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecServiceAttendingStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecApptConfirmTransNumLbl = new System.Windows.Forms.Label();
             this.RecCanceltApptTransactionBtn = new Guna.UI2.WinForms.Guna2Button();
             this.RecApptConfirmTransNumText = new System.Windows.Forms.TextBox();
@@ -935,15 +944,6 @@ namespace Enchante
             this.MngrDataTimer = new System.Windows.Forms.Timer(this.components);
             this.MngrReportsTimer = new System.Windows.Forms.Timer(this.components);
             this.MngrHistoryTimer = new System.Windows.Forms.Timer(this.components);
-            this.RecServiceTransactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecServiceServiceCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecServiceServiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecServiceSelectedService = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecServiceAttendingStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TransactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApptClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AppointmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AppointmentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EnchanteParentContainer.SuspendLayout();
             this.EnchanteMngrPage.SuspendLayout();
             this.MngrScrollPanel.SuspendLayout();
@@ -7778,6 +7778,30 @@ namespace Enchante
             this.RecApptAcceptLateDeclineDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.RecApptAcceptLateDeclineDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecApptAcceptLateDeclineDGV_CellClick);
             // 
+            // TransactionID
+            // 
+            this.TransactionID.HeaderText = "Transaction ID";
+            this.TransactionID.Name = "TransactionID";
+            this.TransactionID.ReadOnly = true;
+            // 
+            // ApptClientName
+            // 
+            this.ApptClientName.HeaderText = "Client Name";
+            this.ApptClientName.Name = "ApptClientName";
+            this.ApptClientName.ReadOnly = true;
+            // 
+            // AppointmentDate
+            // 
+            this.AppointmentDate.HeaderText = "Appointment Date";
+            this.AppointmentDate.Name = "AppointmentDate";
+            this.AppointmentDate.ReadOnly = true;
+            // 
+            // AppointmentTime
+            // 
+            this.AppointmentTime.HeaderText = "Appointment Time";
+            this.AppointmentTime.Name = "AppointmentTime";
+            this.AppointmentTime.ReadOnly = true;
+            // 
             // RecCancelServicesDGV
             // 
             this.RecCancelServicesDGV.AllowUserToAddRows = false;
@@ -7850,7 +7874,38 @@ namespace Enchante
             this.RecCancelServicesDGV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.RecCancelServicesDGV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.RecCancelServicesDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecCancelServicesDGV_CellClick);
-            this.RecCancelServicesDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecCancelServicesDGV_CellContentClick);
+            // 
+            // RecServiceTransactionID
+            // 
+            this.RecServiceTransactionID.HeaderText = "Transaction ID";
+            this.RecServiceTransactionID.Name = "RecServiceTransactionID";
+            this.RecServiceTransactionID.ReadOnly = true;
+            this.RecServiceTransactionID.Visible = false;
+            // 
+            // RecServiceServiceCategory
+            // 
+            this.RecServiceServiceCategory.HeaderText = "Service Category";
+            this.RecServiceServiceCategory.Name = "RecServiceServiceCategory";
+            this.RecServiceServiceCategory.ReadOnly = true;
+            // 
+            // RecServiceServiceID
+            // 
+            this.RecServiceServiceID.HeaderText = "Service ID";
+            this.RecServiceServiceID.Name = "RecServiceServiceID";
+            this.RecServiceServiceID.ReadOnly = true;
+            this.RecServiceServiceID.Visible = false;
+            // 
+            // RecServiceSelectedService
+            // 
+            this.RecServiceSelectedService.HeaderText = "Selected Service";
+            this.RecServiceSelectedService.Name = "RecServiceSelectedService";
+            this.RecServiceSelectedService.ReadOnly = true;
+            // 
+            // RecServiceAttendingStaff
+            // 
+            this.RecServiceAttendingStaff.HeaderText = "Attending Staff";
+            this.RecServiceAttendingStaff.Name = "RecServiceAttendingStaff";
+            this.RecServiceAttendingStaff.ReadOnly = true;
             // 
             // RecApptConfirmTransNumLbl
             // 
@@ -13363,62 +13418,6 @@ namespace Enchante
             // 
             this.MngrHistoryTimer.Interval = 1;
             this.MngrHistoryTimer.Tick += new System.EventHandler(this.MngrHistoryTimer_Tick);
-            // 
-            // RecServiceTransactionID
-            // 
-            this.RecServiceTransactionID.HeaderText = "Transaction ID";
-            this.RecServiceTransactionID.Name = "RecServiceTransactionID";
-            this.RecServiceTransactionID.ReadOnly = true;
-            this.RecServiceTransactionID.Visible = false;
-            // 
-            // RecServiceServiceCategory
-            // 
-            this.RecServiceServiceCategory.HeaderText = "Service Category";
-            this.RecServiceServiceCategory.Name = "RecServiceServiceCategory";
-            this.RecServiceServiceCategory.ReadOnly = true;
-            // 
-            // RecServiceServiceID
-            // 
-            this.RecServiceServiceID.HeaderText = "Service ID";
-            this.RecServiceServiceID.Name = "RecServiceServiceID";
-            this.RecServiceServiceID.ReadOnly = true;
-            this.RecServiceServiceID.Visible = false;
-            // 
-            // RecServiceSelectedService
-            // 
-            this.RecServiceSelectedService.HeaderText = "Selected Service";
-            this.RecServiceSelectedService.Name = "RecServiceSelectedService";
-            this.RecServiceSelectedService.ReadOnly = true;
-            // 
-            // RecServiceAttendingStaff
-            // 
-            this.RecServiceAttendingStaff.HeaderText = "Attending Staff";
-            this.RecServiceAttendingStaff.Name = "RecServiceAttendingStaff";
-            this.RecServiceAttendingStaff.ReadOnly = true;
-            // 
-            // TransactionID
-            // 
-            this.TransactionID.HeaderText = "Transaction ID";
-            this.TransactionID.Name = "TransactionID";
-            this.TransactionID.ReadOnly = true;
-            // 
-            // ApptClientName
-            // 
-            this.ApptClientName.HeaderText = "Client Name";
-            this.ApptClientName.Name = "ApptClientName";
-            this.ApptClientName.ReadOnly = true;
-            // 
-            // AppointmentDate
-            // 
-            this.AppointmentDate.HeaderText = "Appointment Date";
-            this.AppointmentDate.Name = "AppointmentDate";
-            this.AppointmentDate.ReadOnly = true;
-            // 
-            // AppointmentTime
-            // 
-            this.AppointmentTime.HeaderText = "Appointment Time";
-            this.AppointmentTime.Name = "AppointmentTime";
-            this.AppointmentTime.ReadOnly = true;
             // 
             // Enchante
             // 

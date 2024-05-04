@@ -4744,6 +4744,8 @@ namespace Enchante
                 RecApptTransactNumRefresh();
                 ApptTabs.SelectedIndex = 0;
                 RecApptTransactionClear();
+                isappointment = true;
+                serviceappointment = true;
             }
         }
 
@@ -14073,6 +14075,8 @@ namespace Enchante
                         }
 
                         System.Windows.Forms.MessageBox.Show("Service has been cancelled successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        RecApptAcceptLateDeclineDGV.Rows.Clear();
+                        InitializeAppointmentDataGrid();
                         RecCancelServicesDGV.Rows.Clear();
                     }
                 }
@@ -15219,7 +15223,7 @@ namespace Enchante
                                                  LEFT JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber 
                                                  WHERE sh.ServiceStatus = 'Pending'
                                                  AND sh.ServiceCategory = @membercategory 
-                                                 AND (sh.QueType = 'Anyone' OR sh.QueType = 'Senior-Anyone' OR sh.QueType = 'Senior-Anyone-Priority' OR sh.PreferredStaff = @preferredstaff)
+                                                 AND (sh.QueType = 'Anyone'  OR sh. QueType = 'Anyone-Priority' OR sh.QueType = 'Senior-Anyone' OR sh.QueType = 'Senior-Anyone-Priority' OR sh.PreferredStaff = @preferredstaff)
                                                  AND (app.ServiceStatus IS NULL OR app.ServiceStatus = 'Pending')
                                                  AND (app.AppointmentStatus IS NULL OR app.AppointmentStatus = 'Confirmed')
                                                  AND sh.AppointmentDate = @datetoday";
@@ -17908,11 +17912,6 @@ namespace Enchante
         private void ApptServicePreviousBtn_Click(object sender, EventArgs e)
         {
             WalkinServicePreviousButton_Click(sender, e);
-        }
-
-        private void RecCancelServicesDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void AdminOpenCreateAccFormBtn_Click(object sender, EventArgs e)
