@@ -5600,10 +5600,8 @@ namespace Enchante
             string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
             string timePrinted = currentDate.ToString("hh:mm tt");
             string timePrintedFile = currentDate.ToString("hh-mm-ss");
-            string transactNum = RecApptTransNumText.Text;
-            string clientName = $"{RecApptFNameText.Text} {RecApptLNameText.Text}";
-            string clientCPNum = RecApptCPNumText.Text;
-            string receptionName = RecNameLbl.Text;
+            string transactNum = RecApptConfirmTransNumText.Text;
+
 
             // Generate a unique filename for the PDF
             string fileName = $"Enchanté-QueueTicket-{transactNum}-{timePrintedFile}.pdf";
