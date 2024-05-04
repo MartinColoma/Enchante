@@ -5493,7 +5493,7 @@ namespace Enchante
                 {
                     foreach (DataRow row in dataTable.Rows)
                     {
-                        RecApptAcceptLateDeclineDGV.Rows.Add(row["TransactionID"], row["AppointmentDate"], row["ClientName"], row["AppointmentTime"]);
+                        RecApptAcceptLateDeclineDGV.Rows.Add(row["TransactionID"], row["ClientName"], row["AppointmentDate"], row["AppointmentTime"]);
 
                     }
                 }
