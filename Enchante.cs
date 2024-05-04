@@ -1014,9 +1014,10 @@ namespace Enchante
             //    ReceptionUserAccPanel.Visible = false;
             //}
         }
-
         private void RecWalkInBtn_Click(object sender, EventArgs e)
         {
+
+
             WalkinTabs.SelectedIndex = 0;
             RecApptTransactionClear();
             RecShopProdTransactionClear();
@@ -1093,12 +1094,21 @@ namespace Enchante
         }
 
 
+        private bool walkinTransNum = true;
 
         private void InitialWalkinTransColor()
         {
             Transaction.PanelShow(RecWalkinPanel);
-            RecWalkinTransNumText.Text = TransactionNumberGenerator.WalkinGenerateTransNumberDefault();
+            if (walkinTransNum)
+            {
+                RecWalkinTransNumText.Text = TransactionNumberGenerator.WalkinGenerateTransNumberDefault();
 
+            }
+            else
+            {
+                RecWalkinTransNumText.Text = TransactionNumberGenerator.WalkinGenerateTransNumberInc();
+
+            }
             //light yellow bg, green text and fg
             RecWalkInBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             RecWalkInBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
@@ -1146,12 +1156,21 @@ namespace Enchante
             RecShopProdBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             RecShopProdBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
         }
+        private bool apptTransNum = true;
 
         private void ApptTransColor()
         {
             Transaction.PanelShow(RecApptPanel);
-            RecApptTransNumText.Text = TransactionNumberGenerator.AppointGenerateTransNumberDefault();
+            if (apptTransNum)
+            {
+                RecApptTransNumText.Text = TransactionNumberGenerator.AppointGenerateTransNumberDefault();
 
+            }
+            else
+            {
+                RecApptTransNumText.Text = TransactionNumberGenerator.AppointGenerateTransNumberInc();
+
+            }
             RecAppointmentBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             RecAppointmentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             RecAppointmentBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
@@ -1225,11 +1244,21 @@ namespace Enchante
             RecShopProdBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             RecQueBtnResetColor();
         }
+        private bool ShopProdTransNum = true;
+
         private void ShopProdTransColor()
         {
             Transaction.PanelShow(RecShopProdPanel);
-            RecShopProdTransNumText.Text = TransactionNumberGenerator.ShopProdGenerateTransNumberDefault();
+            if (ShopProdTransNum)
+            {
+                RecApptTransNumText.Text = TransactionNumberGenerator.ShopProdGenerateTransNumberDefault();
 
+            }
+            else
+            {
+                RecApptTransNumText.Text = TransactionNumberGenerator.ShopProdGenerateTransNumberInc();
+
+            }
             RecShopProdBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             RecShopProdBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
             RecShopProdBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
@@ -1265,16 +1294,22 @@ namespace Enchante
             isappointment = true;
             RecQueBtnResetColor();
             serviceappointment = true;
+
         }
         public class TransactionNumberGenerator
         {
-            private static int transactNumber = 1; // Starting order number
+            private static int walkinTransDef = 1; // Starting order number
+            private static int walkinTransInc = 2; // Starting order number
+            private static int apptTransDef = 1; // Starting order number
+            private static int apptTransInc = 2; // Starting order number
+            private static int shopTransDef = 1; // Starting order number
+            private static int shopTransInc = 2; // Starting order number
 
             public static string WalkinGenerateTransNumberDefault()
             {
                 string datePart = DateTime.Now.ToString("MMddhhmm");
 
-                string orderPart = transactNumber.ToString("D3");
+                string orderPart = walkinTransDef.ToString("D3");
 
                 string ordersessionNumber = $"W-{datePart}-{orderPart}";
 
@@ -1285,10 +1320,10 @@ namespace Enchante
                 string datePart = DateTime.Now.ToString("MMddhhmm");
 
                 // Use only the order number
-                string orderPart = transactNumber.ToString("D3");
+                string orderPart = walkinTransInc.ToString("D3");
 
                 // Increment the order number for the next order
-                transactNumber++;
+                walkinTransInc++;
                 string ordersessionNumber = $"W-{datePart}-{orderPart}";
 
                 return ordersessionNumber;
@@ -1297,7 +1332,7 @@ namespace Enchante
             {
                 string datePart = DateTime.Now.ToString("MMddhhmm");
 
-                string orderPart = transactNumber.ToString("D3");
+                string orderPart = apptTransDef.ToString("D3");
 
                 string ordersessionNumber = $"A-{datePart}-{orderPart}";
 
@@ -1309,10 +1344,10 @@ namespace Enchante
                 string datePart = DateTime.Now.ToString("MMddhhmm");
 
                 // Use only the order number
-                string orderPart = transactNumber.ToString("D3");
+                string orderPart = apptTransInc.ToString("D3");
 
                 // Increment the order number for the next order
-                transactNumber++;
+                apptTransInc++;
                 string ordersessionNumber = $"A-{datePart}-{orderPart}";
 
                 return ordersessionNumber;
@@ -1321,7 +1356,7 @@ namespace Enchante
             {
                 string datePart = DateTime.Now.ToString("MMddhhmm");
 
-                string orderPart = transactNumber.ToString("D3");
+                string orderPart = shopTransDef.ToString("D3");
 
                 string ordersessionNumber = $"RP-{datePart}-{orderPart}";
 
@@ -1332,10 +1367,10 @@ namespace Enchante
                 string datePart = DateTime.Now.ToString("MMddhhmm");
 
                 // Use only the order number
-                string orderPart = transactNumber.ToString("D3");
+                string orderPart = shopTransInc.ToString("D3");
 
                 // Increment the order number for the next order
-                transactNumber++;
+                shopTransInc++;
                 string ordersessionNumber = $"RP-{datePart}-{orderPart}";
 
                 return ordersessionNumber;
@@ -1820,6 +1855,7 @@ namespace Enchante
                 ReceptionistWalk_in_AppointmentDB(); //walk-in transaction db
                 RecWalkinQueTicketGenerator();
                 RecWalkinTransactNumRefresh();
+                walkinTransNum = false;
                 WalkinTabs.SelectedIndex = 0;
                 RecWalkinTransactionClear();
             }
@@ -4741,11 +4777,14 @@ namespace Enchante
             {
                 RecApptServiceHistoryDB(RecApptSelectedServiceDGV); //service history 
                 RecApptFormGenerator();
+                //RecApptTransNumText.Text = TransactionNumberGenerator.AppointGenerateTransNumberInc();
                 RecApptTransactNumRefresh();
                 ApptTabs.SelectedIndex = 0;
                 RecApptTransactionClear();
                 isappointment = true;
                 serviceappointment = true;
+                apptTransNum = false;
+
             }
         }
 
@@ -6101,6 +6140,9 @@ namespace Enchante
                 RecShopProdOrderProdHistoryDB(RecShopProdSelectedProdDGV);
                 RecShopProdInvoiceReceiptGenerator();
                 RecShopProdTransactionClear();
+                RecShopProdTransactNumRefresh();
+                ShopProdTransNum = false;
+
             }
         }
         private void RecShopProdTransactionClear()
@@ -17979,6 +18021,16 @@ namespace Enchante
         private void MngrOverrideBackBtn_Click(object sender, EventArgs e)
         {
             AdminHomePanelReset();
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            RecWalkinTransactNumRefresh();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            RecApptTransactNumRefresh();
         }
     }
 }
