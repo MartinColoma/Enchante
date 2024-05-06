@@ -48,6 +48,7 @@
             this.guna2Button12 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button13 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button14 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // StaffElapsedTimeTextBox
@@ -114,13 +115,12 @@
             this.StaffCancelServiceBtn.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.StaffCancelServiceBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.StaffCancelServiceBtn.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
-            this.StaffCancelServiceBtn.Location = new System.Drawing.Point(107, 72);
+            this.StaffCancelServiceBtn.Location = new System.Drawing.Point(372, 24);
             this.StaffCancelServiceBtn.Name = "StaffCancelServiceBtn";
             this.StaffCancelServiceBtn.Size = new System.Drawing.Size(38, 27);
             this.StaffCancelServiceBtn.TabIndex = 9;
             this.StaffCancelServiceBtn.Text = "x";
             this.StaffCancelServiceBtn.Visible = false;
-            this.StaffCancelServiceBtn.Click += new System.EventHandler(this.StaffCancelServiceBtn_Click);
             // 
             // ExpandUserControlBtn
             // 
@@ -379,7 +379,6 @@
             this.QueBGDockBtn.Name = "QueBGDockBtn";
             this.QueBGDockBtn.Size = new System.Drawing.Size(500, 120);
             this.QueBGDockBtn.TabIndex = 25;
-            this.QueBGDockBtn.Click += new System.EventHandler(this.QueueUserControl_Click);
             // 
             // ExpandUserControlBtn1
             // 
@@ -497,13 +496,35 @@
             this.guna2Button14.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button14.Click += new System.EventHandler(this.guna2Button14_Click);
             // 
+            // guna2Button3
+            // 
+            this.guna2Button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.guna2Button3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.guna2Button3.BorderRadius = 7;
+            this.guna2Button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.guna2Button3.Enabled = false;
+            this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.guna2Button3.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Bold);
+            this.guna2Button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(221)))));
+            this.guna2Button3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
+            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
+            this.guna2Button3.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(105)))), ((int)(((byte)(44)))));
+            this.guna2Button3.Location = new System.Drawing.Point(156, 80);
+            this.guna2Button3.Name = "guna2Button3";
+            this.guna2Button3.Size = new System.Drawing.Size(179, 37);
+            this.guna2Button3.TabIndex = 88;
+            this.guna2Button3.Text = "Click Number to Start";
+            // 
             // QueueUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.ExpandUserControlBtn1);
             this.Controls.Add(this.StaffQueNumberTextBox);
+            this.Controls.Add(this.guna2Button3);
+            this.Controls.Add(this.ExpandUserControlBtn1);
             this.Controls.Add(this.StaffTransactionIDTextBox);
             this.Controls.Add(this.StaffCustomerServiceStatusTextBox);
             this.Controls.Add(this.StaffServiceIDTextBox);
@@ -552,5 +573,6 @@
         public Guna.UI2.WinForms.Guna2Button guna2Button12;
         public Guna.UI2.WinForms.Guna2Button guna2Button13;
         public Guna.UI2.WinForms.Guna2Button guna2Button14;
+        public Guna.UI2.WinForms.Guna2Button guna2Button3;
     }
 }
