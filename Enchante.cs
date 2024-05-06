@@ -56,6 +56,10 @@ namespace Enchante
     {
         //local db connection
         public static string mysqlconn = "server=localhost;user=root;database=enchante;password=";
+        public static string admindb = "server=localhost;user=root;database=admindb;password=";
+        public string connstringresult;
+
+
         public MySqlConnection connection = new MySqlConnection(mysqlconn);
 
         //cardlayout panel classes
@@ -94,7 +98,7 @@ namespace Enchante
 
         //picture slide landing page
         private int currentIndex = 0;
-        private System.Drawing.Image[] images = { 
+        private System.Drawing.Image[] images = {
             Properties.Resources.Acne_treatment_bro,  Properties.Resources.Acne_treatment_pana,
             Properties.Resources.Beauty_salon_amico, Properties.Resources.Beauty_salon_pana,
             Properties.Resources.Beauty_salon_rafiki, Properties.Resources.Curly_hair_bro,
@@ -105,7 +109,7 @@ namespace Enchante
             Properties.Resources.Team_spirit_pana, Properties.Resources.Waterproof_makeup_pana,
             Properties.Resources.women_in_hair_salon_amico, Properties.Resources.women_in_hair_salon_bro,
             Properties.Resources._3_in_One
-        }; 
+        };
 
         // public List<AvailableStaff> filteredbyschedstaff;
         // public Guna.UI2.WinForms.Guna2ToggleSwitch AvailableStaffActiveToggleSwitch;
@@ -184,8 +188,6 @@ namespace Enchante
 
             //Receptionist combobox
 
-            RecQueWinGenCatComboText.Items.AddRange(QCategories);
-            RecQueWinGenCatComboText.DropDownStyle = ComboBoxStyle.DropDownList;
             RecApptBookingTimeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
 
@@ -287,7 +289,7 @@ namespace Enchante
                     }
                 }
             }
-            
+
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -308,7 +310,7 @@ namespace Enchante
 
         //database-related methods
         #region
-        
+
         #endregion
 
 
@@ -505,6 +507,27 @@ namespace Enchante
                 DialogResult result = System.Windows.Forms.MessageBox.Show("Do you want to close the application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
+
+                    appointment.Clear();
+                    inventory.Clear();
+                    orderproducthistory.Clear();
+                    servicehistory.Clear();
+                    services.Clear();
+                    staffappointmentschedule.Clear();
+                    systemusers.Clear();
+                    walk_in_appointment.Clear();
+                    voucher.Clear();
+
+                    DeleteAdminAppointmentDB();
+                    DeleteAdminInventoryDB();
+                    DeleteAdminOrderProductHistoryDB();
+                    DeleteAdminServiceHistoryDB();
+                    DeleteAdminServicesDB();
+                    DeleteAdminStaffAppointmentScheduleDB();
+                    DeleteAdminSystemUsersDB();
+                    DeleteAdminWalk_In_AppointmentDB();
+                    DeleteAdminVoucherDB();
+
                     this.Dispose();
 
                 }
@@ -610,7 +633,7 @@ namespace Enchante
                 LoginPassText.PasswordChar = '●';
                 ShowHidePassBtn.IconChar = FontAwesome.Sharp.IconChar.Eye;
             }
-            
+
             //if (LoginPassText.PasswordChar == '*')
             //{
             //    LoginPassText.PasswordChar = '\0';
@@ -621,7 +644,7 @@ namespace Enchante
             //}
         }
 
-        
+
         private void ShowHidePassBtn_MouseHover(object sender, EventArgs e)
         {
             if (LoginPassText.UseSystemPasswordChar == true)
@@ -679,6 +702,9 @@ namespace Enchante
             }
 
         }
+
+        public bool AdminLoggedIn;
+
         private void loginchecker()
         {
             if (LoginEmailAddText.Text == "Admin" && LoginPassText.Text == "Admin123")
@@ -690,6 +716,38 @@ namespace Enchante
                 AdminIDNumLbl.Text = "AT-0000-0000";
                 AdminEmplTypeLbl.Text = "Admin";
                 PictureSlideTimer.Stop();
+                membertype = "Admmin";
+                AdminLoggedIn = true;
+
+
+                appointment.Clear();
+                GetEnchanteAppointment();
+                inventory.Clear();
+                GetEnchanteInventory();
+                orderproducthistory.Clear();
+                GetEnchanteOrderProductHistory();
+                servicehistory.Clear();
+                GetEnchanteServiceHistory();
+                services.Clear();
+                GetEnchanteServices();
+                staffappointmentschedule.Clear();
+                GetEnchanteStaffAppointmentSchedule();
+                systemusers.Clear();
+                GetEnchanteSystemUsers();
+                walk_in_appointment.Clear();
+                GetEnchanteWalk_In_Appointment();
+                voucher.Clear();
+                GetEnchanteVoucher();
+
+                SetAdminAppointmentDB();
+                SetAdminInventoryDB();
+                SetAdminOrderProductHistoryDB();
+                SetAdminServiceHistoryDB();
+                SetAdminServicesDB();
+                SetAdminStaffAppointmentScheduleDB();
+                SetAdminSystemUsersDB();
+                SetAdminWalkInAppointmentDB();
+                SetAdminVoucherDB();
 
                 PopulateUserInfoDataGrid();
                 logincredclear();
@@ -875,10 +933,41 @@ namespace Enchante
                                         AdminNameLbl.Text = name + " " + lastname;
                                         AdminIDNumLbl.Text = ID;
                                         AdminEmplTypeLbl.Text = membertype;
-
+                                        AdminLoggedIn = true;
                                         AdminHomePanelReset();
-                                        PopulateUserInfoDataGrid(); 
+                                        PopulateUserInfoDataGrid();
                                         PictureSlideTimer.Stop();
+
+
+                                        appointment.Clear();
+                                        GetEnchanteAppointment();
+                                        inventory.Clear();
+                                        GetEnchanteInventory();
+                                        orderproducthistory.Clear();
+                                        GetEnchanteOrderProductHistory();
+                                        servicehistory.Clear();
+                                        GetEnchanteServiceHistory();
+                                        services.Clear();
+                                        GetEnchanteServices();
+                                        staffappointmentschedule.Clear();
+                                        GetEnchanteStaffAppointmentSchedule();
+                                        systemusers.Clear();
+                                        GetEnchanteSystemUsers();
+                                        walk_in_appointment.Clear();
+                                        GetEnchanteWalk_In_Appointment();
+                                        voucher.Clear();
+                                        GetEnchanteVoucher();
+
+                                        SetAdminAppointmentDB();
+                                        SetAdminInventoryDB();
+                                        SetAdminOrderProductHistoryDB();
+                                        SetAdminServiceHistoryDB();
+                                        SetAdminServicesDB();
+                                        SetAdminStaffAppointmentScheduleDB();
+                                        SetAdminSystemUsersDB();
+                                        SetAdminWalkInAppointmentDB();
+                                        SetAdminVoucherDB();
+
 
                                         logincredclear();
                                     }
@@ -913,7 +1002,7 @@ namespace Enchante
                         }
                     }
                 }
-                
+
 
                 catch (Exception ex)
                 {
@@ -972,7 +1061,8 @@ namespace Enchante
                 RecQueueStartPanel.Controls.Clear();
                 RecApptAcceptLateDeclineDGV.Rows.Clear();
                 membercategory = "";
-
+                membertype = "";
+                AdminLoggedIn = false;
 
                 RecWalkinTransactionClear();
                 WalkinTabs.SelectedIndex = 0;
@@ -983,6 +1073,27 @@ namespace Enchante
                 PictureSlideTimer.Start();
                 RecTransTimer.Stop();
                 RecQueTimer.Stop();
+
+                appointment.Clear();
+                inventory.Clear();
+                orderproducthistory.Clear();
+                servicehistory.Clear();
+                services.Clear();
+                staffappointmentschedule.Clear();
+                systemusers.Clear();
+                walk_in_appointment.Clear();
+                voucher.Clear();
+
+                DeleteAdminAppointmentDB();
+                DeleteAdminInventoryDB();
+                DeleteAdminOrderProductHistoryDB();
+                DeleteAdminServiceHistoryDB();
+                DeleteAdminServicesDB();
+                DeleteAdminStaffAppointmentScheduleDB();
+                DeleteAdminSystemUsersDB();
+                DeleteAdminWalk_In_AppointmentDB();
+                DeleteAdminVoucherDB();
+
             }
         }
 
@@ -1618,9 +1729,19 @@ namespace Enchante
         //ditotayo
         private void SearchAcrossCategories(string searchText, string filterstaffbyservicecategory)
         {
-            try
+            if (AdminLoggedIn)
             {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+
+            try
+            {   
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
 
@@ -1670,7 +1791,7 @@ namespace Enchante
         private void RecWalkInSearchServiceTypeText_TextChanged(object sender, EventArgs e)
         {
             string searchKeyword = RecWalkinSearchServiceTypeText.Text.Trim().ToLower();
-            InitializeServices2(filterstaffbyservicecategory,searchKeyword);
+            InitializeServices2(filterstaffbyservicecategory, searchKeyword);
         }
         private void RecWalkinSearchServicePerCat()
         {
@@ -1715,7 +1836,16 @@ namespace Enchante
 
         private int GetLargestQueNum(string appointmentDate, string serviceCategory)
         {
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
 
@@ -2002,7 +2132,7 @@ namespace Enchante
                     doc.Add(new Paragraph("Address:_______________________________", font));
                     doc.Add(new Paragraph("TIN No.:_______________________________", font));
 
-                    
+
                 }
                 catch (DocumentException de)
                 {
@@ -2037,11 +2167,21 @@ namespace Enchante
             string CustomerName = RecWalkinFNameText.Text + " " + RecWalkinLNameText.Text; //client name
             string yes = "Yes";
             string no = "No";
+
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
             if (RecWalkinSelectedProdDGV.Rows.Count > 0)
             {
                 try
                 {
-                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    using (MySqlConnection connection = new MySqlConnection(connstringresult))
                     {
                         connection.Open();
 
@@ -2114,11 +2254,21 @@ namespace Enchante
             string CustomerName = RecWalkinFNameText.Text + " " + RecWalkinLNameText.Text; //client name
             string cpnum = RecWalkinCPNumText.Text; //client name
 
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+
             if (RecWalkinSelectedProdDGV.Rows.Count > 0)
             {
                 try
                 {
-                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    using (MySqlConnection connection = new MySqlConnection(connstringresult))
                     {
                         connection.Open();
                         string query = "INSERT INTO orders (TransactionNumber, TransactionType, ProductStatus, Date, Time, CheckedOutBy, ClientName, ClientCPNum) " +
@@ -2174,10 +2324,18 @@ namespace Enchante
             string bookedTime = currentDate.ToString("hh:mm tt"); //bookedTime
             string bookedBy = RecNameLbl.Text; //booked by
 
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     string insertQuery = "INSERT INTO walk_in_appointment (TransactionNumber, ServiceStatus, AppointmentDate, AppointmentTime, " +
@@ -2234,11 +2392,21 @@ namespace Enchante
             //basic info
             string CustomerName = RecWalkinFNameText.Text + " " + RecWalkinLNameText.Text; //client name
 
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+
             if (RecWalkinSelectedServiceDGV.Rows.Count > 0)
             {
                 try
                 {
-                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    using (MySqlConnection connection = new MySqlConnection(connstringresult))
                     {
                         connection.Open();
 
@@ -2434,7 +2602,17 @@ namespace Enchante
             RecShopProdProductFlowLayoutPanel.Controls.Clear();
             RecWalkinProductFlowLayoutPanel.Controls.Clear();
 
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
 
@@ -2695,7 +2873,17 @@ namespace Enchante
             string hashedEnteredPassword = HashHelper.HashString(enteredPassword);
             DialogResult result;
 
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
 
@@ -2994,9 +3182,18 @@ namespace Enchante
 
         public void RecWalkinLoadServiceHistoryDB(string transactNumber)
         {
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
 
@@ -3055,9 +3252,18 @@ namespace Enchante
 
         public void RecLoadOrderProdHistoryDB(string transactNumber)
         {
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
 
@@ -3164,9 +3370,18 @@ namespace Enchante
         }
         public void RecApptLoadServiceHistoryDB(string transactNumber)
         {
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
 
@@ -3300,10 +3515,20 @@ namespace Enchante
         {
             string todayDate = DateTime.Today.ToString("MM-dd-yyyy dddd");
 
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+
             MySqlConnection connection = null;
             try
             {
-                using (connection = new MySqlConnection(mysqlconn))
+                using (connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
 
@@ -3376,11 +3601,20 @@ namespace Enchante
         public void RecLoadCompletedAppointmentTrans()
         {
             string todayDate = DateTime.Today.ToString("MM-dd-yyyy dddd");
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
 
             MySqlConnection connection = null;
             try
             {
-                using (connection = new MySqlConnection(mysqlconn))
+                using (connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
 
@@ -3481,11 +3715,18 @@ namespace Enchante
             string transactNum = RecPayServiceWalkinTransactNumLbl.Text;
 
             // bank & wallet details
-
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     if (grossAmount == "0.00")
@@ -3616,9 +3857,18 @@ namespace Enchante
 
         private void RecPayServiceUpdateQtyInventory(DataGridView dgv)
         {
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     string updateQuery = "UPDATE inventory SET ItemStock = ItemStock - @Qty WHERE ItemID = @ItemID";
@@ -3647,9 +3897,18 @@ namespace Enchante
         }
         private void RecPayServiceWalkinUpdateOrderProdHistory(DataGridView dgv)
         {
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     string updateQuery = "UPDATE orderproducthistory SET ProductStatus = @status WHERE ItemID = @ItemID";
@@ -4037,8 +4296,16 @@ namespace Enchante
 
         public void LoadPreferredStaffComboBox()
         {
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
 
@@ -4069,7 +4336,17 @@ namespace Enchante
         //ApptMember
         public void LoadAppointmentPreferredStaffComboBox()
         {
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 string bookedtime = RecApptBookingTimeComboBox.SelectedItem.ToString();
                 string appointmentDate = RecApptBookingDatePicker.Value.ToString("MM-dd-yyyy dddd");
@@ -4272,8 +4549,9 @@ namespace Enchante
         {
             RecQueWinColor();
 
-            RecQueWinGenCatComboText.Visible = true;
-            RecQueWinGenCatComboText.SelectedIndex = 5;
+            RecQueWinGenCatComboBox.SelectedIndex = 0;
+            RecQueWinStartPanel.Controls.Clear();
+            RecQueWinInSessionPanel.Controls.Clear();
             RecQueWinInitializeGeneralPendingCustomersForStaff();
             RecQueWinInitializeInSessionCustomers();
         }
@@ -4281,11 +4559,9 @@ namespace Enchante
         private void RecQueWinExitBtn_Click(object sender, EventArgs e)
         {
             Transaction.PanelShow(RecQueStartPanel);
-            RecQueWinGenCatComboText.SelectedIndex = -1;
-
         }
 
-        
+
         #endregion
 
         #region Receptionsit Walk-in Appointment
@@ -5031,11 +5307,20 @@ namespace Enchante
             //basic info
             string CustomerName = RecApptFNameText.Text + " " + RecApptLNameText.Text; //client name
 
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
             if (RecApptSelectedServiceDGV.Rows.Count > 0)
             {
                 try
                 {
-                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    using (MySqlConnection connection = new MySqlConnection(connstringresult))
                     {
                         connection.Open();
 
@@ -5155,9 +5440,18 @@ namespace Enchante
 
             }
 
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     if (downpayment == "0.00")
@@ -5253,10 +5547,19 @@ namespace Enchante
             string mngr = RecNameLbl.Text;
             string transactNum = RecPayServiceWalkinTransactNumLbl.Text;
 
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     if (grossAmount == "0.00")
@@ -5322,7 +5625,16 @@ namespace Enchante
         //ApptMember
         private int GetLargestPriorityNum(string appointmentDate, string serviceCategory)
         {
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
 
@@ -5481,7 +5793,16 @@ namespace Enchante
 
             string query = "SELECT AppointmentTime FROM servicehistory WHERE AppointmentDate = @SelectedDate AND ServiceCategory = @ServiceCategory AND (QueType = 'AnyonePriority' OR QueType = 'PreferredPriority')";
 
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
 
@@ -5507,7 +5828,17 @@ namespace Enchante
 
         public void InitializeAppointmentDataGrid()
         {
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
 
@@ -5550,7 +5881,16 @@ namespace Enchante
                 string serviceCategory = string.Empty;
                 string queType = string.Empty;
 
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                if (AdminLoggedIn)
+                {
+                    connstringresult = "server=localhost;user=root;database=admindb;password=";
+                }
+                else
+                {
+                    connstringresult = "server=localhost;user=root;database=enchante;password=";
+                }
+
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
 
@@ -5781,7 +6121,16 @@ namespace Enchante
             DateTime currentDate = DateTime.Now;
             string dateToday = currentDate.ToString("MM-dd-yyyy dddd");
 
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
 
@@ -5801,7 +6150,16 @@ namespace Enchante
 
         private void ExecuteQuery(string query)
         {
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
 
@@ -6159,9 +6517,18 @@ namespace Enchante
         }
         private void RecShopProdUpdateQtyInventory(DataGridView dgv)
         {
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     string updateQuery = "UPDATE inventory SET ItemStock = ItemStock - @Qty WHERE ItemID = @ItemID";
@@ -6208,10 +6575,18 @@ namespace Enchante
             string Time = currentDate.ToString("hh:mm tt"); //bookedTime
             // bank & wallet details
 
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     if (grossAmount == "0.00")
@@ -6292,11 +6667,21 @@ namespace Enchante
 
             string yes = "Yes";
             string no = "No";
+
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
             if (RecShopProdSelectedProdDGV.Rows.Count > 0)
             {
                 try
                 {
-                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    using (MySqlConnection connection = new MySqlConnection(connstringresult))
                     {
                         connection.Open();
 
@@ -6682,7 +7067,7 @@ namespace Enchante
 
         private void MngrInventoryProductsHistoryBtn_Click(object sender, EventArgs e)
         {
-            MngrProductHistoryColor();       
+            MngrProductHistoryColor();
             ExitFunction();
             ApplyRowAlternatingColors(MngrPDHistoryDGV);
         }
@@ -6704,8 +7089,8 @@ namespace Enchante
             ExitFunction();
         }
         private void MngrServicesHistoryBtn_Click(object sender, EventArgs e)
-        {        
-            MngrServiceHistoryColor();         
+        {
+            MngrServiceHistoryColor();
             ExitFunction();
             ApplyRowAlternatingColors(MngrSVHistoryDGV);
         }
@@ -6746,10 +7131,19 @@ namespace Enchante
         #region Mngr Services Data
         public void ReceptionLoadServices()
         {
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
             MySqlConnection connection = null;
             try
             {
-                connection = new MySqlConnection(mysqlconn);
+                connection = new MySqlConnection(connstringresult);
                 connection.Open();
                 string countQuery = "SELECT COUNT(*) FROM services";
                 MySqlCommand countCommand = new MySqlCommand(countQuery, connection);
@@ -6824,11 +7218,18 @@ namespace Enchante
 
         private void UpdateDataGridViewAndLabelServices()
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
 
@@ -6907,11 +7308,18 @@ namespace Enchante
 
         private int GetTotalRowsServices()
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     string countQuery = "SELECT COUNT(*) FROM services";
@@ -6930,11 +7338,18 @@ namespace Enchante
 
         private int GetFilteredTotalRowsServices()
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     string query = $"SELECT COUNT(*) FROM services WHERE {GetFilterExpressionServices()}";
@@ -7113,10 +7528,18 @@ namespace Enchante
 
             else
             {
+                if (AdminLoggedIn)
+                {
+                    connstringresult = "server=localhost;user=root;database=admindb;password=";
+                }
+                else
+                {
+                    connstringresult = "server=localhost;user=root;database=enchante;password=";
+                }
 
                 try
                 {
-                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    using (MySqlConnection connection = new MySqlConnection(connstringresult))
                     {
                         connection.Open();
                         string checkIDQuery = "SELECT COUNT(*) FROM services WHERE ServiceID = @ID";
@@ -7239,9 +7662,18 @@ namespace Enchante
 
         private void RetrieveServiceDataFromDB(DataGridViewRow selectedRow)
         {
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
 
@@ -7329,9 +7761,18 @@ namespace Enchante
 
             else
             {
+                if (AdminLoggedIn)
+                {
+                    connstringresult = "server=localhost;user=root;database=admindb;password=";
+                }
+                else
+                {
+                    connstringresult = "server=localhost;user=root;database=enchante;password=";
+                }
+
                 try
                 {
-                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    using (MySqlConnection connection = new MySqlConnection(connstringresult))
                     {
                         connection.Open();
 
@@ -7394,12 +7835,19 @@ namespace Enchante
 
             string selectedCategory = MngrServicesCategoryComboText.SelectedItem?.ToString();
 
-            string connectionString = "Server=localhost;Database=enchante;User=root;Password=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
             string query = "SELECT ItemName FROM inventory WHERE ProductType = 'Service Product' AND ProductCategory = @Category";
 
             if (selectedCategory != null)
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
 
                     try
                     {
@@ -7438,10 +7886,17 @@ namespace Enchante
                     return;
                 }
 
-                string connectionString = "Server=localhost;Database=enchante;User=root;Password=;";
+                if (AdminLoggedIn)
+                {
+                    connstringresult = "server=localhost;user=root;database=admindb;password=";
+                }
+                else
+                {
+                    connstringresult = "server=localhost;user=root;database=enchante;password=";
+                }
                 string query = "SELECT ItemID FROM inventory WHERE ProductType = 'Service Product' AND ProductCategory = @Category AND ItemName = @ItemName";
 
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     try
                     {
@@ -7500,11 +7955,18 @@ namespace Enchante
 
         private void MngrInventoryProductData()
         {
-            string connectionString = "Server=localhost;Database=enchante;User=root;Password=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     string countQuery = "SELECT COUNT(*) FROM inventory";
@@ -7521,7 +7983,7 @@ namespace Enchante
                             adapter.Fill(dataTable);
 
                             int currentBatch = totalRows > 0 ? 1 : 0;
-                            int totalBatches = (int)Math.Ceiling((double)totalRows / 10);                         
+                            int totalBatches = (int)Math.Ceiling((double)totalRows / 10);
                             MngrInventoryProductsCurrentRecordLbl.Text = $"{currentBatch} of {totalBatches}";
                             MngrInventoryProductsTable.DataSource = dataTable;
                             ApplyRowAlternatingColors(MngrInventoryProductsTable);
@@ -7574,11 +8036,18 @@ namespace Enchante
 
         private void UpdateDataGridViewAndLabelProducts()
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
 
@@ -7649,11 +8118,18 @@ namespace Enchante
 
         private int GetTotalRowsProducts()
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     string countQuery = "SELECT COUNT(*) FROM inventory";
@@ -7672,11 +8148,18 @@ namespace Enchante
 
         private int GetFilteredTotalRowsProducts()
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     string query = $"SELECT COUNT(*) FROM inventory WHERE {GetFilterExpressionProducts()}";
@@ -7813,7 +8296,16 @@ namespace Enchante
             string query = "INSERT INTO inventory (ItemID, ProductCategory, ItemName, ItemStock, ItemPrice, ProductType, ItemStatus, ProductPicture) " +
                "VALUES (@ItemID, @ProductCategory, @ItemName, @ItemStock, @ItemPrice, @ProductType, @ItemStatus, @ProductPicture)";
 
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 try
                 {
@@ -7881,9 +8373,17 @@ namespace Enchante
                     return;
                 }
 
-                string connectionString = "server=localhost;user=root;database=enchante;password=";
+                if (AdminLoggedIn)
+                {
+                    connstringresult = "server=localhost;user=root;database=admindb;password=";
+                }
+                else
+                {
+                    connstringresult = "server=localhost;user=root;database=enchante;password=";
+                }
+
                 string query = "SELECT ProductPicture FROM inventory WHERE ItemID = @ItemID";
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
@@ -8007,7 +8507,15 @@ namespace Enchante
                 return;
             }
 
-            string connectionString = "server=localhost;user=root;database=enchante;password=";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
             string query;
             if (!imagewillnotupdate)
             {
@@ -8033,7 +8541,7 @@ namespace Enchante
                                 WHERE ItemID = @ItemID";
             }
 
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
@@ -8357,12 +8865,19 @@ namespace Enchante
                 return;
             }
 
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             List<DateTime> dates = new List<DateTime>();
             Dictionary<string, List<decimal>> categoryRevenues = new Dictionary<string, List<decimal>>();
 
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
 
                 try
@@ -8533,7 +9048,7 @@ namespace Enchante
                         MngrWalkinSalesTransRepDGV.DataSource = limitedDataTable;
                         MngrWalkinSalesTransRepDGVTwo.DataSource = dt;
                         ApplyRowAlternatingColors(MngrWalkinSalesTransRepDGV);
-                        
+
                         decimal totalServicePriceSum = 0;
 
                         foreach (DataRow row in dt.Rows)
@@ -8767,12 +9282,19 @@ namespace Enchante
                 }
                 MngrWalkinSalesSelectedPeriodText.Text = selectedPeriod;
             }
-            
+
         }
 
         private void ViewWalkinSales()
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             if (MngrWalkinSalesTransRepDGV == null || MngrWalkinSalesTransRepDGV.SelectedRows.Count == 0 || MngrWalkinSalesTransRepDGV.SelectedRows[0].Cells["TransactionNumber"] == null)
             {
@@ -8796,7 +9318,7 @@ namespace Enchante
 
             string query = "SELECT ServiceCategory, SelectedService, ServicePrice FROM servicehistory WHERE TransactionNumber = @TransactionNumber AND ServiceStatus = 'Completed' " + categoryFilter;
 
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
 
@@ -8956,7 +9478,16 @@ namespace Enchante
                     counts = new Dictionary<string, int>();
                 }
 
-                using (MySqlConnection connection = new MySqlConnection("Server=localhost;Database=enchante;Uid=root;Pwd=;"))
+                if (AdminLoggedIn)
+                {
+                    connstringresult = "server=localhost;user=root;database=admindb;password=";
+                }
+                else
+                {
+                    connstringresult = "server=localhost;user=root;database=enchante;password=";
+                }
+
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
 
@@ -9151,7 +9682,7 @@ namespace Enchante
                             MngrIndemandBestEmployee.Columns["Services Done"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                         }
                         else
-                        {                           
+                        {
                             DataTable serviceTable = new DataTable();
                             serviceTable.Columns.Add("Service Name");
                             serviceTable.Columns.Add("Service Selection Counts");
@@ -9173,7 +9704,7 @@ namespace Enchante
                             MngrIndemandServiceSelection.RowTemplate.Height = 38;
                             MngrIndemandServiceSelection.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
                             MngrIndemandServiceSelection.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-                            MngrIndemandServiceSelection.DataSource = limitedDataTable;       
+                            MngrIndemandServiceSelection.DataSource = limitedDataTable;
                             MngrIndemandServiceSelectionTwo.DataSource = serviceTable;
                             serviceTable.DefaultView.Sort = "Service Selection Counts DESC";
                             limitedDataTable.DefaultView.Sort = "Service Selection Counts DESC";
@@ -9271,7 +9802,16 @@ namespace Enchante
 
             Dictionary<string, int> serviceCounts = new Dictionary<string, int>();
 
-            using (MySqlConnection connection = new MySqlConnection("Server=localhost;Database=enchante;Uid=root;Pwd=;"))
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
 
@@ -9312,7 +9852,7 @@ namespace Enchante
             MngrIndemandServiceSelection.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             MngrIndemandServiceSelection.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             MngrIndemandServiceSelection.DataSource = limitedDataTable;
-            MngrIndemandServiceSelectionTwo.DataSource = serviceTable;      
+            MngrIndemandServiceSelectionTwo.DataSource = serviceTable;
 
             serviceTable.DefaultView.Sort = "Service Count DESC";
             limitedDataTable.DefaultView.Sort = "Service Count DESC";
@@ -9698,7 +10238,14 @@ namespace Enchante
                 categoryFilter = $"AND ItemID LIKE '{categoryPrefix}%'";
             }
             string statusFilter = "ProductStatus = 'Paid'";
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
             string query = $@"
                 SELECT  
                     LEFT(CheckedOutDate, 10) AS CheckedOutDate,
@@ -9722,7 +10269,7 @@ namespace Enchante
 
             try
             {
-                DataTable filteredData = FetchFilteredData(query, connectionString);
+                DataTable filteredData = FetchFilteredData(query, connstringresult);
                 DisplayFilteredDataInGrid(filteredData);
                 DisplayDataInDataGridView(filteredData);
 
@@ -9736,8 +10283,8 @@ namespace Enchante
                     return;
                 }
 
-                DisplayPieChart(query, connectionString);
-                DisplayLineChart(query, connectionString);
+                DisplayPieChart(query, connstringresult);
+                DisplayLineChart(query, connstringresult);
             }
             catch (Exception ex)
             {
@@ -10419,12 +10966,19 @@ namespace Enchante
                     return;
             }
 
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             List<DateTime> dates = new List<DateTime>();
             Dictionary<string, List<decimal>> categoryRevenues = new Dictionary<string, List<decimal>>();
 
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 try
                 {
@@ -10500,7 +11054,7 @@ namespace Enchante
                     reader.Close();
 
                     AppointmentServiceBreakdown(selectedCategory, fromDate, toDate, connection);
-                    DisplayAppointmentLineChart(query, connectionString, categoryRevenues, dates);
+                    DisplayAppointmentLineChart(query, connstringresult, categoryRevenues, dates);
                 }
                 catch (Exception ex)
                 {
@@ -10863,7 +11417,14 @@ namespace Enchante
 
         private void MngrAppSalesTransRepDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             if (MngrAppSalesTransRepDGV == null || MngrAppSalesTransRepDGV.SelectedRows.Count == 0 || MngrAppSalesTransRepDGV.SelectedRows[0].Cells["TransactionNumber"] == null)
             {
@@ -10891,7 +11452,7 @@ namespace Enchante
                         WHERE TransactionNumber = @TransactionNumber 
                         AND ServiceStatus = 'Completed'" + categoryFilter;
 
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
 
@@ -10921,11 +11482,18 @@ namespace Enchante
         #region Mngr. PANEL OF PRODUCT HISTORY
         private void ProductHistoryShow()
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     string queryCount = "SELECT COUNT(*) FROM orderproducthistory";
@@ -11093,11 +11661,18 @@ namespace Enchante
 
         private void UpdateDataGridViewAndLabelThree()
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
 
@@ -11168,11 +11743,18 @@ namespace Enchante
 
         private int GetTotalRowsThree()
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     string countQuery = "SELECT COUNT(*) FROM orderproducthistory";
@@ -11191,11 +11773,18 @@ namespace Enchante
 
         private int GetFilteredTotalRowsThree()
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     string query = $"SELECT COUNT(*) FROM orderproducthistory WHERE {GetFilterExpressionThree()}";
@@ -11424,12 +12013,19 @@ namespace Enchante
 
         private void FetchDataFromDatabaseThree(string query, string combinedFilter)
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
             string searchText = MngrPDSearchTextBox.Text.Trim();
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
 
@@ -11507,11 +12103,18 @@ namespace Enchante
         #region Mngr. PANEL OF SERVICE HISTORY
         private void ServiceHistoryShow()
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     string queryCount = "SELECT COUNT(*) FROM servicehistory";
@@ -11629,11 +12232,18 @@ namespace Enchante
 
         private void UpdateDataGridViewAndLabelFour()
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
 
@@ -11754,11 +12364,18 @@ namespace Enchante
 
         private int GetTotalRowsFour()
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     string countQuery = "SELECT COUNT(*) FROM servicehistory";
@@ -11777,11 +12394,17 @@ namespace Enchante
 
         private int GetFilteredTotalRowsFour()
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
-
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     string query = $"SELECT COUNT(*) FROM servicehistory WHERE {GetFilterExpressionFour()}";
@@ -11978,11 +12601,18 @@ namespace Enchante
 
         private void FetchDataFromDatabaseFour(string query, string combinedFilter)
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
             string searchText = MngrSVHistorySearchTextBox.Text.Trim();
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     DataTable dataTable = new DataTable();
@@ -12090,11 +12720,18 @@ namespace Enchante
         #region Mngr. PANEL OF VOUCHERS
         private void VouchersShow()
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     string countQuery = "SELECT COUNT(*) FROM voucher";
@@ -12211,11 +12848,18 @@ namespace Enchante
             string formattedDateEnd = dateEnd.ToString("MMMM d, yyyy");
             string formattedPromoCreated = promoCreated.ToString("MMMM d, yyyy HH:mm:ss");
 
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
             string query = "INSERT INTO voucher (DateStart, DateEnd, PromoName, PromoCategory, PromoCode, PromoDiscount, AvailableNumber, PromoCreated) " +
                            "VALUES (@DateStart, @DateEnd, @PromoName, @PromoCategory, @PromoCode, @PromoDiscount, @AvailableNumber, @PromoCreated)";
 
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
 
@@ -12347,13 +12991,20 @@ namespace Enchante
             string formattedDateStart = updatedDateStart.ToString("MMMM d, yyyy");
             string formattedDateEnd = updatedDateEnd.ToString("MMMM d, yyyy");
 
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
             string updateQuery = "UPDATE voucher SET DateStart = @DateStart, DateEnd = @DateEnd, " +
                                  "PromoName = @PromoName, PromoCategory = @PromoCategory, PromoDiscount = @PromoDiscount, " +
                                  "AvailableNumber = @AvailableNumber " +
                                  "WHERE PromoCode = @PromoCode";
 
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 using (MySqlCommand command = new MySqlCommand(updateQuery, connection))
                 {
@@ -12430,11 +13081,18 @@ namespace Enchante
 
         private void UpdateDataGridViewAndLabel()
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
 
@@ -12538,10 +13196,17 @@ namespace Enchante
         private string GetPromoCategoryFromDatabase(string promoCode)
         {
             string promoCategory = "";
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
             string query = "SELECT PromoCategory FROM voucher WHERE PromoCode = @PromoCode";
 
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
 
@@ -12590,11 +13255,18 @@ namespace Enchante
 
         private int GetTotalRows()
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     string countQuery = "SELECT COUNT(*) FROM voucher";
@@ -12613,11 +13285,18 @@ namespace Enchante
 
         private int GetFilteredTotalRows()
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     string query = $"SELECT COUNT(*) FROM voucher WHERE {GetFilterExpression()}";
@@ -12764,11 +13443,18 @@ namespace Enchante
         #region Mngr. PANEL OF MEMBER ACCOUNTS
         private void MemberAccountsShow()
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     string query = "SELECT MembershipType, MemberIDNumber, AccountStatus, FirstName, LastName, " +
@@ -13075,7 +13761,7 @@ namespace Enchante
                     row.DefaultCellStyle.BackColor = oddRowColor;
                 }
             }
-        }       
+        }
         #endregion
 
         //Admin Dashboard Starts Here
@@ -13405,7 +14091,16 @@ namespace Enchante
             {
                 try
                 {
-                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    if (AdminLoggedIn)
+                    {
+                        connstringresult = "server=localhost;user=root;database=admindb;password=";
+                    }
+                    else
+                    {
+                        connstringresult = "server=localhost;user=root;database=enchante;password=";
+                    }
+
+                    using (MySqlConnection connection = new MySqlConnection(connstringresult))
                     {
                         connection.Open();
 
@@ -13520,7 +14215,16 @@ namespace Enchante
                      EmployeeCategoryLevel = @EmployeeCategoryLevel, 
                      EmployeeID = @EmployeeID 
                  WHERE HashedPerUser = @HashedPerUser";
-                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    if (AdminLoggedIn)
+                    {
+                        connstringresult = "server=localhost;user=root;database=admindb;password=";
+                    }
+                    else
+                    {
+                        connstringresult = "server=localhost;user=root;database=enchante;password=";
+                    }
+
+                    using (MySqlConnection connection = new MySqlConnection(connstringresult))
                     {
                         connection.Open();
 
@@ -13553,7 +14257,16 @@ namespace Enchante
 
                     if (fieldsChanged)
                     {
-                        using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                        if (AdminLoggedIn)
+                        {
+                            connstringresult = "server=localhost;user=root;database=admindb;password=";
+                        }
+                        else
+                        {
+                            connstringresult = "server=localhost;user=root;database=enchante;password=";
+                        }
+
+                        using (MySqlConnection connection = new MySqlConnection(connstringresult))
                         {
                             connection.Open();
 
@@ -13620,11 +14333,18 @@ namespace Enchante
 
         private void PopulateUserInfoDataGrid()
         {
-            string connectionString = "Server=localhost;Database=enchante;User=root;Password=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     string countQuery = "SELECT COUNT(*) FROM systemusers";
@@ -13701,11 +14421,18 @@ namespace Enchante
 
         private void UpdateDataGridViewAndLabelAdmin()
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
 
@@ -13775,11 +14502,18 @@ namespace Enchante
 
         private int GetTotalRowsAdmin()
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     string countQuery = "SELECT COUNT(*) FROM systemusers";
@@ -13798,11 +14532,17 @@ namespace Enchante
 
         private int GetFilteredTotalRowsAdmin()
         {
-            string connectionString = "Server=localhost;Database=enchante;Uid=root;Pwd=;";
-
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     string query = $"SELECT COUNT(*) FROM systemusers WHERE {GetFilterExpressionAdmin()}";
@@ -13939,7 +14679,16 @@ namespace Enchante
                 if (result == DialogResult.Yes)
                 {
                     // User confirmed, proceed with cancellation
-                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    if (AdminLoggedIn)
+                    {
+                        connstringresult = "server=localhost;user=root;database=admindb;password=";
+                    }
+                    else
+                    {
+                        connstringresult = "server=localhost;user=root;database=enchante;password=";
+                    }
+
+                    using (MySqlConnection connection = new MySqlConnection(connstringresult))
                     {
                         connection.Open();
 
@@ -13985,8 +14734,16 @@ namespace Enchante
                                              "FROM servicehistory " +
                                              "WHERE TransactionNumber = @transactionNumber AND (ServiceStatus = 'Pending' OR ServiceStatus = 'PendingPaid')";
 
+                if (AdminLoggedIn)
+                {
+                    connstringresult = "server=localhost;user=root;database=admindb;password=";
+                }
+                else
+                {
+                    connstringresult = "server=localhost;user=root;database=enchante;password=";
+                }
 
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
 
@@ -14029,7 +14786,16 @@ namespace Enchante
 
                 if (confirmationResult == DialogResult.Yes)
                 {
-                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    if (AdminLoggedIn)
+                    {
+                        connstringresult = "server=localhost;user=root;database=admindb;password=";
+                    }
+                    else
+                    {
+                        connstringresult = "server=localhost;user=root;database=enchante;password=";
+                    }
+
+                    using (MySqlConnection connection = new MySqlConnection(connstringresult))
                     {
 
                         connection.Open();
@@ -14136,7 +14902,16 @@ namespace Enchante
 
                 if (confirmationResult == DialogResult.Yes)
                 {
-                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                    if (AdminLoggedIn)
+                    {
+                        connstringresult = "server=localhost;user=root;database=admindb;password=";
+                    }
+                    else
+                    {
+                        connstringresult = "server=localhost;user=root;database=enchante;password=";
+                    }
+
+                    using (MySqlConnection connection = new MySqlConnection(connstringresult))
                     {
 
                         connection.Open();
@@ -14242,7 +15017,16 @@ namespace Enchante
         {
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                if (AdminLoggedIn)
+                {
+                    connstringresult = "server=localhost;user=root;database=admindb;password=";
+                }
+                else
+                {
+                    connstringresult = "server=localhost;user=root;database=enchante;password=";
+                }
+
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
 
@@ -14311,8 +15095,15 @@ namespace Enchante
                 InitializeProducts();
                 return;
             }
-
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
 
@@ -14421,7 +15212,16 @@ namespace Enchante
                 return;
             }
 
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
 
@@ -14532,7 +15332,16 @@ namespace Enchante
                 return;
             }
 
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
 
@@ -14663,7 +15472,16 @@ namespace Enchante
                 return;
             }
 
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
 
@@ -15202,7 +16020,7 @@ namespace Enchante
         }
 
 
-        
+
 
         public string CurrentStaffID;
 
@@ -15252,7 +16070,16 @@ namespace Enchante
             string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
             List<GeneralPendingCustomers> result = new List<GeneralPendingCustomers>();
 
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 try
                 {
@@ -15298,7 +16125,7 @@ namespace Enchante
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("An error occurred: " + ex.Message);
+                    System.Windows.Forms.MessageBox.Show("An error occurred: " + ex.Message);
                 }
             }
 
@@ -15404,7 +16231,7 @@ namespace Enchante
 
         }
 
-        
+
 
         private void UpdateStartServiceButtonStatusPriority(List<GeneralPendingCustomers> generalpendingcustomers, int smallestqueuesenior, int smallestapptqueue, int smallestgenqueue)
         {
@@ -15424,11 +16251,11 @@ namespace Enchante
                         if (userControl.StaffQueTypeTextBox.Text == "Senior-Anyone-Priority" || userControl.StaffQueTypeTextBox.Text == "Senior-Anyone" ||
                             userControl.StaffQueTypeTextBox.Text == "Senior-Preferred-Priority" || userControl.StaffQueTypeTextBox.Text == "Preferred-Anyone")
                         {
-                            userControl.Enabled = (currentseniorquenum == smallestqueuesenior);
+                            userControl.StaffQueNumberTextBox.Enabled = (currentseniorquenum == smallestqueuesenior);
                         }
                         else
                         {
-                            userControl.Enabled = false;
+                            userControl.StaffQueNumberTextBox.Enabled = false;
                         }
                     }
                 }
@@ -15443,11 +16270,11 @@ namespace Enchante
                         int.TryParse(userControl.StaffQueNumberTextBox.Text, out currentapptqueuenum);
                         if (userControl.StaffQueTypeTextBox.Text == "Anyone-Priority" || userControl.StaffQueTypeTextBox.Text == "Preferred-Priority")
                         {
-                            userControl.Enabled = (currentapptqueuenum == smallestapptqueue);
+                            userControl.StaffQueNumberTextBox.Enabled = (currentapptqueuenum == smallestapptqueue);
                         }
                         else
                         {
-                            userControl.Enabled = false;
+                            userControl.StaffQueNumberTextBox.Enabled = false;
                         }
                     }
                 }
@@ -15460,7 +16287,7 @@ namespace Enchante
                     {
                         int currentgeneralque;
                         int.TryParse(userControl.StaffQueNumberTextBox.Text, out currentgeneralque);
-                        userControl.Enabled = (currentgeneralque == smallestgenqueue);
+                        userControl.StaffQueNumberTextBox.Enabled = (currentgeneralque == smallestgenqueue);
 
                     }
                 }
@@ -15503,7 +16330,16 @@ namespace Enchante
             string query = "SELECT ItemID, ProductCategory, ItemName, ItemStock, ItemStatus FROM inventory " +
                            "WHERE ProductType = 'Service Product'";
 
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
@@ -15545,7 +16381,16 @@ namespace Enchante
 
         public void CheckItemStockPersonalStatus(string ItemID, string staffID)
         {
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
 
@@ -15683,71 +16528,273 @@ namespace Enchante
                     availableinsessionusercontrol.StartTimer();
                     availableinsessionusercontrol.StaffQueTypeTextBox.Visible = true;
                     RecQueStartCurrentCustPanel.Controls.Add(availableinsessionusercontrol);
-                    RecQueWinInitializeGeneralPendingCustomersForStaff();
-                    RecQueWinInitializeInSessionCustomers();
                     // Add the user control to the existingUserControls dictionary
                     existingUserControls.Add(controlID, availableinsessionusercontrol);
                 }
             }
         }
 
+        public void RefreshQueuWindow()
+        {
+            RecQueWinStartPanel.Controls.Clear();
+            RecQueWinInSessionPanel.Controls.Clear();
+            RecQueWinInitializeInSessionCustomers();
+            RecQueWinInitializeGeneralPendingCustomersForStaff();
+        }
+
+        Dictionary<string, ISQueWindowUserControl> ISQWUserControls = new Dictionary<string, ISQueWindowUserControl>();
         public void RecQueWinInitializeInSessionCustomers()
         {
-            List<InSessionCustomers> insessioncustomers = RetrieveInSessionCustomersFromDB();
+            List<InSessionCustomers> insessioncustomers2 = QueueWindowRetrieveInSessionCustomersFromDB();
 
-            foreach (InSessionCustomers customer in insessioncustomers)
+
+            foreach (InSessionCustomers customer in insessioncustomers2)
             {
-                // Generate a unique identifier for the user control
                 string controlID = GenerateControlID(customer);
 
                 // Check if the user control already exists in the FlowLayoutPanel or in the existingUserControls dictionary
-                bool userControlExists = RecQueStartCurrentCustPanel.Controls
-                    .OfType<InSessionUserControl>()
-                    .Any(control => control.ControlID == controlID) || existingUserControls.ContainsKey(controlID);
+                bool userControlExists = RecQueWinInSessionPanel.Controls
+                    .OfType<ISQueWindowUserControl>()
+                    .Any(control => control.ControlID == controlID) || ISQWUserControls.ContainsKey(controlID);
 
                 if (!userControlExists)
                 {
-                    InSessionUserControl availableinsessionusercontrol = new InSessionUserControl(this);
-                    availableinsessionusercontrol.ControlID = controlID;
-                    availableinsessionusercontrol.AvailableCustomerSetData(customer);
-                    
-                    availableinsessionusercontrol.StaffQueTypeTextBox.Visible = true;
-                    RecQueWinCurrentCustPanel.Controls.Add(availableinsessionusercontrol);
-
-                    // Add the user control to the existingUserControls dictionary
-                    existingUserControls.Add(controlID, availableinsessionusercontrol);
+                    ISQueWindowUserControl availableinsessionusercontrol2 = new ISQueWindowUserControl(this);
+                    availableinsessionusercontrol2.ControlID = controlID;
+                    availableinsessionusercontrol2.AvailableCustomerSetData(customer);
+                    RecQueWinInSessionPanel.Controls.Add(availableinsessionusercontrol2);
                 }
             }
         }
+
+
+        private List<InSessionCustomers> QueueWindowRetrieveInSessionCustomersFromDB()
+        {
+            DateTime currentDate = DateTime.Today;
+            string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
+            List<InSessionCustomers> result = new List<InSessionCustomers>();
+
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string insessionquerywalkin = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber, sh.QueType, sh.AttendingStaff
+                                                     FROM servicehistory sh 
+                                                     INNER JOIN walk_in_appointment wa ON sh.TransactionNumber = wa.TransactionNumber 
+                                                     WHERE (sh.ServiceStatus = 'In Session' OR sh.ServiceStatus = 'In Session Paid')
+                                                     AND (wa.ServiceStatus = 'In Session' OR wa.ServiceStatus = 'In Session Paid')
+                                                     AND sh.AppointmentDate = @datetoday";
+
+                    string insessionquertappointment = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber, sh.QueType, sh.AttendingStaff
+                                                     FROM servicehistory sh 
+                                                     INNER JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber 
+                                                     WHERE (sh.ServiceStatus = 'In Session' OR sh.ServiceStatus = 'In Session Paid')
+                                                     AND (app.ServiceStatus = 'In Session' OR app.ServiceStatus = 'In Session Paid')
+                                                     AND sh.AppointmentDate = @datetoday";
+
+                    MySqlCommand command = new MySqlCommand(insessionquerywalkin, connection);
+                    command.Parameters.AddWithValue("@datetoday", datetoday);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            InSessionCustomers insessionustomers = new InSessionCustomers
+                            {
+                                TransactionNumber = reader["TransactionNumber"] as string,
+                                ClientName = reader["ClientName"] as string,
+                                ServiceStatus = reader["ServiceStatus"] as string,
+                                ServiceName = reader["SelectedService"] as string,
+                                ServiceID = reader["ServiceID"] as string,
+                                QueType = reader["QueType"] as string,
+                                QueNumber = reader["QueNumber"] as string,
+                                AttendingStaff = reader["AttendingStaff"] as string
+                            };
+
+                            result.Add(insessionustomers);
+                        }
+                    }
+
+                    MySqlCommand command2 = new MySqlCommand(insessionquertappointment, connection);
+                    command2.Parameters.AddWithValue("@datetoday", datetoday);
+
+                    using (MySqlDataReader reader = command2.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            InSessionCustomers insessionustomers = new InSessionCustomers
+                            {
+                                TransactionNumber = reader["TransactionNumber"] as string,
+                                ClientName = reader["ClientName"] as string,
+                                ServiceStatus = reader["ServiceStatus"] as string,
+                                ServiceName = reader["SelectedService"] as string,
+                                ServiceID = reader["ServiceID"] as string,
+                                QueType = reader["QueType"] as string,
+                                QueNumber = reader["QueNumber"] as string,
+                                AttendingStaff = reader["AttendingStaff"] as string
+                            };
+
+                            result.Add(insessionustomers);
+                        }
+                    }
+                    if (result.Count == 0)
+                    {
+                        //System.Windows.Forms.MessageBox.Show("No customers in the queue.", "Empty Queue", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
+
+            return result;
+        }
+
+
         public void RecQueWinInitializeGeneralPendingCustomersForStaff()
         {
-            List<GeneralPendingCustomers> generalpendingcustomers = RetrieveGeneralPendingCustomersFromDB();
-            seniorcount = 0;
-            apptpriocount = 0;
-            ThereisPriority = false;
-            ThereIsSenior = false;
+            List<InSessionCustomers> generalpendingcustomers = QueueWindowRetrieveGeneralPendingCustomersFromDB();
 
-            if (generalpendingcustomers.Count == 0)
+            foreach (InSessionCustomers customer in generalpendingcustomers)
             {
-                NoCustomerInQueueUserControl nocustomerusercontrol = new NoCustomerInQueueUserControl();
-                RecQueueStartPanel.Controls.Add(nocustomerusercontrol);
-                NextCustomerNumLbl.Text = "No customer in queue";
-            }
-
-            foreach (GeneralPendingCustomers customer in generalpendingcustomers)
-            {
-                QueueUserControl availablecustomersusercontrol = new QueueUserControl(this);
-                availablecustomersusercontrol.AvailableGeneralCustomerSetData(customer);
-                // usercontrol click event add
+                QueWindowUserControl availablecustomersusercontrol = new QueWindowUserControl(this);
+                availablecustomersusercontrol.AvailableCustomerSetData(customer);
 
                 RecQueWinStartPanel.Controls.Add(availablecustomersusercontrol);
-                availablecustomersusercontrol.CurrentStaffID = selectedstaffemployeeid;
 
             }
 
-
-
         }
+
+        private void RecQueWinGenCatComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshQueuWindow();
+        }
+
+
+        private List<InSessionCustomers> QueueWindowRetrieveGeneralPendingCustomersFromDB()
+        {
+            string selectedmembercategory = RecQueWinGenCatComboBox.SelectedItem.ToString();
+
+            DateTime currentDate = DateTime.Today;
+            string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
+            List<InSessionCustomers> result = new List<InSessionCustomers>();
+
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string generalpendingcustomersquery = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber, sh.QueType 
+                                                 FROM servicehistory sh 
+                                                 LEFT JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber 
+                                                 WHERE sh.ServiceStatus = 'Pending'
+                                                 AND sh.ServiceCategory = @membercategory 
+                                                 AND (sh.QueType = 'Anyone'  OR sh. QueType = 'Anyone-Priority' OR sh.QueType = 'Senior-Anyone' OR sh.QueType = 'Senior-Anyone-Priority'
+                                                 OR sh.QueType = 'Preferred'  OR sh. QueType = 'Preferred-Priority' OR sh.QueType = 'Senior-Preferred' OR sh.QueType = 'Senior-Preferred-Priority')
+                                                 AND (app.ServiceStatus IS NULL OR app.ServiceStatus = 'Pending')
+                                                 AND (app.AppointmentStatus IS NULL OR app.AppointmentStatus = 'Confirmed')
+                                                 AND sh.AppointmentDate = @datetoday";
+
+                    string generalpendingcustomersquery2 = $@"SELECT sh.TransactionNumber, sh.ClientName, sh.ServiceStatus, sh.SelectedService, sh.ServiceID, sh.QueNumber, sh.QueType 
+                                                 FROM servicehistory sh 
+                                                 LEFT JOIN appointment app ON sh.TransactionNumber = app.TransactionNumber 
+                                                 WHERE sh.ServiceStatus = 'Pending' 
+                                                 AND (sh.QueType = 'Anyone'  OR sh. QueType = 'Anyone-Priority' OR sh.QueType = 'Senior-Anyone' OR sh.QueType = 'Senior-Anyone-Priority'
+                                                 OR sh.QueType = 'Preferred'  OR sh. QueType = 'Preferred-Priority' OR sh.QueType = 'Senior-Preferred' OR sh.QueType = 'Senior-Preferred-Priority')
+                                                 AND (app.ServiceStatus IS NULL OR app.ServiceStatus = 'Pending')
+                                                 AND (app.AppointmentStatus IS NULL OR app.AppointmentStatus = 'Confirmed')
+                                                 AND sh.AppointmentDate = @datetoday";
+
+                    if (selectedmembercategory == "All Categories")
+                    {
+                        MySqlCommand command = new MySqlCommand(generalpendingcustomersquery2, connection);
+                        command.Parameters.AddWithValue("@datetoday", datetoday);
+
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                InSessionCustomers generalpendingcustomers = new InSessionCustomers
+                                {
+                                    TransactionNumber = reader["TransactionNumber"] as string,
+                                    ClientName = reader["ClientName"] as string,
+                                    ServiceStatus = reader["ServiceStatus"] as string,
+                                    ServiceName = reader["SelectedService"] as string,
+                                    ServiceID = reader["ServiceID"] as string,
+                                    QueType = reader["QueType"] as string,
+                                    QueNumber = reader["QueNumber"] as string
+
+                                };
+
+                                result.Add(generalpendingcustomers);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MySqlCommand command = new MySqlCommand(generalpendingcustomersquery, connection);
+                        command.Parameters.AddWithValue("@membercategory", selectedmembercategory);
+                        command.Parameters.AddWithValue("@datetoday", datetoday);
+
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                InSessionCustomers generalpendingcustomers = new InSessionCustomers
+                                {
+                                    TransactionNumber = reader["TransactionNumber"] as string,
+                                    ClientName = reader["ClientName"] as string,
+                                    ServiceStatus = reader["ServiceStatus"] as string,
+                                    ServiceName = reader["SelectedService"] as string,
+                                    ServiceID = reader["ServiceID"] as string,
+                                    QueType = reader["QueType"] as string,
+                                    QueNumber = reader["QueNumber"] as string
+                                };
+
+                                result.Add(generalpendingcustomers);
+                            }
+                        }
+                    }
+
+                    if (result.Count == 0)
+                    {
+                        //System.Windows.Forms.MessageBox.Show("No customers in the queue.", "Empty Queue", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
+
+            return result;
+        }
+
 
         // Generate a unique identifier for the user control based on the customer information
         private string GenerateControlID(InSessionCustomers customer)
@@ -15763,7 +16810,16 @@ namespace Enchante
             string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
             List<InSessionCustomers> result = new List<InSessionCustomers>();
 
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 try
                 {
@@ -15969,7 +17025,7 @@ namespace Enchante
                 RecWalkinHairStyle();
                 WalkinTabs.SelectedIndex = 1;
             }
-            
+
         }
 
         private void RecWalkinProdCOBtn_Click(object sender, EventArgs e)
@@ -16601,7 +17657,7 @@ namespace Enchante
 
         private void RecOverrideBackBtn_Click(object sender, EventArgs e)
         {
-            if(RecEmplTypeLbl.Text == "Admin")
+            if (RecEmplTypeLbl.Text == "Admin")
             {
                 AdminHomePanelReset();
             }
@@ -16881,10 +17937,19 @@ namespace Enchante
 
             // bank & wallet details
 
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+                using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
                     if (grossAmount == "0.00")
@@ -16975,7 +18040,7 @@ namespace Enchante
                 serviceitemsPerPage = 7;
                 RecApptServicesFLP.Controls.Clear();
             }
-            
+
             List<Services> services = RetrieveServices(category);
 
             foreach (Services service in services)
@@ -16996,7 +18061,7 @@ namespace Enchante
                 {
                     RecApptServicesFLP.Controls.Add(servicesusercontrol);
                 }
-                
+
             }
         }
 
@@ -17027,7 +18092,17 @@ namespace Enchante
 
             servicecat = category;
 
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 try
                 {
@@ -17051,7 +18126,7 @@ namespace Enchante
                     }
 
                     string servicesquery = $@"SELECT Category, ServiceID, Name, Duration, Price FROM services WHERE Category = @category 
-                                            LIMIT { offset}, { serviceitemsPerPage}";
+                                            LIMIT {offset}, {serviceitemsPerPage}";
 
 
 
@@ -17167,7 +18242,7 @@ namespace Enchante
             }
         }
 
-        
+
 
         private void ProductPreviousBtn_Click(object sender, EventArgs e)
         {
@@ -17405,7 +18480,16 @@ namespace Enchante
         {
             List<Staff> result = new List<Staff>();
 
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 try
                 {
@@ -17516,7 +18600,7 @@ namespace Enchante
                 serviceitemsPerPage = 7;
                 RecApptServicesFLP.Controls.Clear();
             }
-            List<Services> services = RetrieveServices2(filterstaffbyservicecategory,searchKeyword);
+            List<Services> services = RetrieveServices2(filterstaffbyservicecategory, searchKeyword);
 
             foreach (Services service in services)
             {
@@ -17536,7 +18620,7 @@ namespace Enchante
                 {
                     RecApptServicesFLP.Controls.Add(servicesusercontrol);
                 }
-                
+
             }
         }
 
@@ -17547,7 +18631,17 @@ namespace Enchante
             servicecurrentPage = 0;
             servicecurrentPagefake = 1;
 
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
+
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 try
                 {
@@ -17672,7 +18766,7 @@ namespace Enchante
                 {
                     RecApptServicesFLP.Controls.Add(servicesusercontrol);
                 }
-                
+
             }
         }
 
@@ -17681,8 +18775,16 @@ namespace Enchante
             List<Services> result = new List<Services>();
             servicetotalItems = 0;
 
+            if (AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 try
                 {
@@ -17777,7 +18879,7 @@ namespace Enchante
             if (walkinservices)
             {
                 string searchKeyword = RecWalkinSearchServiceTypeText.Text.Trim().ToLower();
-                
+
                 if (string.IsNullOrEmpty(searchKeyword))
                 {
                     if (servicecurrentPagefake == 1)
@@ -18032,5 +19134,979 @@ namespace Enchante
         {
             RecApptTransactNumRefresh();
         }
+
+        DataTable appointment = new DataTable();
+        DataTable inventory = new DataTable();
+        DataTable orderproducthistory = new DataTable();
+        DataTable servicehistory = new DataTable();
+        DataTable services = new DataTable();
+        DataTable staffappointmentschedule = new DataTable();
+        DataTable systemusers = new DataTable();
+        DataTable walk_in_appointment = new DataTable();
+        DataTable voucher = new DataTable();
+
+        public void GetEnchanteVoucher()
+        {
+
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string query = "SELECT * FROM voucher";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        adapter.Fill(voucher);
+                    }
+                }
+            }
+
+        }
+
+        public void SetAdminVoucherDB()
+        {
+            using (MySqlConnection connection = new MySqlConnection(admindb))
+            {
+                connection.Open();
+
+                using (MySqlTransaction transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        using (MySqlCommand command = new MySqlCommand())
+                        {
+                            command.Connection = connection;
+                            command.Transaction = transaction;
+
+                            // Prepare the INSERT INTO command with parameters
+                            command.CommandText = "INSERT INTO voucher (DateStart, DateEnd, PromoName, PromoCategory, PromoCode, PromoDiscount, AvailableNumber, PromoCreated, Status) " +
+                                                  "VALUES (@DateStart, @DateEnd, @PromoName, @PromoCategory, @PromoCode, @PromoDiscount, @AvailableNumber, @PromoCreated, @Status)";
+
+                            // Add the parameters
+                            command.Parameters.Add("@DateStart", MySqlDbType.VarChar);
+                            command.Parameters.Add("@DateEnd", MySqlDbType.VarChar);
+                            command.Parameters.Add("@PromoName", MySqlDbType.VarChar);
+                            command.Parameters.Add("@PromoCategory", MySqlDbType.VarChar);
+                            command.Parameters.Add("@PromoCode", MySqlDbType.VarChar);
+                            command.Parameters.Add("@PromoDiscount", MySqlDbType.VarChar);
+                            command.Parameters.Add("@AvailableNumber", MySqlDbType.VarChar);
+                            command.Parameters.Add("@PromoCreated", MySqlDbType.VarChar);
+                            command.Parameters.Add("@Status", MySqlDbType.VarChar);
+
+                            // Insert each row from the source DataTable into the destination table
+                            foreach (DataRow row in voucher.Rows)
+                            {
+                                command.Parameters["@DateStart"].Value = row["DateStart"];
+                                command.Parameters["@DateEnd"].Value = row["DateEnd"];
+                                command.Parameters["@PromoName"].Value = row["PromoName"];
+                                command.Parameters["@PromoCategory"].Value = row["PromoCategory"];
+                                command.Parameters["@PromoCode"].Value = row["PromoCode"];
+                                command.Parameters["@PromoDiscount"].Value = row["PromoDiscount"];
+                                command.Parameters["@AvailableNumber"].Value = row["AvailableNumber"];
+                                command.Parameters["@PromoCreated"].Value = row["PromoCreated"];
+                                command.Parameters["@Status"].Value = row["Status"];
+
+                                command.ExecuteNonQuery();
+                            }
+
+                            transaction.Commit();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        System.Windows.Forms.MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+
+        public void DeleteAdminVoucherDB()
+        {
+            using (MySqlConnection connection = new MySqlConnection(admindb))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand())
+                {
+                    command.Connection = connection;
+
+                    command.CommandText = "DELETE FROM voucher";
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void GetEnchanteAppointment()
+        {
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string query = "SELECT * FROM appointment";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        adapter.Fill(appointment);
+                    }
+                }
+            }
+
+        }
+
+        public void SetAdminAppointmentDB()
+        {
+            using (MySqlConnection destinationConnection = new MySqlConnection(admindb))
+            {
+                destinationConnection.Open();
+
+                using (MySqlTransaction transaction = destinationConnection.BeginTransaction())
+                {
+                    try
+                    {
+                        using (MySqlCommand insertCommand = new MySqlCommand())
+                        {
+                            insertCommand.Connection = destinationConnection;
+                            insertCommand.Transaction = transaction;
+
+                            // Prepare the INSERT INTO command with parameters
+                            insertCommand.CommandText = "INSERT INTO appointment (TransactionNumber, TransactionType, ServiceStatus, AppointmentDate, AppointmentTime, AppointmentStatus, ClientName, ClientCPNum, ClientBday, ClientAge, NetPrice, VatAmount, DiscountAmount, VoucherUsed, GrossAmount, Downpayment, RemainingBal, CashGiven, DueChange, PaymentMethod, CardName, CardNumber, CVC, CardExpiration, WalletNumber, WalletPIN, WalletOTP, ServiceDuration, BookedBy, BookedDate, BookedTime, CheckedOutBy) " +
+                                                        "VALUES (@TransactionNumber, @TransactionType, @ServiceStatus, @AppointmentDate, @AppointmentTime, @AppointmentStatus, @ClientName, @ClientCPNum, @ClientBday, @ClientAge, @NetPrice, @VatAmount, @DiscountAmount, @VoucherUsed, @GrossAmount, @Downpayment, @RemainingBal, @CashGiven, @DueChange, @PaymentMethod, @CardName, @CardNumber, @CVC, @CardExpiration, @WalletNumber, @WalletPIN, @WalletOTP, @ServiceDuration, @BookedBy, @BookedDate, @BookedTime, @CheckedOutBy)";
+
+                            // Add the parameters
+                            insertCommand.Parameters.Add("@TransactionNumber", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@TransactionType", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ServiceStatus", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@AppointmentDate", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@AppointmentTime", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@AppointmentStatus", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ClientName", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ClientCPNum", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ClientBday", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ClientAge", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@NetPrice", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@VatAmount", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@DiscountAmount", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@VoucherUsed", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@GrossAmount", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@Downpayment", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@RemainingBal", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@CashGiven", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@DueChange", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@PaymentMethod", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@CardName", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@CardNumber", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@CVC", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@CardExpiration", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@WalletNumber", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@WalletPIN", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@WalletOTP", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ServiceDuration", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@BookedBy", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@BookedDate", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@BookedTime", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@CheckedOutBy", MySqlDbType.VarChar);
+
+                            // Insert each row from the source DataTable into the destination table
+                            foreach (DataRow row in appointment.Rows)
+                            {
+                                insertCommand.Parameters["@TransactionNumber"].Value = row["TransactionNumber"];
+                                insertCommand.Parameters["@TransactionType"].Value = row["TransactionType"];
+                                insertCommand.Parameters["@ServiceStatus"].Value = row["ServiceStatus"];
+                                insertCommand.Parameters["@AppointmentDate"].Value = row["AppointmentDate"];
+                                insertCommand.Parameters["@AppointmentTime"].Value = row["AppointmentTime"];
+                                insertCommand.Parameters["@AppointmentStatus"].Value = row["AppointmentStatus"];
+                                insertCommand.Parameters["@ClientName"].Value = row["ClientName"];
+                                insertCommand.Parameters["@ClientCPNum"].Value = row["ClientCPNum"];
+                                insertCommand.Parameters["@ClientBday"].Value = row["ClientBday"];
+                                insertCommand.Parameters["@ClientAge"].Value = row["ClientAge"];
+                                insertCommand.Parameters["@NetPrice"].Value = row["NetPrice"];
+                                insertCommand.Parameters["@VatAmount"].Value = row["VatAmount"];
+                                insertCommand.Parameters["@DiscountAmount"].Value = row["DiscountAmount"];
+                                insertCommand.Parameters["@VoucherUsed"].Value = row["VoucherUsed"];
+                                insertCommand.Parameters["@GrossAmount"].Value = row["GrossAmount"];
+                                insertCommand.Parameters["@Downpayment"].Value = row["Downpayment"];
+                                insertCommand.Parameters["@RemainingBal"].Value = row["RemainingBal"];
+                                insertCommand.Parameters["@CashGiven"].Value = row["CashGiven"];
+                                insertCommand.Parameters["@DueChange"].Value = row["DueChange"];
+                                insertCommand.Parameters["@PaymentMethod"].Value = row["PaymentMethod"];
+                                insertCommand.Parameters["@CardName"].Value = row["CardName"];
+                                insertCommand.Parameters["@CardNumber"].Value = row["CardNumber"];
+                                insertCommand.Parameters["@CVC"].Value = row["CVC"];
+                                insertCommand.Parameters["@CardExpiration"].Value = row["CardExpiration"];
+                                insertCommand.Parameters["@WalletNumber"].Value = row["WalletNumber"];
+                                insertCommand.Parameters["@WalletPIN"].Value = row["WalletPIN"];
+                                insertCommand.Parameters["@WalletOTP"].Value = row["WalletOTP"];
+                                insertCommand.Parameters["@ServiceDuration"].Value = row["ServiceDuration"];
+                                insertCommand.Parameters["@BookedBy"].Value = row["BookedBy"];
+                                insertCommand.Parameters["@BookedDate"].Value = row["BookedDate"];
+                                insertCommand.Parameters["@BookedTime"].Value = row["BookedTime"];
+                                insertCommand.Parameters["@CheckedOutBy"].Value = row["CheckedOutBy"];
+
+                                insertCommand.ExecuteNonQuery();
+                            }
+
+                            transaction.Commit();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        System.Windows.Forms.MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        public void DeleteAdminAppointmentDB()
+        {
+            using (MySqlConnection connection = new MySqlConnection(admindb))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand())
+                {
+                    command.Connection = connection;
+
+                    command.CommandText = "DELETE FROM appointment";
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+        public void GetEnchanteInventory()
+        {
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string query = "SELECT * FROM inventory";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        adapter.Fill(inventory);
+                    }
+                }
+            }
+        }
+
+        public void SetAdminInventoryDB()
+        {
+            using (MySqlConnection destinationConnection = new MySqlConnection(admindb))
+            {
+                destinationConnection.Open();
+
+                using (MySqlTransaction transaction = destinationConnection.BeginTransaction())
+                {
+                    try
+                    {
+                        using (MySqlCommand insertCommand = new MySqlCommand())
+                        {
+                            insertCommand.Connection = destinationConnection;
+                            insertCommand.Transaction = transaction;
+
+                            // Prepare the INSERT INTO command with parameters
+                            insertCommand.CommandText = "INSERT INTO inventory (ProductCategory, ItemID, ItemName, ItemStock, ItemPrice, ProductType, ItemStatus, ProductPicture) " +
+                                                        "VALUES (@ProductCategory, @ItemID, @ItemName, @ItemStock, @ItemPrice, @ProductType, @ItemStatus, @ProductPicture)";
+
+                            // Add the parameters
+                            insertCommand.Parameters.Add("@ProductCategory", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ItemID", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ItemName", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ItemStock", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ItemPrice", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ProductType", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ItemStatus", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ProductPicture", MySqlDbType.LongBlob);
+
+                            // Insert each row from the source DataTable into the destination table
+                            foreach (DataRow row in inventory.Rows)
+                            {
+                                insertCommand.Parameters["@ProductCategory"].Value = row["ProductCategory"];
+                                insertCommand.Parameters["@ItemID"].Value = row["ItemID"];
+                                insertCommand.Parameters["@ItemName"].Value = row["ItemName"];
+                                insertCommand.Parameters["@ItemStock"].Value = row["ItemStock"];
+                                insertCommand.Parameters["@ItemPrice"].Value = row["ItemPrice"];
+                                insertCommand.Parameters["@ProductType"].Value = row["ProductType"];
+                                insertCommand.Parameters["@ItemStatus"].Value = row["ItemStatus"];
+                                insertCommand.Parameters["@ProductPicture"].Value = row["ProductPicture"];
+
+                                insertCommand.ExecuteNonQuery();
+                            }
+
+                            transaction.Commit();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        System.Windows.Forms.MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        public void DeleteAdminInventoryDB()
+        {
+            using (MySqlConnection connection = new MySqlConnection(admindb))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand())
+                {
+                    command.Connection = connection;
+
+                    command.CommandText = "DELETE FROM inventory";
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+        public void GetEnchanteOrderProductHistory()
+        {
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string query = "SELECT * FROM orderproducthistory";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        adapter.Fill(orderproducthistory);
+                    }
+                }
+            }
+        }
+
+
+        public void SetAdminOrderProductHistoryDB()
+        {
+            using (MySqlConnection destinationConnection = new MySqlConnection(admindb))
+            {
+                destinationConnection.Open();
+
+                using (MySqlTransaction transaction = destinationConnection.BeginTransaction())
+                {
+                    try
+                    {
+                        using (MySqlCommand insertCommand = new MySqlCommand())
+                        {
+                            insertCommand.Connection = destinationConnection;
+                            insertCommand.Transaction = transaction;
+
+                            // Prepare the INSERT INTO command with parameters
+                            insertCommand.CommandText = "INSERT INTO orderproducthistory (TransactionNumber, ProductStatus, CheckedOutDate, CheckedOutTime, CheckedOutBy, ClientName, ItemID, ItemName, Qty, ItemPrice, ItemTotalPrice, CheckedOut, Voided) " +
+                                                        "VALUES (@TransactionNumber, @ProductStatus, @CheckedOutDate, @CheckedOutTime, @CheckedOutBy, @ClientName, @ItemID, @ItemName, @Qty, @ItemPrice, @ItemTotalPrice, @CheckedOut, @Voided)";
+
+                            // Add the parameters
+                            insertCommand.Parameters.Add("@TransactionNumber", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ProductStatus", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@CheckedOutDate", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@CheckedOutTime", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@CheckedOutBy", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ClientName", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ItemID", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ItemName", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@Qty", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ItemPrice", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ItemTotalPrice", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@CheckedOut", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@Voided", MySqlDbType.VarChar);
+
+                            // Insert each row from the source DataTable into the destination table
+                            foreach (DataRow row in orderproducthistory.Rows)
+                            {
+                                insertCommand.Parameters["@TransactionNumber"].Value = row["TransactionNumber"];
+                                insertCommand.Parameters["@ProductStatus"].Value = row["ProductStatus"];
+                                insertCommand.Parameters["@CheckedOutDate"].Value = row["CheckedOutDate"];
+                                insertCommand.Parameters["@CheckedOutTime"].Value = row["CheckedOutTime"];
+                                insertCommand.Parameters["@CheckedOutBy"].Value = row["CheckedOutBy"];
+                                insertCommand.Parameters["@ClientName"].Value = row["ClientName"];
+                                insertCommand.Parameters["@ItemID"].Value = row["ItemID"];
+                                insertCommand.Parameters["@ItemName"].Value = row["ItemName"];
+                                insertCommand.Parameters["@Qty"].Value = row["Qty"];
+                                insertCommand.Parameters["@ItemPrice"].Value = row["ItemPrice"];
+                                insertCommand.Parameters["@ItemTotalPrice"].Value = row["ItemTotalPrice"];
+                                insertCommand.Parameters["@CheckedOut"].Value = row["CheckedOut"];
+                                insertCommand.Parameters["@Voided"].Value = row["Voided"];
+
+                                insertCommand.ExecuteNonQuery();
+                            }
+
+                            transaction.Commit();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        System.Windows.Forms.MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        public void DeleteAdminOrderProductHistoryDB()
+        {
+            using (MySqlConnection connection = new MySqlConnection(admindb))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand())
+                {
+                    command.Connection = connection;
+
+                    command.CommandText = "DELETE FROM orderproducthistory";
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+        public void GetEnchanteServiceHistory()
+        {
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string query = "SELECT * FROM servicehistory";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        adapter.Fill(servicehistory);
+                    }
+                }
+            }
+        }
+
+        public void SetAdminServiceHistoryDB()
+        {
+            using (MySqlConnection destinationConnection = new MySqlConnection(admindb))
+            {
+                destinationConnection.Open();
+
+                using (MySqlTransaction transaction = destinationConnection.BeginTransaction())
+                {
+                    try
+                    {
+                        using (MySqlCommand insertCommand = new MySqlCommand())
+                        {
+                            insertCommand.Connection = destinationConnection;
+                            insertCommand.Transaction = transaction;
+
+                            // Prepare the INSERT INTO command with parameters
+                            insertCommand.CommandText = "INSERT INTO servicehistory (TransactionNumber, TransactionType, ServiceStatus, AppointmentDate, AppointmentTime, ClientName, ServiceCategory, AttendingStaff, ServiceID, SelectedService, ServicePrice, ServiceStart, ServiceEnd, ServiceDuration, PreferredStaff, QueNumber, QueType, PriorityNumber, StarRating) " +
+                                                        "VALUES (@TransactionNumber, @TransactionType, @ServiceStatus, @AppointmentDate, @AppointmentTime, @ClientName, @ServiceCategory, @AttendingStaff, @ServiceID, @SelectedService, @ServicePrice, @ServiceStart, @ServiceEnd, @ServiceDuration, @PreferredStaff, @QueNumber, @QueType, @PriorityNumber, @StarRating)";
+
+                            // Add the parameters
+                            insertCommand.Parameters.Add("@TransactionNumber", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@TransactionType", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ServiceStatus", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@AppointmentDate", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@AppointmentTime", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ClientName", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ServiceCategory", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@AttendingStaff", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ServiceID", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@SelectedService", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ServicePrice", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ServiceStart", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ServiceEnd", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ServiceDuration", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@PreferredStaff", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@QueNumber", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@QueType", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@PriorityNumber", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@StarRating", MySqlDbType.VarChar);
+
+                            // Insert each row from the source DataTable into the destination table
+                            foreach (DataRow row in servicehistory.Rows)
+                            {
+                                insertCommand.Parameters["@TransactionNumber"].Value = row["TransactionNumber"];
+                                insertCommand.Parameters["@TransactionType"].Value = row["TransactionType"];
+                                insertCommand.Parameters["@ServiceStatus"].Value = row["ServiceStatus"];
+                                insertCommand.Parameters["@AppointmentDate"].Value = row["AppointmentDate"];
+                                insertCommand.Parameters["@AppointmentTime"].Value = row["AppointmentTime"];
+                                insertCommand.Parameters["@ClientName"].Value = row["ClientName"];
+                                insertCommand.Parameters["@ServiceCategory"].Value = row["ServiceCategory"];
+                                insertCommand.Parameters["@AttendingStaff"].Value = row["AttendingStaff"];
+                                insertCommand.Parameters["@ServiceID"].Value = row["ServiceID"];
+                                insertCommand.Parameters["@SelectedService"].Value = row["SelectedService"];
+                                insertCommand.Parameters["@ServicePrice"].Value = row["ServicePrice"];
+                                insertCommand.Parameters["@ServiceStart"].Value = row["ServiceStart"];
+                                insertCommand.Parameters["@ServiceEnd"].Value = row["ServiceEnd"];
+                                insertCommand.Parameters["@ServiceDuration"].Value = row["ServiceDuration"];
+                                insertCommand.Parameters["@PreferredStaff"].Value = row["PreferredStaff"];
+                                insertCommand.Parameters["@QueNumber"].Value = row["QueNumber"];
+                                insertCommand.Parameters["@QueType"].Value = row["QueType"];
+                                insertCommand.Parameters["@PriorityNumber"].Value = row["PriorityNumber"];
+                                insertCommand.Parameters["@StarRating"].Value = row["StarRating"];
+
+                                insertCommand.ExecuteNonQuery();
+                            }
+
+                            transaction.Commit();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        System.Windows.Forms.MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+
+        public void DeleteAdminServiceHistoryDB()
+        {
+            using (MySqlConnection connection = new MySqlConnection(admindb))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand())
+                {
+                    command.Connection = connection;
+
+                    command.CommandText = "DELETE FROM servicehistory";
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void GetEnchanteSystemUsers()
+        {
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string query = "SELECT * FROM systemusers";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        adapter.Fill(systemusers);
+                    }
+                }
+            }
+        }
+
+        public void SetAdminSystemUsersDB()
+        {
+            using (MySqlConnection destinationConnection = new MySqlConnection(admindb))
+            {
+                destinationConnection.Open();
+
+                using (MySqlTransaction transaction = destinationConnection.BeginTransaction())
+                {
+                    try
+                    {
+                        using (MySqlCommand insertCommand = new MySqlCommand())
+                        {
+                            insertCommand.Connection = destinationConnection;
+                            insertCommand.Transaction = transaction;
+
+                            // Prepare the INSERT INTO command with parameters
+                            insertCommand.CommandText = "INSERT INTO systemusers (FirstName, LastName, Email, Birthday, Age, Gender, PhoneNumber, EmployeeType, EmployeeCategory, EmployeeCategoryLevel, EmployeeID, Schedule, Availability, CurrentCustomerName, CurrentCustomerTransactionID, CurrentCustomerQueNumber, HashedPass, HashedFixedSalt, HashedPerUser) " +
+                                                        "VALUES (@FirstName, @LastName, @Email, @Birthday, @Age, @Gender, @PhoneNumber, @EmployeeType, @EmployeeCategory, @EmployeeCategoryLevel, @EmployeeID, @Schedule, @Availability, @CurrentCustomerName, @CurrentCustomerTransactionID, @CurrentCustomerQueNumber, @HashedPass, @HashedFixedSalt, @HashedPerUser)";
+
+                            // Add the parameters
+                            insertCommand.Parameters.Add("@FirstName", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@LastName", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@Email", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@Birthday", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@Age", MySqlDbType.Int32);
+                            insertCommand.Parameters.Add("@Gender", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@PhoneNumber", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@EmployeeType", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@EmployeeCategory", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@EmployeeCategoryLevel", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@EmployeeID", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@Schedule", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@Availability", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@CurrentCustomerName", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@CurrentCustomerTransactionID", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@CurrentCustomerQueNumber", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@HashedPass", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@HashedFixedSalt", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@HashedPerUser", MySqlDbType.VarChar);
+
+                            // Insert each row from the source DataTable into the destination table
+                            foreach (DataRow row in systemusers.Rows)
+                            {
+                                insertCommand.Parameters["@FirstName"].Value = row["FirstName"];
+                                insertCommand.Parameters["@LastName"].Value = row["LastName"];
+                                insertCommand.Parameters["@Email"].Value = row["Email"];
+                                insertCommand.Parameters["@Birthday"].Value = row["Birthday"];
+                                insertCommand.Parameters["@Age"].Value = row["Age"];
+                                insertCommand.Parameters["@Gender"].Value = row["Gender"];
+                                insertCommand.Parameters["@PhoneNumber"].Value = row["PhoneNumber"];
+                                insertCommand.Parameters["@EmployeeType"].Value = row["EmployeeType"];
+                                insertCommand.Parameters["@EmployeeCategory"].Value = row["EmployeeCategory"];
+                                insertCommand.Parameters["@EmployeeCategoryLevel"].Value = row["EmployeeCategoryLevel"];
+                                insertCommand.Parameters["@EmployeeID"].Value = row["EmployeeID"];
+                                insertCommand.Parameters["@Schedule"].Value = row["Schedule"];
+                                insertCommand.Parameters["@Availability"].Value = row["Availability"];
+                                insertCommand.Parameters["@CurrentCustomerName"].Value = row["CurrentCustomerName"];
+                                insertCommand.Parameters["@CurrentCustomerTransactionID"].Value = row["CurrentCustomerTransactionID"];
+                                insertCommand.Parameters["@CurrentCustomerQueNumber"].Value = row["CurrentCustomerQueNumber"];
+                                insertCommand.Parameters["@HashedPass"].Value = row["HashedPass"];
+                                insertCommand.Parameters["@HashedFixedSalt"].Value = row["HashedFixedSalt"];
+                                insertCommand.Parameters["@HashedPerUser"].Value = row["HashedPerUser"];
+
+                                insertCommand.ExecuteNonQuery();
+                            }
+
+                            transaction.Commit();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        System.Windows.Forms.MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        public void DeleteAdminSystemUsersDB()
+        {
+            using (MySqlConnection connection = new MySqlConnection(admindb))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand())
+                {
+                    command.Connection = connection;
+
+                    command.CommandText = "DELETE FROM systemusers";
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void GetEnchanteServices()
+        {
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string query = "SELECT * FROM services";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        adapter.Fill(services);
+                    }
+                }
+            }
+        }
+
+        public void SetAdminServicesDB()
+        {
+            using (MySqlConnection destinationConnection = new MySqlConnection(admindb))
+            {
+                destinationConnection.Open();
+
+                using (MySqlTransaction transaction = destinationConnection.BeginTransaction())
+                {
+                    try
+                    {
+                        using (MySqlCommand insertCommand = new MySqlCommand())
+                        {
+                            insertCommand.Connection = destinationConnection;
+                            insertCommand.Transaction = transaction;
+
+                            // Prepare the INSERT INTO command with parameters
+                            insertCommand.CommandText = "INSERT INTO services (Category, Type, ServiceID, Name, Description, Duration, Price, RequiredItem, NumOfItems) " +
+                                                        "VALUES (@Category, @Type, @ServiceID, @Name, @Description, @Duration, @Price, @RequiredItem, @NumOfItems)";
+
+                            // Add the parameters
+                            insertCommand.Parameters.Add("@Category", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@Type", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ServiceID", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@Name", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@Description", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@Duration", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@Price", MySqlDbType.Decimal);
+                            insertCommand.Parameters.Add("@RequiredItem", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@NumOfItems", MySqlDbType.VarChar);
+
+                            // Insert each row from the source DataTable into the destination table
+                            foreach (DataRow row in services.Rows)
+                            {
+                                insertCommand.Parameters["@Category"].Value = row["Category"];
+                                insertCommand.Parameters["@Type"].Value = row["Type"];
+                                insertCommand.Parameters["@ServiceID"].Value = row["ServiceID"];
+                                insertCommand.Parameters["@Name"].Value = row["Name"];
+                                insertCommand.Parameters["@Description"].Value = row["Description"];
+                                insertCommand.Parameters["@Duration"].Value = row["Duration"];
+                                insertCommand.Parameters["@Price"].Value = row["Price"];
+                                insertCommand.Parameters["@RequiredItem"].Value = row["RequiredItem"];
+                                insertCommand.Parameters["@NumOfItems"].Value = row["NumOfItems"];
+
+                                insertCommand.ExecuteNonQuery();
+                            }
+
+                            transaction.Commit();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        System.Windows.Forms.MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        public void DeleteAdminServicesDB()
+        {
+            using (MySqlConnection connection = new MySqlConnection(admindb))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand())
+                {
+                    command.Connection = connection;
+
+                    command.CommandText = "DELETE FROM services";
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void GetEnchanteStaffAppointmentSchedule()
+        {
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string query = "SELECT * FROM staffappointmentschedule";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        adapter.Fill(staffappointmentschedule);
+                    }
+                }
+            }
+        }
+
+        public void SetAdminStaffAppointmentScheduleDB()
+        {
+            using (MySqlConnection destinationConnection = new MySqlConnection(admindb))
+            {
+                destinationConnection.Open();
+
+                using (MySqlTransaction transaction = destinationConnection.BeginTransaction())
+                {
+                    try
+                    {
+                        using (MySqlCommand insertCommand = new MySqlCommand())
+                        {
+                            insertCommand.Connection = destinationConnection;
+                            insertCommand.Transaction = transaction;
+
+                            // Prepare the INSERT INTO command with parameters
+                            insertCommand.CommandText = "INSERT INTO staffappointmentschedule (EmployeeID, AppointmentDate, AppointmentTime, TransactionNumber, ServiceName, ServiceCategory, ServiceID) " +
+                                                        "VALUES (@EmployeeID, @AppointmentDate, @AppointmentTime, @TransactionNumber, @ServiceName, @ServiceCategory, @ServiceID)";
+
+                            // Add the parameters
+                            insertCommand.Parameters.Add("@EmployeeID", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@AppointmentDate", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@AppointmentTime", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@TransactionNumber", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ServiceName", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ServiceCategory", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ServiceID", MySqlDbType.VarChar);
+
+                            // Insert each row from the source DataTable into the destination table
+                            foreach (DataRow row in staffappointmentschedule.Rows)
+                            {
+                                insertCommand.Parameters["@EmployeeID"].Value = row["EmployeeID"];
+                                insertCommand.Parameters["@AppointmentDate"].Value = row["AppointmentDate"];
+                                insertCommand.Parameters["@AppointmentTime"].Value = row["AppointmentTime"];
+                                insertCommand.Parameters["@TransactionNumber"].Value = row["TransactionNumber"];
+                                insertCommand.Parameters["@ServiceName"].Value = row["ServiceName"];
+                                insertCommand.Parameters["@ServiceCategory"].Value = row["ServiceCategory"];
+                                insertCommand.Parameters["@ServiceID"].Value = row["ServiceID"];
+
+                                insertCommand.ExecuteNonQuery();
+                            }
+
+                            transaction.Commit();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        System.Windows.Forms.MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        public void DeleteAdminStaffAppointmentScheduleDB()
+        {
+            using (MySqlConnection connection = new MySqlConnection(admindb))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand())
+                {
+                    command.Connection = connection;
+
+                    command.CommandText = "DELETE FROM staffappointmentschedule";
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+        public void GetEnchanteWalk_In_Appointment()
+        {
+            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+            {
+                connection.Open();
+
+                string query = "SELECT * FROM walk_in_appointment";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        adapter.Fill(walk_in_appointment);
+                    }
+                }
+            }
+        }
+
+        public void SetAdminWalkInAppointmentDB()
+        {
+            using (MySqlConnection destinationConnection = new MySqlConnection(admindb))
+            {
+                destinationConnection.Open();
+
+                using (MySqlTransaction transaction = destinationConnection.BeginTransaction())
+                {
+                    try
+                    {
+                        using (MySqlCommand insertCommand = new MySqlCommand())
+                        {
+                            insertCommand.Connection = destinationConnection;
+                            insertCommand.Transaction = transaction;
+
+                            // Prepare the INSERT INTO command with parameters
+                            insertCommand.CommandText = "INSERT INTO walk_in_appointment (TransactionNumber, ServiceStatus, AppointmentDate, AppointmentTime, ClientName, ClientCPNum, ClientBday, ClientAge, NetPrice, VatAmount, DiscountAmount, GrossAmount, CashGiven, DueChange, PaymentMethod, CardName, CardNumber, CVC, CardExpiration, WalletNumber, WalletPIN, WalletOTP, ServiceDuration, BookedBy, BookedDate, BookedTime, CheckedOutBy) " +
+                                                        "VALUES (@TransactionNumber, @ServiceStatus, @AppointmentDate, @AppointmentTime, @ClientName, @ClientCPNum, @ClientBday, @ClientAge, @NetPrice, @VatAmount, @DiscountAmount, @GrossAmount, @CashGiven, @DueChange, @PaymentMethod, @CardName, @CardNumber, @CVC, @CardExpiration, @WalletNumber, @WalletPIN, @WalletOTP, @ServiceDuration, @BookedBy, @BookedDate, @BookedTime, @CheckedOutBy)";
+
+                            // Add the parameters
+                            insertCommand.Parameters.Add("@TransactionNumber", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ServiceStatus", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@AppointmentDate", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@AppointmentTime", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ClientName", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ClientCPNum", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ClientBday", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ClientAge", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@NetPrice", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@VatAmount", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@DiscountAmount", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@GrossAmount", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@CashGiven", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@DueChange", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@PaymentMethod", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@CardName", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@CardNumber", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@CVC", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@CardExpiration", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@WalletNumber", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@WalletPIN", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@WalletOTP", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@ServiceDuration", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@BookedBy", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@BookedDate", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@BookedTime", MySqlDbType.VarChar);
+                            insertCommand.Parameters.Add("@CheckedOutBy", MySqlDbType.VarChar);
+
+                            // Insert each row from the source DataTable into the destination table
+                            foreach (DataRow row in walk_in_appointment.Rows)
+                            {
+                                insertCommand.Parameters["@TransactionNumber"].Value = row["TransactionNumber"];
+                                insertCommand.Parameters["@ServiceStatus"].Value = row["ServiceStatus"];
+                                insertCommand.Parameters["@AppointmentDate"].Value = row["AppointmentDate"];
+                                insertCommand.Parameters["@AppointmentTime"].Value = row["AppointmentTime"];
+                                insertCommand.Parameters["@ClientName"].Value = row["ClientName"];
+                                insertCommand.Parameters["@ClientCPNum"].Value = row["ClientCPNum"];
+                                insertCommand.Parameters["@ClientBday"].Value = row["ClientBday"];
+                                insertCommand.Parameters["@ClientAge"].Value = row["ClientAge"];
+                                insertCommand.Parameters["@NetPrice"].Value = row["NetPrice"];
+                                insertCommand.Parameters["@VatAmount"].Value = row["VatAmount"];
+                                insertCommand.Parameters["@DiscountAmount"].Value = row["DiscountAmount"];
+                                insertCommand.Parameters["@GrossAmount"].Value = row["GrossAmount"];
+                                insertCommand.Parameters["@CashGiven"].Value = row["CashGiven"];
+                                insertCommand.Parameters["@DueChange"].Value = row["DueChange"];
+                                insertCommand.Parameters["@PaymentMethod"].Value = row["PaymentMethod"];
+                                insertCommand.Parameters["@CardName"].Value = row["CardName"];
+                                insertCommand.Parameters["@CardNumber"].Value = row["CardNumber"];
+                                insertCommand.Parameters["@CVC"].Value = row["CVC"];
+                                insertCommand.Parameters["@CardExpiration"].Value = row["CardExpiration"];
+                                insertCommand.Parameters["@WalletNumber"].Value = row["WalletNumber"];
+                                insertCommand.Parameters["@WalletPIN"].Value = row["WalletPIN"];
+                                insertCommand.Parameters["@WalletOTP"].Value = row["WalletOTP"];
+                                insertCommand.Parameters["@ServiceDuration"].Value = row["ServiceDuration"];
+                                insertCommand.Parameters["@BookedBy"].Value = row["BookedBy"];
+                                insertCommand.Parameters["@BookedDate"].Value = row["BookedDate"];
+                                insertCommand.Parameters["@BookedTime"].Value = row["BookedTime"];
+                                insertCommand.Parameters["@CheckedOutBy"].Value = row["CheckedOutBy"];
+
+                                insertCommand.ExecuteNonQuery();
+                            }
+
+                            transaction.Commit();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        System.Windows.Forms.MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        public void DeleteAdminWalk_In_AppointmentDB()
+        {
+            using (MySqlConnection connection = new MySqlConnection(admindb))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand())
+                {
+                    command.Connection = connection;
+
+                    command.CommandText = "DELETE FROM walk_in_appointment";
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+
     }
 }
