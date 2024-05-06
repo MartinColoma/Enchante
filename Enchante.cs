@@ -14123,6 +14123,11 @@ namespace Enchante
                         command.ExecuteNonQuery();
 
                         System.Windows.Forms.MessageBox.Show("Registered Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        systemusers.Clear();
+                        DeleteAdminSystemUsersDB();
+                        GetEnchanteSystemUsers();
+                        SetAdminSystemUsersDB();
+                        PopulateUserInfoDataGrid();
                         PopulateUserInfoDataGrid();
                         AdminClearFields();
                     }
@@ -14212,16 +14217,8 @@ namespace Enchante
                      EmployeeCategoryLevel = @EmployeeCategoryLevel, 
                      EmployeeID = @EmployeeID 
                  WHERE HashedPerUser = @HashedPerUser";
-                    if (AdminLoggedIn)
-                    {
-                        connstringresult = "server=localhost;user=root;database=admindb;password=";
-                    }
-                    else
-                    {
-                        connstringresult = "server=localhost;user=root;database=enchante;password=";
-                    }
-
-                    using (MySqlConnection connection = new MySqlConnection(connstringresult))
+                   
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
                     {
                         connection.Open();
 
@@ -14254,16 +14251,9 @@ namespace Enchante
 
                     if (fieldsChanged)
                     {
-                        if (AdminLoggedIn)
-                        {
-                            connstringresult = "server=localhost;user=root;database=admindb;password=";
-                        }
-                        else
-                        {
-                            connstringresult = "server=localhost;user=root;database=enchante;password=";
-                        }
+                        
 
-                        using (MySqlConnection connection = new MySqlConnection(connstringresult))
+                        using (MySqlConnection connection = new MySqlConnection(mysqlconn))
                         {
                             connection.Open();
 
@@ -14287,6 +14277,11 @@ namespace Enchante
                                 if (rowsAffected > 0)
                                 {
                                     System.Windows.Forms.MessageBox.Show("Data updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    systemusers.Clear();
+                                    DeleteAdminSystemUsersDB();
+                                    GetEnchanteSystemUsers();
+                                    SetAdminSystemUsersDB();
+                                    PopulateUserInfoDataGrid();
                                     PopulateUserInfoDataGrid();
                                     AdminEmplTypeComboText.Enabled = true;
                                     AdminEmplCatComboText.Enabled = true;
