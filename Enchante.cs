@@ -14091,16 +14091,8 @@ namespace Enchante
             {
                 try
                 {
-                    if (AdminLoggedIn)
-                    {
-                        connstringresult = "server=localhost;user=root;database=admindb;password=";
-                    }
-                    else
-                    {
-                        connstringresult = "server=localhost;user=root;database=enchante;password=";
-                    }
 
-                    using (MySqlConnection connection = new MySqlConnection(connstringresult))
+                    using (MySqlConnection connection = new MySqlConnection(mysqlconn))
                     {
                         connection.Open();
 
