@@ -306,6 +306,7 @@ namespace Enchante
             DateTimePickerTimer.Interval = 1000;
             DateTimePickerTimer.Start();
 
+
         }
 
         //database-related methods
@@ -1094,6 +1095,8 @@ namespace Enchante
                 DeleteAdminWalk_In_AppointmentDB();
                 DeleteAdminVoucherDB();
 
+
+
             }
         }
 
@@ -1133,6 +1136,7 @@ namespace Enchante
             RecApptTransactionClear();
             RecShopProdTransactionClear();
             InitialWalkinTransColor();
+            walkinTransNum = false;
             RecWalkinBdayMaxDate();
             serviceappointment = false;
             InitializeEmployeeCategory();
@@ -1362,12 +1366,12 @@ namespace Enchante
             Transaction.PanelShow(RecShopProdPanel);
             if (ShopProdTransNum)
             {
-                RecApptTransNumText.Text = TransactionNumberGenerator.ShopProdGenerateTransNumberDefault();
+                RecShopProdTransNumText.Text = TransactionNumberGenerator.ShopProdGenerateTransNumberDefault();
 
             }
             else
             {
-                RecApptTransNumText.Text = TransactionNumberGenerator.ShopProdGenerateTransNumberInc();
+                RecShopProdTransNumText.Text = TransactionNumberGenerator.ShopProdGenerateTransNumberInc();
 
             }
             RecShopProdBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
@@ -1405,17 +1409,17 @@ namespace Enchante
             isappointment = true;
             RecQueBtnResetColor();
             serviceappointment = true;
+            apptTransNum = false;
 
         }
+        private static int walkinTransDef = 1; // Starting order number
+        private static int walkinTransInc = 2; // Starting order number
+        private static int apptTransDef = 1; // Starting order number
+        private static int apptTransInc = 2; // Starting order number
+        private static int shopTransDef = 1; // Starting order number
+        private static int shopTransInc = 2; // Starting order number
         public class TransactionNumberGenerator
         {
-            private static int walkinTransDef = 1; // Starting order number
-            private static int walkinTransInc = 2; // Starting order number
-            private static int apptTransDef = 1; // Starting order number
-            private static int apptTransInc = 2; // Starting order number
-            private static int shopTransDef = 1; // Starting order number
-            private static int shopTransInc = 2; // Starting order number
-
             public static string WalkinGenerateTransNumberDefault()
             {
                 string datePart = DateTime.Now.ToString("MMddhhmm");
@@ -6217,6 +6221,7 @@ namespace Enchante
             RecWalkinTransactionClear();
             RecApptTransactionClear();
             ShopProdTransColor();
+            ShopProdTransNum = false;
             RecShopProdProductFlowLayoutPanel.Controls.Clear();
             product = true;
             InitializeProducts();
