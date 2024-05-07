@@ -118,55 +118,121 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Das Dark Naturalist Salon Design von Comfortel Check more at https___mac" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Das Dark Naturalist Salon Design von Comfortel Check more at https___mac.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Enchante_Bldg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Enchante Bldg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="30 People Are Sharing Seemingly Innocent Questions That Broke Their Heart A " type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\30 People Are Sharing Seemingly Innocent Questions That Broke Their Heart A .jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Enchante Logo 275x100" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Enchante Logo 275x100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="outofstock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\outofstock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cabernetqween" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cabernetqween.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="guia-para-personalizar-tu-masaje" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\guia-para-personalizar-tu-masaje.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Lobby" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Lobby.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Enchante Logo (200 x 200 px) (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Enchante Logo (200 x 200 px) (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Young man having facial mask in beauty parlour" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Young man having facial mask in beauty parlour.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Das Dark Naturalist Salon Design von Comfortel Check more at https___mac" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Das Dark Naturalist Salon Design von Comfortel Check more at https___mac.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Nail Tech Career" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Nail Tech Career.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="outofstock" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\outofstock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Enchante Logo 275x100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Enchante Logo 275x100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="download (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\download (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="download" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\download.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Enchante_Bldg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Enchante Bldg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Enchante Logo (200 x 200 px) (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Enchante Logo (200 x 200 px) (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Green___Gold_Collection___Salon_Equipment_Centre" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Green &amp; Gold Collection _ Salon Equipment Centre.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Young man having facial mask in beauty parlour" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Young man having facial mask in beauty parlour.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Hair" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Das Dark Naturalist Salon Design von Comfortel Check more at https___mac1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="guia-para-personalizar-tu-masaje" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\guia-para-personalizar-tu-masaje.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cabernetqween" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cabernetqween.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lobby" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Lobby.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="download" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Olga_Collection" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Olga Collection.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Enchante Logo (200 x 200 px) Green" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Enchante Logo (200 x 200 px) Green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Enchante_GCash_QR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Enchante GCash QR.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="download (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Enchante Logo 275x100 Green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Enchante Logo 275x100 Green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Acne_treatment_bro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Acne treatment-bro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Acne_treatment_pana" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Acne treatment-pana.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Beauty_salon_amico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Beauty salon-amico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Beauty_salon_pana" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Beauty salon-pana.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Beauty_salon_rafiki" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Beauty salon-rafiki.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Curly_hair_bro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Curly hair-bro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hair_pulling_disorder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Hair-pulling disorder.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hair_pulling_disorder_cuate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Hair-pulling disorder-cuate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Jade_roller_bro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jade roller-bro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Makeup_artist_bro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Makeup artist-bro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Massage_therapist_amico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Massage therapist-amico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Massage_therapist_bro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Massage therapist-bro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rhinoplasty_bro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Rhinoplasty-bro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rhinoplasty_pana" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Rhinoplasty-pana.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Self_confidence_amico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Self confidence-amico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Team_spirit_pana" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Team spirit-pana.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Waterproof_makeup_pana" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Waterproof makeup-pana.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="women_in_hair_salon_amico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\women in hair salon-amico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="women_in_hair_salon_bro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\women in hair salon-bro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_3_in_One" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3 in One.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

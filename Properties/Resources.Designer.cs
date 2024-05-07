@@ -63,6 +63,16 @@ namespace Enchante.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _3_in_One {
+            get {
+                object obj = ResourceManager.GetObject("_3_in_One", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _30_People_Are_Sharing_Seemingly_Innocent_Questions_That_Broke_Their_Heart_A_ {
             get {
                 object obj = ResourceManager.GetObject("30 People Are Sharing Seemingly Innocent Questions That Broke Their Heart A ", resourceCulture);
@@ -73,9 +83,69 @@ namespace Enchante.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Acne_treatment_bro {
+            get {
+                object obj = ResourceManager.GetObject("Acne_treatment_bro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Acne_treatment_pana {
+            get {
+                object obj = ResourceManager.GetObject("Acne_treatment_pana", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Beauty_salon_amico {
+            get {
+                object obj = ResourceManager.GetObject("Beauty_salon_amico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Beauty_salon_pana {
+            get {
+                object obj = ResourceManager.GetObject("Beauty_salon_pana", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Beauty_salon_rafiki {
+            get {
+                object obj = ResourceManager.GetObject("Beauty_salon_rafiki", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cabernetqween {
             get {
                 object obj = ResourceManager.GetObject("cabernetqween", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Curly_hair_bro {
+            get {
+                object obj = ResourceManager.GetObject("Curly_hair_bro", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,6 +193,16 @@ namespace Enchante.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Enchante_GCash_QR {
+            get {
+                object obj = ResourceManager.GetObject("Enchante_GCash_QR", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Enchante_Logo__200_x_200_px___1_ {
             get {
                 object obj = ResourceManager.GetObject("Enchante Logo (200 x 200 px) (1)", resourceCulture);
@@ -146,6 +226,16 @@ namespace Enchante.Properties {
         internal static System.Drawing.Bitmap Enchante_Logo_275x100 {
             get {
                 object obj = ResourceManager.GetObject("Enchante Logo 275x100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Enchante_Logo_275x100_Green {
+            get {
+                object obj = ResourceManager.GetObject("Enchante Logo 275x100 Green", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +273,69 @@ namespace Enchante.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Hair_pulling_disorder {
+            get {
+                object obj = ResourceManager.GetObject("Hair_pulling_disorder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Hair_pulling_disorder_cuate {
+            get {
+                object obj = ResourceManager.GetObject("Hair_pulling_disorder_cuate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Jade_roller_bro {
+            get {
+                object obj = ResourceManager.GetObject("Jade_roller_bro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Lobby {
             get {
                 object obj = ResourceManager.GetObject("Lobby", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Makeup_artist_bro {
+            get {
+                object obj = ResourceManager.GetObject("Makeup_artist_bro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Massage_therapist_amico {
+            get {
+                object obj = ResourceManager.GetObject("Massage_therapist_amico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Massage_therapist_bro {
+            get {
+                object obj = ResourceManager.GetObject("Massage_therapist_bro", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -216,6 +366,76 @@ namespace Enchante.Properties {
         internal static System.Drawing.Bitmap outofstock {
             get {
                 object obj = ResourceManager.GetObject("outofstock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Rhinoplasty_bro {
+            get {
+                object obj = ResourceManager.GetObject("Rhinoplasty_bro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Rhinoplasty_pana {
+            get {
+                object obj = ResourceManager.GetObject("Rhinoplasty_pana", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Self_confidence_amico {
+            get {
+                object obj = ResourceManager.GetObject("Self_confidence_amico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Team_spirit_pana {
+            get {
+                object obj = ResourceManager.GetObject("Team_spirit_pana", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Waterproof_makeup_pana {
+            get {
+                object obj = ResourceManager.GetObject("Waterproof_makeup_pana", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap women_in_hair_salon_amico {
+            get {
+                object obj = ResourceManager.GetObject("women_in_hair_salon_amico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap women_in_hair_salon_bro {
+            get {
+                object obj = ResourceManager.GetObject("women_in_hair_salon_bro", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
