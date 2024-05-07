@@ -14,6 +14,7 @@ namespace Enchante
     public partial class InSessionUserControl : UserControl
     {
         public static string mysqlconn = "server=localhost;user=root;database=enchante;password=";
+        public string connstringresult;
 
         public event EventHandler StaffEndServiceBtnClicked;
         public event EventHandler StaffCancelServiceBtnClicked;
@@ -23,6 +24,8 @@ namespace Enchante
         public event EventHandler StaffCustomerNameTextBoxEnd_Clicked;
         public event EventHandler StaffElapsedTimeTextBoxEnd_Clicked;
         public event EventHandler StaffTransactionIDTextBoxEnd_Clicked;
+        public event EventHandler ExpandUserControlButton_Clicked;
+
 
         private System.Windows.Forms.Timer timer;
         private TimeSpan elapsedTime = TimeSpan.Zero;
@@ -89,8 +92,17 @@ namespace Enchante
             string attenidingStaff = StaffCustomerAttendingStaffTextBox.Text;
             string serviceID = StaffServiceIDTextBox.Text;
             string timeElapsed = StaffElapsedTimeTextBox.Text;
+            if (EnchanteForm.AdminLoggedIn)
+            {
+                connstringresult = "server=localhost;user=root;database=admindb;password=";
+            }
+            else
+            {
+                connstringresult = "server=localhost;user=root;database=enchante;password=";
+            }
 
-            using (MySqlConnection connection = new MySqlConnection(mysqlconn))
+
+            using (MySqlConnection connection = new MySqlConnection(connstringresult))
 
             {
                 connection.Open();
@@ -99,7 +111,7 @@ namespace Enchante
                 if (UpdatedServiceStatus == "Completed")
                 {
                     string updateQuery1 = "UPDATE servicehistory SET ServiceStatus = @ServiceStatus, ServiceEnd = @ServiceEnd, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber AND ServiceID = @ServiceID";
-                    string updateQuery2 = "UPDATE systemusers SET Availability = 'Available', CurrentCustomerName = '', CurrentCustomerQueNumber = '' WHERE EmployeeID = @EmployeeID";
+                    string updateQuery2 = "UPDATE systemusers SET Availability = 'Available', CurrentCustomerName = '', CurrentCustomerQueNumber = '', CurrentCustomerTransactionID = '' WHERE EmployeeID = @EmployeeID";
                     string updateQuery3 = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
                     string updateQuery4 = "UPDATE appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
 
@@ -153,7 +165,7 @@ namespace Enchante
                 else if (UpdatedServiceStatus == "Completed Paid")
                 {
                     string updateQuery1 = "UPDATE servicehistory SET ServiceStatus = @ServiceStatus, ServiceEnd = @ServiceEnd, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber AND ServiceID = @ServiceID";
-                    string updateQuery2 = "UPDATE systemusers SET Availability = 'Available', CurrentCustomerName = '', CurrentCustomerQueNumber = '' WHERE EmployeeID = @EmployeeID";
+                    string updateQuery2 = "UPDATE systemusers SET Availability = 'Available', CurrentCustomerName = '', CurrentCustomerQueNumber = '', CurrentCustomerTransactionID = '' WHERE EmployeeID = @EmployeeID";
                     string updateQuery3 = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
                     string updateQuery4 = "UPDATE appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
 
@@ -207,7 +219,7 @@ namespace Enchante
                 else if (UpdatedServiceStatus == "Cancelled")
                 {
                     string updateQuery1 = "UPDATE servicehistory SET ServiceStatus = @ServiceStatus, ServiceEnd = @ServiceEnd, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber AND ServiceID = @ServiceID";
-                    string updateQuery2 = "UPDATE systemusers SET Availability = 'Available', CurrentCustomerName = '', CurrentCustomerQueNumber = '' WHERE EmployeeID = @EmployeeID";
+                    string updateQuery2 = "UPDATE systemusers SET Availability = 'Available', CurrentCustomerName = '', CurrentCustomerQueNumber = '', CurrentCustomerTransactionID = '' WHERE EmployeeID = @EmployeeID";
                     string updateQuery3 = "UPDATE walk_in_appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
                     string updateQuery4 = "UPDATE appointment SET ServiceStatus = @ServiceStatus, ServiceDuration = @ServiceDuration WHERE TransactionNumber = @TransactionNumber";
 
@@ -359,15 +371,11 @@ namespace Enchante
 
         private void StaffCancelServiceBtn_Click(object sender, EventArgs e)
         {
-            StaffUpdateServiceStatusOfCustomerinDB("Cancelled");
-            if (Parent != null)
-            {
-                Parent.Controls.Remove(this);
-            }
-            EnchanteForm.RefreshFlowLayoutPanel();
+
         }
 
-        private void StaffElapsedTimeTextBox_Click(object sender, EventArgs e)
+
+        public void EndServiceClick()
         {
             DialogResult result = MessageBox.Show("Do you want to end this service?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -396,38 +404,17 @@ namespace Enchante
             {
                 return;
             }
+        }
+
+        private void StaffElapsedTimeTextBox_Click(object sender, EventArgs e)
+        {
+           
 
         }
 
         private void StaffQueNumberTextBox_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to end this service?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (result == DialogResult.Yes)
-            {
-                StopTimer();
-                StaffElapsedTimeTextBox.Text = lastElapsedTime.ToString(@"hh\:mm\:ss");
-                if (StaffCustomerServiceStatusTextBox.Text == "In Session Paid")
-                {
-                    StaffCustomerServiceStatusTextBox.Text = "Completed Paid";
-                }
-                else if (StaffCustomerServiceStatusTextBox.Text == "In Session")
-                {
-                    StaffCustomerServiceStatusTextBox.Text = "Completed";
-                }
-                StaffUpdateServiceStatusOfCustomerinDB(StaffCustomerServiceStatusTextBox.Text);
-                if (Parent != null)
-                {
-                    Parent.Controls.Remove(this);
-                }
-                EnchanteForm.InitializeMainInventory();
-                EnchanteForm.RefreshFlowLayoutPanel();
-                EnchanteForm.RefreshAvailableStaff();
-            }
-            else
-            {
-                return;
-            }
         }
 
         private void StaffCancelServiceBtn_Click_1(object sender, EventArgs e)
@@ -452,128 +439,38 @@ namespace Enchante
 
         private void StaffCustomerNameTextBox_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to end this service?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                StopTimer();
-                StaffElapsedTimeTextBox.Text = lastElapsedTime.ToString(@"hh\:mm\:ss");
-                if (StaffCustomerServiceStatusTextBox.Text == "In Session Paid")
-                {
-                    StaffCustomerServiceStatusTextBox.Text = "Completed Paid";
-                }
-                else if (StaffCustomerServiceStatusTextBox.Text == "In Session")
-                {
-                    StaffCustomerServiceStatusTextBox.Text = "Completed";
-                }
-                StaffUpdateServiceStatusOfCustomerinDB(StaffCustomerServiceStatusTextBox.Text);
-                if (Parent != null)
-                {
-                    Parent.Controls.Remove(this);
-                }
-                EnchanteForm.InitializeMainInventory();
-                EnchanteForm.RefreshFlowLayoutPanel();
-                EnchanteForm.RefreshAvailableStaff();
-            }
-            else
-            {
-                return;
-            }
+            EndServiceClick();
         }
 
         private void StaffTransactionIDTextBox_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to end this service?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                StopTimer();
-                StaffElapsedTimeTextBox.Text = lastElapsedTime.ToString(@"hh\:mm\:ss");
-                if (StaffCustomerServiceStatusTextBox.Text == "In Session Paid")
-                {
-                    StaffCustomerServiceStatusTextBox.Text = "Completed Paid";
-                }
-                else if (StaffCustomerServiceStatusTextBox.Text == "In Session")
-                {
-                    StaffCustomerServiceStatusTextBox.Text = "Completed";
-                }
-                StaffUpdateServiceStatusOfCustomerinDB(StaffCustomerServiceStatusTextBox.Text);
-                if (Parent != null)
-                {
-                    Parent.Controls.Remove(this);
-                }
-                EnchanteForm.InitializeMainInventory();
-                EnchanteForm.RefreshFlowLayoutPanel();
-                EnchanteForm.RefreshAvailableStaff();
-            }
-            else
-            {
-                return;
-            }
+            EndServiceClick();
         }
 
         private void StaffQueTypeTextBox_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to end this service?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                StopTimer();
-                StaffElapsedTimeTextBox.Text = lastElapsedTime.ToString(@"hh\:mm\:ss");
-                if (StaffCustomerServiceStatusTextBox.Text == "In Session Paid")
-                {
-                    StaffCustomerServiceStatusTextBox.Text = "Completed Paid";
-                }
-                else if (StaffCustomerServiceStatusTextBox.Text == "In Session")
-                {
-                    StaffCustomerServiceStatusTextBox.Text = "Completed";
-                }
-                StaffUpdateServiceStatusOfCustomerinDB(StaffCustomerServiceStatusTextBox.Text);
-                if (Parent != null)
-                {
-                    Parent.Controls.Remove(this);
-                }
-                EnchanteForm.InitializeMainInventory();
-                EnchanteForm.RefreshFlowLayoutPanel();
-                EnchanteForm.RefreshAvailableStaff();
-            }
-            else
-            {
-                return;
-            }
+            EndServiceClick();
         }
 
         private void InSessionUserControl_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to end this service?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                StopTimer();
-                StaffElapsedTimeTextBox.Text = lastElapsedTime.ToString(@"hh\:mm\:ss");
-                if (StaffCustomerServiceStatusTextBox.Text == "In Session Paid")
-                {
-                    StaffCustomerServiceStatusTextBox.Text = "Completed Paid";
-                }
-                else if (StaffCustomerServiceStatusTextBox.Text == "In Session")
-                {
-                    StaffCustomerServiceStatusTextBox.Text = "Completed";
-                }
-                StaffUpdateServiceStatusOfCustomerinDB(StaffCustomerServiceStatusTextBox.Text);
-                if (Parent != null)
-                {
-                    Parent.Controls.Remove(this);
-                }
-                EnchanteForm.InitializeMainInventory();
-                EnchanteForm.RefreshFlowLayoutPanel();
-                EnchanteForm.RefreshAvailableStaff();
-            }
-            else
-            {
-                return;
-            }
+            EndServiceClick();
         }
 
+        public bool Viewing
+        {
+            get { return viewing; }
+            set { viewing = value; }
+        }
 
+        private void ExpandUserControlBtn_Click(object sender, EventArgs e)
+        {
+            viewing = !viewing;
+
+            if (ExpandUserControlButton_Clicked != null)
+            {
+                ExpandUserControlButton_Clicked(this, EventArgs.Empty);
+            }
+        }
     }
 }
