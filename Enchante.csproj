@@ -132,11 +132,18 @@
     <Compile Include="Enchante.Designer.cs">
       <DependentUpon>Enchante.cs</DependentUpon>
     </Compile>
+    <Compile Include="GlobalKeyHook.cs" />
     <Compile Include="InSessionUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="InSessionUserControl.Designer.cs">
       <DependentUpon>InSessionUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ISQueWindowUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ISQueWindowUserControl.Designer.cs">
+      <DependentUpon>ISQueWindowUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="RateMyService.cs">
       <SubType>Form</SubType>
@@ -187,12 +194,24 @@
     <Compile Include="StaffUserControl.Designer.cs">
       <DependentUpon>StaffUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="QueWindowUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QueWindowUserControl.Designer.cs">
+      <DependentUpon>QueWindowUserControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Enchante.resx">
       <DependentUpon>Enchante.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="InSessionUserControl.resx">
       <DependentUpon>InSessionUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ISQueWindowUserControl.resx">
+      <DependentUpon>ISQueWindowUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QueWindowUserControl.resx">
+      <DependentUpon>QueWindowUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RateMyService.resx">
       <DependentUpon>RateMyService.cs</DependentUpon>
@@ -225,6 +244,7 @@
     <EmbeddedResource Include="StaffUserControl.resx">
       <DependentUpon>StaffUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="cour.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -292,6 +312,69 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Enchante GCash QR.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Enchante Logo 275x100 Green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Acne treatment-bro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Acne treatment-pana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Beauty salon-amico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Beauty salon-pana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Beauty salon-rafiki.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Curly hair-bro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hair-pulling disorder.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hair-pulling disorder-cuate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Jade roller-bro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Makeup artist-bro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Massage therapist-amico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Massage therapist-bro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rhinoplasty-bro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rhinoplasty-pana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Self confidence-amico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Team spirit-pana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Waterproof makeup-pana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\women in hair salon-amico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\women in hair salon-bro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3 in One.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
