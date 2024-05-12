@@ -37,7 +37,7 @@
             // 
             // StaffName
             // 
-            this.StaffName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.StaffName.BackColor = System.Drawing.Color.Transparent;
             this.StaffName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.StaffName.BorderRadius = 7;
             this.StaffName.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -57,7 +57,7 @@
             // 
             // StaffCategory
             // 
-            this.StaffCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.StaffCategory.BackColor = System.Drawing.Color.Transparent;
             this.StaffCategory.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
             this.StaffCategory.BorderRadius = 7;
             this.StaffCategory.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -81,7 +81,7 @@
             // 
             // StaffGender
             // 
-            this.StaffGender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.StaffGender.BackColor = System.Drawing.Color.Transparent;
             this.StaffGender.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(213)))), ((int)(((byte)(178)))));
             this.StaffGender.BorderRadius = 7;
             this.StaffGender.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -102,7 +102,7 @@
             // 
             // StaffServiceID
             // 
-            this.StaffServiceID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(136)))), ((int)(((byte)(82)))));
+            this.StaffServiceID.BackColor = System.Drawing.Color.Transparent;
             this.StaffServiceID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(183)))), ((int)(((byte)(97)))));
             this.StaffServiceID.BorderRadius = 7;
             this.StaffServiceID.Cursor = System.Windows.Forms.Cursors.Hand;

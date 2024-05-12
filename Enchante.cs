@@ -505,7 +505,7 @@ namespace Enchante
                 // Prevent the form from closing.
                 e.Cancel = true;
 
-                DialogResult result = System.Windows.Forms.MessageBox.Show("Do you want to close the application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = System.Windows.Forms.MessageBox.Show("Do you want to close the application?", "Closing Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
 
@@ -715,7 +715,7 @@ namespace Enchante
                 AdminHomePanelReset();
                 AdminNameLbl.Text = "Admin Tester";
                 AdminIDNumLbl.Text = "AT-0000-0000";
-                AdminEmplTypeLbl.Text = "Admin";
+                AdminEmplTypeLbl1.Text = "Admin";
                 PictureSlideTimer.Stop();
                 membertype = "Admmin";
                 AdminLoggedIn = true;
@@ -750,6 +750,7 @@ namespace Enchante
                 SetAdminWalkInAppointmentDB();
                 SetAdminVoucherDB();
 
+                AdminEmplAccDataColor();
                 PopulateUserInfoDataGrid();
                 logincredclear();
                 return;
@@ -783,11 +784,9 @@ namespace Enchante
                 MngrIDNumLbl.Text = "MT-0000-0000";
                 MngrEmplTypeLbl.Text = "Manager";
                 PictureSlideTimer.Stop();
-
+                MngrSignOutBtn.Visible = true;
+                MngrOverrideBackBtn.Visible = false;
                 logincredclear();
-
-
-
                 return;
             }
             else if (LoginEmailAddText.Text != "Manager" && LoginPassText.Text == "Manager123")
@@ -897,8 +896,9 @@ namespace Enchante
                         {
                             // Email does not exist in the database
                             LoginEmailAddErrorLbl.Visible = true;
-                            LoginPassErrorLbl.Visible = false;
                             LoginEmailAddErrorLbl.Text = "Email Address Does Not Match Any Existing Email";
+                            //LoginPassErrorLbl.Visible = true;
+                            //LoginPassErrorLbl.Text = "Or Incorrect Password";
                             return;
                         }
                     }
@@ -930,10 +930,10 @@ namespace Enchante
                                     // Both email and password are correct
                                     if (membertype == "Admin")
                                     {
-                                        System.Windows.Forms.MessageBox.Show($"Welcome back, Admin {name}.", "System User Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        //System.Windows.Forms.MessageBox.Show($"Welcome back, Admin {name}.", "System User Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         AdminNameLbl.Text = name + " " + lastname;
                                         AdminIDNumLbl.Text = ID;
-                                        AdminEmplTypeLbl.Text = membertype;
+                                        AdminEmplTypeLbl1.Text = membertype;
                                         AdminLoggedIn = true;
                                         AdminHomePanelReset();
                                         PopulateUserInfoDataGrid();
@@ -969,24 +969,26 @@ namespace Enchante
                                         SetAdminWalkInAppointmentDB();
                                         SetAdminVoucherDB();
 
-
+                                        AdminEmplAccDataColor();
+                                        PopulateUserInfoDataGrid();
                                         logincredclear();
                                     }
                                     else if (membertype == "Manager")
                                     {
-                                        System.Windows.Forms.MessageBox.Show($"Welcome back, Manager {name}.", "System User Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        //System.Windows.Forms.MessageBox.Show($"Welcome back, Manager {name}.", "System User Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         MngrNameLbl.Text = name + " " + lastname;
                                         MngrIDNumLbl.Text = ID;
                                         MngrEmplTypeLbl.Text = membertype;
 
                                         MngrHomePanelReset();
                                         PictureSlideTimer.Stop();
-
+                                        MngrSignOutBtn.Visible = true;
+                                        MngrOverrideBackBtn.Visible = false;
                                         logincredclear();
                                     }
                                     else if (membertype == "Receptionist")
                                     {
-                                        System.Windows.Forms.MessageBox.Show($"Welcome back, Receptionist {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        //System.Windows.Forms.MessageBox.Show($"Welcome back, Receptionist {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         RecNameLbl.Text = name + " " + lastname;
                                         RecIDNumLbl.Text = ID;
                                         RecEmplTypeLbl.Text = membertype;
@@ -7950,10 +7952,10 @@ namespace Enchante
         {
             Inventory.PanelShow(MngrInventoryTypePanel);
             MngrProductClearFields();
-            PDImage.Visible = false;
-            ProductImagePictureBox.Visible = false;
-            CancelEdit.Visible = false;
-            SelectImage.Visible = false;
+            //PDImage.Visible = false;
+            //ProductImagePictureBox.Visible = false;
+            //CancelEdit.Visible = false;
+            //SelectImage.Visible = false;
             MngrInventoryProductsCatComboText.Enabled = true;
             MngrInventoryProductsTypeComboText.Enabled = true;
         }
@@ -8341,9 +8343,9 @@ namespace Enchante
                     }
                     System.Windows.Forms.MessageBox.Show("Item added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     shouldGenerateItemID = false;
-                    PDImage.Visible = false;
-                    ProductImagePictureBox.Visible = false;
-                    SelectImage.Visible = false;
+                    //PDImage.Visible = false;
+                    //ProductImagePictureBox.Visible = false;
+                    //SelectImage.Visible = false;
                     MngrInventoryProductData();
                     MngrProductClearFields();
                 }
@@ -8612,9 +8614,9 @@ namespace Enchante
                                 MngrInventoryProductsTypeComboText.Enabled = true;
                                 MngrInventoryProductsUpdateBtn.Visible = false;
                                 MngrInventoryProductsInsertBtn.Visible = true;
-                                PDImage.Visible = false;
-                                ProductImagePictureBox.Visible = false;
-                                SelectImage.Visible = false;
+                                //PDImage.Visible = false;
+                                //ProductImagePictureBox.Visible = false;
+                                //SelectImage.Visible = false;
                                 CancelEdit.Visible = false;
                             }
                             else
@@ -8687,21 +8689,31 @@ namespace Enchante
         private void MngrInventoryProductsTypeComboText_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (MngrInventoryProductsTypeComboText.SelectedItem != null)
+            //if (MngrInventoryProductsTypeComboText.SelectedItem != null)
+            //{
+            //    if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Service Product")
+            //    {
+            //        PDImage.Visible = false;
+            //        ProductImagePictureBox.Visible = false;
+            //        SelectImage.Visible = false;
+            //    }
+            //    else if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product")
+            //    {
+            //        PDImage.Visible = true;
+            //        ProductImagePictureBox.Visible = true;
+            //        SelectImage.Visible = true;
+            //    }
+            //}
+
+            if (MngrInventoryProductsTypeComboText.SelectedIndex == 0)
             {
-                if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Service Product")
-                {
-                    PDImage.Visible = false;
-                    ProductImagePictureBox.Visible = false;
-                    SelectImage.Visible = false;
-                }
-                else if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product")
-                {
-                    PDImage.Visible = true;
-                    ProductImagePictureBox.Visible = true;
-                    SelectImage.Visible = true;
-                }
+                SelectImage.Enabled = false;
             }
+            else
+            {
+                SelectImage.Enabled = true;
+            }
+
         }
 
         private void CancelEdit_Click(object sender, EventArgs e)
@@ -8710,9 +8722,9 @@ namespace Enchante
             MngrInventoryProductsInsertBtn.Visible = true;
             MngrInventoryProductsUpdateBtn.Visible = false;
             CancelEdit.Visible = false;
-            PDImage.Visible = false;
-            ProductImagePictureBox.Visible = false;
-            SelectImage.Visible = false;
+            //PDImage.Visible = false;
+            //ProductImagePictureBox.Visible = false;
+            //SelectImage.Visible = false;
             MngrInventoryProductsCatComboText.Enabled = true;
             MngrInventoryProductsTypeComboText.Enabled = true;
 
@@ -8733,6 +8745,15 @@ namespace Enchante
             openFileDialog.Filter = "Image Files (*.jpg; *.jpeg; *.png; *.gif; *.bmp)|*.jpg; *.jpeg; *.png; *.gif; *.bmp|All files (*.*)|*.*";
             openFileDialog.Title = "Select Image";
             openFileDialog.Multiselect = false;
+
+            if (MngrInventoryProductsTypeComboText.SelectedIndex == 0)
+            {
+                SelectImage.Enabled = false;
+            }
+            else
+            {
+                SelectImage.Enabled = true;
+            }
 
             DialogResult result = openFileDialog.ShowDialog();
 
@@ -13606,9 +13627,9 @@ namespace Enchante
             MngrInventoryProductsInsertBtn.Visible = true;
             MngrInventoryProductsUpdateBtn.Visible = false;
             CancelEdit.Visible = false;
-            PDImage.Visible = false;
-            ProductImagePictureBox.Visible = false;
-            SelectImage.Visible = false;
+            //PDImage.Visible = false;
+            //ProductImagePictureBox.Visible = false;
+            //SelectImage.Visible = false;
             MngrInventoryProductsCatComboText.Enabled = true;
             MngrInventoryProductsTypeComboText.Enabled = true;
             MngrInventoryProductsCatComboText.SelectedIndex = -1;
@@ -13832,6 +13853,7 @@ namespace Enchante
             string fixedSalt = HashHelper_Salt.HashString_Salt("Enchante" + pass + "2024");    //Fixed Salt
             string perUserSalt = HashHelper_SaltperUser.HashString_SaltperUser(pass + emplID);    //Per User salt
 
+            AdminPassLbl.Text = "NEW PASSWORD:";
             if (AdminAccountTable.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = AdminAccountTable.SelectedRows[0];
@@ -13864,12 +13886,14 @@ namespace Enchante
                 AdminEmplIDText.Text = selectedRow.Cells["EmployeeID"].Value?.ToString();
 
                 string birthdayString = selectedRow.Cells["Birthday"].Value?.ToString() ?? string.Empty;
+
                 DateTime birthday;
-                if (!string.IsNullOrEmpty(birthdayString) && DateTime.TryParseExact(birthdayString, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out birthday))
+                if (!string.IsNullOrEmpty(birthdayString))
                 {
+                    birthday = Convert.ToDateTime(birthdayString);
                     AdminBdayPicker.Value = birthday.Date;
                 }
-                else if (string.IsNullOrEmpty(birthdayString))
+                else
                 {
                     AdminBdayPicker.Value = DateTime.Today;
                 }
@@ -13880,7 +13904,6 @@ namespace Enchante
                 AdminEmplIDText.Enabled = false;
                 AdminCreateAccBtn.Visible = false;
                 AdminUpdateAccBtn.Visible = true;
-                AdminCancelEditBtn.Visible = true;
                 AdminCreateAccForm.Visible = true;
             }
             else
@@ -13918,7 +13941,6 @@ namespace Enchante
         {
             AdminCreateAccBtn.Visible = true;
             AdminUpdateAccBtn.Visible = false;
-            AdminCancelEditBtn.Visible = false;
             AdminEmplTypeComboText.Enabled = true;
             AdminEmplCatComboText.Enabled = true;
             AdminEmplIDText.Enabled = true;
@@ -13978,7 +14000,7 @@ namespace Enchante
             if (AdminConfirmPassText.Text != AdminPassText.Text)
             {
                 AdminConfirmPassErrorLbl.Visible = true;
-                AdminConfirmPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
+                AdminConfirmPassErrorLbl.Text = "PASSWORD\nDOES NOT MATCH";
             }
             else
             {
@@ -14033,7 +14055,7 @@ namespace Enchante
 
             string fname = AdminFirstNameText.Text;
             string lname = AdminLastNameText.Text;
-            string bday = selectedDate.ToString("MM-dd-yyyy");
+            string bday = selectedDate.ToString("yyyy-MM-dd");
             string age = AdminAgeText.Text;
             string gender = AdminGenderComboText.Text;
             string cpnum = AdminCPNumText.Text;
@@ -14288,7 +14310,6 @@ namespace Enchante
                                     AdminEmplCatComboText.Enabled = true;
                                     AdminCreateAccBtn.Visible = true;
                                     AdminUpdateAccBtn.Visible = false;
-                                    AdminCancelEditBtn.Visible = false;
                                     AdminClearFields();
                                 }
                                 else
@@ -19088,6 +19109,14 @@ namespace Enchante
             if (AdminCreateAccForm.Visible)
             {
                 AdminCreateAccForm.Visible = false;
+
+                AdminCreateAccBtn.Visible = true;
+                AdminUpdateAccBtn.Visible = false;
+                AdminEmplTypeComboText.Enabled = true;
+                AdminEmplCatComboText.Enabled = true;
+                AdminEmplIDText.Enabled = true;
+                AdminPassLbl.Text = "PASSWORD:";
+                AdminClearFields();
             }
             else
             {
@@ -19119,7 +19148,7 @@ namespace Enchante
             ExitFunction();
             MngrNameLbl.Text = AdminNameLbl.Text;
             MngrIDNumLbl.Text = AdminIDNumLbl.Text;
-            MngrEmplTypeLbl.Text = AdminEmplTypeLbl.Text;
+            MngrEmplTypeLbl.Text = AdminEmplTypeLbl1.Text;
             MngrSignOutBtn.Visible = false;
             MngrOverrideBackBtn.Visible = true;
         }
@@ -19130,7 +19159,7 @@ namespace Enchante
             ExitFunction();
             RecNameLbl.Text = AdminNameLbl.Text;
             RecIDNumLbl.Text = AdminIDNumLbl.Text;
-            RecEmplTypeLbl.Text = AdminEmplTypeLbl.Text;
+            RecEmplTypeLbl.Text = AdminEmplTypeLbl1.Text;
             ReceptionLogoutBtn.Visible = false;
             RecOverrideBackBtn.Visible = true;
         }
@@ -20122,6 +20151,19 @@ namespace Enchante
             }
         }
 
+        private void MngrInventoryProductsTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MngrInventoryProductsInfoEditBtn_Click(sender, e);
+        }
 
+        private void MngrInventoryServicesTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            RecServicesUpdateInfoBtn_Click(sender, e);
+        }
+
+        private void AdminAccountTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AdminEditAccBtn_Click(sender, e);
+        }
     }
 }
