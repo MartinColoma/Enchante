@@ -50,10 +50,30 @@ namespace Enchante
 
             StaffName.DisabledState.FillColor = Color.FromArgb(216, 213, 178);
             StaffGender.DisabledState.FillColor = Color.FromArgb(216, 213, 178);
+            StaffServiceID.DisabledState.FillColor = Color.FromArgb(216, 213, 178);
+            StaffCategory.DisabledState.FillColor = Color.FromArgb(216, 213, 178);
+            StaffUserBGDockBtn.DisabledState.FillColor = Color.FromArgb(216, 213, 178);
+
+            StaffName.BackColor = Color.FromArgb(216, 213, 178);
+            StaffGender.BackColor = Color.FromArgb(216, 213, 178);
+            StaffServiceID.BackColor = Color.FromArgb(216, 213, 178);
+            StaffCategory.BackColor = Color.FromArgb(216, 213, 178);
+            StaffUserBGDockBtn.BackColor = Color.FromArgb(89, 136, 82);
+
             StaffName.DisabledState.ForeColor = Color.FromArgb(69, 105, 44);
             StaffGender.DisabledState.ForeColor = Color.FromArgb(69, 105, 44);
+            StaffServiceID.DisabledState.ForeColor = Color.FromArgb(69, 105, 44);
+            StaffCategory.DisabledState.ForeColor = Color.FromArgb(69, 105, 44);
+            StaffUserBGDockBtn.DisabledState.ForeColor = Color.FromArgb(69, 105, 44);
+
             StaffName.DisabledState.BorderColor = Color.FromArgb(177, 183, 97);
             StaffGender.DisabledState.BorderColor = Color.FromArgb(177, 183, 97);
+            StaffServiceID.DisabledState.BorderColor = Color.FromArgb(177, 183, 97);
+            StaffCategory.DisabledState.BorderColor = Color.FromArgb(177, 183, 97);
+            StaffUserBGDockBtn.DisabledState.BorderColor = Color.FromArgb(177, 183, 97);
+
+
+
         }
 
         private void StaffUserControl_LostFocus(object sender, EventArgs e)
@@ -64,10 +84,31 @@ namespace Enchante
 
                 StaffName.DisabledState.FillColor = Color.FromArgb(89, 136, 82);
                 StaffGender.DisabledState.FillColor = Color.FromArgb(89, 136, 82);
+                StaffServiceID.DisabledState.FillColor = Color.FromArgb(89, 136, 82);
+                StaffCategory.DisabledState.FillColor = Color.FromArgb(89, 136, 82);
+                StaffUserBGDockBtn.DisabledState.FillColor = Color.FromArgb(89, 136, 82);
+
+
+                StaffName.BackColor = Color.FromArgb(89, 136, 82);
+                StaffGender.BackColor = Color.FromArgb(89, 136, 82);
+                StaffServiceID.BackColor = Color.FromArgb(89, 136, 82);
+                StaffCategory.BackColor = Color.FromArgb(89, 136, 82);
+                StaffUserBGDockBtn.BackColor = Color.FromArgb(89, 136, 82);
+
                 StaffName.DisabledState.ForeColor = Color.FromArgb(216, 213, 178);
                 StaffGender.DisabledState.ForeColor = Color.FromArgb(216, 213, 178);
+                StaffServiceID.DisabledState.ForeColor = Color.FromArgb(216, 213, 178);
+                StaffCategory.DisabledState.ForeColor = Color.FromArgb(216, 213, 178);
+                StaffUserBGDockBtn.DisabledState.ForeColor = Color.FromArgb(216, 213, 178);
+
                 StaffName.DisabledState.BorderColor = Color.FromArgb(216, 213, 178);
                 StaffGender.DisabledState.BorderColor = Color.FromArgb(216, 213, 178);
+                StaffServiceID.DisabledState.BorderColor = Color.FromArgb(216, 213, 178);
+                StaffCategory.DisabledState.BorderColor = Color.FromArgb(216, 213, 178);
+                StaffUserBGDockBtn.DisabledState.BorderColor = Color.FromArgb(216, 213, 178);
+
+
+
             }
         }
 
