@@ -985,6 +985,8 @@ namespace Enchante
                                         MngrSignOutBtn.Visible = true;
                                         MngrOverrideBackBtn.Visible = false;
                                         logincredclear();
+                                        ApplyRowAlternatingColors(MngrInventoryServicesTable);
+                                        ApplyRowAlternatingColors(MngrInventoryProductsTable);
                                     }
                                     else if (membertype == "Receptionist")
                                     {
@@ -8795,7 +8797,7 @@ namespace Enchante
             //    }
             //}
 
-            if (MngrInventoryProductsTypeComboText.SelectedIndex == 0)
+            if (MngrInventoryProductsTypeComboText.SelectedIndex == 0 || MngrInventoryProductsTypeComboText.SelectedItem == null)
             {
                 SelectImage.Enabled = false;
             }
@@ -8840,7 +8842,8 @@ namespace Enchante
             {
                 SelectImage.Enabled = false;
             }
-            else
+
+            else 
             {
                 SelectImage.Enabled = true;
             }
@@ -12188,23 +12191,27 @@ namespace Enchante
         private void MngrPDHistoryStatusBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ApplyCombinedFilter();
+            ApplyRowAlternatingColors(MngrPDHistoryDGV);
         }
 
         private void MngrPDHistoryItemCatBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ApplyCombinedFilter();
+            ApplyRowAlternatingColors(MngrPDHistoryDGV);
         }
 
         private void MngrPDHistoryDatePickFrom_ValueChanged(object sender, EventArgs e)
         {
             considerDateFilter = true;
             ApplyCombinedFilter();
+            ApplyRowAlternatingColors(MngrPDHistoryDGV);
         }
 
         private void MngrPDHistoryDatePickTo_ValueChanged(object sender, EventArgs e)
         {
             considerDateFilter = true;
             ApplyCombinedFilter();
+            ApplyRowAlternatingColors(MngrPDHistoryDGV);
         }
 
         private void MngrPDHistoryResetBtn_Click(object sender, EventArgs e)
@@ -12217,6 +12224,7 @@ namespace Enchante
             MngrPDSearchTextBox.Text = "";
             currentBatchThree = 1;
             UpdateDataGridViewAndLabelThree();
+            ApplyRowAlternatingColors(MngrPDHistoryDGV);
         }
         #endregion
 
@@ -12799,28 +12807,33 @@ namespace Enchante
         private void MngrSVHistoryTransTypeBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Apply_CombinedFilter();
+            ApplyRowAlternatingColors(MngrSVHistoryDGV);
         }
 
         private void MngrSVHistoryServiceStatusBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Apply_CombinedFilter();
+            ApplyRowAlternatingColors(MngrSVHistoryDGV);
         }
 
         private void MngrSVHistoryServiceCatBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Apply_CombinedFilter();
+            ApplyRowAlternatingColors(MngrSVHistoryDGV);
         }
 
         private void MngrSVHistoryDatePickFrom_ValueChanged(object sender, EventArgs e)
         {
             ConsiderDateFilter = true;
             Apply_CombinedFilter();
+            ApplyRowAlternatingColors(MngrSVHistoryDGV);
         }
 
         private void MngrSVHistoryDatePickTo_ValueChanged(object sender, EventArgs e)
         {
             ConsiderDateFilter = true;
             Apply_CombinedFilter();
+            ApplyRowAlternatingColors(MngrSVHistoryDGV);
         }
 
         private void MngrSVHistoryResetBtn_Click(object sender, EventArgs e)
@@ -12834,6 +12847,7 @@ namespace Enchante
             MngrSVHistorySearchTextBox.Text = "";
             currentBatchFour = 1;
             UpdateDataGridViewAndLabelFour();
+            ApplyRowAlternatingColors(MngrSVHistoryDGV);
         }
         #endregion
 
@@ -16421,7 +16435,7 @@ namespace Enchante
 
             foreach (System.Windows.Forms.Control control in RecQueueStartPanel.Controls)
             {
-                if (control is QueueUserControl userControl && userControl.Enabled)
+                if (control is QueueUserControl userControl && userControl.StaffQueNumberTextBox.Enabled)
                 {
                     RecQueueStartPanel.Controls.SetChildIndex(userControl, 0);
                     NextCustomerNumLbl.Text = userControl.StaffQueNumberTextBox.Text;
@@ -17830,7 +17844,7 @@ namespace Enchante
             string timePrinted = currentDate.ToString("hh:mm tt");
             string timePrintedFile = currentDate.ToString("hh-mm-ss");
             string transactNum = RecPayServiceApptTransactNumLbl.Text;
-            string clientName = $"{RecPayServiceApptClientNameLbl}";
+            string clientName = RecPayServiceApptClientNameLbl.Text;
             string recName = RecNameLbl.Text;
             string apptNote = "This form will serves as your proof of appointment with Enchanté Salon. " +
                                 "Kindly present this form and one (1) Valid ID in our frontdesk and our " +
