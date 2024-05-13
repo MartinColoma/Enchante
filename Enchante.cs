@@ -2070,6 +2070,7 @@ namespace Enchante
                     // Add your PDF generation logic here
                     iTextSharp.text.Font headerFont = FontFactory.GetFont("Courier", 40, iTextSharp.text.Font.BOLD);
                     iTextSharp.text.Font font = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.NORMAL);
+                    iTextSharp.text.Font smallfont = FontFactory.GetFont("Courier", 8, iTextSharp.text.Font.NORMAL);
 
                     iTextSharp.text.Paragraph centerAligned = new Paragraph();
                     centerAligned.Alignment = Element.ALIGN_CENTER;
@@ -2121,6 +2122,7 @@ namespace Enchante
                             // Add the item table to the document
                             doc.Add(serviceTable);
                         }
+
                         catch (Exception ex)
                         {
                             // Handle or log any exceptions that occur while processing DataGridView data
@@ -2138,6 +2140,49 @@ namespace Enchante
                     doc.Add(new Paragraph("Address:_______________________________", font));
                     doc.Add(new Paragraph("TIN No.:_______________________________", font));
 
+                    iTextSharp.text.Paragraph brokenLine = new Paragraph();
+                    brokenLine.Alignment = Element.ALIGN_CENTER;
+                    brokenLine.Add(new Chunk("\n\n\n\n---------------------------------------------\n", font)); doc.Add(new Chunk("\n")); // New line
+                    doc.Add(brokenLine);
+
+                    iTextSharp.text.Paragraph rateText = new Paragraph();
+                    rateText.Alignment = Element.ALIGN_CENTER;
+                    rateText.Add(new Chunk("\nRate your experience", font));
+                    rateText.Add(new Chunk("\n(Put a check on your desired number)", smallfont));
+                    doc.Add(rateText);
+                    // Add cells to the item table
+                    PdfPTable rateTable = new PdfPTable(5); // 
+                    rateTable.SetWidths(new float[] { 20f, 20f, 20f, 20f, 20f }); // Column widths
+                    rateTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+                    rateTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                    rateTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                    rateTable.AddCell(new Phrase("1-star", font));
+                    rateTable.AddCell(new Phrase("2-star", font));
+                    rateTable.AddCell(new Phrase("3-star", font));
+                    rateTable.AddCell(new Phrase("4-star", font));
+                    rateTable.AddCell(new Phrase("5-star", font));
+
+                    doc.Add(rateTable);
+
+                    PdfPTable rateTable1 = new PdfPTable(5); // 
+                    rateTable1.SetWidths(new float[] { 20f, 20f, 20f, 20f, 20f }); // Column widths
+                    rateTable1.DefaultCell.Border = PdfPCell.NO_BORDER;
+                    rateTable1.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                    rateTable1.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                    rateTable1.AddCell(new Phrase("[  ]", font));
+                    rateTable1.AddCell(new Phrase("[  ]", font)); 
+                    rateTable1.AddCell(new Phrase("[  ]", font));
+                    rateTable1.AddCell(new Phrase("[  ]", font));
+                    rateTable1.AddCell(new Phrase("[  ]", font));
+                    doc.Add(rateTable1);
+
+                    iTextSharp.text.Paragraph rateText1 = new Paragraph();
+                    rateText1.Alignment = Element.ALIGN_CENTER;
+                    rateText1.Add(new Chunk("\nNOTE:", smallfont));
+                    rateText1.Add(new Chunk("\n1 = Awful, 2 = Mediocre, 3 = Satisfactory, 4 = Great, 5 = Exceptional", smallfont));
+                    doc.Add(rateText1);
 
                 }
                 catch (DocumentException de)
@@ -6020,6 +6065,7 @@ namespace Enchante
                     // Add your PDF generation logic here
                     iTextSharp.text.Font headerFont = FontFactory.GetFont("Courier", 40, iTextSharp.text.Font.BOLD);
                     iTextSharp.text.Font font = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.NORMAL);
+                    iTextSharp.text.Font smallfont = FontFactory.GetFont("Courier", 8, iTextSharp.text.Font.NORMAL);
 
                     iTextSharp.text.Paragraph centerAligned = new Paragraph();
                     centerAligned.Alignment = Element.ALIGN_CENTER;
@@ -6101,6 +6147,50 @@ namespace Enchante
                         doc.Add(new Paragraph($"Appointment Time: {appttime}", font));
                         doc.Add(new Paragraph("Address:_______________________________", font));
                         doc.Add(new Paragraph("TIN No.:_______________________________", font));
+
+                        iTextSharp.text.Paragraph brokenLine = new Paragraph();
+                        brokenLine.Alignment = Element.ALIGN_CENTER;
+                        brokenLine.Add(new Chunk("\n\n\n\n---------------------------------------------\n", font)); doc.Add(new Chunk("\n")); // New line
+                        doc.Add(brokenLine);
+
+                        iTextSharp.text.Paragraph rateText = new Paragraph();
+                        rateText.Alignment = Element.ALIGN_CENTER;
+                        rateText.Add(new Chunk("\nRate your experience", font));
+                        rateText.Add(new Chunk("\n(Put a check on your desired number)", smallfont));
+                        doc.Add(rateText);
+                        // Add cells to the item table
+                        PdfPTable rateTable = new PdfPTable(5); // 
+                        rateTable.SetWidths(new float[] { 20f, 20f, 20f, 20f, 20f }); // Column widths
+                        rateTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+                        rateTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                        rateTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                        rateTable.AddCell(new Phrase("1-star", font));
+                        rateTable.AddCell(new Phrase("2-star", font));
+                        rateTable.AddCell(new Phrase("3-star", font));
+                        rateTable.AddCell(new Phrase("4-star", font));
+                        rateTable.AddCell(new Phrase("5-star", font));
+
+                        doc.Add(rateTable);
+
+                        PdfPTable rateTable1 = new PdfPTable(5); // 
+                        rateTable1.SetWidths(new float[] { 20f, 20f, 20f, 20f, 20f }); // Column widths
+                        rateTable1.DefaultCell.Border = PdfPCell.NO_BORDER;
+                        rateTable1.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                        rateTable1.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                        rateTable1.AddCell(new Phrase("[  ]", font));
+                        rateTable1.AddCell(new Phrase("[  ]", font));
+                        rateTable1.AddCell(new Phrase("[  ]", font));
+                        rateTable1.AddCell(new Phrase("[  ]", font));
+                        rateTable1.AddCell(new Phrase("[  ]", font));
+                        doc.Add(rateTable1);
+
+                        iTextSharp.text.Paragraph rateText1 = new Paragraph();
+                        rateText1.Alignment = Element.ALIGN_CENTER;
+                        rateText1.Add(new Chunk("\nNOTE:", smallfont));
+                        rateText1.Add(new Chunk("\n1 = Awful, 2 = Mediocre, 3 = Satisfactory, 4 = Great, 5 = Exceptional", smallfont));
+                        doc.Add(rateText1);
                     }
                 }
                 catch (DocumentException de)
