@@ -505,7 +505,7 @@ namespace Enchante
                 // Prevent the form from closing.
                 e.Cancel = true;
 
-                DialogResult result = System.Windows.Forms.MessageBox.Show("Do you want to close the application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = System.Windows.Forms.MessageBox.Show("Do you want to close the application?", "Closing Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
 
@@ -715,7 +715,7 @@ namespace Enchante
                 AdminHomePanelReset();
                 AdminNameLbl.Text = "Admin Tester";
                 AdminIDNumLbl.Text = "AT-0000-0000";
-                AdminEmplTypeLbl.Text = "Admin";
+                AdminEmplTypeLbl1.Text = "Admin";
                 PictureSlideTimer.Stop();
                 membertype = "Admmin";
                 AdminLoggedIn = true;
@@ -750,6 +750,7 @@ namespace Enchante
                 SetAdminWalkInAppointmentDB();
                 SetAdminVoucherDB();
 
+                AdminEmplAccDataColor();
                 PopulateUserInfoDataGrid();
                 logincredclear();
                 return;
@@ -783,11 +784,9 @@ namespace Enchante
                 MngrIDNumLbl.Text = "MT-0000-0000";
                 MngrEmplTypeLbl.Text = "Manager";
                 PictureSlideTimer.Stop();
-
+                MngrSignOutBtn.Visible = true;
+                MngrOverrideBackBtn.Visible = false;
                 logincredclear();
-
-
-
                 return;
             }
             else if (LoginEmailAddText.Text != "Manager" && LoginPassText.Text == "Manager123")
@@ -897,8 +896,9 @@ namespace Enchante
                         {
                             // Email does not exist in the database
                             LoginEmailAddErrorLbl.Visible = true;
-                            LoginPassErrorLbl.Visible = false;
                             LoginEmailAddErrorLbl.Text = "Email Address Does Not Match Any Existing Email";
+                            //LoginPassErrorLbl.Visible = true;
+                            //LoginPassErrorLbl.Text = "Or Incorrect Password";
                             return;
                         }
                     }
@@ -930,10 +930,10 @@ namespace Enchante
                                     // Both email and password are correct
                                     if (membertype == "Admin")
                                     {
-                                        System.Windows.Forms.MessageBox.Show($"Welcome back, Admin {name}.", "System User Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        //System.Windows.Forms.MessageBox.Show($"Welcome back, Admin {name}.", "System User Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         AdminNameLbl.Text = name + " " + lastname;
                                         AdminIDNumLbl.Text = ID;
-                                        AdminEmplTypeLbl.Text = membertype;
+                                        AdminEmplTypeLbl1.Text = membertype;
                                         AdminLoggedIn = true;
                                         AdminHomePanelReset();
                                         PopulateUserInfoDataGrid();
@@ -969,24 +969,26 @@ namespace Enchante
                                         SetAdminWalkInAppointmentDB();
                                         SetAdminVoucherDB();
 
-
+                                        AdminEmplAccDataColor();
+                                        PopulateUserInfoDataGrid();
                                         logincredclear();
                                     }
                                     else if (membertype == "Manager")
                                     {
-                                        System.Windows.Forms.MessageBox.Show($"Welcome back, Manager {name}.", "System User Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        //System.Windows.Forms.MessageBox.Show($"Welcome back, Manager {name}.", "System User Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         MngrNameLbl.Text = name + " " + lastname;
                                         MngrIDNumLbl.Text = ID;
                                         MngrEmplTypeLbl.Text = membertype;
 
                                         MngrHomePanelReset();
                                         PictureSlideTimer.Stop();
-
+                                        MngrSignOutBtn.Visible = true;
+                                        MngrOverrideBackBtn.Visible = false;
                                         logincredclear();
                                     }
                                     else if (membertype == "Receptionist")
                                     {
-                                        System.Windows.Forms.MessageBox.Show($"Welcome back, Receptionist {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        //System.Windows.Forms.MessageBox.Show($"Welcome back, Receptionist {name}.", "Account Verified", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         RecNameLbl.Text = name + " " + lastname;
                                         RecIDNumLbl.Text = ID;
                                         RecEmplTypeLbl.Text = membertype;
@@ -2068,6 +2070,7 @@ namespace Enchante
                     // Add your PDF generation logic here
                     iTextSharp.text.Font headerFont = FontFactory.GetFont("Courier", 40, iTextSharp.text.Font.BOLD);
                     iTextSharp.text.Font font = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.NORMAL);
+                    iTextSharp.text.Font smallfont = FontFactory.GetFont("Courier", 8, iTextSharp.text.Font.NORMAL);
 
                     iTextSharp.text.Paragraph centerAligned = new Paragraph();
                     centerAligned.Alignment = Element.ALIGN_CENTER;
@@ -2119,6 +2122,7 @@ namespace Enchante
                             // Add the item table to the document
                             doc.Add(serviceTable);
                         }
+
                         catch (Exception ex)
                         {
                             // Handle or log any exceptions that occur while processing DataGridView data
@@ -2136,6 +2140,49 @@ namespace Enchante
                     doc.Add(new Paragraph("Address:_______________________________", font));
                     doc.Add(new Paragraph("TIN No.:_______________________________", font));
 
+                    iTextSharp.text.Paragraph brokenLine = new Paragraph();
+                    brokenLine.Alignment = Element.ALIGN_CENTER;
+                    brokenLine.Add(new Chunk("\n\n\n\n---------------------------------------------\n", font)); doc.Add(new Chunk("\n")); // New line
+                    doc.Add(brokenLine);
+
+                    iTextSharp.text.Paragraph rateText = new Paragraph();
+                    rateText.Alignment = Element.ALIGN_CENTER;
+                    rateText.Add(new Chunk("\nRate your experience", font));
+                    rateText.Add(new Chunk("\n(Put a check on your desired number)", smallfont));
+                    doc.Add(rateText);
+                    // Add cells to the item table
+                    PdfPTable rateTable = new PdfPTable(5); // 
+                    rateTable.SetWidths(new float[] { 20f, 20f, 20f, 20f, 20f }); // Column widths
+                    rateTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+                    rateTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                    rateTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                    rateTable.AddCell(new Phrase("1-star", font));
+                    rateTable.AddCell(new Phrase("2-star", font));
+                    rateTable.AddCell(new Phrase("3-star", font));
+                    rateTable.AddCell(new Phrase("4-star", font));
+                    rateTable.AddCell(new Phrase("5-star", font));
+
+                    doc.Add(rateTable);
+
+                    PdfPTable rateTable1 = new PdfPTable(5); // 
+                    rateTable1.SetWidths(new float[] { 20f, 20f, 20f, 20f, 20f }); // Column widths
+                    rateTable1.DefaultCell.Border = PdfPCell.NO_BORDER;
+                    rateTable1.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                    rateTable1.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                    rateTable1.AddCell(new Phrase("[  ]", font));
+                    rateTable1.AddCell(new Phrase("[  ]", font)); 
+                    rateTable1.AddCell(new Phrase("[  ]", font));
+                    rateTable1.AddCell(new Phrase("[  ]", font));
+                    rateTable1.AddCell(new Phrase("[  ]", font));
+                    doc.Add(rateTable1);
+
+                    iTextSharp.text.Paragraph rateText1 = new Paragraph();
+                    rateText1.Alignment = Element.ALIGN_CENTER;
+                    rateText1.Add(new Chunk("\nNOTE:", smallfont));
+                    rateText1.Add(new Chunk("\n1 = Awful, 2 = Mediocre, 3 = Satisfactory, 4 = Great, 5 = Exceptional", smallfont));
+                    doc.Add(rateText1);
 
                 }
                 catch (DocumentException de)
@@ -6018,6 +6065,7 @@ namespace Enchante
                     // Add your PDF generation logic here
                     iTextSharp.text.Font headerFont = FontFactory.GetFont("Courier", 40, iTextSharp.text.Font.BOLD);
                     iTextSharp.text.Font font = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.NORMAL);
+                    iTextSharp.text.Font smallfont = FontFactory.GetFont("Courier", 8, iTextSharp.text.Font.NORMAL);
 
                     iTextSharp.text.Paragraph centerAligned = new Paragraph();
                     centerAligned.Alignment = Element.ALIGN_CENTER;
@@ -6099,6 +6147,50 @@ namespace Enchante
                         doc.Add(new Paragraph($"Appointment Time: {appttime}", font));
                         doc.Add(new Paragraph("Address:_______________________________", font));
                         doc.Add(new Paragraph("TIN No.:_______________________________", font));
+
+                        iTextSharp.text.Paragraph brokenLine = new Paragraph();
+                        brokenLine.Alignment = Element.ALIGN_CENTER;
+                        brokenLine.Add(new Chunk("\n\n\n\n---------------------------------------------\n", font)); doc.Add(new Chunk("\n")); // New line
+                        doc.Add(brokenLine);
+
+                        iTextSharp.text.Paragraph rateText = new Paragraph();
+                        rateText.Alignment = Element.ALIGN_CENTER;
+                        rateText.Add(new Chunk("\nRate your experience", font));
+                        rateText.Add(new Chunk("\n(Put a check on your desired number)", smallfont));
+                        doc.Add(rateText);
+                        // Add cells to the item table
+                        PdfPTable rateTable = new PdfPTable(5); // 
+                        rateTable.SetWidths(new float[] { 20f, 20f, 20f, 20f, 20f }); // Column widths
+                        rateTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+                        rateTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                        rateTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                        rateTable.AddCell(new Phrase("1-star", font));
+                        rateTable.AddCell(new Phrase("2-star", font));
+                        rateTable.AddCell(new Phrase("3-star", font));
+                        rateTable.AddCell(new Phrase("4-star", font));
+                        rateTable.AddCell(new Phrase("5-star", font));
+
+                        doc.Add(rateTable);
+
+                        PdfPTable rateTable1 = new PdfPTable(5); // 
+                        rateTable1.SetWidths(new float[] { 20f, 20f, 20f, 20f, 20f }); // Column widths
+                        rateTable1.DefaultCell.Border = PdfPCell.NO_BORDER;
+                        rateTable1.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                        rateTable1.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                        rateTable1.AddCell(new Phrase("[  ]", font));
+                        rateTable1.AddCell(new Phrase("[  ]", font));
+                        rateTable1.AddCell(new Phrase("[  ]", font));
+                        rateTable1.AddCell(new Phrase("[  ]", font));
+                        rateTable1.AddCell(new Phrase("[  ]", font));
+                        doc.Add(rateTable1);
+
+                        iTextSharp.text.Paragraph rateText1 = new Paragraph();
+                        rateText1.Alignment = Element.ALIGN_CENTER;
+                        rateText1.Add(new Chunk("\nNOTE:", smallfont));
+                        rateText1.Add(new Chunk("\n1 = Awful, 2 = Mediocre, 3 = Satisfactory, 4 = Great, 5 = Exceptional", smallfont));
+                        doc.Add(rateText1);
                     }
                 }
                 catch (DocumentException de)
@@ -7950,10 +8042,10 @@ namespace Enchante
         {
             Inventory.PanelShow(MngrInventoryTypePanel);
             MngrProductClearFields();
-            PDImage.Visible = false;
-            ProductImagePictureBox.Visible = false;
-            CancelEdit.Visible = false;
-            SelectImage.Visible = false;
+            //PDImage.Visible = false;
+            //ProductImagePictureBox.Visible = false;
+            //CancelEdit.Visible = false;
+            //SelectImage.Visible = false;
             MngrInventoryProductsCatComboText.Enabled = true;
             MngrInventoryProductsTypeComboText.Enabled = true;
         }
@@ -8341,9 +8433,9 @@ namespace Enchante
                     }
                     System.Windows.Forms.MessageBox.Show("Item added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     shouldGenerateItemID = false;
-                    PDImage.Visible = false;
-                    ProductImagePictureBox.Visible = false;
-                    SelectImage.Visible = false;
+                    //PDImage.Visible = false;
+                    //ProductImagePictureBox.Visible = false;
+                    //SelectImage.Visible = false;
                     MngrInventoryProductData();
                     MngrProductClearFields();
                 }
@@ -8612,9 +8704,9 @@ namespace Enchante
                                 MngrInventoryProductsTypeComboText.Enabled = true;
                                 MngrInventoryProductsUpdateBtn.Visible = false;
                                 MngrInventoryProductsInsertBtn.Visible = true;
-                                PDImage.Visible = false;
-                                ProductImagePictureBox.Visible = false;
-                                SelectImage.Visible = false;
+                                //PDImage.Visible = false;
+                                //ProductImagePictureBox.Visible = false;
+                                //SelectImage.Visible = false;
                                 CancelEdit.Visible = false;
                             }
                             else
@@ -8687,21 +8779,31 @@ namespace Enchante
         private void MngrInventoryProductsTypeComboText_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (MngrInventoryProductsTypeComboText.SelectedItem != null)
+            //if (MngrInventoryProductsTypeComboText.SelectedItem != null)
+            //{
+            //    if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Service Product")
+            //    {
+            //        PDImage.Visible = false;
+            //        ProductImagePictureBox.Visible = false;
+            //        SelectImage.Visible = false;
+            //    }
+            //    else if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product")
+            //    {
+            //        PDImage.Visible = true;
+            //        ProductImagePictureBox.Visible = true;
+            //        SelectImage.Visible = true;
+            //    }
+            //}
+
+            if (MngrInventoryProductsTypeComboText.SelectedIndex == 0)
             {
-                if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Service Product")
-                {
-                    PDImage.Visible = false;
-                    ProductImagePictureBox.Visible = false;
-                    SelectImage.Visible = false;
-                }
-                else if (MngrInventoryProductsTypeComboText.SelectedItem.ToString() == "Retail Product")
-                {
-                    PDImage.Visible = true;
-                    ProductImagePictureBox.Visible = true;
-                    SelectImage.Visible = true;
-                }
+                SelectImage.Enabled = false;
             }
+            else
+            {
+                SelectImage.Enabled = true;
+            }
+
         }
 
         private void CancelEdit_Click(object sender, EventArgs e)
@@ -8710,9 +8812,9 @@ namespace Enchante
             MngrInventoryProductsInsertBtn.Visible = true;
             MngrInventoryProductsUpdateBtn.Visible = false;
             CancelEdit.Visible = false;
-            PDImage.Visible = false;
-            ProductImagePictureBox.Visible = false;
-            SelectImage.Visible = false;
+            //PDImage.Visible = false;
+            //ProductImagePictureBox.Visible = false;
+            //SelectImage.Visible = false;
             MngrInventoryProductsCatComboText.Enabled = true;
             MngrInventoryProductsTypeComboText.Enabled = true;
 
@@ -8733,6 +8835,15 @@ namespace Enchante
             openFileDialog.Filter = "Image Files (*.jpg; *.jpeg; *.png; *.gif; *.bmp)|*.jpg; *.jpeg; *.png; *.gif; *.bmp|All files (*.*)|*.*";
             openFileDialog.Title = "Select Image";
             openFileDialog.Multiselect = false;
+
+            if (MngrInventoryProductsTypeComboText.SelectedIndex == 0)
+            {
+                SelectImage.Enabled = false;
+            }
+            else
+            {
+                SelectImage.Enabled = true;
+            }
 
             DialogResult result = openFileDialog.ShowDialog();
 
@@ -8922,6 +9033,8 @@ namespace Enchante
                         MngrWalkinSalesTransRepDGV.DataSource = null;
                         MngrWalkinSalesTransServiceHisDGV.DataSource = null;
                         MngrWalkinSalesRevenueTextbox.Text = "";
+                        MngrWalkinSalesTransIDShow.Text = "";
+                        MngrWalkinSalesCurrentRecordLbl.Text = "0 of 0";
                         System.Windows.Forms.MessageBox.Show("No data available for the selected date range.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
@@ -9266,7 +9379,8 @@ namespace Enchante
         {
             DateTime selectedDate = MngrWalkinSalesPeriodCalendar.SelectionStart;
             string selectedPeriod = "";
-            string salePeriod = MngrWalkinSalesPeriod.SelectedItem.ToString();
+            string salePeriod = MngrWalkinSalesPeriod.SelectedItem?.ToString();
+
             if (salePeriod != null)
             {
                 switch (salePeriod)
@@ -9275,9 +9389,9 @@ namespace Enchante
                         selectedPeriod = selectedDate.ToString("MM-dd-yyyy");
                         break;
                     case "Week":
-                        DateTime monday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + (int)DayOfWeek.Monday);
-                        DateTime sunday = monday.AddDays(6);
-                        selectedPeriod = monday.ToString("MM-dd-yyyy") + " to " + sunday.ToString("MM-dd-yyyy");
+                        DateTime sunday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek);
+                        DateTime saturday = sunday.AddDays(6);
+                        selectedPeriod = sunday.ToString("MM-dd-yyyy") + " to " + saturday.ToString("MM-dd-yyyy");
                         break;
                     case "Month":
                         selectedPeriod = selectedDate.ToString("MMMM-yyyy");
@@ -9287,7 +9401,10 @@ namespace Enchante
                 }
                 MngrWalkinSalesSelectedPeriodText.Text = selectedPeriod;
             }
-
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Please select a sale period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void ViewWalkinSales()
@@ -9511,6 +9628,7 @@ namespace Enchante
                         {
                             if (!reader.HasRows)
                             {
+                                MngrIndemandCurrentRecordLbl.Text = "0 of 0";
                                 MngrIndemandServiceGraph.Series.Clear();
                                 MngrIndemandServiceSelection.DataSource = null;
                                 MngrIndemandBestEmployee.DataSource = null;
@@ -10071,7 +10189,6 @@ namespace Enchante
                 DateTime selectedDate = MngrIndemandServicePeriodCalendar.SelectionStart;
                 string selectedPeriod = "";
 
-                // Check if an item is selected before accessing it
                 if (MngrIndemandServiceHistoryPeriod.SelectedItem != null)
                 {
                     string salePeriod = MngrIndemandServiceHistoryPeriod.SelectedItem.ToString();
@@ -10082,9 +10199,9 @@ namespace Enchante
                             selectedPeriod = selectedDate.ToString("MM-dd-yyyy");
                             break;
                         case "Week":
-                            DateTime monday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + (int)DayOfWeek.Monday);
-                            DateTime sunday = monday.AddDays(6);
-                            selectedPeriod = monday.ToString("MM-dd-yyyy") + " to " + sunday.ToString("MM-dd-yyyy");
+                            DateTime sunday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek);
+                            DateTime saturday = sunday.AddDays(6);
+                            selectedPeriod = sunday.ToString("MM-dd-yyyy") + " to " + saturday.ToString("MM-dd-yyyy");
                             break;
                         case "Month":
                             selectedPeriod = selectedDate.ToString("MMMM-yyyy");
@@ -10092,20 +10209,13 @@ namespace Enchante
                         default:
                             break;
                     }
+                    MngrIndemandSelectPeriod.Text = selectedPeriod;
                 }
                 else
                 {
-                    // Handle the case where no item is selected
-                    // For example, you might want to provide a default value for selectedPeriod
-                }
-
-                MngrIndemandSelectPeriod.Text = selectedPeriod;
-            }
-            else
-            {
-                // Handle the case where one of the objects is null
-                // You can log an error message or perform other error handling here
-            }
+                    System.Windows.Forms.MessageBox.Show("Please select a sale period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }          
+            }           
         }
 
 
@@ -10271,26 +10381,29 @@ namespace Enchante
                     {(MngrProductSalesSelectCatBox.Text == "All Categories" ? "ItemID" : "ItemName")}, 
                     ItemPrice, 
                     LEFT(CheckedOutDate, 10)";
-
+            
             try
             {
                 DataTable filteredData = FetchFilteredData(query, connstringresult);
-                DisplayFilteredDataInGrid(filteredData);
-                DisplayDataInDataGridView(filteredData);
 
                 if (filteredData.Rows.Count == 0)
                 {
-                    System.Windows.Forms.MessageBox.Show("No data available for the selected date range.", "Walk-in Products Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    MngrProductSalesGraph.Series[0].Points.Clear();
+                    System.Windows.Forms.MessageBox.Show("No data available for the selected date range.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MngrProductSalesLineGraph.Series.Clear();
-                    MngrProductSalesLineGraph.Legends.Clear();
+                    MngrProductSalesGraph.Series.Clear();
                     MngrProductSalesTotalRevBox.Text = "";
+                    MngrProductSalesCurrentRecordLbl.Text = "0 of 0";
+                    MngrProductSalesTransRepDGV.DataSource = null;
+                    MngrProductSalesTransRepDGVTwo.DataSource = null;
                     return;
                 }
 
+                DisplayFilteredDataInGrid(filteredData);
+                DisplayDataInDataGridView(filteredData);
                 DisplayPieChart(query, connstringresult);
                 DisplayLineChart(query, connstringresult);
             }
+
             catch (Exception ex)
             {
                 System.Windows.Forms.MessageBox.Show("Error: " + ex.Message, "Walk-in Products Graph Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -10775,47 +10888,50 @@ namespace Enchante
         {
             string searchText = MngrProductSalesSearchTextBox.Text.Trim();
 
-            DataView dv = ((DataTable)MngrProductSalesTransRepDGVTwo.DataSource).DefaultView;
+            if (MngrProductSalesTransRepDGVTwo.DataSource != null && MngrProductSalesTransRepDGVTwo.DataSource is DataTable)
+            {
+                DataView dv = ((DataTable)MngrProductSalesTransRepDGVTwo.DataSource).DefaultView;
 
-            if (string.IsNullOrEmpty(searchText))
-            {
-                dv.RowFilter = string.Empty;
-            }
-            else
-            {
-                List<string> filterExpressions = new List<string>();
-                foreach (DataColumn col in ((DataTable)MngrProductSalesTransRepDGVTwo.DataSource).Columns)
+                if (string.IsNullOrEmpty(searchText))
                 {
-                    if (col.DataType != typeof(decimal))
-                    {
-                        string columnName = col.ColumnName.Contains(" ") ? $"[{col.ColumnName}]" : col.ColumnName;
-                        filterExpressions.Add($"{columnName} LIKE '%{searchText}%'");
-                    }
+                    dv.RowFilter = string.Empty;
                 }
-                string combinedFilterExpression = string.Join(" OR ", filterExpressions);
-                dv.RowFilter = combinedFilterExpression;
-                ApplyRowAlternatingColors(MngrProductSalesTransRepDGV);
-            }
-            int totalBatches = (int)Math.Ceiling((double)dv.Count / 10);
+                else
+                {
+                    List<string> filterExpressions = new List<string>();
+                    foreach (DataColumn col in ((DataTable)MngrProductSalesTransRepDGVTwo.DataSource).Columns)
+                    {
+                        if (col.DataType != typeof(decimal))
+                        {
+                            string columnName = col.ColumnName.Contains(" ") ? $"[{col.ColumnName}]" : col.ColumnName;
+                            filterExpressions.Add($"{columnName} LIKE '%{searchText}%'");
+                        }
+                    }
+                    string combinedFilterExpression = string.Join(" OR ", filterExpressions);
+                    dv.RowFilter = combinedFilterExpression;
+                    ApplyRowAlternatingColors(MngrProductSalesTransRepDGV);
+                }
+                int totalBatches = (int)Math.Ceiling((double)dv.Count / 10);
 
-            if (totalBatches > 0)
-            {
-                MngrProductSalesCurrentRecordLbl.Text = $"1 of {totalBatches}";
-            }
-            else
-            {
-                MngrProductSalesCurrentRecordLbl.Text = "0 of 0";
-                MngrProductSalesTransRepDGV.DataSource = null;
-            }
-            if (dv.Count == 0)
-            {
-                System.Windows.Forms.MessageBox.Show("No matching data found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                DataTable limitedDataTable = dv.ToTable().AsEnumerable().Take(10).CopyToDataTable();
-                MngrProductSalesTransRepDGV.DataSource = limitedDataTable;
-                ApplyRowAlternatingColors(MngrProductSalesTransRepDGV);
+                if (totalBatches > 0)
+                {
+                    MngrProductSalesCurrentRecordLbl.Text = $"1 of {totalBatches}";
+                }
+                else
+                {
+                    MngrProductSalesCurrentRecordLbl.Text = "0 of 0";
+                    MngrProductSalesTransRepDGV.DataSource = null;
+                }
+                if (dv.Count == 0)
+                {
+                    System.Windows.Forms.MessageBox.Show("No matching data found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    DataTable limitedDataTable = dv.ToTable().AsEnumerable().Take(10).CopyToDataTable();
+                    MngrProductSalesTransRepDGV.DataSource = limitedDataTable;
+                    ApplyRowAlternatingColors(MngrProductSalesTransRepDGV);
+                }
             }
         }
 
@@ -10851,22 +10967,22 @@ namespace Enchante
         }
 
         private void MngrProductSalesPeriodCalendar_DateChanged_1(object sender, DateRangeEventArgs e)
-        {
-            if (MngrProductSalesPeriod.SelectedItem != null)
-            {
+        {        
                 DateTime selectedDate = MngrProductSalesPeriodCalendar.SelectionStart;
                 string selectedPeriod = "";
-                string salePeriod = MngrProductSalesPeriod.SelectedItem.ToString();
+                string salePeriod = MngrProductSalesPeriod.SelectedItem?.ToString();
 
+            if (salePeriod != null) // Check if salePeriod is not null before proceeding
+            {
                 switch (salePeriod)
                 {
                     case "Day":
                         selectedPeriod = selectedDate.ToString("MM-dd-yyyy");
                         break;
                     case "Week":
-                        DateTime monday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + (int)DayOfWeek.Monday);
-                        DateTime sunday = monday.AddDays(6);
-                        selectedPeriod = monday.ToString("MM-dd-yyyy") + " to " + sunday.ToString("MM-dd-yyyy");
+                        DateTime sunday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek);
+                        DateTime saturday = sunday.AddDays(6);
+                        selectedPeriod = sunday.ToString("MM-dd-yyyy") + " to " + saturday.ToString("MM-dd-yyyy");
                         break;
                     case "Month":
                         selectedPeriod = selectedDate.ToString("MMMM-yyyy");
@@ -10878,8 +10994,7 @@ namespace Enchante
             }
             else
             {
-                // Handle the case where no item is selected
-                // For example, you might want to provide a default value for selectedPeriod
+                System.Windows.Forms.MessageBox.Show("Please select a sale period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -11028,6 +11143,7 @@ namespace Enchante
                         MngrAppSalesTransServiceHisDGV.DataSource = null;
                         MngrAppSalesTransIDShow.Text = "";
                         MngrAppSalesTotalRevBox.Text = "";
+                        MngrAppSalesCurrentRecordLbl.Text = "0 of 0";
                         return;
                     }
 
@@ -11400,9 +11516,9 @@ namespace Enchante
                         selectedPeriod = selectedDate.ToString("MM-dd-yyyy");
                         break;
                     case "Week":
-                        DateTime monday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek + (int)DayOfWeek.Monday);
-                        DateTime sunday = monday.AddDays(6);
-                        selectedPeriod = monday.ToString("MM-dd-yyyy") + " to " + sunday.ToString("MM-dd-yyyy");
+                        DateTime sunday = selectedDate.AddDays(-(int)selectedDate.DayOfWeek);
+                        DateTime saturday = sunday.AddDays(6);
+                        selectedPeriod = sunday.ToString("MM-dd-yyyy") + " to " + saturday.ToString("MM-dd-yyyy");
                         break;
                     case "Month":
                         selectedPeriod = selectedDate.ToString("MMMM-yyyy");
@@ -11414,8 +11530,7 @@ namespace Enchante
             }
             else
             {
-                // Handle the case where no item is selected
-                // For example, you might want to provide a default value for selectedPeriod
+                System.Windows.Forms.MessageBox.Show("Please select a sale period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -13587,7 +13702,6 @@ namespace Enchante
             MngrServicesCategoryComboText.SelectedIndex = -1;
             MngrServicesTypeComboText.SelectedIndex = -1;
             MngrServicesRequiredItemBox.SelectedIndex = -1;
-            MngrServicesCurrentRecordLbl.Text = "0 of 0";
             MngrServicesCategoryComboText.Text = "";
             MngrServicesTypeComboText.Text = "";
             MngrServicesNameText.Text = "";
@@ -13603,15 +13717,14 @@ namespace Enchante
             MngrInventoryProductsInsertBtn.Visible = true;
             MngrInventoryProductsUpdateBtn.Visible = false;
             CancelEdit.Visible = false;
-            PDImage.Visible = false;
-            ProductImagePictureBox.Visible = false;
-            SelectImage.Visible = false;
+            //PDImage.Visible = false;
+            //ProductImagePictureBox.Visible = false;
+            //SelectImage.Visible = false;
             MngrInventoryProductsCatComboText.Enabled = true;
             MngrInventoryProductsTypeComboText.Enabled = true;
             MngrInventoryProductsCatComboText.SelectedIndex = -1;
             MngrInventoryProductsTypeComboText.SelectedIndex = -1;
             MngrInventoryProductsStatusComboText.SelectedIndex = -1;
-            MngrInventoryProductsCurrentRecordLbl.Text = "0 of 0";
             MngrInventoryProductsIDText.Text = "";
             MngrInventoryProductsNameText.Text = "";
             MngrInventoryProductsPriceText.Text = "";
@@ -13630,7 +13743,6 @@ namespace Enchante
             MngrVoucherAvailNumTextBox.Text = string.Empty;
             MngrVoucherSelectCatTextBox.Text = string.Empty;
             MngrVoucherSearchTextBox.Text = string.Empty;
-            MngrVoucherCurrentRecordLbl.Text = "0 of 0";
 
             MngrWalkinSalesSelectedPeriodLbl.Visible = true;
             MngrWalkinSalesSelectedPeriodText.Visible = true;
@@ -13831,6 +13943,7 @@ namespace Enchante
             string fixedSalt = HashHelper_Salt.HashString_Salt("Enchante" + pass + "2024");    //Fixed Salt
             string perUserSalt = HashHelper_SaltperUser.HashString_SaltperUser(pass + emplID);    //Per User salt
 
+            AdminPassLbl.Text = "NEW PASSWORD:";
             if (AdminAccountTable.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = AdminAccountTable.SelectedRows[0];
@@ -13863,12 +13976,14 @@ namespace Enchante
                 AdminEmplIDText.Text = selectedRow.Cells["EmployeeID"].Value?.ToString();
 
                 string birthdayString = selectedRow.Cells["Birthday"].Value?.ToString() ?? string.Empty;
+
                 DateTime birthday;
-                if (!string.IsNullOrEmpty(birthdayString) && DateTime.TryParseExact(birthdayString, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out birthday))
+                if (!string.IsNullOrEmpty(birthdayString))
                 {
+                    birthday = Convert.ToDateTime(birthdayString);
                     AdminBdayPicker.Value = birthday.Date;
                 }
-                else if (string.IsNullOrEmpty(birthdayString))
+                else
                 {
                     AdminBdayPicker.Value = DateTime.Today;
                 }
@@ -13879,7 +13994,6 @@ namespace Enchante
                 AdminEmplIDText.Enabled = false;
                 AdminCreateAccBtn.Visible = false;
                 AdminUpdateAccBtn.Visible = true;
-                AdminCancelEditBtn.Visible = true;
                 AdminCreateAccForm.Visible = true;
             }
             else
@@ -13917,7 +14031,6 @@ namespace Enchante
         {
             AdminCreateAccBtn.Visible = true;
             AdminUpdateAccBtn.Visible = false;
-            AdminCancelEditBtn.Visible = false;
             AdminEmplTypeComboText.Enabled = true;
             AdminEmplCatComboText.Enabled = true;
             AdminEmplIDText.Enabled = true;
@@ -13977,7 +14090,7 @@ namespace Enchante
             if (AdminConfirmPassText.Text != AdminPassText.Text)
             {
                 AdminConfirmPassErrorLbl.Visible = true;
-                AdminConfirmPassErrorLbl.Text = "PASSWORD DOES NOT MATCH";
+                AdminConfirmPassErrorLbl.Text = "PASSWORD\nDOES NOT MATCH";
             }
             else
             {
@@ -14032,7 +14145,7 @@ namespace Enchante
 
             string fname = AdminFirstNameText.Text;
             string lname = AdminLastNameText.Text;
-            string bday = selectedDate.ToString("MM-dd-yyyy");
+            string bday = selectedDate.ToString("yyyy-MM-dd");
             string age = AdminAgeText.Text;
             string gender = AdminGenderComboText.Text;
             string cpnum = AdminCPNumText.Text;
@@ -14287,7 +14400,6 @@ namespace Enchante
                                     AdminEmplCatComboText.Enabled = true;
                                     AdminCreateAccBtn.Visible = true;
                                     AdminUpdateAccBtn.Visible = false;
-                                    AdminCancelEditBtn.Visible = false;
                                     AdminClearFields();
                                 }
                                 else
@@ -15653,10 +15765,16 @@ namespace Enchante
 
         private void RecApptLNameText_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '\b' && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
+
             if (RecApptLNameText.Text.Length >= 100 && e.KeyChar != '\b')
             {
                 e.Handled = true;
             }
+
             if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecApptLNameText.Text))
             {
                 e.Handled = true;
@@ -15665,15 +15783,22 @@ namespace Enchante
 
         private void RecApptFNameText_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '\b' && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
+
             if (RecApptFNameText.Text.Length >= 100 && e.KeyChar != '\b')
             {
                 e.Handled = true;
             }
+
             if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecApptFNameText.Text))
             {
                 e.Handled = true;
             }
         }
+
 
         private void RecApptSearchServiceTypeText_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -15687,10 +15812,6 @@ namespace Enchante
             }
         }
 
-
-
-
-
         private void RecWalkinCPNumText_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != '+' && e.KeyChar != '\b' || (RecWalkinCPNumText.Text.Contains("+")
@@ -15703,10 +15824,16 @@ namespace Enchante
 
         private void RecWalkinLNameText_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '\b' && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
+
             if (RecWalkinLNameText.Text.Length >= 100 && e.KeyChar != '\b')
             {
                 e.Handled = true;
             }
+
             if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecWalkinLNameText.Text))
             {
                 e.Handled = true;
@@ -15715,15 +15842,22 @@ namespace Enchante
 
         private void RecWalkinFNameText_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '\b' && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
+
             if (RecWalkinFNameText.Text.Length >= 100 && e.KeyChar != '\b')
             {
                 e.Handled = true;
             }
+
             if (e.KeyChar == ' ' && string.IsNullOrEmpty(RecWalkinFNameText.Text))
             {
                 e.Handled = true;
             }
         }
+
 
         private void RecWalkinSearchServiceTypeText_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -19065,6 +19199,14 @@ namespace Enchante
             if (AdminCreateAccForm.Visible)
             {
                 AdminCreateAccForm.Visible = false;
+
+                AdminCreateAccBtn.Visible = true;
+                AdminUpdateAccBtn.Visible = false;
+                AdminEmplTypeComboText.Enabled = true;
+                AdminEmplCatComboText.Enabled = true;
+                AdminEmplIDText.Enabled = true;
+                AdminPassLbl.Text = "PASSWORD:";
+                AdminClearFields();
             }
             else
             {
@@ -19096,7 +19238,7 @@ namespace Enchante
             ExitFunction();
             MngrNameLbl.Text = AdminNameLbl.Text;
             MngrIDNumLbl.Text = AdminIDNumLbl.Text;
-            MngrEmplTypeLbl.Text = AdminEmplTypeLbl.Text;
+            MngrEmplTypeLbl.Text = AdminEmplTypeLbl1.Text;
             MngrSignOutBtn.Visible = false;
             MngrOverrideBackBtn.Visible = true;
         }
@@ -19107,7 +19249,7 @@ namespace Enchante
             ExitFunction();
             RecNameLbl.Text = AdminNameLbl.Text;
             RecIDNumLbl.Text = AdminIDNumLbl.Text;
-            RecEmplTypeLbl.Text = AdminEmplTypeLbl.Text;
+            RecEmplTypeLbl.Text = AdminEmplTypeLbl1.Text;
             ReceptionLogoutBtn.Visible = false;
             RecOverrideBackBtn.Visible = true;
         }
@@ -20099,6 +20241,19 @@ namespace Enchante
             }
         }
 
+        private void MngrInventoryProductsTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MngrInventoryProductsInfoEditBtn_Click(sender, e);
+        }
 
+        private void MngrInventoryServicesTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            RecServicesUpdateInfoBtn_Click(sender, e);
+        }
+
+        private void AdminAccountTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AdminEditAccBtn_Click(sender, e);
+        }
     }
 }
