@@ -384,13 +384,9 @@ namespace Enchante
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
-            {
-                // Prevent the form from closing.
+            {   // Prevent the form from closing.
                 e.Cancel = true;
-
                 DialogResult result = System.Windows.Forms.MessageBox.Show("Do you want to close the application?", "Closing Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                e.Cancel = true;// Prevent the form from closing.
-                DialogResult result = System.Windows.Forms.MessageBox.Show("Do you want to close the application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     appointment.Clear();
