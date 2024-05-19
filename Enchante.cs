@@ -985,6 +985,8 @@ namespace Enchante
                                         MngrSignOutBtn.Visible = true;
                                         MngrOverrideBackBtn.Visible = false;
                                         logincredclear();
+                                        ApplyRowAlternatingColors(MngrInventoryServicesTable);
+                                        ApplyRowAlternatingColors(MngrInventoryProductsTable);
                                     }
                                     else if (membertype == "Receptionist")
                                     {
@@ -2070,6 +2072,7 @@ namespace Enchante
                     // Add your PDF generation logic here
                     iTextSharp.text.Font headerFont = FontFactory.GetFont("Courier", 40, iTextSharp.text.Font.BOLD);
                     iTextSharp.text.Font font = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.NORMAL);
+                    iTextSharp.text.Font smallfont = FontFactory.GetFont("Courier", 8, iTextSharp.text.Font.NORMAL);
 
                     iTextSharp.text.Paragraph centerAligned = new Paragraph();
                     centerAligned.Alignment = Element.ALIGN_CENTER;
@@ -2121,6 +2124,7 @@ namespace Enchante
                             // Add the item table to the document
                             doc.Add(serviceTable);
                         }
+
                         catch (Exception ex)
                         {
                             // Handle or log any exceptions that occur while processing DataGridView data
@@ -2138,6 +2142,49 @@ namespace Enchante
                     doc.Add(new Paragraph("Address:_______________________________", font));
                     doc.Add(new Paragraph("TIN No.:_______________________________", font));
 
+                    iTextSharp.text.Paragraph brokenLine = new Paragraph();
+                    brokenLine.Alignment = Element.ALIGN_CENTER;
+                    brokenLine.Add(new Chunk("\n\n\n\n---------------------------------------------\n", font)); doc.Add(new Chunk("\n")); // New line
+                    doc.Add(brokenLine);
+
+                    iTextSharp.text.Paragraph rateText = new Paragraph();
+                    rateText.Alignment = Element.ALIGN_CENTER;
+                    rateText.Add(new Chunk("\nRate your experience", font));
+                    rateText.Add(new Chunk("\n(Put a check on your desired number)", smallfont));
+                    doc.Add(rateText);
+                    // Add cells to the item table
+                    PdfPTable rateTable = new PdfPTable(5); // 
+                    rateTable.SetWidths(new float[] { 20f, 20f, 20f, 20f, 20f }); // Column widths
+                    rateTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+                    rateTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                    rateTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                    rateTable.AddCell(new Phrase("1-star", font));
+                    rateTable.AddCell(new Phrase("2-star", font));
+                    rateTable.AddCell(new Phrase("3-star", font));
+                    rateTable.AddCell(new Phrase("4-star", font));
+                    rateTable.AddCell(new Phrase("5-star", font));
+
+                    doc.Add(rateTable);
+
+                    PdfPTable rateTable1 = new PdfPTable(5); // 
+                    rateTable1.SetWidths(new float[] { 20f, 20f, 20f, 20f, 20f }); // Column widths
+                    rateTable1.DefaultCell.Border = PdfPCell.NO_BORDER;
+                    rateTable1.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                    rateTable1.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                    rateTable1.AddCell(new Phrase("[  ]", font));
+                    rateTable1.AddCell(new Phrase("[  ]", font)); 
+                    rateTable1.AddCell(new Phrase("[  ]", font));
+                    rateTable1.AddCell(new Phrase("[  ]", font));
+                    rateTable1.AddCell(new Phrase("[  ]", font));
+                    doc.Add(rateTable1);
+
+                    iTextSharp.text.Paragraph rateText1 = new Paragraph();
+                    rateText1.Alignment = Element.ALIGN_CENTER;
+                    rateText1.Add(new Chunk("\nNOTE:", smallfont));
+                    rateText1.Add(new Chunk("\n1 = Awful, 2 = Mediocre, 3 = Satisfactory, 4 = Great, 5 = Exceptional", smallfont));
+                    doc.Add(rateText1);
 
                 }
                 catch (DocumentException de)
@@ -6020,6 +6067,7 @@ namespace Enchante
                     // Add your PDF generation logic here
                     iTextSharp.text.Font headerFont = FontFactory.GetFont("Courier", 40, iTextSharp.text.Font.BOLD);
                     iTextSharp.text.Font font = FontFactory.GetFont("Courier", 10, iTextSharp.text.Font.NORMAL);
+                    iTextSharp.text.Font smallfont = FontFactory.GetFont("Courier", 8, iTextSharp.text.Font.NORMAL);
 
                     iTextSharp.text.Paragraph centerAligned = new Paragraph();
                     centerAligned.Alignment = Element.ALIGN_CENTER;
@@ -6101,6 +6149,50 @@ namespace Enchante
                         doc.Add(new Paragraph($"Appointment Time: {appttime}", font));
                         doc.Add(new Paragraph("Address:_______________________________", font));
                         doc.Add(new Paragraph("TIN No.:_______________________________", font));
+
+                        iTextSharp.text.Paragraph brokenLine = new Paragraph();
+                        brokenLine.Alignment = Element.ALIGN_CENTER;
+                        brokenLine.Add(new Chunk("\n\n\n\n---------------------------------------------\n", font)); doc.Add(new Chunk("\n")); // New line
+                        doc.Add(brokenLine);
+
+                        iTextSharp.text.Paragraph rateText = new Paragraph();
+                        rateText.Alignment = Element.ALIGN_CENTER;
+                        rateText.Add(new Chunk("\nRate your experience", font));
+                        rateText.Add(new Chunk("\n(Put a check on your desired number)", smallfont));
+                        doc.Add(rateText);
+                        // Add cells to the item table
+                        PdfPTable rateTable = new PdfPTable(5); // 
+                        rateTable.SetWidths(new float[] { 20f, 20f, 20f, 20f, 20f }); // Column widths
+                        rateTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+                        rateTable.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                        rateTable.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                        rateTable.AddCell(new Phrase("1-star", font));
+                        rateTable.AddCell(new Phrase("2-star", font));
+                        rateTable.AddCell(new Phrase("3-star", font));
+                        rateTable.AddCell(new Phrase("4-star", font));
+                        rateTable.AddCell(new Phrase("5-star", font));
+
+                        doc.Add(rateTable);
+
+                        PdfPTable rateTable1 = new PdfPTable(5); // 
+                        rateTable1.SetWidths(new float[] { 20f, 20f, 20f, 20f, 20f }); // Column widths
+                        rateTable1.DefaultCell.Border = PdfPCell.NO_BORDER;
+                        rateTable1.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+                        rateTable1.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                        rateTable1.AddCell(new Phrase("[  ]", font));
+                        rateTable1.AddCell(new Phrase("[  ]", font));
+                        rateTable1.AddCell(new Phrase("[  ]", font));
+                        rateTable1.AddCell(new Phrase("[  ]", font));
+                        rateTable1.AddCell(new Phrase("[  ]", font));
+                        doc.Add(rateTable1);
+
+                        iTextSharp.text.Paragraph rateText1 = new Paragraph();
+                        rateText1.Alignment = Element.ALIGN_CENTER;
+                        rateText1.Add(new Chunk("\nNOTE:", smallfont));
+                        rateText1.Add(new Chunk("\n1 = Awful, 2 = Mediocre, 3 = Satisfactory, 4 = Great, 5 = Exceptional", smallfont));
+                        doc.Add(rateText1);
                     }
                 }
                 catch (DocumentException de)
@@ -8705,7 +8797,7 @@ namespace Enchante
             //    }
             //}
 
-            if (MngrInventoryProductsTypeComboText.SelectedIndex == 0)
+            if (MngrInventoryProductsTypeComboText.SelectedIndex == 0 || MngrInventoryProductsTypeComboText.SelectedItem == null)
             {
                 SelectImage.Enabled = false;
             }
@@ -8750,7 +8842,8 @@ namespace Enchante
             {
                 SelectImage.Enabled = false;
             }
-            else
+
+            else 
             {
                 SelectImage.Enabled = true;
             }
@@ -12098,23 +12191,27 @@ namespace Enchante
         private void MngrPDHistoryStatusBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ApplyCombinedFilter();
+            ApplyRowAlternatingColors(MngrPDHistoryDGV);
         }
 
         private void MngrPDHistoryItemCatBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ApplyCombinedFilter();
+            ApplyRowAlternatingColors(MngrPDHistoryDGV);
         }
 
         private void MngrPDHistoryDatePickFrom_ValueChanged(object sender, EventArgs e)
         {
             considerDateFilter = true;
             ApplyCombinedFilter();
+            ApplyRowAlternatingColors(MngrPDHistoryDGV);
         }
 
         private void MngrPDHistoryDatePickTo_ValueChanged(object sender, EventArgs e)
         {
             considerDateFilter = true;
             ApplyCombinedFilter();
+            ApplyRowAlternatingColors(MngrPDHistoryDGV);
         }
 
         private void MngrPDHistoryResetBtn_Click(object sender, EventArgs e)
@@ -12127,6 +12224,7 @@ namespace Enchante
             MngrPDSearchTextBox.Text = "";
             currentBatchThree = 1;
             UpdateDataGridViewAndLabelThree();
+            ApplyRowAlternatingColors(MngrPDHistoryDGV);
         }
         #endregion
 
@@ -12709,28 +12807,33 @@ namespace Enchante
         private void MngrSVHistoryTransTypeBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Apply_CombinedFilter();
+            ApplyRowAlternatingColors(MngrSVHistoryDGV);
         }
 
         private void MngrSVHistoryServiceStatusBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Apply_CombinedFilter();
+            ApplyRowAlternatingColors(MngrSVHistoryDGV);
         }
 
         private void MngrSVHistoryServiceCatBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Apply_CombinedFilter();
+            ApplyRowAlternatingColors(MngrSVHistoryDGV);
         }
 
         private void MngrSVHistoryDatePickFrom_ValueChanged(object sender, EventArgs e)
         {
             ConsiderDateFilter = true;
             Apply_CombinedFilter();
+            ApplyRowAlternatingColors(MngrSVHistoryDGV);
         }
 
         private void MngrSVHistoryDatePickTo_ValueChanged(object sender, EventArgs e)
         {
             ConsiderDateFilter = true;
             Apply_CombinedFilter();
+            ApplyRowAlternatingColors(MngrSVHistoryDGV);
         }
 
         private void MngrSVHistoryResetBtn_Click(object sender, EventArgs e)
@@ -12744,6 +12847,7 @@ namespace Enchante
             MngrSVHistorySearchTextBox.Text = "";
             currentBatchFour = 1;
             UpdateDataGridViewAndLabelFour();
+            ApplyRowAlternatingColors(MngrSVHistoryDGV);
         }
         #endregion
 
@@ -16331,7 +16435,7 @@ namespace Enchante
 
             foreach (System.Windows.Forms.Control control in RecQueueStartPanel.Controls)
             {
-                if (control is QueueUserControl userControl && userControl.Enabled)
+                if (control is QueueUserControl userControl && userControl.StaffQueNumberTextBox.Enabled)
                 {
                     RecQueueStartPanel.Controls.SetChildIndex(userControl, 0);
                     NextCustomerNumLbl.Text = userControl.StaffQueNumberTextBox.Text;
@@ -17740,7 +17844,7 @@ namespace Enchante
             string timePrinted = currentDate.ToString("hh:mm tt");
             string timePrintedFile = currentDate.ToString("hh-mm-ss");
             string transactNum = RecPayServiceApptTransactNumLbl.Text;
-            string clientName = $"{RecPayServiceApptClientNameLbl}";
+            string clientName = RecPayServiceApptClientNameLbl.Text;
             string recName = RecNameLbl.Text;
             string apptNote = "This form will serves as your proof of appointment with Enchanté Salon. " +
                                 "Kindly present this form and one (1) Valid ID in our frontdesk and our " +
