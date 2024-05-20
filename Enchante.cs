@@ -55,7 +55,7 @@ namespace Enchante
     {
         public static string mysqlconn = "server=localhost;user=root;database=enchante;password=";
         public static string admindb = "server=localhost;user=root;database=admindb;password=";
-        public string connstringresult; //local db connection
+        public string connstringresult = "server=localhost;user=root;database=enchante;password=";
         public MySqlConnection connection = new MySqlConnection(mysqlconn);
         private ParentCard ParentPanelShow; //Parent Card //cardlayout panel classes
         private Registration Registration; //Membership Type Card
@@ -1342,14 +1342,6 @@ namespace Enchante
         }
         private void SearchAcrossCategories(string searchText, string filterstaffbyservicecategory)
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {   
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -1432,14 +1424,6 @@ namespace Enchante
         }
         private int GetLargestQueNum(string appointmentDate, string serviceCategory)
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
@@ -1734,14 +1718,6 @@ namespace Enchante
             string CustomerName = RecWalkinFNameText.Text + " " + RecWalkinLNameText.Text; //client name
             string yes = "Yes";
             string no = "No";
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             if (RecWalkinSelectedProdDGV.Rows.Count > 0)
             {
                 try
@@ -1803,14 +1779,6 @@ namespace Enchante
             string bookedBy = RecNameLbl.Text; //booked by
             string CustomerName = RecWalkinFNameText.Text + " " + RecWalkinLNameText.Text; //client name
             string cpnum = RecWalkinCPNumText.Text; //client name
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             if (RecWalkinSelectedProdDGV.Rows.Count > 0)
             {
                 try
@@ -1857,14 +1825,6 @@ namespace Enchante
             string bookedDate = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
             string bookedTime = currentDate.ToString("hh:mm tt"); //bookedTime
             string bookedBy = RecNameLbl.Text; //booked by
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -1909,14 +1869,6 @@ namespace Enchante
             string bookedDate = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
             string bookedTime = currentDate.ToString("hh:mm tt"); //bookedTime 
             string CustomerName = RecWalkinFNameText.Text + " " + RecWalkinLNameText.Text; //client name
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             if (RecWalkinSelectedServiceDGV.Rows.Count > 0)
             {
                 try
@@ -2070,14 +2022,6 @@ namespace Enchante
         {
             RecShopProdProductFlowLayoutPanel.Controls.Clear();
             RecWalkinProductFlowLayoutPanel.Controls.Clear();
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
@@ -2271,15 +2215,7 @@ namespace Enchante
             }
             string enteredPassword = GetPasswordWithAsterisks("Enter Manager Password:", "Void Product Permission");
             string hashedEnteredPassword = HashHelper.HashString(enteredPassword);
-            DialogResult result;
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
+            DialogResult result;           
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
@@ -2494,14 +2430,6 @@ namespace Enchante
         }
         public void RecWalkinLoadServiceHistoryDB(string transactNumber)
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -2543,14 +2471,6 @@ namespace Enchante
         }
         public void RecLoadOrderProdHistoryDB(string transactNumber)
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -2630,14 +2550,6 @@ namespace Enchante
         }
         public void RecApptLoadServiceHistoryDB(string transactNumber)
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -2733,14 +2645,6 @@ namespace Enchante
         public void RecLoadCompletedWalkinTrans()
         {
             string todayDate = DateTime.Today.ToString("MM-dd-yyyy dddd");
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             MySqlConnection connection = null;
             try
             {
@@ -2798,14 +2702,6 @@ namespace Enchante
         public void RecLoadCompletedAppointmentTrans()
         {
             string todayDate = DateTime.Today.ToString("MM-dd-yyyy dddd");
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             MySqlConnection connection = null;
             try
             {
@@ -2886,14 +2782,6 @@ namespace Enchante
             string paymentMethod = "Cash"; // payment method
             string mngr = RecNameLbl.Text;
             string transactNum = RecPayServiceWalkinTransactNumLbl.Text;
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -2985,14 +2873,6 @@ namespace Enchante
         }
         private void RecPayServiceUpdateQtyInventory(DataGridView dgv)
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -3022,14 +2902,6 @@ namespace Enchante
         }
         private void RecPayServiceWalkinUpdateOrderProdHistory(DataGridView dgv)
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -3312,14 +3184,6 @@ namespace Enchante
         }
         public void LoadPreferredStaffComboBox()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
@@ -3345,14 +3209,6 @@ namespace Enchante
         }
         public void LoadAppointmentPreferredStaffComboBox()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 string bookedtime = RecApptBookingTimeComboBox.SelectedItem.ToString();
@@ -4101,14 +3957,6 @@ namespace Enchante
             string serviceStatus = "Pending";
             string bookedDate = pickedDate.ToString("MM-dd-yyyy dddd"); //bookedDate
             string CustomerName = RecApptFNameText.Text + " " + RecApptLNameText.Text; //client name
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             if (RecApptSelectedServiceDGV.Rows.Count > 0)
             {
                 try
@@ -4211,14 +4059,6 @@ namespace Enchante
                     string cellContent = cellValue.ToString();
                 }
             }
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -4305,14 +4145,6 @@ namespace Enchante
             string paymentMethod = "Cash"; // payment method
             string mngr = RecNameLbl.Text;
             string transactNum = RecPayServiceWalkinTransactNumLbl.Text;
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -4372,14 +4204,6 @@ namespace Enchante
         }
         private int GetLargestPriorityNum(string appointmentDate, string serviceCategory)
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
@@ -4502,14 +4326,6 @@ namespace Enchante
         {
             List<string> matchingTimes = new List<string>();
             string query = "SELECT AppointmentTime FROM servicehistory WHERE AppointmentDate = @SelectedDate AND ServiceCategory = @ServiceCategory AND (QueType = 'AnyonePriority' OR QueType = 'PreferredPriority')";
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
@@ -4531,14 +4347,6 @@ namespace Enchante
         }
         public void InitializeAppointmentDataGrid()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
@@ -4572,15 +4380,7 @@ namespace Enchante
                 DateTime currentDate = DateTime.Now;
                 string appointmentTime = string.Empty;
                 string serviceCategory = string.Empty;
-                string queType = string.Empty;
-                if (AdminLoggedIn)
-                {
-                    connstringresult = "server=localhost;user=root;database=admindb;password=";
-                }
-                else
-                {
-                    connstringresult = "server=localhost;user=root;database=enchante;password=";
-                }
+                string queType = string.Empty;    
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
@@ -4790,14 +4590,6 @@ namespace Enchante
             int largestQueNumber = 0;
             DateTime currentDate = DateTime.Now;
             string dateToday = currentDate.ToString("MM-dd-yyyy dddd");
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
@@ -4814,14 +4606,6 @@ namespace Enchante
         }
         private void ExecuteQuery(string query)
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
@@ -5052,14 +4836,6 @@ namespace Enchante
         }
         private void RecShopProdUpdateQtyInventory(DataGridView dgv)
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -5100,14 +4876,6 @@ namespace Enchante
             string transactNum = RecShopProdTransNumText.Text;
             string Date = currentDate.ToString("MM-dd-yyyy dddd"); //bookedDate
             string Time = currentDate.ToString("hh:mm tt"); //bookedTime
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -5177,14 +4945,6 @@ namespace Enchante
             string bookedBy = RecNameLbl.Text; //booked by
             string yes = "Yes";
             string no = "No";
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             if (RecShopProdSelectedProdDGV.Rows.Count > 0)
             {
                 try
@@ -5521,14 +5281,6 @@ namespace Enchante
         }
         public void ReceptionLoadServices()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             MySqlConnection connection = null;
             try
             {
@@ -5593,14 +5345,6 @@ namespace Enchante
         }
         private void UpdateDataGridViewAndLabelServices()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -5667,14 +5411,6 @@ namespace Enchante
         }
         private int GetTotalRowsServices()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -5695,14 +5431,6 @@ namespace Enchante
         }
         private int GetFilteredTotalRowsServices()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -5862,14 +5590,6 @@ namespace Enchante
             }
             else
             {
-                if (AdminLoggedIn)
-                {
-                    connstringresult = "server=localhost;user=root;database=admindb;password=";
-                }
-                else
-                {
-                    connstringresult = "server=localhost;user=root;database=enchante;password=";
-                }
                 try
                 {
                     using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -5982,14 +5702,6 @@ namespace Enchante
         }
         private void RetrieveServiceDataFromDB(DataGridViewRow selectedRow)
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -6072,14 +5784,6 @@ namespace Enchante
             }
             else
             {
-                if (AdminLoggedIn)
-                {
-                    connstringresult = "server=localhost;user=root;database=admindb;password=";
-                }
-                else
-                {
-                    connstringresult = "server=localhost;user=root;database=enchante;password=";
-                }
                 try
                 {
                     using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -6136,14 +5840,6 @@ namespace Enchante
         {
             MngrServicesRequiredItemBox.Items.Clear();
             string selectedCategory = MngrServicesCategoryComboText.SelectedItem?.ToString();
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             string query = "SELECT ItemName FROM inventory WHERE ProductType = 'Service Product' AND ProductCategory = @Category";
             if (selectedCategory != null)
             {
@@ -6179,14 +5875,6 @@ namespace Enchante
                 {
                     System.Windows.Forms.MessageBox.Show("You have already selected this item.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
-                }
-                if (AdminLoggedIn)
-                {
-                    connstringresult = "server=localhost;user=root;database=admindb;password=";
-                }
-                else
-                {
-                    connstringresult = "server=localhost;user=root;database=enchante;password=";
                 }
                 string query = "SELECT ItemID FROM inventory WHERE ProductType = 'Service Product' AND ProductCategory = @Category AND ItemName = @ItemName";
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -6237,14 +5925,6 @@ namespace Enchante
         }
         private void MngrInventoryProductData()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -6306,14 +5986,6 @@ namespace Enchante
         }
         private void UpdateDataGridViewAndLabelProducts()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -6372,14 +6044,6 @@ namespace Enchante
         }
         private int GetTotalRowsProducts()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -6400,14 +6064,6 @@ namespace Enchante
         }
         private int GetFilteredTotalRowsProducts()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -6528,14 +6184,6 @@ namespace Enchante
             }
             string query = "INSERT INTO inventory (ItemID, ProductCategory, ItemName, ItemStock, ItemPrice, ProductType, ItemStatus, ProductPicture) " +
                "VALUES (@ItemID, @ProductCategory, @ItemName, @ItemStock, @ItemPrice, @ProductType, @ItemStatus, @ProductPicture)";
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 try
@@ -6592,14 +6240,6 @@ namespace Enchante
                 {
                     System.Windows.Forms.MessageBox.Show("The selected row is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
-                }
-                if (AdminLoggedIn)
-                {
-                    connstringresult = "server=localhost;user=root;database=admindb;password=";
-                }
-                else
-                {
-                    connstringresult = "server=localhost;user=root;database=enchante;password=";
                 }
                 string query = "SELECT ProductPicture FROM inventory WHERE ItemID = @ItemID";
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -6708,14 +6348,6 @@ namespace Enchante
             {
                 System.Windows.Forms.MessageBox.Show("Stock cannot be lower than 40.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            }
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
             }
             string query;
             if (!imagewillnotupdate)
@@ -7022,15 +6654,7 @@ namespace Enchante
             {
                 System.Windows.Forms.MessageBox.Show("Please select a category.", "Walk-in Services Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            }
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
+            }        
             List<DateTime> dates = new List<DateTime>();
             Dictionary<string, List<decimal>> categoryRevenues = new Dictionary<string, List<decimal>>();
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -7382,14 +7006,6 @@ namespace Enchante
         }
         private void ViewWalkinSales()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             if (MngrWalkinSalesTransRepDGV == null || MngrWalkinSalesTransRepDGV.SelectedRows.Count == 0 || MngrWalkinSalesTransRepDGV.SelectedRows[0].Cells["TransactionNumber"] == null)
             {
                 System.Windows.Forms.MessageBox.Show("Please select a row to view.", "No Row Selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -7528,14 +7144,6 @@ namespace Enchante
                     WHERE ServiceStatus = 'Completed'  AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y') BETWEEN @FromDate AND @ToDate 
                     AND ServiceCategory = @SelectedCategory";
                     counts = new Dictionary<string, int>();
-                }
-                if (AdminLoggedIn)
-                {
-                    connstringresult = "server=localhost;user=root;database=admindb;password=";
-                }
-                else
-                {
-                    connstringresult = "server=localhost;user=root;database=enchante;password=";
                 }
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
@@ -7808,14 +7416,6 @@ namespace Enchante
             AND STR_TO_DATE(AppointmentDate, '%m-%d-%Y') BETWEEN @FromDate AND @ToDate
             GROUP BY ServiceCategory";
             Dictionary<string, int> serviceCounts = new Dictionary<string, int>();
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
@@ -8179,14 +7779,6 @@ namespace Enchante
                 categoryFilter = $"AND ItemID LIKE '{categoryPrefix}%'";
             }
             string statusFilter = "ProductStatus = 'Paid'";
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             string query = $@"SELECT LEFT(CheckedOutDate, 10) AS CheckedOutDate,
             {(MngrProductSalesSelectCatBox.Text == "All Categories" ? "ItemID" : "ItemName")}, 
             ItemName,ItemID,ItemPrice,SUM(Qty) AS Qty,SUM(ItemTotalPrice) AS ItemTotalPrice
@@ -8811,14 +8403,6 @@ namespace Enchante
                     System.Windows.Forms.MessageBox.Show("Invalid selection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
             }
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             List<DateTime> dates = new List<DateTime>();
             Dictionary<string, List<decimal>> categoryRevenues = new Dictionary<string, List<decimal>>();
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -9192,14 +8776,6 @@ namespace Enchante
         }
         private void MngrAppSalesTransRepDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             if (MngrAppSalesTransRepDGV == null || MngrAppSalesTransRepDGV.SelectedRows.Count == 0 || MngrAppSalesTransRepDGV.SelectedRows[0].Cells["TransactionNumber"] == null)
             {
                 System.Windows.Forms.MessageBox.Show("Please select a row to view.", "No Row Selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -9244,14 +8820,6 @@ namespace Enchante
         }
         private void ProductHistoryShow()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -9406,14 +8974,6 @@ namespace Enchante
         }
         private void UpdateDataGridViewAndLabelThree()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -9473,14 +9033,6 @@ namespace Enchante
         }
         private int GetTotalRowsThree()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -9501,14 +9053,6 @@ namespace Enchante
         }
         private int GetFilteredTotalRowsThree()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -9706,14 +9250,6 @@ namespace Enchante
         }
         private void FetchDataFromDatabaseThree(string query, string combinedFilter)
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             string searchText = MngrPDSearchTextBox.Text.Trim();
             try
             {
@@ -9787,14 +9323,6 @@ namespace Enchante
         }
         private void ServiceHistoryShow()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -9902,14 +9430,6 @@ namespace Enchante
         }
         private void UpdateDataGridViewAndLabelFour()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -10013,14 +9533,6 @@ namespace Enchante
         }
         private int GetTotalRowsFour()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -10041,14 +9553,6 @@ namespace Enchante
         }// 10038
         private int GetFilteredTotalRowsFour()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -10248,14 +9752,6 @@ namespace Enchante
 
         private void FetchDataFromDatabaseFour(string query, string combinedFilter)
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             string searchText = MngrSVHistorySearchTextBox.Text.Trim();
             try
             {
@@ -10371,15 +9867,6 @@ namespace Enchante
         #region Mngr. PANEL OF VOUCHERS
         private void VouchersShow()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
-
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -10498,15 +9985,6 @@ namespace Enchante
             string formattedDateStart = dateStart.ToString("MMMM d, yyyy");
             string formattedDateEnd = dateEnd.ToString("MMMM d, yyyy");
             string formattedPromoCreated = promoCreated.ToString("MMMM d, yyyy HH:mm:ss");
-
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             string query = "INSERT INTO voucher (DateStart, DateEnd, PromoName, PromoCategory, PromoCode, PromoDiscount, AvailableNumber, PromoCreated) " +
                            "VALUES (@DateStart, @DateEnd, @PromoName, @PromoCategory, @PromoCode, @PromoDiscount, @AvailableNumber, @PromoCreated)";
 
@@ -10641,15 +10119,6 @@ namespace Enchante
 
             string formattedDateStart = updatedDateStart.ToString("MMMM d, yyyy");
             string formattedDateEnd = updatedDateEnd.ToString("MMMM d, yyyy");
-
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             string updateQuery = "UPDATE voucher SET DateStart = @DateStart, DateEnd = @DateEnd, " +
                                  "PromoName = @PromoName, PromoCategory = @PromoCategory, PromoDiscount = @PromoDiscount, " +
                                  "AvailableNumber = @AvailableNumber " +
@@ -10732,15 +10201,6 @@ namespace Enchante
 
         private void UpdateDataGridViewAndLabel()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
-
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -10847,14 +10307,6 @@ namespace Enchante
         private string GetPromoCategoryFromDatabase(string promoCode)
         {
             string promoCategory = "";
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             string query = "SELECT PromoCategory FROM voucher WHERE PromoCode = @PromoCode";
 
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -10906,15 +10358,6 @@ namespace Enchante
 
         private int GetTotalRows()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
-
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -10936,15 +10379,6 @@ namespace Enchante
 
         private int GetFilteredTotalRows()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
-
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -11094,15 +10528,6 @@ namespace Enchante
         #region Mngr. PANEL OF MEMBER ACCOUNTS
         private void MemberAccountsShow()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
-
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -11966,15 +11391,6 @@ namespace Enchante
 
         private void PopulateUserInfoDataGrid()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
-
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -12054,15 +11470,6 @@ namespace Enchante
 
         private void UpdateDataGridViewAndLabelAdmin()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
-
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -12135,15 +11542,6 @@ namespace Enchante
 
         private int GetTotalRowsAdmin()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
-
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -12165,14 +11563,6 @@ namespace Enchante
 
         private int GetFilteredTotalRowsAdmin()
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -12311,16 +11701,6 @@ namespace Enchante
 
                 if (result == DialogResult.Yes)
                 {
-                    // User confirmed, proceed with cancellation
-                    if (AdminLoggedIn)
-                    {
-                        connstringresult = "server=localhost;user=root;database=admindb;password=";
-                    }
-                    else
-                    {
-                        connstringresult = "server=localhost;user=root;database=enchante;password=";
-                    }
-
                     using (MySqlConnection connection = new MySqlConnection(connstringresult))
                     {
                         connection.Open();
@@ -12366,16 +11746,6 @@ namespace Enchante
                 string serviceHistoryQuery = "SELECT TransactionNumber, ServiceCategory, ServiceID, SelectedService, PreferredStaff " +
                                              "FROM servicehistory " +
                                              "WHERE TransactionNumber = @transactionNumber AND (ServiceStatus = 'Pending' OR ServiceStatus = 'PendingPaid')";
-
-                if (AdminLoggedIn)
-                {
-                    connstringresult = "server=localhost;user=root;database=admindb;password=";
-                }
-                else
-                {
-                    connstringresult = "server=localhost;user=root;database=enchante;password=";
-                }
-
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
@@ -12419,15 +11789,6 @@ namespace Enchante
 
                 if (confirmationResult == DialogResult.Yes)
                 {
-                    if (AdminLoggedIn)
-                    {
-                        connstringresult = "server=localhost;user=root;database=admindb;password=";
-                    }
-                    else
-                    {
-                        connstringresult = "server=localhost;user=root;database=enchante;password=";
-                    }
-
                     using (MySqlConnection connection = new MySqlConnection(connstringresult))
                     {
 
@@ -12535,15 +11896,6 @@ namespace Enchante
 
                 if (confirmationResult == DialogResult.Yes)
                 {
-                    if (AdminLoggedIn)
-                    {
-                        connstringresult = "server=localhost;user=root;database=admindb;password=";
-                    }
-                    else
-                    {
-                        connstringresult = "server=localhost;user=root;database=enchante;password=";
-                    }
-
                     using (MySqlConnection connection = new MySqlConnection(connstringresult))
                     {
 
@@ -12650,15 +12002,6 @@ namespace Enchante
         {
             try
             {
-                if (AdminLoggedIn)
-                {
-                    connstringresult = "server=localhost;user=root;database=admindb;password=";
-                }
-                else
-                {
-                    connstringresult = "server=localhost;user=root;database=enchante;password=";
-                }
-
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
@@ -12727,14 +12070,6 @@ namespace Enchante
                 RecShopProdProductFlowLayoutPanel.Controls.Clear();
                 InitializeProducts();
                 return;
-            }
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
             }
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
@@ -12844,16 +12179,6 @@ namespace Enchante
                 InitializeProducts();
                 return;
             }
-
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
-
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
@@ -12964,16 +12289,6 @@ namespace Enchante
                 InitializeProducts();
                 return;
             }
-
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
-
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
@@ -13104,16 +12419,6 @@ namespace Enchante
                 InitializeProducts();
                 return;
             }
-
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
-
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
@@ -13724,16 +13029,6 @@ namespace Enchante
             DateTime currentDate = DateTime.Today;
             string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
             List<GeneralPendingCustomers> result = new List<GeneralPendingCustomers>();
-
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
-
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 try
@@ -13984,16 +13279,6 @@ namespace Enchante
         {
             string query = "SELECT ItemID, ProductCategory, ItemName, ItemStock, ItemStatus FROM inventory " +
                            "WHERE ProductType = 'Service Product'";
-
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
-
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 using (MySqlCommand command = new MySqlCommand(query, connection))
@@ -14036,15 +13321,6 @@ namespace Enchante
 
         public void CheckItemStockPersonalStatus(string ItemID, string staffID)
         {
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
-
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
@@ -14228,17 +13504,6 @@ namespace Enchante
             DateTime currentDate = DateTime.Today;
             string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
             List<InSessionCustomers> result = new List<InSessionCustomers>();
-
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
-
-
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 try
@@ -14346,18 +13611,6 @@ namespace Enchante
 
             DateTime currentDate = DateTime.Today;
             string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
-            List<InSessionCustomers> result = new List<InSessionCustomers>();
-
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
-
-
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 try
@@ -14464,16 +13717,6 @@ namespace Enchante
             DateTime currentDate = DateTime.Today;
             string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
             List<InSessionCustomers> result = new List<InSessionCustomers>();
-
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
-
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 try
@@ -15591,17 +14834,6 @@ namespace Enchante
             string transactNum = RecPayServiceApptTransactNumLbl.Text;
 
             // bank & wallet details
-
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
-
-
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
@@ -15746,17 +14978,6 @@ namespace Enchante
 
 
             servicecat = category;
-
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
-
-
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 try
@@ -16134,16 +15355,6 @@ namespace Enchante
         public List<Staff> RetriveStaffinDB(string employeecategory)
         {
             List<Staff> result = new List<Staff>();
-
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
-
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 try
@@ -16285,17 +15496,6 @@ namespace Enchante
             servicetotalItems = 0;
             servicecurrentPage = 0;
             servicecurrentPagefake = 1;
-
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
-
-
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 try
@@ -16429,16 +15629,6 @@ namespace Enchante
         {
             List<Services> result = new List<Services>();
             servicetotalItems = 0;
-
-            if (AdminLoggedIn)
-            {
-                connstringresult = "server=localhost;user=root;database=admindb;password=";
-            }
-            else
-            {
-                connstringresult = "server=localhost;user=root;database=enchante;password=";
-            }
-
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 try
