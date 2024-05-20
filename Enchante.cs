@@ -9550,7 +9550,7 @@ namespace Enchante
                 System.Windows.Forms.MessageBox.Show("Error: " + ex.Message);
                 return 0;
             }
-        }// 10038
+        }
         private int GetFilteredTotalRowsFour()
         {
             try
@@ -9571,32 +9571,26 @@ namespace Enchante
                 return 0;
             }
         }
-
         private void MngrSVHistorySearchTextBox_TextChanged(object sender, EventArgs e)
         {
             string searchText = MngrSVHistorySearchTextBox.Text.Trim();
-
             if ((MngrSVHistoryTransTypeBox.SelectedItem != null || MngrSVHistoryServiceStatusBox.SelectedItem != null ||
                  MngrSVHistoryServiceCatBox.SelectedItem != null || ConsiderDateFilter == true) && !string.IsNullOrEmpty(searchText))
             {
                 string combinedFilter = GetCombined_Filter();
                 string searchFilter = GetSearchFilterFour();
-
                 string filterExpression = searchFilter;
-
                 if (!string.IsNullOrEmpty(combinedFilter))
                 {
                     DataView dv = ((DataTable)MngrSVHistoryDGVTwo.DataSource).DefaultView;
                     filterExpression = string.Join(" OR ", ((DataTable)MngrSVHistoryDGVTwo.DataSource).Columns.Cast<DataColumn>()
-                                                .Select(col => $"{col.ColumnName} LIKE '%{searchText}%'"));
+                                               .Select(col => $"{col.ColumnName} LIKE '%{searchText}%'"));
                     dv.RowFilter = filterExpression;
                     filterExpression = string.IsNullOrEmpty(searchFilter) ? combinedFilter : $"({combinedFilter}) AND ({searchFilter})";
                 }
-
                 DataView dataView = new DataView(((DataTable)MngrSVHistoryDGVTwo.DataSource), filterExpression, "", DataViewRowState.CurrentRows);
                 MngrSVHistoryDGVTwo.DataSource = dataView.ToTable();
                 ApplyRowAlternatingColors(MngrSVHistoryDGV);
-
                 if (!string.IsNullOrEmpty(searchText))
                 {
                     int totalRows = dataView.Count;
@@ -9611,7 +9605,6 @@ namespace Enchante
                     limitedRowsTable.ImportRow(filteredTable.Rows[i]);
                 }
                 MngrSVHistoryDGV.DataSource = limitedRowsTable;
-
                 if (dataView.Count == 0)
                 {
                     System.Windows.Forms.MessageBox.Show("No matching data found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -9622,7 +9615,6 @@ namespace Enchante
             else if (!string.IsNullOrEmpty(searchText))
             {
                 DataView dv = ((DataTable)MngrSVHistoryDGV.DataSource).DefaultView;
-
                 if (string.IsNullOrEmpty(searchText))
                 {
                     dv.RowFilter = string.Empty;
@@ -9633,7 +9625,6 @@ namespace Enchante
                                                     .Select(col => $"{col.ColumnName} LIKE '{searchText}%'"));
                     dv.RowFilter = filterExpression;
                 }
-
                 UpdateDataGridViewAndLabelFour();
                 ApplyRowAlternatingColors(MngrSVHistoryDGV);
             }
@@ -9649,9 +9640,7 @@ namespace Enchante
                 ApplyRowAlternatingColors(MngrSVHistoryDGV);
             }
         }
-
         private bool ConsiderDateFilter = false;
-
         private string GetCombined_Filter()
         {
             string transactionTypeFilter = GetTransactionTypeFilter();
@@ -9659,27 +9648,19 @@ namespace Enchante
             string serviceCategoryFilter = GetServiceCategoryFilter();
             string dateFilter = ConsiderDateFilter ? FilterRowByDateRange() : string.Empty;
             string searchFilter = GetSearchFilterFour();
-
             List<string> filters = new List<string>();
-
             if (!string.IsNullOrEmpty(transactionTypeFilter))
                 filters.Add(transactionTypeFilter);
-
             if (!string.IsNullOrEmpty(serviceStatusFilter))
                 filters.Add(serviceStatusFilter);
-
             if (!string.IsNullOrEmpty(serviceCategoryFilter))
                 filters.Add(serviceCategoryFilter);
-
             if (!string.IsNullOrEmpty(dateFilter))
                 filters.Add(dateFilter);
-
             if (!string.IsNullOrEmpty(searchFilter))
                 filters.Add(searchFilter);
-
             if (filters.Count == 1)
                 return filters[0];
-
             if (filters.Count > 0)
             {
                 string combinedFilter = string.Join(" AND ", filters.Select(filter => $"({filter})"));
@@ -9690,19 +9671,15 @@ namespace Enchante
                 return string.Empty;
             }
         }
-
         private string GetSearchFilterFour()
         {
             string searchText = MngrSVHistorySearchTextBox.Text.Trim();
             if (string.IsNullOrEmpty(searchText))
                 return null;
-
             string filterExpression = string.Join(" OR ", ((DataTable)MngrSVHistoryDGV.DataSource).Columns.Cast<DataColumn>()
                                                 .Select(col => $"{col.ColumnName} LIKE '%{searchText}%'"));
-
             return filterExpression;
         }
-
         private string GetTransactionTypeFilter()
         {
             if (MngrSVHistoryTransTypeBox.SelectedItem != null)
@@ -9712,7 +9689,6 @@ namespace Enchante
             }
             return string.Empty;
         }
-
         private string GetServiceStatusFilter()
         {
             if (MngrSVHistoryServiceStatusBox.SelectedItem != null)
@@ -9722,7 +9698,6 @@ namespace Enchante
             }
             return string.Empty;
         }
-
         private string GetServiceCategoryFilter()
         {
             if (MngrSVHistoryServiceCatBox.SelectedItem != null)
@@ -9732,24 +9707,18 @@ namespace Enchante
             }
             return string.Empty;
         }
-
         private void Apply_CombinedFilter()
         {
             string combinedFilter = GetCombined_Filter();
-
             string query = "SELECT TransactionNumber, TransactionType, ServiceStatus, AppointmentDate, ClientName, " +
                            "ServiceCategory, AttendingStaff, ServiceID, SelectedService, ServicePrice FROM servicehistory";
-
             if (!string.IsNullOrEmpty(combinedFilter))
             {
                 query += $" WHERE {combinedFilter}";
             }
-
             query += " ORDER BY AppointmentDate DESC";
-
             FetchDataFromDatabaseFour(query, combinedFilter);
         }
-
         private void FetchDataFromDatabaseFour(string query, string combinedFilter)
         {
             string searchText = MngrSVHistorySearchTextBox.Text.Trim();
@@ -9763,24 +9732,19 @@ namespace Enchante
                     MySqlCommand command = new MySqlCommand(query, connection);
                     MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                     adapter.Fill(dataTable);
-
                     int totalRows = dataTable.Rows.Count;
                     int totalBatches = (int)Math.Ceiling((double)totalRows / 10);
                     int startIndex = (currentBatchFour - 1) * 10;
-
                     foreach (DataColumn column in dataTable.Columns)
                     {
                         batchDataTable.Columns.Add(column.ColumnName);
                     }
-
                     for (int i = startIndex; i < Math.Min(startIndex + 10, totalRows); i++)
                     {
                         batchDataTable.ImportRow(dataTable.Rows[i]);
                     }
-
                     MngrSVHistoryDGV.DataSource = batchDataTable;
                     MngrSVHistoryDGVTwo.DataSource = dataTable;
-
                     if (string.IsNullOrEmpty(searchText))
                     {
                         MngrSVHistoryCurrentRecordLbl.Text = $"{currentBatchFour} of {totalBatches}";
@@ -9793,20 +9757,16 @@ namespace Enchante
                 System.Windows.Forms.MessageBox.Show("Error: " + ex.Message);
             }
         }
-
         private string FilterRowByDateRange()
         {
             DateTime fromDate = MngrSVHistoryDatePickFrom.Value.Date;
             DateTime toDate = MngrSVHistoryDatePickTo.Value.Date;
-
             if (fromDate > toDate && fromDate != DateTime.Now.Date && toDate != DateTime.Now.Date)
             {
                 System.Windows.Forms.MessageBox.Show("From date should not be ahead of To date.", "Invalid Date Range", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return null;
             }
-
             toDate = toDate.AddDays(1);
-
             string fromDateString = fromDate.ToString("MM-dd-yyyy dddd");
             string toDateString = toDate.ToString("MM-dd-yyyy dddd");
             if (fromDate == toDate)
@@ -9818,39 +9778,33 @@ namespace Enchante
                 return $"AppointmentDate >= '{fromDateString}' AND AppointmentDate < '{toDateString}'";
             }
         }
-
         private void MngrSVHistoryTransTypeBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Apply_CombinedFilter();
             ApplyRowAlternatingColors(MngrSVHistoryDGV);
         }
-
         private void MngrSVHistoryServiceStatusBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Apply_CombinedFilter();
             ApplyRowAlternatingColors(MngrSVHistoryDGV);
         }
-
         private void MngrSVHistoryServiceCatBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Apply_CombinedFilter();
             ApplyRowAlternatingColors(MngrSVHistoryDGV);
         }
-
         private void MngrSVHistoryDatePickFrom_ValueChanged(object sender, EventArgs e)
         {
             ConsiderDateFilter = true;
             Apply_CombinedFilter();
             ApplyRowAlternatingColors(MngrSVHistoryDGV);
         }
-
         private void MngrSVHistoryDatePickTo_ValueChanged(object sender, EventArgs e)
         {
             ConsiderDateFilter = true;
             Apply_CombinedFilter();
             ApplyRowAlternatingColors(MngrSVHistoryDGV);
         }
-
         private void MngrSVHistoryResetBtn_Click(object sender, EventArgs e)
         {
             MngrSVHistoryTransTypeBox.SelectedIndex = -1;
@@ -9864,7 +9818,6 @@ namespace Enchante
             UpdateDataGridViewAndLabelFour();
             ApplyRowAlternatingColors(MngrSVHistoryDGV);
         }
-        #region Mngr. PANEL OF VOUCHERS
         private void VouchersShow()
         {
             try
@@ -9875,31 +9828,25 @@ namespace Enchante
                     string countQuery = "SELECT COUNT(*) FROM voucher";
                     MySqlCommand countCommand = new MySqlCommand(countQuery, connection);
                     int totalRows = Convert.ToInt32(countCommand.ExecuteScalar());
-
                     string query = "SELECT DateStart, DateEnd, PromoName, PromoCategory, PromoCode, PromoDiscount, " +
                                     "AvailableNumber, PromoCreated FROM voucher " +
-                                    "ORDER BY PromoCreated DESC " +
-                                    "LIMIT 10";
+                                    "ORDER BY PromoCreated DESC " + "LIMIT 10";
                     MySqlCommand command = new MySqlCommand(query, connection);
                     MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                     System.Data.DataTable dataTable = new System.Data.DataTable();
                     adapter.Fill(dataTable);
-
                     if (!dataTable.Columns.Contains("Status"))
                     {
                         dataTable.Columns.Add("Status", typeof(string));
                     }
-
                     foreach (DataRow row in dataTable.Rows)
                     {
                         string promoCode = row["PromoCode"].ToString();
                         DateTime dateStart = Convert.ToDateTime(row["DateStart"]);
                         DateTime dateEnd = Convert.ToDateTime(row["DateEnd"]);
                         int availableNumber = Convert.ToInt32(row["AvailableNumber"]);
-
                         DateTime currentDate = DateTime.Now;
                         string status = "";
-
                         if (availableNumber == 0)
                         {
                             status = "Fully Claimed";
@@ -9916,27 +9863,21 @@ namespace Enchante
                         {
                             status = "Pending";
                         }
-
                         string updateStatusQuery = "UPDATE voucher SET Status = @Status WHERE PromoCode = @PromoCode";
                         MySqlCommand updateStatusCommand = new MySqlCommand(updateStatusQuery, connection);
                         updateStatusCommand.Parameters.AddWithValue("@Status", status);
                         updateStatusCommand.Parameters.AddWithValue("@PromoCode", promoCode);
                         updateStatusCommand.ExecuteNonQuery();
-
                         row["Status"] = status;
                     }
-
                     MngrVoucherDGV.DataSource = dataTable;
                     ApplyRowAlternatingColors(MngrVoucherDGV);
                     MngrVoucherDGV.RowTemplate.Height = 41; // Adjust the row height
                     MngrVoucherDGV.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
                     MngrVoucherDGV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-
                     int currentBatch = totalRows > 0 ? 1 : 0;
                     int totalBatches = (int)Math.Ceiling((double)totalRows / 10);
-
                     MngrVoucherCurrentRecordLbl.Text = $"{currentBatch} of {totalBatches}";
-
                     connection.Close();
                 }
             }
@@ -9945,7 +9886,6 @@ namespace Enchante
                 System.Windows.Forms.MessageBox.Show("Error: " + ex.Message);
             }
         }
-
         private void MngrVoucherInsertBtn_Click(object sender, EventArgs e)
         {
             DateTime dateStart = MngrVoucherDatePickerStart.Value;
@@ -9956,42 +9896,35 @@ namespace Enchante
             string promoCategory = MngrVoucherSelectCatTextBox.Text;
             string availableNumber = MngrVoucherAvailNumTextBox.Text;
             DateTime promoCreated = DateTime.Now;
-
             if (string.IsNullOrWhiteSpace(promoName) || string.IsNullOrWhiteSpace(promoDiscount)
                 || string.IsNullOrWhiteSpace(availableNumber) || string.IsNullOrWhiteSpace(promoCategory))
             {
                 System.Windows.Forms.MessageBox.Show("Please fill in all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             if (dateStart > dateEnd && dateStart.Date != dateEnd.Date)
             {
                 System.Windows.Forms.MessageBox.Show("Start date cannot be ahead of end date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             if (!promoDiscount.EndsWith("%"))
             {
                 System.Windows.Forms.MessageBox.Show("Promo discount must end with '%'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             if (!int.TryParse(availableNumber, out _))
             {
                 System.Windows.Forms.MessageBox.Show("Please enter a valid number for Available Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             string formattedDateStart = dateStart.ToString("MMMM d, yyyy");
             string formattedDateEnd = dateEnd.ToString("MMMM d, yyyy");
             string formattedPromoCreated = promoCreated.ToString("MMMM d, yyyy HH:mm:ss");
             string query = "INSERT INTO voucher (DateStart, DateEnd, PromoName, PromoCategory, PromoCode, PromoDiscount, AvailableNumber, PromoCreated) " +
                            "VALUES (@DateStart, @DateEnd, @PromoName, @PromoCategory, @PromoCode, @PromoDiscount, @AvailableNumber, @PromoCreated)";
-
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
-
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@DateStart", formattedDateStart);
@@ -10002,31 +9935,25 @@ namespace Enchante
                     command.Parameters.AddWithValue("@PromoDiscount", promoDiscount);
                     command.Parameters.AddWithValue("@AvailableNumber", availableNumber);
                     command.Parameters.AddWithValue("@PromoCreated", formattedPromoCreated);
-
                     command.ExecuteNonQuery();
                 }
             }
-
             System.Windows.Forms.MessageBox.Show("Voucher inserted successfully!", "Information");
             VouchersShow();
             ClearFields();
             PromoCodeGenerator();
         }
-
         private void PromoCodeGenerator()
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             StringBuilder codeBuilder = new StringBuilder();
             Random random = new Random();
-
             for (int i = 0; i < 10; i++)
             {
                 codeBuilder.Append(chars[random.Next(chars.Length)]);
             }
-
             MngrVoucherPromoCodeTextBox.Text = codeBuilder.ToString();
         }
-
         private void ClearFields()
         {
             MngrVoucherDatePickerStart.Value = DateTime.Today;
@@ -10037,13 +9964,11 @@ namespace Enchante
             MngrVoucherAvailNumTextBox.Text = string.Empty;
             MngrVoucherSelectCatTextBox.Text = string.Empty;
         }
-
         private void MngrVoucherEditBtn_Click(object sender, EventArgs e)
         {
             if (MngrVoucherDGV.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = MngrVoucherDGV.SelectedRows[0];
-
                 DateTime dateStart = Convert.ToDateTime(selectedRow.Cells["DateStart"].Value);
                 DateTime dateEnd = Convert.ToDateTime(selectedRow.Cells["DateEnd"].Value);
                 string promoName = Convert.ToString(selectedRow.Cells["PromoName"].Value);
@@ -10051,7 +9976,6 @@ namespace Enchante
                 string promoCode = Convert.ToString(selectedRow.Cells["PromoCode"].Value);
                 string promoDiscount = Convert.ToString(selectedRow.Cells["PromoDiscount"].Value);
                 int availableNumber = Convert.ToInt32(selectedRow.Cells["AvailableNumber"].Value);
-
                 MngrVoucherDatePickerStart.Value = dateStart;
                 MngrVoucherDatePickerEnd.Value = dateEnd;
                 MngrVoucherPromoNameTextBox.Text = promoName;
@@ -10059,7 +9983,6 @@ namespace Enchante
                 MngrVoucherPromoDiscTextBox.Text = promoDiscount;
                 MngrVoucherSelectCatTextBox.Text = promoCategory;
                 MngrVoucherAvailNumTextBox.Text = availableNumber.ToString();
-
                 MngrVoucherDGV.ClearSelection();
                 MngrVoucherEditBtn.Visible = false;
                 MngrVoucherInsertBtn.Visible = false;
@@ -10071,7 +9994,6 @@ namespace Enchante
                 System.Windows.Forms.MessageBox.Show("Please select a row to edit.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void MngrVoucherCancelBtn_Click(object sender, EventArgs e)
         {
             ClearFields();
@@ -10081,7 +10003,6 @@ namespace Enchante
             MngrVoucherUpdateBtn.Visible = false;
             MngrVoucherCancelBtn.Visible = false;
         }
-
         private void MngrVoucherUpdateBtn_Click(object sender, EventArgs e)
         {
             DateTime updatedDateStart = MngrVoucherDatePickerStart.Value;
@@ -10091,39 +10012,32 @@ namespace Enchante
             string updatedPromoDiscount = MngrVoucherPromoDiscTextBox.Text;
             string updatedAvailableNumber = MngrVoucherAvailNumTextBox.Text;
             string updatedPromoCategory = MngrVoucherSelectCatTextBox.Text;
-
             if (string.IsNullOrWhiteSpace(updatedPromoName) || string.IsNullOrWhiteSpace(updatedPromoDiscount)
                 || string.IsNullOrWhiteSpace(updatedAvailableNumber) || string.IsNullOrEmpty(updatedPromoCategory))
             {
                 System.Windows.Forms.MessageBox.Show("Please fill in all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             if (updatedDateStart > updatedDateEnd && updatedDateStart.Date != updatedDateEnd.Date)
             {
                 System.Windows.Forms.MessageBox.Show("Start date cannot be ahead of end date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             if (!updatedPromoDiscount.EndsWith("%"))
             {
                 System.Windows.Forms.MessageBox.Show("Promo discount must end with '%'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             if (!int.TryParse(updatedAvailableNumber, out _))
             {
                 System.Windows.Forms.MessageBox.Show("Please enter a valid number for Available Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             string formattedDateStart = updatedDateStart.ToString("MMMM d, yyyy");
             string formattedDateEnd = updatedDateEnd.ToString("MMMM d, yyyy");
             string updateQuery = "UPDATE voucher SET DateStart = @DateStart, DateEnd = @DateEnd, " +
                                  "PromoName = @PromoName, PromoCategory = @PromoCategory, PromoDiscount = @PromoDiscount, " +
-                                 "AvailableNumber = @AvailableNumber " +
-                                 "WHERE PromoCode = @PromoCode";
-
+                                 "AvailableNumber = @AvailableNumber " + "WHERE PromoCode = @PromoCode";
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 using (MySqlCommand command = new MySqlCommand(updateQuery, connection))
@@ -10135,7 +10049,6 @@ namespace Enchante
                     command.Parameters.AddWithValue("@PromoDiscount", updatedPromoDiscount);
                     command.Parameters.AddWithValue("@AvailableNumber", updatedAvailableNumber);
                     command.Parameters.AddWithValue("@PromoCode", updatedPromoCode);
-
                     try
                     {
                         connection.Open();
@@ -10164,27 +10077,21 @@ namespace Enchante
                 }
             }
         }
-
         private int currentBatch = 1;
-
         private void MngrVoucherNextBtn_Click(object sender, EventArgs e)
         {
             int totalBatches = string.IsNullOrEmpty(MngrVoucherSearchTextBox.Text.Trim())
                                 ? (int)Math.Ceiling((double)GetTotalRows() / 10)
                                 : (int)Math.Ceiling((double)GetFilteredTotalRows() / 10);
-
             if (currentBatch >= totalBatches)
             {
                 System.Windows.Forms.MessageBox.Show("No more data to show.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
             currentBatch++;
-
             UpdateDataGridViewAndLabel();
             ApplyRowAlternatingColors(MngrVoucherDGV);
         }
-
         private void MngrVoucherPreviousBtn_Click(object sender, EventArgs e)
         {
             if (currentBatch <= 1)
@@ -10192,13 +10099,10 @@ namespace Enchante
                 System.Windows.Forms.MessageBox.Show("No more previous data to show.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
             currentBatch--;
-
             UpdateDataGridViewAndLabel();
             ApplyRowAlternatingColors(MngrVoucherDGV);
         }
-
         private void UpdateDataGridViewAndLabel()
         {
             try
@@ -10206,54 +10110,42 @@ namespace Enchante
                 using (MySqlConnection connection = new MySqlConnection(connstringresult))
                 {
                     connection.Open();
-
                     string countQuery = string.IsNullOrEmpty(MngrVoucherSearchTextBox.Text.Trim())
                                         ? "SELECT COUNT(*) FROM voucher"
                                         : $"SELECT COUNT(*) FROM voucher WHERE {GetFilterExpression()}";
-
                     MySqlCommand countCommand = new MySqlCommand(countQuery, connection);
                     int totalRows = Convert.ToInt32(countCommand.ExecuteScalar());
-
                     if (totalRows == 0)
                     {
                         System.Windows.Forms.MessageBox.Show("No matching data found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         MngrVoucherCurrentRecordLbl.Text = "0 of 0";
                         return;
                     }
-
                     int totalBatches = (int)Math.Ceiling((double)totalRows / 10);
-
                     currentBatch = Math.Min(currentBatch, totalBatches);
-
                     string query = string.IsNullOrEmpty(MngrVoucherSearchTextBox.Text.Trim())
                                     ? GetRegularQuery()
                                     : GetFilteredQuery();
-
                     MySqlCommand command = new MySqlCommand(query, connection);
                     MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                     System.Data.DataTable dataTable = new System.Data.DataTable();
                     adapter.Fill(dataTable);
-
                     if (!dataTable.Columns.Contains("Status"))
                     {
                         dataTable.Columns.Add("Status", typeof(string));
                     }
-
                     if (!dataTable.Columns.Contains("PromoCategory"))
                     {
                         dataTable.Columns.Add("PromoCategory", typeof(string));
                     }
-
                     foreach (DataRow row in dataTable.Rows)
                     {
                         string promoCode = row["PromoCode"].ToString();
                         DateTime dateStart = Convert.ToDateTime(row["DateStart"]);
                         DateTime dateEnd = Convert.ToDateTime(row["DateEnd"]);
                         int availableNumber = Convert.ToInt32(row["AvailableNumber"]);
-
                         DateTime currentDate = DateTime.Now;
                         string status = "";
-
                         if (availableNumber == 0)
                         {
                             status = "Fully Claimed";
@@ -10270,10 +10162,8 @@ namespace Enchante
                         {
                             status = "Pending";
                         }
-
                         row["Status"] = status;
                     }
-
                     foreach (DataColumn column in dataTable.Columns)
                     {
                         if (!MngrVoucherDGV.Columns.Contains(column.ColumnName))
@@ -10281,20 +10171,14 @@ namespace Enchante
                             MngrVoucherDGV.Columns.Add(column.ColumnName, column.ColumnName);
                         }
                     }
-
                     foreach (DataRow row in dataTable.Rows)
                     {
                         string promoCode = row["PromoCode"].ToString();
-
                         string promoCategory = GetPromoCategoryFromDatabase(promoCode);
-
                         row["PromoCategory"] = promoCategory;
                     }
-
                     MngrVoucherDGV.DataSource = dataTable;
-
                     MngrVoucherCurrentRecordLbl.Text = $"{currentBatch} of {totalBatches}";
-
                     connection.Close();
                 }
             }
@@ -10303,16 +10187,13 @@ namespace Enchante
                 System.Windows.Forms.MessageBox.Show("Error: " + ex.Message);
             }
         }
-
         private string GetPromoCategoryFromDatabase(string promoCode)
         {
             string promoCategory = "";
             string query = "SELECT PromoCategory FROM voucher WHERE PromoCode = @PromoCode";
-
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 connection.Open();
-
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@PromoCode", promoCode);
@@ -10324,13 +10205,10 @@ namespace Enchante
                         }
                     }
                 }
-
                 connection.Close();
             }
-
             return promoCategory;
         }
-
         private string GetRegularQuery()
         {
             int startIndex = (currentBatch - 1) * 10;
@@ -10338,7 +10216,6 @@ namespace Enchante
                     $"AvailableNumber, PromoCreated FROM voucher " +
                     $"ORDER BY PromoCreated DESC LIMIT {startIndex}, 10";
         }
-
         private string GetFilteredQuery()
         {
             string filterExpression = GetFilterExpression();
@@ -10348,14 +10225,12 @@ namespace Enchante
                     $"WHERE {filterExpression} " +
                     $"ORDER BY PromoCreated DESC LIMIT {startIndex}, 10";
         }
-
         private string GetFilterExpression()
         {
             string searchText = MngrVoucherSearchTextBox.Text.Trim();
             return string.Join(" OR ", ((DataTable)MngrVoucherDGV.DataSource).Columns.Cast<DataColumn>()
                                 .Select(col => $"{col.ColumnName} LIKE '%{searchText}%'"));
         }
-
         private int GetTotalRows()
         {
             try
@@ -10376,7 +10251,6 @@ namespace Enchante
                 return 0;
             }
         }
-
         private int GetFilteredTotalRows()
         {
             try
@@ -10397,13 +10271,10 @@ namespace Enchante
                 return 0;
             }
         }
-
         private void MngrVoucherSearchTextBox_TextChanged(object sender, EventArgs e)
         {
             string searchText = MngrVoucherSearchTextBox.Text.Trim();
-
             DataView dv = ((DataTable)MngrVoucherDGV.DataSource).DefaultView;
-
             if (string.IsNullOrEmpty(searchText))
             {
                 dv.RowFilter = string.Empty;
@@ -10414,17 +10285,14 @@ namespace Enchante
                                                     .Select(col => $"{col.ColumnName} LIKE '{searchText}%'"));
                 dv.RowFilter = filterExpression;
             }
-
             UpdateDataGridViewAndLabel();
             ApplyRowAlternatingColors(MngrVoucherDGV);
         }
-
         private void MngrVoucherPromoCategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (MngrVoucherPromoCategoryComboBox.SelectedItem != null)
             {
                 string selectedItem = MngrVoucherPromoCategoryComboBox.SelectedItem.ToString();
-
                 if (selectedItem == "All Categories")
                 {
                     MngrVoucherSelectCatTextBox.Text = "All Categories";
@@ -10451,16 +10319,13 @@ namespace Enchante
                         }
                     }
                 }
-
                 MngrVoucherPromoCategoryComboBox.SelectedIndex = -1;
             }
         }
-
         private void MngrVoucherXBtn_Click(object sender, EventArgs e)
         {
             MngrVoucherSelectCatTextBox.Text = "";
         }
-
         private void MngrVoucherPromoNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == ' ' && MngrVoucherPromoNameTextBox.Text.Length == 0)
@@ -10468,14 +10333,12 @@ namespace Enchante
                 e.Handled = true;
                 return;
             }
-
             if (MngrVoucherPromoNameTextBox.Text.Length >= 100)
             {
                 e.Handled = true;
                 return;
             }
         }
-
         private void MngrVoucherPromoDiscTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == ' ' && MngrVoucherPromoDiscTextBox.Text.Length == 0)
@@ -10483,27 +10346,22 @@ namespace Enchante
                 e.Handled = true;
                 return;
             }
-
             if (MngrVoucherPromoDiscTextBox.Text.Length >= 3 && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
                 return;
             }
-
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != '%' && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
                 return;
             }
-
             if (e.KeyChar == '%' && MngrVoucherPromoDiscTextBox.Text.Length > 0 && MngrVoucherPromoDiscTextBox.Text.Length < 2)
             {
                 return;
             }
-
             e.Handled = false;
         }
-
         private void MngrVoucherAvailNumTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == ' ' && MngrVoucherAvailNumTextBox.Text.Length == 0)
@@ -10511,21 +10369,16 @@ namespace Enchante
                 e.Handled = true;
                 return;
             }
-
             if (MngrVoucherAvailNumTextBox.Text.Length >= 4 && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
                 return;
             }
-
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }
         }
-        #endregion
-
-        #region Mngr. PANEL OF MEMBER ACCOUNTS
         private void MemberAccountsShow()
         {
             try
@@ -10539,9 +10392,7 @@ namespace Enchante
                     MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                     System.Data.DataTable dataTable = new System.Data.DataTable();
                     adapter.Fill(dataTable);
-
                     MngrMemAccDGV.DataSource = dataTable;
-
                     connection.Close();
                 }
             }
@@ -10550,30 +10401,21 @@ namespace Enchante
                 System.Windows.Forms.MessageBox.Show("Error: " + ex.Message);
             }
         }
-
         private bool considerDateFilter_MngrMemAcc = false;
-
         private string GetCombinedFilter_MngrMemAcc()
         {
             string membershipTypeFilter = GetMembershipTypeFilter();
             string dateFilter = considerDateFilter_MngrMemAcc ? FilterRowByDateCreated() : string.Empty;
-
             List<string> filters = new List<string>();
-
             if (!string.IsNullOrEmpty(membershipTypeFilter))
                 filters.Add(membershipTypeFilter);
-
             if (!string.IsNullOrEmpty(dateFilter))
                 filters.Add(dateFilter);
-
             if (filters.Count == 1)
                 return filters[0];
-
             string combinedFilter = string.Join(" AND ", filters);
-
             return combinedFilter;
         }
-
         private string GetMembershipTypeFilter()
         {
             if (MngrMemAccMemTypeBox.SelectedItem != null)
@@ -10583,28 +10425,22 @@ namespace Enchante
             }
             return string.Empty;
         }
-
         private void ApplyCombinedFilter_MngrMemAcc()
         {
             string combinedFilter = GetCombinedFilter_MngrMemAcc();
-
             DataView dv = ((DataTable)MngrMemAccDGV.DataSource).DefaultView;
             dv.RowFilter = combinedFilter;
         }
-
         private string FilterRowByDateCreated()
         {
             DateTime fromDate = MngrMemAccDatePickFrom.Value.Date;
             DateTime toDate = MngrMemAccDatePickTo.Value.Date;
-
             if (fromDate > toDate && fromDate != DateTime.Now.Date && toDate != DateTime.Now.Date)
             {
                 System.Windows.Forms.MessageBox.Show("From date should not be ahead of To date.", "Invalid Date Range", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return null;
             }
-
             toDate = toDate.AddDays(1);
-
             if (fromDate == toDate)
             {
                 string dateString = fromDate.ToString("MM-dd-yyyy");
@@ -10614,28 +10450,23 @@ namespace Enchante
             {
                 string fromDateString = fromDate.ToString("MM-dd-yyyy");
                 string toDateString = toDate.ToString("MM-dd-yyyy");
-
                 return $"CONVERT(AccountCreated, 'System.String') >= '{fromDateString}' AND CONVERT(AccountCreated, 'System.String') <= '{toDateString}'";
             }
         }
-
         private void MngrMemAccMemTypeBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ApplyCombinedFilter_MngrMemAcc();
         }
-
         private void MngrMemAccDatePickFrom_ValueChanged(object sender, EventArgs e)
         {
             considerDateFilter_MngrMemAcc = true;
             ApplyCombinedFilter_MngrMemAcc();
         }
-
         private void MngrMemAccDatePickTo_ValueChanged(object sender, EventArgs e)
         {
             considerDateFilter_MngrMemAcc = true;
             ApplyCombinedFilter_MngrMemAcc();
         }
-
         private void MngrMemAccResetBtn_Click(object sender, EventArgs e)
         {
             MngrMemAccMemTypeBox.SelectedIndex = -1;
@@ -10643,12 +10474,9 @@ namespace Enchante
             MngrMemAccDatePickTo.Value = DateTime.Now;
             considerDateFilter_MngrMemAcc = false;
             MemberAccountsShow();
-
             DataView dv = ((DataTable)MngrMemAccDGV.DataSource).DefaultView;
             dv.RowFilter = string.Empty;
-        }
-        #endregion
-
+        }//10479
         private void ExitFunction()
         {
             MngrServicesCreateBtn.Visible = true;
@@ -13608,9 +13436,9 @@ namespace Enchante
         private List<InSessionCustomers> QueueWindowRetrieveGeneralPendingCustomersFromDB()
         {
             string selectedmembercategory = RecQueWinGenCatComboBox.SelectedItem.ToString();
-
             DateTime currentDate = DateTime.Today;
             string datetoday = currentDate.ToString("MM-dd-yyyy dddd");
+            List<InSessionCustomers> result = new List<InSessionCustomers>();
             using (MySqlConnection connection = new MySqlConnection(connstringresult))
             {
                 try
