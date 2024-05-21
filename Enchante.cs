@@ -2907,6 +2907,8 @@ namespace Enchante
             RecPayServiceApptGrossAmountText.Text = "0.00";
             RecPayServiceApptCashText.Text = "0";
             RecPayServiceApptChangeText.Text = "0.00";
+            RecPayServiceApptRemainingBalText.Text = "0.00";
+            RecPayServiceApptInitialFeeText.Text = "0.00";
             RecPayServiceWalkinClientNameLbl.Text = "";
             RecPayServiceApptTransTypeLbl.Text = "";
             RecPayServiceWalkinAcquiredDGV.DataSource = null; // Set data source to null
@@ -3758,7 +3760,7 @@ namespace Enchante
             DateTime bookeddate = RecApptBookingDatePicker.Value;
             string apptdate = bookeddate.ToString("MM-dd-yyyy dddd");
             string appttime = RecApptBookingTimeComboBox.Text;
-            string fileName = $"Enchanté-Receipt-{transactNum}-{timePrintedFile}.pdf";
+            string fileName = $"Enchanté-ApptForm-{transactNum}-{timePrintedFile}.pdf";
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "PDF Files|*.pdf";
             saveFileDialog.FileName = fileName;
@@ -4226,7 +4228,6 @@ namespace Enchante
             RecApptBookingTimeComboBox.Items.Clear();
             RecApptBookingTimeComboBox.Items.Add("Select a booking time");
             RecApptBookingTimeComboBox.SelectedIndex = 0;
-
             bool cutoffTimeAdded = false; 
             if (selectedDate == DateTime.Today && DateTime.Now.TimeOfDay > new TimeSpan(14, 30, 0))
             {
@@ -4235,7 +4236,7 @@ namespace Enchante
                 RecApptBookingTimeComboBox.SelectedIndex = 0;
                 cutoffTimeAdded = true;
             }
-            foreach (string time in bookingTimes)
+            foreach (string time in bookingTimes.Skip(1))
             {
                 DateTime bookingDateTime;
                 if (DateTime.TryParseExact(time, "hh:mm tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out bookingDateTime))
@@ -4754,8 +4755,6 @@ namespace Enchante
                 decimal rate = 12;
                 decimal netAmount = grossAmount / ((rate / 100) + 1);
                 decimal vatAmount = grossAmount - netAmount;
-                RecShopProdVATBox.Text = vatAmount.ToString("0.00");
-                RecShopProdNetAmountBox.Text = netAmount.ToString("0.00");
                 RecShopProdVATBox.Text = vatAmount.ToString("0.00");
                 RecShopProdNetAmountBox.Text = netAmount.ToString("0.00");
             }
